@@ -77,12 +77,11 @@ dist
 # Serverless directories
 .serverless
 
-# IDE / Editor
+# IDE
 .idea
-.editorconfig
 
-# Service worker
+# Mac
+*.DS_Store
+
+# Progressive Web Apps
 sw.*
-
-# Mac OSX
-.DS_Store
