@@ -4,7 +4,9 @@ to: "components/<%= h.inflection.dasherize(name).toLowerCase().slice(0, 5) === '
 <%
 if (blocks.indexOf('template') !== -1) {
 %><template>
-  <div />
+  <div>
+
+  <div>
 </template>
 <%
 }
@@ -23,6 +25,6 @@ export default {
 
 if (blocks.indexOf('style') !== -1) {
 %>
-<style lang="scss" module></style><%
+<style lang="scss" scoped></style><%
 }
 %>

@@ -20,16 +20,17 @@ module.exports = [
     type: 'multiselect',
     name: 'blocks',
     message: 'Blocks:',
-    initial: ['script', 'template', 'style'],
+    initial: ['template', 'script', 'style'],
     choices: [
-      {
-        name: 'script',
-        message: '<script>',
-      },
       {
         name: 'template',
         message: '<template>',
       },
+      {
+        name: 'script',
+        message: '<script>',
+      },
+
       {
         name: 'style',
         message: '<style>',

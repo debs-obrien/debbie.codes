@@ -60,7 +60,7 @@
   "emmet.includeLanguages": {
     "vue-html": "html"
   },
-  "vetur.format.defaultFormatter.html": "none",
+  "vetur.format.defaultFormatter.html": "prettier",
   "vetur.completion.tagCasing": "initial",
   // ===
   // JS(ON)
