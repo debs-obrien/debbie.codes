@@ -21,7 +21,7 @@
     "lint:all:markdownlint": "yarn lint:markdownlint \"docs/*.md\" \"*.md\"",
     "lint:all:prettier": "yarn lint:prettier \"**/*.{js,json,css,scss,vue,html,md}\"",
     "lint": "run-s lint:all:*",
-    "precommit": "yarn lint",
+    "precommit": "cross-env PRE_COMMIT=true lint-staged -r",
     "new": "hygen new"
   },
   "dependencies": {
@@ -43,6 +43,7 @@
     "eslint-plugin-promise": ">=4.0.1",
     "eslint-plugin-standard": ">=4.0.0",
     "eslint-plugin-vue": "^5.2.2",
+    "husky": "^3.0.3",
     "hygen": "^4.0.8",
     "lint-staged": "^9.2.1",
     "markdownlint-cli": "^0.17.0",

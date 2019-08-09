@@ -6,7 +6,6 @@
       </h2>
       +
     </div>
-
     <div v-show="show">
       <slot name="content"></slot>
     </div>

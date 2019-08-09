@@ -121,5 +121,6 @@ The div containing the content has a v-show="show" and then the named slot insid
 At the start we need to set show to be false as we do not want the accordion to be open until we click.
 
 ```vue
-data() { return { show: false, } }, methods: { toggleItem() { this.show = !this.show }, },
+data() { return { show: false, } }, methods: { toggleItem() { this.show =
+!this.show }, },
 ```
