@@ -4,7 +4,7 @@
       <h2 class="text-lg md:text-2xl font-medium">
         <slot name="title"></slot>
       </h2>
-      +
+      <span>+</span>
     </div>
     <div v-show="show">
       <slot name="content"></slot>

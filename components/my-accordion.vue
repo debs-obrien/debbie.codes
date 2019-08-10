@@ -26,7 +26,6 @@ export default {
   },
   data() {
     return {
-      isOpen: false,
       accordions: [
         {
           title: 'Vue',
@@ -42,12 +41,6 @@ export default {
         },
       ],
     }
-  },
-
-  methods: {
-    toggle() {
-      this.isOpen = !this.isOpen
-    },
   },
 }
 </script>

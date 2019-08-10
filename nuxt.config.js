@@ -31,7 +31,15 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ['@nuxtjs/eslint-module'],
+  modules: ['@nuxtjs/eslint-module', '@nuxtjs/markdownit'],
+
+  markdownit: {
+    preset: 'default',
+    linkify: true,
+    breaks: true,
+    use: ['markdown-it-div', 'markdown-it-attrs'],
+  },
+
   /*
    ** Build configuration
    */
