@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div>
     <h1>conferences</h1>
     <div v-for="(conf, index) in conferences" :key="index" class="flex">
       <ConferenceLinks

@@ -26,12 +26,12 @@ export default {
           link: 'Home',
         },
         {
-          link: 'Clicks and Methods',
-          url: '/clicksmethods',
-        },
-        {
           url: '/conferences',
           link: 'Conferences',
+        },
+        {
+          link: 'Clicks and Methods',
+          url: '/clicksmethods',
         },
       ],
     }

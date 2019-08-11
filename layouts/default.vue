@@ -1,11 +1,13 @@
 <template>
   <div class="container">
-    <ul class="flex mb-2 p-4">
+    <ul class="flex mb-2">
       <li class="" v-for="(nav, index) in navLinks" :key="index">
         <TheNavigation :url="nav.url" :link="nav.link" />
       </li>
     </ul>
-    <nuxt />
+    <div class="wrapper">
+      <nuxt />
+    </div>
   </div>
 </template>
 <script>
@@ -23,12 +25,12 @@ export default {
           link: 'Home',
         },
         {
-          link: 'Clicks and Methods',
-          url: '/clicksmethods',
-        },
-        {
           url: '/conferences',
           link: 'Conferences',
+        },
+        {
+          link: 'Code',
+          url: '/code',
         },
       ],
     }
@@ -43,9 +45,12 @@ export default {
 }
 */
 .container {
-  padding: 40px;
+  padding: 2rem;
   margin: 0 auto;
   min-height: 100vh;
+}
+.wrapper {
+  padding: 1rem;
 }
 
 .title {
@@ -54,10 +59,6 @@ export default {
   font-size: 60px;
   color: #35495e;
   letter-spacing: 1px;
-}
-
-.links {
-  padding-top: 15px;
 }
 
 html {
@@ -104,5 +105,25 @@ html {
 .button--grey:hover {
   color: #fff;
   background-color: #35495e;
+}
+
+h1 {
+  margin-top: 2rem;
+  color: darkgreen;
+  font-size: 2rem;
+}
+h2 {
+  color: green;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+p {
+  font-size: 1.2rem;
+}
+a:hover {
+  text-decoration: underline;
+}
+section h2 {
+  margin-top: 2rem;
 }
 </style>

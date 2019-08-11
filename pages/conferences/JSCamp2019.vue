@@ -112,9 +112,3 @@ Simplify code
 
 
 </template>
-
-<script>
-export default {
-  layout: 'markdown',
-}
-</script>

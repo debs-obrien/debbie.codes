@@ -43,7 +43,7 @@ export default {
       img: 'csscamp_iwodkk.png',
       alt: 'css camp',
       place: 'CSS Camp Barcelona 2019',
-      type: 'attendee',
+      type: 'Attendee',
       notesUrl: '/conferences/csscamp2019',
       url: 'https://csscamp.tech',
     },
@@ -51,7 +51,7 @@ export default {
       img: 'jscamp_iavx95.png',
       alt: 'js camp',
       place: 'JS Camp Barcelona 2019',
-      type: 'attendee',
+      type: 'Attendee',
       notesUrl: '/conferences/jscamp2019',
       url: 'https://jscamp.tech',
     },
@@ -108,7 +108,7 @@ export default {
     },
     {
       place: 'Frontend Love Amsterdam February 2019',
-      type: 'Atendee',
+      type: 'Attendee',
       img: 'FrontEndDeveloperLove-1_q9ydsi',
       alt: 'Frontend Love',
       blogUrl:
@@ -116,7 +116,7 @@ export default {
     },
     {
       place: 'Vue Amsterdam February 2019',
-      type: 'Atendee',
+      type: 'Attendee',
       img: 'vuejsams_ir82mv',
       alt: 'Vue JS Amsterdam',
       blogUrl:
@@ -136,7 +136,7 @@ export default {
     },
     {
       place: 'JS Camp Barcelona July 2018',
-      type: 'Atendee',
+      type: 'Attendee',
       img: 'jscamp_iavx95.png',
       alt: 'js camp',
       url: 'https://jscamp.tech',
@@ -145,7 +145,7 @@ export default {
     },
     {
       place: 'Build Stuff Mallorca May 2018',
-      type: 'Atendee',
+      type: 'Attendee',
       alt: 'Build Stuff Mallorca',
       img: 'buildstuff_ysibuq.png',
     },

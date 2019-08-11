@@ -50,8 +50,3 @@ Laura Schenck
 [blogpost](https://notlaura.com/algorithms-of-css-sources/)
 
 </template>
-<script>
-export default {
-  layout: 'markdown',
-}
-</script>

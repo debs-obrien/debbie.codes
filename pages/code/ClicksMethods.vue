@@ -17,17 +17,7 @@ export default {
     MyAccordion,
   },
   data() {
-    return {
-      adult: 0,
-    }
-  },
-  methods: {
-    addAdult() {
-      this.adult += 1
-    },
-    minusAdult() {
-      this.adult -= 1
-    },
+    return {}
   },
 }
 </script>

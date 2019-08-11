@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div>
     <div class="flex w-full">
       <img
         class="align-center mr-8 pt-8"
