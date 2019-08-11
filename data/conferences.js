@@ -40,6 +40,20 @@ export default {
       url: 'https://vuejs.london/',
     },
     {
+      place: 'JSDayIE Dublin September 2019',
+      type: 'Attendee',
+      img: 'dublinjs_ltumyz',
+      alt: 'JS DAY IE',
+      url: 'https://www.jsday.org',
+    },
+    {
+      place: 'Full Stack Fest Sitges 2019',
+      type: 'Attendee',
+      img: 'fullstackfest_kl5l1f',
+      alt: 'Full Stack Fest',
+      url: 'https://2019.fullstackfest.com/',
+    },
+    {
       img: 'csscamp_iwodkk.png',
       alt: 'css camp',
       place: 'CSS Camp Barcelona 2019',
