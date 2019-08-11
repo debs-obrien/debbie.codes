@@ -59,9 +59,6 @@ export default {
 .links {
   padding-top: 15px;
 }
-img {
-  height: 100%;
-}
 
 html {
   font-size: 16px;

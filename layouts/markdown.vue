@@ -58,7 +58,7 @@ h2 {
 p {
   font-size: 1.2rem;
 }
-a {
+a:hover {
   text-decoration: underline;
 }
 </style>

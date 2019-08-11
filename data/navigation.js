@@ -5,12 +5,12 @@ export default {
       link: 'Home',
     },
     {
-      link: 'Clicks and Methods',
-      url: '/clicksmethods',
+      link: 'Conferences',
+      url: '/conferences',
     },
     {
-      url: '/conferences',
-      link: 'Conferences',
+      link: 'Clicks and Methods',
+      url: '/clicksmethods',
     },
   ],
 }

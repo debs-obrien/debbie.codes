@@ -1,21 +1,42 @@
 <template>
   <div class="flex border border-gray-500 p-2 w-full">
-    <img :src="img" :alt="alt" />
-    <div class="p-2 border-l border-gray-500">
-      <p>{{ place }}</p>
-      <p>{{ type }}</p>
-      <nuxt-link :to="url">{{ link }}</nuxt-link>
+    <a class="justify-center" :href="url">
+      <img
+        class="w-100"
+        :src="$store.state.CloudinaryConfLogos + img"
+        :alt="alt"
+      />
+    </a>
+    <div class="w-full p-2 ml-2 border-l border-gray-500">
+      <div class="flex w-full justify-between">
+        <a class="hover:underline" :href="url">
+          <h2 class="text-lg mt-0">{{ place }}</h2>
+        </a>
+        <p>{{ type }}</p>
+      </div>
+
+      <p v-if="talk">{{ talk }}</p>
+
+      <ul class="flex flex-col">
+        <li v-if="slidesUrl">
+          <a :href="slidesUrl">Slides</a>
+        </li>
+        <li v-if="notesUrl">
+          <nuxt-link :to="notesUrl">Notes</nuxt-link>
+        </li>
+        <li v-if="blogUrl">
+          <a :href="blogUrl">Blog Post</a>
+        </li>
+        <li v-if="videoUrl">
+          <a :href="videoUrl">Video</a>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
 <script>
 export default {
   props: {
-    url: {
-      type: String,
-      default: '',
-      required: true,
-    },
     img: {
       type: String,
       default: '',
@@ -36,7 +57,34 @@ export default {
       default: '',
       required: true,
     },
-    link: {
+
+    url: {
+      type: String,
+      default: '',
+      required: false,
+    },
+
+    notesUrl: {
+      type: String,
+      default: '',
+      required: false,
+    },
+    blogUrl: {
+      type: String,
+      default: '',
+      required: false,
+    },
+    videoUrl: {
+      type: String,
+      default: '',
+      required: false,
+    },
+    talk: {
+      type: String,
+      default: '',
+      required: false,
+    },
+    slidesUrl: {
       type: String,
       default: '',
       required: false,

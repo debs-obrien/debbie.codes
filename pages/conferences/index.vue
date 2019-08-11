@@ -7,15 +7,19 @@
         :alt="conf.alt"
         :place="conf.place"
         :type="conf.type"
-        :link="conf.link"
         :url="conf.url"
+        :notesUrl="conf.notesUrl"
+        :blogUrl="conf.blogUrl"
+        :videoUrl="conf.videoUrl"
+        :talk="conf.talk"
+        :slidesUrl="conf.slidesUrl"
       />
     </div>
   </div>
 </template>
 
 <script>
-import data from '@/data/conferences'
+import conferences from '@/data/conferences'
 import ConferenceLinks from '@/components/conference-links'
 export default {
   components: {
@@ -23,7 +27,7 @@ export default {
   },
   data() {
     return {
-      conferences: data.conferences,
+      conferences: conferences.conferences,
     }
   },
 }

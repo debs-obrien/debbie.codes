@@ -25,3 +25,8 @@
     </div>
   </div>
 </template>
+<style scoped>
+img {
+  height: 100%;
+}
+</style>
