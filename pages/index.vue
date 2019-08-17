@@ -2,7 +2,7 @@
   <div>
     <div class="flex w-full">
       <img
-        class="align-center mr-8 pt-8"
+        class="img align-center mr-8 pt-8"
         src="https://res.cloudinary.com/debsobrien/image/fetch/c_scale,e_grayscale,r_15,w_400/a_0/https://res.cloudinary.com/cdemo/image/upload/v1563453503/debsobrien/img-1.jpg"
         alt="Debbie O'Brien"
       />
@@ -21,12 +21,23 @@
           OpenClassrooms and am a webpack and Nuxt.js contributor. I am a
           teacher at Vue School and a writer for Ultimate Courses. Running..
         </p>
+        <a
+          href="https://devchat.tv/views-on-vue/vov-073-contributing-to-open-source-with-debbie-obrien/"
+        >
+          <p class="podcast">
+            Special guest on the Views on Vue Podcast - Contributing to Open
+            Source with Debbie O'Brien
+          </p>
+        </a>
       </div>
     </div>
   </div>
 </template>
 <style scoped>
-img {
+.img {
   height: 100%;
+}
+.podcast {
+  margin-top: 20px;
 }
 </style>

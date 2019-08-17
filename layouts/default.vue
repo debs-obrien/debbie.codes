@@ -29,6 +29,18 @@ export default {
           link: 'Conferences',
         },
         {
+          url: '/workshops',
+          link: 'Workshops',
+        },
+        {
+          url: '/blog-posts',
+          link: 'Blog Posts',
+        },
+        {
+          url: '/learning-resources',
+          link: 'Learning Resources',
+        },
+        {
           link: 'Code',
           url: '/code',
         },

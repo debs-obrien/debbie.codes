@@ -19,22 +19,7 @@ export default {
     },
   },
   data() {
-    return {
-      navLinks: [
-        {
-          url: '/',
-          link: 'Home',
-        },
-        {
-          url: '/conferences',
-          link: 'Conferences',
-        },
-        {
-          link: 'Clicks and Methods',
-          url: '/clicksmethods',
-        },
-      ],
-    }
+    return {}
   },
 }
 </script>
