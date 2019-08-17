@@ -120,8 +120,11 @@ h2 {
 p {
   font-size: 1.2rem;
 }
-a:hover {
+a {
   text-decoration: underline;
+}
+a:hover {
+  color: #000;
 }
 section h2 {
   margin-top: 2rem;
