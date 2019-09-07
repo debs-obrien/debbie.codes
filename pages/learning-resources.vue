@@ -18,7 +18,8 @@ This is a list of the resources I have used or found useful and probably will ne
 [Canaries JS](https://www.youtube.com/channel/UCyAtZpBeHj10miF0wBDlfqA/playlists)
 [Vuejs Amsterdam](https://www.youtube.com/channel/UCxV7lO6dUhpB-IyzmGuVgqg/videos)
 [JScamp](https://www.youtube.com/channel/UCVLlWT1NZZEJs4A67XgObnQ/videos)
-[CSscamp](https://www.youtube.com/channel/UCKmKXWKTnQjkh4SBxg-nWZg/videos)
+[CSScamp](https://www.youtube.com/channel/UCKmKXWKTnQjkh4SBxg-nWZg/videos)
+[FullStack Fest](https://www.youtube.com/channel/UCwoOpKfkyCQHW562hXXQAGg/videos)
 
 ## Books
 

@@ -6,6 +6,8 @@
         :img="conf.img"
         :alt="conf.alt"
         :place="conf.place"
+        :name="conf.name"
+        :date="conf.date"
         :type="conf.type"
         :url="conf.url"
         :notesUrl="conf.notesUrl"
@@ -13,6 +15,7 @@
         :videoUrl="conf.videoUrl"
         :talk="conf.talk"
         :slidesUrl="conf.slidesUrl"
+        :country="conf.country"
       />
     </div>
   </div>

@@ -1,6 +1,16 @@
 export default {
   workshops: [
     {
+      name: 'Swizec Teller',
+      topic: 'JAMstack',
+      title:
+        'Build and launch a modern JAMstack web app with React, GraphQL, and Serverless',
+      duration: '1 day',
+      place: 'FullStack Fest, Sitges 2019',
+      img: '2169-swizec_g0cl1a.jpg',
+      url: 'https://swizec.com/',
+    },
+    {
       name: 'Harry Roberts',
       topic: 'Performance',
       title: 'Frontend Performance Building Faster Websites',

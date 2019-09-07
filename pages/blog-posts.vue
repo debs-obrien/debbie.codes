@@ -2,10 +2,15 @@
 # List of my Blog Posts
 
 ## Medium
+[Deploying to Netlify is easier than easy](https://medium.com/patterson-agency/deploying-to-netlify-is-easier-than-easy-5ba725851367)
 [Me on Medium](https://medium.com/@debbie.obrien)
+
+## Dev
+[When Netlify gives you that 404 page](https://dev.to/debs_obrien/when-netlify-gives-you-that-404-page-4561)
 
 ## Ultimate Courses
 [Finding your way around the Vue UI](https://ultimatecourses.com/blog/finding-your-way-around-the-vue-ui)
+[Build a Counter, Dropdown and Accordion in Vue Components!](https://ultimatecourses.com/blog/build-a-counter-dropdown-and-accordion-in-vue-components)
 
 ## Treehouse
 [How Learning to code changed my life](https://blog.teamtreehouse.com/learning-to-code-changed-my-life)
