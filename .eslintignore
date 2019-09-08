@@ -3,3 +3,4 @@
 /cypress/
 /.nuxt/
 docs/.vuepress/dist/
+/lambda
