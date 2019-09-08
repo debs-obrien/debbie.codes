@@ -4,7 +4,7 @@ exports.handler = function(event, context, callback) {
   console.log(parseBody)
   axios({
     method: 'post',
-    url: 'https://enj521z9xemsn.x.pipedream.net/',
+    url: 'https://enj521z9xemsn.x.pipedream.net/', // https://requestbin.com
     data: { name: parseBody.name },
   })
     .then((response) => {
