@@ -8,5 +8,5 @@ textarea {
 }
 
 .btn {
-  @apply bg-indigo p-2;
+  @apply bg-green-600 p-2;
 }
