@@ -76,6 +76,7 @@ dist
 
 # Serverless directories
 .serverless
+/lambda
 
 # IDE
 .idea

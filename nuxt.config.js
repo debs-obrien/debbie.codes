@@ -31,7 +31,7 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ['@nuxtjs/eslint-module', '@nuxtjs/markdownit'],
+  modules: ['@nuxtjs/eslint-module', '@nuxtjs/markdownit', '@nuxtjs/axios'],
 
   markdownit: {
     preset: 'default',
