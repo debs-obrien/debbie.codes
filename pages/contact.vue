@@ -11,7 +11,7 @@
       method="POST"
       data-netlify="true"
       netlify-honeypot="bot-field"
-      action="/pages/success"
+      action="/success"
     >
       <p class="hidden">
         <label>
