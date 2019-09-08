@@ -4,7 +4,13 @@
     <p class="py-4">
       Hi send me a message if you want to get in touch
     </p>
-    <form class="form" name="contact" method="POST" data-netlify="true">
+    <form
+      class="form"
+      name="contact"
+      data-netlify-recaptcha="true"
+      method="POST"
+      data-netlify="true"
+    >
       <p class="flex justify-between mb-4">
         <label>
           Your Name:
@@ -24,6 +30,8 @@
         </label>
         <textarea name="message" required></textarea>
       </p>
+      <div data-netlify-recaptcha="true"></div>
+
       <p class="flex justify-center">
         <button class="btn" type="submit">Send</button>
       </p>
