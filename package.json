@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.6.0",
+    "netlify-lambda": "^1.6.3",
     "nuxt": "^2.0.0"
   },
   "devDependencies": {
