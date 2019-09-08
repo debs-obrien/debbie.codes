@@ -9,20 +9,20 @@
         <label>
           Your Name:
         </label>
-        <input type="text" name="name" />
+        <input type="text" name="name" required />
       </p>
       <p class="flex justify-between mb-4">
         <label>
           Your Email:
         </label>
-        <input type="email" name="email" />
+        <input type="email" name="email" required />
       </p>
 
       <p class="flex justify-between mb-4">
         <label>
           Message:
         </label>
-        <textarea name="message"></textarea>
+        <textarea name="message" required></textarea>
       </p>
       <p class="flex justify-center">
         <button class="btn" type="submit">Send</button>

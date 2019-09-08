@@ -4,7 +4,7 @@
 
 input,
 textarea {
-  @apply border-green-600 border;
+  @apply border-gray-400 border;
 }
 
 .btn {

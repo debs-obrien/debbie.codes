@@ -44,6 +44,10 @@ export default {
           link: 'Code',
           url: '/code',
         },
+        {
+          link: 'Contact',
+          url: '/contact',
+        },
       ],
     }
   },
@@ -102,6 +106,7 @@ html {
 .button--green:hover {
   color: #fff;
   background-color: #3b8070;
+  text-decoration: none;
 }
 
 .button--grey {
