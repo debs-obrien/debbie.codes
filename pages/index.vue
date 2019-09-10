@@ -39,4 +39,8 @@
 .podcast {
   margin-top: 20px;
 }
+img {
+  max-height: 272px;
+  max-width: 361px;
+}
 </style>
