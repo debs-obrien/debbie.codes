@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <ul class="flex mb-2">
-      <li class="" v-for="(nav, index) in navLinks" :key="index">
+    <ul class="flex flex-wrap mb-2">
+      <li class="mb-8" v-for="(nav, index) in navLinks" :key="index">
         <TheNavigation :url="nav.url" :link="nav.link" />
       </li>
     </ul>
