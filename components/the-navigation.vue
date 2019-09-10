@@ -1,8 +1,5 @@
 <template>
-  <nuxt-link
-    :to="url"
-    class="p-4 m-1 bg-green-600 text-white hover:bg-green-800 hover:text-white no-underline"
-  >
+  <nuxt-link :to="url" class="pr-4 text-white no-underline hover:underline">
     {{ link }}
   </nuxt-link>
 </template>
@@ -25,6 +22,6 @@ export default {
 </script>
 <style scoped>
 .nuxt-link-exact-active {
-  @apply bg-green-800;
+  @apply text-black;
 }
 </style>
