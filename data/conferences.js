@@ -87,6 +87,7 @@ export default {
       img: 'fullstackfest_kl5l1f',
       alt: 'Full Stack Fest',
       url: 'https://2019.fullstackfest.com/',
+      videoUlr: 'https://youtu.be/jWqYuPZW9vU',
       slidesUrl: 'https://slides.com/debbieobrien/vueing-performance',
     },
     {
