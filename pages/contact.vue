@@ -42,6 +42,16 @@
         <button class="btn" type="submit">Send</button>
       </p>
     </form>
+    <p>
+      Twitter:
+      <a href="https://twitter.com/debs_obrien">debs_obrien</a>
+    </p>
+    <p>
+      LinkedIn:
+      <a href="https://www.linkedin.com/in/debbie-o-brien-1a199975/">
+        debs_obrien
+      </a>
+    </p>
   </div>
 </template>
 
