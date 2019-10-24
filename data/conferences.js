@@ -53,6 +53,9 @@ export default {
       img: 'jamstack_sf_rvapzo',
       alt: 'JamStack Conf',
       url: 'https://jamstackconf.com/sf/',
+      slidesUrl:
+        'https://drive.google.com/file/d/1vYzEE7GdORdgasQtZzFwvJ_EeY_JaGZR/view',
+      videoUrl: 'https://youtu.be/H793eyVM_04',
     },
     {
       name: 'Vue London',
