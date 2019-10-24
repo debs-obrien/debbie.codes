@@ -1,6 +1,15 @@
 export default {
   workshops: [
     {
+      name: 'Rolf Haug & Alex Kyriakidis',
+      topic: 'Vuex',
+      title: 'Scaling applications with Vuex',
+      duration: '1 day',
+      place: 'Vue London, 2019',
+      img: 'rolf-alex_rbnn1z.png',
+      url: 'https://vueschool.io/',
+    },
+    {
       name: 'Swizec Teller',
       topic: 'JAMstack',
       title:
