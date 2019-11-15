@@ -49,7 +49,7 @@
     <p>
       LinkedIn:
       <a href="https://www.linkedin.com/in/debbie-o-brien-1a199975/">
-        debs_obrien
+        Debbie O'Brien
       </a>
     </p>
   </div>
