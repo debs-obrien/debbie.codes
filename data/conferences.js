@@ -48,6 +48,8 @@ export default {
       img: 'vuetoronto_fu8upn.jpg',
       alt: 'Vue Toronto',
       url: 'https://vuetoronto.com/speakers',
+      slidesUrl:
+        'https://speakerdeck.com/debs_obrien/leave-your-legacy-code-behind-and-go-nuxt',
     },
     {
       name: 'JamStack Conf',

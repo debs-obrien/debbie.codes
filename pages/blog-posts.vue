@@ -23,6 +23,8 @@
 [Meet Debbie: It took her only 8 months to become a Frontend Architect](https://blog.openclassrooms.com/en/2017/12/27/success-story-8-months-front-end-architect-bluekiri/)
 [JavaScript workshop with Kyle Simpson](https://tech.trivago.com/2018/10/15/javascript-workshop-with-kyle-simpson/)
 
-
+## Videos
+[How to overcome the biggest obstacle when learing to code](https://www.youtube.com/watch?v=R8ZsDhf5Tis&feature=youtu.be)
+[How Studying online landed me the job of my dreams](https://www.youtube.com/watch?v=Be3N_i4bC34&feature=youtu.be)
 
 </template>
