@@ -1,0 +1,33 @@
+{
+  "name": "debbiecodes",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "package.json",
+  "author": "Debbie O'Brien <debs_obrien@yahoo.co.uk>",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "sanity start",
+    "test": "sanity check"
+  },
+  "keywords": [
+    "sanity"
+  ],
+  "dependencies": {
+    "@sanity/base": "^0.144.0",
+    "@sanity/components": "^0.144.0",
+    "@sanity/core": "^0.144.0",
+    "@sanity/default-layout": "^0.144.0",
+    "@sanity/default-login": "^0.144.0",
+    "@sanity/desk-tool": "^0.144.0",
+    "@sanity/vision": "^0.144.0",
+    "prop-types": "^15.6",
+    "react": "^16.2",
+    "react-dom": "^16.2"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/debs-obrien/debbie.codes.git"
+  }
+}

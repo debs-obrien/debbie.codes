@@ -6,7 +6,8 @@ export default {
       place: 'Antartica',
       country: 'Antartica',
       type: 'Speaker',
-      talk: 'Don’t let fear stop you from being a great developer',
+      talk:
+        'From zero to hero, bursting through barriers with many years of angusih',
       img: 'Antarcticonf_vkndyd',
       alt: 'Antartic Conf',
       url: 'https://antarcticonf.com/',
@@ -17,7 +18,8 @@ export default {
       place: 'Kiev',
       country: 'Ukraine',
       type: 'Speaker',
-      talk: 'Don’t let fear stop you from being a great developer',
+      talk:
+        'From zero to hero, bursting through barriers with many years of angusih',
       img: 'buildstuff-logo_b5bry6.png',
       alt: 'Build Stuff Ukraine',
       url: 'https://www.ukraine.buildstuff.events/speakers',
@@ -28,10 +30,13 @@ export default {
       place: 'Vilinus',
       country: 'Lithuania',
       type: 'Speaker',
-      talk: 'Don’t let fear stop you from being a great developer',
+      talk:
+        'From zero to hero, bursting through barriers with many years of angusih',
       alt: 'Build Stuff Lithuania',
       img: 'buildstuff_ysibuq.png',
       url: 'https://www.buildstuff.lt/speakers',
+      slidesUrl:
+        'https://speakerdeck.com/debs_obrien/from-zero-to-hero-bursting-through-barriers-with-many-years-of-anguish',
     },
     {
       name: 'Vue Toronto',
