@@ -38,11 +38,11 @@ export default {
         },
         {
           url: '/blog-posts',
-          link: 'Blog Posts',
+          link: 'Posts',
         },
         {
           url: '/learning-resources',
-          link: 'Learning Resources',
+          link: 'Resources',
         },
         {
           link: 'Code',
