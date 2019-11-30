@@ -5,8 +5,10 @@
 input,
 textarea {
   @apply border-gray-400 border;
+
+  width: 80%;
 }
 
 .btn {
-  @apply bg-green-600 p-2;
+  @apply bg-green p-2;
 }

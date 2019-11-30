@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer flex flex-wrap justify-center px-4 py-6">
+  <footer class="footer px-4 py-6">
     <ul class="flex flex-wrap justify-center">
       <li class="social">
         <a href="https://twitter.com/debs_obrien" class="social twitter">
@@ -15,6 +15,7 @@
         </a>
       </li>
     </ul>
+    <p class="flex justify-center pt-4 text-nav">Debbie O'Brien</p>
   </footer>
 </template>
 <script>
