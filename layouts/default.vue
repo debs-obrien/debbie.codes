@@ -1,13 +1,16 @@
 <template>
-  <div class="container">
-    <ul class="flex flex-wrap bg-green-600 p-2">
-      <li class="" v-for="(nav, index) in navLinks" :key="index">
-        <TheNavigation :url="nav.url" :link="nav.link" />
-      </li>
-    </ul>
-    <div class="wrapper">
+  <div class="grid-layout">
+    <header class="header wrapper">
+      <ul class="flex flex-wrap px-4 pt-6 pb-8">
+        <li class="" v-for="(nav, index) in navLinks" :key="index">
+          <TheNavigation :url="nav.url" :link="nav.link" />
+        </li>
+      </ul>
+    </header>
+    <div class="px-6 pb-6 main">
       <nuxt />
     </div>
+    <TheFooter />
   </div>
 </template>
 <script>
@@ -16,6 +19,7 @@ import TheNavigation from '@/components/the-navigation'
 export default {
   components: {
     TheNavigation,
+    TheFooter: () => import('@/components/the-footer'),
   },
   data() {
     return {
@@ -60,13 +64,19 @@ export default {
   @apply min-h-screen flex justify-center items-center text-center mx-auto;
 }
 */
-.container {
-  padding: 2rem;
-  margin: 0 auto;
-  min-height: 100vh;
+.header {
+  background-image: url('~assets/imgs/body_bg.png');
 }
-.wrapper {
-  padding: 1rem;
+.nav {
+  padding: 0 20px;
+}
+.footer {
+}
+
+.grid-layout {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: minmax(auto, 1020px);
 }
 
 .title {
@@ -112,8 +122,8 @@ html {
 .button--grey {
   display: inline-block;
   border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
+  border: 1px solid #383838;
+  color: #383838;
   text-decoration: none;
   padding: 10px 30px;
   margin-left: 15px;
@@ -121,16 +131,16 @@ html {
 
 .button--grey:hover {
   color: #fff;
-  background-color: #35495e;
+  background-color: #383838;
 }
 
 h1 {
   margin-top: 2rem;
-  color: darkgreen;
+  color: #467978;
   font-size: 2rem;
 }
 h2 {
-  color: green;
+  color: #467978;
   font-weight: 500;
   font-size: 1.2rem;
 }
@@ -141,7 +151,7 @@ a {
   text-decoration: underline;
 }
 a:hover {
-  color: #000;
+  color: #383838;
 }
 section h2 {
   margin-top: 2rem;

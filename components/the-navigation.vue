@@ -1,5 +1,8 @@
 <template>
-  <nuxt-link :to="url" class="pr-4 text-white no-underline hover:underline">
+  <nuxt-link
+    :to="url"
+    class="pr-4 text-nav text-2xl no-underline hover:underline"
+  >
     {{ link }}
   </nuxt-link>
 </template>
