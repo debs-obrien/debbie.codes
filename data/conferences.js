@@ -18,7 +18,7 @@ export default {
       type: 'Speaker',
       img: 'vuejsams_ir82mv',
       alt: 'Vue JS Amsterdam',
-      url: 'https://frontenddeveloperlove.com/
+      url: 'https://frontenddeveloperlove.com/',
     },
     {
       name: 'Antartic Conf',
