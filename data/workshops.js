@@ -1,6 +1,14 @@
 export default {
   workshops: [
     {
+      name: 'Evan You',
+      topic: 'Vue 3',
+      title: 'Deep Dive with Vue 3.0',
+      duration: '1 day',
+      place: 'Vue Toronto, 2019',
+      img: 'evan_you_s7n7nc',
+    },
+    {
       name: 'Rolf Haug & Alex Kyriakidis',
       topic: 'Vuex',
       title: 'Scaling applications with Vuex',
