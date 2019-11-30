@@ -1,6 +1,26 @@
 export default {
   conferences: [
     {
+      name: 'VueConf USA',
+      date: ' March 2020',
+      place: 'Texas',
+      country: 'USA',
+      type: 'Speaker',
+      img: 'vue_usa',
+      alt: 'VueConf USA',
+      url: 'https://antarcticonf.com/',
+    },
+    {
+      name: 'Vue Amsterdam, Frontend Developer Love',
+      date: ' February 2020',
+      place: 'Amsterdam',
+      country: 'Holland',
+      type: 'Speaker',
+      img: 'vuejsams_ir82mv',
+      alt: 'Vue JS Amsterdam',
+      url: 'https://frontenddeveloperlove.com/
+    },
+    {
       name: 'Antartic Conf',
       date: 'January 2020',
       place: 'Antartica',
@@ -23,6 +43,8 @@ export default {
       img: 'buildstuff-logo_b5bry6.png',
       alt: 'Build Stuff Ukraine',
       url: 'https://www.ukraine.buildstuff.events/speakers',
+      slidesUrl:
+        'https://speakerdeck.com/debs_obrien/from-zero-to-hero-bursting-through-barriers-with-many-years-of-anguish',
     },
     {
       name: 'Build Stuff Lithuania',
