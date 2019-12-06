@@ -78,7 +78,7 @@ Shawn Wang
 [github](https://github.com/sw-yx)
 
 Chris Coyer article on JamStack
-JamStack being served directly from a CDN. From Lamp to Mean to JamStack. Cleint side v Server side. Static site genaration.
+JamStack being served directly from a CDN. From Lamp to Mean to JamStack. Client side v Server side. Static site genaration.
 
 ## Inside V8: weak collections, emphemerons, and private fields
 Sigurd Schneider
