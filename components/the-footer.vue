@@ -24,12 +24,14 @@ export default {}
 
 <style scoped>
 .footer {
+  max-height: 173px;
   background-image: url(~assets/imgs/footer_bg.jpg);
 }
 .social {
   width: 81px;
   height: 81px;
   display: block;
+  text-decoration: none;
 }
 .linkedin {
   background: url(~assets/imgs/social_sprites.png) -162px -0 no-repeat;
