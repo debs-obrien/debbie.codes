@@ -22,6 +22,7 @@
       </div>
 
       <p v-if="talk">{{ talk }}</p>
+      <p v-if="desc">{{ desc }}</p>
 
       <ul class="flex flex-col">
         <li v-if="slidesUrl">

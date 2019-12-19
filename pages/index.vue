@@ -18,7 +18,7 @@
         and organiser of MallorcaJS and VueSpain. I also work as a tech degree
         moderator for Treehouse and a mentor for OpenClassrooms and am a webpack
         and Nuxt.js contributor. I am a teacher at Vue School and a writer for
-        Ultimate Courses. Running..
+        Ultimate Courses.
       </p>
       <a
         href="https://devchat.tv/views-on-vue/vov-073-contributing-to-open-source-with-debbie-obrien/"

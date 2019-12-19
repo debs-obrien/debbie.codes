@@ -27,7 +27,7 @@ export default {
       country: 'Antartica',
       type: 'Speaker',
       talk:
-        'From zero to hero, bursting through barriers with many years of angusih',
+        'From zero to hero, bursting through barriers with many years of anguish',
       img: 'Antarcticonf_vkndyd',
       alt: 'Antartic Conf',
       url: 'https://antarcticonf.com/',
@@ -39,7 +39,7 @@ export default {
       country: 'Ukraine',
       type: 'Speaker',
       talk:
-        'From zero to hero, bursting through barriers with many years of angusih',
+        'From zero to hero, bursting through barriers with many years of anguish',
       img: 'buildstuff-logo_b5bry6.png',
       alt: 'Build Stuff Ukraine',
       url: 'https://www.ukraine.buildstuff.events/speakers',
@@ -53,7 +53,7 @@ export default {
       country: 'Lithuania',
       type: 'Speaker',
       talk:
-        'From zero to hero, bursting through barriers with many years of angusih',
+        'From zero to hero, bursting through barriers with many years of anguish',
       alt: 'Build Stuff Lithuania',
       img: 'buildstuff_ysibuq.png',
       url: 'https://www.buildstuff.lt/speakers',
@@ -67,6 +67,8 @@ export default {
       country: 'Canada',
       type: 'Speaker',
       talk: 'Leave your legacy code behind and go Nuxt',
+      desc:
+        "It's almost 2020 and there is still so much legacy code around. We need to start migrating. We need to stop being afraid of the migration process. So let's just do it. Where do we start? how do we do it? I will show you how we did it. How we turned our company's vision to stop working with legacy and start working with Vue and Nuxt. A case study on how we built our client's site, what we used and how we made it as performant as possible and were able to deliver better results to our clients and how now we have left the legacy code behind and have fully gone Nuxt.",
       img: 'vuetoronto_fu8upn.jpg',
       alt: 'Vue Toronto',
       url: 'https://vuetoronto.com/speakers',
@@ -149,6 +151,9 @@ export default {
       country: 'Spain',
       type: 'Speaker',
       talk: 'Leave your legacy code behind and go Nuxt',
+      desc:
+        "It's almost 2020 and there is still so much legacy code around. We need to start migrating. We need to stop being afraid of the migration process. So let's just do it. Where do we start? how do we do it? I will show you how we did it. How we turned our company's vision to stop working with legacy and start working with Vue and Nuxt. A case study on how we built our client's site, what we used and how we made it as performant as possible and were able to deliver better results to our clients and how now we have left the legacy code behind and have fully gone Nuxt.",
+
       slidesUrl:
         'https://docs.google.com/presentation/d/1VQtPx9ONQsUvfO5hg8n_64mYIDiYBiVS7hlWFNYdIlA/edit?usp=sharing',
       img: 'vue-day-logo.db1823c5_oyvpif',
