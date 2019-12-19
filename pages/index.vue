@@ -11,14 +11,14 @@
       </h1>
       <p>
         Frontend Tech Lead at Patterson Agency, a digital agency in Mallorca,
-        Spain with over 10 years experience in Frontend development. I have a
-        special love for JavaScript frameworks especially Vue.JS and Nuxt.js and
-        improving performance with webpack. I holds a Frontend and FullStack
-        Tech Degree and is Microsoft certified. I am an international speaker
-        and organiser of MallorcaJS and VueSpain. I also work as a tech degree
-        moderator for Treehouse and a mentor for OpenClassrooms and am a webpack
-        and Nuxt.js contributor. I am a teacher at Vue School and a writer for
-        Ultimate Courses.
+        Spain with over 10 years experience in Frontend development. Google
+        Developer Expert and Media Developer Expert. I have a special love for
+        JavaScript frameworks especially Vue.JS and Nuxt.js and improving
+        performance with webpack and of course the JAMstack. I hold a Frontend
+        and FullStack Tech Degree and am Microsoft certified. I am an
+        international speaker and organiser of MallorcaJS and VueSpain. I
+        contribute to both webpack and Nuxt.js. I am a teacher at Vue School and
+        a writer for Ultimate Courses.
       </p>
       <a
         href="https://devchat.tv/views-on-vue/vov-073-contributing-to-open-source-with-debbie-obrien/"
