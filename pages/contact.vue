@@ -66,9 +66,9 @@
               method="POST"
               data-netlify="true"
               netlify-honeypot="bot-field"
-              action="/success"
               class="contact_form px-4"
               id="contact_form"
+              action="thank-you"
             >
               <p class="hidden">
                 <label>
@@ -76,13 +76,7 @@
                   <input name="bot-field" />
                 </label>
               </p>
-              <div
-                class="returnmessage"
-                data-success="Your message has been received, We will contact you soon."
-              ></div>
-              <div class="empty_notice">
-                <span>Please Fill Required Fields</span>
-              </div>
+
               <div class="first_row">
                 <ul>
                   <li>
