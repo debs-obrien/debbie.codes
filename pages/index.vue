@@ -23,7 +23,11 @@
     </div>
   </div>
 </template>
-
+<script>
+export default {
+  layout: 'home',
+}
+</script>
 <style scoped>
 .home {
   background: black;

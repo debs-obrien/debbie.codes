@@ -37,9 +37,7 @@
       <!-- /Dropdown -->
     </div>
     <!-- /Topbar -->
-    <div class="container mt-80">
-      <nuxt />
-    </div>
+    <nuxt />
   </div>
 </template>
 

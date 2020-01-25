@@ -1,21 +1,52 @@
 <template>
   <ul class="menu-list">
-    <li>
-      <nuxt-link to="/">Home</nuxt-link>
-    </li>
-    <!-- <li><nuxt-link to="#about">About</nuxt-link></li>
-    <li><nuxt-link to="#services">Services</nuxt-link></li>
-    <li><nuxt-link to="#portfolio">Portfolio</nuxt-link></li>
-    <li><nuxt-link to="#news">News</nuxt-link></li>-->
-    <li>
-      <nuxt-link to="/about">About</nuxt-link>
-    </li>
-    <li>
-      <nuxt-link to="/contact">Contact</nuxt-link>
+    <li class="" v-for="(nav, index) in navLinks" :key="index">
+      <nuxt-link :to="nav.url">{{ nav.link }}</nuxt-link>
     </li>
   </ul>
 </template>
-<script></script>
+<script>
+export default {
+  data() {
+    return {
+      navLinks: [
+        {
+          url: '/',
+          link: 'Home',
+        },
+        {
+          url: '/about',
+          link: 'About',
+        },
+        {
+          url: '/conferences',
+          link: 'Conferences',
+        },
+        {
+          url: '/workshops',
+          link: 'Workshops',
+        },
+        {
+          url: '/blog-posts',
+          link: 'Posts',
+        },
+        {
+          url: '/learning-resources',
+          link: 'Resources',
+        },
+        {
+          link: 'Code',
+          url: '/code',
+        },
+        {
+          link: 'Contact',
+          url: '/contact',
+        },
+      ],
+    }
+  },
+}
+</script>
 <style scoped>
 .menu-list li {
   padding-bottom: 10px;

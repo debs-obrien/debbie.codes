@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <p>Thanks for submitting. I will be in touch soon</p>
   </div>
 </template>

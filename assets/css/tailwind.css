@@ -12,3 +12,6 @@ textarea {
 .btn {
   @apply bg-green p-2;
 }
+.container {
+  margin: 0 auto;
+}

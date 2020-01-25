@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container mt-10">
     <h1>Workshops</h1>
     <div v-for="(workshop, index) in workshops" :key="index" class="flex">
       <WorkshopLinks

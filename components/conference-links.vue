@@ -106,6 +106,11 @@ export default {
       default: '',
       required: false,
     },
+    desc: {
+      type: String,
+      default: '',
+      required: false,
+    },
     slidesUrl: {
       type: String,
       default: '',
