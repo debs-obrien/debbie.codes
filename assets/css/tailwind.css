@@ -13,5 +13,6 @@ textarea {
   @apply bg-green p-2;
 }
 .container {
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
 }
