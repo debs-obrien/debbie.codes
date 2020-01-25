@@ -5,7 +5,7 @@
         <div class="hero_texts">
           <div class="hero_image">
             <img
-              src="https://res.cloudinary.com/debsobrien/image/fetch/c_thumb,h_200,q_auto,w_200,x_287,y_134/https://res.cloudinary.com/cdemo/image/upload/v1563453503/debsobrien/img-1.jpg"
+              src="https://res.cloudinary.com/debsobrien/image/upload/w_180,c_fill,ar_1:1,g_auto,r_max/v1579977185/ME/debbie-MVP_pprwcg.jpg"
               alt="Debbie O'Brien"
             />
           </div>

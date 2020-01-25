@@ -8,7 +8,7 @@
     <!-- Topbar -->
     <div class="grax_topbar bg-black">
       <div class="mainpart">
-        <div class="container p-4">
+        <div class="container">
           <div class="inner flex justify-between">
             <div class="logo text-white">Debbie O'Brien</div>
             <div class="menu_list">
