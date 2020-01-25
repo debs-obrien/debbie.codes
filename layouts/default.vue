@@ -10,7 +10,7 @@
       <div class="mainpart">
         <div class="container p-4">
           <div class="inner flex justify-between">
-            <div class="logo"></div>
+            <div class="logo text-white">Debbie O'Brien</div>
             <div class="menu_list">
               <TheNavigation />
             </div>
