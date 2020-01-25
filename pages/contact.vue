@@ -12,7 +12,6 @@
             <ul>
               <li>
                 <div class="inner">
-                  <img class="svg" src="img/svg/placeholder.svg" alt="" />
                   <span>
                     <a class="href_location" href="#">
                       Palma de Mallorca, Spain
@@ -30,7 +29,6 @@
                 </li> -->
               <li>
                 <div class="inner">
-                  <img class="svg" src="img/svg/envelope.svg" alt="" />
                   <span>
                     <a href="mailto:debs_obrien@yahoo.co.uk">
                       debs_obrien@yahoo.co.uk
@@ -68,7 +66,7 @@
               netlify-honeypot="bot-field"
               class="contact_form px-4"
               id="contact_form"
-              action="thank-you"
+              action="success"
             >
               <p class="hidden">
                 <label>
