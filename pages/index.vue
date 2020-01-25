@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-black h-100vh">
+  <div class="home">
     <div class="grax_hero_wrap">
       <div class="container">
         <div class="hero_texts">
@@ -15,7 +15,7 @@
           </h3>
           <div class="www">
             <span class="subtitle">
-              I'm passionate
+              Microsoft MVP, Google GDE and Cloudinary MDE.
             </span>
           </div>
         </div>
@@ -24,10 +24,10 @@
   </div>
 </template>
 
-<script>
-export default {
-  layout: 'home',
+<style scoped>
+.home {
+  background: black;
+  height: calc(100vh - 80px);
+  display: flex;
 }
-</script>
-
-<style></style>
+</style>

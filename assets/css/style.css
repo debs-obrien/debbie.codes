@@ -55,36 +55,25 @@ body {
 
 .grax_topbar {
   width: 100%;
+  min-height: 80px;
   height: auto;
-  clear: both;
-  float: left;
   position: fixed;
   top: 0px;
   left: 0px;
   z-index: 10;
 }
-.grax_topbar.animate .mainpart {
-  background-color: #111;
+/* .grax_topbar.animate .mainpart {
+  background-color: #000;
   padding: 25px 0px;
-}
+} */
 .grax_topbar .mainpart {
   width: 100%;
-  height: auto;
-  clear: both;
-  float: left;
-  padding: 30px 0px;
-
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -ms-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
+  height: 80px;
   transition: all 0.3s ease;
 }
 .grax_topbar .inner {
   width: 100%;
   height: auto;
-  clear: both;
-  float: left;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -95,7 +84,7 @@ body {
 .grax_topbar .dropdown {
   width: 100%;
   height: auto;
-  background-color: #111;
+  background-color: #000;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 .grax_topbar .dropdown .main {
@@ -127,27 +116,14 @@ body {
 .grax_topbar .trigger {
   display: none;
 }
-.grax_topbar .trigger .menu {
-  display: block;
-}
-.grax_topbar .trigger .menu.opened {
-  display: none;
-}
-.grax_topbar .trigger .close {
-  display: none;
-}
-.grax_topbar .trigger .close.opened {
-  display: block;
-}
+
 .grax_topbar .trigger a {
   text-decoration: none;
   color: #fff;
   font-family: 'Saira';
   font-weight: 500;
 }
-.grax_topbar .trigger {
-  float: right;
-}
+
 .grax_topbar .menu_list ul {
   margin: 0px;
   list-style-type: none;
@@ -387,13 +363,8 @@ body {
     transform-origin: bottom;
   }
 }
+
 .grax_button {
-  width: 100%;
-  height: auto;
-  clear: both;
-  float: left;
-}
-.grax_button a {
   text-decoration: none;
   color: #fff;
   display: inline-block;
@@ -405,8 +376,9 @@ body {
   font-family: 'Saira';
   transition: all 0.3s ease;
 }
-.grax_button a:hover {
+.grax_button:hover {
   background-color: transparent;
+  color: #ff214f;
 }
 .grax_news .grax_button a:hover {
   color: #000;
@@ -1453,22 +1425,9 @@ body {
 
 /*** 12. Contact ***/
 
-.grax_contact {
-  width: 100%;
-  height: auto;
-  clear: both;
-  float: left;
-  background-color: #fff;
-  padding-top: 95px;
-}
-.grax_contact .grax_button a:hover {
-  color: #000000;
-}
 .grax_contact .contact_inner {
   width: 100%;
   height: auto;
-  clear: both;
-  float: left;
   padding-top: 100px;
   display: flex;
   margin-bottom: 100px;
@@ -1490,9 +1449,6 @@ body {
 .grax_contact .contact_inner .left ul li .inner {
   width: 100%;
   height: auto;
-  clear: both;
-  float: left;
-  position: relative;
 }
 .grax_contact .contact_inner .left ul li .inner .svg {
   position: absolute;
@@ -1505,20 +1461,7 @@ body {
 .grax_contact .contact_inner .left ul li .inner span {
   padding-left: 35px;
 }
-.grax_contact .contact_inner .left ul li .inner span a {
-  text-decoration: none;
-  color: #333;
-  font-family: 'Saira';
 
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -ms-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-}
-.grax_contact .contact_inner .left ul li .inner span a:hover {
-  color: #ff214f;
-}
 .grax_contact .contact_inner .right {
   width: 60%;
   height: auto;
@@ -1528,8 +1471,6 @@ body {
 .grax_contact .contact_inner .right .first_row {
   width: 100%;
   height: auto;
-  clear: both;
-  float: left;
   margin-bottom: 15px;
 }
 .grax_contact .contact_inner .right .first_row ul {
@@ -1539,7 +1480,6 @@ body {
 .grax_contact .contact_inner .right .first_row ul li {
   margin: 0px 0px 25px 0px;
   width: 50%;
-  float: left;
   padding-left: 20px;
 }
 .grax_contact .contact_inner .right .first_row ul li input {
@@ -1550,10 +1490,6 @@ body {
   padding: 0px 20px 0px 0px !important;
   color: #333;
 
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -ms-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 .grax_contact .contact_inner .right .first_row ul li input:focus {

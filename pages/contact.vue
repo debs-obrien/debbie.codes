@@ -1,53 +1,128 @@
 <template>
-  <div class="wrapper">
-    <h1>Contact Me</h1>
-    <p class="py-4">
-      Hi send me a message if you want to get in touch
-    </p>
-    <form
-      class="form"
-      name="contact"
-      method="POST"
-      data-netlify="true"
-      netlify-honeypot="bot-field"
-      action="/success"
-    >
-      <p class="hidden">
-        <label>
-          Don’t fill this out if you're human:
-          <input name="bot-field" />
-        </label>
-      </p>
-      <p class="flex justify-between mb-4">
-        <label>
-          Your Name:
-        </label>
-        <input type="text" name="name" required />
-      </p>
-      <p class="flex justify-between mb-4">
-        <label>
-          Your Email:
-        </label>
-        <input type="email" name="email" required />
-      </p>
-
-      <p class="flex justify-between mb-4">
-        <label>
-          Message:
-        </label>
-        <textarea name="message" rows="6" required></textarea>
-      </p>
-
-      <p class="flex justify-center">
-        <button class="btn" type="submit">Send</button>
-      </p>
-    </form>
+  <div class="grax_section" id="contact">
+    <div class="grax_contact">
+      <div class="container">
+        <div class="center">
+          <div class="grax_title_holder mt-10">
+            <h3><span>Get in Touch</span></h3>
+          </div>
+        </div>
+        <div class="contact_inner">
+          <div class="left">
+            <ul>
+              <li>
+                <div class="inner">
+                  <img class="svg" src="img/svg/placeholder.svg" alt="" />
+                  <span>
+                    <a class="href_location" href="#">
+                      Palma de Mallorca, Spain
+                    </a>
+                  </span>
+                </div>
+              </li>
+              <!-- <li>
+                  <div class="inner">
+                    <img class="svg" src="img/svg/telephone.svg" alt="" />
+                    <span>
+                      <a href="tel:+55 (77) 100 20 20">+55 (77) 100 20 20</a>
+                    </span>
+                  </div>
+                </li> -->
+              <li>
+                <div class="inner">
+                  <img class="svg" src="img/svg/envelope.svg" alt="" />
+                  <span>
+                    <a href="mailto:debs_obrien@yahoo.co.uk">
+                      debs_obrien@yahoo.co.uk
+                    </a>
+                  </span>
+                </div>
+              </li>
+              <!-- <li>
+                  <div class="inner">
+                    <img class="svg" src="img/svg/telegram.svg" alt="" />
+                    <span>
+                      <a href="https://t.me/@telegramNickName" target="_blank">
+                        @telegramNickName
+                      </a>
+                    </span>
+                  </div>
+                </li> -->
+              <!-- <li>
+                  <div class="inner">
+                    <img class="svg" src="img/svg/whatsapp.svg" alt="" />
+                    <span>
+                      <a href="https://wa.me/@whatsappNickName" target="_blank">
+                        @whatsappNickName
+                      </a>
+                    </span>
+                  </div>
+                </li> -->
+            </ul>
+          </div>
+          <div class="right">
+            <form
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              netlify-honeypot="bot-field"
+              action="/success"
+              class="contact_form px-4"
+              id="contact_form"
+            >
+              <p class="hidden">
+                <label>
+                  Don’t fill this out if you're human:
+                  <input name="bot-field" />
+                </label>
+              </p>
+              <div
+                class="returnmessage"
+                data-success="Your message has been received, We will contact you soon."
+              ></div>
+              <div class="empty_notice">
+                <span>Please Fill Required Fields</span>
+              </div>
+              <div class="first_row">
+                <ul>
+                  <li>
+                    <input
+                      name="name"
+                      id="name"
+                      type="text"
+                      placeholder="Your Name"
+                      required
+                    />
+                  </li>
+                  <li>
+                    <input
+                      name="email"
+                      id="email"
+                      type="text"
+                      placeholder="Your Email"
+                      required
+                    />
+                  </li>
+                </ul>
+              </div>
+              <div class="second_row">
+                <textarea
+                  name="message"
+                  id="message"
+                  placeholder="Your Message"
+                  required
+                ></textarea>
+              </div>
+              <button class="flex justify-start grax_button" type="submit">
+                Send
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
-
-<script>
-export default {}
-</script>
 
 <style scoped>
 .wrapper {
