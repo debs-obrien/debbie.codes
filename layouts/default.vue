@@ -20,18 +20,21 @@
           </div>
         </div>
       </div>
+
+      <!-- Dropdown -->
+      <div
+        class="text-white bg-black w-full h-full px-10"
+        v-show="isOpen"
+        @click="isOpen = false"
+      >
+        <TheNavigation />
+      </div>
+      <!-- /Dropdown -->
     </div>
     <!-- /Topbar -->
-    <!-- Dropdown -->
-    <div
-      class="text-white bg-black w-full h-full px-10"
-      v-show="isOpen"
-      @click="isOpen = false"
-    >
-      <TheNavigation />
+    <div class="relative">
+      <nuxt />
     </div>
-    <!-- /Dropdown -->
-    <nuxt />
   </div>
 </template>
 

@@ -27,7 +27,7 @@
 <style scoped>
 .home {
   background: black;
-  height: calc(100vh - 80px);
+  height: 100vh;
   display: flex;
 }
 </style>
