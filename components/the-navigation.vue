@@ -31,14 +31,6 @@ export default {
           link: 'Posts',
         },
         {
-          url: '/learning-resources',
-          link: 'Resources',
-        },
-        {
-          link: 'Code',
-          url: '/code',
-        },
-        {
           link: 'Contact',
           url: '/contact',
         },
