@@ -36,6 +36,26 @@
                   </span>
                 </div>
               </li>
+              <li>
+                <div class="inner">
+                  <span>
+                    <a href="https://twitter.com/debs_obrien">
+                      Twitter: debs_obrien
+                    </a>
+                  </span>
+                </div>
+              </li>
+              <li>
+                <div class="inner">
+                  <span>
+                    <a
+                      href="https://www.linkedin.com/in/debbie-o-brien-1a199975/"
+                    >
+                      LinkedIn: debbie-o-brien
+                    </a>
+                  </span>
+                </div>
+              </li>
               <!-- <li>
                   <div class="inner">
                     <img class="svg" src="img/svg/telegram.svg" alt="" />
