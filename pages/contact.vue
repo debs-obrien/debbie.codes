@@ -86,7 +86,7 @@
               netlify-honeypot="bot-field"
               class="contact_form px-4"
               id="contact_form"
-              action="success"
+              action="/success"
             >
               <p class="hidden">
                 <label>
