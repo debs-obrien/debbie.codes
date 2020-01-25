@@ -47,6 +47,11 @@ body {
 p a:hover {
   text-decoration: underline;
 }
+section h2 {
+  padding-bottom: 10px;
+  font-size: 20px;
+  color: #ff214f;
+}
 .grax_loader-wrapper {
   position: fixed;
   width: 100%;
