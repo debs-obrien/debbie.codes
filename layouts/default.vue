@@ -32,7 +32,7 @@
       <!-- /Dropdown -->
     </div>
     <!-- /Topbar -->
-    <div class="relative">
+    <div class="main-content">
       <nuxt />
     </div>
   </div>
@@ -64,5 +64,9 @@ export default {
   height: 5px;
   background-color: white;
   margin: 6px 0;
+}
+.main-content {
+  position: relative;
+  top: 80px;
 }
 </style>

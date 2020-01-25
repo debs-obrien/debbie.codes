@@ -124,11 +124,4 @@
   </div>
 </template>
 
-<style scoped>
-.wrapper {
-  margin: 0 auto;
-}
-.form {
-  max-width: 550px;
-}
-</style>
+<style scoped></style>
