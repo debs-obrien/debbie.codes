@@ -1,30 +1,19 @@
 <template>
-  <nuxt-link
-    :to="url"
-    class="pr-4 text-nav text-2xl no-underline hover:underline"
-  >
-    {{ link }}
-  </nuxt-link>
+  <ul class="menu-list">
+    <li><nuxt-link to="/">Home</nuxt-link></li>
+    <!-- <li><nuxt-link to="#about">About</nuxt-link></li>
+    <li><nuxt-link to="#services">Services</nuxt-link></li>
+    <li><nuxt-link to="#portfolio">Portfolio</nuxt-link></li>
+    <li><nuxt-link to="#news">News</nuxt-link></li>
+    <li><nuxt-link to="#contact">Contact</nuxt-link></li> -->
+  </ul>
 </template>
-<script>
-export default {
-  props: {
-    url: {
-      type: String,
-      default: '',
-    },
-    link: {
-      type: String,
-      default: '',
-    },
-  },
-  data() {
-    return {}
-  },
-}
-</script>
+<script></script>
 <style scoped>
-.nuxt-link-exact-active {
-  @apply text-black;
+.menu-list li {
+  padding-bottom: 10px;
+}
+.menu-list li:hover {
+  text-decoration: underline;
 }
 </style>
