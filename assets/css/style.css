@@ -44,6 +44,9 @@ body {
   position: relative;
   overflow: visible;
 }
+p a:hover {
+  text-decoration: underline;
+}
 .grax_loader-wrapper {
   position: fixed;
   width: 100%;
