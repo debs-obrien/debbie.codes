@@ -416,6 +416,9 @@ body {
   height: auto;
   padding-right: 10px;
 }
+.grax_about .mvp-logo {
+  display: none;
+}
 .grax_about .about_inner .left .about_image_wrap {
   position: relative;
 }

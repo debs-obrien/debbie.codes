@@ -6,7 +6,7 @@
           <div class="left">
             <img
               src="https://res.cloudinary.com/debsobrien/image/upload/v1579977198/ME/debbie-mvp_gcgsof.png"
-              alt="Debbie O'Brien"
+              alt="Debbie O'Brien - Microsoft Most Valuable Professional"
             />
           </div>
           <div class="right">
@@ -46,6 +46,11 @@
                 <img
                   src="https://res.cloudinary.com/debsobrien/image/upload/c_scale,w_200/v1579978905/ME/2019-GDE-Web-Technologies-Badge_azr0mi"
                   alt="Google Developer Expert"
+                />
+                <img
+                  class="mvp-logo"
+                  src="https://res.cloudinary.com/debsobrien/image/upload/c_fit,h_160/v1579977213/ME/mvp_o5w23e.png"
+                  alt="Microsoft Most Valuable Professional"
                 />
                 <img
                   src="https://res.cloudinary.com/debsobrien/image/upload/c_scale,h_200/v1579979188/ME/cloudinary-mde_pky7q1.jpg"

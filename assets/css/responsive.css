@@ -22,6 +22,9 @@
   .grax_about .about_inner .left {
     display: none;
   }
+  .grax_about .mvp-logo {
+    display: block;
+  }
   .grax_about .about_inner .right {
     width: 100%;
     left: 0px;

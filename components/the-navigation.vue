@@ -1,13 +1,16 @@
 <template>
   <ul class="menu-list">
-    <li @click="isOpen = false">
-      <nuxt-link to="/" @click="isOpen = false">Home</nuxt-link>
+    <li>
+      <nuxt-link to="/">Home</nuxt-link>
     </li>
     <!-- <li><nuxt-link to="#about">About</nuxt-link></li>
     <li><nuxt-link to="#services">Services</nuxt-link></li>
     <li><nuxt-link to="#portfolio">Portfolio</nuxt-link></li>
     <li><nuxt-link to="#news">News</nuxt-link></li>-->
-    <li @click="isOpen = false">
+    <li>
+      <nuxt-link to="/about">About</nuxt-link>
+    </li>
+    <li>
       <nuxt-link to="/contact">Contact</nuxt-link>
     </li>
   </ul>
