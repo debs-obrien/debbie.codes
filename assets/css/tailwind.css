@@ -39,15 +39,15 @@ p a:hover {
 
 section h1,
 .main-heading {
-  font-size: 20px;
+  font-size: 30px;
 
-  @apply font-Saira font-semibold uppercase border-solid border-primary border-b-2 inline-block mb-4;
+  @apply font-Saira font-bold uppercase border-solid border-primary border-b-4 inline-block mb-4;
 }
 
 section h2 {
   font-size: 20px;
 
-  @apply font-Saira font-semibold uppercase mt-4 mb-2;
+  @apply font-Saira font-bold uppercase mt-4 mb-2;
 }
 section p {
   @apply mb-2;
