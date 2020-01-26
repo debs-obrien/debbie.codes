@@ -31,7 +31,7 @@ body {
   @apply font-body text-secondary;
 }
 
-p a:hover {
+a:hover {
   text-decoration: underline;
 
   @apply text-primary;
