@@ -19,6 +19,16 @@
 .grax_button:hover {
   @apply text-primary bg-transparent;
 }
+.grax_button-sm {
+  font-family: 'Saira';
+  transition: all 0.3s ease;
+
+  @apply bg-primary text-white font-medium py-1 px-2 text-sm rounded border-solid border-2 border-primary;
+}
+.grax_button:hover,
+.grax_button-sm:hover {
+  @apply text-primary bg-transparent;
+}
 
 body {
   font-size: 18px;

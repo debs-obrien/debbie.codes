@@ -14,11 +14,11 @@
       </p>
     </div>
     <div class="w-full p-2 ml-2 border-l border-gray-500">
-      <div class="flex w-full justify-between">
+      <div class="flex-col-reverse md:flex-row flex w-full justify-between">
         <a class="hover:underline" :href="url">
           <h2 class="text-lg mt-0">{{ name }}, {{ date }}</h2>
         </a>
-        <p>{{ type }}</p>
+        <p class="font-Saira uppercase font-semibold">{{ type }}</p>
       </div>
 
       <p v-if="talk">{{ talk }}</p>
