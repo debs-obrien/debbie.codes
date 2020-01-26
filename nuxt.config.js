@@ -14,19 +14,7 @@ export default {
         content: process.env.npm_package_description || '',
       },
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      {
-        rel: 'stylesheet',
-        href:
-          'https://fonts.googleapis.com/css?family=Saira:300,400,500,600,700&display=swap',
-      },
-      {
-        rel: 'stylesheet',
-        href:
-          'https://fonts.googleapis.com/css?family=Nunito:300i,400,400i,600,600i,700&display=swap',
-      },
-    ],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   /*
    ** Customize the progress-bar color
@@ -47,7 +35,21 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ['@nuxtjs/eslint-module', '@nuxtjs/markdownit', '@nuxtjs/axios'],
+  modules: [
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/markdownit',
+    '@nuxtjs/axios',
+    ['@nuxtjs/pwa', { icon: false }],
+    'nuxt-webfontloader',
+  ],
+  webfontloader: {
+    google: {
+      families: [
+        'Saira:300,400,500,600,700&display=swap',
+        'Nunito:300i,400,400i,600,600i,700&display=swap',
+      ],
+    },
+  },
 
   markdownit: {
     preset: 'default',
