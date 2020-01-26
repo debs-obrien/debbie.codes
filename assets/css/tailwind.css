@@ -19,3 +19,36 @@
 .grax_button:hover {
   @apply text-primary bg-transparent;
 }
+
+body {
+  font-size: 18px;
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+  word-wrap: break-word;
+  font-weight: 400;
+  background-color: #fff;
+
+  @apply font-body text-secondary;
+}
+
+p a:hover {
+  text-decoration: underline;
+
+  @apply text-primary;
+}
+
+section h1,
+.main-heading {
+  font-size: 20px;
+
+  @apply font-Saira font-semibold uppercase border-solid border-primary border-b-2 inline-block mb-4;
+}
+
+section h2 {
+  font-size: 20px;
+
+  @apply font-Saira font-semibold uppercase mt-4 mb-2;
+}
+section p {
+  @apply mb-2;
+}

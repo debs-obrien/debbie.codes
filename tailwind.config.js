@@ -4,12 +4,14 @@ module.exports = {
     extend: {
       colors: {
         primary: '#ff214f',
+        secondary: '#333',
       },
       margin: {
         'top-bar': '100px',
       },
       fontFamily: {
         Saira: ['Saira'],
+        body: ['sans-serif'],
       },
     },
   },

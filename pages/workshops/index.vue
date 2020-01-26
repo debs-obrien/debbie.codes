@@ -1,6 +1,6 @@
 <template>
   <div class="container mt-10">
-    <h1>Workshops</h1>
+    <h1 class="main-heading">Workshops</h1>
     <div v-for="(workshop, index) in workshops" :key="index" class="flex">
       <WorkshopLinks
         :img="workshop.img"

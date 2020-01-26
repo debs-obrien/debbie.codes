@@ -255,4 +255,29 @@
   margin-bottom: 7px;
   text-align: left;
 }
+.grax_title_holder {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  text-align: center;
+}
+.grax_title_holder h3 {
+  font-family: 'Saira';
+  font-weight: 700;
+  font-size: 30px;
+  text-transform: uppercase;
+}
+.grax_title_holder h3 span {
+  position: relative;
+}
+.grax_title_holder h3 span:before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 4px;
+  background-color: #ff214f;
+  left: 0px;
+  bottom: -5px;
+}
 </style>

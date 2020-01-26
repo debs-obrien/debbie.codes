@@ -15,7 +15,11 @@
             <span class="text-primary">O'Brien</span>
           </h3>
           <div class="text-white subtitle font-medium">
-            Microsoft MVP, Google GDE and Cloudinary MDE.
+            <p class="mb-2">
+              Developer Experience Engineer | Tech Consultant | Speaker |
+              Teacher
+            </p>
+            <p>Microsoft MVP | Google GDE | Cloudinary MDE</p>
           </div>
         </div>
       </div>
