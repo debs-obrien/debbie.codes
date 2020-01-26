@@ -2,17 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-input,
-textarea {
-  @apply border-gray-400 border;
-
-  width: 80%;
-}
-
-.btn {
-  @apply bg-green p-2;
-}
 .container {
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
+  padding: 0px 10px;
+  position: relative;
+  overflow: visible;
 }

@@ -138,4 +138,121 @@
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+/*** 12. Contact ***/
+
+.grax_contact .contact_inner {
+  width: 100%;
+  height: auto;
+  padding-top: 100px;
+  display: flex;
+  margin-bottom: 100px;
+}
+.grax_contact .contact_inner .left {
+  width: 40%;
+  height: auto;
+}
+.grax_contact .contact_inner .left ul {
+  margin: 0px;
+  list-style-type: none;
+}
+.grax_contact .contact_inner .left ul li {
+  margin: 0px 0px 10px 0px;
+  width: 100%;
+  float: left;
+  list-style-type: none;
+}
+.grax_contact .contact_inner .left ul li .inner {
+  width: 100%;
+  height: auto;
+}
+.grax_contact .contact_inner .left ul li .inner .svg {
+  position: absolute;
+  left: 0px;
+  top: 8px;
+  color: #ff214f;
+  width: 20px;
+  height: 20px;
+}
+.grax_contact .contact_inner .left ul li .inner span {
+  padding-left: 35px;
+}
+
+.grax_contact .contact_inner .right {
+  width: 60%;
+  height: auto;
+  position: relative;
+  top: -10px;
+}
+.grax_contact .contact_inner .right .first_row {
+  width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+}
+.grax_contact .contact_inner .right .first_row ul {
+  margin: 0px 0px 0px -20px;
+  list-style-type: none;
+}
+.grax_contact .contact_inner .right .first_row ul li {
+  margin: 0px 0px 25px 0px;
+  width: 50%;
+  padding-left: 20px;
+}
+.grax_contact .contact_inner .right .first_row ul li input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #333;
+  width: 100%;
+  padding: 0px 20px 0px 0px !important;
+  color: #333;
+
+  transition: all 0.3s ease;
+}
+.grax_contact .contact_inner .right .first_row ul li input:focus {
+  outline: none;
+  background-color: transparent;
+  border-bottom-color: #000;
+}
+.grax_contact .contact_inner .right .second_row {
+  width: 100%;
+  height: auto;
+  float: left;
+  clear: both;
+  margin-bottom: 20px;
+}
+.grax_contact .contact_inner .right textarea {
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid #333;
+  width: 100%;
+  resize: none;
+  padding: 0px 20px 0px 0px !important;
+  color: #333;
+
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.grax_contact .contact_inner .right textarea:focus {
+  outline: none;
+  background-color: transparent;
+  border-bottom-color: #000;
+}
+.grax_contact .empty_notice {
+  color: #ff214f;
+  margin-bottom: 7px;
+  display: none;
+  text-align: left;
+}
+.grax_contact .contact_error {
+  color: #ff214f;
+  text-align: left;
+}
+.grax_contact .returnmessage {
+  color: #0064ff;
+  margin-bottom: 7px;
+  text-align: left;
+}
+</style>
