@@ -23,23 +23,6 @@ section h2 {
   color: #ff214f;
 }
 
-.grax_button {
-  text-decoration: none;
-  color: #fff;
-  display: inline-block;
-  background-color: #ff214f;
-  font-weight: 500;
-  padding: 7px 27px;
-  border-radius: 4px;
-  border: 3px solid #ff214f;
-  font-family: 'Saira';
-  transition: all 0.3s ease;
-}
-.grax_button:hover {
-  background-color: transparent;
-  color: #ff214f;
-}
-
 .grax_title_holder {
   width: 100%;
   height: auto;

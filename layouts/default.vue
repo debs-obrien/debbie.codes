@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <TopBar />
-    <div class="container mt-80">
+    <div class="container mt-top-bar">
       <nuxt />
     </div>
   </div>
