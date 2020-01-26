@@ -14,13 +14,15 @@
             <div class="menu_list">
               <TheNavigation />
             </div>
-            <button class="trigger" @click="toggle">
+            <button class="trigger" @click="toggle" aria-label="open menu">
               <ul v-if="!isOpen" class="hamburger text-white">
                 <li></li>
                 <li></li>
                 <li></li>
               </ul>
-              <span v-if="isOpen" class="text-white">X</span>
+              <span v-if="isOpen" class="text-white" aria-label="close menu">
+                X
+              </span>
             </button>
           </div>
         </div>
