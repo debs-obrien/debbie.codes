@@ -48,7 +48,7 @@
                   alt="Google Developer Expert"
                 />
                 <img
-                  class="mvp-logo"
+                  class="block lg:hidden"
                   src="https://res.cloudinary.com/debsobrien/image/upload/c_fit,h_160/v1579977213/ME/mvp_o5w23e.png"
                   alt="Microsoft Most Valuable Professional"
                 />
@@ -117,9 +117,7 @@
   height: auto;
   padding-right: 10px;
 }
-.grax_about .mvp-logo {
-  display: none;
-}
+
 .grax_about .about_inner .left .about_image_wrap {
   position: relative;
 }
