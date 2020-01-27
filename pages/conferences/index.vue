@@ -72,6 +72,8 @@ export const conferences = gql`
       slidesUrl
       type
       url
+      talk
+      videoUrl
     }
   }
 `
