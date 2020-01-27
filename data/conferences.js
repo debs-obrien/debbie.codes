@@ -1,6 +1,16 @@
 export default {
   conferences: [
     {
+      name: 'IJS London',
+      date: ' April 2020',
+      place: 'London',
+      country: 'UK',
+      type: 'Speaker',
+      img: 'IJS_Logo_cqilmw.png',
+      alt: 'IJS London',
+      url: 'https://javascript-conference.com/london/',
+    },
+    {
       name: 'VueConf USA',
       date: ' March 2020',
       place: 'Texas',
@@ -9,6 +19,16 @@ export default {
       img: 'vue_usa',
       alt: 'VueConf USA',
       url: 'https://antarcticonf.com/',
+    },
+    {
+      name: 'Vue Valencia',
+      date: ' February 2020',
+      place: 'Valencia',
+      country: 'Spain',
+      type: 'Speaker',
+      img: 'vuejsvalencia_lljmby.png',
+      alt: 'Vue JS Valencia',
+      url: 'https://www.meetup.com/VueJS-Valencia/events/268124140/',
     },
     {
       name: 'Vue Amsterdam, Frontend Developer Love',

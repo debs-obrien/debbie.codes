@@ -40,6 +40,7 @@ export default {
     '@nuxtjs/axios',
     ['@nuxtjs/pwa', { icon: false }],
     'nuxt-webfontloader',
+    '@nuxtjs/apollo',
   ],
   webfontloader: {
     google: {
@@ -55,6 +56,13 @@ export default {
     linkify: true,
     breaks: true,
     use: ['markdown-it-div', 'markdown-it-attrs'],
+  },
+
+  // Give apollo module options
+  apollo: {
+    clientConfigs: {
+      default: '~/apollo/client-configs/default.js',
+    },
   },
 
   /*

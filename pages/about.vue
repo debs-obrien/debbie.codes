@@ -13,12 +13,12 @@
           I'm Debbie O'Brien and
         </h3>
         <div class="mb-4">
-          <p>
+          <p class="mb-2">
             I am a Developer Experience Engineer and Tech Consultant at
             Patterson Agency with over 10 years experience in Frontend
-            development. I am a Microsoft Most Valuable Professional and a
-            Google Developer Expert as well as a Cloudinary Media Developer
-            Expert.
+            development. I am a Microsoft Most Valuable Professional in
+            Developer Technologies and a Google Developer Expert in Web
+            Technologies as well as a Cloudinary Media Developer Expert.
           </p>
           <p>
             I have a special love for JavaScript frameworks especially Vue.JS

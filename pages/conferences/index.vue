@@ -54,17 +54,44 @@
 </template>
 
 <script>
-import conferences from '@/data/conferences'
+import gql from 'graphql-tag'
+// import conferences from '@/data/conferences'
 import ConferenceLinks from '@/components/conference-links'
+
+export const conferences = gql`
+  query conferences {
+    conferences(order_by: { date: desc }) {
+      name
+      alt
+      blogUrl
+      country
+      date
+      img
+      notesUrl
+      place
+      slidesUrl
+      type
+      url
+    }
+  }
+`
+
 export default {
   components: {
     ConferenceLinks,
   },
   data() {
     return {
-      conferences: conferences.conferences,
+      // conferences: conferences.conferences,
       type: '',
+      loading: 0,
     }
+  },
+  apollo: {
+    $loadingKey: 'loading',
+    conferences: {
+      query: conferences,
+    },
   },
   computed: {
     conferenceList() {
