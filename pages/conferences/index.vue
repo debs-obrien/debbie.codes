@@ -55,7 +55,6 @@
 
 <script>
 import gql from 'graphql-tag'
-// import conferences from '@/data/conferences'
 import ConferenceLinks from '@/components/conference-links'
 
 export const conferences = gql`
@@ -84,9 +83,9 @@ export default {
   },
   data() {
     return {
-      // conferences: conferences.conferences,
       type: '',
       loading: 0,
+      conferences: [],
     }
   },
   apollo: {
