@@ -4,7 +4,7 @@ backend:
 publish_mode: editorial_workflow
 media_folder: 'static/images/uploads' # Media files will be stored in the repo under images/uploads
 collections:
-  - name: 'blog' # Used in routes, e.g., /admin/collections/blog
+  - name: 'posts' # Used in routes, e.g., /admin/collections/blog
     label: 'Blog' # Used in the UI
     folder: 'pages/blog' # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
