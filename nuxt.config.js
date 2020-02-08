@@ -1,6 +1,6 @@
 const cloudinaryUrl =
   'https://res.cloudinary.com/debsobrien/image/upload/q_auto,f_auto'
-const baseUrl = 'https://patterson.travel'
+const baseUrl = 'https://debbie.codes'
 
 export default {
   mode: 'universal',
@@ -34,7 +34,10 @@ export default {
     },
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     script: [
-      { src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' },
+      {
+        src: 'https://identity.netlify.com/v1/netlify-identity-widget.js',
+        defer: true,
+      },
     ],
   },
   /*
