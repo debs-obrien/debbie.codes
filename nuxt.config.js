@@ -48,7 +48,8 @@ export default {
   ],
 
   purgeCSS: {
-    // your settings here
+    mode: 'postcss',
+    whitelistPatterns: [],
   },
 
   /*
