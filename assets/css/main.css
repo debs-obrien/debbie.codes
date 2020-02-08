@@ -1,0 +1,75 @@
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding: 0 10px;
+  position: relative;
+  overflow: visible;
+}
+.grax_button {
+  font-family: 'Saira', sans-serif;
+  transition: all 0.3s ease;
+
+  @apply bg-primary text-white font-medium py-2 px-4 rounded border-solid border-2 border-primary;
+}
+.grax_button:hover {
+  @apply text-primary bg-transparent;
+}
+.grax_button-sm {
+  font-family: 'Saira';
+  transition: all 0.3s ease;
+
+  @apply bg-primary text-white font-medium py-1 px-2 text-sm rounded border-solid border-2 border-primary;
+}
+.grax_button:hover,
+.grax_button-sm:hover {
+  @apply text-primary bg-transparent;
+}
+
+body {
+  font-size: 18px;
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+  word-wrap: break-word;
+  font-weight: 400;
+  background-color: #fff;
+
+  @apply font-body text-secondary;
+}
+
+a:hover {
+  text-decoration: underline;
+
+  @apply text-primary;
+}
+
+section h1,
+.main-heading {
+  font-size: 30px;
+
+  @apply font-Saira font-bold uppercase border-solid border-primary border-b-4 inline-block mb-4;
+}
+
+section h2 {
+  font-size: 20px;
+
+  @apply font-Saira font-bold uppercase mt-4 mb-2;
+}
+section p {
+  @apply mb-2;
+}
+
+.layout-enter-active,
+.layout-leave-active,
+.page-enter-active,
+.page-leave-active {
+  transition-duration: 0.3s;
+  transition-property: opacity;
+  transition-timing-function: ease;
+}
+.layout-enter,
+.layout-leave-active,
+.page-enter,
+.page-leave-active {
+  opacity: 0;
+}

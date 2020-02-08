@@ -47,7 +47,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['~/assets/css/tailwind.css'],
+  css: ['~/assets/css/tailwind.css', '~/assets/css/main.css'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -68,7 +68,7 @@ export default {
 
   purgeCSS: {
     mode: 'postcss',
-    whitelistPatterns: [],
+    whitelistPatterns: [/layout/, /page/, /section/],
   },
 
   /*
