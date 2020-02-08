@@ -5,13 +5,15 @@
   </article>
 </template>
 <script>
+const getList = () =>
+  import(/* webpackChunkName: "data-blog-list" */ '@/.nuxt/blogList').then(
+    (m) => m.default || m
+  )
+// import posts from '@/assets/content/output/blogList'
 export default {
-  async asyncData({ params, payload }) {
-    if (payload) return { blogPost: payload }
-    else
-      return {
-        blogPost: await require(`~/assets/content/blog/${params.blog}.json`),
-      }
+  async asyncData() {
+    const posts = await getList()
+    return { posts: posts }
   },
 }
 </script>
