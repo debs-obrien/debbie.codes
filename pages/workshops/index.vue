@@ -23,6 +23,7 @@
 <script>
 import workshops from '@/data/workshops'
 import WorkshopLinks from '@/components/workshop-links'
+
 export default {
   components: {
     WorkshopLinks,
