@@ -2,7 +2,12 @@
   <div class="flex border border-gray-500 p-2 w-full">
     <div class="flex flex-col">
       <a class="justify-center" :href="url">
-        <ImageFade class="w-100" :src="$url.conference(img)" :alt="alt" />
+        <img
+          class="w-100"
+          :src="$url.conference(img)"
+          :alt="alt"
+          loading="auto"
+        />
       </a>
       <p class="text-sm">
         <span>{{ place }},</span>
@@ -39,12 +44,7 @@
   </div>
 </template>
 <script>
-import ImageFade from '~/components/image-fade'
-
 export default {
-  components: {
-    ImageFade,
-  },
   props: {
     img: {
       type: String,
