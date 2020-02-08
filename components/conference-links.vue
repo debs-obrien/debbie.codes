@@ -2,7 +2,7 @@
   <div class="flex border border-gray-500 p-2 w-full">
     <div class="flex flex-col">
       <a class="justify-center" :href="url">
-        <ImageFadeclass="w-100" :src="$url.conference(img)" :alt="alt" />
+        <ImageFade class="w-100" :src="$url.conference(img)" :alt="alt" />
       </a>
       <p class="text-sm">
         <span>{{ place }},</span>
