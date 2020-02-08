@@ -1,26 +1,33 @@
 <template>
   <div class="flex border border-gray-500 p-2 w-full">
-    <a class="justify-center" :href="url">
-      <img
-        class="w-100"
-        :src="$store.state.CloudinaryWorkshopProfile + img"
-        :alt="alt"
-      />
-    </a>
+    <div class="flex flex-col">
+      <a class="justify-center" :href="url">
+        <img
+          class="w-100"
+          :src="$store.state.CloudinaryWorkshopProfile + img"
+          :alt="alt"
+        />
+      </a>
+      <p class="text-sm">
+        <span>{{ place }},</span>
+        <span>{{ country }}</span>
+      </p>
+    </div>
     <div class="w-full p-2 ml-2 border-l border-gray-500">
-      <div class="flex w-full justify-between">
+      <div class="flex-col-reverse md:flex-row flex w-full justify-between">
         <a class="hover:underline" :href="url">
-          <h2 class="text-lg mt-0">{{ name }}</h2>
+          <h2 class="text-lg mt-0 font-semibold">{{ name }}</h2>
         </a>
-        <h3 class="text-lg mt-0">{{ topic }}</h3>
+
+        <p class="font-Saira uppercase font-semibold">{{ topic }}</p>
       </div>
+      <p>{{ title }}</p>
+      <p>
+        <span>{{ duration }} -</span>
+        {{ place }}
+      </p>
 
       <ul class="flex flex-col">
-        <p>{{ title }}</p>
-        <p>
-          <span>{{ duration }} -</span>
-          {{ place }}
-        </p>
         <li v-if="notesUrl">
           <nuxt-link :to="notesUrl">Notes</nuxt-link>
         </li>
