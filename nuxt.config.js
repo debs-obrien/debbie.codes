@@ -1,5 +1,20 @@
+const cloudinaryUrl =
+  'https://res.cloudinary.com/debsobrien/image/upload/q_auto,f_auto'
+const baseUrl = 'https://patterson.travel'
+
 export default {
   mode: 'universal',
+  env: {
+    baseUrl: process.env.BASE_URL || baseUrl,
+    cloudinaryPath: cloudinaryUrl,
+    baseImage: cloudinaryUrl + '/',
+    workshopImage:
+      cloudinaryUrl +
+      ',c_thumb,w_150,h_150/v1565547670/debbie.codes/workshops/',
+    conferenceImage:
+      cloudinaryUrl +
+      ',c_thumb,w_150,h_150/v1565547670/debbie.codes/conferences/',
+  },
   /*
    ** Headers of the page
    */
@@ -33,7 +48,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ['~/plugins/url-helpers.js'],
   /*
    ** Nuxt.js modules
    */
