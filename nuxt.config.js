@@ -45,6 +45,7 @@ export default {
     'nuxt-webfontloader',
     '@nuxtjs/apollo',
     'nuxt-purgecss',
+    './modules/transform',
   ],
 
   purgeCSS: {
