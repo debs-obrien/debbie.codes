@@ -2,7 +2,12 @@
   <div class="flex border border-gray-500 p-2 w-full">
     <div class="flex flex-col">
       <a class="justify-center" :href="url">
-        <img class="w-100" :src="$url.workshop(img)" :alt="alt" />
+        <img
+          class="w-100"
+          :src="$url.workshop(img)"
+          :alt="alt"
+          loading="auto"
+        />
       </a>
       <p class="text-sm">
         <span>{{ place }},</span>
@@ -22,18 +27,6 @@
         <span>{{ duration }} -</span>
         {{ place }}
       </p>
-
-      <ul class="flex flex-col">
-        <li v-if="notesUrl">
-          <nuxt-link :to="notesUrl">Notes</nuxt-link>
-        </li>
-        <li v-if="blogUrl">
-          <a :href="blogUrl">Blog Post</a>
-        </li>
-        <li v-if="videoUrl">
-          <a :href="videoUrl">Video</a>
-        </li>
-      </ul>
     </div>
   </div>
 </template>
@@ -54,6 +47,11 @@ export default {
       type: String,
       default: '',
       required: true,
+    },
+    country: {
+      type: String,
+      default: '',
+      required: false,
     },
     duration: {
       type: String,
@@ -77,28 +75,6 @@ export default {
     },
 
     url: {
-      type: String,
-      default: '',
-      required: false,
-    },
-
-    notesUrl: {
-      type: String,
-      default: '',
-      required: false,
-    },
-    blogUrl: {
-      type: String,
-      default: '',
-      required: false,
-    },
-    videoUrl: {
-      type: String,
-      default: '',
-      required: false,
-    },
-
-    slidesUrl: {
       type: String,
       default: '',
       required: false,

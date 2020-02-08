@@ -1,6 +1,7 @@
 <template>
   <div class="container mt-10">
     <h1 class="main-heading">conferences</h1>
+
     <div class="buttons flex flex-wrap">
       <button
         class="grax_button-sm mb-4 mr-4"

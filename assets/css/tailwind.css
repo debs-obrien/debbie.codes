@@ -62,3 +62,18 @@ section h2 {
 section p {
   @apply mb-2;
 }
+
+.layout-enter-active,
+.layout-leave-active,
+.page-enter-active,
+.page-leave-active {
+  transition-duration: 0.3s;
+  transition-property: opacity;
+  transition-timing-function: ease;
+}
+.layout-enter,
+.layout-leave-active,
+.page-enter,
+.page-leave-active {
+  opacity: 0;
+}

@@ -29,6 +29,7 @@
 <script>
 export default {
   layout: 'home',
+  transition: 'fade',
 }
 </script>
 <style scoped>
