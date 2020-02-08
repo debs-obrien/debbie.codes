@@ -9,10 +9,6 @@
           loading="auto"
         />
       </a>
-      <p class="text-sm">
-        <span>{{ place }},</span>
-        <span>{{ year }}</span>
-      </p>
     </div>
     <div class="w-full p-2 ml-2 border-l border-gray-500">
       <div class="flex-col-reverse md:flex-row flex w-full justify-between">
