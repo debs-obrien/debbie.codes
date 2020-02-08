@@ -11,6 +11,7 @@
         :name="workshop.name"
         :title="workshop.title"
         :url="workshop.url"
+        :year="workshop.year"
         :notesUrl="workshop.notesUrl"
         :blogUrl="workshop.blogUrl"
         :videoUrl="workshop.videoUrl"
@@ -21,17 +22,42 @@
 </template>
 
 <script>
-import workshops from '@/data/workshops'
+import gql from 'graphql-tag'
 import WorkshopLinks from '@/components/workshop-links'
-
+export const workshops = gql`
+  query workshops {
+    workshops(order_by: { date: desc }) {
+      alt
+      blogUrl
+      duration
+      id
+      img
+      name
+      place
+      slidesUrl
+      title
+      topic
+      url
+      videoUrl
+      year
+      date
+    }
+  }
+`
 export default {
   components: {
     WorkshopLinks,
   },
   data() {
     return {
-      workshops: workshops.workshops,
+      workshops: [],
     }
+  },
+  apollo: {
+    $loadingKey: 'loading',
+    workshops: {
+      query: workshops,
+    },
   },
 }
 </script>

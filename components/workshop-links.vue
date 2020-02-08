@@ -11,7 +11,7 @@
       </a>
       <p class="text-sm">
         <span>{{ place }},</span>
-        <span>{{ country }}</span>
+        <span>{{ year }}</span>
       </p>
     </div>
     <div class="w-full p-2 ml-2 border-l border-gray-500">
@@ -27,6 +27,21 @@
         <span>{{ duration }} -</span>
         {{ place }}
       </p>
+      <p>{{ year }}</p>
+      <ul class="flex flex-col">
+        <li v-if="slidesUrl">
+          <a :href="slidesUrl">Slides</a>
+        </li>
+        <li v-if="notesUrl">
+          <nuxt-link :to="notesUrl">Notes</nuxt-link>
+        </li>
+        <li v-if="blogUrl">
+          <a :href="blogUrl">Blog Post</a>
+        </li>
+        <li v-if="videoUrl">
+          <a :href="videoUrl">Video</a>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -44,6 +59,11 @@ export default {
       required: false,
     },
     place: {
+      type: String,
+      default: '',
+      required: true,
+    },
+    year: {
       type: String,
       default: '',
       required: true,
@@ -75,6 +95,26 @@ export default {
     },
 
     url: {
+      type: String,
+      default: '',
+      required: false,
+    },
+    notesUrl: {
+      type: String,
+      default: '',
+      required: false,
+    },
+    blogUrl: {
+      type: String,
+      default: '',
+      required: false,
+    },
+    videoUrl: {
+      type: String,
+      default: '',
+      required: false,
+    },
+    slidesUrl: {
       type: String,
       default: '',
       required: false,
