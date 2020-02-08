@@ -45,6 +45,23 @@ export default {
     'nuxt-webfontloader',
     '@nuxtjs/apollo',
   ],
+
+  /*
+   ** Dynamic Routes added
+   */
+  generate: {
+    routes: function() {
+      const fs = require('fs')
+      const path = require('path')
+      return fs.readdirSync('./assets/content/blog').map((file) => {
+        return {
+          route: `/blog/${path.parse(file).name}`, // Return the slug
+          payload: require(`./assets/content/blog/${file}`),
+        }
+      })
+    },
+  },
+
   webfontloader: {
     google: {
       families: [
@@ -57,6 +74,7 @@ export default {
   markdownit: {
     preset: 'default',
     linkify: true,
+    injected: true,
     breaks: true,
     use: ['markdown-it-div', 'markdown-it-attrs'],
   },
