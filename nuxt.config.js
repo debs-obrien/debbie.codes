@@ -44,7 +44,12 @@ export default {
     ['@nuxtjs/pwa', { icon: false }],
     'nuxt-webfontloader',
     '@nuxtjs/apollo',
+    'nuxt-purgecss',
   ],
+
+  purgeCSS: {
+    // your settings here
+  },
 
   /*
    ** Dynamic Routes added
