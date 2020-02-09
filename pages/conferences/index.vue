@@ -58,7 +58,7 @@
 import gql from 'graphql-tag'
 import ConferenceLinks from '@/components/conference-links'
 
-export const conferences = gql`
+export const conferencesQuery = gql`
   query conferences {
     conferences(order_by: { date: desc }) {
       name
@@ -77,7 +77,6 @@ export const conferences = gql`
     }
   }
 `
-
 export default {
   components: {
     ConferenceLinks,
@@ -86,20 +85,27 @@ export default {
     return {
       type: '',
       loading: 0,
-      conferences: [],
     }
-  },
-  apollo: {
-    $loadingKey: 'loading',
-    conferences: {
-      query: conferences,
-    },
   },
   computed: {
     conferenceList() {
       return this.conferences.filter((el) => el.type.match(this.type))
     },
   },
+
+  async asyncData({ app, route, error }) {
+    try {
+      const client = app.apolloProvider.defaultClient
+      const conferences = await client.query({
+        query: conferencesQuery,
+        variables: {},
+      })
+      return {
+        conferences: conferences.data.conferences,
+      }
+    } catch (err) {}
+  },
+
   methods: {
     FilterConferenceByType(type) {
       this.type = type
