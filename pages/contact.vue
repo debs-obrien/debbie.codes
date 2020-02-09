@@ -27,6 +27,11 @@
               LinkedIn: debbie-o-brien
             </a>
           </li>
+          <li>
+            <a href="https://noti.st/debbie">
+              Speaker Profile: noti.st/debbie
+            </a>
+          </li>
         </ul>
       </div>
       <div class="w-full md:w-3/5 md:ml-8">
