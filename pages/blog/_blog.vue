@@ -2,7 +2,7 @@
   <article>
     <div class="pb-2"><nuxt-link to="/blog/">Back to Blog List</nuxt-link></div>
     <h1 class="main-heading">{{ title }}</h1>
-    <div v-html="body" />
+    <div v-html="$md.render(body)" />
   </article>
 </template>
 
