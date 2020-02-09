@@ -7,6 +7,10 @@
 # My Podcasts
 ## Views on Vue
 [Contributing to Open Source](https://devchat.tv/views-on-vue/vov-073-contributing-to-open-source-with-debbie-obrien/)
+
+# My Opensource
+[Nuxt Boilerplate Project](https://github.com/debs-obrien/nuxt-boilerplate-project)
+
 # List of my Blog Posts
 ## Medium
 [Deploying to Netlify is easier than easy](https://medium.com/patterson-agency/deploying-to-netlify-is-easier-than-easy-5ba725851367)

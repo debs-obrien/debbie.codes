@@ -32,6 +32,11 @@
               Speaker Profile: noti.st/debbie
             </a>
           </li>
+          <li>
+            <a href="https://github.com/debs-obrien">
+              Github: debs-obrien
+            </a>
+          </li>
         </ul>
       </div>
       <div class="w-full md:w-3/5 md:ml-8">
