@@ -60,8 +60,8 @@ export default {
       required: true,
     },
     year: {
-      type: String,
-      default: '',
+      type: Number,
+      default: 2020,
       required: true,
     },
     country: {
@@ -123,5 +123,8 @@ export default {
 .wrapper {
   width: 900px;
   margin: 0 auto;
+}
+.max-width {
+  max-width: 130px;
 }
 </style>

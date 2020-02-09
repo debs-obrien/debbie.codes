@@ -1,6 +1,6 @@
 <template>
   <div class="flex border border-gray-500 p-2 w-full">
-    <div class="flex flex-col">
+    <div class="flex flex-col max-width">
       <a class="justify-center" :href="url">
         <img
           class="w-100"
@@ -126,5 +126,8 @@ export default {
 .wrapper {
   width: 900px;
   margin: 0 auto;
+}
+.max-width {
+  max-width: 130px;
 }
 </style>

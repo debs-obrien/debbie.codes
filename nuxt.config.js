@@ -10,10 +10,10 @@ export default {
     baseImage: cloudinaryUrl + '/',
     workshopImage:
       cloudinaryUrl +
-      ',c_thumb,w_150,h_150/v1565547670/debbie.codes/workshops/',
+      ',c_thumb,w_130,h_130/v1565547670/debbie.codes/workshops/',
     conferenceImage:
       cloudinaryUrl +
-      ',c_thumb,w_150,h_150/v1565547670/debbie.codes/conferences/',
+      ',c_thumb,w_130,h_130/v1565547670/debbie.codes/conferences/',
   },
   /*
    ** Headers of the page
