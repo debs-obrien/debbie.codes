@@ -16,7 +16,7 @@ const getList = () =>
 export default {
   async asyncData() {
     const posts = await getList()
-    return { posts: posts }
+    return { posts }
   },
 }
 </script>
