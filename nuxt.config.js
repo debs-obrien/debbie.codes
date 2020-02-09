@@ -63,7 +63,9 @@ export default {
     'nuxt-webfontloader',
     '@nuxtjs/apollo',
     'nuxt-purgecss',
-    './modules/transform',
+    '~/modules/transform',
+    '~/modules/static/',
+    '~/modules/crawler/',
   ],
 
   purgeCSS: {
@@ -74,18 +76,18 @@ export default {
   /*
    ** Dynamic Routes added
    */
-  generate: {
-    routes: function() {
-      const fs = require('fs')
-      const path = require('path')
-      return fs.readdirSync('./assets/content/blog').map((file) => {
-        return {
-          route: `/blog/${path.parse(file).name}`, // Return the slug
-          payload: require(`./assets/content/blog/${file}`),
-        }
-      })
-    },
-  },
+  // generate: {
+  //   routes: function() {
+  //     const fs = require('fs')
+  //     const path = require('path')
+  //     return fs.readdirSync('./assets/content/blog').map((file) => {
+  //       return {
+  //         route: `/blog/${path.parse(file).name}`, // Return the slug
+  //         payload: require(`./assets/content/blog/${file}`),
+  //       }
+  //     })
+  //   },
+  // },
 
   webfontloader: {
     google: {
