@@ -69,7 +69,7 @@ export default {
 
   purgeCSS: {
     mode: 'postcss',
-    whitelistPatterns: [/layout/, /page/, /section/],
+    whitelistPatterns: [/layout/, /page/, /section/, /pre/, /code/],
   },
 
   /*

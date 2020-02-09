@@ -1,11 +1,14 @@
 <template>
   <div class="flex">
-    <div class="sidebar w-1/4">
+    <div class="hidden lg:block lg:w-1/4">
       <div v-for="post in blogPosts">
         <nuxt-link :to="`/blog/${post.slug}`">{{ post.title }}</nuxt-link>
       </div>
     </div>
-    <article class="w-3/4">
+    <article class="w-full lg:w-3/4">
+      <nuxt-link to="/blog/" class="lg:hidden block pb-4">
+        Back to Blog List
+      </nuxt-link>
       <h1 class="main-heading">{{ blogPost.title }}</h1>
       <div v-html="$md.render(blogPost.body)" />
     </article>
@@ -28,3 +31,14 @@ export default {
   },
 }
 </script>
+<style>
+pre {
+  margin: 10px 0;
+  padding: 20px;
+  background-color: black;
+  color: white;
+}
+code {
+  padding: 20px;
+}
+</style>

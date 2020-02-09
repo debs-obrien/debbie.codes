@@ -50,7 +50,8 @@ section h1,
   @apply font-Saira font-bold uppercase border-solid border-primary border-b-4 inline-block mb-4;
 }
 
-section h2 {
+section h2,
+.sub-heading {
   font-size: 20px;
 
   @apply font-Saira font-bold uppercase mt-4 mb-2;
