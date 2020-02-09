@@ -85,6 +85,7 @@ export default {
     return {
       type: '',
       loading: 0,
+      conferences: [],
     }
   },
   computed: {
