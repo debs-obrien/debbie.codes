@@ -1,17 +1,19 @@
 <template>
   <article>
-    <div class="pb-2"><nuxt-link to="/blog/">Back to Blog List</nuxt-link></div>
-    <h1 class="main-heading">{{ title }}</h1>
-    <div v-html="$md.render(body)" />
+    <nuxt-link to="/blog/">Blog List</nuxt-link>
+    <h1>{{ title }}</h1>
+    <div v-html="body" />
   </article>
 </template>
 
 <script>
+const getData = (params) =>
+  import(
+    /* webpackChunkName: "data-blog-[request]" */ `~/.nuxt/data/${params.blog}`
+  ).then((m) => m.default || m)
 export default {
-  async asyncData({ params, payload }) {
-    const data = payload || (await require(`~/.nuxt/data/${params.blog}`))
-    data.body = data.blarg // md.render(data.body)
-    return data
+  asyncData({ params }) {
+    return getData(params)
   },
 }
 </script>

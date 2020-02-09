@@ -29,8 +29,8 @@ export default {
           link: 'Workshops',
         },
         {
-          url: '/blog-posts',
-          link: 'Archive',
+          url: '/resources',
+          link: 'Resources',
         },
         {
           url: '/blog',
