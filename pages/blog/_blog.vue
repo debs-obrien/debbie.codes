@@ -1,7 +1,7 @@
 <template>
   <article>
-    <nuxt-link to="/blog/">Blog List</nuxt-link>
-    <h1>{{ title }}</h1>
+    <div class="pb-2"><nuxt-link to="/blog/">Back to Blog List</nuxt-link></div>
+    <h1 class="main-heading">{{ title }}</h1>
     <div v-html="body" />
   </article>
 </template>

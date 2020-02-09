@@ -30,7 +30,11 @@ export default {
         },
         {
           url: '/blog-posts',
-          link: 'Posts',
+          link: 'Archive',
+        },
+        {
+          url: '/blog',
+          link: 'Blog',
         },
         {
           link: 'Contact',
