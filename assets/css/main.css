@@ -47,7 +47,7 @@ section h1,
 .main-heading {
   font-size: 30px;
 
-  @apply font-Saira font-bold uppercase border-solid border-primary border-b-4 inline-block mb-4;
+  @apply font-Saira font-bold uppercase border-solid border-primary border-b-4 inline-block mb-4 mt-4;
 }
 
 section h2,
