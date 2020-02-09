@@ -31,6 +31,8 @@
 [JavaScript workshop with Kyle Simpson](https://tech.trivago.com/2018/10/15/javascript-workshop-with-kyle-simpson/)
 
 # My Videos
+## Conference Videos
+[Videos of my talks at conferences](https://noti.st/debbie/videos)
 ## OpenClassrooms
 [How to overcome the biggest obstacle when learing to code](https://www.youtube.com/watch?v=R8ZsDhf5Tis&feature=youtu.be)
 [How Studying online landed me the job of my dreams](https://www.youtube.com/watch?v=Be3N_i4bC34&feature=youtu.be)
