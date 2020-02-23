@@ -97,14 +97,14 @@ export default {
   async asyncData({ app, route, error }) {
     try {
       const client = app.apolloProvider.defaultClient
-      const conferences = await client.query({
+      const response = await client.query({
         query: conferencesQuery,
         variables: {},
       })
       return {
-        conferences: conferences.data.conferences,
+        conferences: response.data.conferences,
       }
-    } catch (err) {}
+    } catch (error) {}
   },
 
   methods: {
