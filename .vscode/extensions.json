@@ -14,10 +14,6 @@
     // https://github.com/Microsoft/vscode-eslint
     "dbaeumer.vscode-eslint",
 
-    // Lint-on-save with Stylelint
-    // https://github.com/shinnn/vscode-stylelint
-    "shinnn.stylelint",
-
     // Format-on-save with Prettier
     // https://github.com/prettier/prettier-vscode
     "esbenp.prettier-vscode",
