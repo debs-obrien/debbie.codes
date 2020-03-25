@@ -1,6 +1,6 @@
-export default function(_, inject) {
+export default function (_, inject) {
   inject('url', {
-    base(path) {
+    bse(path) {
       return process.env.baseImage + path
     },
     conference(path) {

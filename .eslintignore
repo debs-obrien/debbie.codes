@@ -4,3 +4,4 @@
 /.nuxt/
 docs/.vuepress/dist/
 /lambda
+/modules

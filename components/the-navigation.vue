@@ -1,7 +1,7 @@
 <template>
   <ul class="block lg:flex">
     <li class="pb-6 lg:pb-0 pr-8" v-for="(nav, index) in navLinks" :key="index">
-      <nuxt-link :to="nav.url" class=" hover:text-primary">
+      <nuxt-link :to="nav.url" class="hover:text-primary">
         {{ nav.link }}
       </nuxt-link>
     </li>

@@ -1,5 +1,5 @@
 const axios = require('axios')
-exports.handler = function(event, context, callback) {
+exports.handler = function (event, context, callback) {
   const parseBody = JSON.parse(event.body)
   console.log(parseBody)
   axios({

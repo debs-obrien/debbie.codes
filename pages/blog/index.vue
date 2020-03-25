@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class="main-heading">Blog List</h1>
-    <div v-for="post in blogPosts" class=" flex flex-wrap">
+    <div v-for="(i, post) in blogPosts" :key="i" class="flex flex-wrap">
       <div class="mb-2">
         <nuxt-link :to="`/blog/${post.slug}`">
           <h2 class="sub-heading">{{ post.title }}</h2>

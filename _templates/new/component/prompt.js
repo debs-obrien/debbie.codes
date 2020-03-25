@@ -10,7 +10,7 @@ module.exports = [
         return 'Components must have a name.'
       }
       const fileName = _.kebabCase(value)
-      if (fileName.indexOf('-') === -1) {
+      if (!fileName.includes('-')) {
         return 'Component names should contain at least two words to avoid conflicts with existing and future HTML elements.'
       }
       return true
@@ -37,7 +37,7 @@ module.exports = [
       },
     ],
     validate(value) {
-      if (value.indexOf('script') === -1 && value.indexOf('template') === -1) {
+      if (!value.includes('script') && !value.includes('template')) {
         return 'Components require at least a <script> or <template> tag.'
       }
       return true

@@ -14,13 +14,13 @@
 <script>
 export default {
   components: {},
-  data: function() {
+  data() {
     return {
       show: false,
     }
   },
   methods: {
-    toggleItem: function() {
+    toggleItem() {
       this.show = !this.show
     },
   },

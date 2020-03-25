@@ -4,3 +4,4 @@
 /cypress/
 /.nuxt/
 docs/.vuepress/dist/
+/modules/*

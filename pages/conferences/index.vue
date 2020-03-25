@@ -81,18 +81,6 @@ export default {
   components: {
     ConferenceLinks,
   },
-  data() {
-    return {
-      type: '',
-      loading: 0,
-      conferences: [],
-    }
-  },
-  computed: {
-    conferenceList() {
-      return this.conferences.filter((el) => el.type.match(this.type))
-    },
-  },
 
   async asyncData({ app, route, error }) {
     try {
@@ -105,6 +93,18 @@ export default {
         conferences: response.data.conferences,
       }
     } catch (error) {}
+  },
+  data() {
+    return {
+      type: '',
+      loading: 0,
+      conferences: [],
+    }
+  },
+  computed: {
+    conferenceList() {
+      return this.conferences.filter((el) => el.type.match(this.type))
+    },
   },
 
   methods: {
