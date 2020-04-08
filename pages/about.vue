@@ -14,21 +14,19 @@
         </h3>
         <div class="mb-4">
           <p class="mb-2">
-            Frontend Tech Lead at Patterson Agency, a digital agency in
-            Mallorca, Spain with over 10 years experience in Frontend
-            development. Microsoft Most Valuable Professional in developer
-            technologies, Google Developer Expert in web technologies and
-            Cloudinary Media Developer Expert.
+            Head of Learning and Developer Advocate for NuxtJS with over 10
+            years experience in Frontend development. Microsoft Most Valuable
+            Professional in developer technologies, Google Developer Expert in
+            web technologies and Cloudinary Media Developer Expert.
           </p>
           <p>
-            I have a special love for JavaScript frameworks especially Vue.JS
+            I have a special love for JavaScript frameworks especially Vue.js
             and Nuxt.js and improving performance with webpack and of course the
             JAMstack. I hold a Frontend and FullStack Tech Degree and am
             Microsoft certified. I am an international speaker and organiser of
-            MallorcaJS and VueSpain. I am a Nuxt Team Member and I contribute to
-            webpack. I am a teacher at Vue School and have created the Vue
-            Router and Vue Internationalisation course and I am a writer for
-            Ultimate Courses.
+            MallorcaJS and VueSpain. I contribute to open source. I am a teacher
+            at Vue School and have created the Vue Router and Vue
+            Internationalisation course and I am a writer for Ultimate Courses.
           </p>
         </div>
         <div class="flex w-full mb-4">

@@ -16,8 +16,7 @@
           </h3>
           <div class="text-white subtitle font-medium">
             <p class="mb-2">
-              Frontend Tech Lead | Tech Consultant | Nuxt Team Member | Speaker
-              | Teacher
+              Head of Learning | Developer Advocate | Speaker | Teacher
             </p>
             <p>Microsoft MVP | Google GDE | Cloudinary MDE</p>
           </div>
