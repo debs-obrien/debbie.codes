@@ -1,10 +1,14 @@
 export const state = () => ({
-  blogPosts: []
+  blogPosts: [],
+  currentArticle: null
 })
 
 export const mutations = {
   setBlogPosts(state, list) {
     state.blogPosts = list
+  },
+  SET_CURRENT_ARTICLE(state, article) {
+    state.currentArticle = article
   }
 }
 

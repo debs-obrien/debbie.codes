@@ -2,7 +2,7 @@
   <div class="">
     <TopBar />
     <div class="container mt-top-bar">
-      <nuxt />
+      <nuxt keep-alive />
     </div>
   </div>
 </template>

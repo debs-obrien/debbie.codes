@@ -44,11 +44,26 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['~/assets/css/tailwind.css', '~/assets/css/main.css'],
+  css: [
+    '~/assets/css/tailwind.css',
+    '~/assets/css/main.css',
+    '~/assets/styles/reset.scss',
+    '~/assets/styles/base.scss',
+    '~/assets/styles/highlight.scss',
+    '~/assets/styles/app.scss'
+  ],
+  styleResources: {
+    scss: ['~/assets/styles/tokens.scss']
+  },
+
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~/plugins/url-helpers.js'],
+  plugins: [
+    '~/plugins/url-helpers.js',
+    '~/plugins/vue-placeholders.js',
+    '~/plugins/vue-observe-visibility.client.js'
+  ],
   /*
    ** Nuxt.js dev-modules
    */
@@ -58,7 +73,9 @@ export default {
     // Doc: https://github.com/nuxt-community/stylelint-module
     '@nuxtjs/stylelint-module',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/style-resources',
+    '@nuxtjs/svg'
   ],
 
   /*

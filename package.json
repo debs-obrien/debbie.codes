@@ -32,14 +32,19 @@
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/pwa": "^3.0.0-0",
+    "@nuxtjs/svg": "^0.1.7",
+    "core-js": "2",
     "graphql-tag": "^2.10.3",
     "netlify-lambda": "^1.6.3",
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.0.0",
+    "vue-content-placeholders": "^0.2.1",
+    "vue-observe-visibility": "^0.4.6"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^2.0.0",
     "@nuxtjs/eslint-module": "^1.0.0",
     "@nuxtjs/markdownit": "^1.2.9",
+    "@nuxtjs/style-resources": "^1.0.0",
     "@nuxtjs/stylelint-module": "^3.1.0",
     "@nuxtjs/tailwindcss": "^1.0.0",
     "@vue/test-utils": "^1.0.0-beta.27",
@@ -50,6 +55,7 @@
     "eslint-plugin-nuxt": ">=0.4.2",
     "eslint-plugin-prettier": "^3.1.2",
     "husky": "^4.0.0",
+    "hygen": "^5.0.3",
     "jest": "^24.1.0",
     "lint-staged": "^10.0.0",
     "markdown-it-attrs": "^3.0.2",
@@ -57,9 +63,10 @@
     "markdownlint-cli": "^0.22.0",
     "nuxt-webfontloader": "^1.1.0",
     "prettier": "^1.19.1",
+    "sass": "^1.26.3",
+    "sass-loader": "^8.0.2",
     "stylelint": "^10.1.0",
     "vue-jest": "^4.0.0-0",
-    "vuepress": "^1.0.3",
-    "hygen": "^5.0.3"
+    "vuepress": "^1.0.3"
   }
 }
