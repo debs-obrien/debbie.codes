@@ -41,11 +41,11 @@
       </div>
       <div class="w-full md:w-3/5 md:ml-8">
         <form
+          id="contact_form"
           name="contact"
           method="POST"
           data-netlify="true"
           netlify-honeypot="bot-field"
-          id="contact_form"
           action="/thank-you/"
           class="w-full"
         >
@@ -61,8 +61,8 @@
           <ul class="mb-10">
             <li class="w-full md:w-1/2 mb-10">
               <input
-                name="name"
                 id="name"
+                name="name"
                 type="text"
                 placeholder="Your Name"
                 required
@@ -70,8 +70,8 @@
             </li>
             <li class="w-full md:w-1/2 mb-10">
               <input
-                name="email"
                 id="email"
+                name="email"
                 type="text"
                 placeholder="Your Email"
                 required
@@ -79,8 +79,8 @@
             </li>
             <li class="w-full">
               <textarea
-                name="message"
                 id="message"
+                name="message"
                 placeholder="Your Message"
                 required
               ></textarea>

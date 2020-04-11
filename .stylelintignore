@@ -2,3 +2,4 @@
 /dist/**
 /tests/unit/coverage/**
 /assets/scss/variables.scss
+/assets/css/main.css

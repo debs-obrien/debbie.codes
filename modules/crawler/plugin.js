@@ -17,7 +17,7 @@ if (process.server && process.static) {
             links.push(href)
           }
         }
-      },
+      }
     })
   }
 }

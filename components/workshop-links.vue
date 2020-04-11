@@ -47,75 +47,75 @@ export default {
     img: {
       type: String,
       default: '',
-      required: false,
+      required: false
     },
     alt: {
       type: String,
       default: '',
-      required: false,
+      required: false
     },
     place: {
       type: String,
       default: '',
-      required: true,
+      required: true
     },
     year: {
       type: Number,
       default: 2020,
-      required: true,
+      required: true
     },
     country: {
       type: String,
       default: '',
-      required: false,
+      required: false
     },
     duration: {
       type: String,
       default: '',
-      required: true,
+      required: true
     },
     topic: {
       type: String,
       default: '',
-      required: true,
+      required: true
     },
     name: {
       type: String,
       default: '',
-      required: false,
+      required: false
     },
     title: {
       type: String,
       default: '',
-      required: false,
+      required: false
     },
 
     url: {
       type: String,
       default: '',
-      required: false,
+      required: false
     },
     notesUrl: {
       type: String,
       default: '',
-      required: false,
+      required: false
     },
     blogUrl: {
       type: String,
       default: '',
-      required: false,
+      required: false
     },
     videoUrl: {
       type: String,
       default: '',
-      required: false,
+      required: false
     },
     slidesUrl: {
       type: String,
       default: '',
-      required: false,
-    },
-  },
+      required: false
+    }
+  }
 }
 </script>
 

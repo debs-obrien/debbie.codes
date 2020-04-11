@@ -16,13 +16,13 @@ export default {
   components: {},
   data() {
     return {
-      show: false,
+      show: false
     }
   },
   methods: {
     toggleItem() {
       this.show = !this.show
-    },
-  },
+    }
+  }
 }
 </script>

@@ -17,7 +17,7 @@
 export default {
   data() {
     return {
-      adult: 0,
+      adult: 0
     }
   },
   methods: {
@@ -26,7 +26,7 @@ export default {
     },
     minusAdult() {
       this.adult -= 1
-    },
-  },
+    }
+  }
 }
 </script>

@@ -1,11 +1,11 @@
 export const state = () => ({
-  blogPosts: [],
+  blogPosts: []
 })
 
 export const mutations = {
   setBlogPosts(state, list) {
     state.blogPosts = list
-  },
+  }
 }
 
 export const actions = {
@@ -21,5 +21,5 @@ export const actions = {
       return res
     })
     await commit('setBlogPosts', blogPosts)
-  },
+  }
 }

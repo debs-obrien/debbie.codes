@@ -1,13 +1,13 @@
 const { join } = require('path')
 const logger = require('consola').withScope('docs/crawler')
 
-module.exports = async function () {
+module.exports = async function() {
   const isBuild = this.options._build
 
   if (isBuild) {
     // Add runtime plugin
     this.addPlugin({
-      src: join(__dirname, 'plugin.js'),
+      src: join(__dirname, 'plugin.js')
     })
   }
 

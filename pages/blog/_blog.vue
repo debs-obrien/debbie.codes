@@ -1,7 +1,7 @@
 <template>
   <div class="flex">
     <div class="hidden lg:block lg:w-1/4">
-      <div v-for="(i, post) in blogPosts" :key="i">
+      <div v-for="post in blogPosts" :key="post.slug">
         <nuxt-link :to="`/blog/${post.slug}`">{{ post.title }}</nuxt-link>
       </div>
     </div>
@@ -21,14 +21,14 @@ export default {
     if (payload) return { blogPost: payload }
     else
       return {
-        blogPost: await require(`~/assets/content/blog/${params.blog}.json`),
+        blogPost: await require(`~/assets/content/blog/${params.blog}.json`)
       }
   },
   computed: {
     blogPosts() {
       return this.$store.state.blogPosts
-    },
-  },
+    }
+  }
 }
 </script>
 <style>

@@ -14,10 +14,10 @@ export default {
   components: {
     AdultCounter,
     MyDropdown,
-    MyAccordion,
+    MyAccordion
   },
   data() {
     return {}
-  },
+  }
 }
 </script>

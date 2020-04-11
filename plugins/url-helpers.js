@@ -1,4 +1,4 @@
-export default function (_, inject) {
+export default function(_, inject) {
   inject('url', {
     bse(path) {
       return process.env.baseImage + path
@@ -8,6 +8,6 @@ export default function (_, inject) {
     },
     workshop(path) {
       return process.env.workshopImage + path
-    },
+    }
   })
 }

@@ -49,76 +49,76 @@ export default {
     img: {
       type: String,
       default: '',
-      required: false,
+      required: false
     },
     alt: {
       type: String,
       default: '',
-      required: false,
+      required: false
     },
 
     type: {
       type: String,
       default: '',
-      required: true,
+      required: true
     },
     name: {
       type: String,
       default: '',
-      required: true,
+      required: true
     },
     date: {
       type: String,
       default: '',
-      required: true,
+      required: true
     },
     place: {
       type: String,
       default: '',
-      required: true,
+      required: true
     },
     country: {
       type: String,
       default: '',
-      required: true,
+      required: true
     },
     url: {
       type: String,
       default: '',
-      required: false,
+      required: false
     },
 
     notesUrl: {
       type: String,
       default: '',
-      required: false,
+      required: false
     },
     blogUrl: {
       type: String,
       default: '',
-      required: false,
+      required: false
     },
     videoUrl: {
       type: String,
       default: '',
-      required: false,
+      required: false
     },
     talk: {
       type: String,
       default: '',
-      required: false,
+      required: false
     },
     desc: {
       type: String,
       default: '',
-      required: false,
+      required: false
     },
     slidesUrl: {
       type: String,
       default: '',
-      required: false,
-    },
-  },
+      required: false
+    }
+  }
 }
 </script>
 

@@ -43,11 +43,11 @@
         :date="conf.date"
         :type="conf.type"
         :url="conf.url"
-        :notesUrl="conf.notesUrl"
-        :blogUrl="conf.blogUrl"
-        :videoUrl="conf.videoUrl"
+        :notes-url="conf.notesUrl"
+        :blog-url="conf.blogUrl"
+        :video-url="conf.videoUrl"
         :talk="conf.talk"
-        :slidesUrl="conf.slidesUrl"
+        :slides-url="conf.slidesUrl"
         :country="conf.country"
       />
     </div>
@@ -79,7 +79,7 @@ export const conferencesQuery = gql`
 `
 export default {
   components: {
-    ConferenceLinks,
+    ConferenceLinks
   },
 
   async asyncData({ app, route, error }) {
@@ -87,10 +87,10 @@ export default {
       const client = app.apolloProvider.defaultClient
       const response = await client.query({
         query: conferencesQuery,
-        variables: {},
+        variables: {}
       })
       return {
-        conferences: response.data.conferences,
+        conferences: response.data.conferences
       }
     } catch (error) {}
   },
@@ -98,19 +98,19 @@ export default {
     return {
       type: '',
       loading: 0,
-      conferences: [],
+      conferences: []
     }
   },
   computed: {
     conferenceList() {
       return this.conferences.filter((el) => el.type.match(this.type))
-    },
+    }
   },
 
   methods: {
     FilterConferenceByType(type) {
       this.type = type
-    },
-  },
+    }
+  }
 }
 </script>

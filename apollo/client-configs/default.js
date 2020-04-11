@@ -7,5 +7,5 @@ const GRAPHCMS_API = 'https://debbie-codes.herokuapp.com/v1/graphql'
 export default () => ({
   link: new HttpLink({ uri: GRAPHCMS_API }),
   cache: new InMemoryCache(),
-  defaultHttpLink: false,
+  defaultHttpLink: false
 })

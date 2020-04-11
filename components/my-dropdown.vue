@@ -5,7 +5,7 @@
     <button class="bg-green-500 hover:bg-green-200 p-2" @click="toggle">
       Dropdown
     </button>
-    <div class="dropdown border-gray-600 border w-auto" v-show="isOpen">
+    <div v-show="isOpen" class="dropdown border-gray-600 border w-auto">
       <ul class="p-2">
         <li>Nuxt</li>
         <li>Vue</li>
@@ -18,15 +18,15 @@
 export default {
   data() {
     return {
-      isOpen: false,
+      isOpen: false
     }
   },
 
   methods: {
     toggle() {
       this.isOpen = !this.isOpen
-    },
-  },
+    }
+  }
 }
 </script>
 <style>

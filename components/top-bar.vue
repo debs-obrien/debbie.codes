@@ -9,8 +9,8 @@
           </div>
           <button
             class="block lg:hidden"
-            @click="toggle"
             aria-label="open menu"
+            @click="toggle"
           >
             <ul v-if="!isOpen" class="hamburger text-white">
               <li class="bg-white"></li>
@@ -27,8 +27,8 @@
 
     <!-- Dropdown -->
     <div
-      class="text-white bg-black w-full h-full px-10"
       v-show="isOpen"
+      class="text-white bg-black w-full h-full px-10"
       @click="isOpen = false"
     >
       <TheNavigation />
@@ -41,18 +41,18 @@ import TheNavigation from '@/components/the-navigation'
 
 export default {
   components: {
-    TheNavigation,
+    TheNavigation
   },
   data() {
     return {
-      isOpen: false,
+      isOpen: false
     }
   },
   methods: {
     toggle() {
       this.isOpen = !this.isOpen
-    },
-  },
+    }
+  }
 }
 </script>
 

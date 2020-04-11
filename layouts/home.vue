@@ -10,7 +10,7 @@ import TopBar from '@/components/top-bar'
 
 export default {
   components: {
-    TopBar,
-  },
+    TopBar
+  }
 }
 </script>

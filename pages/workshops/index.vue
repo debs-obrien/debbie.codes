@@ -12,10 +12,10 @@
         :title="workshop.title"
         :url="workshop.url"
         :year="workshop.year"
-        :notesUrl="workshop.notesUrl"
-        :blogUrl="workshop.blogUrl"
-        :videoUrl="workshop.videoUrl"
-        :slidesUrl="workshop.slidesUrl"
+        :notes-url="workshop.notesUrl"
+        :blog-url="workshop.blogUrl"
+        :video-url="workshop.videoUrl"
+        :slides-url="workshop.slidesUrl"
       />
     </div>
   </div>
@@ -46,18 +46,18 @@ export const workshops = gql`
 `
 export default {
   components: {
-    WorkshopLinks,
+    WorkshopLinks
   },
   data() {
     return {
-      workshops: [],
+      workshops: []
     }
   },
   apollo: {
     $loadingKey: 'loading',
     workshops: {
-      query: workshops,
-    },
-  },
+      query: workshops
+    }
+  }
 }
 </script>

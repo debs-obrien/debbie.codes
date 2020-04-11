@@ -13,33 +13,29 @@ export default {
       ',c_thumb,w_130,h_130/v1565547670/debbie.codes/workshops/',
     conferenceImage:
       cloudinaryUrl +
-      ',c_thumb,w_130,h_130/v1565547670/debbie.codes/conferences/',
+      ',c_thumb,w_130,h_130/v1565547670/debbie.codes/conferences/'
   },
   /*
    ** Headers of the page
    */
   head: {
-    title: "Debbie O'Brien - Frontend Tech Lead and Tech Consultant",
+    title: process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
-        content:
-          'Frontend Tech Lead and Tech Consultant with over 10 years experience in Frontend development. Microsoft Most Valuable Professional, Google Developer Expert and Cloudinary Media Developer Expert.',
-      },
+        content: process.env.npm_package_description || ''
+      }
     ],
-    htmlAttrs: {
-      lang: 'en',
-    },
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     script: [
       {
         src: 'https://identity.netlify.com/v1/netlify-identity-widget.js',
-        defer: true,
-      },
-    ],
+        defer: true
+      }
+    ]
   },
   /*
    ** Customize the progress-bar color
@@ -54,77 +50,71 @@ export default {
    */
   plugins: ['~/plugins/url-helpers.js'],
   /*
+   ** Nuxt.js dev-modules
+   */
+  buildModules: [
+    // Doc: https://github.com/nuxt-community/eslint-module
+    '@nuxtjs/eslint-module',
+    // Doc: https://github.com/nuxt-community/stylelint-module
+    '@nuxtjs/stylelint-module',
+    // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
+    '@nuxtjs/tailwindcss'
+  ],
+
+  /*
    ** Nuxt.js modules
    */
   modules: [
-    '@nuxtjs/eslint-module',
-    '@nuxtjs/markdownit',
+    // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     ['@nuxtjs/pwa', { icon: false }],
+    // Doc: https://github.com/nuxt-community/dotenv-module
+    '@nuxtjs/dotenv',
+    '@nuxtjs/markdownit',
+    'nuxt-purgecss',
     'nuxt-webfontloader',
     '@nuxtjs/apollo',
-    'nuxt-purgecss',
-    '~/modules/static/',
     '~/modules/crawler/',
+    '~/modules/static/'
   ],
-
   purgeCSS: {
     mode: 'postcss',
-    whitelistPatterns: [/layout/, /page/, /section/, /pre/, /code/],
+    whitelistPatterns: [/layout/, /page/, /section/, /pre/, /code/]
   },
-
   /*
-   ** Dynamic Routes added
+   ** Axios module configuration
+   ** See https://axios.nuxtjs.org/options
    */
-  // generate: {
-  //   routes: function() {
-  //     const fs = require('fs')
-  //     const path = require('path')
-  //     return fs.readdirSync('./assets/content/blog').map((file) => {
-  //       return {
-  //         route: `/blog/${path.parse(file).name}`, // Return the slug
-  //         payload: require(`./assets/content/blog/${file}`),
-  //       }
-  //     })
-  //   },
-  // },
-
+  axios: {},
+  /*
+   ** Build configuration
+   */
   webfontloader: {
     google: {
       families: [
         'Saira:300,400,500,600,700&display=swap',
-        'Nunito:300i,400,400i,600,600i,700&display=swap',
-      ],
-    },
+        'Nunito:300i,400,400i,600,600i,700&display=swap'
+      ]
+    }
   },
-
   markdownit: {
     preset: 'default',
     linkify: true,
     injected: true,
     breaks: true,
-    use: ['markdown-it-div', 'markdown-it-attrs'],
+    use: ['markdown-it-div', 'markdown-it-attrs']
   },
-
   // Give apollo module options
   apollo: {
     clientConfigs: {
-      default: '~/apollo/client-configs/default.js',
-    },
+      default: '~/apollo/client-configs/default.js'
+    }
   },
 
-  /*
-   ** Build configuration
-   */
   build: {
-    postcss: {
-      plugins: {
-        tailwindcss: './tailwind.config.js',
-      },
-    },
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {},
-  },
+    extend(config, ctx) {}
+  }
 }

@@ -20,6 +20,6 @@ export default {
     )
 
     return { hello: data }
-  },
+  }
 }
 </script>

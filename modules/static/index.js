@@ -8,11 +8,11 @@ const BUILD_HASH = crypto
   .digest('hex')
   .substr(0, 20)
 
-module.exports = function (moduleOptions) {
+module.exports = function(moduleOptions) {
   const options = {
     exclude: [],
     ...this.options.static,
-    ...moduleOptions,
+    ...moduleOptions
   }
 
   const relativePayloadDirPathFromGenerateDir = path.join(
@@ -60,31 +60,34 @@ module.exports = function (moduleOptions) {
       relativePathFromGenerateDir: relativePayloadDirPathFromGenerateDir,
       rawExcludeRegexes: []
         .concat(options.exclude, this.options.generate.exclude)
-        .map(String),
-    },
+        .map(String)
+    }
   })
   this.nuxt.options.router.middleware.push('nuxt-static')
 }
 
-const recreatePageHtmlWithPayloadJs = function (
+const recreatePageHtmlWithPayloadJs = function(
   { html, route },
   windowNamespace,
   relativePathFromGenerateDir
 ) {
   const chunks = html.split(`<script>window.${windowNamespace}=`)
   const [pre] = chunks
-  const post = chunks[1].split('</script>').slice(1).join('</script>')
+  const post = chunks[1]
+    .split('</script>')
+    .slice(1)
+    .join('</script>')
   const path = route === '/' ? '' : route
 
   return `${pre}<script defer src="${relativePathFromGenerateDir}/${path}/payload.js"></script>${post}`
 }
 
-const extractPayloadData = function ({ html, route }, windowNamespace) {
+const extractPayloadData = function({ html, route }, windowNamespace) {
   const chunks = html.split(`<script>window.${windowNamespace}=`)
   return chunks[1].split('</script>').shift()
 }
 
-const writePayloadAndReturnPath = async function (
+const writePayloadAndReturnPath = async function(
   payload,
   routePath,
   windowNamespace
@@ -108,6 +111,6 @@ const writePayloadAndReturnPath = async function (
       path.resolve(routePath, `payload.js`),
       `window.${windowNamespace}=${payload}`,
       'utf-8'
-    ),
+    )
   ])
 }

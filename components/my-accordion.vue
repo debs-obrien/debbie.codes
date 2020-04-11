@@ -22,25 +22,25 @@ import BaseAccordian from '@/components/_base-accordion'
 
 export default {
   components: {
-    BaseAccordian,
+    BaseAccordian
   },
   data() {
     return {
       accordions: [
         {
           title: 'Vue',
-          text: 'All about Vue',
+          text: 'All about Vue'
         },
         {
           title: 'Nuxt',
-          text: 'All about Nuxt',
+          text: 'All about Nuxt'
         },
         {
           title: 'webpack',
-          text: 'All about webpack',
-        },
-      ],
+          text: 'All about webpack'
+        }
+      ]
     }
-  },
+  }
 }
 </script>
