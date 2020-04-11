@@ -127,6 +127,10 @@ export default {
       default: '~/apollo/client-configs/default.js'
     }
   },
+  generate: {
+    fallback: true,
+    exclude: [/t/]
+  },
 
   build: {
     /*

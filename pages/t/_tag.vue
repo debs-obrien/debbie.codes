@@ -60,7 +60,7 @@ export default {
   },
   async fetch() {
     const articles = await fetch(
-      `https://dev.to/api/articles?tag=${this.$route.params.tag}&top=365&page=${this.currentPage}`
+      `https://dev.to/api/articles?username=debs_obrien&tag=${this.$route.params.tag}&top=365&page=${this.currentPage}`
     ).then((res) => res.json())
 
     if (!articles.length && this.currentPage === 1) {
