@@ -60,7 +60,7 @@ export default {
   },
   async fetch() {
     const articles = await fetch(
-      `https://dev.to/api/articles?username=debs_obrien&state=rising&page=${this.currentPage}`
+      `https://dev.to/api/articles?username=debs_obrien&page=${this.currentPage}`
     ).then((res) => res.json())
 
     if (!articles.length && this.currentPage === 1) {
