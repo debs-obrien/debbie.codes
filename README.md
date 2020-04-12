@@ -1,22 +1,5 @@
-# getting-started
+# Debbie O'Brien
 
-> My sublime Nuxt.js project
+Head of Learning and Developer Advocate for NuxtJS with over 10 years experience in Frontend development. Microsoft Most Valuable Professional in developer technologies, Google Developer Expert in web technologies and Cloudinary Media Developer Expert.
 
-## Build Setup
-
-```bash
-# install dependencies
-$ yarn install
-
-# serve with hot reload at localhost:3000
-$ yarn dev
-
-# build for production and launch server
-$ yarn build
-$ yarn start
-
-# generate static project
-$ yarn generate
-```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+I have a special love for JavaScript frameworks especially Vue.js and Nuxt.js and improving performance with webpack and of course the JAMstack. I hold a Frontend and FullStack Tech Degree and am Microsoft certified. I am an international speaker and organiser of MallorcaJS and VueSpain. I contribute to open source. I am a teacher at Vue School and have created the Vue Router and Vue Internationalisation course and I am a writer for Ultimate Courses.
