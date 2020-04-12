@@ -41,7 +41,7 @@ export default {
   async fetch() {
     const res = await fetch(
       // eslint-disable-next-line
-      `https://dev.to/api/articles?username=${this.$route.params.username}`
+      `https://dev.to/api/articles?username=debs_obrien`
     )
     // eslint-disable-next-line
     this.articles = await res.json()

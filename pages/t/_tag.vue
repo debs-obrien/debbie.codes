@@ -49,6 +49,10 @@
 import ArticleCardBlock from '@/components/blocks/ArticleCardBlock'
 import InlineErrorBlock from '@/components/blocks/InlineErrorBlock'
 
+function capitalize(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1)
+}
+
 export default {
   components: {
     ArticleCardBlock,
@@ -58,6 +62,14 @@ export default {
     const articles = await fetch(
       `https://dev.to/api/articles?username=debs_obrien&state=rising&page=${this.currentPage}`
     ).then((res) => res.json())
+
+    if (!articles.length && this.currentPage === 1) {
+      // set status code on server
+      if (process.server) {
+        this.$nuxt.context.res.statusCode = 404
+      }
+      throw new Error(`Tag ${this.$route.params.tag} not found`)
+    }
 
     this.articles = this.articles.concat(articles)
   },
@@ -79,7 +91,9 @@ export default {
   },
   head() {
     return {
-      title: 'New Nuxt.js articles'
+      title:
+        this.$route.params.tag &&
+        `${capitalize(this.$route.params.tag)} articles`
     }
   }
 }
@@ -90,9 +104,7 @@ export default {
   max-width: $screen-xl;
   margin: auto;
   padding: 1rem;
-  min-height: 100vh;
 }
-
 .article-cards-wrapper {
   display: flex;
   flex-wrap: wrap;

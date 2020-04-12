@@ -91,7 +91,7 @@ export default {
   props: [],
   async fetch() {
     const res = await fetch(
-      `https://dev.to/api/users/by_username?url=${this.$route.params.username}`
+      `https://dev.to/api/users/by_username?url=debs_obrien`
     )
 
     if (!res.ok) {
