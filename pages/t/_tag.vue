@@ -19,7 +19,7 @@
     <template v-else>
       <div class="article-cards-wrapper">
         <article-card-block
-          v-for="(article, i) in articles"
+          v-for="(article, i) in getArticlesbyTag"
           :key="article.id"
           v-observe-visibility="
             i === articles.length - 1 ? lazyLoadArticles : false
@@ -77,6 +77,15 @@ export default {
     return {
       currentPage: 1,
       articles: []
+    }
+  },
+  computed: {
+    getArticlesbyTag() {
+      return this.articles.filter((articleTag) =>
+        articleTag.tag_list.some(
+          (t) => t.toLowerCase() === this.$route.params.tag.toLowerCase()
+        )
+      )
     }
   },
   methods: {
