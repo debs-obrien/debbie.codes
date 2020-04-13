@@ -88,14 +88,12 @@ export default {
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
     '@nuxtjs/markdownit',
-    'nuxt-purgecss',
     'nuxt-webfontloader',
     '@nuxtjs/apollo',
     '~/modules/crawler/',
     '~/modules/static/'
   ],
   purgeCSS: {
-    mode: 'postcss',
     whitelistPatterns: [/layout/, /page/, /section/, /pre/, /code/]
   },
   /*
