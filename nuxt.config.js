@@ -126,8 +126,8 @@ export default {
     }
   },
   generate: {
-    fallback: true,
-    exclude: [/t/]
+    fallback: true
+    // exclude: [/t/]
   },
 
   build: {
