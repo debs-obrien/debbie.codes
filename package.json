@@ -8,7 +8,7 @@
     "dev": "nuxt",
     "build": "nuxt build -m",
     "start": "nuxt start",
-    "generate": "nuxt generate",
+    "generate": "nuxt generate -m",
     "prod": "yarn generate; yarn build:lambda",
     "start:lambda": "netlify-lambda serve functions",
     "build:lambda": "netlify-lambda build functions",
