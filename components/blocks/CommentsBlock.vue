@@ -68,4 +68,9 @@ export default {
     box-shadow: $small-inner-shadow;
   }
 }
+.dark-mode .add-comment,
+.sepia-mode .add-comment {
+  box-shadow: none;
+  border: 1px solid #fff;
+}
 </style>

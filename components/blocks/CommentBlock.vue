@@ -1,6 +1,6 @@
 <template>
   <li class="comment" :class="level !== 0 && 'reply'">
-    <div class="card">
+    <div class="card border border-dark dark:border-white">
       <div class="profile">
         <nuxt-link
           :to="{
@@ -79,7 +79,6 @@ export default {
 <style lang="scss" scoped>
 .comment {
   .card {
-    background-color: white;
     border-radius: 0.5rem;
     margin: 1rem 0;
     padding: 1rem;

@@ -21,7 +21,7 @@
           params: { username: article.user.username, article: article.id }
         }"
       >
-        <h1>{{ article.title }}</h1>
+        <h2>{{ article.title }}</h2>
       </nuxt-link>
       <div class="tags">
         <nuxt-link
@@ -80,6 +80,7 @@ article {
       color: $primary-color;
     }
   }
+
   .image-wrapper {
     position: relative;
     padding-bottom: 56.25%;
@@ -95,7 +96,7 @@ article {
   }
   .content {
     padding: 1rem;
-    h1 {
+    h2 {
       font-size: $text-xl;
       letter-spacing: $-ls2;
       margin-bottom: 1rem;
@@ -111,6 +112,7 @@ article {
         padding: 0.5rem 0.5rem;
         margin: 0 0.5rem 0.5rem 0;
         border-radius: 0.25rem;
+        border: 1px solid white;
         box-shadow: $small-shadow;
         &:hover {
           background: $hovered-surface-color;
@@ -140,5 +142,12 @@ article {
       }
     }
   }
+}
+.dark-mode article,
+.dark-mode article .content .tags .tag,
+.sepia-mode article,
+.sepia-mode article .content .tags .tag {
+  box-shadow: none;
+  border: 1px solid #fff;
 }
 </style>

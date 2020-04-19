@@ -3,11 +3,13 @@
     <div class="flex flex-col max-width">
       <a class="justify-center" :href="url">
         <img
+          v-if="$nuxt.isOnline"
           class="w-100"
           :src="$url.conference(img)"
           :alt="alt"
           loading="auto"
         />
+        <p v-if="$nuxt.isOffline">No image available right now</p>
       </a>
       <p class="text-sm">
         <span>{{ place }},</span>

@@ -1,5 +1,5 @@
 <template>
-  <aside>
+  <aside class="border border-dark dark:border-white">
     <template v-if="$fetchState.pending">
       <div class="username-heading loading">
         <content-placeholders>
@@ -108,7 +108,6 @@ export default {
 <style lang="scss" scoped>
 aside {
   padding: 1rem;
-  background-color: $elevated-surface-color;
   border-radius: 1rem;
   .username-heading {
     display: flex;
@@ -138,7 +137,7 @@ aside {
       a:last-child {
         color: $gray-color;
         font-size: $text-sm;
-        // font-weight: $bold-body-font-weight;
+        font-weight: $bold-body-font-weight;
       }
     }
     &.loading {
@@ -169,17 +168,15 @@ aside {
       margin-bottom: 0.5rem;
     }
     .title {
-      font-size: $text-ss;
-      letter-spacing: $-ls1;
-      font-weight: $bold-body-font-weight;
       color: $gray-color;
       text-transform: uppercase;
       margin-bottom: 0.1rem;
     }
-    .content {
-      font-size: $text-sm;
-      line-height: 1.4;
-    }
   }
+}
+.dark-mode .f-button,
+.sepia-mode .f-button {
+  box-shadow: none;
+  border: 1px solid #fff;
 }
 </style>

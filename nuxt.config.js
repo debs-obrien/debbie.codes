@@ -40,15 +40,13 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#fff' },
+  // loading: '~/components/loading.vue',
   /*
    ** Global CSS
    */
   css: [
     '~/assets/css/tailwind.css',
     '~/assets/css/main.css',
-    '~/assets/styles/reset.scss',
-    '~/assets/styles/base.scss',
     '~/assets/styles/highlight.scss',
     '~/assets/styles/app.scss'
   ],
@@ -75,7 +73,8 @@ export default {
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     '@nuxtjs/tailwindcss',
     '@nuxtjs/style-resources',
-    '@nuxtjs/svg'
+    '@nuxtjs/svg',
+    '@nuxtjs/color-mode'
   ],
 
   /*
@@ -94,7 +93,7 @@ export default {
     '~/modules/static/'
   ],
   purgeCSS: {
-    whitelistPatterns: [/layout/, /page/, /section/, /pre/, /code/]
+    whitelistPatterns: [/layout/, /page/, /section/, /pre/, /code/, 'mode-dark']
   },
   /*
    ** Axios module configuration

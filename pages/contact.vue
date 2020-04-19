@@ -107,4 +107,9 @@ textarea {
   color: #333;
   transition: all 0.3s ease;
 }
+.dark-mode,
+input,
+textarea {
+  color: #fff;
+}
 </style>

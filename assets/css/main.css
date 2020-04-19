@@ -1,3 +1,22 @@
+body {
+  font-size: 18px;
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+  word-wrap: break-word;
+  font-weight: 400;
+  background-color: #fff;
+
+  @apply font-body text-secondary;
+}
+.dark-mode body {
+  background-color: #091a28;
+  color: #ebf4f1;
+}
+.sepia-mode body {
+  background-color: #f1e7d0;
+  color: #433422;
+}
+
 .container {
   margin-left: auto;
   margin-right: auto;
@@ -26,17 +45,6 @@
   @apply text-primary bg-transparent;
 }
 
-body {
-  font-size: 18px;
-  line-height: 1.6;
-  letter-spacing: 0.5px;
-  word-wrap: break-word;
-  font-weight: 400;
-  background-color: #fff;
-
-  @apply font-body text-secondary;
-}
-
 a:hover {
   text-decoration: underline;
 
@@ -56,6 +64,7 @@ section h2,
 
   @apply font-Saira font-bold uppercase mt-4 mb-2;
 }
+
 section p {
   @apply mb-2;
 }
@@ -73,4 +82,29 @@ section p {
 .page-enter,
 .page-leave-active {
   opacity: 0;
+}
+
+:root {
+  --color: #243746;
+  --color-primary: #d8002d;
+  --color-secondary: #0e2233;
+  --bg: #f3f5f4;
+  --bg-secondary: #fff;
+  --border-color: #ddd;
+}
+
+.dark-mode {
+  --color: #ebf4f1;
+  --color-primary: #d8002d;
+  --color-secondary: #fdf9f3;
+  --bg: #091a28;
+  --bg-secondary: #071521;
+  --border-color: #0d2538;
+}
+.sepia-mode {
+  --color: #433422;
+  --color-secondary: #504231;
+  --bg: #f1e7d0;
+  --bg-secondary: #eae0c9;
+  --border-color: #ded0bf;
 }

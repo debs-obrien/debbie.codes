@@ -125,6 +125,7 @@ header {
       padding: 0.5rem 0.5rem;
       margin: 0 0.5rem 0.5rem 0;
       border-radius: 0.25rem;
+      border: 1px solid white;
       box-shadow: $small-shadow;
       &:hover {
         background: $hovered-surface-color;
@@ -241,5 +242,10 @@ header {
   ol {
     margin-bottom: 1rem;
   }
+}
+.dark-mode header .tags .tag,
+.sepia-mode header .tags .tag {
+  box-shadow: none;
+  border: 1px solid #fff;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section bg-elevated dark:bg-dark>
     <template v-if="$fetchState.pending">
       <div class="image-wrapper loading">
         <content-placeholders>
@@ -25,7 +25,7 @@
         <img :src="user.profile_image" :alt="user.name" />
       </div>
       <div class="content">
-        <h1>{{ user.name }}</h1>
+        <h3>{{ user.name }}</h3>
         <a
           :href="`https://dev.to/${user.username}`"
           target="_blank"
@@ -122,7 +122,6 @@ section {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  background-color: $elevated-surface-color;
   border-radius: 1rem;
   padding: 2rem;
   margin: 0.5rem;

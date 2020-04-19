@@ -1,12 +1,12 @@
 <template>
   <div class="page-wrapper">
     <div class="article-content-wrapper">
-      <article-block class="article-block" />
+      <ArticleBlock class="article-block" />
       <div class="aside-username-wrapper">
-        <aside-username-block class="aside-username-block" />
+        <AsideUsernameBlock class="aside-username-block" />
       </div>
     </div>
-    <comments-block class="comments-block" />
+    <CommentsBlock class="comments-block" />
   </div>
 </template>
 

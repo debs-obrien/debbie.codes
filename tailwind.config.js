@@ -6,10 +6,13 @@
  */
 module.exports = {
   theme: {
+    darkSelector: '.dark-mode',
     extend: {
       colors: {
-        primary: '#d8002d;',
-        secondary: '#333'
+        primary: '#d8002d',
+        secondary: '#333',
+        dark: '#091a28',
+        elevated: '#dfe8ef'
       },
       margin: {
         'top-bar': '100px'
@@ -20,6 +23,16 @@ module.exports = {
       }
     }
   },
-  variants: {},
-  plugins: []
+  variants: {
+    backgroundColor: [
+      'dark',
+      'dark-hover',
+      'dark-group-hover',
+      'dark-even',
+      'dark-odd'
+    ],
+    borderColor: ['dark', 'dark-focus', 'dark-focus-within'],
+    textColor: ['dark', 'dark-hover', 'dark-active']
+  },
+  plugins: [require('tailwindcss-dark-mode')()]
 }

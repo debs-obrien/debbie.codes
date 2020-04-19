@@ -1,5 +1,5 @@
 <template>
-  <div class="grax_topbar w-full fixed top-0 left-0 z-10 bg-black">
+  <div class="grax_topbar w-full fixed top-0 left-0 z-10 bg-dark">
     <div class="p-4">
       <div class="container">
         <div class="w-100 h-auto items-center flex justify-between">
