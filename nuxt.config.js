@@ -40,7 +40,7 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  // loading: '~/components/loading.vue',
+  loading: { color: '#fff' },
   /*
    ** Global CSS
    */
@@ -93,7 +93,7 @@ export default {
     '~/modules/static/'
   ],
   purgeCSS: {
-    whitelistPatterns: [/layout/, /page/, /section/, /pre/, /code/, 'mode-dark']
+    whitelistPatterns: [/layout/, /page/, /section/, /pre/, /code/]
   },
   /*
    ** Axios module configuration
