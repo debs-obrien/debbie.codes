@@ -243,4 +243,9 @@ section {
     }
   }
 }
+.dark-mode section .f-button,
+.sepia-mode section .f-button {
+  box-shadow: none;
+  border: 1px solid #fff;
+}
 </style>
