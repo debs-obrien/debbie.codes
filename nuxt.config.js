@@ -19,14 +19,16 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: process.env.npm_package_name || '',
+    title: process.env.npm_package_name || 'Debbie Codes with NuxtJS',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
+        content:
+          process.env.npm_package_description ||
+          "Debbie O'Brien, Head of Learning and Developer Advocate for NuxtJS with over 10 years experience in Frontend development. Microsoft Most Valuable Professional in developer technologies, Google Developer Expert in web technologies and Cloudinary Media Developer Expert."
       }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
@@ -52,6 +54,9 @@ export default {
   ],
   styleResources: {
     scss: ['~/assets/styles/tokens.scss']
+  },
+  router: {
+    linkExactActiveClass: 'exact-active-link'
   },
 
   /*

@@ -28,7 +28,7 @@
     <!-- Dropdown -->
     <div
       v-show="isOpen"
-      class="text-white bg-black w-full h-full px-10"
+      class="text-white bg-dark w-full h-full px-10"
       @click="isOpen = false"
     >
       <TheNavigation />
