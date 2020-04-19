@@ -1,5 +1,7 @@
 <template>
   <div class="grax_topbar w-full fixed top-0 left-0 z-10 bg-dark">
+    <CookieBox />
+
     <div class="p-4">
       <div class="container">
         <div class="w-100 h-auto items-center flex justify-between">
@@ -38,10 +40,12 @@
 </template>
 <script>
 import TheNavigation from '@/components/the-navigation'
+import CookieBox from '~/components/cookie-box'
 
 export default {
   components: {
-    TheNavigation
+    TheNavigation,
+    CookieBox
   },
   data() {
     return {

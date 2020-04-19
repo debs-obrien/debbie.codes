@@ -5,7 +5,7 @@
   "author": "Debbie O&#39;Brien",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
+    "dev": "nuxt -o",
     "build": "nuxt build",
     "analyze": "nuxt build -a",
     "start": "nuxt start",
@@ -38,6 +38,8 @@
     "netlify-lambda": "^1.6.3",
     "nuxt": "^2.0.0",
     "vue-content-placeholders": "^0.2.1",
+    "vue-cookieconsent-component": "^1.2.0",
+    "vue-if-bot": "^1.2.0",
     "vue-observe-visibility": "^0.4.6"
   },
   "devDependencies": {

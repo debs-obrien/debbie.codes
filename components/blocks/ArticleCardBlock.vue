@@ -18,7 +18,10 @@
       <nuxt-link
         :to="{
           name: 'username-article',
-          params: { username: article.user.username, article: article.id }
+          params: {
+            username: article.user.username,
+            article: article.id
+          }
         }"
       >
         <h2>{{ article.title }}</h2>

@@ -14695,6 +14695,13 @@ vue-content-placeholders@^0.2.1:
   resolved "https://registry.yarnpkg.com/vue-content-placeholders/-/vue-content-placeholders-0.2.1.tgz#5876bda4577c80ff6d396fb33b2dbbf8b8cc140f"
   integrity sha512-Q+HPjuY98R0fLQ45eOOCYeMY7vpjU1H/Qqs0ptdBI6xe3nDDsPE4r/kN5YA9rVxQFP/PKhG5qQR4rqy02xPabw==
 
+vue-cookieconsent-component@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/vue-cookieconsent-component/-/vue-cookieconsent-component-1.2.0.tgz#cd6f5a37dd2301028360a169e2bee4817be18c3c"
+  integrity sha512-9vbbLSIIuLjtFuhJ2QJaY0Jt3xTmotWXsz5/rQyICK9kFgpcDd9dnDwwy753tMSoSLG0+gWKDugaHGuHMdUs2Q==
+  dependencies:
+    vue "^2.5.2"
+
 vue-eslint-parser@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/vue-eslint-parser/-/vue-eslint-parser-7.0.0.tgz#a4ed2669f87179dedd06afdd8736acbb3a3864d6"
@@ -14711,6 +14718,13 @@ vue-hot-reload-api@^2.3.0:
   version "2.3.4"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.4.tgz#532955cc1eb208a3d990b3a9f9a70574657e08f2"
   integrity sha512-BXq3jwIagosjgNVae6tkHzzIk6a8MHFtzAdwhnV5VlvPTFxDCvIttgSiHWjdGoTJvXtmRu5HacExfdarRcFhog==
+
+vue-if-bot@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/vue-if-bot/-/vue-if-bot-1.2.0.tgz#1258bd0bb02908781a7fbd0fd19643f563512d48"
+  integrity sha512-iJg8owGwT7MXWFn7UkP30C3e9fGvmRFh/SI2Cf5v83oZ9MKXN2vwunKg5KHq2OYwI5Lr88R2HY33Z7W4teWtxA==
+  dependencies:
+    vue "^2.5.16"
 
 vue-jest@^4.0.0-0:
   version "4.0.0-beta.2"
@@ -14800,7 +14814,7 @@ vue-template-es2015-compiler@^1.9.0:
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
 
-vue@^2.6.10, vue@^2.6.11:
+vue@^2.5.16, vue@^2.5.2, vue@^2.6.10, vue@^2.6.11:
   version "2.6.11"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.11.tgz#76594d877d4b12234406e84e35275c6d514125c5"
   integrity sha512-VfPwgcGABbGAue9+sfrD4PuwFar7gPb1yl1UK1MwXoQPAw0BKSqWfoYCT/ThFrdEVWoI51dBuyCoiNU9bZDZxQ==

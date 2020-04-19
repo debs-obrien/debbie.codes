@@ -98,7 +98,14 @@ export default {
     '~/modules/static/'
   ],
   purgeCSS: {
-    whitelistPatterns: [/layout/, /page/, /section/, /pre/, /code/]
+    whitelistPatterns: [
+      /layout/,
+      /page/,
+      /section/,
+      /pre/,
+      /code/,
+      'cookie-consent'
+    ]
   },
   /*
    ** Axios module configuration
