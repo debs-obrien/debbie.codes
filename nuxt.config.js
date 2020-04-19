@@ -104,7 +104,7 @@ export default {
       /section/,
       /pre/,
       /code/,
-      'cookie-consent'
+      /cookie-consent/
     ]
   },
   /*
