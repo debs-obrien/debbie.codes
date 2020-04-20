@@ -55,8 +55,11 @@ export default {
   styleResources: {
     scss: ['~/assets/styles/tokens.scss']
   },
+  // router: {
+  //   linkExactActiveClass: 'exact-active-link'
+  // },
   router: {
-    linkExactActiveClass: 'exact-active-link'
+    linkPrefetchedClass: 'nuxt-link-prefetched'
   },
 
   /*

@@ -109,6 +109,6 @@ section p {
   --border-color: #ded0bf;
 }
 
-.exact-active-link {
+.nuxt-link-exact-active {
   color: #d8002d;
 }

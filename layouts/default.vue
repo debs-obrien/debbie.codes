@@ -4,6 +4,7 @@
     <div class="container mt-top-bar">
       <nuxt keep-alive />
     </div>
+
     <TheFooter />
   </div>
 </template>
