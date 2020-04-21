@@ -55,12 +55,6 @@ export default {
   styleResources: {
     scss: ['~/assets/styles/tokens.scss']
   },
-  // router: {
-  //   linkExactActiveClass: 'exact-active-link'
-  // },
-  router: {
-    linkPrefetchedClass: 'nuxt-link-prefetched'
-  },
 
   /*
    ** Plugins to load before mounting the App
