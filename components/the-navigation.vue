@@ -7,7 +7,7 @@
           :key="index"
           class="pb-6 lg:pb-0 pr-8"
         >
-          <nuxt-link :to="nav.url" class="hover:text-primary">
+          <nuxt-link :to="nav.url" class="hover:no-underline">
             {{ nav.link }}
           </nuxt-link>
         </li>
@@ -20,10 +20,6 @@ export default {
   data() {
     return {
       navLinks: [
-        {
-          url: '/',
-          link: 'Home'
-        },
         {
           url: '/about',
           link: 'About'

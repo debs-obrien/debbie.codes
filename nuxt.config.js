@@ -55,6 +55,9 @@ export default {
   styleResources: {
     scss: ['~/assets/styles/tokens.scss']
   },
+  router: {
+    linkExactActiveClass: 'text-primary'
+  },
 
   /*
    ** Plugins to load before mounting the App
@@ -64,6 +67,7 @@ export default {
     '~/plugins/vue-placeholders.js',
     '~/plugins/vue-observe-visibility.client.js'
   ],
+
   /*
    ** Nuxt.js dev-modules
    */
@@ -104,6 +108,7 @@ export default {
       /cookie-consent/
     ]
   },
+
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options

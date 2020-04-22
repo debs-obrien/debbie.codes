@@ -108,7 +108,3 @@ section p {
   --bg-secondary: #eae0c9;
   --border-color: #ded0bf;
 }
-
-.nuxt-link-exact-active {
-  color: #d8002d;
-}

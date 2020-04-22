@@ -5,7 +5,11 @@
     <div class="p-4">
       <div class="container">
         <div class="w-100 h-auto items-center flex justify-between">
-          <div class="w-auto text-white">Debbie O'Brien</div>
+          <div class="w-auto text-white">
+            <nuxt-link to="/" class="hover:no-underline"
+              >Debbie O'Brien</nuxt-link
+            >
+          </div>
           <div class="text-white hidden lg:block">
             <TheNavigation />
           </div>
