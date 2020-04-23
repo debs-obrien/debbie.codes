@@ -222,6 +222,7 @@ header {
       background-color: #d2f3e1;
       border-radius: 0.25rem;
       padding: 0.25rem;
+      color: black;
     }
   }
   img {
