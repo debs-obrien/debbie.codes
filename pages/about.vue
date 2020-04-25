@@ -29,16 +29,14 @@
             Internationalisation course and I am a writer for Ultimate Courses.
           </p>
         </div>
-        <div class="flex w-full mb-4">
-          <div class="grax_button">
-            <a href="/contact">Send Message</a>
-          </div>
+        <div class="flex w-full mb-16">
+          <a href="/contact" class="grax_button">Send Message</a>
         </div>
 
         <div class="flex flex-wrap justify-between">
           <img
             class="mb-4"
-            src="https://res.cloudinary.com/debsobrien/image/upload/c_scale,w_200/v1579978905/ME/2019-GDE-Web-Technologies-Badge_azr0mi"
+            src="https://res.cloudinary.com/debsobrien/image/upload/c_scale,h_230/v1587830943/debbie.codes/gd_experts_lockup_vertical_color_zrxail.jpg"
             alt="Google Developer Expert"
           />
           <img
@@ -48,7 +46,7 @@
           />
           <img
             class="mb-4"
-            src="https://res.cloudinary.com/debsobrien/image/upload/c_scale,h_200/v1579979188/ME/cloudinary-mde_pky7q1.jpg"
+            src="https://res.cloudinary.com/debsobrien/image/upload/c_scale,h_230/v1587830473/debbie.codes/MDE_Abbrev_Logo_Dark-01_eyrfp5.png"
             alt="Cloudinary Media Developer Expert"
           />
         </div>

@@ -6,8 +6,13 @@
       <div class="container">
         <div class="w-100 h-auto items-center flex justify-between">
           <div class="w-auto text-white">
-            <nuxt-link to="/" class="hover:no-underline"
-              >Debbie O'Brien</nuxt-link
+            <nuxt-link to="/" class="hover:no-underline flex">
+              <img
+                class="rounded-full mr-4"
+                src="https://res.cloudinary.com/debsobrien/image/upload/w_50,c_fill,ar_1:1,g_auto,r_max/v1585999127/ME/_VZR8123_ix7vu3.jpg"
+                alt="Debbie O'Brien"
+              />
+              <span class="self-center">Debbie O'Brien</span></nuxt-link
             >
           </div>
           <div class="text-white hidden lg:block">

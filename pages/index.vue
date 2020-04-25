@@ -24,6 +24,7 @@
 </template>
 <script>
 export default {
+  layout: 'home',
   transition: 'fade',
   components: {}
 }

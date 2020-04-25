@@ -10,7 +10,7 @@
         Back to Blog List
       </nuxt-link>
       <h1 class="main-heading">{{ blogPost.title }}</h1>
-      <div v-html="$md.render(blogPost.body)" />
+      <div v-dompurify-html="$md.render(blogPost.body)" />
     </article>
   </div>
 </template>
