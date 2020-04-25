@@ -4,7 +4,7 @@
       <content-placeholders rounded>
         <content-placeholders-heading />
         <content-placeholders-img />
-        <content-placeholders-text :lines="50" />
+        <content-placeholders-text :lines="70" />
       </content-placeholders>
     </template>
     <template v-else-if="$fetchState.error">
