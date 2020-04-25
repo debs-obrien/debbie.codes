@@ -5500,6 +5500,11 @@ domhandler@^2.3.0:
   dependencies:
     domelementtype "1"
 
+dompurify@^2.0.0:
+  version "2.0.10"
+  resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-2.0.10.tgz#d193f36d8148b4297a3a420b992d20eeff47a4d3"
+  integrity sha512-ok1dcSztsIuVxWG6Cx0ujyDIzNclz9W9OIU0cOb0IT+VAtSLrOelZF4miUvSm1U4PoCw8D7sIOLCnCQOaVpr3w==
+
 domutils@1.5.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/domutils/-/domutils-1.5.1.tgz#dcd8488a26f563d61079e48c9f7b7e32373682cf"
@@ -14701,6 +14706,13 @@ vue-cookieconsent-component@^1.2.0:
   integrity sha512-9vbbLSIIuLjtFuhJ2QJaY0Jt3xTmotWXsz5/rQyICK9kFgpcDd9dnDwwy753tMSoSLG0+gWKDugaHGuHMdUs2Q==
   dependencies:
     vue "^2.5.2"
+
+vue-dompurify-html@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/vue-dompurify-html/-/vue-dompurify-html-2.1.1.tgz#2c20ee2ab361064c9ea70b1f1295e0ad84311234"
+  integrity sha512-wAf83H+/YLK3ekJTGpoyUkEnDw1Csn8vQ1kyz75lqapRDeJ64kCcCsp9vw0026hBVVbthLezUIVKQvaZSNECUQ==
+  dependencies:
+    dompurify "^2.0.0"
 
 vue-eslint-parser@^7.0.0:
   version "7.0.0"

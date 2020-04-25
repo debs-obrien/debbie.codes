@@ -1,30 +1,37 @@
 <template>
   <div class="flex border border-gray-500 p-2 w-full">
-    <div class="flex flex-col max-width">
+    <div class="image-box flex flex-col max-width">
       <a class="justify-center" :href="url">
         <img
-          v-if="$nuxt.isOnline"
           class="w-100"
           :src="$url.conference(img)"
           :alt="alt"
           loading="auto"
         />
-        <p v-if="$nuxt.isOffline">No image available right now</p>
       </a>
-      <p class="text-sm">
-        <span>{{ place }},</span>
-        <span>{{ country }}</span>
-      </p>
+    </div>
+    <div class="date-box p-2 ml-2 border-l border-gray-500 text-center">
+      <div class="text-primary font-bold date">
+        {{ showDay(date) }}
+      </div>
+      <div class="month">{{ showMonth(date) }}</div>
+      <div class="year">{{ showYear(date) }}</div>
     </div>
     <div class="w-full p-2 ml-2 border-l border-gray-500">
       <div class="flex-col-reverse md:flex-row flex w-full justify-between">
-        <a class="hover:underline" :href="url">
-          <h2 class="text-lg mt-0 font-semibold">{{ name }}</h2>
+        <a :href="url">
+          <h2 class="text-xl mt-0 font-semibold">
+            {{ name }} <span class="text-xs" v-if="place">{{ place }},</span>
+            <span class="text-xs">{{ country }}</span>
+          </h2>
         </a>
-
-        <p class="font-Saira uppercase font-semibold">{{ type }}</p>
+        <div
+          class="font-Saira uppercase font-semibold chip tag flex p-2 bg-primary border-primary rounded-lg"
+        >
+          <span>{{ type }}</span>
+        </div>
       </div>
-      <p>{{ date }}</p>
+
       <p v-if="talk">{{ talk }}</p>
       <p v-if="desc">{{ desc }}</p>
 
@@ -77,12 +84,12 @@ export default {
     place: {
       type: String,
       default: '',
-      required: true
+      required: false
     },
     country: {
       type: String,
       default: '',
-      required: true
+      required: false
     },
     url: {
       type: String,
@@ -120,6 +127,57 @@ export default {
       default: '',
       required: false
     }
+  },
+  methods: {
+    showDay(date) {
+      const newDate = new Date(date)
+      return newDate.getDate()
+    },
+    showMonth(date) {
+      const newDate = new Date(date)
+      const month = newDate.getMonth()
+      if (month === 0) {
+        return 'January'
+      }
+      if (month === 1) {
+        return 'February'
+      }
+      if (month === 2) {
+        return 'March'
+      }
+      if (month === 3) {
+        return 'April'
+      }
+      if (month === 4) {
+        return 'May'
+      }
+      if (month === 5) {
+        return 'June'
+      }
+      if (month === 6) {
+        return 'July'
+      }
+      if (month === 7) {
+        return 'August'
+      }
+      if (month === 8) {
+        return 'September'
+      }
+      if (month === 9) {
+        return 'October'
+      }
+      if (month === 10) {
+        return 'November'
+      }
+      if (month === 11) {
+        return 'December'
+      }
+    },
+    showYear(date) {
+      const newDate = new Date(date)
+
+      return newDate.getFullYear()
+    }
   }
 }
 </script>
@@ -131,5 +189,15 @@ export default {
 }
 .max-width {
   max-width: 130px;
+}
+.image-box,
+.date-box {
+  width: 160px;
+}
+.date {
+  font-size: 2rem;
+}
+.month {
+  font-size: 1.4rem;
 }
 </style>
