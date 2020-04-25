@@ -24,6 +24,7 @@ export default {
   max-width: $screen-xl;
   margin: auto;
   padding: 1rem;
+  min-height: 100vh;
 }
 
 .article-content-wrapper {
