@@ -1,7 +1,7 @@
 <template>
   <nuxt-link
     :to="{
-      name: 'username-article',
+      name: 'debs_obrien-article',
       params: { username: article.user.username, article: article.id }
     }"
     tag="article"
@@ -17,7 +17,7 @@
     <div class="content">
       <nuxt-link
         :to="{
-          name: 'username-article',
+          name: 'debs_obrien-article',
           params: {
             username: article.user.username,
             article: article.id
