@@ -2,24 +2,19 @@
   <div class="page-wrapper">
     <div class="article-content-wrapper">
       <ArticleBlock class="article-block" />
-      <div class="aside-username-wrapper">
-        <AsideUsernameBlock class="aside-username-block" />
-      </div>
+      <ArticleAside />
     </div>
-    <CommentsBlock class="comments-block" />
   </div>
 </template>
 
 <script>
-import ArticleBlock from '@/components/blocks/ArticleBlock'
-import CommentsBlock from '@/components/blocks/CommentsBlock'
-import AsideUsernameBlock from '@/components/blocks/AsideUsernameBlock'
+import ArticleAside from '@/components/blocks/ArticleAside'
 
+import ArticleBlock from '@/components/blocks/ArticleBlock'
 export default {
   components: {
     ArticleBlock,
-    CommentsBlock,
-    AsideUsernameBlock
+    ArticleAside
   }
 }
 </script>
@@ -29,6 +24,7 @@ export default {
   max-width: $screen-xl;
   margin: auto;
   padding: 1rem;
+  min-height: 100vh;
 }
 
 .article-content-wrapper {
@@ -63,12 +59,6 @@ export default {
       top: 1rem;
       // margin: 0.5rem;
     }
-  }
-}
-
-.comments-block {
-  @media (min-width: $screen-xl) {
-    margin: 0.5rem;
   }
 }
 </style>

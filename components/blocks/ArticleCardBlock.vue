@@ -1,7 +1,7 @@
 <template>
   <nuxt-link
     :to="{
-      name: 'username-article',
+      name: 'blog-devTo-debs_obrien-article',
       params: { username: article.user.username, article: article.id }
     }"
     tag="article"
@@ -17,7 +17,7 @@
     <div class="content">
       <nuxt-link
         :to="{
-          name: 'username-article',
+          name: 'blog-devTo-debs_obrien-article',
           params: {
             username: article.user.username,
             article: article.id
@@ -27,14 +27,9 @@
         <h2>{{ article.title }}</h2>
       </nuxt-link>
       <div class="tags">
-        <nuxt-link
-          v-for="tag in article.tag_list"
-          :key="tag"
-          :to="{ name: 't-tag', params: { tag } }"
-          class="tag"
-        >
+        <span v-for="tag in article.tag_list" :key="tag" class="tag">
           #{{ tag }}
-        </nuxt-link>
+        </span>
       </div>
       <div class="meta">
         <div class="scl">
@@ -152,5 +147,9 @@ article {
 .sepia-mode article .content .tags .tag {
   box-shadow: none;
   border: 1px solid #fff;
+}
+.dark-mode svg.comment path,
+.sepia-mode svg.comment path {
+  fill: white;
 }
 </style>

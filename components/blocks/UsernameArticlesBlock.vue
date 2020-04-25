@@ -3,7 +3,7 @@
     <template v-if="$fetchState.pending">
       <div class="article-cards-wrapper">
         <content-placeholders
-          v-for="p in 30"
+          v-for="p in 10"
           :key="p"
           rounded
           class="article-card-block"
@@ -39,11 +39,7 @@ export default {
     InlineErrorBlock
   },
   async fetch() {
-    const res = await fetch(
-      // eslint-disable-next-line
-      `https://dev.to/api/articles?username=debs_obrien`
-    )
-    // eslint-disable-next-line
+    const res = await fetch(`https://dev.to/api/articles?username=debs_obrien`)
     this.articles = await res.json()
   },
   data() {

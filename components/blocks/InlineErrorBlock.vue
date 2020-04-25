@@ -1,7 +1,8 @@
 <template>
-  <div class="error-block">
+  <div class="flex flex-col items-center p-2">
     <warning-icon />
-    <h2>{{ error.message }}</h2>
+    <h2 class="text-2xl pb-6">{{ error.message }}</h2>
+    <nuxt-link to="/blog">Back to Blog</nuxt-link>
   </div>
 </template>
 
@@ -22,20 +23,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.error-block {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
-}
 svg {
   width: 3rem;
   height: 3rem;
   margin-bottom: 1rem;
   opacity: 0.75;
 }
-h2 {
-  font-size: $text-2xl;
-  text-align: center;
+.dark-mode svg path {
+  fill: white;
 }
 </style>

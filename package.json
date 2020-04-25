@@ -6,9 +6,11 @@
   "private": true,
   "scripts": {
     "dev": "nuxt -o",
+    "dev:host": "nuxt --hostname '192.168.0.199' --port 8000",
     "build": "nuxt build",
     "analyze": "nuxt build -a",
     "start": "nuxt start",
+    "generate:dev": "nuxt generate",
     "generate": "nuxt generate -m",
     "prod": "yarn generate; yarn build:lambda",
     "start:lambda": "netlify-lambda serve functions",

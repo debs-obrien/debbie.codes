@@ -4,7 +4,7 @@
       <content-placeholders rounded>
         <content-placeholders-heading />
         <content-placeholders-img />
-        <content-placeholders-text :lines="50" />
+        <content-placeholders-text :lines="70" />
       </content-placeholders>
     </template>
     <template v-else-if="$fetchState.error">
@@ -14,14 +14,9 @@
       <header>
         <h1>{{ article.title }}</h1>
         <div class="tags">
-          <nuxt-link
-            v-for="tag in article.tags"
-            :key="tag"
-            :to="{ name: 't-tag', params: { tag } }"
-            class="tag"
-          >
+          <span v-for="tag in article.tags" :key="tag" class="tag">
             #{{ tag }}
-          </nuxt-link>
+          </span>
         </div>
         <div v-if="article.cover_image" class="image-wrapper">
           <img :src="article.cover_image" :alt="article.title" />
@@ -63,7 +58,7 @@ export default {
       `https://dev.to/api/articles/${this.$route.params.article}`
     ).then((res) => res.json())
 
-    if (article.id && article.user.username === this.$route.params.username) {
+    if (article.id && article.user.username === 'debs_obrien') {
       this.article = article
       this.$store.commit('SET_CURRENT_ARTICLE', this.article)
     } else {
@@ -85,15 +80,7 @@ export default {
       this.$fetch()
     }
   },
-  methods: {
-    scrollToComments() {
-      const el = document.querySelector('#comments')
-      if (el) {
-        const scrollTo = el.getBoundingClientRect().top
-        window.scrollBy({ top: scrollTo - 20, left: 0, behavior: 'smooth' })
-      }
-    }
-  },
+
   head() {
     return {
       title: this.article.title
@@ -222,6 +209,7 @@ header {
       background-color: #d2f3e1;
       border-radius: 0.25rem;
       padding: 0.25rem;
+      color: black;
     }
   }
   img {
@@ -247,5 +235,9 @@ header {
 .sepia-mode header .tags .tag {
   box-shadow: none;
   border: 1px solid #fff;
+}
+.dark-mode svg.comment path,
+.sepia-mode svg.comment path {
+  fill: white;
 }
 </style>
