@@ -14,14 +14,9 @@
       <header>
         <h1>{{ article.title }}</h1>
         <div class="tags">
-          <nuxt-link
-            v-for="tag in article.tags"
-            :key="tag"
-            :to="{ name: 't-tag', params: { tag } }"
-            class="tag"
-          >
+          <span v-for="tag in article.tags" :key="tag" class="tag">
             #{{ tag }}
-          </nuxt-link>
+          </span>
         </div>
         <div v-if="article.cover_image" class="image-wrapper">
           <img :src="article.cover_image" :alt="article.title" />
@@ -63,7 +58,7 @@ export default {
       `https://dev.to/api/articles/${this.$route.params.article}`
     ).then((res) => res.json())
 
-    if (article.id && article.user.username === this.$route.params.username) {
+    if (article.id && article.user.username === 'debs_obrien') {
       this.article = article
       this.$store.commit('SET_CURRENT_ARTICLE', this.article)
     } else {

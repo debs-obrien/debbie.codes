@@ -27,14 +27,9 @@
         <h2>{{ article.title }}</h2>
       </nuxt-link>
       <div class="tags">
-        <nuxt-link
-          v-for="tag in article.tag_list"
-          :key="tag"
-          :to="{ name: 't-tag', params: { tag } }"
-          class="tag"
-        >
+        <span v-for="tag in article.tag_list" :key="tag" class="tag">
           #{{ tag }}
-        </nuxt-link>
+        </span>
       </div>
       <div class="meta">
         <div class="scl">
