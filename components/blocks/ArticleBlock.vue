@@ -80,15 +80,7 @@ export default {
       this.$fetch()
     }
   },
-  methods: {
-    scrollToComments() {
-      const el = document.querySelector('#comments')
-      if (el) {
-        const scrollTo = el.getBoundingClientRect().top
-        window.scrollBy({ top: scrollTo - 20, left: 0, behavior: 'smooth' })
-      }
-    }
-  },
+
   head() {
     return {
       title: this.article.title
@@ -243,5 +235,9 @@ header {
 .sepia-mode header .tags .tag {
   box-shadow: none;
   border: 1px solid #fff;
+}
+.dark-mode svg.comment path,
+.sepia-mode svg.comment path {
+  fill: white;
 }
 </style>

@@ -2,15 +2,19 @@
   <div class="page-wrapper">
     <div class="article-content-wrapper">
       <ArticleBlock class="article-block" />
+      <ArticleAside />
     </div>
   </div>
 </template>
 
 <script>
+import ArticleAside from '@/components/blocks/ArticleAside'
+
 import ArticleBlock from '@/components/blocks/ArticleBlock'
 export default {
   components: {
-    ArticleBlock
+    ArticleBlock,
+    ArticleAside
   }
 }
 </script>
@@ -54,12 +58,6 @@ export default {
       top: 1rem;
       // margin: 0.5rem;
     }
-  }
-}
-
-.comments-block {
-  @media (min-width: $screen-xl) {
-    margin: 0.5rem;
   }
 }
 </style>

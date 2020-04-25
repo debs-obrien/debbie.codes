@@ -148,4 +148,8 @@ article {
   box-shadow: none;
   border: 1px solid #fff;
 }
+.dark-mode svg.comment path,
+.sepia-mode svg.comment path {
+  fill: white;
+}
 </style>
