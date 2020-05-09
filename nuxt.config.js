@@ -130,6 +130,7 @@ export default {
   generate: {
     fallback: true,
     exclude: [/code/, /^(?=.*\btest\b).*$/]
+    // this won't work yet due to having the nuxt crawler installed
   },
 
   build: {
