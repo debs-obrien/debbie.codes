@@ -3,7 +3,7 @@ const cloudinaryUrl =
 const baseUrl = 'https://debbie.codes'
 
 export default {
-  mode: 'universal',
+  target: 'static',
   env: {
     baseUrl: process.env.BASE_URL || baseUrl,
     cloudinaryPath: cloudinaryUrl,
@@ -95,20 +95,8 @@ export default {
     '@nuxtjs/dotenv',
     '@nuxtjs/markdownit',
     'nuxt-webfontloader',
-    '@nuxtjs/apollo',
-    '~/modules/crawler/',
-    '~/modules/static/'
+    '@nuxtjs/apollo'
   ],
-  purgeCSS: {
-    whitelistPatterns: [
-      /layout/,
-      /page/,
-      /section/,
-      /pre/,
-      /code/,
-      /cookie-consent/
-    ]
-  },
 
   /*
    ** Axios module configuration
@@ -140,8 +128,9 @@ export default {
     }
   },
   generate: {
-    fallback: true
-    // exclude: [/t/]
+    fallback: true,
+    exclude: [/code/, /^(?=.*\btest\b).*$/]
+    // this won't work yet due to having the nuxt crawler installed
   },
 
   build: {

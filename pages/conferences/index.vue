@@ -81,23 +81,9 @@ export default {
   components: {
     ConferenceLinks
   },
-
-  async asyncData({ app, route, error }) {
-    try {
-      const client = app.apolloProvider.defaultClient
-      const response = await client.query({
-        query: conferencesQuery,
-        variables: {}
-      })
-      return {
-        conferences: response.data.conferences
-      }
-    } catch (error) {}
-  },
   data() {
     return {
       type: '',
-      loading: 0,
       conferences: []
     }
   },
@@ -110,6 +96,12 @@ export default {
   methods: {
     FilterConferenceByType(type) {
       this.type = type
+    }
+  },
+  apollo: {
+    $loadingKey: 'loading',
+    conferences: {
+      query: conferencesQuery
     }
   }
 }

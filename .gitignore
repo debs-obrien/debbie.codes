@@ -88,3 +88,6 @@ dist
 sw.*
 
 ClicksMethods.md
+
+# Local Netlify folder
+.netlify
