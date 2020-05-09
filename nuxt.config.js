@@ -96,19 +96,7 @@ export default {
     '@nuxtjs/markdownit',
     'nuxt-webfontloader',
     '@nuxtjs/apollo'
-    // '~/modules/crawler/',
-    // '~/modules/static/'
   ],
-  // purgeCSS: {
-  //   whitelistPatterns: [
-  //     /layout/,
-  //     /page/,
-  //     /section/,
-  //     /pre/,
-  //     /code/,
-  //     /cookie-consent/
-  //   ]
-  // },
 
   /*
    ** Axios module configuration
@@ -140,9 +128,8 @@ export default {
     }
   },
   generate: {
-    fallback: true
-    // exclude: [/code/, /^(?=.*\btest\b).*$/, /about/]
-    // this won't work yet due to having the nuxt crawler installed
+    fallback: true,
+    exclude: [/code/, /^(?=.*\btest\b).*$/]
   },
 
   build: {
