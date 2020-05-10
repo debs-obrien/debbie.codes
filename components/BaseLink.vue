@@ -1,6 +1,6 @@
 <template>
   <a
-    :href="location"
+    :href="href"
     class="bg-primary text-white py-2 px-4 rounded border-solid border-2 border-primary btn font-Saira cursor-pointer"
   >
     {{ text }}
