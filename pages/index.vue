@@ -12,6 +12,7 @@
         Debbie
         <span class="text-primary">O'Brien</span>
       </h3>
+
       <div class="dark:text-white subtitle font-medium">
         <p class="mb-4">
           Head of Learning & Developer Advocate at NuxtJS

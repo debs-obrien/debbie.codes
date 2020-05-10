@@ -95,8 +95,12 @@ export default {
     '@nuxtjs/dotenv',
     '@nuxtjs/markdownit',
     'nuxt-webfontloader',
-    '@nuxtjs/apollo'
+    '@nuxtjs/apollo',
+    '@nuxt/content'
   ],
+  content: {
+    // Options
+  },
 
   /*
    ** Axios module configuration
@@ -109,8 +113,7 @@ export default {
   webfontloader: {
     google: {
       families: [
-        'Saira:300,400,500,600,700&display=swap',
-        'Nunito:300i,400,400i,600,600i,700&display=swap'
+        'Saira:300&display=swap,400&display=swap,500&display=swap,600&display=swap,700&display=swap'
       ]
     }
   },
@@ -130,7 +133,6 @@ export default {
   generate: {
     fallback: true,
     exclude: [/code/, /^(?=.*\btest\b).*$/]
-    // this won't work yet due to having the nuxt crawler installed
   },
 
   build: {

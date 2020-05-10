@@ -69,13 +69,21 @@ a:hover {
 }
 
 section h1,
+.nuxt-content h1,
 .main-heading {
   font-size: 30px;
 
   @apply font-Saira font-bold uppercase border-solid border-primary border-b-4 inline-block mb-4 mt-4;
 }
 
+.nuxt-content h2 {
+  font-size: 24px;
+
+  @apply font-Saira font-bold uppercase border-solid border-primary border-b-4 inline-block mb-4 mt-8;
+}
+
 section h2,
+.nuxt-content h3,
 .sub-heading {
   font-size: 20px;
 
