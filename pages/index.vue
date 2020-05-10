@@ -3,8 +3,8 @@
     <div class="hero_texts text-center px-2 ">
       <div class="hero_image flex justify-center">
         <img
-          class="rounded-full mb-4 mt-8"
-          src="https://res.cloudinary.com/debsobrien/image/upload/w_180,c_fill,ar_1:1,g_auto,r_max/v1585999127/ME/_VZR8123_ix7vu3.jpg"
+          class="rounded-full mb-4 mt-8 profile-pic border-white border"
+          src="https://res.cloudinary.com/debsobrien/image/upload/c_fill,ar_1:1,g_auto,r_max,q_auto,f_auto/v1589119213/debbie.codes/home-pic_mfirod.jpg"
           alt="Debbie O'Brien"
         />
       </div>
@@ -34,6 +34,10 @@ export default {
 .hero_texts .name {
   font-size: 75px;
   border: none;
+}
+.profile-pic {
+  height: 180px;
+  width: 180px;
 }
 
 @media (max-width: 768px) {

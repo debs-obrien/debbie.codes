@@ -8,8 +8,8 @@
           <div class="w-auto text-white">
             <nuxt-link to="/" class="hover:no-underline flex">
               <img
-                class="rounded-full mr-4"
-                src="https://res.cloudinary.com/debsobrien/image/upload/w_50,c_fill,ar_1:1,g_auto,r_max/v1585999127/ME/_VZR8123_ix7vu3.jpg"
+                class="rounded-full mr-4 profile-pic border-white border"
+                src="https://res.cloudinary.com/debsobrien/image/upload/w_100,c_fill,ar_1:1,q_auto,f_auto/v1589118478/debbie.codes/debbie-icon_esuoiv.jpg"
                 alt="Debbie O'Brien"
               />
               <span class="self-center text-white"
@@ -76,5 +76,9 @@ export default {
   width: 35px;
   height: 5px;
   margin: 6px 0;
+}
+.profile-pic {
+  height: 50px;
+  width: 50px;
 }
 </style>
