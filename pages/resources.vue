@@ -1,5 +1,8 @@
 <template>
-  <nuxt-content :document="page" />
+  <article>
+    <h1 class="main-heading">{{ page.title }}</h1>
+    <nuxt-content :document="page" />
+  </article>
 </template>
 <script>
 export default {

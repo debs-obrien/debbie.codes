@@ -48,8 +48,8 @@
   </div>
 </template>
 <script>
-import TheNavigation from '@/components/the-navigation'
-import CookieBox from '~/components/cookie-box'
+import TheNavigation from '@/components/TheNavigation'
+import CookieBox from '@/components/CookieBox'
 
 export default {
   components: {

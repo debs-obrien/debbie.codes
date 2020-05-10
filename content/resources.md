@@ -1,4 +1,6 @@
-# My Resources
+---
+title: My Resources
+---
 
 List of all my courses, podcasts, opensource projects and blog posts
 

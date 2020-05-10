@@ -21,12 +21,12 @@
       <div class="flex-col-reverse md:flex-row flex w-full justify-between">
         <a :href="url">
           <h2 class="text-xl mt-0 font-semibold">
-            {{ name }} <span class="text-xs" v-if="place">{{ place }},</span>
+            {{ name }} <span v-if="place" class="text-xs">{{ place }},</span>
             <span class="text-xs">{{ country }}</span>
           </h2>
         </a>
         <div
-          class="font-Saira uppercase font-semibold chip tag flex p-2 bg-primary border-primary rounded-lg"
+          class="font-Saira  font-bold flex p-2 bg-white border-secondary rounded-lg text-primary"
         >
           <span>{{ type }}</span>
         </div>

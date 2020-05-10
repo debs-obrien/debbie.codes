@@ -32,8 +32,7 @@ module.exports = {
         'top-bar': '100px'
       },
       fontFamily: {
-        Saira: ['Saira'],
-        body: ['sans-serif']
+        Saira: ['Saira']
       }
     }
   },

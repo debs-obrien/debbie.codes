@@ -23,7 +23,7 @@
 
 <script>
 import gql from 'graphql-tag'
-import WorkshopLinks from '@/components/workshop-links'
+import WorkshopLinks from '@/components/WorkshopLinks'
 export const workshops = gql`
   query workshops {
     workshops(order_by: { date: desc }) {

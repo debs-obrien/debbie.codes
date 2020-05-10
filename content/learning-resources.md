@@ -1,4 +1,6 @@
-# List of Learning Resources
+---
+title: List of Learning Resources
+---
 
 This is a list of the resources I have used or found useful and probably will need to come back to them at some stage.
 

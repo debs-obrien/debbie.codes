@@ -1,13 +1,16 @@
 <template>
   <div class="container">
-    <p class="text-center p-20 text-md">
-      Thanks for submitting. I will be in touch soon
-    </p>
+    <nuxt-content :document="page" />
   </div>
 </template>
-
 <script>
-export default {}
-</script>
+export default {
+  async asyncData({ $content }) {
+    const page = await $content('thank-you').fetch()
 
-<style></style>
+    return {
+      page
+    }
+  }
+}
+</script>

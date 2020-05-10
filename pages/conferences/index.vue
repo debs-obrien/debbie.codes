@@ -3,34 +3,19 @@
     <h1 class="main-heading">conferences</h1>
 
     <div class="buttons flex flex-wrap">
-      <button
-        class="grax_button-sm mb-4 mr-4"
-        @click="FilterConferenceByType('')"
-      >
+      <button class="btn" @click="FilterConferenceByType('')">
         All
       </button>
-      <button
-        class="grax_button-sm mb-4 mr-4"
-        @click="FilterConferenceByType('Speaker')"
-      >
+      <button class="btn" @click="FilterConferenceByType('Speaker')">
         Speaker
       </button>
-      <button
-        class="grax_button-sm mb-4 mr-4"
-        @click="FilterConferenceByType('Lightening Talk')"
-      >
+      <button class="btn" @click="FilterConferenceByType('Lightening Talk')">
         Lightening Talk
       </button>
-      <button
-        class="grax_button-sm mb-4 mr-4"
-        @click="FilterConferenceByType('MC')"
-      >
+      <button class="btn" @click="FilterConferenceByType('MC')">
         MC
       </button>
-      <button
-        class="grax_button-sm mb-4"
-        @click="FilterConferenceByType('Attendee')"
-      >
+      <button class="btn" @click="FilterConferenceByType('Attendee')">
         Attendee
       </button>
     </div>
@@ -56,8 +41,7 @@
 
 <script>
 import gql from 'graphql-tag'
-import ConferenceLinks from '@/components/conference-links'
-
+import ConferenceLinks from '@/components/ConferenceLinks'
 export const conferencesQuery = gql`
   query conferences {
     conferences(order_by: { date: desc }) {
@@ -106,3 +90,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+.btn {
+  @apply bg-primary text-white py-2 px-2 mb-4 mr-4 rounded border-solid border-2 border-primary btn font-Saira mb-4 mr-4;
+}
+</style>
