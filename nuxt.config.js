@@ -90,10 +90,9 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    ['@nuxtjs/pwa', { icon: false }],
+    '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
-    '@nuxtjs/markdownit',
     'nuxt-webfontloader',
     '@nuxtjs/apollo',
     '@nuxt/content'
