@@ -41,6 +41,7 @@
     "graphql-tag": "^2.10.3",
     "netlify-lambda": "^1.6.3",
     "nuxt-edge": "^2.13.0-26483059.8e2d9764",
+    "reading-time": "^1.2.0",
     "vue-content-placeholders": "^0.2.1",
     "vue-cookieconsent-component": "^1.2.0",
     "vue-if-bot": "^1.2.0",
@@ -49,6 +50,7 @@
   "devDependencies": {
     "@nuxtjs/eslint-config": "^2.0.0",
     "@nuxtjs/eslint-module": "^1.0.0",
+    "@nuxtjs/google-analytics": "^2.2.3",
     "@nuxtjs/pwa": "^3.0.0-0",
     "@nuxtjs/style-resources": "^1.0.0",
     "@nuxtjs/stylelint-module": "^3.1.0",

@@ -1,1 +1,3 @@
-# article folder in content
+---
+title: Article 1
+---

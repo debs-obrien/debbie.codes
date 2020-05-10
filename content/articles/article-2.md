@@ -1,0 +1,3 @@
+---
+title: Article 2
+---
