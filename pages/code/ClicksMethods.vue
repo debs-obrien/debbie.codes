@@ -6,9 +6,9 @@
   </div>
 </template>
 <script>
-import AdultCounter from '@/components/adult-counter'
-import MyDropdown from '@/components/my-dropdown'
-import MyAccordion from '@/components/my-accordion'
+import AdultCounter from '@/components/AdultCounter'
+import MyDropdown from '@/components/MyDropdown'
+import MyAccordion from '@/components/MyAccordion'
 
 export default {
   components: {

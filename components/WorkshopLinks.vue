@@ -6,7 +6,7 @@
           class="w-100"
           :src="$url.workshop(img)"
           :alt="alt"
-          loading="auto"
+          loading="lazy"
         />
       </a>
     </div>

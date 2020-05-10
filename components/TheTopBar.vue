@@ -12,7 +12,9 @@
                 src="https://res.cloudinary.com/debsobrien/image/upload/w_50,c_fill,ar_1:1,g_auto,r_max/v1585999127/ME/_VZR8123_ix7vu3.jpg"
                 alt="Debbie O'Brien"
               />
-              <span class="self-center">Debbie O'Brien</span></nuxt-link
+              <span class="self-center text-white"
+                >Debbie O'Brien</span
+              ></nuxt-link
             >
           </div>
           <div class="text-white hidden lg:block">
@@ -48,8 +50,8 @@
   </div>
 </template>
 <script>
-import TheNavigation from '@/components/the-navigation'
-import CookieBox from '~/components/cookie-box'
+import TheNavigation from '@/components/TheNavigation'
+import CookieBox from '@/components/CookieBox'
 
 export default {
   components: {

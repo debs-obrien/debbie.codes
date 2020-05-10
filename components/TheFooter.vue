@@ -6,7 +6,7 @@
   </footer>
 </template>
 <script>
-import ColorModePicker from '@/components/color-mode-picker'
+import ColorModePicker from '@/components/ColorModePicker'
 
 export default {
   components: {

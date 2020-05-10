@@ -18,7 +18,7 @@
   </div>
 </template>
 <script>
-import BaseAccordian from '@/components/_base-accordion'
+import BaseAccordian from '@/components/BaseAccordion'
 
 export default {
   components: {

@@ -30,8 +30,7 @@ body {
   letter-spacing: 0.5px;
   word-wrap: break-word;
   font-weight: 400;
-
-  @apply font-body;
+  @apply font-sans;
 }
 
 .container {
@@ -42,25 +41,6 @@ body {
   position: relative;
   overflow: visible;
 }
-.grax_button {
-  font-family: 'Saira', sans-serif;
-  transition: all 0.3s ease;
-
-  @apply bg-primary text-white font-medium py-2 px-4 rounded border-solid border-2 border-primary;
-}
-.grax_button:hover {
-  @apply text-primary bg-transparent;
-}
-.grax_button-sm {
-  font-family: 'Saira';
-  transition: all 0.3s ease;
-
-  @apply bg-primary text-white font-medium py-1 px-2 text-sm rounded border-solid border-2 border-primary;
-}
-.grax_button:hover,
-.grax_button-sm:hover {
-  @apply text-primary bg-transparent;
-}
 
 a:hover {
   text-decoration: underline;
@@ -68,14 +48,20 @@ a:hover {
   @apply text-primary;
 }
 
-section h1,
+.nuxt-content h1,
 .main-heading {
   font-size: 30px;
 
   @apply font-Saira font-bold uppercase border-solid border-primary border-b-4 inline-block mb-4 mt-4;
 }
 
-section h2,
+.nuxt-content h2 {
+  font-size: 24px;
+
+  @apply font-Saira font-bold uppercase border-solid border-primary border-b-4 inline-block mb-4 mt-8;
+}
+
+.nuxt-content h3,
 .sub-heading {
   font-size: 20px;
 

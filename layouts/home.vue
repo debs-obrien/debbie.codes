@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <TopBar />
+    <TheTopBar />
     <div class="container mt-top-bar">
       <nuxt keep-alive />
     </div>
@@ -10,11 +10,11 @@
 </template>
 
 <script>
-import TopBar from '@/components/top-bar'
-import TheFooter from '@/components/the-footer'
+import TheTopBar from '@/components/TheTopBar'
+import TheFooter from '@/components/TheFooter'
 export default {
   components: {
-    TopBar,
+    TheTopBar,
     TheFooter
   }
 }
