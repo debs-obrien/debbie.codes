@@ -25,6 +25,7 @@ export default {
 
     const [prev, next] = await $content('articles')
       .only(['title', 'slug'])
+      .surround(slug)
       .fetch()
 
     const stats = readingTime(page)
