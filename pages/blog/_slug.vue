@@ -6,10 +6,12 @@
     <nuxt-content :document="page" />
     <div class="flex justify-between">
       <div>
-        <a :href="`/blog/${prev.slug}`">Previous: {{ prev.title }}</a>
+        <NuxtLink :href="`/blog/${prev.slug}`"
+          >Previous: {{ prev.title }}</NuxtLink
+        >
       </div>
       <div>
-        <a :href="`/blog/${next.slug}`">Next: {{ next.title }}</a>
+        <NuxtLink :href="`/blog/${next.slug}`">Next: {{ next.title }}</NuxtLink>
       </div>
     </div>
   </div>
