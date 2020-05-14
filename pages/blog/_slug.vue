@@ -27,7 +27,6 @@ export default {
 
     const [prev, next] = await $content('articles')
       .only(['title', 'slug'])
-      .sortBy('date')
       .surround(slug)
       .fetch()
 
