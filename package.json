@@ -36,7 +36,6 @@
     "@nuxtjs/apollo": "^4.0.0-rc19",
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/color-mode": "^1.0.0",
-    "@nuxtjs/dotenv": "^1.4.0",
     "core-js": "2",
     "graphql-tag": "^2.10.3",
     "netlify-lambda": "^1.6.3",
