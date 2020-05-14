@@ -40,7 +40,7 @@
     "core-js": "2",
     "graphql-tag": "^2.10.3",
     "netlify-lambda": "^1.6.3",
-    "nuxt-edge": "^2.13.0-26483059.8e2d9764",
+    "nuxt-edge": "^2.13.0-26490262.9b29124d",
     "reading-time": "^1.2.0",
     "vue-content-placeholders": "^0.2.1",
     "vue-cookieconsent-component": "^1.2.0",
