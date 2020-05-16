@@ -129,7 +129,7 @@ export default {
   },
   generate: {
     fallback: true,
-    exclude: [/code/, /^(?=.*\btest\b).*$/]
+    exclude: [/code/, /^(?=.*\btest\b).*$/, /fallback/]
   },
 
   build: {
