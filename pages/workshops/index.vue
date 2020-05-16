@@ -56,17 +56,19 @@ export default {
     }
   },
   mounted() {
-    gsap.from('.workshop', {
-      duration: 0.5,
-      opacity: 0,
-      scale: 0,
-      y: 200,
-      ease: 'power1',
-      stagger: {
-        each: 0.1,
-        from: 'top'
+    gsap.fromTo(
+      '.workshop',
+      { opacity: 0 },
+      {
+        opacity: 1,
+        duration: 0.5,
+        ease: 'power1.out',
+        stagger: {
+          each: 0.1,
+          from: 'bottom'
+        }
       }
-    })
+    )
   },
   apollo: {
     $loadingKey: 'loading',
