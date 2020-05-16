@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="hero_texts text-center px-2 ">
+    <div class="hero_texts text-center px-2">
       <div class="hero_image flex justify-center">
         <img
           class="rounded-full mb-4 mt-8 profile-pic border-white border"
