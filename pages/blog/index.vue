@@ -25,7 +25,7 @@
             i === articles.length - 1 ? lazyLoadArticles : false
           "
           :article="article"
-          class="article-card-block"
+          class="article-card-block card"
         />
       </div>
     </template>
@@ -46,6 +46,7 @@
 </template>
 
 <script>
+import gsap from 'gsap'
 import ArticleCardBlock from '@/components/blocks/ArticleCardBlock'
 import InlineErrorBlock from '@/components/blocks/InlineErrorBlock'
 
@@ -66,6 +67,19 @@ export default {
       currentPage: 1,
       articles: []
     }
+  },
+  mounted() {
+    gsap.from('.card', {
+      duration: 0.5,
+      opacity: 0,
+      scale: 0,
+      y: 200,
+      ease: 'power1',
+      stagger: {
+        each: 0.1,
+        from: 'center'
+      }
+    })
   },
   methods: {
     lazyLoadArticles(isVisible) {

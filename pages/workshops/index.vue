@@ -16,6 +16,7 @@
         :blog-url="workshop.blogUrl"
         :video-url="workshop.videoUrl"
         :slides-url="workshop.slidesUrl"
+        class="workshop"
       />
     </div>
   </div>
@@ -23,6 +24,7 @@
 
 <script>
 import gql from 'graphql-tag'
+import gsap from 'gsap'
 import WorkshopLinks from '@/components/WorkshopLinks'
 export const workshops = gql`
   query workshops {
@@ -52,6 +54,19 @@ export default {
     return {
       workshops: []
     }
+  },
+  mounted() {
+    gsap.from('.workshop', {
+      duration: 0.5,
+      opacity: 0,
+      scale: 0,
+      y: 200,
+      ease: 'power1',
+      stagger: {
+        each: 0.1,
+        from: 'top'
+      }
+    })
   },
   apollo: {
     $loadingKey: 'loading',
