@@ -15,7 +15,7 @@
           data-netlify="true"
           netlify-honeypot="bot-field"
           action="/thank-you/"
-          class="w-full contact"
+          class="w-full"
         >
           <input type="hidden" name="form-name" value="contact" />
 
@@ -64,7 +64,6 @@
   </div>
 </template>
 <script>
-import gsap from 'gsap'
 import BaseButton from '@/components/BaseButton'
 export default {
   components: {
@@ -75,19 +74,6 @@ export default {
     return {
       page
     }
-  },
-  mounted() {
-    gsap.from('.contact', {
-      duration: 0.5,
-      opacity: 0,
-      scale: 0,
-      y: 200,
-      ease: 'power1',
-      stagger: {
-        each: 0.1,
-        from: 'top'
-      }
-    })
   }
 }
 </script>

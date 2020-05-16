@@ -1,5 +1,5 @@
 <template>
-  <footer class="flex flex-col mt-20 px-4 py-6 ">
+  <footer class="flex flex-col mt-20 px-4 py-6">
     <div>
       <ColorModePicker />
     </div>
