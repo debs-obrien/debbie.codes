@@ -6,6 +6,7 @@ export default {
   target: 'static',
   env: {
     baseUrl: process.env.BASE_URL || baseUrl,
+    API_HASURA_URL: 'https://debbie-codes.herokuapp.com/v1/graphql',
     cloudinaryPath: cloudinaryUrl,
     baseImage: cloudinaryUrl + '/',
     workshopImage:
@@ -66,7 +67,8 @@ export default {
     '~/plugins/url-helpers.js',
     '~/plugins/vue-placeholders.js',
     '~/plugins/vue-observe-visibility.client.js',
-    '~/plugins/vue-dompurify.js'
+    '~/plugins/vue-dompurify.js',
+    '@/plugins/hasura.js'
   ],
 
   /*
@@ -90,9 +92,9 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    '@nuxt/http',
     '@nuxtjs/pwa',
     'nuxt-webfontloader',
-    '@nuxtjs/apollo',
     '@nuxt/content'
   ],
   content: {
@@ -114,22 +116,9 @@ export default {
       ]
     }
   },
-  markdownit: {
-    preset: 'default',
-    linkify: true,
-    injected: true,
-    breaks: true,
-    use: ['markdown-it-div', 'markdown-it-attrs']
-  },
-  // Give apollo module options
-  apollo: {
-    clientConfigs: {
-      default: '~/apollo/client-configs/default.js'
-    }
-  },
   generate: {
     fallback: true,
-    exclude: [/code/, /^(?=.*\btest\b).*$/, /fallback/]
+    exclude: [/code/, /^(?=.*\btest\b).*$/]
   },
 
   build: {

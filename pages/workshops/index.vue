@@ -24,10 +24,11 @@
 
 <script>
 import gql from 'graphql-tag'
+import { print } from 'graphql/language/printer'
 import gsap from 'gsap'
 import WorkshopLinks from '@/components/WorkshopLinks'
-export const workshops = gql`
-  query workshops {
+const QUERY = gql`
+  query {
     workshops(order_by: { date: desc }) {
       alt
       blogUrl
@@ -50,9 +51,12 @@ export default {
   components: {
     WorkshopLinks
   },
-  data() {
+  async asyncData({ app }) {
+    const { data } = await app.$hasura({
+      query: print(QUERY)
+    })
     return {
-      workshops: []
+      workshops: data.workshops
     }
   },
   mounted() {
@@ -69,12 +73,6 @@ export default {
         }
       }
     )
-  },
-  apollo: {
-    $loadingKey: 'loading',
-    workshops: {
-      query: workshops
-    }
   }
 }
 </script>

@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "@nuxt/content": "^0.4.2",
+    "@nuxt/http": "^0.5.1",
     "@nuxtjs/apollo": "^4.0.1-rc.1",
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/color-mode": "^1.0.0",
