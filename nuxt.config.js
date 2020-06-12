@@ -68,7 +68,8 @@ export default {
     '~/plugins/vue-placeholders.js',
     '~/plugins/vue-observe-visibility.client.js',
     '~/plugins/vue-dompurify.js',
-    '@/plugins/hasura.js'
+    '@/plugins/hasura.js',
+    '@/plugins/preview.client.js'
   ],
 
   /*
