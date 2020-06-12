@@ -26,7 +26,7 @@
           </h2>
         </a>
         <div
-          class="font-Saira  font-bold flex p-2 bg-white border-secondary rounded-lg text-primary"
+          class="font-Saira font-bold flex p-2 bg-white border-secondary rounded-lg text-primary"
         >
           <span>{{ type }}</span>
         </div>

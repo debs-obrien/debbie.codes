@@ -34,16 +34,20 @@
         :talk="conf.talk"
         :slides-url="conf.slidesUrl"
         :country="conf.country"
+        class="conference"
       />
     </div>
   </div>
 </template>
 
 <script>
+import gsap from 'gsap'
 import gql from 'graphql-tag'
+import { print } from 'graphql/language/printer'
 import ConferenceLinks from '@/components/ConferenceLinks'
-export const conferencesQuery = gql`
-  query conferences {
+
+const QUERY = gql`
+  query {
     conferences(order_by: { date: desc }) {
       name
       alt
@@ -65,10 +69,17 @@ export default {
   components: {
     ConferenceLinks
   },
+  async asyncData({ app }) {
+    const { data } = await app.$hasura({
+      query: print(QUERY)
+    })
+    return {
+      conferences: data.conferences
+    }
+  },
   data() {
     return {
-      type: '',
-      conferences: []
+      type: ''
     }
   },
   computed: {
@@ -76,16 +87,25 @@ export default {
       return this.conferences.filter((el) => el.type.match(this.type))
     }
   },
+  mounted() {
+    gsap.fromTo(
+      '.conference',
+      { opacity: 0 },
+      {
+        opacity: 1,
+        duration: 0.5,
+        ease: 'power1.out',
+        stagger: {
+          each: 0.1,
+          from: 'bottom'
+        }
+      }
+    )
+  },
 
   methods: {
     FilterConferenceByType(type) {
       this.type = type
-    }
-  },
-  apollo: {
-    $loadingKey: 'loading',
-    conferences: {
-      query: conferencesQuery
     }
   }
 }

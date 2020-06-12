@@ -13,6 +13,10 @@ List of all my courses, podcasts, opensource projects and blog posts
 
 ## My Podcasts
 
+### Enjoy the Vue
+
+[Nuxt and Next Steps](https://enjoythevue.io/episodes/17)
+
 ### Views on Vue
 
 [Contributing to Open Source](https://devchat.tv/views-on-vue/vov-073-contributing-to-open-source-with-debbie-obrien/)
@@ -23,14 +27,18 @@ List of all my courses, podcasts, opensource projects and blog posts
 
 ## List of my Blog Posts
 
+### Nuxtjs.org
+
+- [Going dark with Nuxt.js color mode](https://nuxtjs.org/blog/going-dark-with-nuxtjs-color-mode)
+
 ### Medium
 
 - [Deploying to Netlify is easier than easy](https://medium.com/patterson-agency/deploying-to-netlify-is-easier-than-easy-5ba725851367)
 - [Me on Medium](https://medium.com/@debbie.obrien)
 
-### Dev
+### Dev.to
 
-[When Netlify gives you that 404 page](https://dev.to/debs_obrien/when-netlify-gives-you-that-404-page-4561)
+[Various pots on Dev.to](https://dev.to/debs_obrien)
 
 ### Ultimate Courses
 

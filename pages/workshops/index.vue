@@ -16,6 +16,7 @@
         :blog-url="workshop.blogUrl"
         :video-url="workshop.videoUrl"
         :slides-url="workshop.slidesUrl"
+        class="workshop"
       />
     </div>
   </div>
@@ -23,9 +24,11 @@
 
 <script>
 import gql from 'graphql-tag'
+import { print } from 'graphql/language/printer'
+import gsap from 'gsap'
 import WorkshopLinks from '@/components/WorkshopLinks'
-export const workshops = gql`
-  query workshops {
+const QUERY = gql`
+  query {
     workshops(order_by: { date: desc }) {
       alt
       blogUrl
@@ -48,16 +51,28 @@ export default {
   components: {
     WorkshopLinks
   },
-  data() {
+  async asyncData({ app }) {
+    const { data } = await app.$hasura({
+      query: print(QUERY)
+    })
     return {
-      workshops: []
+      workshops: data.workshops
     }
   },
-  apollo: {
-    $loadingKey: 'loading',
-    workshops: {
-      query: workshops
-    }
+  mounted() {
+    gsap.fromTo(
+      '.workshop',
+      { opacity: 0 },
+      {
+        opacity: 1,
+        duration: 0.5,
+        ease: 'power1.out',
+        stagger: {
+          each: 0.1,
+          from: 'bottom'
+        }
+      }
+    )
   }
 }
 </script>
