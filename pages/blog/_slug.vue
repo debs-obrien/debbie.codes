@@ -9,7 +9,7 @@
       <nuxt-content :document="page" />
       <ArticlePrevNext :prev="prev" :next="next" class="lg:px-8 mt-4" />
     </main>
-    <aside>
+    <aside class="hidden lg:block">
       <ul>
         <li v-for="article of articles" :key="article.slug" class="pb-2">
           <NuxtLink :to="`/blog/${article.slug}`">
@@ -50,6 +50,10 @@ export default {
 }
 </script>
 <style lang="postcss" scoped>
+aside ul{
+  top: 6rem;
+  position:sticky;
+}
 .dark-mode .nuxt-content {
   & h2,
   & h3,
@@ -176,11 +180,11 @@ export default {
   }
 }
 aside {
-  width: 25%;
+  min-width: 350px;
   margin-left: 40px;
   max-width: 350px;
 }
 main{
-  width: 75%;
+  width: auto;
 }
 </style>
