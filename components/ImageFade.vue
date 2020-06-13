@@ -4,7 +4,7 @@
     :src-placeholder="props.srcPlaceholder"
     :alt="props.alt"
     class="img"
-  ></v-lazy-image>
+  />
 </template>
 
 <style scoped>

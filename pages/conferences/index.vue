@@ -1,6 +1,8 @@
 <template>
   <div class="container mt-10">
-    <h1 class="main-heading">conferences</h1>
+    <h1 class="main-heading">
+      conferences
+    </h1>
 
     <div class="buttons flex flex-wrap">
       <button class="btn" @click="FilterConferenceByType('')">
@@ -69,7 +71,7 @@ export default {
   components: {
     ConferenceLinks
   },
-  async asyncData({ app }) {
+  async asyncData ({ app }) {
     const { data } = await app.$hasura({
       query: print(QUERY)
     })
@@ -77,17 +79,17 @@ export default {
       conferences: data.conferences
     }
   },
-  data() {
+  data () {
     return {
       type: ''
     }
   },
   computed: {
-    conferenceList() {
-      return this.conferences.filter((el) => el.type.match(this.type))
+    conferenceList () {
+      return this.conferences.filter(el => el.type.match(this.type))
     }
   },
-  mounted() {
+  mounted () {
     gsap.fromTo(
       '.conference',
       { opacity: 0 },
@@ -104,7 +106,7 @@ export default {
   },
 
   methods: {
-    FilterConferenceByType(type) {
+    FilterConferenceByType (type) {
       this.type = type
     }
   }

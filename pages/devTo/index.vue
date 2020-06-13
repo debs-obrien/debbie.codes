@@ -25,7 +25,7 @@
             i === articles.length - 1 ? lazyLoadArticles : false
           "
           :article="article"
-          class="article-card-block card"
+          class="article-card-block"
         />
       </div>
     </template>
@@ -46,15 +46,61 @@
 </template>
 
 <script>
-// import gsap from 'gsap'
-
 export default {
-  async asyncData({ $content, params }) {
-    const articles = await $content('articles').only(['title', 'slug']).fetch()
+  async fetch () {
+    const articles = await fetch(
+      `https://dev.to/api/articles?username=debs_obrien&page=${this.currentPage}`
+    ).then(res => res.json())
 
+    this.articles = this.articles.concat(articles)
+  },
+  data () {
     return {
-      articles
+      currentPage: 1,
+      articles: []
+    }
+  },
+  methods: {
+    lazyLoadArticles (isVisible) {
+      if (isVisible) {
+        if (this.currentPage < 5) {
+          this.currentPage++
+          this.$fetch()
+        }
+      }
+    }
+  },
+  head () {
+    return {
+      title: 'New Nuxt.js articles'
     }
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.page-wrapper {
+  max-width: $screen-xl;
+  margin: auto;
+  padding: 1rem;
+  min-height: 100vh;
+}
+
+.article-cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  .article-card-block {
+    width: calc(100% - 2 * 1rem);
+    margin: 1rem;
+    margin-bottom: 1.5rem;
+    margin-top: 0.5rem;
+    @media (min-width: $screen-sm) {
+      width: calc(50% - 2 * 1rem);
+    }
+    @media (min-width: $screen-lg) {
+      width: calc(33.33333% - 2 * 1rem);
+    }
+  }
+}
+</style>

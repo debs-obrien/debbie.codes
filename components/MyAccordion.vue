@@ -1,6 +1,8 @@
 <template>
   <div class="p-4">
-    <h1 class="text-4xl">Accordion</h1>
+    <h1 class="text-4xl">
+      Accordion
+    </h1>
 
     <div v-for="accordion in accordions" :key="accordion.title">
       <BaseAccordian>
@@ -24,7 +26,7 @@ export default {
   components: {
     BaseAccordian
   },
-  data() {
+  data () {
     return {
       accordions: [
         {

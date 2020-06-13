@@ -3,7 +3,7 @@
 </template>
 <script>
 export default {
-  async asyncData({ $content }) {
+  async asyncData ({ $content }) {
     const page = await $content('csscamp2019').fetch()
 
     return {

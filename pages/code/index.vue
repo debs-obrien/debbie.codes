@@ -1,7 +1,11 @@
 <template>
   <div>
-    <h1 class="main-heading">Code</h1>
-    <p class="mb-4">Some simple code examples I have built using vue.js</p>
+    <h1 class="main-heading">
+      Code
+    </h1>
+    <p class="mb-4">
+      Some simple code examples I have built using vue.js
+    </p>
     <nuxt-link to="code/clicksmethods" class="button--green">
       Clicks and Methods
     </nuxt-link>
@@ -14,7 +18,7 @@
 <script>
 import axios from 'axios'
 export default {
-  async asyncData() {
+  async asyncData () {
     const { data } = await axios.get(
       'https://debbie.codes/.netlify/functions/hello'
     )

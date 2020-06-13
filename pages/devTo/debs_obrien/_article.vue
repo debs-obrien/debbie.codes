@@ -7,19 +7,8 @@
   </div>
 </template>
 
-<script>
-import ArticleAside from '@/components/blocks/ArticleAside'
-
-import ArticleBlock from '@/components/blocks/ArticleBlock'
-export default {
-  components: {
-    ArticleBlock,
-    ArticleAside
-  }
-}
-</script>
-
 <style lang="scss" scoped>
+
 .page-wrapper {
   max-width: $screen-xl;
   margin: auto;
@@ -61,4 +50,5 @@ export default {
     }
   }
 }
+
 </style>

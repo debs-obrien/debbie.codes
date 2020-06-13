@@ -10,7 +10,7 @@
 <script>
 import axios from 'axios'
 export default {
-  async asyncData() {
+  async asyncData () {
     const { data } = await axios.get(
       'https://debbie.codes/.netlify/functions/hello'
     )

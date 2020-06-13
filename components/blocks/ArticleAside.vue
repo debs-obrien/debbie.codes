@@ -2,7 +2,9 @@
   <aside
     class="flex flex-col m-0 pl-8 p-2 hidden lg:block border-l border-white"
   >
-    <h2 class="mb-4 text-2xl">Blog Articles</h2>
+    <h2 class="mb-4 text-2xl">
+      Blog Articles
+    </h2>
     <template v-if="$fetchState.error">
       <inline-error-block :error="$fetchState.error" />
     </template>
@@ -31,11 +33,11 @@ export default {
     ArticleSideBlock,
     InlineErrorBlock
   },
-  async fetch() {
-    const res = await fetch(`https://dev.to/api/articles?username=debs_obrien`)
+  async fetch () {
+    const res = await fetch('https://dev.to/api/articles?username=debs_obrien')
     this.articles = await res.json()
   },
-  data() {
+  data () {
     return {
       articles: null
     }

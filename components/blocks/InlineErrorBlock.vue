@@ -1,8 +1,12 @@
 <template>
   <div class="flex flex-col items-center p-2">
     <warning-icon />
-    <h2 class="text-2xl pb-6">{{ error.message }}</h2>
-    <nuxt-link to="/blog">Back to Blog</nuxt-link>
+    <h2 class="text-2xl pb-6">
+      {{ error.message }}
+    </h2>
+    <nuxt-link to="/blog">
+      Back to Blog
+    </nuxt-link>
   </div>
 </template>
 

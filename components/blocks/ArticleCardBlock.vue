@@ -1,7 +1,7 @@
 <template>
   <nuxt-link
     :to="{
-      name: 'blog-devTo-debs_obrien-article',
+      name: 'devTo-debs_obrien-article',
       params: { username: article.user.username, article: article.id }
     }"
     tag="article"
@@ -11,13 +11,13 @@
         v-if="article.cover_image"
         :src="article.cover_image"
         :alt="article.title"
-      />
-      <img v-else :src="article.social_image" :alt="article.title" />
+      >
+      <img v-else :src="article.social_image" :alt="article.title">
     </div>
     <div class="content">
       <nuxt-link
         :to="{
-          name: 'blog-devTo-debs_obrien-article',
+          name: 'devTo-debs_obrien-article',
           params: {
             username: article.user.username,
             article: article.id

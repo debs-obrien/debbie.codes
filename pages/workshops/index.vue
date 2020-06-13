@@ -1,6 +1,8 @@
 <template>
   <div class="container mt-10">
-    <h1 class="main-heading">Workshops</h1>
+    <h1 class="main-heading">
+      Workshops
+    </h1>
     <div v-for="(workshop, index) in workshops" :key="index" class="flex">
       <WorkshopLinks
         :img="workshop.img"
@@ -51,7 +53,7 @@ export default {
   components: {
     WorkshopLinks
   },
-  async asyncData({ app }) {
+  async asyncData ({ app }) {
     const { data } = await app.$hasura({
       query: print(QUERY)
     })
@@ -59,7 +61,7 @@ export default {
       workshops: data.workshops
     }
   },
-  mounted() {
+  mounted () {
     gsap.fromTo(
       '.workshop',
       { opacity: 0 },

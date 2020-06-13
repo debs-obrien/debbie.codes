@@ -33,6 +33,9 @@ module.exports = {
       },
       fontFamily: {
         Saira: ['Saira']
+      },
+      maxWidth: {
+        '1/4': '25%'
       }
     }
   },

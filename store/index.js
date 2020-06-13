@@ -4,16 +4,16 @@ export const state = () => ({
 })
 
 export const mutations = {
-  setBlogPosts(state, list) {
+  setBlogPosts (state, list) {
     state.blogPosts = list
   },
-  SET_CURRENT_ARTICLE(state, article) {
+  SET_CURRENT_ARTICLE (state, article) {
     state.currentArticle = article
   }
 }
 
 export const actions = {
-  async nuxtServerInit({ commit }) {
+  async nuxtServerInit ({ commit }) {
     const files = await require.context(
       '~/assets/content/blog/',
       false,

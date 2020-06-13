@@ -7,15 +7,19 @@
           :src="$url.conference(img)"
           :alt="alt"
           loading="lazy"
-        />
+        >
       </a>
     </div>
     <div class="date-box p-2 ml-2 border-l border-gray-500 text-center">
       <div class="text-primary font-bold date">
         {{ showDay(date) }}
       </div>
-      <div class="month">{{ showMonth(date) }}</div>
-      <div class="year">{{ showYear(date) }}</div>
+      <div class="month">
+        {{ showMonth(date) }}
+      </div>
+      <div class="year">
+        {{ showYear(date) }}
+      </div>
     </div>
     <div class="w-full p-2 ml-2 border-l border-gray-500">
       <div class="flex-col-reverse md:flex-row flex w-full justify-between">
@@ -32,15 +36,21 @@
         </div>
       </div>
 
-      <p v-if="talk">{{ talk }}</p>
-      <p v-if="desc">{{ desc }}</p>
+      <p v-if="talk">
+        {{ talk }}
+      </p>
+      <p v-if="desc">
+        {{ desc }}
+      </p>
 
       <ul class="flex flex-col">
         <li v-if="slidesUrl">
           <a :href="slidesUrl">Slides</a>
         </li>
         <li v-if="notesUrl">
-          <nuxt-link :to="notesUrl">Notes</nuxt-link>
+          <nuxt-link :to="notesUrl">
+            Notes
+          </nuxt-link>
         </li>
         <li v-if="blogUrl">
           <a :href="blogUrl">Blog Post</a>
@@ -129,11 +139,11 @@ export default {
     }
   },
   methods: {
-    showDay(date) {
+    showDay (date) {
       const newDate = new Date(date)
       return newDate.getDate()
     },
-    showMonth(date) {
+    showMonth (date) {
       const newDate = new Date(date)
       const month = newDate.getMonth()
       if (month === 0) {
@@ -173,7 +183,7 @@ export default {
         return 'December'
       }
     },
-    showYear(date) {
+    showYear (date) {
       const newDate = new Date(date)
 
       return newDate.getFullYear()

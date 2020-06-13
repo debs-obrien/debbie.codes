@@ -19,17 +19,13 @@
           </span>
         </div>
         <div v-if="article.cover_image" class="image-wrapper">
-          <img :src="article.cover_image" :alt="article.title" />
+          <img :src="article.cover_image" :alt="article.title">
         </div>
         <div class="meta">
           <div class="scl">
             <span>
               <heart-icon />
               {{ article.positive_reactions_count }}
-            </span>
-            <span class="comments" @click="scrollToComments">
-              <comments-icon />
-              {{ article.comments_count }}
             </span>
           </div>
           <time>{{ article.readable_publish_date }}</time>
@@ -44,19 +40,17 @@
 <script>
 import HeartIcon from '@/assets/icons/heart.svg?inline'
 import InlineErrorBlock from '@/components/blocks/InlineErrorBlock'
-import CommentsIcon from '@/assets/icons/comments.svg?inline'
 
 export default {
   components: {
     HeartIcon,
-    InlineErrorBlock,
-    CommentsIcon
+    InlineErrorBlock
   },
   props: [],
-  async fetch() {
+  async fetch () {
     const article = await fetch(
       `https://dev.to/api/articles/${this.$route.params.article}`
-    ).then((res) => res.json())
+    ).then(res => res.json())
 
     if (article.id && article.user.username === 'debs_obrien') {
       this.article = article
@@ -69,19 +63,19 @@ export default {
       throw new Error('Article not found')
     }
   },
-  data() {
+  data () {
     return {
       article: {}
     }
   },
-  activated() {
+  activated () {
     // Call fetch again if last fetch more than 60 sec ago
     if (this.$fetchState.timestamp <= Date.now() - 60000) {
       this.$fetch()
     }
   },
 
-  head() {
+  head () {
     return {
       title: this.article.title
     }
@@ -90,6 +84,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~/assets/styles/highlight.scss';
 article {
   padding: 0.5rem;
   border-radius: 1rem;
@@ -240,4 +235,5 @@ header {
 .sepia-mode svg.comment path {
   fill: white;
 }
+
 </style>

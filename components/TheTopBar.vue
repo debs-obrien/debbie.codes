@@ -11,11 +11,11 @@
                 class="rounded-full mr-4 profile-pic border-white border"
                 src="https://res.cloudinary.com/debsobrien/image/upload/w_100,c_fill,ar_1:1,q_auto,f_auto/v1589118478/debbie.codes/debbie-icon_esuoiv.jpg"
                 alt="Debbie O'Brien"
-              />
-              <span class="self-center text-white"
-                >Debbie O'Brien</span
-              ></nuxt-link
-            >
+              >
+              <span
+                class="self-center text-white"
+              >Debbie O'Brien</span>
+            </nuxt-link>
           </div>
           <div class="text-white hidden lg:block">
             <TheNavigation />
@@ -26,9 +26,9 @@
             @click="toggle"
           >
             <ul v-if="!isOpen" class="hamburger text-white">
-              <li class="bg-white"></li>
-              <li class="bg-white"></li>
-              <li class="bg-white"></li>
+              <li class="bg-white" />
+              <li class="bg-white" />
+              <li class="bg-white" />
             </ul>
             <span v-if="isOpen" class="text-white" aria-label="close menu">
               X
@@ -58,13 +58,13 @@ export default {
     TheNavigation,
     CookieBox
   },
-  data() {
+  data () {
     return {
       isOpen: false
     }
   },
   methods: {
-    toggle() {
+    toggle () {
       this.isOpen = !this.isOpen
     }
   }

@@ -38,11 +38,11 @@ export default {
     ArticleCardBlock,
     InlineErrorBlock
   },
-  async fetch() {
-    const res = await fetch(`https://dev.to/api/articles?username=debs_obrien`)
+  async fetch () {
+    const res = await fetch('https://dev.to/api/articles?username=debs_obrien')
     this.articles = await res.json()
   },
-  data() {
+  data () {
     return {
       articles: null
     }

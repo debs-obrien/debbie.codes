@@ -50,7 +50,6 @@ export default {
   css: [
     '~/assets/css/tailwind.css',
     '~/assets/css/main.css',
-    '~/assets/styles/highlight.scss',
     '~/assets/styles/app.scss'
   ],
   styleResources: {
@@ -104,8 +103,13 @@ export default {
       }
     ]
   ],
+  components: true,
   content: {
-    // Options
+    markdown: {
+      prism: {
+        theme: 'prism-themes/themes/prism-material-oceanic.css'
+      }
+    }
   },
   hooks: {
     'content:file:beforeInsert': (document) => {
@@ -149,6 +153,6 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend (config, ctx) {}
   }
 }

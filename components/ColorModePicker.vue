@@ -13,9 +13,9 @@
       <p>
         <ColorScheme placeholder="..." tag="span">
           Color mode: <b>{{ $colorMode.preference }}</b>
-          <span v-if="$colorMode.preference === 'system'"
-            >(<i>{{ $colorMode.value }}</i> mode detected)</span
-          >
+          <span
+            v-if="$colorMode.preference === 'system'"
+          >(<i>{{ $colorMode.value }}</i> mode detected)</span>
         </ColorScheme>
       </p>
     </div>
@@ -35,13 +35,13 @@ export default {
     IconDark,
     IconSepia
   },
-  data() {
+  data () {
     return {
       colors: ['system', 'light', 'dark', 'sepia']
     }
   },
   methods: {
-    getClasses(color) {
+    getClasses (color) {
       // Does not set classes on ssr preference is system (because we know them on client-side)
       if (this.$colorMode.unknown) {
         return {}

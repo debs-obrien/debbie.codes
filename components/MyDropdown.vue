@@ -1,6 +1,8 @@
 <template>
   <div class="p-4">
-    <h1 class="text-4xl">Dropdown</h1>
+    <h1 class="text-4xl">
+      Dropdown
+    </h1>
 
     <button class="bg-green-500 hover:bg-green-200 p-2" @click="toggle">
       Dropdown
@@ -16,14 +18,14 @@
 </template>
 <script>
 export default {
-  data() {
+  data () {
     return {
       isOpen: false
     }
   },
 
   methods: {
-    toggle() {
+    toggle () {
       this.isOpen = !this.isOpen
     }
   }

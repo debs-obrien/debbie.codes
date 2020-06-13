@@ -7,7 +7,7 @@
           :src="$url.workshop(img)"
           :alt="alt"
           loading="lazy"
-        />
+        >
       </a>
     </div>
     <div class="w-full p-2 ml-2 border-l border-gray-500">
@@ -16,7 +16,9 @@
           <h2 class="text-lg mt-0 font-semibold">{{ name }}</h2>
         </a>
 
-        <p class="font-Saira uppercase font-semibold">{{ topic }}</p>
+        <p class="font-Saira uppercase font-semibold">
+          {{ topic }}
+        </p>
       </div>
       <p>{{ title }}</p>
       <p>
@@ -29,7 +31,9 @@
           <a :href="slidesUrl">Slides</a>
         </li>
         <li v-if="notesUrl">
-          <nuxt-link :to="notesUrl">Notes</nuxt-link>
+          <nuxt-link :to="notesUrl">
+            Notes
+          </nuxt-link>
         </li>
         <li v-if="blogUrl">
           <a :href="blogUrl">Blog Post</a>
