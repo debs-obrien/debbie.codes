@@ -44,6 +44,7 @@ List of all my courses, podcasts, opensource projects and blog posts
 ### Nuxtjs.org
 
 - [Create a Blog with Nuxt Content](https://nuxtjs.org/blog/creating-blog-with-nuxt-content)
+- [Moving from @nuxtjs/dotenv to runtime config](https://nuxtjs.org/blog/moving-from-nuxtjs-dotenv-to-runtime-config)
 - [Going dark with Nuxt.js color mode](https://nuxtjs.org/blog/going-dark-with-nuxtjs-color-mode)
 
 ### Medium
