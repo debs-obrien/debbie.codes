@@ -11,6 +11,10 @@ List of all my courses, podcasts, opensource projects and blog posts
 - [Internationalization with Vue i18n](https://vueschool.io/courses/internationalization-with-vue-i18n)
 - [Vue Router for Everyone](https://vueschool.io/courses/vue-router-for-everyone)
 
+## Live Streaming
+
+[Nuxt.js Content module and more with James Quick](https://www.jamesqquick.com/nuxtjs-with-debbie-o-brien)
+
 ## My Podcasts
 
 ### Enjoy the Vue
@@ -21,14 +25,25 @@ List of all my courses, podcasts, opensource projects and blog posts
 
 [Contributing to Open Source](https://devchat.tv/views-on-vue/vov-073-contributing-to-open-source-with-debbie-obrien/)
 
+### Web Reactiva
+
+[Web development with NuxtJS - in Spanish](https://www.danielprimo.io/blog/desarrolla-nuxtjs-con-debbie-o-brien)
+
+### That's my Jamstack
+
+[NuxtJS, web frameworks, creating your own framework and more](https://thatsmyjamstack.com/posts/debbie-obrien/)
+
 ## My Opensource
 
-[Nuxt Boilerplate Project](https://github.com/debs-obrien/nuxt-boilerplate-project)
+- [Blog demo using Nuxt Content](https://github.com/nuxt-company/demo-blog-nuxt-content)
+- [Demo of using Hasura and Nuxt.js](https://github.com/debs-obrien/exit-lockdown)
+- [Nuxt Boilerplate Project](https://github.com/debs-obrien/nuxt-boilerplate-project)
 
 ## List of my Blog Posts
 
 ### Nuxtjs.org
 
+- [Create a Blog with Nuxt Content](https://nuxtjs.org/blog/creating-blog-with-nuxt-content)
 - [Going dark with Nuxt.js color mode](https://nuxtjs.org/blog/going-dark-with-nuxtjs-color-mode)
 
 ### Medium

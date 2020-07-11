@@ -35,9 +35,6 @@ export default {
   },
   methods: {
     toLink (slug) {
-      // if (slug === 'index') {
-      //   return this.localePath('slug')
-      // }
       return { name: 'blog-slug', params: { slug } }
     }
   }
