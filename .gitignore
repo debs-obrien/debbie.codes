@@ -91,3 +91,8 @@ ClicksMethods.md
 
 # Local Netlify folder
 .netlify
+
+# cypress
+cypress/integration/examples
+cypress/videos
+cypress/screenshots

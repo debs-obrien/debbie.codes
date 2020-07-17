@@ -14,7 +14,9 @@
               >
               <span
                 class="self-center text-white"
-              >Debbie O'Brien</span>
+              >
+              Debbie O'Brien
+            </span>
             </nuxt-link>
           </div>
           <div class="text-white hidden lg:block">
