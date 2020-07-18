@@ -86,3 +86,16 @@ section p {
 .page-leave-active {
   opacity: 0;
 }
+
+/* highlight page in corner of code */
+.nuxt-content-highlight {
+  @apply relative;
+}
+.nuxt-content-highlight .filename {
+  @apply absolute right-0 top-0 text-gray-400 font-light z-10 mr-2 mt-1 text-sm;
+}
+
+.nuxt-content .token.comment {
+  color: #acb5b9;
+}
+/* purgecss end ignore */
