@@ -32,7 +32,7 @@ We can now remove the examples folder and create our own test inside the integra
 ```js{}[home.spec.js]
 describe('The Home Page', () => {
   it('should visit the home page', () => {
-    cy.visit(Cypress.config().baseUrl + '/')
+    cy.visit('/')
   })
 })
 ```
