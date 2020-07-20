@@ -112,13 +112,9 @@ yarn test:e2e:run
 
 Once you are happy that everything is working as it should you can push your changes which will trigger the github action. Now in your github repo you can click on the actions tab and watch your action do it's job and you can see if tests are passing. 
 
-Then there is just one last step in order to get your tests working with your hosting provider. We need to modify our generate script to generate our application, install cypress and then run our test script.
+Then there is just one last step in order to get your tests working with your hosting provider. 
 
-```json{}[package.json]
-"generate": "nuxt build && nuxt export && cypress install --force && npm run test:e2e:run",
-```
-
-However, if you are using Netlify there is a netlify [plugin for cypress](https://github.com/cypress-io/netlify-plugin-cypress#readme) which makes it easier. In the Netlify dashboard go to the plugins and search for cypress and click install. 
+If you are using *Netlify* there is a netlify [plugin for cypress](https://github.com/cypress-io/netlify-plugin-cypress#readme) you can install. In the Netlify dashboard go to the plugins and search for cypress and click install. 
 
 Add netlify-plugin-cypress NPM package as a dev dependency to your repository.
 
@@ -146,4 +142,10 @@ Then add a netlify.toml file if you haven't already got one and add the followin
 
 ```
 
-And thats it. You can now go to your Netlify builds and watch your tests run and your application build. Now if your tests fail your application won't build. 
+And thats it. You can now go to your Netlify builds and watch your tests run and your application build. Now if your tests fail your application won't build. This plugin also tells you if it failed because of the tests so it is really easy to see if it is the cause of your builds breaking. 
+
+Note: If you are not using Netlify you can modify your generate script to run your tests once the application has been built.
+
+```json{}[package.json]
+"generate": "nuxt build && nuxt export && cypress install --force && npm run test:e2e:run",
+```
