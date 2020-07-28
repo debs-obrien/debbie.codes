@@ -74,7 +74,7 @@ jobs:
           browser: chrome
           headless: true
           build: npm run generate
-          start: npm run serve
+          start: npm run start
           # quote the url to be safe against YML parsing surprises
           wait-on: "http://localhost:3000"
 ```
@@ -92,7 +92,7 @@ For development it is pretty much the same except we call the dev script and the
 ```json{}[package.json]
 "cy:open": "cypress open",
 "cy:run": "cypress run",
-"test:e2e:run": "start-server-and-test serve http://localhost:3000 cy:run",
+"test:e2e:run": "start-server-and-test start http://localhost:3000 cy:run",
 "test:e2e:dev": "start-server-and-test dev http://localhost:3000 cy:open",
 ```
 
@@ -147,5 +147,5 @@ And thats it. You can now go to your Netlify builds and watch your tests run and
 Note: If you are not using Netlify you can modify your generate script to run your tests once the application has been built.
 
 ```json{}[package.json]
-"generate": "nuxt build && nuxt export && cypress install --force && npm run test:e2e:run",
+"generate": "nuxt generate && cypress install --force && npm run test:e2e:run",
 ```
