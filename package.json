@@ -44,7 +44,7 @@
     "netlify-lambda": "^1.6.3",
     "nuxt-edge": "^2.14.0-26582020.6ab65fbf",
     "prism-themes": "^1.4.0",
-    "prismjs": "^1.20.0",
+    "prismjs": "^1.21.0",
     "reading-time": "^1.2.0",
     "vue-content-placeholders": "^0.2.1",
     "vue-cookieconsent-component": "^1.2.0",
