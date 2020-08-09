@@ -98,3 +98,5 @@ const names = people.map(person => {
 And that's it. We now have a new array of names with a fullName plus the first and last names. We can add more keys to the objects in our people array and we will receive these new keys without having to modify anything thanks to the use of the spread operator. And of course we could in fact add more than one item to the names array if we wanted to. Have fun with `.map()`.
 
 This article is inspired by [Jake Dohm's video](https://simplygoodwork.com/blog/array-map-javascript-method) which I encourage you to check out.
+
+Or play around with the [codepen](https://codepen.io/debs-obrien/pen/YzqXVgd) I created.
