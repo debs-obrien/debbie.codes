@@ -29,7 +29,9 @@ The `.map()` method allows you to loop over every element in an array and modify
 
 The `.map()` method takes a function which accepts 3 arguments. The first one is the current value, the second is the index and the third one is the original array we are iterating over. 
 
+```js
 const names = people.map( function (currentValue, index, allPeople){} )
+```
 
 The function will look over the array of people and will run once for each item in the array. It therefore makes more sense to name the first argument person, the singular version of people. Most of the time you will only need and use the first argument.
 
