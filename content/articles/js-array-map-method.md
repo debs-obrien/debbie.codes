@@ -1,5 +1,5 @@
 ---
-title: The JavaScript array method
+title: The JavaScript Array.Map() method
 date: 2020-08-09
 ---
 
