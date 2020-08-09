@@ -1,6 +1,6 @@
 [build]
-  functions = "lambda"
-  Command = "yarn prod"
+  command = "npm run build"
+  publish = "dist"
 
 [build.environment]
 # cache Cypress binary in local "node_modules" folder
