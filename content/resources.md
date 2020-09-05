@@ -8,6 +8,7 @@ List of all my courses, podcasts, opensource projects and blog posts
 
 ### Vue School
 
+- [GraphQL Fundamentals](https://vueschool.io/courses/learn-graphql-fundamentals)
 - [Internationalization with Vue i18n](https://vueschool.io/courses/internationalization-with-vue-i18n)
 - [Vue Router for Everyone](https://vueschool.io/courses/vue-router-for-everyone)
 
@@ -15,7 +16,24 @@ List of all my courses, podcasts, opensource projects and blog posts
 
 [Nuxt.js Content module and more with James Quick](https://www.jamesqquick.com/nuxtjs-with-debbie-o-brien)
 
-## My Podcasts
+## My Podcasts / Interviews
+
+### Tim Benniks
+
+- [An interview with Debbie O'Brien](https://www.youtube.com/watch?v=aw4nl6hGjb0&feature=youtu.be)
+- [Vue.js Global Conference: Interview with Debbie O'Brien](https://www.youtube.com/watch?v=IBKgryFpUDs)
+
+### GraphQL Fireside Chat
+
+[Fireside Chat on graphQL, Vue and Nuxt](https://www.youtube.com/watch?v=pllsjSDVTwk&feature=youtu.be)
+
+### CityJS Conf
+
+[Upcoming online CityJS event](http://podcast.lnug.org/city-js-2020)
+
+### Vue Vear
+
+[Interview about Nuxt in Spanish](https://www.youtube.com/watch?v=VH_xtuBojmw)
 
 ### Enjoy the Vue
 
@@ -23,7 +41,8 @@ List of all my courses, podcasts, opensource projects and blog posts
 
 ### Views on Vue
 
-[Contributing to Open Source](https://devchat.tv/views-on-vue/vov-073-contributing-to-open-source-with-debbie-obrien/)
+- [Contributing to Open Source](https://devchat.tv/views-on-vue/vov-073-contributing-to-open-source-with-debbie-obrien/)
+- [Nuxtify Everything](https://devchat.tv/views-on-vue/vov-118-nuxtify-everything-with-debbie-obrien/)
 
 ### Web Reactiva
 
@@ -55,6 +74,11 @@ List of all my courses, podcasts, opensource projects and blog posts
 ### Dev.to
 
 [Various pots on Dev.to](https://dev.to/debs_obrien)
+
+### Vue Dose
+
+[Advanced i18n in Nuxt using Interpolations](https://vuedose.tips/advanced-i18n-in-nuxt-using-interpolations/)
+[Auto Load Vuejs Components in Nuxt](https://vuedose.tips/auto-load-vuejs-components-in-nuxt)
 
 ### Ultimate Courses
 

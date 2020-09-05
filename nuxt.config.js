@@ -49,7 +49,7 @@ export default {
    */
   css: [
     '~/assets/css/tailwind.css',
-    '~/assets/css/main.css',
+    '~/assets/css/main',
     '~/assets/styles/app.scss'
   ],
   styleResources: {
