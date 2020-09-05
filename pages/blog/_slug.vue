@@ -52,15 +52,7 @@ export default {
 
 
 </script>
-<script>
-  export default {
-    async asyncData({ $content, params }) {
-      const article = await $content('articles', params.slug).fetch()
 
-      return { article }
-    }
-  }
-</script>
 <style lang="postcss" scoped>
 aside ul{
   top: 6rem;
