@@ -96,6 +96,7 @@ export default {
     '@nuxtjs/pwa',
     'nuxt-webfontloader',
     '@nuxt/content',
+    '@nuxtjs/cloudinary',
     [
       '@nuxtjs/google-analytics',
       {
@@ -119,6 +120,11 @@ export default {
         document.readingTime = time
       }
     }
+  },
+
+  cloudinary: {
+    // useComponent: true,
+    cloudName: 'debsobrien'
   },
 
   /*

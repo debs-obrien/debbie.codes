@@ -36,6 +36,7 @@
     "@nuxt/content": "^1.6.0",
     "@nuxt/http": "^0.5.3",
     "@nuxtjs/axios": "^5.11.0",
+    "@nuxtjs/cloudinary": "^0.0.8",
     "@nuxtjs/color-mode": "^1.0.0",
     "graphql": "^15.1.0",
     "graphql-tag": "^2.10.3",
