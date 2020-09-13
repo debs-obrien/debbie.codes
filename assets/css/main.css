@@ -75,6 +75,9 @@ section p {
 .nuxt-content img {
   @apply mb-4;
 }
+.nuxt-content a {
+  text-decoration: underline;
+}
 
 .layout-enter-active,
 .layout-leave-active,
