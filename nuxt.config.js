@@ -113,7 +113,7 @@ export default {
     }
   },
   hooks: {
-    'content:file:beforeInsert': (document) => {
+    'content:file:beforeInsert': document => {
       if (document.extension === '.md') {
         const { time } = require('reading-time')(document.text)
 
@@ -123,7 +123,7 @@ export default {
   },
 
   cloudinary: {
-    // useComponent: true,
+    useComponent: true,
     cloudName: 'debsobrien'
   },
 
@@ -159,6 +159,6 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend (config, ctx) {}
+    extend(config, ctx) {}
   }
 }
