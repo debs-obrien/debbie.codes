@@ -10,20 +10,6 @@
           loading="lazy"
           :alt="alt"
         />
-        <img
-          class="w-100"
-          :src="
-            $cloudinary().url('debbie.codes/conferences/' + img, {
-              quality: auto,
-              fetchFormat: auto,
-              crop: 'thumb',
-              width: 130,
-              height: 130
-            })
-          "
-          :alt="alt"
-          loading="lazy"
-        />
       </a>
     </div>
     <div class="date-box p-2 ml-2 border-l border-gray-500 text-center">
