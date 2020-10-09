@@ -1,42 +1,37 @@
 <template>
-  <div class="flex justify-between items-center">
-    <NuxtLink
-      v-if="prev"
-      :to="toLink(prev.slug)"
-      class="text-primary font-bold hover:underline flex items-center p-2 pl-0"
-    >
-      <IconArrowLeft class="w-4 h-4 mr-1" />
-      {{ prev.title }}
-    </NuxtLink>
+  <div class="flex justify-between">
+    <PostsCard v-if="prev" :article="prev" class="flex-grow-0 prev mr-2" />
     <span v-else>&nbsp;</span>
-    <NuxtLink
-      v-if="next"
-      :to="toLink(next.slug)"
-      class="text-primary font-bold hover:underline flex items-center p-2 pr-0"
-    >
-      {{ next.title }}
-      <IconArrowRight class="w-4 h-4 ml-1" />
-    </NuxtLink>
+
+    <PostsCard v-if="next" :article="next" class="next ml-2" />
+
     <span v-else>&nbsp;</span>
   </div>
 </template>
 
 <script>
-export default {
-  props: {
-    prev: {
-      type: Object,
-      default: () => null
+  export default {
+    props: {
+      prev: {
+        type: Object,
+        default: () => null
+      },
+      next: {
+        type: Object,
+        default: () => null
+      }
     },
-    next: {
-      type: Object,
-      default: () => null
-    }
-  },
-  methods: {
-    toLink (slug) {
-      return { name: 'blog-slug', params: { slug } }
+    methods: {
+      toLink(slug) {
+        return { name: 'blog-slug', params: { slug } }
+      }
     }
   }
-}
 </script>
+<style scoped>
+  .prev,
+  .next {
+    width: 100%;
+    max-width: 400px;
+  }
+</style>

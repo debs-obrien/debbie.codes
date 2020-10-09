@@ -7,7 +7,10 @@
       <p>{{ page.description }}</p>
       <!-- {{ stats.text }} -->
       <nuxt-content :document="page" />
-      <ArticlePrevNext :prev="prev" :next="next" class="lg:px-8 mt-4" />
+      <div class="border-solid border-t-4 border-gray-600 pt-4">
+        <p>Check out some of my other posts:</p>
+      </div>
+      <ArticlePrevNext :prev="prev" :next="next" class="mt-4" />
     </main>
     <aside class="hidden lg:block">
       <ul>
@@ -35,7 +38,7 @@
         .fetch()
 
       const [prev, next] = await $content('articles')
-        .only(['title', 'slug'])
+        .only(['title', 'slug', 'description', 'image'])
         .sortBy('date', 'desc')
         .surround(slug)
         .fetch()

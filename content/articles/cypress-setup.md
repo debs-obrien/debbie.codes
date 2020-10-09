@@ -1,6 +1,9 @@
 ---
 title: Setting up cypress
 date: 2020-07-17
+description: Let's take a look at how you setup Cypress in your Nuxt.js project, setup a github action for continuous integration so that Netlify will run the tests every time your application is building.
+image: https://images.unsplash.com/photo-1580982324076-d95230549339?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60
+tags: [Nuxt, Cypress]
 ---
 
 [Cypress](https://www.cypress.io/) is a great way of testing your frontend application with end to end tests and it is so nice to work with. Writing the tests and making sure they get ran on each build is really important too. Let's take a look at how you setup Cypress in your Nuxt.js project, setup a github action for continuous integration so that Netlify will run the tests every time your application is building.
@@ -55,7 +58,7 @@ We then add this to our .eslintrc to tell it to use the cypress plugin and exten
 }
 ```
 
-We can then setup our [github action](https://github.com/cypress-io/github-action) by creating a workflows folder in our .github folder. Inside the workflows folder create a main.yml file and add the following config with build as the script we want to run from our package.json for building our application and start for the script we want to use to start our application. 
+We can then setup our [github action](https://github.com/cypress-io/github-action) by creating a workflows folder in our .github folder. Inside the workflows folder create a main.yml file and add the following config with build as the script we want to run from our package.json for building our application and start for the script we want to use to start our application.
 
 ```yml{}[.github/workflows/main.yml]
 name: End-to-end tests
@@ -76,7 +79,7 @@ jobs:
           build: npm run generate
           start: npm run start
           # quote the url to be safe against YML parsing surprises
-          wait-on: "http://localhost:3000"
+          wait-on: 'http://localhost:3000'
 ```
 
 When running your tests in CI sometimes the server will continue to execute the next command after signalling to start your server and if the server takes time to boot then Cypress might start to visit your local server before it is ready. You can resolve this by adding this npm package, [start-server-and-test](https://github.com/bahmutov/start-server-and-test), as a dev dependency.
@@ -85,7 +88,7 @@ When running your tests in CI sometimes the server will continue to execute the 
 yarn add start-server-and-test -D
 ```
 
-Then in our package json we need to create some scripts so that cypress can run. We create the run script the open script and then a test script for when in production passing in the command of the package we just installed and then using the serve command with where our server will be run and then we call the run script that we created. 
+Then in our package json we need to create some scripts so that cypress can run. We create the run script the open script and then a test script for when in production passing in the command of the package we just installed and then using the serve command with where our server will be run and then we call the run script that we created.
 
 For development it is pretty much the same except we call the dev script and the cypress open script.
 
@@ -96,12 +99,10 @@ For development it is pretty much the same except we call the dev script and the
 "test:e2e:dev": "start-server-and-test dev http://localhost:3000 cy:open",
 ```
 
-One thing we need to do before launching our tests in production is to add the videos and screenshots to our .gitignore file. 
-add to gitignore
+One thing we need to do before launching our tests in production is to add the videos and screenshots to our .gitignore file. add to gitignore
 
 ```md{}[.gitignore]
-cypress/videos
-cypress/screenshots
+cypress/videos cypress/screenshots
 ```
 
 We can now launch your tests to make sure it is working correctly.
@@ -110,11 +111,11 @@ We can now launch your tests to make sure it is working correctly.
 yarn test:e2e:run
 ```
 
-Once you are happy that everything is working as it should you can push your changes which will trigger the github action. Now in your github repo you can click on the actions tab and watch your action do it's job and you can see if tests are passing. 
+Once you are happy that everything is working as it should you can push your changes which will trigger the github action. Now in your github repo you can click on the actions tab and watch your action do it's job and you can see if tests are passing.
 
-Then there is just one last step in order to get your tests working with your hosting provider. 
+Then there is just one last step in order to get your tests working with your hosting provider.
 
-If you are using *Netlify* there is a netlify [plugin for cypress](https://github.com/cypress-io/netlify-plugin-cypress#readme) you can install. In the Netlify dashboard go to the plugins and search for cypress and click install. 
+If you are using _Netlify_ there is a netlify [plugin for cypress](https://github.com/cypress-io/netlify-plugin-cypress#readme) you can install. In the Netlify dashboard go to the plugins and search for cypress and click install.
 
 Add netlify-plugin-cypress NPM package as a dev dependency to your repository.
 
@@ -142,7 +143,7 @@ Then add a netlify.toml file if you haven't already got one and add the followin
 
 ```
 
-And thats it. You can now go to your Netlify builds and watch your tests run and your application build. Now if your tests fail your application won't build. This plugin also tells you if it failed because of the tests so it is really easy to see if it is the cause of your builds breaking. 
+And thats it. You can now go to your Netlify builds and watch your tests run and your application build. Now if your tests fail your application won't build. This plugin also tells you if it failed because of the tests so it is really easy to see if it is the cause of your builds breaking.
 
 Note: If you are not using Netlify you can modify your generate script to run your tests once the application has been built.
 

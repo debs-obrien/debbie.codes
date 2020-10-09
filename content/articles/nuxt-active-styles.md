@@ -1,6 +1,9 @@
 ---
 title: Styling your active classes in Nuxt.js
 date: 2020-06-28
+description: Nuxt.js, which uses `vue-router`, can easily tell what route you are on and therefore can add a class to that link when the user is on that page. By default this class is called `nuxt-link-active`.
+image: https://images.unsplash.com/photo-1428790067070-0ebf4418d9d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60
+tags: [Nuxt]
 ---
 
 Nuxt.js, which uses `vue-router`, can easily tell what route you are on and therefore can add a class to that link when the user is on that page. By default this class is called `nuxt-link-active`.
@@ -17,8 +20,7 @@ In order to style your active links the only thing you have to do to is add the 
 
 Sometimes this will also add styles to other links such as the parent routes or the home page. In order to fix this we use the exact active class. By default this class is called `nuxt-link-exact-active`.
 
-![nuxt-link-exact-active](https://user-images.githubusercontent.com/13063165/84566719-b6ec3880-ad73-11ea-9a5d-47e7e23de987.png)
-The only thing you have to do to is add the `nuxt-link-exact-active` class to your styles and then you can style it as you wish.
+![nuxt-link-exact-active](https://user-images.githubusercontent.com/13063165/84566719-b6ec3880-ad73-11ea-9a5d-47e7e23de987.png) The only thing you have to do to is add the `nuxt-link-exact-active` class to your styles and then you can style it as you wish.
 
 ```css
 .nuxt-link-exact-active {
@@ -35,9 +37,9 @@ You can change the active class in your `nuxt.config.js` file using the `router`
 ```javascript
 export default {
   router: {
-    linkActiveClass: "my-custom-exact-active-link"
+    linkActiveClass: 'my-custom-exact-active-link'
   }
-};
+}
 ```
 
 You can change the exact active class in your `nuxt.config.js` file using the `router` property and setting a value to `linkExactActiveClass`.
@@ -45,9 +47,9 @@ You can change the exact active class in your `nuxt.config.js` file using the `r
 ```javascript
 export default {
   router: {
-    linkExactActiveClass: "text-primary" // tailwind class with custom color
+    linkExactActiveClass: 'text-primary' // tailwind class with custom color
   }
-};
+}
 ```
 
 ![nuxt-link-active text-primary](https://user-images.githubusercontent.com/13063165/84566760-f2870280-ad73-11ea-8173-826ad4572478.png)
