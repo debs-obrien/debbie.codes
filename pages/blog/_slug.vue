@@ -4,11 +4,10 @@
       <h1 class="text-4xl mb-4 leading-none">
         {{ page.title }}
       </h1>
-      <p>{{ page.description }}</p>
       <!-- {{ stats.text }} -->
-      <nuxt-content :document="page" />
+      <nuxt-content :document="page" class="mb-16" />
       <div class="border-solid border-t-4 border-gray-600 pt-4">
-        <p>Check out some of my other posts:</p>
+        <h3>Check out some of my other posts:</h3>
       </div>
       <ArticlePrevNext :prev="prev" :next="next" class="mt-4" />
     </main>
@@ -34,11 +33,13 @@
 
       const page = await $content('articles', slug).fetch()
       const articles = await $content('articles')
+        .where({ published: { $ne: false } })
         .sortBy('date', 'desc')
         .fetch()
 
       const [prev, next] = await $content('articles')
         .only(['title', 'slug', 'description', 'image'])
+        .where({ published: { $ne: false } })
         .sortBy('date', 'desc')
         .surround(slug)
         .fetch()
@@ -93,8 +94,9 @@
       }
     }
   }
-  .nuxt-content h3 {
-    @apply text-2xl font-extrabold mb-2 pb-1 border-b -mt-16 pt-20;
+  .nuxt-content h3,
+  h3 {
+    @apply text-xl font-extrabold mb-2 pb-1 -mt-16 pt-20;
 
     & > a {
       @apply ml-6;

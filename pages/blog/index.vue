@@ -17,8 +17,8 @@
     layout: 'blog',
     async asyncData({ $content, params }) {
       const articles = await $content('articles')
-        .sortBy('date', 'desc')
         .where({ published: { $ne: false } })
+        .sortBy('date', 'desc')
         .fetch()
 
       return {
