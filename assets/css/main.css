@@ -54,20 +54,17 @@ a:hover {
 
   @apply font-Saira font-bold uppercase border-solid border-primary border-b-4 inline-block mb-4 mt-4;
 }
-
 .nuxt-content h2 {
   font-size: 24px;
 
   @apply font-Saira font-bold uppercase border-solid border-primary border-b-4 inline-block mb-4 mt-8;
 }
-
 .nuxt-content h3,
 .sub-heading {
   font-size: 20px;
 
   @apply font-Saira font-bold uppercase mt-4 mb-2;
 }
-
 section p {
   @apply mb-2;
 }
@@ -103,3 +100,9 @@ section p {
   color: #acb5b9;
 }
 /* purgecss end ignore */
+pre,
+code {
+  overflow: auto;
+  width: auto;
+  max-width: 95vw;
+}

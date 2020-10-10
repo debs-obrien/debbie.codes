@@ -8,7 +8,9 @@
     >
       <label for="search" class="sr-only">Search</label>
       <div class="relative">
-        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+        <div
+          class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+        >
           <IconSearch class="h-5 w-5 text-gray-500" />
         </div>
         <input
@@ -22,7 +24,7 @@
           autocomplete="off"
           @focus="onFocus"
           @blur="onBlur"
-        >
+        />
       </div>
     </div>
     <ul
@@ -41,7 +43,10 @@
         @mousedown="go"
       >
         <NuxtLink
-          :to="{ name: 'blog-slug', params: { slug: result.slug !== 'index' ? result.slug : undefined } }"
+          :to="{
+            name: 'blog-slug',
+            params: { slug: result.slug !== 'index' ? result.slug : undefined }
+          }"
           class="flex px-4 py-2 items-center leading-5 transition ease-in-out duration-150"
           :class="{
             'text-green-500 bg-gray-200 dark:bg-gray-800': focusIndex === index
@@ -58,71 +63,78 @@
 </template>
 
 <script>
-export default {
-  data () {
-    return {
-      q: '',
-      focus: false,
-      focusIndex: -1,
-      open: false,
-      searching: false,
-      results: []
-    }
-  },
-  watch: {
-    async q (q) {
-      this.focusIndex = -1
-      if (!q) {
+  export default {
+    data() {
+      return {
+        q: '',
+        focus: false,
+        focusIndex: -1,
+        open: false,
+        searching: false,
+        results: []
+      }
+    },
+    watch: {
+      async q(q) {
+        this.focusIndex = -1
+        if (!q) {
+          this.searching = false
+          this.results = []
+          return
+        }
+        this.searching = true
+        this.results = await this.$content('articles')
+          .sortBy('position', 'asc')
+          .limit(12)
+          .search(q)
+          .fetch()
         this.searching = false
-        this.results = []
-        return
-      }
-      this.searching = true
-      this.results = await this.$content('articles').sortBy('position', 'asc').limit(12).search(q).fetch()
-      this.searching = false
-    }
-  },
-  mounted () {
-    window.addEventListener('keyup', this.keyup)
-  },
-  beforeDestroy () {
-    window.removeEventListener('keyup', this.keyup)
-  },
-  methods: {
-    onFocus () {
-      this.focus = true
-      this.$emit('focus', true)
-    },
-    onBlur () {
-      this.focus = false
-      this.$emit('focus', false)
-    },
-    keyup (e) {
-      if (e.key === '/') {
-        this.$refs.search.focus()
       }
     },
-    increment () {
-      if (this.focusIndex < this.results.length - 1) {
-        this.focusIndex++
-      }
+    mounted() {
+      window.addEventListener('keyup', this.keyup)
     },
-    decrement () {
-      if (this.focusIndex >= 0) {
-        this.focusIndex--
-      }
+    beforeDestroy() {
+      window.removeEventListener('keyup', this.keyup)
     },
-    go () {
-      if (this.results.length === 0) {
-        return
+    methods: {
+      onFocus() {
+        this.focus = true
+        this.$emit('focus', true)
+      },
+      onBlur() {
+        this.focus = false
+        this.$emit('focus', false)
+      },
+      keyup(e) {
+        if (e.key === '/') {
+          this.$refs.search.focus()
+        }
+      },
+      increment() {
+        if (this.focusIndex < this.results.length - 1) {
+          this.focusIndex++
+        }
+      },
+      decrement() {
+        if (this.focusIndex >= 0) {
+          this.focusIndex--
+        }
+      },
+      go() {
+        if (this.results.length === 0) {
+          return
+        }
+        const result =
+          this.focusIndex === -1
+            ? this.results[0]
+            : this.results[this.focusIndex]
+        const path = `/blog/${result.slug !== 'index' ? result.slug : ''}`
+        this.$router.push(path)
+        // Unfocus the input and reset the query.
+        this.$refs.search.blur()
+        this.q = ''
       }
-      const result = this.focusIndex === -1 ? this.results[0] : this.results[this.focusIndex]
-      const path = `/blog/${result.slug !== 'index' ? result.slug : ''}`
-      this.$router.push(path)
-      // Unfocus the input and reset the query.
-      this.$refs.search.blur()
-      this.q = ''
     }
   }
-}
 </script>

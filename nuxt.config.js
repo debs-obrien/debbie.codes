@@ -37,7 +37,7 @@ export default {
       {
         src: 'https://identity.netlify.com/v1/netlify-identity-widget.js',
         defer: true
-      },
+      }
     ]
   },
   /*
@@ -47,14 +47,8 @@ export default {
   /*
    ** Global CSS
    */
-  css: [
-    '~/assets/css/tailwind.css',
-    '~/assets/css/main',
-    '~/assets/styles/app.scss'
-  ],
-  styleResources: {
-    scss: ['~/assets/styles/tokens.scss']
-  },
+  css: ['~/assets/css/main'],
+
   router: {
     linkExactActiveClass: 'text-primary'
   },
@@ -64,8 +58,6 @@ export default {
    */
   plugins: [
     '~/plugins/url-helpers.js',
-    '~/plugins/vue-placeholders.js',
-    '~/plugins/vue-observe-visibility.client.js',
     '~/plugins/vue-dompurify.js',
     '@/plugins/hasura.js',
     '@/plugins/preview.client.js'
@@ -81,7 +73,6 @@ export default {
     '@nuxtjs/stylelint-module',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     '@nuxtjs/tailwindcss',
-    '@nuxtjs/style-resources',
     '@nuxtjs/svg',
     '@nuxtjs/color-mode'
   ],

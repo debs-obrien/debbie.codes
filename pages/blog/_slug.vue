@@ -1,16 +1,19 @@
 <template>
-  <div class="flex">
-    <main>
-      <h1 class="text-4xl mb-4 leading-none">
-        {{ page.title }}
-      </h1>
-      <!-- {{ stats.text }} -->
-      <nuxt-content :document="page" class="mb-16" />
-      <div class="border-solid border-t-4 border-gray-600 pt-4">
-        <h3>Check out some of my other posts:</h3>
-      </div>
+  <div class="flex mt-4">
+    <div class="main">
+      <article class="">
+        <h1 class="text-4xl mb-4 leading-none">
+          {{ page.title }}
+        </h1>
+        <!-- {{ stats.text }} -->
+        <nuxt-content :document="page" class="mb-16" />
+      </article>
+      <h3 class="border-solid border-t-4 border-gray-600 pt-4">
+        Check out some of my other posts:
+      </h3>
       <ArticlePrevNext :prev="prev" :next="next" class="mt-4" />
-    </main>
+    </div>
+
     <aside class="hidden lg:block">
       <ul>
         <li v-for="article of articles" :key="article.slug" class="pb-2">
@@ -192,8 +195,5 @@
     min-width: 350px;
     margin-left: 40px;
     max-width: 350px;
-  }
-  main {
-    width: auto;
   }
 </style>

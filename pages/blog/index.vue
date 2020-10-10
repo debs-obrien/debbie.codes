@@ -1,5 +1,5 @@
 <template>
-  <div class="page-wrapper nuxt-content">
+  <div class="page-wrapper">
     <h1 class="main-heading">
       Welcome to my blog
     </h1>
