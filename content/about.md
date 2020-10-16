@@ -12,7 +12,7 @@ I'm Debbie O'Brien
 Head of Learning and Developer Advocate for NuxtJS with over 10
 years experience in Frontend development. Microsoft Most Valuable
 Professional in developer technologies, Google Developer Expert in
-web technologies and Cloudinary Media Developer Expert.
+web technologies, Cloudinary Media Developer Expert and nominated for a Github Star.
 </p>
 <p>
 I have a special love for JavaScript frameworks especially Vue.js
@@ -23,3 +23,5 @@ MallorcaJS and VueSpain. I contribute to open source. I am a teacher
 at Vue School and have created the Vue Router and Vue
 Internationalisation course and I am a writer for Ultimate Courses.
 </p>
+
+Checkout my [YouTube Channel](https://www.youtube.com/channel/UCrNvYFsT1L3WczE8AizDQ6g/) for all the latest videos mainly on NuxtJS.

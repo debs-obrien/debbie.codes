@@ -34,5 +34,10 @@ title: Get in Touch
             Github: debs-obrien
         </a>
     </li>
+      <li>
+        <a href="https://www.youtube.com/channel/UCrNvYFsT1L3WczE8AizDQ6g/">
+            YouTube Channel
+        </a>
+    </li>
 
 </ul>
