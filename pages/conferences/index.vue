@@ -43,77 +43,73 @@
 </template>
 
 <script>
-import gsap from 'gsap'
-import gql from 'graphql-tag'
-import { print } from 'graphql/language/printer'
-import ConferenceLinks from '@/components/ConferenceLinks'
+  import gsap from 'gsap'
+  import gql from 'graphql-tag'
+  import { print } from 'graphql/language/printer'
 
-const QUERY = gql`
-  query {
-    conferences(order_by: { date: desc }) {
-      name
-      alt
-      blogUrl
-      country
-      date
-      img
-      notesUrl
-      place
-      slidesUrl
-      type
-      url
-      talk
-      videoUrl
-    }
-  }
-`
-export default {
-  components: {
-    ConferenceLinks
-  },
-  async asyncData ({ app }) {
-    const { data } = await app.$hasura({
-      query: print(QUERY)
-    })
-    return {
-      conferences: data.conferences
-    }
-  },
-  data () {
-    return {
-      type: ''
-    }
-  },
-  computed: {
-    conferenceList () {
-      return this.conferences.filter(el => el.type.match(this.type))
-    }
-  },
-  mounted () {
-    gsap.fromTo(
-      '.conference',
-      { opacity: 0 },
-      {
-        opacity: 1,
-        duration: 0.5,
-        ease: 'power1.out',
-        stagger: {
-          each: 0.1,
-          from: 'bottom'
-        }
+  const QUERY = gql`
+    query {
+      conferences(order_by: { date: desc }) {
+        name
+        alt
+        blogUrl
+        country
+        date
+        img
+        notesUrl
+        place
+        slidesUrl
+        type
+        url
+        talk
+        videoUrl
       }
-    )
-  },
+    }
+  `
+  export default {
+    async asyncData({ app }) {
+      const { data } = await app.$hasura({
+        query: print(QUERY)
+      })
+      return {
+        conferences: data.conferences
+      }
+    },
+    data() {
+      return {
+        type: ''
+      }
+    },
+    computed: {
+      conferenceList() {
+        return this.conferences.filter(el => el.type.match(this.type))
+      }
+    },
+    mounted() {
+      gsap.fromTo(
+        '.conference',
+        { opacity: 0 },
+        {
+          opacity: 1,
+          duration: 0.5,
+          ease: 'power1.out',
+          stagger: {
+            each: 0.1,
+            from: 'bottom'
+          }
+        }
+      )
+    },
 
-  methods: {
-    FilterConferenceByType (type) {
-      this.type = type
+    methods: {
+      FilterConferenceByType(type) {
+        this.type = type
+      }
     }
   }
-}
 </script>
 <style scoped>
-.btn {
-  @apply bg-primary text-white py-2 px-2 mb-4 mr-4 rounded border-solid border-2 border-primary btn font-Saira mb-4 mr-4;
-}
+  .btn {
+    @apply bg-primary text-white py-2 px-2 mb-4 mr-4 rounded border-solid border-2 border-primary btn font-Saira mb-4 mr-4;
+  }
 </style>

@@ -1,12 +1,9 @@
 const cloudinaryUrl =
   'https://res.cloudinary.com/debsobrien/image/upload/q_auto,f_auto'
-const baseUrl = 'https://debbie.codes'
 
 export default {
   target: 'static',
   env: {
-    baseUrl: process.env.BASE_URL || baseUrl,
-    API_HASURA_URL: 'https://debbie-codes.herokuapp.com/v1/graphql',
     cloudinaryPath: cloudinaryUrl,
     baseImage: cloudinaryUrl + '/',
     workshopImage:
@@ -53,14 +50,20 @@ export default {
     linkExactActiveClass: 'text-primary'
   },
 
+  publicRuntimeConfig: {
+    apiHasuraUrl:
+      process.env.API_HASURA_URL ||
+      'https://debbie-codes.herokuapp.com/v1/graphql'
+  },
+
   /*
    ** Plugins to load before mounting the App
    */
   plugins: [
     '~/plugins/url-helpers.js',
     '~/plugins/vue-dompurify.js',
-    '@/plugins/hasura.js',
-    '@/plugins/preview.client.js'
+    '~/plugins/hasura.js',
+    '~/plugins/preview.client.js'
   ],
 
   /*

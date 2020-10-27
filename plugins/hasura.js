@@ -1,6 +1,6 @@
-export default function ({ $http, env }, inject) {
+export default function({ $http, $config }, inject) {
   const $hasura = $http.create({
-    prefixUrl: env.API_HASURA_URL
+    prefixUrl: $config.apiHasuraUrl
   })
 
   inject('hasura', $hasura.$post.bind($hasura, ''))

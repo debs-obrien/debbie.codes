@@ -14,5 +14,7 @@
   "vetur.format.defaultFormatter.scss": "none",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.sideBar.location": "left",
-  "editor.minimap.enabled": false
+  "editor.minimap.enabled": false,
+  "window.zoomLevel": 0,
+  "breadcrumbs.enabled": false
 }

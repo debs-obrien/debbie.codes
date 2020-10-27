@@ -5,7 +5,7 @@
   "author": "Debbie O&#39;Brien",
   "private": true,
   "scripts": {
-    "dev": "nuxt -o",
+    "dev": "nuxt -o --port 8000",
     "dev:host": "nuxt --hostname '192.168.0.199' --port 8000",
     "build": "nuxt build",
     "analyze": "nuxt build -a",
@@ -58,7 +58,6 @@
     "@nuxtjs/stylelint-module": "^4.0.0",
     "@nuxtjs/svg": "^0.1.7",
     "@vue/test-utils": "^1.0.0-beta.27",
-    "babel-jest": "^26.0.1",
     "cypress": "^4.10.0",
     "eslint": "^7.2.0",
     "eslint-config-prettier": "^6.11.0",
