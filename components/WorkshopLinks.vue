@@ -1,134 +1,68 @@
 <template>
   <div class="flex border border-gray-500 p-2 w-full">
     <div class="flex flex-col">
-      <a class="justify-center" :href="url">
+      <a class="justify-center" :href="workshop.url">
         <img
           class="w-100"
-          :src="$url.workshop(img)"
-          :alt="alt"
+          :src="$url.workshop(workshop.img)"
+          :alt="workshop.alt"
           loading="lazy"
-        >
+        />
       </a>
     </div>
     <div class="w-full p-2 ml-2 border-l border-gray-500">
       <div class="flex-col-reverse md:flex-row flex w-full justify-between">
         <a class="hover:underline" :href="url">
-          <h2 class="text-lg mt-0 font-semibold">{{ name }}</h2>
+          <h2 class="text-lg mt-0 font-semibold">{{ workshop.name }}</h2>
         </a>
 
         <p class="font-Saira uppercase font-semibold">
-          {{ topic }}
+          {{ workshop.topic }}
         </p>
       </div>
-      <p>{{ title }}</p>
+      <p>{{ workshop.title }}</p>
       <p>
-        <span>{{ duration }} -</span>
-        {{ place }}
+        <span>{{ workshop.duration }} -</span>
+        {{ workshop.place }}
       </p>
-      <p>{{ year }}</p>
+      <p>{{ workshop.year }}</p>
       <ul class="flex flex-col">
-        <li v-if="slidesUrl">
-          <a :href="slidesUrl">Slides</a>
+        <li v-if="workshop.slidesUrl">
+          <a :href="workshop.slidesUrl">Slides</a>
         </li>
-        <li v-if="notesUrl">
-          <nuxt-link :to="notesUrl">
+        <li v-if="workshop.notesUrl">
+          <nuxt-link :to="workshop.notesUrl">
             Notes
           </nuxt-link>
         </li>
-        <li v-if="blogUrl">
-          <a :href="blogUrl">Blog Post</a>
+        <li v-if="workshop.blogUrl">
+          <a :href="workshop.blogUrl">Blog Post</a>
         </li>
-        <li v-if="videoUrl">
-          <a :href="videoUrl">Video</a>
+        <li v-if="workshop.videoUrl">
+          <a :href="workshop.videoUrl">Video</a>
         </li>
       </ul>
     </div>
   </div>
 </template>
 <script>
-export default {
-  props: {
-    img: {
-      type: String,
-      default: '',
-      required: false
-    },
-    alt: {
-      type: String,
-      default: '',
-      required: false
-    },
-    place: {
-      type: String,
-      default: '',
-      required: true
-    },
-    year: {
-      type: Number,
-      default: 2020,
-      required: true
-    },
-    country: {
-      type: String,
-      default: '',
-      required: false
-    },
-    duration: {
-      type: String,
-      default: '',
-      required: true
-    },
-    topic: {
-      type: String,
-      default: '',
-      required: true
-    },
-    name: {
-      type: String,
-      default: '',
-      required: false
-    },
-    title: {
-      type: String,
-      default: '',
-      required: false
-    },
-
-    url: {
-      type: String,
-      default: '',
-      required: false
-    },
-    notesUrl: {
-      type: String,
-      default: '',
-      required: false
-    },
-    blogUrl: {
-      type: String,
-      default: '',
-      required: false
-    },
-    videoUrl: {
-      type: String,
-      default: '',
-      required: false
-    },
-    slidesUrl: {
-      type: String,
-      default: '',
-      required: false
+  export default {
+    props: {
+      workshop: {
+        type: Object,
+        default: () => {},
+        required: true
+      }
     }
   }
-}
 </script>
 
 <style scoped>
-.wrapper {
-  width: 900px;
-  margin: 0 auto;
-}
-.max-width {
-  max-width: 130px;
-}
+  .wrapper {
+    width: 900px;
+    margin: 0 auto;
+  }
+  .max-width {
+    max-width: 130px;
+  }
 </style>

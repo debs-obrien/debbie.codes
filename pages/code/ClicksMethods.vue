@@ -11,19 +11,3 @@
     </div>
   </div>
 </template>
-<script>
-import AdultCounter from '@/components/AdultCounter'
-import MyDropdown from '@/components/MyDropdown'
-import MyAccordion from '@/components/MyAccordion'
-
-export default {
-  components: {
-    AdultCounter,
-    MyDropdown,
-    MyAccordion
-  },
-  data () {
-    return {}
-  }
-}
-</script>
