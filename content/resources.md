@@ -73,7 +73,7 @@ List of all my courses, podcasts, opensource projects and blog posts
 
 ### Dev.to
 
-[Various pots on Dev.to](https://dev.to/debs_obrien)
+[Various posts on Dev.to](https://dev.to/debs_obrien)
 
 ### Vue Dose
 
