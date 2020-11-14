@@ -65,6 +65,7 @@ a:hover {
 
   @apply font-Saira font-bold uppercase mt-4 mb-2;
 }
+
 section p {
   @apply mb-2;
 }

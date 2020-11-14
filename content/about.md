@@ -23,5 +23,3 @@ MallorcaJS and VueSpain. I contribute to open source. I am a teacher
 at Vue School and have created the Vue Router and Vue
 Internationalisation course and I am a writer for Ultimate Courses.
 </p>
-
-Checkout my [YouTube Channel](https://www.youtube.com/channel/UCrNvYFsT1L3WczE8AizDQ6g/) for all the latest videos mainly on NuxtJS.
