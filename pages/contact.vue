@@ -2,16 +2,14 @@
   <div class="container">
     <div class="text-center">
       <h1 class="main-heading">
-        {{ page.title }}
+        Contact Me
       </h1>
     </div>
     <div class="w-full flex flex-col justify-center md:ml-8">
       <p class="w-1/2 mb-12 self-center">
         Hey there. If you are looking to reach out to me you can use this form
         although in general you will probably reach me quicker on Twitter or
-        LinkedIn. If you like the YouTube videos I am creating then feel free to
-        like them or leave a comment especially if you have any suggestions for
-        future content.
+        LinkedIn.
       </p>
       <form
         id="contact_form"
@@ -67,16 +65,6 @@
     </div>
   </div>
 </template>
-<script>
-  export default {
-    async asyncData({ $content }) {
-      const page = await $content('contact').fetch()
-      return {
-        page
-      }
-    }
-  }
-</script>
 
 <style scoped>
   input,

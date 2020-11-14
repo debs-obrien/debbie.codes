@@ -8,23 +8,20 @@
           alt="Debbie O'Brien"
         />
       </div>
-      <nuxt-content :document="page" />
+      <h1 class="name dark:text-white uppercase mb-4">
+        Debbie
+        <span class="text-primary">O'Brien</span>
+      </h1>
+
+      <div class="dark:text-white subtitle font-medium">
+        <p class="mb-4">
+          Head of Learning & Developer Advocate at NuxtJS
+        </p>
+        <p>Microsoft MVP | Google GDE | Cloudinary MDE</p>
+      </div>
     </div>
   </div>
 </template>
-<script>
-  export default {
-    layout: 'home',
-    transition: 'fade',
-    components: {},
-    async asyncData({ $content }) {
-      const page = await $content('home').fetch()
-      return {
-        page
-      }
-    }
-  }
-</script>
 
 <style scoped>
   .hero_texts .subtitle {
