@@ -1,5 +1,9 @@
 <template>
   <div class="container mt-10">
+    <TwitterHead
+      title="conferences"
+      description="All the conferences I have attended"
+    />
     <h1 class="main-heading">
       conferences
     </h1>

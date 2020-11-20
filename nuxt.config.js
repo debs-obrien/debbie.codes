@@ -27,6 +27,55 @@ export default {
         content:
           process.env.npm_package_description ||
           "Debbie O'Brien, Head of Learning and Developer Advocate for NuxtJS with over 10 years experience in Frontend development. Microsoft Most Valuable Professional in developer technologies, Google Developer Expert in web technologies and Cloudinary Media Developer Expert."
+      },
+      { property: 'og:site_name', content: 'Debbie Codes' },
+      { hid: 'og:type', property: 'og:type', content: 'website' },
+      {
+        hid: 'og:url',
+        property: 'og:url',
+        content: 'https://debbie.codes.com'
+      },
+      {
+        hid: 'og:title',
+        property: 'og:title',
+        content: 'My Amazing Blog on The Joy of Painting'
+      },
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content:
+          "Debbie O'Brien, Head of Learning and Developer Advocate for NuxtJS with over 10 years experience in Frontend development. Microsoft Most Valuable Professional in developer technologies, Google Developer Expert in web technologies and Cloudinary Media Developer Expert."
+      },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content: '/icon.png'
+      },
+      { property: 'og:image:width', content: '740' },
+      { property: 'og:image:height', content: '300' },
+
+      { name: 'twitter:site', content: '@debs_obrien' },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      {
+        hid: 'twitter:url',
+        name: 'twitter:url',
+        content: 'https://debbie.codes.com'
+      },
+      {
+        hid: 'twitter:title',
+        name: 'twitter:title',
+        content: 'Debbie codes and helps others learn Nuxt'
+      },
+      {
+        hid: 'twitter:description',
+        name: 'twitter:description',
+        content:
+          'My website of where I play around with Nuxt and more and showcase my blog, resources etc'
+      },
+      {
+        hid: 'twitter:image',
+        name: 'twitter:image',
+        content: '/icon.png'
       }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
