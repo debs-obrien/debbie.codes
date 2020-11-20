@@ -34,7 +34,7 @@
         {
           hid: 'twitter:image',
           name: 'twitter:image',
-          content: '/twitter-card-blog.png'
+          content: 'https://debbie.codes/twitter-card-blog.png'
         }
       ]
     }
