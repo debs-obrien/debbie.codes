@@ -10,10 +10,7 @@
       <div class="w-full md:w-3/5 ml-8">
         <nuxt-content :document="page" />
         Checkout my
-        <a
-          href="https://www.youtube.com/channel/UCrNvYFsT1L3WczE8AizDQ6g/"
-          class="text-primary"
-        >
+        <a href="https://www.youtube.com/c/DebbieOBrien" class="text-primary">
           YouTube Channel
         </a>
         for all the latest videos mainly on Nuxt.
