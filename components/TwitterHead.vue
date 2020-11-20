@@ -23,7 +23,7 @@
     head() {
       return {
         meta: [
-          { name: 'twitter:card', content: this.description },
+          { name: 'twitter:card', content: 'summary_large_image' },
           { name: 'twitter:site', content: '@debs_obrien' },
           { name: 'twitter:title', content: this.title },
           {
