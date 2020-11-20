@@ -78,7 +78,15 @@ export default {
         content: 'https://debbie.codes/twitter-card.png'
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        hid: 'canonical',
+        rel: 'canonical',
+        href: 'https://debbie.codes.com'
+      }
+    ],
     script: [
       {
         src: 'https://identity.netlify.com/v1/netlify-identity-widget.js',

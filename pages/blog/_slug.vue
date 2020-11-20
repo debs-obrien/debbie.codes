@@ -4,6 +4,9 @@
       :title="page.title"
       :description="page.description"
       :image="page.image"
+      :tags="page.tags"
+      :created-at="page.createdAt"
+      :updated-at="page.updatedAt"
     />
     <div class="main">
       <article class="">
@@ -46,7 +49,6 @@
         .fetch()
 
       const [prev, next] = await $content('articles')
-        .only(['title', 'slug', 'description', 'image'])
         .where({ published: { $ne: false } })
         .sortBy('date', 'desc')
         .surround(slug)
