@@ -1,6 +1,7 @@
 <template>
   <div class="flex mt-4">
     <div class="main">
+      <TwitterHead :title="page.title" />
       <article class="">
         <h1 class="text-4xl mb-4 leading-none">
           {{ page.title }}
