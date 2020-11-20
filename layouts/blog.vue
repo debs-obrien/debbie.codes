@@ -29,12 +29,12 @@
           hid: 'twitter:description',
           name: 'twitter:description',
           content:
-            'Blog with lots of cool articles and tips on Nuxt and tech in general'
+            "Debbie's Blog with lots of cool articles and tips on Nuxt and tech in general"
         },
         {
           hid: 'twitter:image',
           name: 'twitter:image',
-          content: '/icon.png'
+          content: '/twitter-card-blog.png'
         }
       ]
     }

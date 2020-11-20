@@ -38,7 +38,7 @@ export default {
       {
         hid: 'og:title',
         property: 'og:title',
-        content: 'My Amazing Blog on The Joy of Painting'
+        content: 'My Amazing Blog'
       },
       {
         hid: 'og:description',
@@ -49,7 +49,7 @@ export default {
       {
         hid: 'og:image',
         property: 'og:image',
-        content: '/icon.png'
+        content: '/twitter-card.png'
       },
       { property: 'og:image:width', content: '740' },
       { property: 'og:image:height', content: '300' },
@@ -75,7 +75,7 @@ export default {
       {
         hid: 'twitter:image',
         name: 'twitter:image',
-        content: '/icon.png'
+        content: '/twitter-card.png'
       }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
