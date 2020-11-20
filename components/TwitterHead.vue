@@ -9,29 +9,32 @@
       title: {
         type: String,
         default: 'Debbies twitter title'
+      },
+      description: {
+        type: String,
+        default: 'Debbies twitter description'
+      },
+      image: {
+        type: String,
+        default: 'Debbies twitter image'
       }
     },
-    data: () => ({
-      href:
-        'https://twitter.com/intent/tweet?url=' +
-        encodeURIComponent('https://head-elements.now.sh/about')
-    }),
+
     head() {
       return {
         meta: [
-          { name: 'twitter:card', content: 'summary' },
-          { name: 'twitter:site', content: '@nuxt_js' },
+          { name: 'twitter:card', content: this.description },
+          { name: 'twitter:site', content: '@debs_obrien' },
           { name: 'twitter:title', content: this.title },
           {
             name: 'twitter:description',
-            content:
-              'Nuxt.js lets you handle custom headers for your app with vue-meta'
+            content: this.description
           },
           {
             name: 'twitter:image',
-            content: 'https://avatars0.githubusercontent.com/u/23360933?v=3'
+            content: this.image
           },
-          { name: 'twitter:image:alt', content: 'Nuxt.js logo' }
+          { name: 'twitter:image:alt', content: this.title }
         ]
       }
     }

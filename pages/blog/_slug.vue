@@ -1,7 +1,11 @@
 <template>
   <div class="flex mt-4">
+    <TwitterHead
+      :title="page.title"
+      :description="page.description"
+      :image="page.image"
+    />
     <div class="main">
-      <TwitterHead :title="page.title" />
       <article class="">
         <h1 class="text-4xl mb-4 leading-none">
           {{ page.title }}
