@@ -38,6 +38,11 @@
               <IconEmail class="h-10 w-10 fill-current" />
             </a>
           </li>
+          <li class="mx-2">
+            <a href="https://www.buymeacoffee.com/debbieobrien">
+              <IconCoffee class="h-10 w-10 fill-current" />
+            </a>
+          </li>
         </ul>
       </footer>
     </div>
@@ -50,6 +55,7 @@
   import IconLinkedIn from '@/assets/icons/linkedIn.svg?inline'
   import IconYouTube from '@/assets/icons/youtube.svg?inline'
   import IconSpeaker from '@/assets/icons/speaker.svg?inline'
+  import IconCoffee from '@/assets/icons/coffee.svg?inline'
   export default {
     components: {
       IconEmail,
@@ -57,7 +63,8 @@
       IconTwitter,
       IconLinkedIn,
       IconYouTube,
-      IconSpeaker
+      IconSpeaker,
+      IconCoffee
     }
   }
 </script>

@@ -6,11 +6,11 @@
 
     <div v-for="accordion in accordions" :key="accordion.title">
       <BaseAccordian>
-        <template v-slot:title>
+        <template #title>
           {{ accordion.title }}
         </template>
 
-        <template v-slot:content>
+        <template #content>
           <div class="mb-10">
             {{ accordion.text }}
           </div>

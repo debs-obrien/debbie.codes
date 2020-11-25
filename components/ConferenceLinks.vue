@@ -5,7 +5,7 @@
         <cld-image
           :public-id="$url.conference(img)"
           width="w-100"
-          fetchFormat="auto"
+          fetch-format="auto"
           quality="auto"
           loading="lazy"
           :alt="alt"

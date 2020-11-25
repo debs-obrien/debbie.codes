@@ -4,9 +4,6 @@
       :title="page.title"
       :description="page.description"
       :image="page.image"
-      :tags="page.tags"
-      :created-at="page.createdAt"
-      :updated-at="page.updatedAt"
     />
     <div class="main">
       <article class="">
