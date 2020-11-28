@@ -1,9 +1,9 @@
 <template>
   <div class="">
-    <TwitterHead :title="title" :description="description" :image="image" />
+    <TwitterHead :title="title" :description="description" />
     <TheTopBar />
     <div class="container mt-top-bar">
-      <SearchInput :search-item="articles" />
+      <SearchInput search-item="tips" />
       <nuxt />
     </div>
 
@@ -14,10 +14,9 @@
   export default {
     data() {
       return {
-        title: "Welcome to Debbie's blog",
+        title: "Welcome to Debbie's tips",
         description:
-          "Debbie's Blog with lots of cool articles and tips on Nuxt and tech in general",
-        image: 'https://debbie.codes/twitter-card-blog.png'
+          "Debbie's Tips for all sorts of things learnt along the way"
       }
     },
     head() {

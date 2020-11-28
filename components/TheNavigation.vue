@@ -16,36 +16,40 @@
   </div>
 </template>
 <script>
-export default {
-  data () {
-    return {
-      navLinks: [
-        {
-          url: '/about',
-          link: 'About'
-        },
-        {
-          url: '/conferences',
-          link: 'Conferences'
-        },
-        {
-          url: '/workshops',
-          link: 'Workshops'
-        },
-        {
-          url: '/resources',
-          link: 'Resources'
-        },
-        {
-          url: '/blog',
-          link: 'Blog'
-        },
-        {
-          link: 'Contact',
-          url: '/contact'
-        }
-      ]
+  export default {
+    data() {
+      return {
+        navLinks: [
+          {
+            url: '/about',
+            link: 'About'
+          },
+          {
+            url: '/conferences',
+            link: 'Conferences'
+          },
+          {
+            url: '/workshops',
+            link: 'Workshops'
+          },
+          {
+            url: '/resources',
+            link: 'Resources'
+          },
+          {
+            url: '/blog',
+            link: 'Blog'
+          },
+          {
+            url: '/tips',
+            link: 'Tips'
+          },
+          {
+            link: 'Contact',
+            url: '/contact'
+          }
+        ]
+      }
     }
   }
-}
 </script>

@@ -60,6 +60,18 @@
         stats,
         articles
       }
+    },
+    head() {
+      return {
+        title: this.page.title,
+        meta: [
+          {
+            hid: 'description',
+            name: 'desctiption',
+            content: this.page.desctiption
+          }
+        ]
+      }
     }
   }
 </script>

@@ -36,7 +36,7 @@ We can then use our method like we would use any Vue method in our template pass
 </template>
 ```
 
-Result: **December 25, 2020**
+Result: **December 25, 2021**
 
 We can also use different options. Perhaps we want to show the day of the week. We can do this by adding in the weekday.
 

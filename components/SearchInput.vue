@@ -64,6 +64,12 @@
 
 <script>
   export default {
+    props: {
+      searchItem: {
+        type: String,
+        default: 'articles'
+      }
+    },
     data() {
       return {
         q: '',
@@ -83,7 +89,7 @@
           return
         }
         this.searching = true
-        this.results = await this.$content('articles')
+        this.results = await this.$content(this.searchItem)
           .sortBy('position', 'asc')
           .limit(12)
           .search(q)
