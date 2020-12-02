@@ -17,7 +17,7 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: process.env.npm_package_name || 'Debbie Codes with NuxtJS',
+    title: 'Debbie Codes with Nuxt',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -25,9 +25,9 @@ export default {
         hid: 'description',
         name: 'description',
         content:
-          process.env.npm_package_description ||
           "Debbie O'Brien, Head of Learning and Developer Advocate for NuxtJS with over 10 years experience in Frontend development. Microsoft Most Valuable Professional in developer technologies, Google Developer Expert in web technologies and Cloudinary Media Developer Expert."
       },
+      // Test on: https://developers.facebook.com/tools/debug/
       { property: 'og:site_name', content: 'Debbie Codes' },
       { hid: 'og:type', property: 'og:type', content: 'website' },
       {
@@ -38,7 +38,7 @@ export default {
       {
         hid: 'og:title',
         property: 'og:title',
-        content: 'My Amazing Blog'
+        content: 'Debbie Codes with Nuxt'
       },
       {
         hid: 'og:description',
@@ -51,9 +51,7 @@ export default {
         property: 'og:image',
         content: 'https://debbie.codes/twitter-card.png'
       },
-      { property: 'og:image:width', content: '740' },
-      { property: 'og:image:height', content: '300' },
-
+      // Test on: https://cards-dev.twitter.com/validator
       { name: 'twitter:site', content: '@debs_obrien' },
       { name: 'twitter:card', content: 'summary_large_image' },
       {
@@ -196,14 +194,6 @@ export default {
   generate: {
     fallback: true,
     exclude: [/code/, /^(?=.*\btest\b).*$/]
-    // async routes() {
-    //   const { $content } = require('@nuxt/content')
-    //   const files = await $content()
-    //     .only(['path'])
-    //     .fetch()
-
-    //   return files.map((file) => (file.path === '/index' ? '/' : file.path))
-    // }
   },
 
   build: {

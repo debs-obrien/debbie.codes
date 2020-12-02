@@ -1,36 +1,11 @@
 <template>
   <div class="">
-    <TwitterHead :title="title" :description="description" :image="image" />
     <TheTopBar />
     <div class="container mt-top-bar">
-      <SearchInput :search-item="articles" />
+      <SearchInput search-item="articles" />
       <nuxt />
     </div>
 
     <TheFooter />
   </div>
 </template>
-<script>
-  export default {
-    data() {
-      return {
-        title: "Welcome to Debbie's blog",
-        description:
-          "Debbie's Blog with lots of cool articles and tips on Nuxt and tech in general",
-        image: 'https://debbie.codes/twitter-card-blog.png'
-      }
-    },
-    head() {
-      return {
-        title: this.title,
-        meta: [
-          {
-            hid: 'description',
-            name: 'desctiption',
-            content: this.desctiption
-          }
-        ]
-      }
-    }
-  }
-</script>

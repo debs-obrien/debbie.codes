@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <TwitterHead :title="title" :description="description" />
+    <SocialHead :title="title" :description="description" />
     <TheTopBar />
     <div class="container mt-top-bar">
       <SearchInput search-item="tips" />

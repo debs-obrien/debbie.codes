@@ -1,6 +1,6 @@
 <template>
   <div class="flex mt-4">
-    <TwitterHead
+    <SocialHead
       :title="page.title"
       :description="page.description"
       :image="page.image"

@@ -1,5 +1,6 @@
 <template>
   <div class="page-wrapper">
+    <SocialHead :title="title" :description="description" :image="image" />
     <h1 class="main-heading">
       Welcome to my blog
     </h1>
@@ -23,6 +24,26 @@
 
       return {
         articles
+      }
+    },
+    data() {
+      return {
+        title: "Welcome to Debbie's blog",
+        description:
+          "Debbie's Blog with lots of cool articles and tips on Nuxt and tech in general",
+        image: 'https://debbie.codes/twitter-card-blog.png'
+      }
+    },
+    head() {
+      return {
+        title: this.title,
+        meta: [
+          {
+            hid: 'description',
+            name: 'desctiption',
+            content: this.desctiption
+          }
+        ]
       }
     }
   }

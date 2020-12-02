@@ -63,7 +63,13 @@
 </template>
 
 <script>
+  import IconSearch from '@/assets/icons/search.svg?inline'
+  import IconChevronRight from '@/assets/icons/chevron-right.svg?inline'
   export default {
+    components: {
+      IconSearch,
+      IconChevronRight
+    },
     props: {
       searchItem: {
         type: String,

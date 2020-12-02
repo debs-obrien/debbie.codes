@@ -2,17 +2,19 @@
   <div class="flex border border-gray-500 p-2 w-full">
     <div class="flex flex-col">
       <a class="justify-center" :href="workshop.url">
-        <img
-          class="w-100"
-          :src="$url.workshop(workshop.img)"
-          :alt="workshop.alt"
+        <cld-image
+          :public-id="$url.workshop(workshop.img)"
+          width="w-100"
+          fetch-format="auto"
+          quality="auto"
           loading="lazy"
+          :alt="workshop.alt"
         />
       </a>
     </div>
     <div class="w-full p-2 ml-2 border-l border-gray-500">
       <div class="flex-col-reverse md:flex-row flex w-full justify-between">
-        <a class="hover:underline" :href="url">
+        <a class="hover:underline" :href="workshop.url">
           <h2 class="text-lg mt-0 font-semibold">{{ workshop.name }}</h2>
         </a>
 

@@ -1,6 +1,6 @@
 <template>
   <div class="container mt-10">
-    <TwitterHead
+    <SocialHead
       title="conferences"
       description="All the conferences I have attended"
     />
