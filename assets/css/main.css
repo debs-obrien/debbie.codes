@@ -52,18 +52,18 @@ a:hover {
 .main-heading {
   font-size: 30px;
 
-  @apply font-Saira font-bold uppercase border-solid border-primary border-b-4 inline-block mb-4 mt-4;
+  @apply font-Saira font-medium uppercase border-solid border-primary border-b-4 inline-block mb-4 mt-4;
 }
 .nuxt-content h2 {
   font-size: 24px;
 
-  @apply font-Saira font-bold uppercase border-solid border-primary border-b-4 inline-block mb-4 mt-8;
+  @apply font-Saira font-medium uppercase border-solid border-primary border-b-4 inline-block mb-4 mt-8;
 }
 .nuxt-content h3,
 .sub-heading {
   font-size: 20px;
 
-  @apply font-Saira font-bold uppercase mt-4 mb-2;
+  @apply font-Saira font-medium uppercase mt-4 mb-2;
 }
 
 section p {

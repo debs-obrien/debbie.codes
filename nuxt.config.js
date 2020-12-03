@@ -82,7 +82,7 @@ export default {
       {
         hid: 'canonical',
         rel: 'canonical',
-        href: 'https://debbie.codes.com'
+        href: 'https://debbie.codes'
       }
     ],
     script: [
@@ -132,7 +132,8 @@ export default {
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     '@nuxtjs/tailwindcss',
     '@nuxtjs/svg',
-    '@nuxtjs/color-mode'
+    '@nuxtjs/color-mode',
+    '@nuxtjs/google-fonts'
   ],
 
   /*
@@ -143,7 +144,6 @@ export default {
     '@nuxtjs/axios',
     '@nuxt/http',
     '@nuxtjs/pwa',
-    'nuxt-webfontloader',
     '@nuxt/content',
     '@nuxtjs/cloudinary',
     [
@@ -181,21 +181,24 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {},
-  /*
-   ** Build configuration
-   */
-  webfontloader: {
-    google: {
-      families: [
-        'Saira:300&display=swap,400&display=swap,500&display=swap,600&display=swap,700&display=swap'
-      ]
-    }
+
+  googleFonts: {
+    /* module options */
+    families: {
+      Saira: [300, 400, 500, 600, 700]
+    },
+    display: 'swap' // 'auto' | 'block' | 'swap' | 'fallback' | 'optional'
   },
+  /*
+   ** Exclude from generation
+   */
   generate: {
     fallback: true,
     exclude: [/code/, /^(?=.*\btest\b).*$/]
   },
-
+  /*
+   ** Build configuration
+   */
   build: {
     /*
      ** You can extend webpack config here
