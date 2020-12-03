@@ -10,7 +10,7 @@
     "build": "nuxt build",
     "analyze": "nuxt build -a",
     "start": "nuxt start",
-    "generate": "nuxt generate",
+    "generate": "nuxt generate --modern",
     "prod": "yarn generate; yarn build:lambda",
     "start:lambda": "netlify-lambda serve functions",
     "build:lambda": "netlify-lambda build functions",
