@@ -8,38 +8,47 @@
         </p>
         <ul class="flex justify-center">
           <li class="mx-2">
-            <a href="https://twitter.com/debs_obrien">
+            <a href="https://twitter.com/debs_obrien" aria-label="twitter">
               <IconTwitter class="h-10 w-10 fill-current" />
             </a>
           </li>
           <li class="mx-2">
-            <a href="https://www.linkedin.com/in/debbie-o-brien-1a199975/">
+            <a
+              href="https://www.linkedin.com/in/debbie-o-brien-1a199975/"
+              aria-label="linkedIn"
+            >
               <IconLinkedIn class="h-10 w-10 fill-current" />
             </a>
           </li>
           <li class="mx-2">
-            <a href="https://www.youtube.com/channel/UCrNvYFsT1L3WczE8AizDQ6g/">
+            <a
+              href="https://www.youtube.com/channel/UCrNvYFsT1L3WczE8AizDQ6g/"
+              aria-label="youtube"
+            >
               <IconYouTube class="h-10 w-10 fill-current" />
             </a>
           </li>
           <li class="mx-2">
-            <a href="https://github.com/debs-obrien">
+            <a href="https://github.com/debs-obrien" aria-label="github">
               <IconGithub class="h-10 w-10 fill-current" />
             </a>
           </li>
           <li class="mx-2">
-            <a href="https://noti.st/debbie">
+            <a href="https://noti.st/debbie" aria-label="speaker profile">
               <IconSpeaker class="h-10 w-10 fill-current" />
             </a>
           </li>
 
           <li class="mx-2">
-            <a href="mailto:debbie@nuxt.com">
+            <a href="mailto:debbie@nuxt.com" aria-label="eamil">
               <IconEmail class="h-10 w-10 fill-current" />
             </a>
           </li>
           <li class="mx-2">
-            <a href="https://www.buymeacoffee.com/debbieobrien">
+            <a
+              href="https://www.buymeacoffee.com/debbieobrien"
+              aria-label="buy me a coffee"
+            >
               <IconCoffee class="h-10 w-10 fill-current" />
             </a>
           </li>
