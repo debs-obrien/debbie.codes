@@ -1,9 +1,8 @@
 <template>
   <article>
     <link href="https://unpkg.com/pattern.css" rel="stylesheet" />
-
     <div>
-      <section class="">
+      <section>
         <div class="max-w-6xl mx-auto px-5 py-5 ">
           <div class="text-center mb-20">
             <h1

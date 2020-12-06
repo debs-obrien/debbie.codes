@@ -13,7 +13,7 @@
       <div v-else>
         <NuxtLink :to="`/blog/${item.slug}`">
           <img
-            class="w-full object-cover"
+            class="w-full h-64 object-cover"
             :src="item.image"
             :alt="item.title"
           />
@@ -56,8 +56,7 @@
     props: {
       item: {
         type: Object,
-        default: () => {},
-        required: false
+        required: true
       }
     },
     methods: {

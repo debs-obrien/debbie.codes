@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-rounded-lg shadow-lg overflow-hidden">
+  <div class="flex flex-rounded-lg shadow-lg overflow-hidden pb-4">
     <!-- component -->
     <div class=" w-full lg:flex">
       <iframe
@@ -30,7 +30,7 @@
         </h3>
         <span v-if="item.host"> with {{ item.host }} </span>
 
-        <p class="mt-3 text-base leading-6 text-gray-500">
+        <p class="mt-3 text-lg leading-6 text-gray-500">
           {{ item.description }}
         </p>
       </div>
@@ -56,8 +56,7 @@
     props: {
       item: {
         type: Object,
-        default: () => {},
-        required: false
+        required: true
       }
     },
     methods: {
