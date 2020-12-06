@@ -39,7 +39,7 @@
     "@nuxtjs/cloudinary": "^1.0.2",
     "@nuxtjs/color-mode": "^2.0.1",
     "@nuxtjs/google-fonts": "^1.2.0",
-    "@nuxtjs/tailwindcss": "^3.3.0",
+    "@nuxtjs/tailwindcss": "^3.3.1",
     "graphql": "^15.4.0",
     "graphql-tag": "^2.10.3",
     "gsap": "^3.3.1",
@@ -49,7 +49,8 @@
     "prismjs": "^1.22.0",
     "reading-time": "^1.2.1",
     "vue-cookieconsent-component": "^1.2.0",
-    "vue-if-bot": "^1.2.0"
+    "vue-if-bot": "^1.2.0",
+    "vue-youtube-embed": "^2.2.2"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^5.0.0",

@@ -1645,10 +1645,10 @@
     url-loader "^4.1.0"
     vue-svg-loader "^0.16.0"
 
-"@nuxtjs/tailwindcss@^3.3.0":
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/@nuxtjs/tailwindcss/-/tailwindcss-3.3.0.tgz#50f2652ca4e70a08ece51495629d13777d7bd476"
-  integrity sha512-qnYP2gb5TM702QmYvQdMYtaFHlCerlvDiSBW5x8IDxj1l/hZH5p5JC54WMTDRvL6pSa2ap+2+GJ//IDuOWpBsQ==
+"@nuxtjs/tailwindcss@^3.3.1":
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/tailwindcss/-/tailwindcss-3.3.1.tgz#a347929b97a3e08da1f841316f757c7cf0a9e956"
+  integrity sha512-ukAbmC7+3fRUJzlY7+lLRHLss9NvJARLI4TbzZMEl9EunN8j6ESYY6gXlMYGVUfaIqzSd1tjRL7wCi2QvxWXVw==
   dependencies:
     clear-module "^4.1.1"
     consola "^2.15.0"
@@ -13613,6 +13613,11 @@ vue-template-es2015-compiler@^1.9.0:
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
+
+vue-youtube-embed@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/vue-youtube-embed/-/vue-youtube-embed-2.2.2.tgz#e4fc27bc09ecd77488e6709f7c6694585c972d2d"
+  integrity sha512-l/EJuFMRK43AN73N+qxJnN0LB3uPl2xAghmr3dCvODWGCRWGjmGfrHaOtD93fu9J4co+CZLv1KP3akAsldC1aw==
 
 vue@^2.5.16, vue@^2.5.2, vue@^2.6.12:
   version "2.6.12"

@@ -37,16 +37,17 @@ body {
   margin-left: auto;
   margin-right: auto;
   width: 100%;
+  max-width: 1500px;
   padding: 0 10px;
   position: relative;
   overflow: visible;
 }
 
-a:hover {
+/* a:hover {
   text-decoration: underline;
 
   @apply text-primary;
-}
+} */
 
 .nuxt-content h1,
 .main-heading {

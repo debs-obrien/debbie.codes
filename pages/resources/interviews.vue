@@ -1,13 +1,13 @@
 <template>
   <div class="page-wrapper">
-    <SocialHead :title="title" :description="description" :image="image" />
+    <SocialHead :title="title" :description="description" />
     <h1 class="main-heading">
-      Welcome to my blog
+      Guest Interviews on Various Shows
     </h1>
 
-    <div class="mt-12 grid gap-5 max-w-lg mx-auto lg:grid-cols-3 lg:max-w-none">
-      <div v-for="article of articles" :key="article.slug">
-        <PostsCard :item="article" />
+    <div class="mt-12 grid gap-5 max-w-lg mx-auto lg:grid-cols-1 lg:max-w-none">
+      <div v-for="video of videos" :key="video.slug">
+        <VideoCard :item="video" />
       </div>
     </div>
   </div>
@@ -15,23 +15,21 @@
 
 <script>
   export default {
-    layout: 'blog',
     async asyncData({ $content, params }) {
-      const articles = await $content('articles')
+      const videos = await $content('interviews')
         .where({ published: { $ne: false } })
         .sortBy('date', 'desc')
         .fetch()
 
       return {
-        articles
+        videos
       }
     },
     data() {
       return {
-        title: "Welcome to Debbie's blog",
+        title: "Debbie's interviews on different platforms",
         description:
-          "Debbie's Blog with lots of cool articles and tips on Nuxt and tech in general",
-        image: 'https://debbie.codes/twitter-card-blog.png'
+          "Debbie's interviews talking aout all things Nuxt and coding in general"
       }
     },
     head() {

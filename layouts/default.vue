@@ -4,7 +4,6 @@
     <div class="container mt-top-bar">
       <nuxt />
     </div>
-
     <TheFooter />
   </div>
 </template>
