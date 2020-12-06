@@ -1,5 +1,6 @@
 <template>
   <article>
+    <SocialHead :title="title" :description="description" />
     <link href="https://unpkg.com/pattern.css" rel="stylesheet" />
     <div>
       <section>
@@ -46,8 +47,27 @@
         resources
       }
     },
-    head: {
-      link: [{ rel: 'stylesheet', href: 'https://unpkg.com/pattern.css' }]
+    data() {
+      return {
+        title: "Debbie's list of resources from podcasts to videos to posts",
+        description:
+          'A list of resources I have written, created, appeared in, talked about and more',
+        image:
+          'https://res.cloudinary.com/debsobrien/image/upload/v1607284331/debbie.codes/Screenshot_2020-12-06_at_20.51.40_hvbwkd.png'
+      }
+    },
+    head() {
+      return {
+        title: this.title,
+        meta: [
+          {
+            hid: 'description',
+            name: 'desctiption',
+            content: this.desctiption
+          }
+        ],
+        link: [{ rel: 'stylesheet', href: 'https://unpkg.com/pattern.css' }]
+      }
     }
   }
 </script>
