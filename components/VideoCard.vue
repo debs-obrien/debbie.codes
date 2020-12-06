@@ -13,7 +13,7 @@
       >
       </iframe>
       <a v-else-if="item.image" :href="item.url" rel="nofollow" target="_blank">
-        <img :src="item.image" />
+        <img :src="item.image" class="max-width" />
       </a>
       <div class="flex-1 p-4">
         <div>
@@ -69,7 +69,7 @@
 </script>
 
 <style scoped>
-  a {
-    text-decoration: none;
+  .max-width {
+    max-width: 300px;
   }
 </style>

@@ -38,7 +38,9 @@
 <script>
   export default {
     async asyncData({ $content }) {
-      const resources = await $content('resources').fetch()
+      const resources = await $content('resources')
+        .sortBy('position')
+        .fetch()
 
       return {
         resources

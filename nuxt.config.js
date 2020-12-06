@@ -102,7 +102,8 @@ export default {
   css: ['~/assets/css/main'],
 
   router: {
-    linkExactActiveClass: 'text-primary'
+    linkExactActiveClass: 'text-primary',
+    linkActiveClass: 'text-primary'
   },
 
   publicRuntimeConfig: {
