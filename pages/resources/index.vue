@@ -1,6 +1,6 @@
 <template>
   <article>
-    <SocialHead :title="title" :description="description" />
+    <SocialHead :title="title" :description="description" :image="image" />
     <link href="https://unpkg.com/pattern.css" rel="stylesheet" />
     <div>
       <section>
