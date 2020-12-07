@@ -66,7 +66,14 @@
             content: this.desctiption
           }
         ],
-        link: [{ rel: 'stylesheet', href: 'https://unpkg.com/pattern.css' }]
+        link: [
+          { rel: 'stylesheet', href: 'https://unpkg.com/pattern.css' },
+          {
+            hid: 'canonical',
+            rel: 'canonical',
+            href: `https://debbie.codes/resources/${this.$route.params.slug}`
+          }
+        ]
       }
     }
   }

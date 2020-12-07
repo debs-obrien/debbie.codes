@@ -65,7 +65,43 @@
     </div>
   </div>
 </template>
+<script>
+  export default {
+    async asyncData({ $content }) {
+      const page = await $content('about').fetch()
+      return {
+        page
+      }
+    },
+    data() {
+      return {
+        type: '',
+        title: 'Contact Debbie',
+        description: 'Contact Debbie using the form or via Twitter or LinkedIn'
+      }
+    },
 
+    head() {
+      return {
+        title: this.title,
+        meta: [
+          {
+            hid: 'description',
+            name: 'desctiption',
+            content: this.desctiption
+          }
+        ],
+        link: [
+          {
+            hid: 'canonical',
+            rel: 'canonical',
+            href: `https://debbie.codes/contact`
+          }
+        ]
+      }
+    }
+  }
+</script>
 <style scoped>
   input,
   textarea {

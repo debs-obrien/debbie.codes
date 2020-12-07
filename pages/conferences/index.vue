@@ -81,7 +81,30 @@
     },
     data() {
       return {
-        type: ''
+        type: '',
+        title: "Debbie's conferences where she has given talks",
+        description:
+          'List of Conferences that Debbie is going to speak at mainly about Nuxt'
+      }
+    },
+
+    head() {
+      return {
+        title: this.title,
+        meta: [
+          {
+            hid: 'description',
+            name: 'desctiption',
+            content: this.desctiption
+          }
+        ],
+        link: [
+          {
+            hid: 'canonical',
+            rel: 'canonical',
+            href: `https://debbie.codes/conferences`
+          }
+        ]
       }
     },
     computed: {

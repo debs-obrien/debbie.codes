@@ -46,6 +46,34 @@
         workshops: data.workshops
       }
     },
+    data() {
+      return {
+        type: '',
+        title: "Debbie's workshops that she has attended",
+        description:
+          'List of workshops that Debbie has attended around the world'
+      }
+    },
+
+    head() {
+      return {
+        title: this.title,
+        meta: [
+          {
+            hid: 'description',
+            name: 'desctiption',
+            content: this.desctiption
+          }
+        ],
+        link: [
+          {
+            hid: 'canonical',
+            rel: 'canonical',
+            href: `https://debbie.codes/workshops`
+          }
+        ]
+      }
+    },
     mounted() {
       gsap.fromTo(
         '.workshop',

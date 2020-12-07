@@ -17,7 +17,7 @@
       },
       image: {
         type: String,
-        default: 'https://nuxtjs.org/twitter-card.png'
+        default: 'https://debbie.codes/twitter-card.png'
       }
     },
 

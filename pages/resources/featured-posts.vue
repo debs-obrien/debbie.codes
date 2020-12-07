@@ -41,6 +41,13 @@
             name: 'desctiption',
             content: this.desctiption
           }
+        ],
+        link: [
+          {
+            hid: 'canonical',
+            rel: 'canonical',
+            href: `https://debbie.codes/resources/${this.$route.params.slug}`
+          }
         ]
       }
     }

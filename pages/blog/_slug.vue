@@ -70,6 +70,13 @@
             name: 'desctiption',
             content: this.page.desctiption
           }
+        ],
+        link: [
+          {
+            hid: 'canonical',
+            rel: 'canonical',
+            href: `https://debbie.codes/blog/${this.$route.params.slug}`
+          }
         ]
       }
     }

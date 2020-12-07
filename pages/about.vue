@@ -47,6 +47,34 @@
       return {
         page
       }
+    },
+    data() {
+      return {
+        type: '',
+        title: 'About Debbie and her experience as a developer',
+        description:
+          'Head of Learning and Developer Advocate at NuxtJS, Google Developer Expert, Microsoft Most Valueable Professional, Cloudinary MDE'
+      }
+    },
+
+    head() {
+      return {
+        title: this.title,
+        meta: [
+          {
+            hid: 'description',
+            name: 'desctiption',
+            content: this.desctiption
+          }
+        ],
+        link: [
+          {
+            hid: 'canonical',
+            rel: 'canonical',
+            href: `https://debbie.codes/about`
+          }
+        ]
+      }
     }
   }
 </script>
