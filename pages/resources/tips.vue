@@ -46,7 +46,7 @@
           {
             hid: 'canonical',
             rel: 'canonical',
-            href: `https://debbie.codes/resources`
+            href: `https://debbie.codes/resources/${this.$route.params.slug}`
           }
         ]
       }

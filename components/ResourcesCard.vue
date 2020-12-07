@@ -1,6 +1,20 @@
 <template>
   <div class="pattern-dots-md gray-light">
-    <NuxtLink :to="resource.link">
+    <a v-if="resource.url" :href="resource.url" target="_blank" rel="nofollow">
+      <div
+        class="rounded bg-white dark:bg-gray-800  p-4 transform translate-x-6 -translate-y-6  "
+      >
+        <div class="flex-grow">
+          <h2 class="text-xl title-font font-medium mb-3">
+            {{ resource.title }}
+          </h2>
+          <p class="leading-relaxed text-sm text-justify">
+            {{ resource.description }}
+          </p>
+        </div>
+      </div>
+    </a>
+    <NuxtLink v-else :to="resource.link">
       <div
         class="rounded bg-white dark:bg-gray-800  p-4 transform translate-x-6 -translate-y-6  "
       >

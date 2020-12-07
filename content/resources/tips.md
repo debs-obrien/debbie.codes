@@ -1,7 +1,7 @@
 ---
 title: My Tips
 description: My tips, a short collection of things to remember
-link: /tips
+link: /resources/tips
 icon: tips
-position: 19
+position: 9
 ---
