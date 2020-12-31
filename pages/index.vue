@@ -17,7 +17,7 @@
         <p class="mb-4">
           Head of Learning & Developer Advocate at NuxtJS
         </p>
-        <p>Microsoft MVP | Google GDE | Cloudinary MDE</p>
+        <p>Microsoft MVP | GitHub Star | Google GDE | Cloudinary MDE</p>
       </div>
     </div>
   </div>
