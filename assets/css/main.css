@@ -43,11 +43,12 @@ body {
   overflow: visible;
 }
 
-/* a:hover {
-  text-decoration: underline;
-
+.nuxt-content a {
   @apply text-primary;
-} */
+}
+.nuxt-content a:hover {
+  text-decoration: underline;
+}
 
 .nuxt-content h1,
 .main-heading {
