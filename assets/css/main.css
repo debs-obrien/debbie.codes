@@ -45,35 +45,14 @@ body {
 
 .nuxt-content a {
   @apply text-primary;
+  text-decoration: none;
 }
 .nuxt-content a:hover {
   text-decoration: underline;
 }
 
-.nuxt-content h1,
-.main-heading {
-  font-size: 30px;
-
-  @apply font-Saira font-medium uppercase border-solid border-primary border-b-4 inline-block mb-4 mt-4;
-}
-.nuxt-content h2 {
-  font-size: 24px;
-
-  @apply font-Saira font-medium uppercase border-solid border-primary border-b-4 inline-block mb-4 mt-8;
-}
-.nuxt-content h3,
-.sub-heading {
-  font-size: 20px;
-
-  @apply font-Saira font-medium uppercase mt-4 mb-2;
-}
-
 section p {
   @apply mb-2;
-}
-.nuxt-content p,
-.nuxt-content img {
-  @apply mb-4;
 }
 
 .layout-enter-active,
@@ -102,6 +81,12 @@ section p {
 .nuxt-content .token.comment {
   color: #acb5b9;
 }
+.dark-mode .prose,
+.dark-mode .prose h1,
+.dark-mode .prose h2 {
+  color: white;
+}
+
 /* purgecss end ignore */
 pre,
 code {

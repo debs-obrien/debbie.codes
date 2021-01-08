@@ -1,16 +1,12 @@
 <template>
   <div class="container">
-    <div class="text-center">
-      <h1 class="main-heading">
-        Contact Me
-      </h1>
-    </div>
-    <div class="w-full flex flex-col justify-center md:ml-8">
-      <p class="w-1/2 mb-12 self-center">
-        Hey there. If you are looking to reach out to me you can use this form
-        although in general you will probably reach me quicker on Twitter or
-        LinkedIn.
-      </p>
+    <AppTitle>Contact Me</AppTitle>
+    <AppIntro>
+      Hey there. If you are looking to reach out to me you can use this form
+      although in general you will probably reach me quicker on Twitter or
+      LinkedIn.
+    </AppIntro>
+    <div class="mt-16 w-full flex flex-col justify-center md:ml-8">
       <form
         id="contact_form"
         name="contact"

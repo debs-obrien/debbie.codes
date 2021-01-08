@@ -1,8 +1,9 @@
 <template>
   <div class="container mt-10">
-    <h1 class="main-heading">
-      Workshops
-    </h1>
+    <AppTitle>Workshops I have attended</AppTitle>
+    <AppIntro>
+      A list of workshops that I have attended
+    </AppIntro>
     <div v-for="(workshop, index) in workshops" :key="index" class="flex">
       <WorkshopLinks :workshop="workshop" class="workshop" />
     </div>

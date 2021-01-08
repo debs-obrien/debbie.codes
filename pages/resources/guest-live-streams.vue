@@ -1,9 +1,11 @@
 <template>
   <div class="page-wrapper">
     <SocialHead :title="title" :description="description" />
-    <h1 class="main-heading">
-      Live Streams as a Guest
-    </h1>
+
+    <AppTitle>Live Streams as a Guest</AppTitle>
+    <AppIntro>
+      Live Streams where I have appeared as a guest
+    </AppIntro>
 
     <div class="mt-12 grid gap-5 max-w-lg mx-auto lg:grid-cols-1 lg:max-w-none">
       <div v-for="video of videos" :key="video.slug">

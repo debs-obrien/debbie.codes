@@ -1,10 +1,11 @@
 <template>
   <div class="page-wrapper">
     <SocialHead :title="title" :description="description" />
-    <h1 class="main-heading">
-      Guest Podcast Interviews
-    </h1>
 
+    <AppTitle>Guest Podcast Interviews</AppTitle>
+    <AppIntro>
+      Collection of Podcasts where I was interviewed as a Guest
+    </AppIntro>
     <div class="mt-12 grid gap-3  mx-auto md:grid-cols-1 md:max-w-none">
       <div v-for="podcast of podcasts" :key="podcast.slug">
         <VideoCard :item="podcast" />

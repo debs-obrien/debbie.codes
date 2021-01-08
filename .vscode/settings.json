@@ -16,5 +16,6 @@
   "workbench.sideBar.location": "left",
   "editor.minimap.enabled": false,
   "window.zoomLevel": 0,
-  "breadcrumbs.enabled": false
+  "breadcrumbs.enabled": false,
+  "editor.fontFamily": "Fira Code, Menlo, Monaco, 'Courier New', monospace"
 }

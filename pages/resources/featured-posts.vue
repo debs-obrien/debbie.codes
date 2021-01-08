@@ -1,10 +1,11 @@
 <template>
   <div class="page-wrapper">
     <SocialHead :title="title" :description="description" />
-    <h1 class="main-heading">
-      My featured Posts
-    </h1>
 
+    <AppTitle>My featured Posts</AppTitle>
+    <AppIntro>
+      Featured blog posts on various websites
+    </AppIntro>
     <div class="mt-12 grid gap-3  mx-auto md:grid-cols-3 md:max-w-none">
       <div v-for="item of items" :key="item.slug">
         <PostsCard :item="item" />

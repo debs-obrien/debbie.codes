@@ -5,6 +5,7 @@
  ** Default: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
  */
 module.exports = {
+  darkMode: 'class',
   purge: {
     // Learn more on https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css
     enabled: process.env.NODE_ENV === 'production',
@@ -22,6 +23,7 @@ module.exports = {
   theme: {
     darkSelector: '.dark-mode',
     extend: {
+      typography: {},
       colors: {
         primary: '#d8002d',
         secondary: '#333',
@@ -41,14 +43,17 @@ module.exports = {
   },
   variants: {
     backgroundColor: [
-      'dark',
-      'dark-hover',
-      'dark-group-hover',
-      'dark-even',
-      'dark-odd'
-    ],
-    borderColor: ['dark', 'dark-focus', 'dark-focus-within'],
-    textColor: ['dark', 'dark-hover', 'dark-active']
+      // 'dark',
+      // 'dark-hover',
+      // 'dark-group-hover',
+      // 'dark-even',
+      // 'dark-odd'
+    ]
+    // borderColor: ['dark', 'dark-focus', 'dark-focus-within'],
+    // textColor: ['dark', 'dark-hover', 'dark-active']
   },
-  plugins: [require('tailwindcss-dark-mode')()]
+  plugins: [
+    require('tailwindcss-dark-mode'),
+    require('@tailwindcss/typography')
+  ]
 }

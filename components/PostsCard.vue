@@ -31,7 +31,7 @@
             {{ tag }}
           </span>
         </div>
-        <a :href="item.url" class="block">
+        <a v-if="item.url" :href="item.url" class="block">
           <h3 class="mt-2 text-xl leading-7 font-semibold text-gray-900">
             {{ item.title }}
           </h3>
@@ -39,6 +39,17 @@
             {{ item.description }}
           </p>
         </a>
+
+        <div v-else>
+          <NuxtLink :to="`/blog/${item.slug}`" class="block">
+            <h3 class="mt-2 text-xl leading-7 font-semibold text-gray-900">
+              {{ item.title }}
+            </h3>
+            <p class="mt-3 text-base leading-6 text-gray-500">
+              {{ item.description }}
+            </p>
+          </NuxtLink>
+        </div>
       </div>
       <div v-if="item.date" class="mt-6 flex items-center">
         <div class="ml-3">

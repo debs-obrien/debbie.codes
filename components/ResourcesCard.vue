@@ -2,7 +2,7 @@
   <div class="pattern-dots-md gray-light">
     <a v-if="resource.url" :href="resource.url" target="_blank" rel="nofollow">
       <div
-        class="rounded bg-white dark:bg-gray-800  p-4 transform translate-x-6 -translate-y-6  "
+        class="rounded bg-white text-dark  dark:bg-gray-800  p-4 transform translate-x-6 -translate-y-6  "
       >
         <div class="flex-grow">
           <h2 class="text-xl title-font font-medium mb-3">
@@ -16,7 +16,7 @@
     </a>
     <NuxtLink v-else :to="resource.link">
       <div
-        class="rounded bg-white dark:bg-gray-800  p-4 transform translate-x-6 -translate-y-6  "
+        class="rounded bg-white text-dark dark:bg-gray-800  p-4 transform translate-x-6 -translate-y-6  "
       >
         <!-- <div
           class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-green-100 text-green-500 mb-5 flex-shrink-0 p-2"

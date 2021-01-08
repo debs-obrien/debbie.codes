@@ -1,10 +1,11 @@
 <template>
   <div class="page-wrapper">
     <SocialHead :title="title" :description="description" />
-    <h1 class="main-heading">
-      Open Source projects, demos and modules
-    </h1>
 
+    <AppTitle>Open Source projects, demos and modules</AppTitle>
+    <AppIntro>
+      My open Source Projects, modules I maintain and demos
+    </AppIntro>
     <div class="mt-12 grid gap-3  mx-auto md:grid-cols-1 md:max-w-none">
       <div v-for="repo of repos" :key="repo.slug">
         <VideoCard :item="repo" />

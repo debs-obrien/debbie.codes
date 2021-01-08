@@ -1,10 +1,11 @@
 <template>
   <div class="page-wrapper">
     <SocialHead :title="title" :description="description" />
-    <h1 class="main-heading">
-      My Conferece Talks from around the world
-    </h1>
 
+    <AppTitle>Conference Talks</AppTitle>
+    <AppIntro>
+      My Conferece Talks from around the world
+    </AppIntro>
     <div class="mt-12 grid gap-5 max-w-lg mx-auto lg:grid-cols-1 lg:max-w-none">
       <div v-for="video of videos" :key="video.slug">
         <VideoCard :item="video" />

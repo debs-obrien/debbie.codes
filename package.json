@@ -40,6 +40,7 @@
     "@nuxtjs/color-mode": "^2.0.2",
     "@nuxtjs/google-fonts": "^1.2.0",
     "@nuxtjs/tailwindcss": "^3.4.2",
+    "@tailwindcss/typography": "^0.3.1",
     "graphql": "^15.4.0",
     "graphql-tag": "^2.10.3",
     "gsap": "^3.3.1",
@@ -60,6 +61,7 @@
     "@nuxtjs/stylelint-module": "^4.0.0",
     "@nuxtjs/svg": "^0.1.7",
     "@vue/test-utils": "^1.1.2",
+    "autoprefixer": "^9",
     "cypress": "^6.2.1",
     "eslint": "^7.17.0",
     "eslint-config-prettier": "^7.1.0",
@@ -70,8 +72,10 @@
     "hygen": "^6.0.4",
     "lint-staged": "^10.5.3",
     "netlify-plugin-cypress": "^1.4.1",
+    "postcss": "^7",
     "start-server-and-test": "^1.11.7",
     "stylelint": "^13.8.0",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "tailwindcss-dark-mode": "^1.1.7",
     "vue-dompurify-html": "^2.2.1"
   }

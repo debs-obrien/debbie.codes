@@ -1,9 +1,12 @@
 <template>
   <div class="page-wrapper">
     <SocialHead :title="title" :description="description" />
-    <h1 class="main-heading">
-      Courses I have Created
-    </h1>
+
+    <AppTitle>Courses I have Created</AppTitle>
+    <AppIntro>
+      Courses that I have created on Various platforms including Vue School and
+      Netlify's Jamstack Explorers.
+    </AppIntro>
 
     <div class="mt-12 grid gap-3  mx-auto md:grid-cols-3 md:max-w-none">
       <div v-for="course of courses" :key="course.slug">

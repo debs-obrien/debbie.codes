@@ -1,9 +1,12 @@
 <template>
-  <div class="page-wrapper">
+  <div class="page-wrapper mt-8">
     <SocialHead :title="title" :description="description" :image="image" />
-    <h1 class="main-heading">
-      Welcome to my blog
-    </h1>
+
+    <AppTitle>Welcome to my blog</AppTitle>
+    <AppIntro>
+      Here you will find various blog posts on all things related to Frontend
+      and JavaScript but espeically on things related to Nuxt.
+    </AppIntro>
 
     <div class="mt-12 grid gap-5 max-w-lg mx-auto lg:grid-cols-3 lg:max-w-none">
       <div v-for="article of articles" :key="article.slug">

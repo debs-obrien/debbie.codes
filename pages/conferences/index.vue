@@ -4,9 +4,7 @@
       title="conferences"
       description="All the conferences I have attended"
     />
-    <h1 class="main-heading">
-      conferences
-    </h1>
+    <AppTitle>Conferences</AppTitle>
 
     <div class="buttons flex flex-wrap">
       <button class="btn" @click="FilterConferenceByType('')">
@@ -137,6 +135,19 @@
 </script>
 <style scoped>
   .btn {
-    @apply bg-primary text-white py-2 px-2 mb-4 mr-4 rounded border-solid border-2 border-primary btn font-Saira mb-4 mr-4;
+    --bg-opacity: 1;
+    background-color: #d8002d;
+    background-color: rgba(216, 0, 45, var(--bg-opacity));
+    --text-opacity: 1;
+    color: #fff;
+    color: rgba(255, 255, 255, var(--text-opacity));
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    --border-opacity: 1;
+    border: 2px solid #d8002d;
+    border-color: rgba(216, 0, 45, var(--border-opacity));
+    font-family: Saira;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
   }
 </style>
