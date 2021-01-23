@@ -94,3 +94,9 @@ code {
   width: auto;
   max-width: 95vw;
 }
+.prose {
+  max-width: 85ch;
+}
+.dark .prose code {
+  color: #fff;
+}

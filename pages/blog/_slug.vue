@@ -5,7 +5,8 @@
       :description="page.description"
       :image="page.image"
     />
-    <div class="main">
+    <div class="mx-auto">
+      <SearchInput search-item="articles" />
       <article class="md:p-8 prose prose-md lg:prose-lg mx-auto">
         <h1 class="title">
           {{ page.title }}
@@ -19,16 +20,6 @@
       </h3>
       <ArticlePrevNext :prev="prev" :next="next" class="mt-4" />
     </div>
-
-    <aside class="hidden lg:block">
-      <ul>
-        <li v-for="article of articles" :key="article.slug" class="pb-2">
-          <NuxtLink :to="`/blog/${article.slug}`">
-            {{ article.title }}
-          </NuxtLink>
-        </li>
-      </ul>
-    </aside>
   </div>
 </template>
 
@@ -36,7 +27,6 @@
   const readingTime = require('reading-time')
 
   export default {
-    layout: 'blog',
     async asyncData({ $content, params }) {
       const slug = params.slug || 'index'
 
@@ -94,15 +84,5 @@
     margin-left: auto;
     margin-right: auto;
     max-width: 65ch;
-  }
-  aside ul {
-    top: 6rem;
-    position: sticky;
-  }
-
-  aside {
-    min-width: 300px;
-    padding-left: 40px;
-    max-width: 400px;
   }
 </style>
