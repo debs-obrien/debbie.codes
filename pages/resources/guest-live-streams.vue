@@ -1,6 +1,7 @@
 <template>
   <div class="page-wrapper">
     <SocialHead :title="title" :description="description" />
+    <AppBreadCrumb title="Guest Live Streams" />
 
     <AppTitle>Live Streams as a Guest</AppTitle>
     <AppIntro>

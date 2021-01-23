@@ -1,5 +1,7 @@
 <template>
   <div class="page-wrapper">
+    <AppBreadCrumb title="tips" />
+
     <AppTitle>Welcome to my tips</AppTitle>
     <AppIntro>
       My tips, a short collection of things to remember
@@ -14,7 +16,6 @@
 
 <script>
   export default {
-    layout: 'tips',
     async asyncData({ $content, params }) {
       const tips = await $content('tips')
         .where({ published: { $ne: false } })

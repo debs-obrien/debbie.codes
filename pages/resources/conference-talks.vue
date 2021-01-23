@@ -1,6 +1,7 @@
 <template>
   <div class="page-wrapper">
     <SocialHead :title="title" :description="description" />
+    <AppBreadCrumb title="Conference Talks" />
 
     <AppTitle>Conference Talks</AppTitle>
     <AppIntro>

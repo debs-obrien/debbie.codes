@@ -44,11 +44,11 @@ body {
 }
 
 .nuxt-content a {
-  @apply text-primary;
+  @apply text-gray-500;
   text-decoration: none;
 }
 .nuxt-content a:hover {
-  text-decoration: underline;
+  @apply text-primary;
 }
 
 section p {
@@ -97,6 +97,6 @@ code {
 .prose {
   max-width: 85ch;
 }
-.dark .prose code {
+.dark-mode .prose code {
   color: #fff;
 }

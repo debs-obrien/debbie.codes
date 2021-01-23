@@ -1,7 +1,7 @@
 <template>
   <div class="page-wrapper">
     <SocialHead :title="title" :description="description" />
-
+    <AppBreadCrumb title="open-source" />
     <AppTitle>Open Source projects, demos and modules</AppTitle>
     <AppIntro>
       My open Source Projects, modules I maintain and demos

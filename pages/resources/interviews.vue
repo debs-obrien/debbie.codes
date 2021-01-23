@@ -1,7 +1,7 @@
 <template>
   <div class="page-wrapper">
     <SocialHead :title="title" :description="description" />
-
+    <AppBreadCrumb title="Guest Interviews" />
     <AppTitle>Guest Interviews</AppTitle>
     <AppIntro>
       Recordings of various interviews on different channels

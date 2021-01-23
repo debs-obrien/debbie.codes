@@ -182,6 +182,12 @@ export default {
    */
   axios: {},
 
+  pwa: {
+    manifest: {
+      theme_color: '#091a28'
+    }
+  },
+
   googleFonts: {
     /* module options */
     families: {
@@ -189,6 +195,7 @@ export default {
     },
     display: 'swap' // 'auto' | 'block' | 'swap' | 'fallback' | 'optional'
   },
+
   /*
    ** Exclude from generation
    */

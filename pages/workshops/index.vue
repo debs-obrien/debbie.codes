@@ -1,5 +1,6 @@
 <template>
   <div class="container mt-10">
+    <AppBreadCrumb title="Workshops Attended" />
     <AppTitle>Workshops I have attended</AppTitle>
     <AppIntro>
       A list of workshops that I have attended

@@ -1,7 +1,7 @@
 <template>
   <div class="page-wrapper">
     <SocialHead :title="title" :description="description" />
-
+    <AppBreadCrumb title="podcasts" />
     <AppTitle>Guest Podcast Interviews</AppTitle>
     <AppIntro>
       Collection of Podcasts where I was interviewed as a Guest
