@@ -6,8 +6,8 @@
           class="rounded-full mb-4 mt-8 profile-pic border-white border"
           src="https://res.cloudinary.com/debsobrien/image/upload/c_fill,ar_1:1,g_auto,r_max,q_auto,f_auto/v1589119213/debbie.codes/home-pic_mfirod.jpg"
           alt="Debbie O'Brien"
-          width="180px"
-          height="180px"
+          width="180"
+          height="180"
         />
       </div>
       <h1 class="name dark:text-white uppercase mb-4">
