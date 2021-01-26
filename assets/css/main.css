@@ -7,7 +7,7 @@
   --border-color: #ddd;
 }
 
-.dark-mode {
+.dark {
   --color: #ebf4f1;
   --color-primary: #d8002d;
   --color-secondary: #fdf9f3;
@@ -81,9 +81,9 @@ section p {
 .nuxt-content .token.comment {
   color: #acb5b9;
 }
-.dark-mode .prose,
-.dark-mode .prose h1,
-.dark-mode .prose h2 {
+.dark .prose,
+.dark .prose h1,
+.dark .prose h2 {
   color: white;
 }
 
@@ -97,6 +97,6 @@ code {
 .prose {
   max-width: 85ch;
 }
-.dark-mode .prose code {
+.dark .prose code {
   color: #fff;
 }

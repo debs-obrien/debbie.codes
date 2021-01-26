@@ -2,13 +2,16 @@
   <div class="flex border border-gray-500 p-2 w-full">
     <div class="image-box flex flex-col max-width">
       <a class="justify-center" :href="url">
-        <cld-image
-          :public-id="$url.conference(img)"
-          width="w-100"
-          fetch-format="auto"
+        <nuxt-img
+          provider="cloudinary"
+          :src="`debbie.codes/conferences/${img}`"
+          format="auto"
           quality="auto"
-          loading="lazy"
+          width="130"
+          height="130"
+          fit="thumbnail"
           :alt="alt"
+          loading="lazy"
         />
       </a>
     </div>

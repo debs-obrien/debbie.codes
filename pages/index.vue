@@ -6,6 +6,8 @@
           class="rounded-full mb-4 mt-8 profile-pic border-white border"
           src="https://res.cloudinary.com/debsobrien/image/upload/c_fill,ar_1:1,g_auto,r_max,q_auto,f_auto/v1589119213/debbie.codes/home-pic_mfirod.jpg"
           alt="Debbie O'Brien"
+          width="180px"
+          height="180px"
         />
       </div>
       <h1 class="name dark:text-white uppercase mb-4">
@@ -13,7 +15,7 @@
         <span class="text-primary">O'Brien</span>
       </h1>
 
-      <div class="dark:text-white subtitle font-medium">
+      <div class="dark:text-white subtitle font-medium mb-20">
         <p class="mb-4">
           Head of Learning & Developer Advocate at NuxtJS
         </p>
@@ -55,6 +57,12 @@
     </div>
   </div>
 </template>
+<script>
+  export default {
+    layout: 'home',
+    colorMode: 'dark'
+  }
+</script>
 
 <style scoped>
   .hero_texts .subtitle {

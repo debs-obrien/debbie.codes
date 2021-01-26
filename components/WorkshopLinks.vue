@@ -2,13 +2,16 @@
   <div class="flex border border-gray-500 p-2 w-full">
     <div class="flex flex-col">
       <a class="justify-center" :href="workshop.url">
-        <cld-image
-          :public-id="$url.workshop(workshop.img)"
-          width="w-100"
-          fetch-format="auto"
+        <nuxt-img
+          provider="cloudinary"
+          :src="`debbie.codes/workshops/${workshop.img}`"
+          format="auto"
           quality="auto"
+          width="130"
+          height="130"
+          fit="thumbnail"
+          :alt="alt"
           loading="lazy"
-          :alt="workshop.alt"
         />
       </a>
     </div>

@@ -23,7 +23,7 @@
       <li>
         <div class="flex items-center">
           <svg
-            class="flex-shrink-0 h-5 w-5 text-gray-300"
+            class="flex-shrink-0 h-5 w-5 text-gray-800 dark:text-gray-400"
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
             viewBox="0 0 20 20"
@@ -33,7 +33,7 @@
           </svg>
           <NuxtLink
             :to="`/${link}`"
-            class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700 uppercase"
+            class="ml-4 text-sm font-medium text-gray-800 dark:text-gray-400 hover:text-gray-700 uppercase"
           >
             {{ link }}
           </NuxtLink>
@@ -42,7 +42,7 @@
       <li>
         <div class="flex items-center">
           <svg
-            class="flex-shrink-0 h-5 w-5 text-gray-300"
+            class="flex-shrink-0 h-5 w-5 text-gray-800 dark:text-gray-300"
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
             viewBox="0 0 20 20"

@@ -36,8 +36,6 @@
     "@nuxt/content": "^1.11.1",
     "@nuxt/http": "^0.6.2",
     "@nuxtjs/axios": "^5.12.5",
-    "@nuxtjs/cloudinary": "^1.0.3-beta-2",
-    "@nuxtjs/color-mode": "^2.0.2",
     "@nuxtjs/google-fonts": "^1.2.0",
     "@nuxtjs/tailwindcss": "^3.4.2",
     "@tailwindcss/typography": "^0.4.0",
@@ -54,6 +52,8 @@
     "vue-youtube-embed": "^2.2.2"
   },
   "devDependencies": {
+    "@nuxt/image": "^0.2.1",
+    "@nuxtjs/color-mode": "^2.0.3",
     "@nuxtjs/eslint-config": "^5.0.0",
     "@nuxtjs/eslint-module": "^3.0.2",
     "@nuxtjs/google-analytics": "^2.2.3",

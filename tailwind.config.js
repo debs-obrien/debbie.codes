@@ -21,7 +21,7 @@ module.exports = {
     }
   },
   theme: {
-    darkSelector: '.dark-mode',
+    darkSelector: '.dark',
     extend: {
       typography: {},
       colors: {

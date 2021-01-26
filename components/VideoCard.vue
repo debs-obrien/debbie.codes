@@ -30,18 +30,18 @@
         </h3>
         <span v-if="item.host"> with {{ item.host }} </span>
 
-        <p class="mt-3 text-lg leading-6 text-gray-500">
+        <p class="mt-3 text-lg leading-6 text-gray-500  dark:text-gray-300">
           {{ item.description }}
         </p>
       </div>
       <div v-if="item.date" class="flex items-center">
         <div class="p-3">
-          <div class="flex text-sm leading-5 text-gray-500">
+          <div class="flex text-sm leading-5 text-gray-500 dark:text-gray-300">
             {{ formatDate(item.date) }}
           </div>
           <div
             v-if="item.conference"
-            class="flex text-sm leading-5 text-gray-500"
+            class="flex text-sm leading-5 text-gray-500 dark:text-gray-300"
           >
             {{ item.conference }}
           </div>

@@ -111,6 +111,10 @@ export default {
    */
   css: ['~/assets/css/main'],
 
+  colorMode: {
+    classSuffix: ''
+  },
+
   router: {
     linkExactActiveClass: 'text-primary'
   },
@@ -155,14 +159,20 @@ export default {
     '@nuxt/http',
     '@nuxtjs/pwa',
     '@nuxt/content',
-    '@nuxtjs/cloudinary',
-    [
-      '@nuxtjs/google-analytics',
-      {
-        id: 'UA-166062227-1'
-      }
-    ]
+    '@nuxt/image'
+    // '@nuxtjs/cloudinary'
+    // [
+    //   '@nuxtjs/google-analytics',
+    //   {
+    //     id: 'UA-166062227-1'
+    //   }
+    // ]
   ],
+  image: {
+    cloudinary: {
+      baseURL: 'https://res.cloudinary.com/debsobrien/image/upload/'
+    }
+  },
   components: true,
   content: {
     markdown: {
