@@ -20,6 +20,10 @@ export default {
     title: 'Debbie Codes with Nuxt',
     meta: [
       { charset: 'utf-8' },
+      {
+        name: 'google-site-verification',
+        content: 'Nb9JyfPdxgxIzfosyzt-JsvJZkoUVlhEYN4TuoLPWF0'
+      },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
