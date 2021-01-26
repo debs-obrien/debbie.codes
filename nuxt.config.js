@@ -89,6 +89,12 @@ export default {
       {
         src: 'https://identity.netlify.com/v1/netlify-identity-widget.js',
         defer: true
+      },
+      {
+        src: 'https://plausible.io/js/plausible.js',
+        defer: true,
+        async: true,
+        'data-domain': 'debbie.codes'
       }
     ]
   },
