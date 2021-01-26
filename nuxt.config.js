@@ -31,7 +31,7 @@ export default {
         content:
           "Debbie O'Brien, Head of Learning and Developer Advocate for NuxtJS with over 10 years experience in Frontend development. Microsoft Most Valuable Professional in developer technologies, Google Developer Expert in web technologies and Cloudinary Media Developer Expert."
       },
-      // Test on: https://developers.facebook.com/tools/debug/
+      // Test on: https://developers.facebook.com/tools/debug/ or https://socialsharepreview.com/
       { property: 'og:site_name', content: 'Debbie Codes' },
       { hid: 'og:type', property: 'og:type', content: 'website' },
       {
@@ -55,7 +55,7 @@ export default {
         property: 'og:image',
         content: 'https://debbie.codes/twitter-card.png'
       },
-      // Test on: https://cards-dev.twitter.com/validator
+      // Test on: https://cards-dev.twitter.com/validator or https://socialsharepreview.com/
       { name: 'twitter:site', content: '@debs_obrien' },
       { name: 'twitter:card', content: 'summary_large_image' },
       {
