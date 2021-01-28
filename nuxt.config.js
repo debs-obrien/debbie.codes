@@ -1,25 +1,5 @@
-const cloudinaryUrl =
-  'https://res.cloudinary.com/debsobrien/image/upload/q_auto,f_auto'
-const createSitemapRoutes = async () => {
-  const routes = []
-  const { $content } = require('@nuxt/content')
-  const posts = await $content('articles').fetch()
-  for (const post of posts) {
-    routes.push(`blog/${post.slug}`)
-  }
-}
 export default {
   target: 'static',
-  env: {
-    cloudinaryPath: cloudinaryUrl,
-    baseImage: cloudinaryUrl + '/',
-    workshopImage:
-      cloudinaryUrl +
-      ',c_thumb,w_130,h_130/v1565547670/debbie.codes/workshops/',
-    conferenceImage:
-      cloudinaryUrl +
-      ',c_thumb,w_130,h_130/v1565547670/debbie.codes/conferences/'
-  },
   /*
    ** Headers of the page
    */
@@ -166,8 +146,8 @@ export default {
     '@nuxt/http',
     '@nuxtjs/pwa',
     '@nuxt/content',
-    '@nuxt/image',
-    '@nuxtjs/sitemap'
+    '@nuxt/image'
+    // '@nuxtjs/sitemap'
     // '@nuxtjs/cloudinary'
     // [
     //   '@nuxtjs/google-analytics',
@@ -176,12 +156,14 @@ export default {
     //   }
     // ]
   ],
-  sitemap: {
-    hostname: 'https://debbie.codes',
-    gzip: true,
-    exclude: ['code', '/code/**', 'test', 'thank-you'],
-    routes: createSitemapRoutes
-  },
+  // sitemap: {
+  //   hostname: 'https://debbie.codes',
+  //   gzip: true,
+  //   exclude: ['code', '/code/**', 'test', 'thank-you'],
+  //   routes() {
+  //     return sitemap()
+  //   }
+  // },
 
   image: {
     cloudinary: {
