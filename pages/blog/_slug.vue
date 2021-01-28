@@ -43,7 +43,7 @@
         .surround(slug)
         .fetch()
 
-      const stats = readingTime(page)
+      const stats = readingTime(page.readingTime)
 
       return {
         page,
