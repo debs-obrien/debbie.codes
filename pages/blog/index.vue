@@ -42,13 +42,12 @@
         selectedTag: 'all',
         tags: [
           'Nuxt',
-          'all',
-          'Lifestyle',
+          'Content',
           'webpack',
           'PWA',
           'Cypress',
-          'Content',
-          'webpack'
+          'Lifestyle',
+          'all'
         ],
         title: "Welcome to Debbie's blog",
         description:
