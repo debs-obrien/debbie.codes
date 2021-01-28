@@ -44,8 +44,8 @@ body {
 }
 
 .nuxt-content a {
-  @apply text-gray-500;
-  text-decoration: none;
+  @apply text-gray-800 dark:text-gray-300;
+  text-decoration: underline;
 }
 .nuxt-content a:hover {
   @apply text-primary;
