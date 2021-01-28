@@ -4,7 +4,7 @@ date: 2020-07-17
 description: Fetching graphQL queries
 published: false
 image: https://images.unsplash.com/photo-1516979187457-637abb4f9353?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80
-tags: [Nuxt, GraphQL, Apollo]
+tags: [Nuxt, GraphQL, Apollo, all]
 ---
 
 How to fetch data from graphQL without having to use libraries such as apollo

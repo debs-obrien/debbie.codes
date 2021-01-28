@@ -3,7 +3,7 @@ title: Formatting a date in JavaScript
 date: 2020-10-09
 description: How to format a date in JavaScript without using any libraries so you easily display dates in your Vue or Nuxt application
 image: https://images.unsplash.com/photo-1595437037073-edcf5af767dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60
-tags: [JavaScript]
+tags: [JavaScript, all]
 ---
 
 When it comes to dates we often add big libraries like Moment.js or Luxon just to format a simple date. But it is actually much simpler than that by using the `toLocalDateString()` method. We don't have to install any packages. It just works

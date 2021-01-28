@@ -4,7 +4,7 @@ date: 2020-08-09
 description: The .map() method in JavaScript lets you loop over every element in an array and modify or add to it and then return a different element to take that elements place
 published: false
 image: https://images.unsplash.com/photo-1512418490979-92798cec1380?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60
-tags: [JavaScript]
+tags: [JavaScript, all]
 ---
 
 To filter an array

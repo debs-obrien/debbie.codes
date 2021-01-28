@@ -3,7 +3,7 @@ title: Adding analytics to your Nuxt site
 date: 2021-01-28
 description: When you build your own site sometimes it's important to add analytics to see what is doing well, what your audience is spending time and perhaps find ways of improving your site
 image: https://images.unsplash.com/photo-1477013743164-ffc3a5e556da?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80
-tags: [Nuxt, Analytics]
+tags: [Nuxt, Analytics, all]
 ---
 
 I recently just added [Plausible](https://plausible.io/) to my personal Nuxt site. Although I am still running the free trial version I am pretty sure that I will pay the small monthly fee and keep using this for my analytics. Why? I know right. Google Analytics is free so why pay for a service? I never normally pay for anything when there is a free option but in this case I think it's worth it.

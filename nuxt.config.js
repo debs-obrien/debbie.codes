@@ -146,8 +146,8 @@ export default {
     '@nuxt/http',
     '@nuxtjs/pwa',
     '@nuxt/content',
-    '@nuxt/image'
-    // '@nuxtjs/sitemap'
+    '@nuxt/image',
+    '@nuxtjs/sitemap'
     // '@nuxtjs/cloudinary'
     // [
     //   '@nuxtjs/google-analytics',
@@ -156,14 +156,11 @@ export default {
     //   }
     // ]
   ],
-  // sitemap: {
-  //   hostname: 'https://debbie.codes',
-  //   gzip: true,
-  //   exclude: ['code', '/code/**', 'test', 'thank-you'],
-  //   routes() {
-  //     return sitemap()
-  //   }
-  // },
+  sitemap: {
+    hostname: 'https://debbie.codes',
+    gzip: true,
+    exclude: ['code', '/code/**', 'test', 'thank-you']
+  },
 
   image: {
     cloudinary: {

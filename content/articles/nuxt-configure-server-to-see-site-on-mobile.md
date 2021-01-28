@@ -3,7 +3,7 @@ title: Configure the Nuxt.js server to see your site on your mobile
 date: 2020-04-21
 description: Sometimes you want to test out your site on your actual mobile device or tablet and not just in the dev tools. This is great when bug fixing or just to see how it looks in a real environment.
 image: https://images.unsplash.com/photo-1423666639041-f56000c27a9a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjF9&auto=format&fit=crop&w=800&q=60
-tags: [Nuxt]
+tags: [Nuxt, all]
 ---
 
 Sometimes you want to test out your site on your actual mobile device or tablet and not just in the dev tools. This is great when bug fixing or just to see how it looks in a real environment.
