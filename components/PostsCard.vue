@@ -22,7 +22,7 @@
     </div>
     <div class="flex-1 bg-white p-6 flex flex-col justify-between">
       <div class="flex-1">
-        <div>
+        <!-- <div>
           <span
             v-for="tag in item.tags"
             :key="tag"
@@ -30,7 +30,7 @@
           >
             {{ tag }}
           </span>
-        </div>
+        </div> -->
         <a v-if="item.url" :href="item.url" class="block">
           <h3 class="mt-2 text-xl leading-7 font-semibold text-gray-900">
             {{ item.title }}
