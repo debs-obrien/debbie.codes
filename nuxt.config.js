@@ -96,7 +96,10 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['~/assets/css/main'],
+  css: [
+    '~/assets/css/main',
+    'node_modules/lite-youtube-embed/src/lite-yt-embed.css'
+  ],
 
   colorMode: {
     classSuffix: ''
@@ -119,7 +122,8 @@ export default {
     '~/plugins/url-helpers.js',
     '~/plugins/vue-dompurify.js',
     '~/plugins/hasura.js',
-    '~/plugins/preview.client.js'
+    '~/plugins/preview.client.js',
+    '~/plugins/test.client.js'
   ],
 
   /*
@@ -160,6 +164,10 @@ export default {
     hostname: 'https://debbie.codes',
     gzip: true,
     exclude: ['code', '/code/**', 'test', 'thank-you']
+  },
+
+  tailwindcss: {
+    viewer: false
   },
 
   image: {

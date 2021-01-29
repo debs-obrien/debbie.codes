@@ -1,20 +1,23 @@
 <template>
   <div class="flex flex-rounded-lg shadow-lg overflow-hidden pb-4">
-    <!-- component -->
-    <div class=" w-full lg:flex">
-      <iframe
-        v-if="item.video"
-        width="300"
-        height="150"
-        :src="item.video"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      >
-      </iframe>
-      <a v-else-if="item.image" :href="item.url" rel="nofollow" target="_blank">
-        <img :src="item.image" class="max-width" />
-      </a>
+    <div class="w-full lg:flex">
+      <div class="video">
+        <lite-youtube
+          v-if="item.video"
+          :videoid="item.video"
+          :playlabel="item.title"
+        />
+
+        <a
+          v-else-if="item.image"
+          :href="item.url"
+          rel="nofollow"
+          target="_blank"
+        >
+          <img :src="item.image" class="max-width" />
+        </a>
+      </div>
+
       <div class="flex-1 p-4">
         <div>
           <span
@@ -71,5 +74,9 @@
 <style scoped>
   .max-width {
     max-width: 300px;
+  }
+  .video {
+    width: 300px;
+    height: 150px;
   }
 </style>
