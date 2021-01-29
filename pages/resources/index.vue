@@ -4,7 +4,7 @@
     <link href="https://unpkg.com/pattern.css" rel="stylesheet" />
     <div>
       <section>
-        <div class="max-w-6xl mx-auto px-5 py-5 ">
+        <div class="max-w-6xl mx-auto px-5 py-5">
           <div class="text-center mb-20">
             <AppTitle>My Resources</AppTitle>
             <AppIntro>
@@ -13,11 +13,11 @@
               featrued me and so much more.
             </AppIntro>
           </div>
-          <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 ">
+          <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
             <div
               v-for="resource in resources"
               :key="resource.title"
-              class="p-10 md:w-1/3 md:mb-0 mb-6 flex flex-col "
+              class="p-10 md:w-1/3 md:mb-0 mb-6 flex flex-col"
             >
               <ResourcesCard :resource="resource" />
             </div>
@@ -30,9 +30,7 @@
 <script>
   export default {
     async asyncData({ $content }) {
-      const resources = await $content('resources')
-        .sortBy('position')
-        .fetch()
+      const resources = await $content('resources').sortBy('position').fetch()
 
       return {
         resources
@@ -53,8 +51,8 @@
         meta: [
           {
             hid: 'description',
-            name: 'desctiption',
-            content: this.desctiption
+            name: 'description',
+            content: this.description
           }
         ],
         link: [

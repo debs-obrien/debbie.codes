@@ -3,10 +3,8 @@
     <SocialHead :title="title" :description="description" />
     <AppBreadCrumb title="open-source" />
     <AppTitle>Open Source projects, demos and modules</AppTitle>
-    <AppIntro>
-      My open Source Projects, modules I maintain and demos
-    </AppIntro>
-    <div class="mt-12 grid gap-3  mx-auto md:grid-cols-1 md:max-w-none">
+    <AppIntro> My open Source Projects, modules I maintain and demos </AppIntro>
+    <div class="mt-12 grid gap-3 mx-auto md:grid-cols-1 md:max-w-none">
       <div v-for="repo of repos" :key="repo.slug">
         <VideoCard :item="repo" />
       </div>
@@ -39,8 +37,8 @@
         meta: [
           {
             hid: 'description',
-            name: 'desctiption',
-            content: this.desctiption
+            name: 'description',
+            content: this.description
           }
         ],
         link: [
