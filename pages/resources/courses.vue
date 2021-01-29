@@ -9,7 +9,7 @@
       Netlify's Jamstack Explorers.
     </AppIntro>
 
-    <div class="mt-12 grid gap-3  mx-auto md:grid-cols-3 md:max-w-none">
+    <div class="mt-12 grid gap-3 mx-auto md:grid-cols-3 md:max-w-none">
       <div v-for="course of courses" :key="course.slug">
         <PostsCard :item="course" />
       </div>
@@ -42,8 +42,8 @@
         meta: [
           {
             hid: 'description',
-            name: 'desctiption',
-            content: this.desctiption
+            name: 'description',
+            content: this.description
           }
         ],
         link: [
