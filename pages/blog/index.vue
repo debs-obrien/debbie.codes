@@ -42,6 +42,7 @@
         selectedTag: 'all',
         tags: [
           'Nuxt',
+          'Performance',
           'Content',
           'webpack',
           'PWA',

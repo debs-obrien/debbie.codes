@@ -123,7 +123,7 @@ export default {
     '~/plugins/vue-dompurify.js',
     '~/plugins/hasura.js',
     '~/plugins/preview.client.js',
-    '~/plugins/test.client.js'
+    '~/plugins/youtube.client.js'
   ],
 
   /*
