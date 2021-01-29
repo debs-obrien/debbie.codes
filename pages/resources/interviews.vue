@@ -39,8 +39,8 @@
         meta: [
           {
             hid: 'description',
-            name: 'desctiption',
-            content: this.desctiption
+            name: 'description',
+            content: this.description
           }
         ],
         link: [

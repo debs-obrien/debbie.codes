@@ -2,9 +2,7 @@
   <div class="container mt-10">
     <AppBreadCrumb title="Workshops Attended" />
     <AppTitle>Workshops I have attended</AppTitle>
-    <AppIntro>
-      A list of workshops that I have attended
-    </AppIntro>
+    <AppIntro> A list of workshops that I have attended </AppIntro>
     <div v-for="(workshop, index) in workshops" :key="index" class="flex">
       <WorkshopLinks :workshop="workshop" class="workshop" />
     </div>
@@ -63,8 +61,8 @@
         meta: [
           {
             hid: 'description',
-            name: 'desctiption',
-            content: this.desctiption
+            name: 'description',
+            content: this.description
           }
         ],
         link: [

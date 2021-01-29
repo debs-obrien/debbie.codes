@@ -6,7 +6,7 @@
     <AppIntro>
       Collection of Podcasts where I was interviewed as a Guest
     </AppIntro>
-    <div class="mt-12 grid gap-3  mx-auto md:grid-cols-1 md:max-w-none">
+    <div class="mt-12 grid gap-3 mx-auto md:grid-cols-1 md:max-w-none">
       <div v-for="podcast of podcasts" :key="podcast.slug">
         <VideoCard :item="podcast" />
       </div>
@@ -39,8 +39,8 @@
         meta: [
           {
             hid: 'description',
-            name: 'desctiption',
-            content: this.desctiption
+            name: 'description',
+            content: this.description
           }
         ],
         link: [

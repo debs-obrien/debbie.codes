@@ -4,9 +4,7 @@
     <AppBreadCrumb title="Guest Live Streams" />
 
     <AppTitle>Live Streams as a Guest</AppTitle>
-    <AppIntro>
-      Live Streams where I have appeared as a guest
-    </AppIntro>
+    <AppIntro> Live Streams where I have appeared as a guest </AppIntro>
 
     <div class="mt-12 grid gap-5 max-w-lg mx-auto lg:grid-cols-1 lg:max-w-none">
       <div v-for="video of videos" :key="video.slug">
@@ -41,8 +39,8 @@
         meta: [
           {
             hid: 'description',
-            name: 'desctiption',
-            content: this.desctiption
+            name: 'description',
+            content: this.description
           }
         ],
         link: [

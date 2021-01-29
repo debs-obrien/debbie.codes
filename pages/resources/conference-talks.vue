@@ -4,9 +4,7 @@
     <AppBreadCrumb title="Conference Talks" />
 
     <AppTitle>Conference Talks</AppTitle>
-    <AppIntro>
-      My Conferece Talks from around the world
-    </AppIntro>
+    <AppIntro> My Conferece Talks from around the world </AppIntro>
     <div class="mt-12 grid gap-5 max-w-lg mx-auto lg:grid-cols-1 lg:max-w-none">
       <div v-for="video of videos" :key="video.slug">
         <VideoCard :item="video" />
@@ -40,8 +38,8 @@
         meta: [
           {
             hid: 'description',
-            name: 'desctiption',
-            content: this.desctiption
+            name: 'description',
+            content: this.description
           }
         ],
         link: [
