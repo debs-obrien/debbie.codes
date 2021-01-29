@@ -28,9 +28,9 @@
             {{ tag }}
           </span>
         </div>
-        <h3 class="text-primary mt-2 text-xl leading-7 font-semibold inline">
+        <h2 class="text-primary mt-2 text-xl leading-7 font-semibold inline">
           {{ item.title }}
-        </h3>
+        </h2>
         <span v-if="item.host"> with {{ item.host }} </span>
 
         <p class="mt-3 text-lg leading-6 text-gray-500  dark:text-gray-300">
