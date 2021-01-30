@@ -2,7 +2,7 @@
 title: Lite YouTube Embeds
 date: 2021-01-29
 description: If you are adding YouTube videos to your site you might notice that they can load quite slowly especially when loading iframes. However this is a better way. With this library your YouTube videos will load super fast and your site will be more performant because of it.
-image: https://images.unsplash.com/photo-1551817958-c5b51e7b4a33?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80
+image: https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1611939855/debbie.codes/blog/Screenshot_2021-01-29_at_18.03.52_yuqsr3.png
 tags: [Nuxt, YouTube, Performance, all]
 ---
 
