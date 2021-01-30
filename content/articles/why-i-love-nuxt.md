@@ -48,7 +48,13 @@ My boss at the time said "But can we not just render the content and not the who
 
 ## Nuxt is just amazing
 
-For me Nuxt just works. It is easy to learn and easy to teach people. I think anyone can pick it up easily and get a site up and running with not much dev experience and that is super cool. With Nuxt you can have non tech people such as designers helping out on a project as the code base is just so easy to understand. When you are in charge of a project and are not sure where the deployment might be or if you are just not sure if static is right for you then no worries as with Nuxt just changing one thing in the config file and your site becomes static or server rendered and that is super powerful. But Nuxt also lets you take it the the next level by creating your own plugins and modules and literally hooking into Nuxt. So basically if you want my opinion, is Nuxt right for you? For sure it is. For your, for your company, for your team. If you want to get started with Nuxt you can check out my [free course on getting Started with Nuxt](https://explorers.netlify.com/learn/get-started-with-nuxt) or check out my [YouTube Channel](https://www.youtube.com/channel/UCrNvYFsT1L3WczE8AizDQ6g) for free content on Nuxt. Have fun.
+For me Nuxt just works. It is easy to learn and easy to teach people. I think anyone can pick it up easily and get a site up and running with not much dev experience and that is super cool. With Nuxt you can have non tech people such as designers helping out on a project as the code base is just so easy to understand.
+
+When you are in charge of a project and are not sure where the deployment might be or if you are just not sure if static is right for you then no worries as with Nuxt just changing one thing in the config file and your site becomes static or server rendered and that is super powerful.
+
+But Nuxt also lets you take it the the next level by creating your own plugins and modules and literally hooking into Nuxt. So basically if you want my opinion, is Nuxt right for you? For sure it is. For your, for your company, for your team.
+
+If you want to get started with Nuxt you can check out my [free course on getting Started with Nuxt](https://explorers.netlify.com/learn/get-started-with-nuxt) or check out my [YouTube Channel](https://www.youtube.com/channel/UCrNvYFsT1L3WczE8AizDQ6g) for free content on Nuxt. Have fun.
 
 ![Are you Nuxt](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1599991772/debbie.codes/vue_amsterdam_2_vkc631.jpg)
 
