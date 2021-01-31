@@ -3,7 +3,7 @@ title: 2020 - my most successful year (career wise)
 date: 2020-12-30
 description: A look back at what we could say has been an interesting year, challenging in many ways yet somehow has been my most successful year to date.
 image: https://res.cloudinary.com/debsobrien/image/upload/v1609438516/debbie.codes/blog/Screenshot_2020-12-31_at_18.14.59_sbfsen.png
-tags: [Lifestyle, all]
+tags: [Dev Stuff, all]
 ---
 
 We all know that 2020 has been a hard year especially family wise and it has of course been mentally challenging in more ways than one. We all know and will remember these hard times forever. However, I would like to focus on the positive side of things and recap the year looking only at that. If I do that then 2020 has been my most successful year ever. And I think it is important to look back and acknowledge these achievements as I feel they mean even more during 2020 than any other year.
