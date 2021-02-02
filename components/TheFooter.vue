@@ -79,7 +79,7 @@
         </a>
 
         <a
-          href="https://www.youtube.com/channel/UCrNvYFsT1L3WczE8AizDQ6g/"
+          href="https://www.youtube.com/c/DebbieOBrien"
           target="_blank"
           rel="nofollow noopener noreferrer"
           aria-label="youtube"

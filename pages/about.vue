@@ -10,7 +10,9 @@
       <div class="w-full md:w-3/5 ml-8">
         <span class="font-Saira mb-4 text-primary">Hello There!</span>
 
-        <h3 class="uppercase font-semibold mb-4"> I'm Debbie O'Brien </h3>
+        <h3 class="uppercase font-semibold mb-4">
+I'm Debbie O'Brien
+</h3>
         <div class="mb-4">
           <p class="mb-2">
             <nuxt-content :document="page" />

@@ -7,14 +7,18 @@
     <AppTitle>Conferences</AppTitle>
 
     <div class="buttons flex flex-wrap">
-      <button class="btn" @click="FilterConferenceByType('')"> All </button>
+      <button class="btn" @click="FilterConferenceByType('')">
+All
+</button>
       <button class="btn" @click="FilterConferenceByType('Speaker')">
         Speaker
       </button>
       <button class="btn" @click="FilterConferenceByType('Lightening Talk')">
         Lightening Talk
       </button>
-      <button class="btn" @click="FilterConferenceByType('MC')"> MC </button>
+      <button class="btn" @click="FilterConferenceByType('MC')">
+MC
+</button>
       <button class="btn" @click="FilterConferenceByType('Attendee')">
         Attendee
       </button>
