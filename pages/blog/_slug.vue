@@ -12,6 +12,11 @@
         <h1 class="title">
           {{ page.title }}
         </h1>
+        <lite-youtube
+          v-if="page.video"
+          :videoid="page.video"
+          :playlabel="page.title"
+        />
 
         <!-- {{ stats.text }} -->
         <nuxt-content :document="page" class="" />
