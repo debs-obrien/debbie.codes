@@ -44,13 +44,22 @@
           >
             Google GDE
           </a>
-          |
+        </p>
+        <p class="mt-4">
           <a
             href="https://cloudinary.com/mde"
             target="_blank"
             rel="nofollow noopener noreferrer"
           >
             Cloudinary MDE
+          </a>
+          |
+          <a
+            href="https://auth0.com/ambassador-program/"
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+          >
+            Auth0 Ambassador
           </a>
         </p>
       </div>
