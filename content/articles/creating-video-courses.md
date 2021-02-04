@@ -2,7 +2,7 @@
 title: Creating Video Courses
 date: 2021-01-31
 description: Creating video courses can be very time consuming and for sure there is no one way to go about it. In this post I share what I have learnt and how I now find it easier to create courses.
-image: https://res.cloudinary.com/debsobrien/image/upload/c_scale,f_auto,q_auto,w_1200/v1612090624/debbie.codes/blog/Screenshot_2021-01-31_at_11.54.39_mlegoc.png
+image: https://res.cloudinary.com/debsobrien/image/upload/c_scale,fl_lossy,f_auto,q_auto,w_1200/v1612090624/debbie.codes/blog/Screenshot_2021-01-31_at_11.54.39_mlegoc.png
 tags: [Nuxt, Dev Stuff, all]
 ---
 
@@ -44,7 +44,7 @@ Thats when I started trying out [Descript](https://www.descript.com/). You see I
 
 However my voice recording was not how I wanted it to be. So I exported the video to mp4 and then uploaded it to [Descript](https://www.descript.com/) and pressed the transcribe button. I now had my whole script just laid out in front of me. Voice recognition is about 95% so it was not perfect but it was pretty good and much quicker than writing out a script yourself. I then copied the text and put it into [Notion](https://www.notion.so) and started editing it by making it sound more professional and easier to understand.
 
-![Descript](https://res.cloudinary.com/debsobrien/image/upload/c_scale,f_auto,q_auto,w_1200/v1612090624/debbie.codes/blog/Screenshot_2021-01-31_at_11.54.39_mlegoc.png)
+![Descript](https://res.cloudinary.com/debsobrien/image/upload/c_scale,fl_lossy,f_auto,q_auto,w_1200/v1612090624/debbie.codes/blog/Screenshot_2021-01-31_at_11.54.39_mlegoc.png)
 
 ## Time to record again
 

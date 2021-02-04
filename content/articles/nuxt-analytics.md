@@ -2,7 +2,7 @@
 title: Adding analytics to your Nuxt site
 date: 2021-01-28
 description: When you build your own site sometimes it's important to add analytics to see what is doing well, what your audience is spending time and perhaps find ways of improving your site
-image: https://res.cloudinary.com/debsobrien/image/upload/c_scale,f_auto,q_auto,w_600/v1611841528/debbie.codes/plausible_laomvr.png
+image: https://res.cloudinary.com/debsobrien/image/upload/c_scale,fl_lossy,f_auto,q_auto,w_600/v1611841528/debbie.codes/plausible_laomvr.png
 tags: [Nuxt, Analytics, all]
 ---
 
@@ -12,7 +12,7 @@ I have had Google Analytics on my site for months and I never once looked at it 
 
 ## Easy to use
 
-[Plausible](https://plausible.io/) gives you a really nice way of seeing your data. A simple url. You can keep this private or make it public and share it with the world which can be helpful for sharing projects across teams. So now I can just bookmark the url and open it when I want to see what is going on. ![plausible](https://res.cloudinary.com/debsobrien/image/upload/c_scale,f_auto,q_auto,r_10,w_1200/v1611841528/debbie.codes/plausible_laomvr.png)
+[Plausible](https://plausible.io/) gives you a really nice way of seeing your data. A simple url. You can keep this private or make it public and share it with the world which can be helpful for sharing projects across teams. So now I can just bookmark the url and open it when I want to see what is going on. ![plausible](https://res.cloudinary.com/debsobrien/image/upload/c_scale,fl_lossy,f_auto,q_auto,r_10,w_1200/v1611841528/debbie.codes/plausible_laomvr.png)
 
 I never built my site for other people. I built it as my playground, my way to explore and play with new things in Nuxt and a way that I could learn. As it is a personal project I don't always have the time to invest in it to make it more amazing and as a developer we are never fully happy with our personal site. There is always something more we could be doing, always somethings else that could be better. My blog posts were really just ways for me to remember things, my learning journal, my notes. I never wrote a blog thinking about what other people wanted to read. I probably still don't to be honest. My blog is basically my way of getting information out of my head so that I can do more things but also have a place to go back to when I need to remember the thing I got out of my head.
 
@@ -26,7 +26,7 @@ Another great thing about using [Plausible](https://plausible.io/) instead of Go
 
 ## Great for Performance
 
-But by far the best thing about [Plausible](https://plausible.io/) is that it is lightweight meaning no more losing performance benefits by adding analytics to your site. Plausible is less than 1KB whereas Google Analytics was 17KB. Since removing Google Analytics I now have full scores on my site. ![light house full score](https://res.cloudinary.com/debsobrien/image/upload/c_scale,f_auto,q_auto,r_10,w_1200/v1611841869/debbie.codes/performance_we5uhd.png)
+But by far the best thing about [Plausible](https://plausible.io/) is that it is lightweight meaning no more losing performance benefits by adding analytics to your site. Plausible is less than 1KB whereas Google Analytics was 17KB. Since removing Google Analytics I now have full scores on my site. ![light house full score](https://res.cloudinary.com/debsobrien/image/upload/c_scale,fl_lossy,f_auto,q_auto,r_10,w_1200/v1611841869/debbie.codes/performance_we5uhd.png)
 
 ## Open Source
 
