@@ -104,9 +104,6 @@
         >
           <IconSpeaker class="h-10 w-10 fill-current" />
         </a>
-        <a href="mailto:debbie@nuxtjs.com" aria-label="eamil">
-          <IconEmail class="h-10 w-10 fill-current" />
-        </a>
         <a
           href="https://www.buymeacoffee.com/debbieobrien"
           aria-label="buy me a coffee"
@@ -121,11 +118,8 @@
       </p>
     </div>
   </footer>
-
-  <!-- <CookieBox /> -->
 </template>
 <script>
-  import IconEmail from '@/assets/icons/email.svg?inline'
   import IconGithub from '@/assets/icons/github.svg?inline'
   import IconTwitter from '@/assets/icons/twitter.svg?inline'
   import IconLinkedIn from '@/assets/icons/linkedIn.svg?inline'
@@ -134,7 +128,6 @@
   import IconCoffee from '@/assets/icons/coffee.svg?inline'
   export default {
     components: {
-      IconEmail,
       IconGithub,
       IconTwitter,
       IconLinkedIn,
