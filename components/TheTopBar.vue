@@ -6,7 +6,7 @@
           <NuxtLink to="/" class="hover:no-underline flex">
             <img
               class="rounded-full mr-4 profile-pic border-white border"
-              src="https://res.cloudinary.com/debsobrien/image/upload/w_100,c_fill,ar_1:1,q_auto,f_auto/v1589118478/debbie.codes/debbie-icon_esuoiv.jpg"
+              src="https://res.cloudinary.com/debsobrien/image/upload/w_100,c_fill,ar_1:1,q_auto,fl_lossy,f_auto/v1589118478/debbie.codes/debbie-icon_esuoiv.jpg"
               alt="Debbie O'Brien"
               width="50"
               height="50"
