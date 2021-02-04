@@ -46,10 +46,6 @@
           {
             url: '/blog',
             link: 'Blog'
-          },
-          {
-            url: '/contact',
-            link: 'Contact'
           }
         ]
       }
