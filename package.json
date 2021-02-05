@@ -35,6 +35,7 @@
     "-": "^0.0.1",
     "@nuxt/content": "^1.11.1",
     "@nuxt/http": "^0.6.2",
+    "@nuxt/image": "^0.3.0",
     "@nuxtjs/axios": "^5.12.5",
     "@nuxtjs/google-fonts": "^1.2.0",
     "@nuxtjs/sitemap": "^2.4.0",
@@ -51,7 +52,6 @@
     "reading-time": "^1.2.1"
   },
   "devDependencies": {
-    "@nuxt/image": "^0.2.1",
     "@nuxtjs/color-mode": "^2.0.3",
     "@nuxtjs/eslint-config": "^5.0.0",
     "@nuxtjs/eslint-module": "^3.0.2",

@@ -3,6 +3,7 @@
     <div class="flex flex-col">
       <a class="justify-center" :href="workshop.url">
         <nuxt-img
+          v-if="workshop.img"
           provider="cloudinary"
           :src="`debbie.codes/workshops/${workshop.img}`"
           format="auto"

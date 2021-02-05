@@ -3,6 +3,7 @@
     <div class="image-box flex flex-col max-width">
       <a class="justify-center" :href="url">
         <nuxt-img
+          v-if="img"
           provider="cloudinary"
           :src="`debbie.codes/conferences/${img}`"
           format="auto"
