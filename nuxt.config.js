@@ -80,12 +80,6 @@ export default {
       {
         src: 'https://identity.netlify.com/v1/netlify-identity-widget.js',
         defer: true
-      },
-      {
-        src: 'https://plausible.io/js/plausible.js',
-        defer: true,
-        async: true,
-        'data-domain': 'debbie.codes'
       }
     ]
   },
@@ -138,7 +132,9 @@ export default {
     '@nuxtjs/tailwindcss',
     '@nuxtjs/svg',
     '@nuxtjs/color-mode',
-    '@nuxtjs/google-fonts'
+    '@nuxtjs/google-fonts',
+    'vue-plausible',
+    'nuxt-build-optimisations'
   ],
 
   /*
@@ -166,8 +162,15 @@ export default {
     exclude: ['code', '/code/**', 'test', 'thank-you']
   },
 
-  tailwindcss: {
-    viewer: false
+  buildOptimisations: {
+    profile: 'risky',
+    features: {
+      // use url-loader
+      imageFileLoader: false
+    }
+  },
+  plausible: {
+    domain: 'debbie.codes'
   },
 
   image: {

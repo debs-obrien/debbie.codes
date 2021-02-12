@@ -34,19 +34,32 @@ And did you know that [Plausible](https://plausible.io/) is Open Source? It is b
 
 ## Adding Plausible to your Nuxt site
 
-It's actually really easy. No installs or modules needed. Just add a script array to the head tag of your Nuxt config file and inside add an object for the src, which is the js needed for Plausible to work. You can then add defer and async and set them to true for better performance as they won't block the page and are only loaded when the DOM has finished. And finally you need to add the 'data-domain' property with the value being your domain which in my case is 'debbie.codes'.
+With Nuxt you can add Plausible to our site by installing the [Plausible module](https://github.com/moritzsternemann/vue-plausible).
+
+```bash{}[]
+yarn add vue-plausible
+```
+
+Then you need to add the `vue-plausible` module to the `modules` property in our Nuxt config.
 
 ```js{}[nuxt.config.js]
-head: {
-  script: [
-    {
-      src: 'https://plausible.io/js/plausible.js',
-      defer: true,
-      async: true,
-      'data-domain': 'ADD-YOUR-DOMAIN-HERE'
-    }
-  ]
+export default {
+  modules: ['vue-plausible']
 }
 ```
 
-Of course in your Plausible dashboard you will need to add your domain and press the save. You can then decide on your timezone, if to make your dashboard public and you can even integrate the Google Search Console. If you really want to see your Analytics but don't have the time then you can have them emailed to you on a weekly basis or even when you get a traffic spike so you can see what is going on at the right time so you can tweet about it and share it with the world.
+And finally you need to add the `domain` property with the value being your domain which in my case is `debbie.codes`.
+
+```js{}[nuxt.config.js]
+export default {
+  plausible: {
+    domain: 'ADD-YOUR-DOMAIN-HERE'
+  }
+}
+```
+
+## Plausible Dashboard
+
+Of course in your Plausible dashboard you will need to add your domain and press the save button. You can then decide on your timezone, if to make your dashboard public and you can even integrate the Google Search Console.
+
+If you really want to see your Analytics but don't have the time then you can have them emailed to you on a weekly basis or even when you get a traffic spike so you can see what is going on at the right time so you can tweet about it and share it with the world.
