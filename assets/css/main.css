@@ -83,7 +83,8 @@ section p {
 }
 .dark .prose,
 .dark .prose h1,
-.dark .prose h2 {
+.dark .prose h2,
+.dark .prose h3 {
   color: white;
 }
 
