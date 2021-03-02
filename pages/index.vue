@@ -17,7 +17,7 @@
 
       <div class="dark:text-white subtitle font-medium mb-20">
         <p class="mb-4">
-          Head of Learning & Developer Advocate at NuxtJS
+          Head Developer Advocate at Bit
         </p>
         <p>
           <a
@@ -60,6 +60,14 @@
             rel="nofollow noopener noreferrer"
           >
             Auth0 Ambassador
+          </a>
+          |
+          <a
+            href="https://nuxtjs.org/team"
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+          >
+            Nuxt Ambassador
           </a>
         </p>
       </div>
