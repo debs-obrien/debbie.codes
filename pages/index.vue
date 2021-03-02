@@ -17,7 +17,14 @@
 
       <div class="dark:text-white subtitle font-medium mb-20">
         <p class="mb-4">
-          Head Developer Advocate at Bit
+          Head Developer Advocate at
+          <a
+            href="https://bit.dev"
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+          >
+            Bit
+          </a>
         </p>
         <p>
           <a
