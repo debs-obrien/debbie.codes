@@ -7,9 +7,9 @@
     </AppTitle>
     <AppIntro> My Conferece Talks from around the world </AppIntro>
     <div class="mt-12 grid gap-5 max-w-lg mx-auto lg:grid-cols-1 lg:max-w-none">
-      <div v-for="video of story.content.body[2].talks" :key="video.slug">
+      <!-- <div v-for="video of story.content.body[2].talks" :key="video.slug">
         <VideoCard v-editable="video" :item="video" />
-      </div>
+      </div> -->
       <div v-for="video of videos" :key="video.slug">
         <VideoCard :item="video" />
       </div>
