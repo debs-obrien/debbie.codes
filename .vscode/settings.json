@@ -15,7 +15,7 @@
   "workbench.iconTheme": "material-icon-theme",
   "workbench.sideBar.location": "left",
   "editor.minimap.enabled": false,
-  "window.zoomLevel": 0,
+  "window.zoomLevel": 3,
   "breadcrumbs.enabled": false,
   "editor.fontFamily": "Fira Code, Menlo, Monaco, 'Courier New', monospace"
 }

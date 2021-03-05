@@ -147,14 +147,14 @@ export default {
     '@nuxtjs/pwa',
     '@nuxt/content',
     '@nuxt/image',
-    '@nuxtjs/sitemap'
-    // '@nuxtjs/cloudinary'
-    // [
-    //   '@nuxtjs/google-analytics',
-    //   {
-    //     id: 'UA-166062227-1'
-    //   }
-    // ]
+    '@nuxtjs/sitemap',
+    [
+      'storyblok-nuxt',
+      {
+        accessToken: 'fOyFr3oEIQRbam53x52hdAtt',
+        cacheProvider: 'memory'
+      }
+    ]
   ],
   sitemap: {
     hostname: 'https://debbie.codes',
