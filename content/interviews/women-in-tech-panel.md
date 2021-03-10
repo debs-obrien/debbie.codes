@@ -1,8 +1,8 @@
 ---
-title: DevRel Roundtable
-date: 2021-03-08
-description: Welcome to the second episode of the DevRel roundtable series where I invite developer relation people to a roundtable discussion to converse on whatever topics we feel are relevant. This episode features Debbie O'Brien and Lucie Haberer.
-video: lSxU_q-8Rrc
-tags: [Dev Rel]
-host: Tim Benniks
+title: Women in Tech Panel
+date: 2021-03-09
+description: Very fun and interesting chat about all things tech related and how we have all just changed jobs, how long we stay in jobs, what we do when we consider moving jobs and so much more.
+video: xytiKzxfzJ8
+tags: [Nuxt]
+host: Maya Shavin, Mnady Kerr
 ---
