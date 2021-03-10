@@ -40,8 +40,8 @@
             link: 'Resources'
           },
           {
-            url: '/conferences',
-            link: 'Conferences'
+            url: 'resources/conferences-talks',
+            link: 'Previous Talks'
           },
           {
             url: '/blog',

@@ -5,7 +5,9 @@
     <AppTitle v-editable="story.content">
       {{ story.content.title }}
     </AppTitle>
-    <AppIntro> My Conferece Talks from around the world </AppIntro>
+    <AppIntro v-editable="story.content">
+      {{ story.content.subtitle }}
+    </AppIntro>
     <div class="mt-12 grid gap-5 max-w-lg mx-auto lg:grid-cols-1 lg:max-w-none">
       <!-- <div v-for="video of story.content.body[2].talks" :key="video.slug">
         <VideoCard v-editable="video" :item="video" />
