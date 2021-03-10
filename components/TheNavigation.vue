@@ -40,7 +40,7 @@
             link: 'Resources'
           },
           {
-            url: 'resources/conferences-talks',
+            url: '/resources/conference-talks',
             link: 'Previous Talks'
           },
           {

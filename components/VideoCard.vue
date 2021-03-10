@@ -3,7 +3,13 @@
     <div class="w-full lg:flex">
       <div class="video">
         <lite-youtube
-          v-if="item.video"
+          v-if="item.video && item.start"
+          :videoid="item.video"
+          :playlabel="item.title"
+          :start="item.start"
+        />
+        <lite-youtube
+          v-else-if="item.video"
           :videoid="item.video"
           :playlabel="item.title"
         />
