@@ -5,5 +5,5 @@ description: Are you afraid to take the next step? Do you think you’re not goo
 video: L9jHxzRbWg8
 start: 9985
 tags: [Imposter Syndrome]
-conference: AntarctiConf
+conference: CityJS Meetup
 ---
