@@ -42,6 +42,7 @@
         selectedTag: 'all',
         tags: [
           'Nuxt',
+          'React',
           'Dev Stuff',
           'Performance',
           'Content',
