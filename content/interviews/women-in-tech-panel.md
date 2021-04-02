@@ -1,8 +1,8 @@
 ---
-title: Women in Tech Panel
-date: 2021-03-09
-description: Very fun and interesting chat about all things tech related and how we have all just changed jobs, how long we stay in jobs, what we do when we consider moving jobs and so much more.
-video: xytiKzxfzJ8
+title: Managing Component Architecture
+date: 2021-03-25
+description: In this episode, Tracy Lee interviews Debbie O'Brien about [bit.dev](https://bit.dev), a new open source tool for helping developer share components. We learn how to use Bit to manage component architecture, think in components, and how this can help you a build more scalable, reusable codebase and work across teams.
+video: pOZas9RPJcY
 tags: [Nuxt]
-host: Maya Shavin, Mnady Kerr
+host: Tracy Lee
 ---
