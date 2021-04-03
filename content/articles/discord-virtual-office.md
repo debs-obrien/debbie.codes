@@ -9,13 +9,12 @@ tags: [Dev Stuff, all]
 Recently I changed jobs and changing jobs always means new things such as learning how the company works, how to work as a team and how to collaborate on things. When I was told in my interview that [Bit](https://bit.dev) uses Discord for their virtual office I just presumed that it works the same as how we use Discord in all the servers I am a member of. But that wasn't the case at all. Let me tell you about it.
 
 First let's understand the problem we are having when it comes to working across remote teams. Before in a normal office it was really easy to know who was at work, who was available, who could be brought into a meeting to discuss something. People were visible in the same office space. I live in Spain and Spanish companies don't seem to like the remote idea or didn't before they were forced into trying it. So I am very used to going to an office and being there and seeing others. And it works well. If you have a problem you walk over to the team and start asking a question and before you know it, it has turned into a discussion. So how can we replicate this same way of working?
-
+∫
 ## Discord to the rescue
 
 [Bit](https://bit.dev) chose to use discord as their virtual office and I have to say I am amazed at how well it works and how easy it is to set it up. How it works is we have voice channels set up with different names such as Open Space, Big Meeting Room, one on ones, and many more including a dining room. 
 
 My first thoughts on this were, that's great but it's just voice channels in Discord. We had that in Nuxt, Cloudindary and other servers I am a part of. And yes we use it for meetings and we shared screen and turned on video and it was great so how are we doing things different at [Bit](https://bit.dev)?
-
 
 ## What Problem are we trying to Solve
 
@@ -27,7 +26,7 @@ It's actually quite simple. When we start work we join a voice channel otherwise
 
 On a normal working day everyone should join a room. This makes it easy for everyone to see who is working. Now this is not so managers can see who is working and count how many hours people are doing. It's not like that at all. This is so the team can see who is around, who is available, incase needed for pair programming, discussions or any issues that might come up.
 
-So if you can imagine 15 different voice channels set up and you start your day and jump into one. Now you might think, that's going to be very noisy, and it might be depending on the room you join. But you can jump to another room and if that one has too much going on, you can also just deafen the server so you don't hear anything cause maybe you are not at your desk cause you need to hang the washing out or make a coffee or whatever so that means someone knows you are working, you are around but if someone wants to talk to you you're not listening. This is when messages come in. 
+So if you can imagine 15 different voice channels set up and you start your day and jump into one. Now you might think, that's going to be very noisy, and it might be depending on the room you join. But you can jump to another room and if that one has too much going on, you can also just deafen the server so you don't hear anything cause maybe you are not at your desk cause you need to hang the washing out or make a coffee or whatever so that means someone knows you are working, you are around but if someone wants to talk to you you're not listening. This is when messages come in.
 
 ## Slack for Messages
 
@@ -35,7 +34,7 @@ We use slack for messages as slack just has better threads and it just works wel
 
 ## Deep Focus
 
-Sometimes you just don't want to be disturbed and that's ok too. There is a particular room for that where you can't speak and therefore won't hear anything so it's a pretty quiet place and good for when you need to focus. I have to admit that I am yet to enter that room. But by going in there people know you are working and that they will be able to reach you at some point in the near future once you have time to respond to the slack message. 
+Sometimes you just don't want to be disturbed and that's ok too. There is a particular room for that where you can't speak and therefore won't hear anything so it's a pretty quiet place and good for when you need to focus. I have to admit that I am yet to enter that room. But by going in there people know you are working and that they will be able to reach you at some point in the near future once you have time to respond to the slack message.
 
 ## Dining Room
 
@@ -51,7 +50,7 @@ When it comes to the recording studio, the mic is not activated so you can't tal
 
 ## Day to Day
 
-So how it works from day to day is that we join a room and then when we have an issue such as a bug and we need help from someone we can see who is available and then jump in that room and simply ask a question. And that someone normally will respond. The great thing is that there might be other people in that room who might also respond. They can then learn from the issue you had or if they are not interested in listening they can just deafen the server. 
+So how it works from day to day is that we join a room and then when we have an issue such as a bug and we need help from someone we can see who is available and then jump in that room and simply ask a question. And that someone normally will respond. The great thing is that there might be other people in that room who might also respond. They can then learn from the issue you had or if they are not interested in listening they can just deafen the server.
 
 ## Conclusion
 
