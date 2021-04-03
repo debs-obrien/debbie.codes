@@ -9,10 +9,10 @@ tags: [Dev Stuff, all]
 Recently I changed jobs and changing jobs always means new things such as learning how the company works, how to work as a team and how to collaborate on things. When I was told in my interview that [Bit](https://bit.dev) uses Discord for their virtual office I just presumed that it works the same as how we use Discord in all the servers I am a member of. But that wasn't the case at all. Let me tell you about it.
 
 First let's understand the problem we are having when it comes to working across remote teams. Before in a normal office it was really easy to know who was at work, who was available, who could be brought into a meeting to discuss something. People were visible in the same office space. I live in Spain and Spanish companies don't seem to like the remote idea or didn't before they were forced into trying it. So I am very used to going to an office and being there and seeing others. And it works well. If you have a problem you walk over to the team and start asking a question and before you know it, it has turned into a discussion. So how can we replicate this same way of working?
-∫
+
 ## Discord to the rescue
 
-[Bit](https://bit.dev) chose to use discord as their virtual office and I have to say I am amazed at how well it works and how easy it is to set it up. How it works is we have voice channels set up with different names such as Open Space, Big Meeting Room, one on ones, and many more including a dining room. 
+[Bit](https://bit.dev) chose to use discord as their virtual office and I have to say I am amazed at how well it works and how easy it is to set it up. How it works is we have voice channels set up with different names such as Open Space, Big Meeting Room, one on ones, and many more including a dining room.
 
 My first thoughts on this were, that's great but it's just voice channels in Discord. We had that in Nuxt, Cloudindary and other servers I am a part of. And yes we use it for meetings and we shared screen and turned on video and it was great so how are we doing things different at [Bit](https://bit.dev)?
 
