@@ -46,6 +46,8 @@ Same goes for the dining room. This is not a room we go to to have lunch and tal
 
 We have a daily meeting in one of the Big meeting rooms and admins have the power of actually virtually kidnapping you from whatever room you are in and dropping you into the meeting room so there are no excuses for missing it at all. This is a great feature and of course if you happen to be on an external call you will have the server deafened and therefore won't hear things which is probably what you want. On the daily you can turn on video if you want to or share a screen to showcase something. Having a daily with the team is really beneficial as you get to keep up with what is happening as well as be able to ask someone for help on a specific topic.
 
+![Virtual Office Daily](https://res.cloudinary.com/debsobrien/image/upload/q_auto,f_auto/v1617546733/debbie.codes/blog/discord-virtual-office-daily_2x_hwpicw.png)
+
 ## Recording Studio
 
 When it comes to the recording studio, the mic is not activated so you can't talk. This room is great for letting people know that you are recording something or live streaming therefore you are around but it's going to be impossible for someone to get hold of you until you finish.
