@@ -14,7 +14,7 @@ First let's understand the problem we are having when it comes to working across
 
 [Bit](https://bit.dev) chose to use discord as their virtual office and I have to say I am amazed at how well it works and how easy it is to set it up. How it works is we have voice channels set up with different names such as Open Space, Big Meeting Room, one on ones, and many more including a dining room.
 
-My first thoughts on this were, that's great but it's just voice channels in Discord. We had that in Nuxt, Cloudindary and other servers I am a part of. And yes we use it for meetings and we shared screen and turned on video and it was great so how are we doing things different at [Bit](https://bit.dev)?
+My first thoughts on this were, that's great but it's just voice channels in Discord. We had that in Nuxt, Cloudinary and other servers I am a part of. And yes we use it for meetings and we shared screen and turned on video and it was great so how are we doing things different at [Bit](https://bit.dev)?
 
 ## What Problem are we trying to Solve
 
@@ -27,6 +27,8 @@ It's actually quite simple. When we start work we join a voice channel otherwise
 On a normal working day everyone should join a room. This makes it easy for everyone to see who is working. Now this is not so managers can see who is working and count how many hours people are doing. It's not like that at all. This is so the team can see who is around, who is available, incase needed for pair programming, discussions or any issues that might come up.
 
 So if you can imagine 15 different voice channels set up and you start your day and jump into one. Now you might think, that's going to be very noisy, and it might be depending on the room you join. But you can jump to another room and if that one has too much going on, you can also just deafen the server so you don't hear anything cause maybe you are not at your desk cause you need to hang the washing out or make a coffee or whatever so that means someone knows you are working, you are around but if someone wants to talk to you you're not listening. This is when messages come in.
+
+![Discord Virtual Office](https://res.cloudinary.com/debsobrien/image/upload/q_auto,f_auto/v1617526504/debbie.codes/blog/discord-virtual-office_gdebzt.png)
 
 ## Slack for Messages
 
