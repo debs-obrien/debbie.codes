@@ -52,6 +52,15 @@ We have a daily meeting in one of the Big meeting rooms and admins have the powe
 
 When it comes to the recording studio, the mic is not activated so you can't talk. This room is great for letting people know that you are recording something or live streaming therefore you are around but it's going to be impossible for someone to get hold of you until you finish.
 
+## External Meeting Room
+
+We also have an external meeting room for when we need to invite people who are not part of our team. This is great for when we don't want to use another platform or setup a zoom call just to get someone involved in a conversation for help and debugging. Recently we had a webpack issue we needed to solve so we invited one of the webpack maintainers who wasn't part of our team to join the call and help us debug our webpack loaders issues, when trying to migrate to webpack 5. The external meeting room allows us to easily invite people in, to collaborate with other people, debug code together and at the same time network and get to meet other people. 
+
+
+![external meeting room](https://res.cloudinary.com/debsobrien/image/upload/q_auto,f_auto/v1617874852/debbie.codes/blog/external-room-discord_2x_yoi7kh.png)
+
+It is starting to become one of my favorite rooms and I look forward to seeing who else we will invite in there and what other pair programming sessions and networking we will do. 
+
 ## Day to Day
 
 So how it works from day to day is that we join a room and then when we have an issue such as a bug and we need help from someone we can see who is available and then jump in that room and simply ask a question. And that someone normally will respond. The great thing is that there might be other people in that room who might also respond. They can then learn from the issue you had or if they are not interested in listening they can just deafen the server.
