@@ -1,7 +1,7 @@
 ---
 title: Amazing Things are Going to Happen
 date: 2021-04-25
-description: Believing in yourself is hard, especially when for so long people have put your down or not believed in you. Getting those voices out of your head is not easy but I think I have finally done it and now I can grow just be a star.
+description: Believing in yourself is hard, especially when for so long people have put you down or not believed in you. Getting those voices out of your head is not easy but I think I have finally done it and now I can finally grow and just be a star.
 image: https://res.cloudinary.com/debsobrien/image/upload/v1619366231/debbie.codes/blog/IMG_8227_bav9rh.webp
 tags: [Dev Stuff, all]
 ---
