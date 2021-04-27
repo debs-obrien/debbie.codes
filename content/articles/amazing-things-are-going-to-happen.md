@@ -75,13 +75,15 @@ I was really lucky that after a couple of months, it took a couple of months to 
 
 ## I just didn't Believe in myself
 
-How do you just let things go? I didn't really realize that it was still there, that all these emotions, all these voices were still there. All I knew was that I didn't believe in myself and even in my new job in Bit, when I started there after the first week, I told them "you've hired the wrong person. I'm not good enough for this job." I told them many times I'm technically not good enough. Now I'm a Google Developer Expert, a Microsoft MVP, a GitHub star, a Media Developer Expert, and I'm telling people I'm not good enough. Like that's crazy. But I didn't believe it because I had years and years of people telling me that I'm not good enough, years of people not believing in me, years of people putting me down, years of people not wanting me around, not accepting me.
+How do you just let things go? I didn't really realize that it was still there, that all these emotions, all these voices were still there. All I knew was that I didn't believe in myself and even in my new job in Bit, when I started there after the first week, I told them "you've hired the wrong person. I'm not good enough for this job." I told them many times I'm technically not good enough. Now I'm a Google Developer Expert, a Microsoft MVP, a GitHub star, a Media Developer Expert, and I'm telling people I'm not good enough. Like that's crazy.
+
+But I didn't believe it because I had years and years of people telling me that I'm not good enough, years of people not believing in me, years of people putting me down, years of people not wanting me around, not accepting me. And for some reason, I seemed to care about them more than I cared about the rest of the world. Why? I don't know.
 
 ## Joining Bit has been the best thing ever
 
-And for some reason, I seemed to care about them more than I cared about the rest of the world. Why? I don't know. I don't know. I think moving to Bit has really, really helped me. I've been surrounded by people who are just telling me I'm doing amazing, who are pushing me forward. I'm seeing myself grow.
+I think moving to Bit has really, really helped me. I've been surrounded by people who are just telling me I'm doing amazing, who are pushing me forward. I'm seeing myself grow.
 
-I'm seeing myself doing more programming, getting better. I feel more comfortable, more. I feel stronger and the team are helping me and pushing me towards this direction. I'm working with people who are telling me that they think I'm a star. It's like, they want to work with me. And they're proud to have me on board and have me working there. And it's just such a great feeling, it's incredible.
+I'm seeing myself doing more programming, getting better and I feel more comfortable. I feel stronger and the team are helping me and pushing me towards this direction. I'm working with people who are telling me that they think I'm a star. It's like, they want to work with me. And they're proud to have me on board and have me working there. And it's just such a great feeling, it's incredible.
 
 ## Receiving the GitHub Star Award
 
