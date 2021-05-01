@@ -75,7 +75,7 @@
     "netlify-plugin-cypress": "^1.4.1",
     "postcss": "^7",
     "start-server-and-test": "^1.11.7",
-    "stylelint": "^13.9.0",
+    "stylelint": "^13.13.1",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "tailwindcss-dark-mode": "^1.1.7",
     "vue-dompurify-html": "^2.2.1"
