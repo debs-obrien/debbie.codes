@@ -51,7 +51,7 @@
     "prism-themes": "^1.5.0",
     "prismjs": "^1.23.0",
     "reading-time": "^1.2.1",
-    "storyblok-nuxt": "^1.3.0",
+    "storyblok-nuxt": "^2.0.1",
     "vue-plausible": "^1.1.2"
   },
   "devDependencies": {
