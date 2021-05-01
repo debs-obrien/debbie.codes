@@ -61,7 +61,7 @@
     "@nuxtjs/pwa": "^3.3.4",
     "@nuxtjs/stylelint-module": "^4.0.0",
     "@nuxtjs/svg": "^0.1.7",
-    "@vue/test-utils": "^1.1.2",
+    "@vue/test-utils": "^1.2.0",
     "autoprefixer": "^9",
     "cypress": "^6.3.0",
     "eslint": "^7.18.0",
