@@ -45,7 +45,7 @@
     "graphql-tag": "^2.12.4",
     "gsap": "^3.6.0",
     "lite-youtube-embed": "^0.1.3",
-    "netlify-lambda": "^2.0.3",
+    "netlify-lambda": "^2.0.5",
     "nuxt": "^2.14.12",
     "nuxt-build-optimisations": "^1.0.0-9",
     "prism-themes": "^1.5.0",
