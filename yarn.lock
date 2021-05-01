@@ -1205,22 +1205,23 @@
     node-fetch "^2.6.1"
     web-streams-polyfill "^3.0.1"
 
-"@nuxt/image@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@nuxt/image/-/image-0.3.0.tgz#d29a65b52cc333c831468efadc7b640127390eb2"
-  integrity sha512-/NGow7xDefRHl8rp++8YGjwEtMeWP2zYvi+j8ceeZFI+Elef64hRr25qlEWe8VATEFzbQiEtjBc4qEf6R3pE6Q==
+"@nuxt/image@^0.4.8":
+  version "0.4.8"
+  resolved "https://registry.yarnpkg.com/@nuxt/image/-/image-0.4.8.tgz#2f27fec8a16a5421ffdf6d78fc3ed658742b7e3c"
+  integrity sha512-ZeZeeA9GsXB7A4cQrrIKc72gia00Qbl4rF9elezXFZDz26Z2rQ7qT3gdA76EI3WGKZmmACPAfFkEF+zm1yiJyg==
   dependencies:
-    allowlist "^0.1.1"
-    consola "^2.15.0"
-    defu "^3.2.2"
-    fs-extra "^9.0.1"
+    consola "^2.15.3"
+    defu "^4.0.1"
+    fs-extra "^9.1.0"
     hasha "^5.2.2"
     image-meta "^0.0.1"
-    ipx "^0.5.2"
+    ipx "^0.6.0"
     is-https "^3.0.2"
+    lru-cache "^6.0.0"
     node-fetch "^2.6.1"
+    p-limit "^3.1.0"
     requrl "^3.0.2"
-    ufo "^0.5.4"
+    ufo "^0.7.1"
     upath "^2.0.1"
 
 "@nuxt/loading-screen@^2.0.3":
@@ -2433,11 +2434,6 @@ ajv@^7.0.2:
     json-schema-traverse "^1.0.0"
     require-from-string "^2.0.2"
     uri-js "^4.2.2"
-
-allowlist@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/allowlist/-/allowlist-0.1.1.tgz#7f337b1e9a292e5aaf59c879933be1172915eaeb"
-  integrity sha512-l298+rQLx33JiaFBJ/4GJoSc1bou+COScif8asoAZqkX0Wz25jmJc4vqJV7NqCsj3ZuGkeODkNFJg/I4/vo4xg==
 
 alphanum-sort@^1.0.0:
   version "1.0.2"
@@ -4554,6 +4550,11 @@ defu@^3.2.2:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/defu/-/defu-3.2.2.tgz#be20f4cc49b9805d54ee6b610658d53894942e97"
   integrity sha512-8UWj5lNv7HD+kB0e9w77Z7TdQlbUYDVWqITLHNqFIn6khrNHv5WQo38Dcm1f6HeNyZf0U7UbPf6WeZDSdCzGDQ==
+
+defu@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/defu/-/defu-4.0.1.tgz#9d7d7a48f9295f08285d153dcff174c89b9bcb22"
+  integrity sha512-lC+G0KvvWRbisQa50+iFelm3/eMmwo4IlBmfASOVlw9MZpHHyQeVsZxc5j23+TQy5ydgEoTVSrWl7ptou1kzJQ==
 
 delayed-stream@~1.0.0:
   version "1.0.0"
@@ -6973,10 +6974,10 @@ ipaddr.js@1.9.1:
   resolved "https://registry.yarnpkg.com/ipaddr.js/-/ipaddr.js-1.9.1.tgz#bff38543eeb8984825079ff3a2a8e6cbd46781b3"
   integrity sha512-0KI/607xoxSToH7GjN1FfSbLoU0+btTicjsQSWQlh/hZykN8KpmMf7uYwPW3R+akZ6R/w18ZlXSHBYXiYUPO3g==
 
-ipx@^0.5.2:
-  version "0.5.8"
-  resolved "https://registry.yarnpkg.com/ipx/-/ipx-0.5.8.tgz#a6ed568d7d8fc34df2f63760bf7a042cb657974d"
-  integrity sha512-32rWiHGPey8dhBQanaEOfSE6g2b7K+wS8JN6hUslk6w2dpSNUf2NPz4H+QvdvKKl63h1fbKJkXGmdnkP4K6K4w==
+ipx@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/ipx/-/ipx-0.6.0.tgz#30986697fa1acea6e43642039eb237afa9781402"
+  integrity sha512-wR07YtK21sCdhcmfVPE7YLX3lXKUXuF2T0BRJMD36IYFOPEVzCf2k1BVsmUyLTsRBUoiXLIq4qTu8MMWm0yMWA==
   dependencies:
     consola "^2.15.0"
     defu "^3.2.2"
@@ -9526,7 +9527,7 @@ p-limit@^2.0.0, p-limit@^2.2.0, p-limit@^2.3.0:
   dependencies:
     p-try "^2.0.0"
 
-p-limit@^3.0.2:
+p-limit@^3.0.2, p-limit@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/p-limit/-/p-limit-3.1.0.tgz#e1daccbe78d0d1388ca18c64fea38e3e57e3706b"
   integrity sha512-TYOanM3wGwNGsZN2cVTYPArw454xnXj5qmWF1bEoAc4+cU/ol7GVh7odevjp1FNHduHc3KZMcFduxU5Xc6uJRQ==
@@ -13115,15 +13116,15 @@ ua-parser-js@^0.7.22:
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.23.tgz#704d67f951e13195fbcd3d78818577f5bc1d547b"
   integrity sha512-m4hvMLxgGHXG3O3fQVAyyAQpZzDOvwnhOTjYz5Xmr7r/+LpkNy3vJXdVRWgd1TkAb7NGROZuSy96CrlNVjA7KA==
 
-ufo@^0.5.4:
-  version "0.5.4"
-  resolved "https://registry.yarnpkg.com/ufo/-/ufo-0.5.4.tgz#a9b469fdc56fe27169f6f474ed590cc7b0fd4ebe"
-  integrity sha512-JxWFr31rhXXufMQKpV2CxFNrc1p9//aqHguWR32M0jPQnw2TNK9sERd7Bic+ZSprlmDPRPR4yuSueLNT8hsdQA==
-
 ufo@^0.6.1:
   version "0.6.6"
   resolved "https://registry.yarnpkg.com/ufo/-/ufo-0.6.6.tgz#6bc4b4de19ff9a9cb68134719190196b0cc7353b"
   integrity sha512-HDhml2KskY1VVtQGckmaf/p3rTuleC2M7qL9Wf1dJZMw7glFk6oVjRsddf6LJp0I+pHERZzfttVmBMq1nR3PGA==
+
+ufo@^0.7.1:
+  version "0.7.2"
+  resolved "https://registry.yarnpkg.com/ufo/-/ufo-0.7.2.tgz#a0e3c9f1b1d9b55f60e068d17afd6ffbdc4fbd62"
+  integrity sha512-cfxpkL4g79LrCXa1RyvhM/obxunKRjHApD4Ml4UG0CZcKvfodfKH0YTmnm6ofKKUnLzBMdfXSZzlgyQmj6b3sw==
 
 uglify-js@^3.5.1:
   version "3.12.7"

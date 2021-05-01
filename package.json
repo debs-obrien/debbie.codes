@@ -35,7 +35,7 @@
     "-": "^0.0.1",
     "@nuxt/content": "^1.11.1",
     "@nuxt/http": "^0.6.2",
-    "@nuxt/image": "^0.3.0",
+    "@nuxt/image": "^0.4.8",
     "@nuxtjs/axios": "^5.12.5",
     "@nuxtjs/google-fonts": "^1.2.0",
     "@nuxtjs/sitemap": "^2.4.0",
