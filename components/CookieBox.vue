@@ -8,15 +8,15 @@
 </template>
 
 <script>
-  import IfBot from 'vue-if-bot/dist/vue-if-bot.es'
-  import CookieConsent from 'vue-cookieconsent-component/src/components/CookieConsent.vue'
+  // import IfBot from 'vue-if-bot/dist/vue-if-bot.es'
+  // import CookieConsent from 'vue-cookieconsent-component/src/components/CookieConsent.vue'
 
-  export default {
-    components: {
-      IfBot,
-      CookieConsent
-    }
-  }
+  // export default {
+  //   components: {
+  //     IfBot,
+  //     CookieConsent
+  //   }
+  // }
 </script>
 
 <style>
