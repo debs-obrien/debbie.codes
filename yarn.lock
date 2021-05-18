@@ -1288,10 +1288,10 @@
     node-fetch "^2.6.1"
     web-streams-polyfill "^3.0.1"
 
-"@nuxt/image@^0.4.9":
-  version "0.4.9"
-  resolved "https://registry.yarnpkg.com/@nuxt/image/-/image-0.4.9.tgz#fbce750cc80605d64860a5b226bac4e975f5a638"
-  integrity sha512-RDNuTH1HfD8Mz06u4FL4Yul4YA+zgyUvZOhINlWDFTRbFD/vxAS3Y5icAOLYP3VfuSL4oz6P9GCTy9MzW/qxeA==
+"@nuxt/image@^0.4.10":
+  version "0.4.10"
+  resolved "https://registry.yarnpkg.com/@nuxt/image/-/image-0.4.10.tgz#ae4ccf4c5bc44401f4560b65313b7f917ec4dbae"
+  integrity sha512-5bUjNrmjszdwhHVNw6HjySrZQkx4VoPfNc2J653JXd4KXGOTz6OasmrqHwwrI+aVGv3KT3xoJflRxe/8hqKRug==
   dependencies:
     consola "^2.15.3"
     defu "^5.0.0"
