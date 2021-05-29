@@ -2,11 +2,17 @@
   <div class="page-wrapper">
     <SocialHead :title="title" :description="description" />
     <AppBreadCrumb title="Conference Talks" />
-    <AppTitle v-editable="story.content">
+    <!-- <AppTitle v-editable="story.content">
       {{ story.content.title }}
     </AppTitle>
     <AppIntro v-editable="story.content">
       {{ story.content.subtitle }}
+    </AppIntro> -->
+    <AppTitle>
+      {{ title }}
+    </AppTitle>
+    <AppIntro>
+      {{ description }}
     </AppIntro>
     <div class="mt-12 grid gap-5 max-w-lg mx-auto lg:grid-cols-1 lg:max-w-none">
       <!-- <div v-for="video of story.content.body[2].talks" :key="video.slug">
@@ -21,27 +27,27 @@
 
 <script>
   export default {
-    async asyncData({ $content, params, app }) {
-      const story = await app.$storyapi
-        .get(`cdn/stories/home`, {
-          version: 'draft'
-        })
-        .then(res => {
-          return res.data.story
-        })
-        .catch(res => {
-          if (!res.response) {
-            context.error({
-              statusCode: 404,
-              message: 'Failed to receive content form api'
-            })
-          } else {
-            context.error({
-              statusCode: res.response.status,
-              message: res.response.data
-            })
-          }
-        })
+    async asyncData({ $content }) {
+      // const story = await app.$storyapi
+      //   .get(`cdn/stories/home`, {
+      //     version: 'draft'
+      //   })
+      //   .then(res => {
+      //     return res.data.story
+      //   })
+      //   .catch(res => {
+      //     if (!res.response) {
+      //       context.error({
+      //         statusCode: 404,
+      //         message: 'Failed to receive content form api'
+      //       })
+      //     } else {
+      //       context.error({
+      //         statusCode: res.response.status,
+      //         message: res.response.data
+      //       })
+      //     }
+      //   })
 
       const videos = await $content('conference-talks')
         .where({ published: { $ne: false } })
@@ -49,8 +55,8 @@
         .fetch()
 
       return {
-        videos,
-        story
+        videos
+        // story
       }
     },
     data() {
@@ -78,21 +84,21 @@
           }
         ]
       }
-    },
-    mounted() {
-      // Use the input event for instant update of content
-      this.$storybridge.on('input', event => {
-        if (event.story.id === this.story.id) {
-          this.story.content = event.story.content
-        }
-      })
-      // Use the bridge to listen the events
-      this.$storybridge.on(['published', 'change'], event => {
-        this.$nuxt.$router.go({
-          path: this.$nuxt.$router.currentRoute,
-          force: true
-        })
-      })
     }
+    // mounted() {
+    //   // Use the input event for instant update of content
+    //   this.$storybridge.on('input', event => {
+    //     if (event.story.id === this.story.id) {
+    //       this.story.content = event.story.content
+    //     }
+    //   })
+    //   // Use the bridge to listen the events
+    //   this.$storybridge.on(['published', 'change'], event => {
+    //     this.$nuxt.$router.go({
+    //       path: this.$nuxt.$router.currentRoute,
+    //       force: true
+    //     })
+    //   })
+    // }
   }
 </script>

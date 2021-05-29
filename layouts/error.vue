@@ -15,17 +15,17 @@
   </div>
 </template>
 <script>
-export default {
-  props: {
-    error: {
-      type: String,
-      default: 'error'
+  export default {
+    props: {
+      error: {
+        type: Object,
+        default: () => {}
+      }
     }
   }
-}
 </script>
 <style scoped>
-.error {
-  font-size: 120px;
-}
+  .error {
+    font-size: 120px;
+  }
 </style>

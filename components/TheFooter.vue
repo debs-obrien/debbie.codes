@@ -43,10 +43,10 @@
 
         <div class="px-5 py-2">
           <NuxtLink
-            to="/resources/courses"
+            to="/resources"
             class="text-base text-gray-800 dark:text-gray-400 hover:text-primary"
           >
-            Courses
+            Resources
           </NuxtLink>
         </div>
 

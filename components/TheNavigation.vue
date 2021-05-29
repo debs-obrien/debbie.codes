@@ -36,8 +36,8 @@
             link: 'Podcasts'
           },
           {
-            url: '/resources',
-            link: 'Resources'
+            url: '/resources/courses',
+            link: 'Courses'
           },
           {
             url: '/resources/conference-talks',
