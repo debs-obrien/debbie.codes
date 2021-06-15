@@ -74,7 +74,7 @@
     "hygen": "^6.1.0",
     "lint-staged": "^11.0.0",
     "netlify-plugin-cypress": "^2.2.0",
-    "postcss": "^8.2.15",
+    "postcss": "^8.3.4",
     "start-server-and-test": "^1.12.1",
     "stylelint": "^13.13.1",
     "tailwindcss": "^2.1.2",
