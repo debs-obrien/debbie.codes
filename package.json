@@ -53,7 +53,7 @@
     "prismjs": "^1.24.1",
     "reading-time": "^1.2.1",
     "storyblok-nuxt": "^2.0.1",
-    "vue-plausible": "^1.1.4"
+    "vue-plausible": "^1.2.1"
   },
   "devDependencies": {
     "@nuxtjs/color-mode": "^2.0.10",
