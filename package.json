@@ -43,7 +43,7 @@
     "@tailwindcss/typography": "^0.4.1",
     "babel-eslint": "^10.1.0",
     "graphql": "^15.4.0",
-    "graphql-tag": "^2.12.4",
+    "graphql-tag": "^2.12.5",
     "gsap": "^3.6.1",
     "lite-youtube-embed": "^0.2.0",
     "netlify-lambda": "^2.0.6",
