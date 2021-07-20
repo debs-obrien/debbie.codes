@@ -17,8 +17,8 @@
     </div>
 
     <div class="mt-12 grid gap-5 max-w-lg mx-auto lg:grid-cols-3 lg:max-w-none">
-      <div v-for="article of blogList" :key="article.slug">
-        <PostsCard :item="article" />
+      <div v-for="article of blogList" :key="article.slug" class="flex flex-col">
+        <PostsCard :item="article"/>
       </div>
     </div>
   </div>
