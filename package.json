@@ -77,7 +77,7 @@
     "postcss": "^8.3.5",
     "start-server-and-test": "^1.12.1",
     "stylelint": "^13.13.1",
-    "tailwindcss": "^2.1.2",
+    "tailwindcss": "^2.2.7",
     "tailwindcss-dark-mode": "^1.1.7",
     "vue-dompurify-html": "^2.2.1"
   }
