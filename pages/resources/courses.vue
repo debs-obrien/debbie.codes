@@ -10,7 +10,7 @@
     </AppIntro>
 
     <div class="mt-12 grid gap-3 mx-auto md:grid-cols-3 md:max-w-none">
-      <div v-for="course of courses" :key="course.slug">
+      <div v-for="course of courses" :key="course.slug" class="flex flex-col">
         <PostsCard :item="course" />
       </div>
     </div>

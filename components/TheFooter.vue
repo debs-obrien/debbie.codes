@@ -7,6 +7,14 @@
       >
         <div class="px-5 py-2">
           <NuxtLink
+            to="/about"
+            class="text-base text-gray-800 dark:text-gray-400 hover:text-primary"
+          >
+            About
+          </NuxtLink>
+        </div>
+        <div class="px-5 py-2">
+          <NuxtLink
             to="/blog"
             class="text-base text-gray-800 dark:text-gray-400 hover:text-primary"
           >

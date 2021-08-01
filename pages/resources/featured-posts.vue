@@ -6,7 +6,7 @@
     <AppTitle>My featured Posts</AppTitle>
     <AppIntro> Featured blog posts on various websites </AppIntro>
     <div class="mt-12 grid gap-3 mx-auto md:grid-cols-3 md:max-w-none">
-      <div v-for="item of items" :key="item.slug">
+      <div v-for="item of items" :key="item.slug" class="flex flex-col">
         <PostsCard :item="item" />
       </div>
     </div>

@@ -19,11 +19,6 @@
       return {
         navLinks: [
           {
-            url: '/about',
-            link: 'About'
-          },
-
-          {
             url: '/resources/guest-live-streams',
             link: 'Streams'
           },
@@ -41,7 +36,11 @@
           },
           {
             url: '/resources/conference-talks',
-            link: 'Previous Talks'
+            link: 'Talks'
+          },
+          {
+            url: '/resources/featured-posts',
+            link: 'Featured Posts'
           },
           {
             url: '/blog',

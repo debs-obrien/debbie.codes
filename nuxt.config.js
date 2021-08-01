@@ -4,7 +4,7 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: 'Debbie Codes with Nuxt',
+    title: 'Debbie Codes with Bit, Typescript, Nuxt, React and Tailwind',
     meta: [
       { charset: 'utf-8' },
       {
@@ -16,7 +16,7 @@ export default {
         hid: 'description',
         name: 'description',
         content:
-          "Debbie O'Brien, Head of Learning and Developer Advocate for NuxtJS with over 10 years experience in Frontend development. Microsoft Most Valuable Professional in developer technologies, Google Developer Expert in web technologies and Cloudinary Media Developer Expert."
+          "Debbie O'Brien, Head Developer Advocate at Bit, with over 10 years experience in Frontend development. Microsoft Most Valuable Professional in developer technologies, Google Developer Expert in web technologies, GitHub Start, NuxtJS Ambassador and Cloudinary Media Developer Expert."
       },
       // Test on: https://developers.facebook.com/tools/debug/ or https://socialsharepreview.com/
       { property: 'og:site_name', content: 'Debbie Codes' },
@@ -35,7 +35,7 @@ export default {
         hid: 'og:description',
         property: 'og:description',
         content:
-          "Debbie O'Brien, Head of Learning and Developer Advocate for NuxtJS with over 10 years experience in Frontend development. Microsoft Most Valuable Professional in developer technologies, Google Developer Expert in web technologies and Cloudinary Media Developer Expert."
+          "Debbie O'Brien, Head Developer Advocate at Bit, with over 10 years experience in Frontend development. Microsoft Most Valuable Professional in developer technologies, Google Developer Expert in web technologies, GitHub Start, NuxtJS Ambassador and Cloudinary Media Developer Expert."
       },
       {
         hid: 'og:image',
@@ -53,7 +53,8 @@ export default {
       {
         hid: 'twitter:title',
         name: 'twitter:title',
-        content: 'Debbie codes and helps others learn Nuxt'
+        content:
+          'Debbie codes and helps others learn Bit, Component Driven Development, React, Nuxt and more'
       },
       {
         hid: 'twitter:description',

@@ -92,7 +92,7 @@
         type: '',
         title: 'About Debbie and her experience as a developer',
         description:
-          'Head of Learning and Developer Advocate at NuxtJS, Google Developer Expert, Microsoft Most Valueable Professional, GitHub Star, Cloudinary MDE, Auth0 Ambassador',
+          'Head Developer Advocate at Bit, Google Developer Expert, Microsoft Most Valueable Professional, GitHub Star, Cloudinary MDE, Auth0 Ambassador',
         awards: [
           {
             name: 'GitHub Star',
