@@ -47,7 +47,7 @@
     "gsap": "^3.7.1",
     "lite-youtube-embed": "^0.2.0",
     "netlify-lambda": "^2.0.12",
-    "nuxt": "^2.15.7",
+    "nuxt": "^2.15.8",
     "nuxt-build-optimisations": "^1.0.5",
     "prism-themes": "^1.8.0",
     "prismjs": "^1.24.1",
