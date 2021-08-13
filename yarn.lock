@@ -9391,10 +9391,10 @@ number-is-nan@^1.0.0:
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
   integrity sha1-CXtgK1NCKlIsGvuHkDGDNpQaAR0=
 
-nuxt-build-optimisations@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/nuxt-build-optimisations/-/nuxt-build-optimisations-1.0.5.tgz#d9d8f7da698fd581704786116af3c695ea63a193"
-  integrity sha512-8i6PmGBOm+QXZy4pEIPWEZ+OHX9+TmBmaz5ZBtQ5qCCa+pDpIwamr7T1goG+T4RY2eIBucEKYljMHkHTvn4YMA==
+nuxt-build-optimisations@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/nuxt-build-optimisations/-/nuxt-build-optimisations-1.0.6.tgz#d1c53d4e44ff38b7b4ac663688ad402def533e7a"
+  integrity sha512-dhp6VqlUzV2ruO/aAvAziC6bEzz09DZj61TgbK3ZjjuTHrBVTyGRjdta3c+aPEHTaM9BiKNieH7s79iyYVOcFQ==
   dependencies:
     defu "^5.0.0"
     esbuild-loader "^2.13.1"
