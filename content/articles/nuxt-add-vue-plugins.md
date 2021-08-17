@@ -58,7 +58,7 @@ And that's it. The library itself allows you to do lots of cool things including
 
 ## Adding Client Side Plugins
 
-f you do use a library that needs access to browser elements such as window or document then you will need to register the plugin only on the client side. This can be done by adding `.client.js` as the file extension to your plugin. This tells Nuxt to not render this plugin on the Server but only on the Client, in the Browser. See the [Nuxt docs](https://nuxtjs.org/docs/2.x/directory-structure/plugins#vue-plugins) for more details.
+if you do use a library that needs access to browser elements such as window or document then you will need to register the plugin only on the client side. This can be done by adding `.client.js` as the file extension to your plugin. This tells Nuxt to not render this plugin on the Server but only on the Client, in the Browser. See the [Nuxt docs](https://nuxtjs.org/docs/2.x/directory-structure/plugins#vue-plugins) for more details.
 
 ## Useful Links
 
