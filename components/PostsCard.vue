@@ -3,19 +3,51 @@
     <div class="flex-shrink-0">
       <div v-if="item.url">
         <a :href="item.url" class="block" rel="nofollow" target="_blank">
-          <img
+          <!-- <img
             class="w-full h-64 object-cover"
             :src="item.image"
             :alt="item.title"
+          /> -->
+          <nuxt-img
+            v-if="item.provider === 'cloudinary'"
+            provider="cloudinary"
+            class="w-full h-64 object-cover debbie"
+            :src="item.image"
+            :alt="item.title"
+            format="webp"
+            quality="80"
+            width="480"
+            height="256"
+          />
+          <nuxt-img
+            v-if="item.provider === 'unsplash'"
+            provider="imgix"
+            class="w-full h-64 object-cover debbie"
+            :src="item.image"
+            :alt="item.title"
+            format="webp"
+            quality="80"
+            width="480"
+            height="256"
           />
         </a>
       </div>
       <div v-else>
         <NuxtLink :to="`/blog/${item.slug}`">
-          <img
+          <!-- <img
             class="w-full h-64 object-cover"
             :src="item.image"
             :alt="item.title"
+          /> -->
+          <nuxt-img
+            provider="cloudinary"
+            class="w-full h-64 object-cover debbie"
+            :src="item.image"
+            :alt="item.title"
+            format="webp"
+            quality="80"
+            width="480"
+            height="256"
           />
         </NuxtLink>
       </div>

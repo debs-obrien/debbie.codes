@@ -135,7 +135,8 @@ export default {
     '@nuxtjs/color-mode',
     '@nuxtjs/google-fonts',
     'vue-plausible',
-    'nuxt-build-optimisations'
+    'nuxt-build-optimisations',
+    '@nuxt/image'
   ],
 
   /*
@@ -147,7 +148,6 @@ export default {
     '@nuxt/http',
     '@nuxtjs/pwa',
     '@nuxt/content',
-    '@nuxt/image',
     '@nuxtjs/sitemap',
     [
       'storyblok-nuxt',
@@ -177,6 +177,9 @@ export default {
   image: {
     cloudinary: {
       baseURL: 'https://res.cloudinary.com/debsobrien/image/upload/'
+    },
+    imgix: {
+      baseURL: 'https://images.unsplash.com/'
     }
   },
   components: true,
