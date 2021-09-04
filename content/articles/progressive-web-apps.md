@@ -2,7 +2,8 @@
 title: How Progressive Web Apps work
 date: 2021-02-04
 description: Progressive web apps will really help your performance and you can install them on your home screen or desktop and have that app like feel for your website. Let's have a look at how they work.
-image: https://res.cloudinary.com/debsobrien/image/upload/v1612443662/debbie.codes/blog/install-app_z3nqdh.png
+image: v1612443662/debbie.codes/blog/install-app_z3nqdh
+provider: cloudinary
 video: 3RWBkPdKtBQ
 tags: [Nuxt, Performance, all]
 ---

@@ -2,7 +2,8 @@
 title: Customizing the Nuxt Loading Component
 date: 2021-02-16
 description: We can customize the Loading for our Client Side applications as well as the loading Progress bar for our server rendered applications and we can even customize this to create our own.
-image: https://images.unsplash.com/photo-1607434472257-d9f8e57a643d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2552&q=80
+image: photo-1607434472257-d9f8e57a643d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2552&q=80
+provider: unsplash
 tags: [Nuxt, Loading, all]
 ---
 
