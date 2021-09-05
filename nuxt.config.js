@@ -188,7 +188,7 @@ export default {
         modifiers: {
           format: 'webp',
           fit: 'cover',
-          quality: '80'
+          quality: '60'
         }
       }
     }
