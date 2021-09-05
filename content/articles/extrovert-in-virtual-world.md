@@ -2,8 +2,8 @@
 title: Being an Extrovert in a Virtual World
 date: 2020-09-12
 description: From being surrounded by amazing people to being locked up from the world. 2020 has been an interesting year and a very hard one for those who are extroverts and love being around people.
-image: photo-1545113972-bbccc3547465?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60
-provider: unsplash
+image: photo-1545113972-bbccc3547465?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop
+provider: imgix
 tags: [Dev Stuff, all]
 ---
 

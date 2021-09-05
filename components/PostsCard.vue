@@ -4,31 +4,13 @@
       <div v-if="item.url">
         <a :href="item.url" class="block" rel="nofollow" target="_blank">
           <NuxtImg
-            v-if="item.provider === 'cloudinary'"
-            provider="cloudinary"
+            :provider="item.provider"
             :src="item.image"
             :alt="item.title"
             loading="lazy"
             preset="blog"
-            class="w-full h-64 object-cover"
-          />
-          <NuxtImg
-            v-else-if="item.provider === 'unsplash'"
-            provider="imgix"
-            :src="item.image"
-            :alt="item.title"
-            quality="80"
-            loading="lazy"
-            preset="blog"
-            class="w-full h-64 object-cover"
-          />
-          <NuxtImg
-            v-else
-            :src="item.image"
-            :alt="item.title"
-            quality="80"
-            loading="lazy"
-            preset="blog"
+            width="640"
+            height="480"
             class="w-full h-64 object-cover"
           />
         </a>
@@ -36,22 +18,13 @@
       <div v-else class="image">
         <NuxtLink :to="`/blog/${item.slug}`">
           <NuxtImg
-            v-if="item.provider === 'cloudinary'"
-            provider="cloudinary"
+            :provider="item.provider"
             :src="item.image"
             :alt="item.title"
             loading="lazy"
             preset="blog"
-            class="w-full h-64 object-cover"
-          />
-          <NuxtImg
-            v-if="item.provider === 'unsplash'"
-            provider="imgix"
-            :src="item.image"
-            :alt="item.title"
-            quality="80"
-            loading="lazy"
-            preset="blog"
+            width="640"
+            height="480"
             class="w-full h-64 object-cover"
           />
         </NuxtLink>

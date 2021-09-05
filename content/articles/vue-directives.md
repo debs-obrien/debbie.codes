@@ -3,7 +3,7 @@ title: Vue Directives
 date: 2020-10-16
 description: Vue Directives are a great way of doing things like trimming your models or only showing something once. So many cool directives to make your life easier when coding in Vue.
 image: photo-1503437313881-503a91226402?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3578&q=80
-provider: unsplash
+provider: imgix
 tags: [Vue, all]
 ---
 

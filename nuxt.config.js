@@ -187,9 +187,8 @@ export default {
       blog: {
         modifiers: {
           format: 'webp',
-          width: '640',
-          height: '480',
-          fit: 'cover'
+          fit: 'cover',
+          quality: '80'
         }
       }
     }

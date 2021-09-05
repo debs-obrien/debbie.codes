@@ -2,7 +2,7 @@
 title: Creating Video Courses
 date: 2021-01-31
 description: Creating video courses can be very time consuming and for sure there is no one way to go about it. In this post I share what I have learnt and how I now find it easier to create courses.
-image: c_scale,fl_lossy,f_auto,q_auto,w_1200/v1612090624/debbie.codes/blog/Screenshot_2021-01-31_at_11.54.39_mlegoc
+image: c_scale,fl_lossy/v1612090624/debbie.codes/blog/Screenshot_2021-01-31_at_11.54.39_mlegoc
 provider: cloudinary
 tags: [Nuxt, Dev Stuff, all]
 ---

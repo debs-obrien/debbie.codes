@@ -2,7 +2,7 @@
 title: 2020 - my most successful year (career wise)
 date: 2020-12-30
 description: A look back at what we could say has been an interesting year, challenging in many ways yet somehow has been my most successful year to date.
-image: fl_lossy,f_auto/v1609438516/debbie.codes/blog/Screenshot_2020-12-31_at_18.14.59_sbfsen.png
+image: v1609438516/debbie.codes/blog/Screenshot_2020-12-31_at_18.14.59_sbfsen
 provider: cloudinary
 tags: [Dev Stuff, all]
 ---

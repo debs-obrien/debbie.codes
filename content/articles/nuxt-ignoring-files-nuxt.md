@@ -2,8 +2,8 @@
 title: ignoring your files with Nuxt.js
 date: 2020-04-24
 description: In Nuxt.js there are 3 different ways to ignore files during the build phase. This is great for static site generation which means you can still generate your site with a broken page as it will be ignored.
-image: photo-1557487307-8dc8ec048eb8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60
-provider: unsplash
+image: photo-1557487307-8dc8ec048eb8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop
+provider: imgix
 tags: [Nuxt, all]
 ---
 

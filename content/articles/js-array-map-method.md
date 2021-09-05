@@ -2,8 +2,8 @@
 title: The JavaScript Array.Map() method
 date: 2020-08-09
 description: The .map() method in JavaScript lets you loop over every element in an array and modify or add to it and then return a different element to take that elements place
-image: photo-1512418490979-92798cec1380?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60
-provider: unsplash
+image: photo-1512418490979-92798cec1380?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop
+provider: imgix
 tags: [JavaScript, all]
 ---
 

@@ -2,8 +2,8 @@
 title: Understanding Nuxt Middleware
 date: 2021-02-18
 description: Middleware lets you define custom functions that can be run before rendering either a page or a group of pages which we call layouts.
-image: photo-1446769357257-5aa1b1bfcd65?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80
-provider: unsplash
+image: photo-1446769357257-5aa1b1bfcd65?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop
+provider: imgix
 tags: [Nuxt, Middleware, all]
 ---
 
