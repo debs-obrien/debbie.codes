@@ -24,7 +24,7 @@ export default {
       {
         hid: 'og:url',
         property: 'og:url',
-        content: 'https://debbie.codes.com'
+        content: 'https://debbie.codes'
       },
       {
         hid: 'og:title',
@@ -48,7 +48,7 @@ export default {
       {
         hid: 'twitter:url',
         name: 'twitter:url',
-        content: 'https://debbie.codes.com'
+        content: 'https://debbie.codes'
       },
       {
         hid: 'twitter:title',
@@ -209,11 +209,6 @@ export default {
         document.readingTime = time
       }
     }
-  },
-
-  cloudinary: {
-    useComponent: true,
-    cloudName: 'debsobrien'
   },
 
   /*
