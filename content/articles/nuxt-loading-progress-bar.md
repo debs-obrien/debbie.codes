@@ -2,7 +2,8 @@
 title: The Nuxt Loading Progress Bar
 date: 2020-04-17
 description: Nuxt.js automatically gives you a loading progress bar component which is shown between routes. Did you know you can customise it, disable it or create your own component?
-image: https://images.unsplash.com/photo-1516906158245-7fafb29df119?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60
+image: photo-1516906158245-7fafb29df119?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60
+provider: unsplash
 tags: [Nuxt, all]
 ---
 

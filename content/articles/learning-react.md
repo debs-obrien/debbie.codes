@@ -2,7 +2,8 @@
 title: Learning React
 date: 2021-03-21
 description: Recently I started learning React for my new job. I basically went from being a coding ninja to being a coding newbie. But hey everything can be learnt so here is what I have learnt so far.
-image: https://images.unsplash.com/photo-1581276879432-15e50529f34b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80
+image: photo-1581276879432-15e50529f34b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80
+provider: unsplash
 tags: [React, all]
 ---
 
@@ -22,10 +23,10 @@ This is easier to understand when there is more than one value in our object.
 <h2 style={{ color: 'black', padding: '10px' }}>hi</h2>
 ```
 
-React components are just functions that return something. Normally some html. 
+React components are just functions that return something. Normally some html.
 
 ```jsx
-export default function Button(){
+export default function Button() {
   return <button>click me</button>
 }
 ```
@@ -35,8 +36,7 @@ export default function Button(){
 These functions need to be named with a capital letter. Which makes sense as then it is easy for the browser to distinguish between what is html and what is a React component.
 
 ```html
-<button> // html
-<Button /> // React Component
+<button> // html <button /> // React Component</button>
 ```
 
 ## Using JSX
@@ -46,7 +46,7 @@ React components use JSX which basically means we can add dynamic stuff to our h
 ```jsx
 const name = 'Debbie'
 
-export default function Name(name){
+export default function Name(name) {
   return <h1> Hi {name}</h1>
 }
 ```
@@ -56,7 +56,7 @@ export default function Name(name){
 One thing to watch out for is the return statement. We can return things on one line but if we have more things to return and need more than one line then we must use brackets. And important to remember is that we cannot use a semicolon at the end of the line inside these brackets. If we do it will break.
 
 ```jsx
-export default function Hi(){
+export default function Hi() {
   return (
     <div>
       <h1>Hi</h1>
@@ -71,7 +71,7 @@ export default function Hi(){
 Just like in Vue 2 you can't render multiple items such as the example above without wrapping it in the `<div>`. However React gives you an element called a fragment so that you don't have to render a `<div>`. A fragment is just like empty syntax and won't get rendered.
 
 ```jsx
-export default function Hi(){
+export default function Hi() {
   return (
     <>
       <h1>Hi</h1>
@@ -114,10 +114,8 @@ Unlike in Vue there is no `v-for`for rendering lists. We need to do this just li
 ```jsx
 const people = ['Debbie', 'Alex', 'Nat']
 
-export default function List(){
-  const peopleList = people.map(person => 
-    <li key={person}>{person}</li>
-  )
+export default function List() {
+  const peopleList = people.map(person => <li key={person}>{person}</li>)
 
   return <ul>{peopleList}</ul>
 }
@@ -126,25 +124,27 @@ export default function List(){
 Filtering out Items. Say we wanted to filter out which people were working with which framework. We first need to filter over our array of people to get a new array of only those with 'React' in this case and then map over that new array of 'ReactPeople' to print out each person's name.
 
 ```jsx
-const people = [{
-  name: 'Debbie',
-  framework: 'React',
-}, {
-  name: 'Alex',
-  framework: 'Vue',
-}, {
-  name: 'Nat',
-  framework: 'React',
-}];
+const people = [
+  {
+    name: 'Debbie',
+    framework: 'React'
+  },
+  {
+    name: 'Alex',
+    framework: 'Vue'
+  },
+  {
+    name: 'Nat',
+    framework: 'React'
+  }
+]
 
-const reactPeople = people.filter(person =>
-  person.framework === 'React'
-);
+const reactPeople = people.filter(person => person.framework === 'React')
 
-export default function List(){
-  const peopleList = reactPeople.map(person => 
+export default function List() {
+  const peopleList = reactPeople.map(person => (
     <li key={person.name}>{person.name}</li>
-  )
+  ))
 
   return <ul>{peopleList}</ul>
 }
@@ -163,7 +163,7 @@ There are 2 ways to export a component. Using named exports or default exports. 
 ### Named Exports
 
 ```jsx
-export function Button(){
+export function Button() {
   return <button>click me</button>
 }
 ```
@@ -175,7 +175,7 @@ import { Button } from './button'
 ### Default Exports
 
 ```jsx
-export default function Button(){
+export default function Button() {
   return <button>click me</button>
 }
 ```
@@ -204,8 +204,8 @@ By destructuring you don't have to do something like this:
 
 ```jsx
 function MyImage(props) {
-  let color = props.color;
-  let height = props.height;
+  let color = props.color
+  let height = props.height
   return //....
 }
 ```
@@ -243,7 +243,7 @@ function Card(props) {
     <div className="card">
       <Avatar {...props} />
     </div>
-  );
+  )
 }
 ```
 
@@ -253,16 +253,11 @@ This is similar to what we call slots in Vue. We pass in the children prop to th
 
 ```jsx
 function Card({ children }) {
-  return (
-    <div className="card">
-      {children}
-    </div>
-  );
+  return <div className="card">{children}</div>
 }
 ```
 
-We can then easily use this component to render different components inside.
-Cruises:
+We can then easily use this component to render different components inside. Cruises:
 
 ```jsx
 export default function Cruises() {
@@ -270,7 +265,7 @@ export default function Cruises() {
     <Card>
       <Cruises />
     </Card>
-  );
+  )
 }
 ```
 
@@ -282,17 +277,18 @@ export default function Cruises() {
     <Card>
       <Flights />
     </Card>
-  );
+  )
 }
 ```
 
 ## Conclusion
 
-Understanding how React works is really helpful as well as being able to compare the differences to Vue. Overall React is really just JavaScript and Vue just adds some magic to make things much easier. The more you work with React the easier it gets. Still so much more to learn though. This is just the beginning. 
+Understanding how React works is really helpful as well as being able to compare the differences to Vue. Overall React is really just JavaScript and Vue just adds some magic to make things much easier. The more you work with React the easier it gets. Still so much more to learn though. This is just the beginning.
 
 Disclaimer: I am still only learning so if you see anything wrong here then just let me know :)
 
 Courses I am taking to enhance my React Journey:
- - Kent C Dodds [React a Beginners Guide](https://egghead.io/lessons/react-a-beginners-guide-to-react-introduction)
- - Brian Holt [Complete React v5](https://frontendmasters.com/courses/complete-react-v5/)
- - Kent C Dodds [Epic React](https://epicreact.dev/)
+
+- Kent C Dodds [React a Beginners Guide](https://egghead.io/lessons/react-a-beginners-guide-to-react-introduction)
+- Brian Holt [Complete React v5](https://frontendmasters.com/courses/complete-react-v5/)
+- Kent C Dodds [Epic React](https://epicreact.dev/)

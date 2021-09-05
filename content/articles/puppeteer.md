@@ -3,7 +3,8 @@ title: Using puppeteer to create an image
 date: 2020-10-09
 description: Puppeteer
 published: false
-image: https://images.unsplash.com/photo-1580408485028-225972105876?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60
+image: photo-1580408485028-225972105876?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60
+provider: unsplash
 tags: [Puppeteer, all]
 ---
 

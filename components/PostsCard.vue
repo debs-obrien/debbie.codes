@@ -3,19 +3,56 @@
     <div class="flex-shrink-0">
       <div v-if="item.url">
         <a :href="item.url" class="block" rel="nofollow" target="_blank">
-          <img
-            class="w-full h-64 object-cover"
+          <NuxtImg
+            v-if="item.provider === 'cloudinary'"
+            provider="cloudinary"
             :src="item.image"
             :alt="item.title"
+            loading="lazy"
+            preset="blog"
+            class="w-full h-64 object-cover"
+          />
+          <NuxtImg
+            v-else-if="item.provider === 'unsplash'"
+            provider="imgix"
+            :src="item.image"
+            :alt="item.title"
+            quality="80"
+            loading="lazy"
+            preset="blog"
+            class="w-full h-64 object-cover"
+          />
+          <NuxtImg
+            v-else
+            :src="item.image"
+            :alt="item.title"
+            quality="80"
+            loading="lazy"
+            preset="blog"
+            class="w-full h-64 object-cover"
           />
         </a>
       </div>
-      <div v-else>
+      <div v-else class="image">
         <NuxtLink :to="`/blog/${item.slug}`">
-          <img
-            class="w-full h-64 object-cover"
+          <NuxtImg
+            v-if="item.provider === 'cloudinary'"
+            provider="cloudinary"
             :src="item.image"
             :alt="item.title"
+            loading="lazy"
+            preset="blog"
+            class="w-full h-64 object-cover"
+          />
+          <NuxtImg
+            v-if="item.provider === 'unsplash'"
+            provider="imgix"
+            :src="item.image"
+            :alt="item.title"
+            quality="80"
+            loading="lazy"
+            preset="blog"
+            class="w-full h-64 object-cover"
           />
         </NuxtLink>
       </div>
@@ -82,5 +119,14 @@
 <style scoped>
   a {
     text-decoration: none;
+  }
+
+  @media screen and (min-width: 1920px) {
+    .image {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: bottom;
+    }
   }
 </style>

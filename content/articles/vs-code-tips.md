@@ -2,8 +2,9 @@
 title: VS Code Tips
 date: 2021-05-13
 description: Tips, shortcuts and extensions to make working with VS Code easier so you can developer faster and let the tools do the job for you.
-image: https://images.unsplash.com/photo-1510751007277-36932aac9ebd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1277&q=80
+image: photo-1510751007277-36932aac9ebd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=640&q=80
 tags: [Dev Stuff, all]
+provider: unsplash
 published: true
 ---
 
