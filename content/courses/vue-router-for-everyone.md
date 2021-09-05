@@ -5,6 +5,7 @@ description: Learn how to build powerful Single Page Applications in Vue with th
 url: https://vueschool.io/courses/vue-router-for-everyone
 image: v1607261405/debbie.codes/courses/vue-router_hgq3gp
 provider: cloudinary
+loading: eager
 tags: [Vue, Router]
 platform: Vue School
 ---

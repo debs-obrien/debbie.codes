@@ -5,6 +5,7 @@ description: The first commit for Nuxt.js on Github was made on October 26th, 20
 url: https://devblogs.microsoft.com/startups/nuxt/?WT.mc_id=startups-7534-cxa
 image: v1630862648/debbie.codes/featured-posts/how-we-use-nuxt_zx05uz
 provider: cloudinary
+loading: eager
 tags: [Nuxt, Architecture]
 platform: Microsoft
 ---

@@ -5,6 +5,7 @@ description: We have almost all been in a situation where we need to share a com
 url: https://blog.bitsrc.io/sharing-react-components-across-multiple-applications-a407b5a15186
 image: v1630863000/debbie.codes/featured-posts/sharing-react-components_ejjqxp
 provider: cloudinary
+loading: eager
 tags: [React, Bit]
 platform: Medium
 ---

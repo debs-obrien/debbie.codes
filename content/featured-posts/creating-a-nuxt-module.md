@@ -5,6 +5,7 @@ description: Modules are functions that are called sequentially when booting Nux
 url: https://nuxtjs.org/blog/creating-a-nuxt-module
 image: v1630863199/debbie.codes/featured-posts/creating-nuxt-module_w12ktc
 provider: cloudinary
+loading: eager
 tags: [Nuxt, Modules]
 platform: Nuxt
 ---

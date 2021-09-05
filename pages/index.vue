@@ -2,12 +2,14 @@
   <div class="container">
     <div class="hero_texts text-center px-2">
       <div class="hero_image flex justify-center">
-        <img
+        <NuxtImg
+          provider="cloudinary"
           class="rounded-full mb-4 mt-8 profile-pic border-white border"
-          src="https://res.cloudinary.com/debsobrien/image/upload/c_fill,ar_1:1,g_auto,r_max,q_auto,fl_lossy,f_auto/v1589119213/debbie.codes/home-pic_mfirod.jpg"
+          src="c_fill,ar_1:1,g_auto,r_max,q_auto,fl_lossy,f_auto/v1589119213/debbie.codes/home-pic_mfirod"
           alt="Debbie O'Brien"
           width="180"
           height="180"
+          quality="80"
         />
       </div>
       <h1 class="name dark:text-white uppercase mb-4">

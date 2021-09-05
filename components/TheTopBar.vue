@@ -4,12 +4,14 @@
       <div class="w-100 h-auto items-center flex justify-between">
         <div class="w-auto text-white">
           <NuxtLink to="/" class="hover:no-underline flex">
-            <img
+            <NuxtImg
+              provider="cloudinary"
               class="rounded-full mr-4 profile-pic border-white border"
-              src="https://res.cloudinary.com/debsobrien/image/upload/w_100,c_fill,ar_1:1,q_auto,fl_lossy,f_auto/v1589118478/debbie.codes/debbie-icon_esuoiv.jpg"
+              src="w_100,c_fill,ar_1:1,q_auto,fl_lossy,f_auto/v1589118478/debbie.codes/debbie-icon_esuoiv"
               alt="Debbie O'Brien"
               width="50"
               height="50"
+              quality="80"
             />
             <span class="self-center text-white">
               Debbie O'Brien

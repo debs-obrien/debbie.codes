@@ -9,7 +9,9 @@
       Netlify's Jamstack Explorers.
     </AppIntro>
 
-    <div class="mt-12 grid gap-3 mx-auto md:grid-cols-3 md:max-w-none">
+    <div
+      class="mt-12 grid gap-5 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
+    >
       <div v-for="course of courses" :key="course.slug" class="flex flex-col">
         <PostsCard :item="course" />
       </div>
