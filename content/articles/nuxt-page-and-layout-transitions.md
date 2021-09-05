@@ -2,7 +2,8 @@
 title: Page and Layout Transitions in Nuxt.js
 date: 2020-04-13
 description: With Nuxt.js it is really easy to add transitions between your pages. You can create transitions for all your pages or layouts and you can even have different transitions for specific pages.
-image: https://images.unsplash.com/photo-1545986467-13cfe33c156e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60
+image: photo-1545986467-13cfe33c156e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60
+provider: unsplash
 tags: [Nuxt, all]
 ---
 

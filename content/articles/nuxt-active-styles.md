@@ -2,7 +2,8 @@
 title: Styling your active classes in Nuxt.js
 date: 2020-06-28
 description: Nuxt.js, which uses `vue-router`, can easily tell what route you are on and therefore can add a class to that link when the user is on that page. By default this class is called `nuxt-link-active`.
-image: https://images.unsplash.com/photo-1428790067070-0ebf4418d9d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60
+image: photo-1428790067070-0ebf4418d9d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60
+provider: unsplash
 tags: [Nuxt, all]
 ---
 

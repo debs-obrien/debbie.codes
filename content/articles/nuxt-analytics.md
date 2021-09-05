@@ -2,7 +2,8 @@
 title: Adding analytics to your Nuxt site
 date: 2021-01-28
 description: When you build your own site sometimes it's important to add analytics to see what is doing well, what your audience is spending time and perhaps find ways of improving your site
-image: https://res.cloudinary.com/debsobrien/image/upload/c_scale,fl_lossy,f_auto,q_auto,w_600/v1611841528/debbie.codes/plausible_laomvr.png
+image: c_scale,fl_lossy,f_auto,q_auto,w_600/v1611841528/debbie.codes/plausible_laomvr
+provider: cloudinary
 tags: [Nuxt, Analytics, all]
 ---
 

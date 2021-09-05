@@ -13,8 +13,17 @@
             class="w-full h-64 object-cover"
           />
           <NuxtImg
-            v-if="item.provider === 'unsplash'"
+            v-else-if="item.provider === 'unsplash'"
             provider="imgix"
+            :src="item.image"
+            :alt="item.title"
+            quality="80"
+            loading="lazy"
+            preset="blog"
+            class="w-full h-64 object-cover"
+          />
+          <NuxtImg
+            v-else
             :src="item.image"
             :alt="item.title"
             quality="80"

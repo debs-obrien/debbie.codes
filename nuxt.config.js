@@ -179,6 +179,7 @@ export default {
     cloudinary: {
       baseURL: 'https://res.cloudinary.com/debsobrien/image/upload/'
     },
+
     imgix: {
       baseURL: 'https://images.unsplash.com/'
     },
