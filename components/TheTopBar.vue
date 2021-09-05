@@ -9,8 +9,8 @@
               class="rounded-full mr-4 profile-pic border-white border"
               src="w_100,c_fill,ar_1:1,q_auto,fl_lossy,f_auto/v1589118478/debbie.codes/debbie-icon_esuoiv"
               alt="Debbie O'Brien"
-              width="50"
-              height="50"
+              width="100"
+              height="100"
               quality="80"
             />
             <span class="self-center text-white">

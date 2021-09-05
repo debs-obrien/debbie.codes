@@ -7,8 +7,8 @@
           class="rounded-full mb-4 mt-8 profile-pic border-white border"
           src="c_fill,ar_1:1,g_auto,r_max,q_auto,fl_lossy,f_auto/v1589119213/debbie.codes/home-pic_mfirod"
           alt="Debbie O'Brien"
-          width="180"
-          height="180"
+          width="356"
+          height="356"
           quality="80"
         />
       </div>
