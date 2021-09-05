@@ -7,10 +7,11 @@
             :provider="item.provider"
             :src="item.image"
             :alt="item.title"
-            loading="lazy"
+            :loading="item.loading ? item.loading : 'lazy'"
             preset="blog"
             width="640"
             height="480"
+            sizes="sm:355px md:320px lg:480px"
             class="w-full h-64 object-cover"
           />
         </a>
@@ -21,10 +22,11 @@
             :provider="item.provider"
             :src="item.image"
             :alt="item.title"
-            loading="lazy"
+            :loading="item.loading ? item.loading : 'lazy'"
             preset="blog"
             width="640"
             height="480"
+            sizes="sm:355px md:320px lg:480px"
             class="w-full h-64 object-cover"
           />
         </NuxtLink>
@@ -52,9 +54,9 @@
 
         <div v-else>
           <NuxtLink :to="`/blog/${item.slug}`" class="block">
-            <h3 class="mt-2 text-xl leading-7 font-semibold text-gray-900">
+            <h2 class="mt-2 text-xl leading-7 font-semibold text-gray-900">
               {{ item.title }}
-            </h3>
+            </h2>
             <p class="mt-3 text-base leading-6 text-gray-500">
               {{ item.description }}
             </p>

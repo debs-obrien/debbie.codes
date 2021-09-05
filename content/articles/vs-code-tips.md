@@ -5,6 +5,7 @@ description: Tips, shortcuts and extensions to make working with VS Code easier 
 image: photo-1510751007277-36932aac9ebd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop
 tags: [Dev Stuff, all]
 provider: imgix
+loading: eager
 published: true
 ---
 

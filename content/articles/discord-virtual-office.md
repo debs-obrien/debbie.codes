@@ -4,6 +4,7 @@ date: 2021-04-03
 description: We use Discord as our virtual office at Bit and I have to tell you all about it as it really is a great way to work and collaborate with others especially when working in different time zones.
 image: photo-1614680376739-414d95ff43df?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop
 provider: imgix
+loading: eager
 tags: [Dev Stuff, all]
 ---
 

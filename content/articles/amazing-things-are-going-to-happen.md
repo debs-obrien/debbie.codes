@@ -4,6 +4,7 @@ date: 2021-04-26
 description: Believing in yourself is hard, especially when for so long people have put you down or not believed in you. Getting those voices out of your head is not easy but I think I have finally done it and now I can finally grow and just be a star.
 image: v1619366231/debbie.codes/blog/IMG_8227_bav9rh
 provider: cloudinary
+loading: eager
 tags: [Dev Stuff, all]
 ---
 
