@@ -228,7 +228,7 @@ export default {
     families: {
       Saira: [300, 400, 500, 600, 700]
     },
-    display: 'swap' // 'auto' | 'block' | 'swap' | 'fallback' | 'optional'
+    display: 'auto' // 'auto' | 'block' | 'swap' | 'fallback' | 'optional'
   },
 
   /*
