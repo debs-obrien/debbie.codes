@@ -72,6 +72,13 @@
             name: 'description',
             content: this.description
           }
+        ],
+        link: [
+          {
+            hid: 'canonical',
+            rel: 'canonical',
+            href: 'https://debbie.codes/blog'
+          }
         ]
       }
     },
