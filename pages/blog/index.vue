@@ -108,7 +108,8 @@
     --border-opacity: 1;
     border: 2px solid #d8002d;
     border-color: rgba(216, 0, 45, var(--border-opacity));
-    font-family: Saira;
+    /* font-family: Saira; */
+    letter-spacing: 0.5px;
     margin-bottom: 1rem;
     margin-right: 1rem;
   }
