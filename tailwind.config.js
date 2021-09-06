@@ -28,7 +28,8 @@ module.exports = {
         primary: '#d8002d',
         secondary: '#333',
         dark: '#091a28',
-        elevated: '#dfe8ef'
+        elevated: '#dfe8ef',
+        linkExactActiveClass: '#fd213b'
       },
       margin: {
         'top-bar': '100px'

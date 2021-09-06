@@ -101,7 +101,7 @@ export default {
   },
 
   router: {
-    linkExactActiveClass: 'text-primary'
+    linkExactActiveClass: 'linkExactActiveClass'
   },
 
   publicRuntimeConfig: {
