@@ -12,6 +12,7 @@
               width="100"
               height="100"
               quality="80"
+              format="webp"
             />
             <span class="self-center text-white">
               Debbie O'Brien

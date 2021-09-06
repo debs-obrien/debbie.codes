@@ -35,7 +35,7 @@ export default {
         hid: 'og:description',
         property: 'og:description',
         content:
-          "Debbie O'Brien, Head Developer Advocate at Bit, with over 10 years experience in Frontend development. Microsoft Most Valuable Professional in developer technologies, Google Developer Expert in web technologies, GitHub Start, NuxtJS Ambassador and Cloudinary Media Developer Expert."
+          "Debbie O'Brien, Head Developer Advocate at Bit, with over 10 years experience in Frontend development. Microsoft Most Valuable Professional in developer technologies, Google Developer Expert in web technologies, GitHub Star, NuxtJS Ambassador and Cloudinary Media Developer Expert."
       },
       {
         hid: 'og:image',
@@ -76,13 +76,13 @@ export default {
         rel: 'canonical',
         href: 'https://debbie.codes'
       }
-    ],
-    script: [
-      {
-        src: 'https://identity.netlify.com/v1/netlify-identity-widget.js',
-        defer: true
-      }
     ]
+    // script: [
+    //   {
+    //     src: 'https://identity.netlify.com/v1/netlify-identity-widget.js',
+    //     defer: true
+    //   }
+    // ]
   },
   /*
    ** Customize the progress-bar color

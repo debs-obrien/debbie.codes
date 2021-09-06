@@ -10,6 +10,7 @@
           width="356"
           height="356"
           quality="80"
+          format="webp"
         />
       </div>
       <h1 class="name dark:text-white uppercase mb-4">
