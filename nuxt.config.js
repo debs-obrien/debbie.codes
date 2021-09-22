@@ -161,7 +161,7 @@ export default {
   sitemap: {
     hostname: 'https://debbie.codes',
     gzip: true,
-    exclude: ['code', '/code/**', 'test', 'thank-you']
+    exclude: ['/code', '/code/**', '/test', '/thank-you']
   },
 
   buildOptimisations: {
