@@ -5139,7 +5139,7 @@ es-to-primitive@^1.2.1:
     is-date-object "^1.0.1"
     is-symbol "^1.0.2"
 
-esbuild-loader@^2.13.1:
+esbuild-loader@^2.15.1:
   version "2.15.1"
   resolved "https://registry.yarnpkg.com/esbuild-loader/-/esbuild-loader-2.15.1.tgz#5a3940f5d20317f1a35720efa33e933f97c923e9"
   integrity sha512-JRBL6uTeWplMbylNBt9gxLKMjD8wKnqGq786QV/cm/nPBSNA9/kC7/vNwCXTDPfYqHoWsjyfH7ub9ekN0kdAYQ==
@@ -9484,13 +9484,13 @@ number-is-nan@^1.0.0:
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
   integrity sha1-CXtgK1NCKlIsGvuHkDGDNpQaAR0=
 
-nuxt-build-optimisations@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/nuxt-build-optimisations/-/nuxt-build-optimisations-1.0.6.tgz#d1c53d4e44ff38b7b4ac663688ad402def533e7a"
-  integrity sha512-dhp6VqlUzV2ruO/aAvAziC6bEzz09DZj61TgbK3ZjjuTHrBVTyGRjdta3c+aPEHTaM9BiKNieH7s79iyYVOcFQ==
+nuxt-build-optimisations@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/nuxt-build-optimisations/-/nuxt-build-optimisations-1.0.7.tgz#a9e573db0c38dea8f47bbe0c7048e72fe4358055"
+  integrity sha512-a7/UJfYRM+IsFZyl4dOEesvxw9UZTyCeSBNk3DTH9uFQoEp5688uhtK9xjdrXzMXjP7bg5GTHROsni/3v/43XQ==
   dependencies:
     defu "^5.0.0"
-    esbuild-loader "^2.13.1"
+    esbuild-loader "^2.15.1"
     rimraf "^3.0.2"
     semver "^7.3.5"
     speed-measure-webpack-plugin "^1.5.0"
