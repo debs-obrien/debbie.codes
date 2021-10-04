@@ -44,7 +44,7 @@
     "babel-eslint": "^10.1.0",
     "graphql": "^15.5.3",
     "graphql-tag": "^2.12.5",
-    "gsap": "^3.7.1",
+    "gsap": "^3.8.0",
     "lite-youtube-embed": "^0.2.0",
     "netlify-lambda": "^2.0.14",
     "nuxt": "^2.15.8",
