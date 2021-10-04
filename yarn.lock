@@ -1622,10 +1622,10 @@
     consola "^2.12.1"
     stylelint-webpack-plugin "^2.0.0"
 
-"@nuxtjs/svg@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@nuxtjs/svg/-/svg-0.2.0.tgz#dfa6b470969b19eed7d501d4067a944cf395ec55"
-  integrity sha512-H+71LjTdtNqhXVI8P5tJJdWyUMpz1xomCz0iU82Tj5SxIn1MNFs357wLecHxPHz6cIGa6rpSzTguk/v++cUzkg==
+"@nuxtjs/svg@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/svg/-/svg-0.3.0.tgz#a6f91743ffba8ed05766c013a401c96452c35176"
+  integrity sha512-eokmEiDYE6bZR6FNUQ6VlOnck1Z2lfxlZUv56JNXXSpD6SR6qvfxmQYgTuxD++7//LcsRSqBOb54EL+ebwnDRQ==
   dependencies:
     file-loader "^6.0.0"
     raw-loader "^4.0.0"
