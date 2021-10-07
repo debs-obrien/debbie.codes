@@ -5,6 +5,7 @@ description: What happens when we pass in children? Children is a special prop t
 image: photo-1504438190342-5951e134ffee?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80
 provider: imgix
 tags: [TypeScript, React, all]
+published: false
 publish: false
 ---
 
