@@ -110,7 +110,7 @@ type ButtonProps = {
 }
 ```
 
-Takes an event that is based on clicking the button and returns nothing. Notice the `<HTMLButtonElement>, this means pass in all the available props that the HTML Button provides so it knows you might want to have access to`event.target` for example.
+Takes an event that is based on clicking the button and returns nothing. Notice the `<HTMLButtonElement>`, this means pass in all the available props that the HTML Button provides so it knows you might want to have access to`event.target` for example.
 
 ```js
 type ButtonProps = {
