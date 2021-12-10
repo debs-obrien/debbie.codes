@@ -5,7 +5,7 @@
     <AppTitle>Welcome to my blog</AppTitle>
     <AppIntro>
       Here you will find various blog posts on all things related to Frontend
-      and JavaScript but espeically on things related to Nuxt.
+      and JavaScript but especially on things related to Nuxt.
     </AppIntro>
 
     <div class="buttons flex flex-wrap mt-8 justify-center">
