@@ -406,6 +406,8 @@ When someone wants to work on the ecommerce repo all they have to do is run the 
 
 And of course tagging becomes easy with Bit as it auto tags any dependents. Here by changing the product component the shoe store which uses the product page component also gets a new version, once of course all tests are passing and then running the export command will export both of these components. This means I can easily tag and export components without having to worry about updating components that use the changed component.
 
+<nuxt-img provider="cloudinary" src="debbie.codes/blog/CleanShot_2021-12-15_at_14.59.47_2x_jrfex8" format="auto" quality="90"  fit="cover" alt="terminal showing tagging of components" loading="lazy"> </nuxt-img>
+
 ## Demo Project
 
 If you want to check out the demo project then here are some links:
