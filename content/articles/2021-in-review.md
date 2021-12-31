@@ -1,8 +1,8 @@
 ---
 title: 2021 - climbing higher and higher
-date: 2021-12-30
+date: 2021-12-31
 description: A look back at yet again another amazing year even though times were hard.
-image: v1609438516/debbie.codes/blog/Screenshot_2020-12-31_at_18.14.59_sbfsen
+image: v1640964235/debbie.codes/blog/cycling-sa-colobra_mvtntg.jpg
 provider: cloudinary
 tags: [Dev Stuff, all]
 published: false
@@ -81,6 +81,8 @@ I had to travel to Ireland to get my second vaccine so that I could fly to Canad
 In October I got to speak virtually at the JetBrains conf as well as React Advanced conf, my first time giving a talk at a React event.
 
 I became a mentor for the Google Women Developer academy and mentored the amazing Liangda Wang who really has an incredible career ahead of herself. I also got to have 1-1 calls with vaious amazing women from around the world and help them overcome imposter syndrome and perhaps become speakers but mainly just believe in themselves more and let them know that we all believe we are not good enough and not ready. Sometimes I really need to listen to my own advice.
+
+![Women TechMakers thank you note](https://res.cloudinary.com/debsobrien/image/upload/v1640964318/debbie.codes/blog/women-techmakers_jha4ip.jpg)
 
 Real life conferences are back. Oh yea. I got to fly to Nantes in France for my first in person conference with a massive room with lots of people. All with masks on but I could see their eyes and hear their claps and they asked questions in person and it was so nice to be back on the stage.
 

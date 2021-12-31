@@ -2,7 +2,7 @@
 title: Adding TailwindCSSS to Bit
 date: 2021-12-30
 description: Adding TailwindCSS to your Bit components by adding it to the env that is used by your components. This way the the component compositions will show the TailwindCSS classes.
-image: v1640961761/debbie.codes/blog/tailwindCSS-bit_eimfbh.png
+image: v1640962583/debbie.codes/blog/tailwindcss-button_2x_gtcqu9
 provider: cloudinary
 tags: [Bit, Tailwind, all]
 published: true
