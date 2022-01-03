@@ -8,3 +8,9 @@
     <TheFooter />
   </div>
 </template>
+
+<style>
+  .dark .prose blockquote {
+    color: #fff;
+  }
+</style>
