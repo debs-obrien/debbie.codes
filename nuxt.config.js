@@ -29,7 +29,8 @@ export default {
       {
         hid: 'og:title',
         property: 'og:title',
-        content: 'Debbie Codes with Nuxt'
+        content:
+          'Debbie codes and helps others learn Bit, Component Driven Development, React, Nuxt and more'
       },
       {
         hid: 'og:description',
