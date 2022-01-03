@@ -63,7 +63,7 @@
     "@nuxtjs/stylelint-module": "^4.0.0",
     "@nuxtjs/svg": "^0.3.0",
     "@vue/test-utils": "^1.2.2",
-    "autoprefixer": "^10.3.7",
+    "autoprefixer": "^10.4.1",
     "cypress": "^8.5.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
