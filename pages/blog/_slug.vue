@@ -66,6 +66,53 @@
             hid: 'description',
             name: 'description',
             content: this.page.description
+          },
+
+          // Test on: https://developers.facebook.com/tools/debug/ or https://socialsharepreview.com/
+          { property: 'og:site_name', content: 'Debbie Codes' },
+          { hid: 'og:type', property: 'og:type', content: 'website' },
+          {
+            hid: 'og:url',
+            property: 'og:url',
+            content: 'https://debbie.codes'
+          },
+          {
+            hid: 'og:title',
+            property: 'og:title',
+            content: this.page.title
+          },
+          {
+            hid: 'og:description',
+            property: 'og:description',
+            content: this.page.description
+          },
+          {
+            hid: 'og:image',
+            property: 'og:image',
+            content: this.page.image
+          },
+          // Test on: https://cards-dev.twitter.com/validator or https://socialsharepreview.com/
+          { name: 'twitter:site', content: '@debs_obrien' },
+          { name: 'twitter:card', content: 'summary_large_image' },
+          {
+            hid: 'twitter:url',
+            name: 'twitter:url',
+            content: 'https://debbie.codes'
+          },
+          {
+            hid: 'twitter:title',
+            name: 'twitter:title',
+            content: this.page.title
+          },
+          {
+            hid: 'twitter:description',
+            name: 'twitter:description',
+            content: this.page.description
+          },
+          {
+            hid: 'twitter:image',
+            name: 'twitter:image',
+            content: this.page.image
           }
         ],
         link: [
