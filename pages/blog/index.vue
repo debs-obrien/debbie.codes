@@ -46,17 +46,7 @@
     data() {
       return {
         selectedTag: 'all',
-        tags: [
-          'Nuxt',
-          'React',
-          'Dev Stuff',
-          'Performance',
-          'Content',
-          'webpack',
-          'PWA',
-          'Cypress',
-          'all'
-        ],
+        tags: ['Nuxt', 'React', 'Testing', 'Dev Stuff', 'Performance', 'all'],
         title: "Welcome to Debbie's blog",
         description:
           "Debbie's Blog with lots of cool articles and tips on Nuxt and tech in general",
