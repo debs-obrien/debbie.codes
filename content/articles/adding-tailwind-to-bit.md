@@ -85,6 +85,12 @@ import './tailwind/styles.css'
 
 And that's it. You can now use Tailwind classes in your component and see them in your component compositions.
 
+Note: Make sure postcss has been installed and is in your workspace.json. If not just install it with bit.
+
+```bash
+bit install postcss
+```
+
 ![Bit and Tailwind](https://res.cloudinary.com/debsobrien/image/upload/v1640961761/debbie.codes/blog/tailwindCSS-bit_eimfbh.png)
 
 Note that this only works for Tailwind version 2. Due to the JIT compile used in Tailwind 3 more work needs to be done to be able to get this working in Bit so for now only Tailwind version 2 is supported.
