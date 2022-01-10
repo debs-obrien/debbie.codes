@@ -83,7 +83,7 @@ We then use the `screen` method followed by the `getByRole` function passing in 
 ```jsx
 it('should render a button with the class of primary', () => {
   render(<PrimaryButton />)
-  const primaryButton = screen.getByRole('blah'})
+  const primaryButton = screen.getByRole('blah')
 })
 ```
 
