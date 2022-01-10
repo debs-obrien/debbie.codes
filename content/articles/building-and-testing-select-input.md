@@ -199,11 +199,12 @@ We can therefore move on to write the tests for this component and use the compo
 
 ### Importing what we need
 
-We are using Testing Library to test our component so we need to import `render, screen, fireEvent` from `@testing-library/react` as well as React from 'react'. We also need to import our composition component as our tests are based on the composition we created earlier.
+We are using Testing Library to test our component so we need to import `render, screen, userEvent` from `@testing-library/react` as well as React from 'react'. We also need to import our composition component as our tests are based on the composition we created earlier.
 
 ```jsx
 import React from 'react'
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { SelectSizeAndShowSelectedSize } from './select-size.composition'
 ```
 
@@ -213,7 +214,8 @@ Our test should check that the value changes when the user chooses a new size so
 
 ```jsx
 import React from 'react'
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { SelectSizeAndShowSelectedSize } from './select-size.composition'
 
 it('checks value changes when user chooses a new size', () => {})
@@ -225,7 +227,8 @@ We then render the component we want to test which is the component we created i
 
 ```jsx
 import React from 'react'
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { SelectSizeAndShowSelectedSize } from './select-size.composition'
 
 it('checks value changes when user chooses a new size', () => {
@@ -239,7 +242,8 @@ In order to see what role is available can use the `screen.getByRole` function a
 
 ```jsx
 import React from 'react'
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event';
 import { SelectSizeAndShowSelectedSize } from './select-size.composition'
 
 it('checks value changes when user chooses a new size', () => {
@@ -253,7 +257,8 @@ As we are running our tests in watch mode we can see that the role `blah` does n
 
 ```jsx
 import React from 'react'
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { SelectSizeAndShowSelectedSize } from './select-size.composition'
 
 it('checks value changes when user chooses a new size', () => {
@@ -270,7 +275,8 @@ We now use `expect` to make sure our component has the correct value which will 
 
 ```jsx
 import React from 'react'
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { SelectSizeAndShowSelectedSize } from './select-size.composition'
 
 it('checks value changes when user chooses a new size', () => {
@@ -284,11 +290,12 @@ it('checks value changes when user chooses a new size', () => {
 
 ### Firing an Event and Expecting the Value to Change
 
-As we want to make sure the value is updated when the user chooses a new size we can use the `fireEvent` method with the `change` function passing in what we want to change and what the target is. In our case it is the const of `selectSizeAndShowSelectedSize` and the target is the `value` and we can add in what value we want to change it to. We then use the `expect` method to make sure the value has been updated correctly to the new value of the `fireEvent`.
+As we want to make sure the value is updated when the user chooses a new size we can use the `userEvent` method with the `change` function passing in what we want to change and what the target is. In our case it is the const of `selectSizeAndShowSelectedSize` and the target is the `value` and we can add in what value we want to change it to. We then use the `expect` method to make sure the value has been updated correctly to the new value of the `userEvent`.
 
 ```jsx
 import React from 'react'
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { SelectSizeAndShowSelectedSize } from './select-size.composition'
 
 it('checks value changes when user chooses a new size', () => {
@@ -297,7 +304,7 @@ it('checks value changes when user chooses a new size', () => {
     name: /choose a size/i
   })
   expect(selectSizeAndShowSelectedSize).toHaveValue('36')
-  fireEvent.change(selectSizeAndShowSelectedSize, { target: { value: '45' } })
+  userEvent.selectOptions(selectSizeAndShowSelectedSize, '45')
   expect(selectSizeAndShowSelectedSize).toHaveValue('45')
 })
 ```
@@ -330,5 +337,5 @@ yarn add @learn-bit-react/ecommerce.ui.product.select-size
 - [Select Size Component Code](https://bit.dev/learn-bit-react/ecommerce/ui/product/select-size/~code/select-size.tsx)
 - [Select Size Component composition](https://bit.dev/learn-bit-react/ecommerce/ui/product/select-size/~code/select-size.composition.tsx)
 - [Select Size Test File](https://bit.dev/learn-bit-react/ecommerce/ui/product/select-size/~code/select-size.spec.tsx)
-- [Testing Library Docs](https://testing-library.com/docs/)
+- [Testing Library Docs](https://testing-library.com/docs/ecosystem-user-event/#selectoptionselement-values-options)
 - [docs for useState()](https://beta.reactjs.org/reference/usestate)
