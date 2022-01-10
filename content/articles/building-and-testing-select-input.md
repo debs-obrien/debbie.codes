@@ -70,7 +70,9 @@ export function SelectSize({
 
 ### Using the Select and Label Components
 
-We can now add the return statement to our component and return the Select and Label components that we have imported. The [Label component](https://bit.dev/learn-bit-react/base-ui/ui/forms/label) is pretty straight forward and just adds some styles and the `htmlFor` attribute with the value of `size`. For the [Select component](https://bit.dev/learn-bit-react/base-ui/ui/forms/select) we need to add the `id` of `size`, the className for the styles, and the options for the select component which is equal to the value of the `availableSizes` array. The Select component takes in a prop of options and will map over the array to give us an `<option>` for each number in the array. We then need an `onChange` function to handle the change for every time the user changes the size. And of course we pass in the `...rest` of the props that a html select element can take.
+We can now add the return statement to our component and return the Select and Label components that we have imported. The [Label component](https://bit.dev/learn-bit-react/base-ui/ui/forms/label) is pretty straight forward and just adds some styles and the `htmlFor` attribute with the value of `size`. For the [Select component](https://bit.dev/learn-bit-react/base-ui/ui/forms/select) we need to add the `id` of `size`, the className for the styles, and the options for the select component which is equal to the value of the `availableSizes` array.
+
+The Select component takes in a prop of options and will map over the array to give us an `<option>` for each number in the array. We then need an `onChange` function to handle the change for every time the user changes the size. And of course we pass in the `...rest` of the props that a html select element can take.
 
 ```jsx
 const [size, setSize] = useState(availableSizes[0])
@@ -163,7 +165,7 @@ Then in our component we make the prop of `sizeSelected` equal to a function tha
 
 We also add the value of our `sizes` array to the `availableSizes` prop of the `SelectSize` component.
 
-And finally we add a <p> tag with the value of the `selectedSize` so we can see the size of the product updated in the UI as we change it.
+And finally we add a `<p>` tag with the value of the `selectedSize` so we can see the size of the product updated in the UI as we change it.
 
 ```jsx
 import React, { useState } from 'react'
