@@ -1,15 +1,13 @@
 ---
 title: TypeScript and Children
-date: 2021-10-07
-description: What happens when we pass in children? Children is a special prop that allows us to pass in any type of element. It could be a number, a string, a boolean, an array of elements or even another component. So how can we check the types?
+date: 2022-01-11
+description: What happens when we pass in children in React? Children is a special prop that allows us to pass in any type of element. It could be a number, a string, a boolean, an array of elements or even another component. So how can we check the types?
 image: photo-1504438190342-5951e134ffee?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80
 provider: imgix
 tags: [TypeScript, React, all]
-published: false
-publish: false
 ---
 
-What happens when we pass in children? Children is a special prop that allows us to pass in any type of element. It could be a number, a string, a boolean, an array of elements or even another component. So how can we check the types?
+What happens when we pass in children in React? Children is a special prop that allows us to pass in any type of element. It could be a number, a string, a boolean, an array of elements or even another component. So how can we check the types?
 
 Of course we could define it as any which is basically the same as just not having type checking which defeats the whole purpose of using Typescript.
 
@@ -60,7 +58,7 @@ Allows single or multiple JSX elements but no strings, numbers etc
 
 ```js
 type ButtonProps = {
-  JSX.Element | JSX.Element[]
+  children: JSX.Element | JSX.Element[]
 }
 const Button = ({ children }: ButtonProps) => <button>{children}</button>
 
@@ -69,7 +67,7 @@ export default function Card() {
     <Button>
       <span>click me</span>
     </Button>
-  );
+  )
 }
 export default function Card2() {
   return (
@@ -77,7 +75,7 @@ export default function Card2() {
       <span>click me</span>
       <i>svg icon</i>
     </Button>
-  );
+  )
 }
 ```
 
@@ -87,12 +85,12 @@ Allows one React element, string or number
 
 ```js
 type ButtonProps = {
-  React.ReactChild
+  children: React.ReactChild
 }
 const Button = ({ children }: ButtonProps) => <button>{children}</button>
 
 export default function Card() {
-  return <Button>click me</Button>;
+  return <Button>click me</Button>
 }
 ```
 
@@ -102,7 +100,7 @@ Allows multiple React elements, strings or numbers
 
 ```js
 type ButtonProps = {
-  React.ReactChild
+  children: React.ReactChild
 }
 const Button = ({ children }: ButtonProps) => <button>{children}</button>
 
@@ -112,7 +110,7 @@ export default function Card() {
       click me
       <i>svg icon</i>
     </Button>
-  );
+  )
 }
 ```
 
@@ -122,16 +120,12 @@ Allows single or multiple React elements, strings or numbers
 
 ```js
 type ButtonProps = {
-  React.ReactChild
+  children: React.ReactChild
 }
 const Button = ({ children }: ButtonProps) => <button>{children}</button>
 
 export default function Card() {
-  return (
-    <Button>
-      click me
-    </Button>
-  );
+  return <Button>click me</Button>
 }
 
 export default function Card2() {
@@ -140,17 +134,17 @@ export default function Card2() {
       click me
       <i>svg icon</i>
     </Button>
-  );
+  )
 }
 ```
 
 ### React.ReactNode
 
-Allows multiple children, strings, numbers, fragments, portals... We could use the above example but it is a little verbose and React.ReactNode covers a little more.
+Allows multiple children, strings, numbers, fragments, portals... We could use the above example but it is a little verbose and ReactNode covers a little more.
 
 ```js
 type ButtonProps = {
-  React.ReactChild
+  children: React.ReactChild
 }
 const Button = ({ children }: ButtonProps) => <button>{children}</button>
 
@@ -160,6 +154,17 @@ export default function Card() {
       click me
       <i>svg icon</i>
     </Button>
-  );
+  )
 }
 ```
+
+## Conclusion
+
+And that's it, you now have no excuses for adding type checking for your children.
+
+## Useful Links
+
+- [React and TypeScript Course by Steve Kinney](https://frontendmasters.com/courses/react-typescript/)
+- [TypeScript Fundamentals, v3 course by Mike North](https://frontendmasters.com/courses/typescript-v3/)
+- [Typescript docs](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html)
+- [TypeScript in 50 lessons](https://www.smashingmagazine.com/provide/eBooks/typescript-in-50-lessons.pdf)
