@@ -167,4 +167,4 @@ And that's it, you now have no excuses for adding type checking for your childre
 - [React and TypeScript Course by Steve Kinney](https://frontendmasters.com/courses/react-typescript/)
 - [TypeScript Fundamentals, v3 course by Mike North](https://frontendmasters.com/courses/typescript-v3/)
 - [Typescript docs](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html)
-- [TypeScript in 50 lessons](https://www.smashingmagazine.com/provide/eBooks/typescript-in-50-lessons.pdf)
+- [TypeScript in 50 lessons](https://www.smashingmagazine.com/printed-books/typescript-in-50-lessons/)
