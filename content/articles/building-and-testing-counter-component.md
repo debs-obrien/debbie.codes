@@ -4,7 +4,7 @@ date: 2022-01-12
 description: What happens when we pass in children in React? Children is a special prop that allows us to pass in any type of element. It could be a number, a string, a boolean, an array of elements or even another component. So how can we check the types?
 image: v1642010879/debbie.codes/blog/2022/counter_2x_ma1ik6
 provider: cloudinary
-tags: [TypeScript, React, all]
+tags: [Testing, React, all]
 ---
 
 We want to build and test a [counter component](https://bit.dev/learn-bit-react/ecommerce/ui/product/counter/~code/counter.tsx) built with React and TypeScript. So where do we start? First of all looking at the component I can see it is made up of 2 [button components](https://bit.dev/learn-bit-react/base-ui/ui/button) that increase and decrease the count and an [input component](https://bit.dev/learn-bit-react/base-ui/ui/forms/input) that shows the value of the count.
