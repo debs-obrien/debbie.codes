@@ -5,7 +5,8 @@
  ** Default: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
  */
 module.exports = {
-  darkMode: 'class',
+  content: ['./**.{vue,js}'],
+  // darkMode: 'class',
   // purge: {
   //   // Learn more on https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css
   //   enabled: process.env.NODE_ENV === 'production',
@@ -23,7 +24,14 @@ module.exports = {
   theme: {
     darkSelector: '.dark',
     extend: {
-      typography: {},
+      typography: {
+        DEFAULT: {
+          css: {
+            'code::before': { content: '' },
+            'code::after': { content: '' }
+          }
+        }
+      },
       colors: {
         primary: '#d8002d',
         secondary: '#333',

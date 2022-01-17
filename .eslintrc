@@ -5,7 +5,11 @@
     "ecmaVersion": 2020,
     "sourceType": "module"
   },
-  "extends": ["@nuxtjs", "eslint-config-prettier", "plugin:cypress/recommended"],
+  "extends": [
+    "plugin:nuxt/recommended",
+    "eslint-config-prettier",
+    "plugin:cypress/recommended"
+  ],
   "rules": {
     "no-console": "error",
     "vue/no-v-html": 0,

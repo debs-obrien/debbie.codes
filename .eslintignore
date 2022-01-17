@@ -1,0 +1,6 @@
+{
+    "ignorePatterns": ["nuxt.config.js"],
+    "rules": {
+        //...
+    }
+}
