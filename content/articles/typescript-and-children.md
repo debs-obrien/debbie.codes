@@ -144,7 +144,7 @@ Allows multiple children, strings, numbers, fragments, portals... We could use t
 
 ```js
 type ButtonProps = {
-  children: React.ReactChild
+  children: React.ReactNode
 }
 const Button = ({ children }: ButtonProps) => <button>{children}</button>
 
