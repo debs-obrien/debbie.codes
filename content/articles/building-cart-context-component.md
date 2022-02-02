@@ -266,3 +266,4 @@ export MyCart(){
 - [Cart Composition Code](https://bit.dev/learn-bit-react/ecommerce/ui/cart/cart-context/~code/cart-context.composition.tsx)
 - [Cart Docs](https://bit.dev/learn-bit-react/ecommerce/ui/cart/cart-context)
 - [Interactive Cart Composition](https://bit.dev/learn-bit-react/ecommerce/ui/cart/cart-context/~compositions)
+- [Shoe Store using the Cart component](https://bit-shoe-store.netlify.app/product/h-3)
