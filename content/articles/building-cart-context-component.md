@@ -237,6 +237,8 @@ yarn add @learn-bit-react/ecommerce.ui.cart.cart-context
 
 Then import it into the app and use it just like we did. You can add your own display components or copy the mock ones to see how it works and then modify it to how you like.
 
+Check out a [simple example I have created here](https://github.com/debs-obrien/react-cart-context/blob/main/src/App.js) to see it in use in a React app.
+
 ### Example Usage
 
 ```js
@@ -267,3 +269,4 @@ export MyCart(){
 - [Cart Docs](https://bit.dev/learn-bit-react/ecommerce/ui/cart/cart-context)
 - [Interactive Cart Composition](https://bit.dev/learn-bit-react/ecommerce/ui/cart/cart-context/~compositions)
 - [Shoe Store using the Cart component](https://bit-shoe-store.netlify.app/product/h-3)
+- [Simple example in React App](https://github.com/debs-obrien/react-cart-context/blob/main/src/App.js)
