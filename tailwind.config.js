@@ -6,6 +6,7 @@
  */
 module.exports = {
   content: ['./**.{vue,js}'],
+  darkMode: 'class',
   // darkMode: 'class',
   // purge: {
   //   // Learn more on https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css

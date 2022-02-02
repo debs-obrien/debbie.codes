@@ -25,7 +25,7 @@
         <div class="px-5 py-2">
           <NuxtLink
             to="/resources/guest-live-streams"
-            class="text-base text-gray-800 dark:text-gray-400 hover:text-primary"
+            class="text-base dark:text-gray-400 text-gray-800  hover:text-primary"
           >
             Streams
           </NuxtLink>
