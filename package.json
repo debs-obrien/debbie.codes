@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "-": "^0.0.1",
+    "@babel/eslint-parser": "^7.16.5",
     "@nuxt/content": "^1.15.1",
     "@nuxt/http": "^0.6.4",
     "@nuxt/image": "^0.6.0",
