@@ -61,7 +61,7 @@ If you are interested in career ladders for Dev Advocates then [Sarah Drasner](h
 
 ### Video Resoucres
 
-There have been some great twitter spaces lately on Dev Advocacy and here are some of my favorites people in the DevRel scene including [Angie Jones](https://twitter.com/techgirl1908), [Sarah Drasner](https://twitter.com/sarah_edo), [Colby Fayock](https://twitter.com/colbyfayock), [Kelsey Hightower](https://twitter.com/kelseyhightower), [Emily Freeman](https://twitter.com/editingemily) and [James Q Quick](https://twitter.com/jamesqquick)
+There have been some great twitter spaces lately on Dev Advocacy and here are some of my favorite people in the DevRel scene including [Angie Jones](https://twitter.com/techgirl1908), [Sarah Drasner](https://twitter.com/sarah_edo), [Colby Fayock](https://twitter.com/colbyfayock), [Kelsey Hightower](https://twitter.com/kelseyhightower), [Emily Freeman](https://twitter.com/editingemily) and [James Q Quick](https://twitter.com/jamesqquick)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/_q_bWATVJTg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
