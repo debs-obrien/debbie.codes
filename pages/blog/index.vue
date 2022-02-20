@@ -27,6 +27,7 @@
         <PostsCard :item="article" />
       </div>
     </div>
+    <Pagination />
   </div>
 </template>
 
@@ -34,12 +35,46 @@
   export default {
     layout: 'blog',
     async asyncData({ $content, params }) {
+      const currentPage = parseInt(params.page)
+      const perPage = 5
+      const allArticles = await $content('articles')
+        .where({ published: { $ne: false } })
+        .fetch()
+
+      const totalArticles = allArticles.length
+
+      const lastPage = Math.ceil(totalArticles / perPage)
+      const lastPageCount =
+        totalArticles % perPage === 0 ? perPage : totalArticles % perPage
+
+      const skipNumber = () => {
+        if (currentPage === 1) {
+          return 0
+        }
+        if (currentPage === lastPage) {
+          return totalArticles - lastPageCount
+        }
+        return (currentPage - 1) * perPage
+      }
+      const paginatedArticles = await $content('articles')
+        .where({ published: { $ne: false } })
+        .sortBy('date', 'desc')
+        .limit(perPage)
+        .skip(skipNumber())
+        .fetch()
+
+      if (currentPage === 0 || !paginatedArticles.length) {
+        return error({ statusCode: 404, message: 'No articles found!' })
+      }
+
       const articles = await $content('articles')
         .where({ published: { $ne: false } })
         .sortBy('date', 'desc')
         .fetch()
 
       return {
+        allArticles,
+        paginatedArticles,
         articles
       }
     },
@@ -75,12 +110,17 @@
 
     computed: {
       blogList() {
-        return this.articles.filter(el => el.tags.includes(this.selectedTag))
+        return this.paginatedArticles.filter(el =>
+          el.tags.includes(this.selectedTag)
+        )
       }
     },
     methods: {
       FilterBlogByType(tag) {
         this.selectedTag = tag
+      },
+      onPageChange(page) {
+        this.currentPage = page
       }
     }
   }
