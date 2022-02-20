@@ -7,7 +7,6 @@
       Here you will find various blog posts on all things related to Frontend
       and JavaScript but especially on things related to Nuxt.
     </AppIntro>
-
     <div class="buttons flex flex-wrap mt-8 justify-center">
       <div v-for="(tag, i) in tags" :key="i">
         <nuxt-link class="btn" :to="`/blog/category/${tag}`">
@@ -28,21 +27,24 @@
         <PostsCard :item="article" />
       </div>
     </div>
-    <Pagination :nextPage="nextPage" :pageNo="1" urlPrefix="/blog" />
+    <Pagination
+      :prevPage="pageNo > 1"
+      :nextPage="nextPage"
+      :pageNo="pageNo"
+      urlPrefix="/blog"
+    />
   </div>
 </template>
 
 <script>
   export default {
-    layout: 'blog',
-    async asyncData({ $content, params }) {
+    async asyncData({ $content, params, error }) {
       const pageNo = parseInt(params.number)
-
       const tenArticles = await $content('articles')
         .where({ published: { $ne: false } })
+        .sortBy('date', 'desc')
         .limit(10)
         .skip(9 * (pageNo - 1))
-        .sortBy('date', 'desc')
         .fetch()
 
       if (!tenArticles.length) {
@@ -60,7 +62,8 @@
     },
     data() {
       return {
-        tags: ['Nuxt', 'React', 'Testing', 'Dev Stuff', 'Performance'],
+        selectedTag: 'all',
+        tags: ['Nuxt', 'React', 'Testing', 'Dev Stuff', 'Performance', 'all'],
         title: "Welcome to Debbie's blog",
         description:
           "Debbie's Blog with lots of cool articles and tips on Nuxt, React, TypeScript and tech in general",

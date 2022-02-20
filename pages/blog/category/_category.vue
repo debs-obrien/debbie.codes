@@ -21,45 +21,35 @@
       class="mt-12 grid gap-5 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
     >
       <div
-        v-for="article of articles"
+        v-for="article of blogList"
         :key="article.slug"
         class="flex flex-col"
       >
         <PostsCard :item="article" />
       </div>
     </div>
-    <Pagination :nextPage="nextPage" :pageNo="1" urlPrefix="/blog" />
   </div>
 </template>
 
 <script>
   export default {
-    layout: 'blog',
-    async asyncData({ $content, params }) {
-      const pageNo = parseInt(params.number)
-
-      const tenArticles = await $content('articles')
-        .where({ published: { $ne: false } })
-        .limit(10)
-        .skip(9 * (pageNo - 1))
+    async asyncData({ $content, params, error }) {
+      const articles = await $content('articles')
+        .where({
+          published: { $ne: false },
+          tags: { $contains: params.category }
+        })
         .sortBy('date', 'desc')
+
         .fetch()
 
-      if (!tenArticles.length) {
-        return error({ statusCode: 404, message: 'No articles found!' })
-      }
-
-      const nextPage = tenArticles.length === 10
-      const articles = nextPage ? tenArticles.slice(0, -1) : tenArticles
-
       return {
-        nextPage,
-        articles,
-        pageNo
+        articles
       }
     },
     data() {
       return {
+        selectedTag: this.$route.params.category,
         tags: ['Nuxt', 'React', 'Testing', 'Dev Stuff', 'Performance'],
         title: "Welcome to Debbie's blog",
         description:
@@ -84,6 +74,19 @@
             href: 'https://debbie.codes/blog'
           }
         ]
+      }
+    },
+    computed: {
+      blogList() {
+        return this.articles.filter(el => el.tags.includes(this.selectedTag))
+      }
+    },
+    methods: {
+      FilterBlogByType(tag) {
+        this.selectedTag = tag
+      },
+      onPageChange(page) {
+        this.currentPage = page
       }
     }
   }

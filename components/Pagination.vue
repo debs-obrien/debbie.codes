@@ -1,79 +1,31 @@
 <template>
-  <div>
-    <span v-if="currentPage === 1" :class="disabledStyle"> First </span>
-
+  <section id="prev-next" class="flex justify-center mt-4 space-x-2">
     <nuxt-link
-      v-else
-      :to="{ name: 'articles-page-page', params: { page: 1 } }"
-      :class="buttonStyles"
+      v-if="prevPage"
+      :to="prevLink"
+      class="py-2 px-4 bg-white text-gray-700 border border-gray-200 font-medium rounded hover:bg-gray-200"
+      >Prev page</nuxt-link
     >
-      First
-    </nuxt-link>
-
-    <span v-if="currentPage === 1" :class="disabledStyle"> Prev </span>
-
     <nuxt-link
-      v-else
-      :to="{ name: 'articles-page-page', params: { page: prevPage } }"
-      :class="buttonStyles"
+      v-if="nextPage"
+      :to="`${urlPrefix}/page/${pageNo + 1}`"
+      class="py-2 px-4 bg-white text-gray-700 border border-gray-200 font-medium rounded hover:bg-gray-200"
+      >Next page</nuxt-link
     >
-      Prev
-    </nuxt-link>
-
-    <span v-if="currentPage === totalPages" :class="disabledStyle"> Next </span>
-
-    <nuxt-link
-      v-else
-      :to="{ name: 'articles-page-page', params: { page: nextPage } }"
-      :class="buttonStyles"
-    >
-      Next
-    </nuxt-link>
-
-    <span v-if="currentPage === totalPages" :class="disabledStyle"> Last </span>
-
-    <nuxt-link
-      v-else
-      :to="{ name: 'articles-page-page', params: { page: totalPages } }"
-      :class="buttonStyles"
-    >
-      Last
-    </nuxt-link>
-  </div>
+  </section>
 </template>
+
 <script>
   export default {
-    props: {
-      total: {
-        type: Number,
-        default: 0
-      },
-      perPage: {
-        type: Number,
-        default: 5
-      }
-    },
+    props: ['prevPage', 'nextPage', 'pageNo', 'urlPrefix'],
     computed: {
-      buttonStyles() {
-        return 'border rounded px-4 py-1 text-sm bg-white flex justify-center items-center sm:uppercase hover:bg-blue-500 hover:text-white transform duration-500 ease-in-out'
-      },
-      disabledStyle() {
-        return 'border rounded px-4 py-1 text-sm bg-white flex justify-center items-center sm:uppercase text-gray-300'
-      },
-      totalPages() {
-        return Math.ceil(this.total / this.perPage)
-      },
-      currentPage() {
-        return parseInt(this.$route.params.page) || 1
-      },
-      prevPage() {
-        return this.currentPage > 1 ? this.currentPage - 1 : 1
-      },
-      nextPage() {
-        return this.currentPage < this.totalPages
-          ? this.currentPage + 1
-          : this.totalPages
+      prevLink() {
+        return this.pageNo === 2
+          ? this.urlPrefix
+          : `${this.urlPrefix}/page/${this.pageNo - 1}`
       }
     }
   }
 </script>
+
+<style></style>
