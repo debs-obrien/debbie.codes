@@ -4,14 +4,16 @@
       v-if="prevPage"
       :to="prevLink"
       class="py-2 px-4 bg-white text-gray-700 border border-gray-200 font-medium rounded hover:bg-gray-200"
-      >Prev page</nuxt-link
     >
+      Prev page
+    </nuxt-link>
     <nuxt-link
       v-if="nextPage"
       :to="`${urlPrefix}/page/${pageNo + 1}`"
       class="py-2 px-4 bg-white text-gray-700 border border-gray-200 font-medium rounded hover:bg-gray-200"
-      >Next page</nuxt-link
     >
+      Next page
+    </nuxt-link>
   </section>
 </template>
 
