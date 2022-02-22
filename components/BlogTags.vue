@@ -1,12 +1,12 @@
 <template>
   <div class="buttons flex flex-wrap mt-8 justify-center">
     <div v-for="(tag, i) in tags" :key="i">
-      <nuxt-link class="btn" :to="`/blog/category/${tag}`">
+      <nuxt-link class="btn" :to="`/blog/${tag}/1`">
         {{ tag }}
       </nuxt-link>
     </div>
     <div>
-      <nuxt-link class="btn" :to="`/blog/page/1`">all</nuxt-link>
+      <nuxt-link class="btn" :to="`/blog/all/1`">all</nuxt-link>
     </div>
   </div>
 </template>
