@@ -94,10 +94,15 @@ code {
   overflow: auto;
   width: auto;
   max-width: 95vw;
+  color: white;
 }
 .prose {
   max-width: 85ch;
 }
-.dark .prose code {
+
+.light
+  .nuxt-content-highlight
+  .prose
+  :where(code):not(:where([class~='not-prose']*)) {
   color: #fff;
 }
