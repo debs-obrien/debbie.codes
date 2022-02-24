@@ -77,32 +77,6 @@ section p {
 .nuxt-content-highlight .filename {
   @apply absolute right-0 top-0 text-gray-400 font-light z-10 mr-2 mt-1 text-sm;
 }
-
-.nuxt-content .token.comment {
-  color: #acb5b9;
-}
-.dark .prose,
-.dark .prose h1,
-.dark .prose h2,
-.dark .prose h3 {
-  color: white;
-}
-
-/* purgecss end ignore */
-pre,
-code {
-  overflow: auto;
-  width: auto;
-  max-width: 95vw;
-  color: white;
-}
 .prose {
   max-width: 85ch;
-}
-
-.light
-  .nuxt-content-highlight
-  .prose
-  :where(code):not(:where([class~='not-prose']*)) {
-  color: #fff;
 }

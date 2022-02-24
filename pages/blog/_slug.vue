@@ -8,7 +8,7 @@
     <div class="mx-auto">
       <!-- <SearchInput search-item="articles" /> -->
       <AppBreadCrumb link="blog" :title="page.title" />
-      <article class="md:p-8 prose prose-md lg:prose-lg mx-auto">
+      <article class="md:p-8 prose dark:prose-invert prose-md lg:prose-lg mx-auto">
         <h1 class="title">
           {{ page.title }}
         </h1>
