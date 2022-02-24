@@ -87,6 +87,9 @@ section p {
 .dark .prose h3 {
   color: white;
 }
+code {
+  color: inherit;
+}
 
 /* purgecss end ignore */
 pre,
@@ -94,15 +97,12 @@ code {
   overflow: auto;
   width: auto;
   max-width: 95vw;
-  color: white;
+  color: inherit;
 }
 .prose {
   max-width: 85ch;
-  code {
-    color: #fff !important;
-  }
 }
 
-.prose:where(code):not(:where([class~='not-prose']*)) {
-  color: #fff;
+.prose code {
+  color: inherit;
 }
