@@ -75,13 +75,17 @@ This will open two windows for you. The first one is the browser window that you
 Your browser does not support the video tag.
 </video>
 
+## Copy the Tests to your Editor
+
 Once you have finished recording your actions you can copy the test code to a test file in VS Code and there you go, you have just written your first test. If you prefer your tests in another language then choose from the dropdown menu and the the code will change to that language.
 
 You can then click the copy button to copy the code to your clipboard and paste it into a newly created test file in your tests folder. And there you have it. You have just written your first test and all you had to do was click around your site and copy and paste the code. Now how cool is that.
 
 ## Running your Tests
 
-If you now want to run your test you can do so by running the following command:
+If you now want to run your test and are using the VS Code extension then you can press the green triangle next to the line where your tests start.
+
+Or you can run the tests by running the following command in your terminal:
 
 ```js
 npx playwright test
@@ -94,8 +98,6 @@ npx playwright test --headed
 ```
 
 Be wared though as the tests are super fast meaning it will open, run the tests and close in a matter of seconds. In a future post I will show you how to pause the tests, debug the tests or open a trace file or feel free to check out the [Playwright docs](https://playwright.dev/docs/inspector) for more information.
-
-If you are using the VS Code extension then you can press the green triangle next to the line where your tests start.
 
 ## Conclusion
 
