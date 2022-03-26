@@ -6,7 +6,7 @@ test('test', async ({ page }) => {
 
   // Click text=Blog >> nth=0
   await page.locator('text=Blog').first().click()
-  await expect(page).toHaveURL('https://debbie.codes/blog')
+  await expect(page).toHaveURL('https://debbie.codes/hello')
 
   // Click text=Next page
   await page.locator('text=Next page').click()
