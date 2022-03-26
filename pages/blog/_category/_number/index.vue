@@ -4,7 +4,7 @@
       class="mt-12 grid gap-5 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
     >
       <div
-        v-for="article of blogList"
+        v-for="article of filteredArticles"
         :key="article.slug"
         class="flex flex-col"
       >
@@ -25,27 +25,27 @@
     layout: 'blog',
     async asyncData({ $content, params, error }) {
       const pageNo = parseInt(params.number)
-      const tenArticles = await $content('articles')
+      const numArticles = 9
+      const getArticles = await $content('articles')
         .where({
           published: { $ne: false },
           tags: { $contains: params.category }
         })
         .sortBy('date', 'desc')
-        .limit(10)
-        .skip(9 * (pageNo - 1))
+        .limit(numArticles)
+        .skip(numArticles * (pageNo - 1))
         .fetch()
 
-      if (!tenArticles.length) {
+      if (!getArticles.length) {
         return error({ statusCode: 404, message: 'No articles found!' })
       }
 
-      const nextPage = tenArticles.length === 10
-      const articles = nextPage ? tenArticles.slice(0, -1) : tenArticles
+      const nextPage = getArticles.length === numArticles
 
       return {
         nextPage,
-        articles,
-        pageNo
+        pageNo,
+        getArticles
       }
     },
     data() {
@@ -55,13 +55,10 @@
     },
 
     computed: {
-      blogList() {
-        return this.articles.filter(el => el.tags.includes(this.selectedTag))
-      }
-    },
-    methods: {
-      FilterBlogByType(tag) {
-        this.selectedTag = tag
+      filteredArticles() {
+        return this.getArticles.filter(article =>
+          article.tags.includes(this.selectedTag)
+        )
       }
     }
   }

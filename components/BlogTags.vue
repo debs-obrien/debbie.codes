@@ -6,7 +6,7 @@
       </nuxt-link>
     </div>
     <div>
-      <nuxt-link class="btn" :to="`/blog/all/1`">all</nuxt-link>
+      <nuxt-link class="btn" :to="`/blog/all/1`">All</nuxt-link>
     </div>
   </div>
 </template>

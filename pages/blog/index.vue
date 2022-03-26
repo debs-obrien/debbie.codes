@@ -4,7 +4,7 @@
       class="mt-12 grid gap-5 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
     >
       <div
-        v-for="article of articles"
+        v-for="article of getArticles"
         :key="article.slug"
         class="flex flex-col"
       >
@@ -20,24 +20,24 @@
     layout: 'blog',
     async asyncData({ $content, params }) {
       const pageNo = parseInt(params.number)
+      const numArticles = 9
 
-      const tenArticles = await $content('articles')
+      const getArticles = await $content('articles')
         .where({ published: { $ne: false } })
-        .limit(10)
-        .skip(9 * (pageNo - 1))
+        .limit(numArticles)
+        .skip(numArticles * (pageNo - 1))
         .sortBy('date', 'desc')
         .fetch()
 
-      if (!tenArticles.length) {
+      if (!getArticles.length) {
         return error({ statusCode: 404, message: 'No articles found!' })
       }
 
-      const nextPage = tenArticles.length === 10
-      const articles = nextPage ? tenArticles.slice(0, -1) : tenArticles
-
+      const nextPage = getArticles.length === numArticles
+      getArticles
       return {
         nextPage,
-        articles,
+        getArticles,
         pageNo
       }
     }
