@@ -4,7 +4,7 @@ date: 2021-10-06
 description: TypeScript is a superset of JavaScript. Any types that are added are not part of the final bundle so really TypeScript is there to make your life easier as a developer.
 image: reserve/uZYSV4nuQeyq64azfVIn_15130980706_64134efc6e_o.jpg?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80
 provider: imgix
-tags: [TypeScript, react, all]
+tags: [typescript, react, all]
 ---
 
 TypeScript is a superset of JavaScript. Any types that are added are not part of the final bundle so really TypeScript is there to make your life easier as a developer. It took me years to accept TypeScript. I always wanted to learn it. It was on my long list of todos but I found it complicated and unnecessary and therefore chose not to prioritize it and most importantly not to use it in any of my projects.

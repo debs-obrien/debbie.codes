@@ -4,7 +4,7 @@ date: 2022-03-10
 description: Theming is a fascinating topic and a really important one these days as more and more people add light and dark mode to their sites and companies change the theme of their site or part of their site on specific dates to celebrate occasions such as christmas, pride week etc.
 image: photo-1595446472721-4b7aa63a2bc7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80
 provider: imgix
-tags: [Bit, react, all]
+tags: [bit, react, all]
 published: true
 ---
 

@@ -15,7 +15,15 @@
   export default {
     data() {
       return {
-        tags: ['nuxt', 'react', 'testing', 'dev stuff', 'performance']
+        tags: [
+          'nuxt',
+          'react',
+          'testing',
+          'javascript',
+          'typescript',
+          'dev stuff',
+          'performance'
+        ]
       }
     }
   }

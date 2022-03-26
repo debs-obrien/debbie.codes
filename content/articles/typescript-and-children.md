@@ -4,7 +4,7 @@ date: 2022-01-11
 description: What happens when we pass in children in React? Children is a special prop that allows us to pass in any type of element. It could be a number, a string, a boolean, an array of elements or even another component. So how can we check the types?
 image: photo-1504438190342-5951e134ffee?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80
 provider: imgix
-tags: [TypeScript, react, all]
+tags: [typescript, react, all]
 ---
 
 What happens when we pass in children in React? Children is a special prop that allows us to pass in any type of element. It could be a number, a string, a boolean, an array of elements or even another component. So how can we check the types?

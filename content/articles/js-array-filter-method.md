@@ -5,7 +5,7 @@ description: The .map() method in JavaScript lets you loop over every element in
 published: false
 image: photo-1512418490979-92798cec1380?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop
 provider: imgix
-tags: [JavaScript, all]
+tags: [javascript, all]
 ---
 
 To filter an array
@@ -22,7 +22,7 @@ const people = [{name: 'Debbie', gender: 'female'}
 decide who should be returned
 
 ```jsx
-people.filter(function(currentValue, index, originalArray) {
+people.filter(function (currentValue, index, originalArray) {
   //decide who should be returned
   return
 })
@@ -43,7 +43,7 @@ originalArray which in this case is people
 if you don't need the originalArray you can remove it
 
 ```jsx
-people.filter(function(currentValue, index) {
+people.filter(function (currentValue, index) {
   //decide who should be returned
   return
 })
@@ -52,7 +52,7 @@ people.filter(function(currentValue, index) {
 normally we name the currentValue the singular of the array so in this case person
 
 ```jsx
-people.filter(function(person, index) {
+people.filter(function (person, index) {
   return person.gender === 'female'
 })
 ```
