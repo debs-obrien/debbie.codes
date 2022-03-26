@@ -14,10 +14,6 @@
     "prod": "yarn generate; yarn build:lambda",
     "start:lambda": "netlify-lambda serve functions",
     "build:lambda": "netlify-lambda build functions",
-    "cy:open": "cypress open",
-    "cy:run": "cypress run",
-    "test:e2e:run": "start-server-and-test start http://localhost:3000 cy:run",
-    "test:e2e:dev": "start-server-and-test dev http://localhost:3000 cy:open",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "test": "jest",
     "new": "hygen new"
