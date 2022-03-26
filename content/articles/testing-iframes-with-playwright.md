@@ -4,7 +4,7 @@ date: 2022-03-24
 description: Have you ever had to test something in an iframe on your page with end to end testing? Even testing the play button of an embedded video used to be difficult but then along came Playwright. Let's take a look at how Playwright can help you test iframes.
 image: v1648137581/debbie.codes/blog/2022/has-locator_2x_wlg69v.png
 provider: cloudinary
-tags: [Testing, all]
+tags: [testing, all]
 published: true
 ---
 

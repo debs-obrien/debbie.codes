@@ -4,7 +4,7 @@ date: 2022-03-24
 description: How can we get more developers to write tests? We can create better tools that makes testing easier. Let's take a look at Playwright and it's amazing features including codegen which writes your tests for you.
 image: v1648106423/debbie.codes/blog/2022/codegen_2x_psrpgk.png
 provider: cloudinary
-tags: [Testing, all]
+tags: [testing, all]
 published: true
 ---
 

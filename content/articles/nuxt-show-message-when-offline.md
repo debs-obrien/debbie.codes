@@ -4,7 +4,7 @@ date: 2020-04-20
 description: Did you know that `$nuxt.isOffline` can be used to show your users content based on if they are online or not.
 image: photo-1588064718670-764b8515b86e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&
 provider: imgix
-tags: [Nuxt, all]
+tags: [nuxt, all]
 ---
 
 Did you know that `$nuxt.isOffline` can be used to show your users content based on if they are online or not.

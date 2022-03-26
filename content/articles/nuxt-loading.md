@@ -5,7 +5,7 @@ description: We can customize the Loading for our Client Side applications as we
 image: photo-1607434472257-d9f8e57a643d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&
 provider: imgix
 loading: eager
-tags: [Nuxt, Loading, all]
+tags: [nuxt, Loading, all]
 ---
 
 We can customize the Loading for our Client Side applications as well as the loading Progress bar for our server rendered applications and we can even customize this to create our own. Of course if your site is super fast you might need even need to worry about loading bars 🙊.

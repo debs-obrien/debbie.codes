@@ -4,7 +4,7 @@ date: 2020-07-29
 description: When in Europe and using cookies we need to show a cookie consent banner so our users are aware that we are using cookies on the site.
 image: photo-1558961363-fa8fdf82db35?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop
 provider: imgix
-tags: [Nuxt, all]
+tags: [nuxt, all]
 ---
 
 When in Europe and using cookies we need to show a cookie consent banner so our users are aware that we are using cookies on the site.

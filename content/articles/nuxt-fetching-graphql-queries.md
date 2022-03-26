@@ -4,7 +4,7 @@ date: 2020-07-17
 description: Fetching graphQL queries
 image: photo-1516979187457-637abb4f9353?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop
 provider: imgix
-tags: [Nuxt, GraphQL, Apollo, all]
+tags: [nuxt, GraphQL, Apollo, all]
 ---
 
 How to fetch data from graphQL without having to use libraries such as apollo
@@ -31,7 +31,7 @@ pass in destructured \$http and env from context
 
 use inject method to inject our plugin so we can use it across our app
 
-create a variable called $hasura  which uses $http using the create helper and pass in the prefixUrl of our api which we can store as an env Variable
+create a variable called $hasura which uses $http using the create helper and pass in the prefixUrl of our api which we can store as an env Variable
 
 set headers for hasura admin secret if needed
 
@@ -40,7 +40,7 @@ inject the key of hasura with the value of $hasura using the $post method and bi
 `plugins/hasura.js`
 
 ```jsx
-export default function({ $http, env }, inject) {
+export default function ({ $http, env }, inject) {
   const $hasura = $http.create({
     prefixUrl: env.API_HASURA_URL
   })

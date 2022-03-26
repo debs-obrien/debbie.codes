@@ -2,7 +2,7 @@
 title: GitHub Copilot
 date: 2021-01-13
 description: GitHub Copilot has by far become my favourite tool form GitHub and here is why I love it so much, how much it has helped me and how you can get access.
-tags: [Dev Stuff, all]
+tags: [dev stuff, all]
 published: false
 ---
 

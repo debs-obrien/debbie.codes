@@ -6,6 +6,6 @@ url: https://devblogs.microsoft.com/startups/nuxt/?WT.mc_id=startups-7534-cxa
 image: v1630862648/debbie.codes/featured-posts/how-we-use-nuxt_zx05uz
 provider: cloudinary
 loading: eager
-tags: [Nuxt, Architecture]
+tags: [nuxt, Architecture]
 platform: Microsoft
 ---

@@ -5,6 +5,6 @@ description: The content module is a git files based headless CMS that provides 
 url: https://nuxtjs.org/blog/creating-blog-with-nuxt-content
 image: v1630862643/debbie.codes/featured-posts/create-blog-nuxt-content_yoae9h
 provider: cloudinary
-tags: [Nuxt, Content]
+tags: [nuxt, Content]
 platform: Nuxt
 ---

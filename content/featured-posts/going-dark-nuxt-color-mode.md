@@ -5,6 +5,6 @@ description: The @nuxtjs/color-mode module is a cool way of adding dark mode to 
 url: https://nuxtjs.org/blog/going-dark-with-nuxtjs-color-mode
 image: v1630862640/debbie.codes/featured-posts/going-dark-mode_jizwlw
 provider: cloudinary
-tags: [Nuxt, Color Mode]
+tags: [nuxt, Color Mode]
 platform: Nuxt
 ---

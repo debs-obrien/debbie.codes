@@ -5,7 +5,7 @@ description: Progressive web apps will really help your performance and you can 
 image: v1612443662/debbie.codes/blog/install-app_z3nqdh
 provider: cloudinary
 video: 3RWBkPdKtBQ
-tags: [Nuxt, Performance, all]
+tags: [nuxt, performance, all]
 ---
 
 Progressive web apps can hugely improve your performance. If you're internet goes down, you and your customers will still see your site instead of the Downasaur that Chrome shows you when you have no internet connection.

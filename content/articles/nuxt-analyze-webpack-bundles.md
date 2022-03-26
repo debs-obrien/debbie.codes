@@ -4,7 +4,7 @@ date: 2020-04-16
 description: As we add so many third party libraries to our site sometimes we forget that perhaps they are going to have an impact on our performance or sometimes we just don't read the install instructions and install the whole library instead of only what we need.
 image: photo-1434626881859-194d67b2b86f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop
 provider: imgix
-tags: [Nuxt, webpack, all]
+tags: [nuxt, webpack, all]
 ---
 
 It is really important to know what you are shipping to production. As we add so many third party libraries to our site sometimes we forget that perhaps they are going to have an impact on our performance or sometimes we just don't read the install instructions and install the whole library instead of only what we need. So how can we analyze our bundles in Nuxt.js?

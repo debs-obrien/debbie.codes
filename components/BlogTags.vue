@@ -1,7 +1,7 @@
 <template>
   <div class="buttons flex flex-wrap mt-8 justify-center">
     <div v-for="(tag, i) in tags" :key="i">
-      <nuxt-link class="btn" :to="`/blog/${tag}/1`">
+      <nuxt-link class="btn capitalize" :to="`/blog/${tag}/1`">
         {{ tag }}
       </nuxt-link>
     </div>
@@ -15,7 +15,7 @@
   export default {
     data() {
       return {
-        tags: ['Nuxt', 'React', 'Testing', 'Dev Stuff', 'Performance']
+        tags: ['nuxt', 'react', 'testing', 'dev stuff', 'performance']
       }
     }
   }

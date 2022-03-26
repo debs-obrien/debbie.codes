@@ -4,7 +4,7 @@ date: 2022-02-06
 description: Being a Developer Advocate is by far the best job in the world, at least in my opinion and for me. It isn't for everyone and that's ok too. In this post I am going to share a bit about what I do as a Developer Advocate and what I love about it.
 image: photo-1560155016-bd4879ae8f21?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1364&q=80
 provider: imgix
-tags: [Dev Stuff, all]
+tags: [dev stuff, all]
 ---
 
 Being a Developer Advocate is by far the best job in the world, at least in my opinion and for me. It isn't for everyone and that's ok too. There have been many posts written about what is a Developer Advocate and many twitter spaces on how to get into DevRel so I won't go into that in this post but link and embed some great resources at the end of the post that will help you if you are looking to get into DevRel or have just started your role as a Developer Advocate and don't know where to start.

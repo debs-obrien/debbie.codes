@@ -5,7 +5,7 @@ description: In Nuxt we can add Vue plugins to our application by creating a Nux
 image: c_scale,fl_lossy,f_auto,q_auto/v1612282619/debbie.codes/blog/vue-plugins_ubadyf
 provider: cloudinary
 video: gAqcW51NwTE
-tags: [Nuxt, all]
+tags: [nuxt, all]
 ---
 
 Let's use the [Vue Tooltip plugin](https://github.com/Akryum/v-tooltip) and add it to our Nuxt app so we can have amazing tooltips.
