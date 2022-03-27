@@ -34,7 +34,7 @@ However I was struggling to survive financially and I was doing too much, and I 
 
 ## Seeing failure rather than Success
 
-Now 21 years later and I have achieved so much in tech and yet for some reason I look at the failures more than success. What on earth happened? Sometimes I put it down to life experiences. Things that didn't work out for me made then made me less invincible. Who knows.
+Now 21 years later and I have achieved so much in tech and yet for some reason I look at the failures more than success. What on earth happened? Sometimes I put it down to life experiences. Things that didn't work out for me then made me less invincible. Who knows.
 
 I had been let go of many companies, I had failed to get a job that lasted more than a year. I really believed that I was bad luck and that any start up that hired me was going to be a failure because of me. My CV was full of companies that did not exist anymore. No trace of them. Was I just making it up? Sure looked that way to potential employers.
 
