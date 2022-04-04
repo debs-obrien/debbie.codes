@@ -11,7 +11,7 @@ tags: [dev stuff, all]
 _Listen to the Audio:_
 
 <audio controls>
-  <source src="https://res.cloudinary.com/debsobrien/video/upload/v1619364201/debbie.codes/blog/debbie_ewgkaa.mp3" type="audio/mp3">
+  <source src="https://res.cloudinary.com/debsobrien/video/upload/f_auto,q_auto/v1619364201/debbie.codes/blog/debbie_ewgkaa.mp3" type="audio/mp3">
 Your browser does not support the audio element.
 </audio>
 

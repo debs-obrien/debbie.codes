@@ -67,11 +67,11 @@ npm playwright codegen
 
 This will open two windows for you. The first one is the browser window that you will use to navigate to your site that you want to test and the second window is the where the test code will be saved. Check out the video to see it in action.
 
-<!-- <a href="https://res.cloudinary.com/debsobrien/video/upload/v1648066315/debbie.codes/blog/2022/playwright-codegen_drluzl.mp4" title="Open codegen video"><img src="https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1648107080/debbie.codes/blog/2022/codegen-img-play-button_2x_nyokdz.png" alt="Video showing codegen in action" /></a> -->
+<!-- <a href="https://res.cloudinary.com/debsobrien/video/upload/f_auto,q_auto/v1648066315/debbie.codes/blog/2022/playwright-codegen_drluzl.mp4" title="Open codegen video"><img src="https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1648107080/debbie.codes/blog/2022/codegen-img-play-button_2x_nyokdz.png" alt="Video showing codegen in action" /></a> -->
 
 <video width="auto" height="auto" controls>
-  <source src="https://res.cloudinary.com/debsobrien/video/upload/v1648066315/debbie.codes/blog/2022/playwright-codegen_drluzl.mp4" type="video/mp4">
-  <source src="https://res.cloudinary.com/debsobrien/video/upload/v1648066315/debbie.codes/blog/2022/playwright-codegen_drluzl.ogg" type="video/ogg">
+  <source src="https://res.cloudinary.com/debsobrien/video/upload/f_auto,q_auto/v1648066315/debbie.codes/blog/2022/playwright-codegen_drluzl.mp4" type="video/mp4">
+  <source src="https://res.cloudinary.com/debsobrien/video/upload/f_auto,q_auto/v1648066315/debbie.codes/blog/2022/playwright-codegen_drluzl.ogg" type="video/ogg">
 Your browser does not support the video tag.
 </video>
 

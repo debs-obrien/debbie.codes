@@ -315,7 +315,7 @@ it('checks value changes when user chooses a new size', () => {
 
 And that's it. We now have a select component that works as we would expect and can now be used in the component where it should be used knowing that it will work correctly. Compositions are a great way of seeing the different states of our components and we can then use the composition file to understand what we need to do to make our component work when using it in our next component/app.
 
-![select element changing size on click](https://res.cloudinary.com/debsobrien/video/upload/v1641812321/debbie.codes/blog/2022/select-on-change_bvkj1x.gif)
+![select element changing size on click](https://res.cloudinary.com/debsobrien/video/upload/f_auto,q_auto/v1641812321/debbie.codes/blog/2022/select-on-change_bvkj1x.gif)
 
 We should also document our component so that it contains clear instructions and examples which makes it even easier for our consumer to understand what the component does and how to use it. And of course tests make sure our component not only works as expected but also that if we do make any changes to it our tests ensure that it can not be exported if our tests are broken meaning if we do have any breaking changes we can fix our tests and release a new major version of our component.
 

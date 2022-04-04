@@ -78,11 +78,11 @@ On the right hand side you can see the call for this action showing what the sel
 
 Check out the video to see it in action.
 
-<!-- <a href="https://res.cloudinary.com/debsobrien/video/upload/v1648220640/debbie.codes/blog/2022/playwright-trace-viewer_kx8uws.mp4" title="video showing trace viewer"><img src="https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1648220818/debbie.codes/blog/2022/trace-viewer-play_2x_xydmoo.png" alt="Video showing trace viewer /></a> -->
+<!-- <a href="https://res.cloudinary.com/debsobrien/video/upload/f_auto,q_auto/v1648220640/debbie.codes/blog/2022/playwright-trace-viewer_kx8uws.mp4" title="video showing trace viewer"><img src="https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1648220818/debbie.codes/blog/2022/trace-viewer-play_2x_xydmoo.png" alt="Video showing trace viewer /></a> -->
 
 <video width="auto" height="auto" controls>
-  <source src="https://res.cloudinary.com/debsobrien/video/upload/v1648220640/debbie.codes/blog/2022/playwright-trace-viewer_kx8uws.mp4" type="video/mp4">
-  <source src="https://res.cloudinary.com/debsobrien/video/upload/v1648220640/debbie.codes/blog/2022/playwright-trace-viewer_kx8uws.ogg" type="video/ogg">
+  <source src="https://res.cloudinary.com/debsobrien/video/upload/f_auto,q_auto/v1648220640/debbie.codes/blog/2022/playwright-trace-viewer_kx8uws.mp4" type="video/mp4">
+  <source src="https://res.cloudinary.com/debsobrien/video/upload/f_auto,q_auto/v1648220640/debbie.codes/blog/2022/playwright-trace-viewer_kx8uws.ogg" type="video/ogg">
 Your browser does not support the video tag.
 </video>
 
@@ -90,11 +90,11 @@ Your browser does not support the video tag.
 
 The really cool thing about this is that the snapshot of your site in the middle is actually a DOM snapshot meaning it is fully interactive. You can scroll it, click user events and even open the browser dev tools inside this dev tool. Very cool.
 
-<!-- <a href="https://res.cloudinary.com/debsobrien/video/upload/v1648220649/debbie.codes/blog/2022/playwright-trace-inspect_wvfjb9.mp4" title="video showing trace viewer inspecting dev tools"><img src="https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1648220924/debbie.codes/blog/2022/trace-viewer-inspect-play_2x_scmhm4.png" alt="Video showing trace viewer inspecting dev tools" /></a> -->
+<!-- <a href="https://res.cloudinary.com/debsobrien/video/upload/f_auto,q_auto/v1648220649/debbie.codes/blog/2022/playwright-trace-inspect_wvfjb9.mp4" title="video showing trace viewer inspecting dev tools"><img src="https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1648220924/debbie.codes/blog/2022/trace-viewer-inspect-play_2x_scmhm4.png" alt="Video showing trace viewer inspecting dev tools" /></a> -->
 
 <video width="auto" height="auto" controls>
-  <source src="https://res.cloudinary.com/debsobrien/video/upload/v1648220649/debbie.codes/blog/2022/playwright-trace-inspect_wvfjb9.mp4" type="video/mp4">
-  <source src="https://res.cloudinary.com/debsobrien/video/upload/v1648220649/debbie.codes/blog/2022/playwright-trace-inspect_wvfjb9.ogg" type="video/ogg">
+  <source src="https://res.cloudinary.com/debsobrien/video/upload/f_auto,q_auto/v1648220649/debbie.codes/blog/2022/playwright-trace-inspect_wvfjb9.mp4" type="video/mp4">
+  <source src="https://res.cloudinary.com/debsobrien/video/upload/f_auto,q_auto/v1648220649/debbie.codes/blog/2022/playwright-trace-inspect_wvfjb9.ogg" type="video/ogg">
 Your browser does not support the video tag.
 </video>
 

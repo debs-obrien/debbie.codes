@@ -20,11 +20,11 @@ Let's take a look at some of the ways you can debug your tests should they fail.
 
 Once you have generated your code using codegen and pasted it into your test file in VS Code you can then run the test by pressing the green triangle next to the line where your test starts. Playwright will run through each step of the test and show you that the test passed.
 
-<!-- <a href="https://res.cloudinary.com/debsobrien/video/upload/v1648208896/debbie.codes/blog/2022/running-tests_l4uye7.mp4" title="video showing tests running in vscode"><img src="https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1648209250/debbie.codes/blog/2022/runing-tests_2x_mzi8ng.png" alt="Video showing tests running in vs code" /></a> -->
+<!-- <a href="https://res.cloudinary.com/debsobrien/video/upload/f_auto,q_auto/v1648208896/debbie.codes/blog/2022/running-tests_l4uye7.mp4" title="video showing tests running in vscode"><img src="https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1648209250/debbie.codes/blog/2022/runing-tests_2x_mzi8ng.png" alt="Video showing tests running in vs code" /></a> -->
 
 <video width="auto" height="auto" controls>
-  <source src="https://res.cloudinary.com/debsobrien/video/upload/v1648208896/debbie.codes/blog/2022/running-tests_l4uye7.mp4" type="video/mp4">
-  <source src="https://res.cloudinary.com/debsobrien/video/upload/v1648208896/debbie.codes/blog/2022/running-tests_l4uye7.ogg" type="video/ogg">
+  <source src="https://res.cloudinary.com/debsobrien/video/upload/f_auto,q_auto/f_auto,q_auto/v1648208896/debbie.codes/blog/2022/running-tests_l4uye7.mp4" type="video/mp4">
+  <source src="https://res.cloudinary.com/debsobrien/video/upload/f_auto,q_auto/f_auto,q_auto/v1648208896/debbie.codes/blog/2022/running-tests_l4uye7.ogg" type="video/ogg">
 Your browser does not support the video tag.
 </video>
 
@@ -46,11 +46,11 @@ npx playwright test --headed
 
 As we have written a perfect test it is no fun, as the test passes. Lets make the test fail so we can debug it. In this example I will change the locator text from Women to Men. When creating this example I expected the test to break on line 9 which should now look for an incorrect route but my test actually broke before it even got to that line. Take a look and see for yourself.
 
-<!-- <a href="https://res.cloudinary.com/debsobrien/video/upload/v1648210220/debbie.codes/blog/2022/failing-tests_nz5bkj.mp4" title="video showing tests failing in vscode"><img src="https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1648210313/debbie.codes/blog/2022/tests-failing_2x_ue6rrj.png" alt="Video showing tests failing in vs code" /></a> -->
+<!-- <a href="https://res.cloudinary.com/debsobrien/video/upload/f_auto,q_auto/v1648210220/debbie.codes/blog/2022/failing-tests_nz5bkj.mp4" title="video showing tests failing in vscode"><img src="https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1648210313/debbie.codes/blog/2022/tests-failing_2x_ue6rrj.png" alt="Video showing tests failing in vs code" /></a> -->
 
 <video width="auto" height="auto" controls>
-  <source src="https://res.cloudinary.com/debsobrien/video/upload/v1648210220/debbie.codes/blog/2022/failing-tests_nz5bkj.mp4" type="video/mp4">
-  <source src="https://res.cloudinary.com/debsobrien/video/upload/v1648210220/debbie.codes/blog/2022/failing-tests_nz5bkj.ogg" type="video/ogg">
+  <source src="https://res.cloudinary.com/debsobrien/video/upload/f_auto,q_auto/v1648210220/debbie.codes/blog/2022/failing-tests_nz5bkj.mp4" type="video/mp4">
+  <source src="https://res.cloudinary.com/debsobrien/video/upload/f_auto,q_auto/v1648210220/debbie.codes/blog/2022/failing-tests_nz5bkj.ogg" type="video/ogg">
 Your browser does not support the video tag.
 </video>
 
@@ -74,11 +74,11 @@ If we want to visualize what is going on when the test fails we can add a breakp
 
 In this example it will show us that the test has issues with the text 'Men' as it appears in both 'Men' and 'Women'. If we add the word 'hello' in our editor we won't see anything highlighted in the browser as there is no word 'hello' on our page. However if we change it to the word 'Children' then we will see in our browser that Children is selected.
 
-<!-- <a href="https://res.cloudinary.com/debsobrien/video/upload/v1648211390/debbie.codes/blog/2022/debugging-tests_mze1rs.mp4" title="video showing debugging tests in vscode"><img src="https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1648211568/debbie.codes/blog/2022/debugging-tests_2x_up8f32.png" alt="Video showing debugging tests in vs code" /></a> -->
+<!-- <a href="https://res.cloudinary.com/debsobrien/video/upload/f_auto,q_auto/v1648211390/debbie.codes/blog/2022/debugging-tests_mze1rs.mp4" title="video showing debugging tests in vscode"><img src="https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1648211568/debbie.codes/blog/2022/debugging-tests_2x_up8f32.png" alt="Video showing debugging tests in vs code" /></a> -->
 
 <video width="auto" height="auto" controls>
-  <source src="https://res.cloudinary.com/debsobrien/video/upload/v1648211390/debbie.codes/blog/2022/debugging-tests_mze1rs.mp4" type="video/mp4">
-  <source src="https://res.cloudinary.com/debsobrien/video/upload/v1648211390/debbie.codes/blog/2022/debugging-tests_mze1rs.ogg" type="video/ogg">
+  <source src="https://res.cloudinary.com/debsobrien/video/upload/f_auto,q_auto/v1648211390/debbie.codes/blog/2022/debugging-tests_mze1rs.mp4" type="video/mp4">
+  <source src="https://res.cloudinary.com/debsobrien/video/upload/f_auto,q_auto/v1648211390/debbie.codes/blog/2022/debugging-tests_mze1rs.ogg" type="video/ogg">
 Your browser does not support the video tag.
 </video>
 
