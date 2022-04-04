@@ -6,6 +6,7 @@ image: v1648217584/debbie.codes/blog/2022/running-tests_2x_twjt1c.png
 provider: cloudinary
 tags: [testing, all]
 published: true
+loading: eager
 ---
 
 Playwright scripts work with existing debugging tools, like Node.js debuggers and browser developer tools. Playwright also introduces new debugging features for browser automation.

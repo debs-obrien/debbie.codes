@@ -6,6 +6,7 @@ image: v1648296331/debbie.codes/blog/2022/pagination_2x_ppog9g.png
 provider: cloudinary
 tags: [nuxt, all]
 published: true
+loading: eager
 ---
 
 Nuxt content is by far my favorite feature of Nuxt. It allows me to easily write my blog posts in Markdown format yet add components on to the page if and when I need to. And I love the live edit where I can simply click and edit the text directly in the browser and it saves the code for me. Mind blowing feature.

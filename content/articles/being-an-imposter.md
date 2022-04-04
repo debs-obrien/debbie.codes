@@ -6,6 +6,7 @@ image: v1648376409/debbie.codes/blog/2022/A26430C9-6959-45BF-83B7-EB0086E85E6A_1
 provider: cloudinary
 tags: [dev stuff, all]
 published: true
+loading: eager
 ---
 
 If you ever look at the home page of my site or the intro slide of my talks you will probably think I am the biggest show off in the world.

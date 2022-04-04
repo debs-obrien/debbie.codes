@@ -6,6 +6,7 @@ image: v1648219793/debbie.codes/blog/2022/trace-viewer-broswer_jqoim0.png
 provider: cloudinary
 tags: [testing, all]
 published: true
+loading: eager
 ---
 
 Playwright will serve up a HTML report on your local server so you can easily walk through the steps of your test. You can also open a trace file which gives you even more powerful options of viewing, reporting, interacting and even debugging your tests.
