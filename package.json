@@ -60,7 +60,7 @@
     "@nuxtjs/stylelint-module": "^4.1.0",
     "@nuxtjs/svg": "^0.4.0",
     "@playwright/test": "^1.20.1",
-    "@vue/test-utils": "^2.0.0-rc.17",
+    "@vue/test-utils": "^2.0.0-rc.20",
     "autoprefixer": "^10.4.4",
     "cypress": "^9.5.1",
     "eslint": "^8.12.0",
