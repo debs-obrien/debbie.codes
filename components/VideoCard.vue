@@ -1,30 +1,25 @@
 <template>
-  <div class="flex flex-rounded-lg shadow-lg overflow-hidden pb-4">
-    <div class="w-full lg:flex">
-      <div class="video">
-        <lite-youtube
-          v-if="item.video && item.start"
-          :videoid="item.video"
-          :playlabel="item.title"
-          :start="item.start"
-        />
-        <lite-youtube
-          v-else-if="item.video"
-          :videoid="item.video"
-          :playlabel="item.title"
-        />
-
-        <a
-          v-else-if="item.image"
-          :href="item.url"
-          rel="nofollow"
-          target="_blank"
-        >
-          <img :src="item.image" class="max-width" />
-        </a>
-      </div>
-
-      <div class="flex-1 p-4">
+  <div
+    class="flex flex-col rounded-lg shadow-lg overflow-hidden flex-1 max-width h-full"
+  >
+    <div class="video flex-shrink-0">
+      <lite-youtube
+        v-if="item.video && item.start"
+        :videoid="item.video"
+        :playlabel="item.title"
+        :start="item.start"
+      />
+      <lite-youtube
+        v-else-if="item.video"
+        :videoid="item.video"
+        :playlabel="item.title"
+      />
+    </div>
+    <div class="flex-1 bg-white p-6 flex flex-col justify-between">
+      <div class="flex-1">
+        <h3 class="mt-2 text-xl leading-7 font-semibold text-gray-900">
+          {{ item.title }}
+        </h3>
         <div>
           <span
             v-for="tag in item.tags"
@@ -34,25 +29,14 @@
             {{ tag }}
           </span>
         </div>
-        <h2 class="text-primary mt-2 text-xl leading-7 font-semibold inline">
-          {{ item.title }}
-        </h2>
-        <span v-if="item.host"> with {{ item.host }} </span>
-
-        <p class="mt-3 text-lg leading-6 text-gray-500  dark:text-gray-300">
+        <p class="mt-3 text-base leading-6 text-gray-500">
           {{ item.description }}
         </p>
       </div>
-      <div v-if="item.date" class="flex items-center">
-        <div class="p-3">
-          <div class="flex text-sm leading-5 text-gray-500 dark:text-gray-300">
+      <div v-if="item.date" class="mt-6 flex items-center">
+        <div class="ml-3">
+          <div class="flex text-sm leading-5 text-gray-500">
             {{ formatDate(item.date) }}
-          </div>
-          <div
-            v-if="item.conference"
-            class="flex text-sm leading-5 text-gray-500 dark:text-gray-300"
-          >
-            {{ item.conference }}
           </div>
         </div>
       </div>
@@ -79,10 +63,10 @@
 
 <style scoped>
   .max-width {
-    max-width: 300px;
+    max-width: 450px;
   }
   .video {
-    width: 300px;
-    height: 150px;
+    width: auto;
+    height: auto;
   }
 </style>

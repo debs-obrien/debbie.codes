@@ -1,5 +1,5 @@
 <template>
-  <div class="page-wrapper">
+  <div class="page-wrapper mt-8">
     <SocialHead :title="title" :description="description" />
     <AppBreadCrumb title="Conference Talks" />
     <!-- <AppTitle v-editable="story.content">
@@ -14,10 +14,9 @@
     <AppIntro>
       {{ description }}
     </AppIntro>
-    <div class="mt-12 grid gap-5 max-w-lg mx-auto lg:grid-cols-1 lg:max-w-none">
-      <!-- <div v-for="video of story.content.body[2].talks" :key="video.slug">
-        <VideoCard v-editable="video" :item="video" />
-      </div> -->
+    <div
+      class="mt-12 grid gap-5 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
+    >
       <div v-for="video of videos" :key="video.slug">
         <VideoCard :item="video" />
       </div>
