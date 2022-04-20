@@ -6,7 +6,9 @@
     <AppTitle>Live Streams as a Guest</AppTitle>
     <AppIntro> Live Streams where I have appeared as a guest </AppIntro>
 
-    <div class="mt-12 grid gap-5 max-w-lg mx-auto lg:grid-cols-1 lg:max-w-none">
+    <div
+      class="mt-12 grid gap-5 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
+    >
       <div v-for="video of videos" :key="video.slug">
         <VideoCard :item="video" />
       </div>
