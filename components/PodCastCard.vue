@@ -60,5 +60,7 @@
   .video {
     width: auto;
     height: auto;
+    min-width: 150px;
+    min-height: 150px;
   }
 </style>
