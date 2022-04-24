@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test'
 
 test('test', async ({ page }) => {
   // Go to http://localhost:8000/
-  await page.goto('http://localhost:8000/')
+  await page.goto('')
 
   // Click [aria-label="Footer"] >> text=About
   await Promise.all([

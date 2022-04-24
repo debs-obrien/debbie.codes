@@ -2,11 +2,11 @@ import { test, expect } from '@playwright/test'
 
 test('color mode changes color when clicked', async ({ page }) => {
   // Go to http://localhost:8000/
-  await page.goto('http://localhost:8000/')
+  await page.goto('')
 
   // Click text=Blog >> nth=0
   await Promise.all([
-    page.waitForNavigation(/*{ url: 'http://localhost:8000/blog' }*/),
+    page.waitForNavigation(/*{ url: '/blog' }*/),
     page.locator('text=Blog').first().click()
   ])
 
