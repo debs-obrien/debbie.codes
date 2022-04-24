@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test'
 
-test('color mode changes color when clicked', async ({ page }) => {
+test.skip('color mode changes color when clicked', async ({ page }) => {
   // Go to http://localhost:8000/
   await page.goto('')
 

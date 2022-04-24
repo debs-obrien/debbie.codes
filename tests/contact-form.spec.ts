@@ -2,11 +2,11 @@ import { test, expect } from '@playwright/test'
 
 test('test', async ({ page }) => {
   // Go to http://localhost:8000/
-  await page.goto('http://localhost:8000/')
+  await page.goto('')
 
   // Click text=Contact
   await page.locator('text=Contact').click()
-  await expect(page).toHaveURL('http://localhost:8000/contact')
+  await expect(page).toHaveURL('/contact')
 
   // Click [placeholder="Your Name"]
   await page.locator('[placeholder="Your Name"]').click()
@@ -30,13 +30,13 @@ test('test', async ({ page }) => {
 
   // Click text=Send
   await Promise.all([
-    page.waitForNavigation(/*{ url: 'http://localhost:8000/thank-you/' }*/),
+    page.waitForNavigation(/*{ url: '/thank-you/' }*/),
     page.locator('text=Send').click()
   ])
 
   // Click text=Go Home
   await Promise.all([
-    page.waitForNavigation(/*{ url: 'http://localhost:8000/' }*/),
+    page.waitForNavigation(/*{ url: '/' }*/),
     page.locator('text=Go Home').click()
   ])
 })
