@@ -14,11 +14,13 @@ jobs:
         with:
           node-version: '14.x'
       - name: Install dependencies
-        run: npm ci
+        run: yarn
       - name: Install Playwright
         run: npx playwright install --with-deps
       - name: Run Playwright tests
-        run: npm run playwright test
+        run: yarn playwright test
+        env:
+          PLAYWRIGHT_TEST_BASE_URL: ${{ needs.test_setup.outputs.preview_url }}
       - uses: actions/upload-artifact@v2
         if: always()
         with:
