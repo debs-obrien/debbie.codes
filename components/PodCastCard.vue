@@ -1,9 +1,9 @@
 <template>
   <div class="flex flex-rounded-lg shadow-lg overflow-hidden pb-4">
     <div class="w-full lg:flex bg-white">
-      <div class="video">
+      <div class="podcast">
         <a v-if="item.image" :href="item.url" rel="nofollow" target="_blank">
-          <img :src="item.image" class="max-width" />
+          <img :src="item.image" :alt="item.title" class="max-width" />
         </a>
       </div>
       <div class="flex-1 bg-white p-6 flex flex-col justify-between">
@@ -60,5 +60,7 @@
   .video {
     width: auto;
     height: auto;
+    min-width: 150px;
+    min-height: 150px;
   }
 </style>

@@ -7,6 +7,7 @@
             :is="`icon-${color}`"
             :class="getClasses(color)"
             @click="$colorMode.preference = color"
+            :aria-label="`${color} mode`"
           />
         </li>
       </ul>
