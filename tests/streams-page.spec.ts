@@ -2,11 +2,11 @@ import { test, expect } from '@playwright/test'
 
 test('test', async ({ page }) => {
   // Go to http://localhost:8000/
-  await page.goto('http://localhost:8000/')
+  await page.goto('')
 
   // Click text=Streams >> nth=0
   await Promise.all([
-    page.waitForNavigation(/*{ url: 'http://localhost:8000/resources/guest-live-streams' }*/),
+    page.waitForNavigation(/*{ url: '/resources/guest-live-streams' }*/),
     page.locator('text=Streams').first().click()
   ])
 
