@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test'
 
-test('test', async ({ page }) => {
+test('interview page contains interviews and videos', async ({ page }) => {
   // Go to http://localhost:8000/
   await page.goto('')
 

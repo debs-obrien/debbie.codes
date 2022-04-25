@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test'
 
-test('test', async ({ page }) => {
+test('streams page content and youtube videos', async ({ page }) => {
   // Go to http://localhost:8000/
   await page.goto('')
 
