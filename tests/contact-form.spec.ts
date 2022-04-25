@@ -3,6 +3,7 @@ import { test, expect } from '@playwright/test'
 test('fills and sends contact form and expects a thank you message', async ({
   page
 }) => {
+  test.slow()
   // Go to http://localhost:8000/
   await page.goto('')
 
