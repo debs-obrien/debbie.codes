@@ -14,7 +14,7 @@ test('color mode changes color when clicked', async ({ page }) => {
   await page.locator('[aria-label="light mode"]').click()
 
   // Click b:has-text("dark")
-  await page.locator('b:has-text("dark")').click()
+  await page.locator('b:has-text("light")').click()
 
   // Click .feather.feather-coffee
   await page.locator('[aria-label="sepia mode"]').click()
