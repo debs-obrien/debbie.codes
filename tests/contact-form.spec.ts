@@ -33,7 +33,7 @@ test('fills and sends contact form and expects a thank you message', async ({
 
   // Click text=Send
   await Promise.all([
-    page.waitForNavigation(/*{ url: '/thank-you/' }*/),
+    page.waitForNavigation(/*{ url: '/thank-you' }*/),
     page.locator('text=Send').click()
   ])
 
