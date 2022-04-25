@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test'
 
-test('test', async ({ page }) => {
+test('podcast page to see if podcasts are loading', async ({ page }) => {
   // Go to http://localhost:8000/
   await page.goto('')
 
@@ -33,6 +33,6 @@ test('test', async ({ page }) => {
   // Click text=October 6, 2021
   await page.locator('text=October 6, 2021').click()
 
-  // Click .video >> nth=0
-  await page.locator('.video').first().click()
+  // Click .podcast >> nth=0
+  await page.locator('.podcast').first().click()
 })
