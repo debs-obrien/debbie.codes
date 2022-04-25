@@ -1,6 +1,8 @@
 import { test, expect } from '@playwright/test'
 
-test('test', async ({ page }) => {
+test('fills and sends contact form and expects a thank you message', async ({
+  page
+}) => {
   // Go to http://localhost:8000/
   await page.goto('')
 

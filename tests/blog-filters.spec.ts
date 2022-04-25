@@ -8,7 +8,9 @@ test.skip('filters in blog', async ({ page }) => {
   await page.locator('a:has-text("Blog")').first().click()
   await expect(page).toHaveURL('/blog')
   // Click text=nuxt >> nth=1
-  await page.locator('.buttons', { has: page.locator('text=nuxt') }).click()
+  await page
+    .locator('.buttons', { has: page.locator('a:has-text("nuxt")') })
+    .click()
   await expect(page).toHaveURL('/blog/nuxt/1')
 
   // Click text=react >> nth=1
