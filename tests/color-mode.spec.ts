@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test'
 
-test.skip('color mode changes color when clicked', async ({ page }) => {
+test('color mode changes color when clicked', async ({ page }) => {
   // Go to http://localhost:8000/
   await page.goto('')
 
@@ -11,7 +11,7 @@ test.skip('color mode changes color when clicked', async ({ page }) => {
   ])
 
   // Click path >> nth=0
-  await page.locator('[aria-label="dark mode"]').click()
+  await page.locator('[aria-label="light mode"]').click()
 
   // Click b:has-text("dark")
   await page.locator('b:has-text("dark")').click()
