@@ -3,6 +3,7 @@ import { test, expect } from '@playwright/test'
 test('fills and sends contact form and expects a thank you message', async ({
   page
 }) => {
+  test.slow()
   // Go to http://localhost:8000/
   await page.goto('')
 
@@ -31,8 +32,10 @@ test('fills and sends contact form and expects a thank you message', async ({
     .fill('hello just testing the contact form on your page')
 
   // Click text=Send
-  await page.locator('text=Send').click()
-  await expect(page).toHaveURL('/thank-you/', { timeout: 30000 })
+  await Promise.all([
+    page.waitForNavigation(/*{ url: '/thank-you/', { timeout: 30000 } }*/),
+    page.locator('text=Send').click()
+  ])
 
   // Click text=Home
   page.locator('text=Go Home').click()
