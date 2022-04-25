@@ -32,7 +32,7 @@ test('fills and sends contact form and expects a thank you message', async ({
 
   // Click text=Send
   await page.locator('text=Send').click()
-  await expect(page).toHaveURL('/thank-you/')
+  await expect(page).toHaveURL('/thank-you/', { timeout: 30000 })
 
   // Click text=Home
   page.locator('text=Go Home').click()
