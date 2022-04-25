@@ -1,4 +1,4 @@
-import Vue from 'vue'
-import VueDOMPurifyHTML from 'vue-dompurify-html'
+// import Vue from 'vue'
+// import VueDOMPurifyHTML from 'vue-dompurify-html'
 
-Vue.use(VueDOMPurifyHTML)
+// Vue.use(VueDOMPurifyHTML)
