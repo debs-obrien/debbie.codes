@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test'
 
-test('pagination of blog', async ({ page }) => {
+test.skip('pagination of blog', async ({ page }) => {
   // Go to /
   await page.goto('')
 
