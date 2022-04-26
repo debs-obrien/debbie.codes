@@ -38,10 +38,10 @@ test('fills and sends contact form and expects a thank you message', async ({
   // ])
 
   // Click text=Home
-  page.locator('text=Send').click({ timeout: 10000 })
+  await page.locator('text=Send').click({ timeout: 10000 })
   await expect(page).toHaveURL('/thank-you/')
 
   // Click text=Home
-  page.locator('text=Go Home').click()
+  await page.locator('text=Go Home').click()
   await expect(page).toHaveURL('/')
 })
