@@ -32,10 +32,14 @@ test('fills and sends contact form and expects a thank you message', async ({
     .fill('hello just testing the contact form on your page')
 
   // Click text=Send
-  await Promise.all([
-    page.waitForNavigation(/*{ url: '/thank-you/', { timeout: 30000 } }*/),
-    page.locator('text=Send').click()
-  ])
+  // await Promise.all([
+  //   page.waitForNavigation(/*{ url: '/thank-you/', { timeout: 30000 } }*/),
+  //   page.locator('text=Send').click({ timeout: 10000 })
+  // ])
+
+  // Click text=Home
+  page.locator('text=Send').click({ timeout: 10000 })
+  await expect(page).toHaveURL('/thank-you/')
 
   // Click text=Home
   page.locator('text=Go Home').click()
