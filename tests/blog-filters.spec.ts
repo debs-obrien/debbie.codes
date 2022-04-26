@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test'
 
-test.skip('filters in blog', async ({ page }) => {
+test('filters in blog', async ({ page }) => {
   // Go to /
   await page.goto('')
 
@@ -8,10 +8,17 @@ test.skip('filters in blog', async ({ page }) => {
   await page.locator('a:has-text("Blog")').first().click()
   await expect(page).toHaveURL('/blog')
   // Click text=nuxt >> nth=1
-  await page
-    .locator('.buttons', { has: page.locator('a:has-text("nuxt")') })
-    .click()
-  await expect(page).toHaveURL('/blog/nuxt/1')
+  // await page
+  //   .locator('.buttons', { has: page.locator('a:has-text("nuxt")') })
+  //   .click()
+  // await expect(page).toHaveURL('/blog/nuxt/1')
+
+  await Promise.all([
+    page.waitForNavigation(/*{ url: '/blog/nuxt/1'}*/),
+    page
+      .locator('.buttons', { has: page.locator('a:has-text("nuxt")') })
+      .click()
+  ])
 
   // Click text=react >> nth=1
   await page.locator('.buttons', { has: page.locator('text=react') }).click()

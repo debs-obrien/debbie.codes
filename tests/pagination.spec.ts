@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test'
 
-test.skip('pagination of blog', async ({ page }) => {
+test('pagination of blog', async ({ page }) => {
   // Go to /
   await page.goto('')
 
@@ -30,12 +30,7 @@ test.skip('pagination of blog', async ({ page }) => {
   // Click text=react >> nth=1
   await page.locator('text=react').nth(1).click()
   await expect(page).toHaveURL('/blog/react/1')
-
-  // Click text=Design Tokens and Theming
-  await Promise.all([
-    page.waitForNavigation(/*{ url: '/blog/react/1' }*/),
-    page.locator('text=Design Tokens and Theming').click()
-  ])
+  await page.locator('text=Design Tokens and Theming')
 
   // Click text=Next page
   await page.locator('text=Next page').click()
