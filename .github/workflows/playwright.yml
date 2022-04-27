@@ -51,6 +51,11 @@ jobs:
         run: yarn
       - name: Install Playwright
         run: npx playwright install --with-deps
+      - name: Waiting for 200 from the Netlify Preview
+        uses: debbiecodes/wait-for-netlify-action@v1.3
+        id: waitFor200
+        with:
+          site_name: 'debbiecodes'
       - name: Run Playwright tests
         run: yarn playwright test
       - uses: actions/upload-artifact@v2
