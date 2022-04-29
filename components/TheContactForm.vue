@@ -53,7 +53,7 @@
       ></textarea>
     </div>
     <div class="flex justify-center">
-      <BaseButton text="Send" />
+      <!-- <BaseButton text="Send" /> -->
     </div>
   </form>
 </template>
