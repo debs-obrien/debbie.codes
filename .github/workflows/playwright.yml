@@ -49,6 +49,11 @@ jobs:
 
     steps:
       - name: Install Playwright
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          cache: 'npm'
+          node-version: '14.x'
         run: npx playwright install --with-deps
       - name: Run Playwright tests
         run: yarn playwright test
