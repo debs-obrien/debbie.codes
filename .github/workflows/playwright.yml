@@ -22,6 +22,10 @@ jobs:
           node-version: '14.x'
       - name: Install dependencies
         run: yarn install --immutable --immutable-cache --no-audit --no-fund --no-optional
+      - uses: actions/upload-artifact@v2
+        with:
+          path: dist/
+          name: dist
   wait_for_netlify:
     needs: [install]
     runs-on: ubuntu-latest
@@ -53,6 +57,10 @@ jobs:
         with:
           cache: 'npm'
           node-version: '14.x'
+      - uses: actions/download-artifact@v2
+        with:
+          path: dist/
+          name: dist
       - name: Install Playwright
         run: npx playwright install --with-deps
       - name: Run Playwright tests
