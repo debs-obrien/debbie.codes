@@ -29,6 +29,7 @@
       />
     </div>
     <!-- <div>
+      //just testing
       <label for="email" class="sr-only">Email</label>
       <input
         id="email"
