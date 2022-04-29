@@ -12,22 +12,8 @@ jobs:
         uses: styfle/cancel-workflow-action@0.9.1
         with:
           access_token: ${{ github.token }}
-  install:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          cache: 'npm'
-          node-version: '14.x'
-      - name: Install dependencies
-        run: yarn install --immutable --immutable-cache --no-audit --no-fund --no-optional
-      - uses: actions/upload-artifact@v2
-        with:
-          path: dist/
-          name: dist
+
   wait_for_netlify:
-    needs: [install]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -41,7 +27,7 @@ jobs:
         with:
           site_name: 'debbiecodes'
   test:
-    needs: [install, wait_for_netlify]
+    needs: [wait_for_netlify]
     runs-on: ubuntu-latest
     timeout-minutes: 60
     environment:
@@ -57,10 +43,8 @@ jobs:
         with:
           cache: 'npm'
           node-version: '14.x'
-      - uses: actions/download-artifact@v2
-        with:
-          path: dist/
-          name: dist
+      - name: Install dependencies
+        run: yarn install --immutable --immutable-cache --no-audit --no-fund --no-optional
       - name: Install Playwright
         run: npx playwright install --with-deps
       - name: Run Playwright tests
