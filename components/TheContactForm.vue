@@ -28,8 +28,7 @@
         class="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
       />
     </div>
-    <!-- <div>
-      //just testing
+    <div>
       <label for="email" class="sr-only">Email</label>
       <input
         id="email"
@@ -40,7 +39,7 @@
         autocomplete="email"
         class="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
       />
-    </div> -->
+    </div>
 
     <div>
       <label for="message" class="sr-only">Message</label>
