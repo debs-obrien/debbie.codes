@@ -68,7 +68,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "husky": "^7.0.4",
     "hygen": "^6.2.0",
-    "lint-staged": "^12.4.0",
+    "lint-staged": "^12.4.1",
     "postcss": "^8.4.12",
     "tailwindcss": "^3.0.24",
     "tailwindcss-dark-mode": "^1.1.7"
