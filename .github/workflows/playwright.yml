@@ -12,20 +12,6 @@ jobs:
         uses: styfle/cancel-workflow-action@0.9.1
         with:
           access_token: ${{ github.token }}
-
-  # wait_for_netlify:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - uses: actions/setup-node@v2
-  #       with:
-  #         cache: 'npm'
-  #         node-version: '14.x'
-  #     - name: Waiting for 200 from the Netlify Preview
-  #       uses: jakepartusch/wait-for-netlify-action@v1.3
-  #       id: waitFor200
-  #       with:
-  #         site_name: 'debbiecodes'
   test:
     runs-on: ubuntu-latest
     timeout-minutes: 60
@@ -42,6 +28,7 @@ jobs:
         with:
           node-version: '14.x'
       - name: Waiting for Netlify Preview
+        # Wait for Netlify Preview to be ready on each commit
         uses: josephduffy/wait-for-netlify-action@v1
         id: wait-for-netflify-preview
         with:

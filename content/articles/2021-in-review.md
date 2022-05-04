@@ -4,7 +4,7 @@ date: 2021-12-31
 description: A look back at yet again another amazing year even though times were hard. From lockdowns to in person conferences, to changing jobs and learning a new library, as well as mentoring, teaching workshops, doing lots of sport and so much more.
 image: v1640964235/debbie.codes/blog/cycling-sa-colobra_mvtntg.jpg
 provider: cloudinary
-tags: [dev stuff, all]
+tags: [lifestyle, all]
 published: true
 ---
 

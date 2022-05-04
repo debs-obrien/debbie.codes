@@ -21,8 +21,8 @@
           'testing',
           'javascript',
           'typescript',
-          'dev stuff',
-          'performance'
+          'performance',
+          'lifestyle'
         ]
       }
     }

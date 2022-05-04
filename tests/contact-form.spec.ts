@@ -38,10 +38,12 @@ test('fills and sends contact form and expects a thank you message', async ({
   // ])
 
   // Click text=Home
-  await page.locator('text=Send').click({ timeout: 10000 })
-  await expect(page).toHaveURL('/thank-you/')
+  await page.locator('text=Send')
+  // don't add click here as it will send the test email on every pr or commit
+  // .click()
+  // await expect(page).toHaveURL('/thank-you/')
 
-  // Click text=Home
-  await page.locator('text=Go Home').click()
-  await expect(page).toHaveURL('/')
+  // // Click text=Home
+  // await page.locator('text=Go Home').click()
+  // await expect(page).toHaveURL('/')
 })

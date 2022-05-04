@@ -4,7 +4,7 @@ date: 2022-03-24
 description: As frontend developers we are normally given a design from Figma or similar tools that we then need to turn into code. So where do we start? What are the first steps we should take when converting our design into code?
 image: v1648117439/debbie.codes/blog/2022/pink-theme_2x_iyuccs.png
 provider: cloudinary
-tags: [dev stuff, react, all]
+tags: [react, all]
 published: true
 loading: eager
 ---

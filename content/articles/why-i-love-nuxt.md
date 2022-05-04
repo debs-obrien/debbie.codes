@@ -4,7 +4,7 @@ date: 2021-01-30
 description: I have been using Nuxt in all of my recent tech jobs but why did I start using it? What problems did I have trying to convince the team and more important the clients. And why should you use Nuxt?
 image: f_auto,q_auto/v1599991772/debbie.codes/vue_amsterdam_2_vkc631
 provider: cloudinary
-tags: [nuxt, dev stuff, all]
+tags: [nuxt, lifestyle, all]
 ---
 
 I was researching frameworks in a previous Job and I was having server side rendering issues as SPA was something that no company wanted. Vue was great but just didn’t fit for us and I was recommended by a Vue Core Team member to use Nuxt. So we gave it a try. And it just worked. Nuxt was quite young at the time and after creating a prototype in record time the company dismissed the idea of using Nuxt as they were too afraid of something so new. Or perhaps they were too afraid of something so good.
