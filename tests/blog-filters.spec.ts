@@ -39,7 +39,7 @@ test('filters in blog', async ({ page }) => {
 
   // Click text=lifestyle
   await page.locator('.buttons >> a:has-text("lifestyle")').click()
-  await expect(page).toHaveURL('/blog/dev%20stuff/1')
+  await expect(page).toHaveURL('/blog/dev/lifestyle/1')
 
   // Click a:has-text("performance")
   await page.locator('.buttons >> a:has-text("performance")').click()
