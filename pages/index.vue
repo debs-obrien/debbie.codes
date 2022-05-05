@@ -19,7 +19,7 @@
       </h1>
 
       <div class="dark:text-white subtitle font-medium mb-20">
-        <p class="mb-4">
+        <!-- <p class="mb-4">
           Head Developer Advocate at
           <a
             href="https://bit.dev"
@@ -28,7 +28,7 @@
           >
             Bit
           </a>
-        </p>
+        </p> -->
         <p>
           <a
             href="https://mvp.microsoft.com/en-us/PublicProfile/5003613?fullName=Debbie%20O%27Brien"
@@ -81,13 +81,88 @@
           </a>
         </p>
       </div>
+      <AppSubtitle>Recent Blog Posts</AppSubtitle>
+      <div
+        class="mt-12 grid gap-5 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
+      >
+        <div
+          v-for="article of getArticles"
+          :key="article.slug"
+          class="flex flex-col"
+        >
+          <PostsCard :item="article" />
+        </div>
+      </div>
+
+      <AppSubtitle>Recent Talks</AppSubtitle>
+      <div
+        class="mt-12 grid gap-5 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
+      >
+        <div v-for="video of getTalks" :key="video.slug">
+          <VideoCard :item="video" />
+        </div>
+      </div>
+
+      <AppSubtitle>Recent Courses</AppSubtitle>
+
+      <div
+        class="mt-12 grid gap-5 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
+      >
+        <div
+          v-for="course of getCourses"
+          :key="course.slug"
+          class="flex flex-col"
+        >
+          <PostsCard :item="course" />
+        </div>
+      </div>
     </div>
   </div>
 </template>
 <script>
+  import AppTitle from '~/components/AppTitle.vue'
   export default {
     layout: 'home',
-    colorMode: 'dark'
+    colorMode: 'dark',
+    async asyncData({ $content, error }) {
+      const numArticles = 3
+      const getArticles = await $content('articles')
+        .where({
+          published: { $ne: false }
+        })
+        .sortBy('date', 'desc')
+        .limit(numArticles)
+        .fetch()
+      if (!getArticles.length) {
+        return error({ statusCode: 404, message: 'No articles found!' })
+      }
+      const getTalks = await $content('conference-talks')
+        .where({
+          published: { $ne: false }
+        })
+        .sortBy('date', 'desc')
+        .limit(numArticles)
+        .fetch()
+      if (!getTalks.length) {
+        return error({ statusCode: 404, message: 'No talks found!' })
+      }
+      const getCourses = await $content('courses')
+        .where({
+          published: { $ne: false }
+        })
+        .sortBy('date', 'desc')
+        .limit(numArticles)
+        .fetch()
+      if (!getCourses.length) {
+        return error({ statusCode: 404, message: 'No courses found!' })
+      }
+      return {
+        getArticles,
+        getTalks,
+        getCourses
+      }
+    },
+    components: { AppTitle }
   }
 </script>
 
