@@ -5,8 +5,8 @@
   "author": "Debbie O&#39;Brien",
   "private": true,
   "scripts": {
-    "dev": "nuxt -o --port 8888",
-    "dev:host": "nuxt --hostname '192.168.0.199' --port 8888",
+    "dev": "nuxt -o --port 8000",
+    "dev:host": "nuxt --hostname '192.168.0.199' --port 8000",
     "build": "nuxt build",
     "analyze": "nuxt build -a",
     "start": "nuxt start",
