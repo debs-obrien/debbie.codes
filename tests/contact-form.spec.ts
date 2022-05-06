@@ -38,7 +38,8 @@ test('fills and sends contact form and expects a thank you message', async ({
   // ])
 
   // Click text=Home
-  await page.locator('text=Send')
+  const locator = page.locator('text=Send')
+  await expect(locator).toBeEnabled()
   // don't add click here as it will send the test email on every pr or commit
   // .click()
   // await expect(page).toHaveURL('/thank-you/')
