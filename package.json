@@ -6,6 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "nuxt -o --port 8888",
+    "dev:tests": "nuxt",
     "dev:host": "nuxt --hostname '192.168.0.199' --port 8888",
     "build": "nuxt build",
     "analyze": "nuxt build -a",
