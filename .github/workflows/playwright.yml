@@ -20,22 +20,25 @@ jobs:
     env:
       # Construct Netlify deploy preview URL using GitHub PR # https://docs.netlify.com/site-deploys/deploy-previews/#deploy-preview-urls
       # Playwright Tests use this for baseURL
-      PLAYWRIGHT_TEST_BASE_URL: https://deploy-preview-${{ github.event.number }}--debbiecodes.netlify.app/
+      # PLAYWRIGHT_TEST_BASE_URL: https://deploy-preview-${{ github.event.number }}--debbiecodes.netlify.app/
+      PLAYWRIGHT_TEST_BASE_URL: http://localhost:8888
 
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
           node-version: '14.x'
-      - name: Waiting for Netlify Preview
-        # Wait for Netlify Preview to be ready on each commit
-        uses: josephduffy/wait-for-netlify-action@v1
-        id: wait-for-netflify-preview
-        with:
-          site_name: 'debbiecodes'
-          max_timeout: 60
+      # - name: Waiting for Netlify Preview
+      #   # Wait for Netlify Preview to be ready on each commit
+      #   uses: josephduffy/wait-for-netlify-action@v1
+      #   id: wait-for-netflify-preview
+      #   with:
+      #     site_name: 'debbiecodes'
+      #     max_timeout: 60
       - name: Install dependencies
         run: yarn install --immutable --immutable-cache --no-audit --no-fund --no-optional
+      - name: Run Nuxt
+        run: yarn dev
       - name: Install Playwright
         run: npx playwright install --with-deps
       - name: Run Playwright tests
