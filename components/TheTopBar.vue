@@ -1,5 +1,5 @@
 <template>
-  <div class="grax_topbar w-full fixed top-0 left-0 z-10 bg-dark py-4">
+  <header class="grax_topbar w-full fixed top-0 left-0 z-10 bg-dark py-4">
     <div class="container">
       <div class="w-100 h-auto items-center flex justify-between">
         <div class="w-auto text-white">
@@ -14,9 +14,7 @@
               quality="80"
               format="webp"
             />
-            <span class="self-center text-white">
-              Debbie O'Brien
-            </span>
+            <span class="self-center text-white"> Debbie O'Brien </span>
           </NuxtLink>
         </div>
         <div class="text-white hidden lg:block">
@@ -44,7 +42,7 @@
       <TheNavigation />
     </div>
     <!-- /Dropdown -->
-  </div>
+  </header>
 </template>
 <script>
   export default {
