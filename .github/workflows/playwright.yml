@@ -12,28 +12,15 @@ jobs:
         uses: styfle/cancel-workflow-action@0.9.1
         with:
           access_token: ${{ github.token }}
-  test:
+
+  tests:
     runs-on: ubuntu-latest
     timeout-minutes: 60
-    environment:
-      name: test # This declares an environment named test https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment
-    env:
-      # Construct Netlify deploy preview URL using GitHub PR # https://docs.netlify.com/site-deploys/deploy-previews/#deploy-preview-urls
-      # Playwright Tests use this for baseURL
-      PLAYWRIGHT_TEST_BASE_URL: https://deploy-preview-${{ github.event.number }}--debbiecodes.netlify.app/
-
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
           node-version: '14.x'
-      - name: Waiting for Netlify Preview
-        # Wait for Netlify Preview to be ready on each commit
-        uses: josephduffy/wait-for-netlify-action@v1
-        id: wait-for-netflify-preview
-        with:
-          site_name: 'debbiecodes'
-          max_timeout: 60
       - name: Install dependencies
         run: yarn install --immutable --immutable-cache --no-audit --no-fund --no-optional
       - name: Install Playwright
