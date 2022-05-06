@@ -38,7 +38,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable --immutable-cache --no-audit --no-fund --no-optional
       - name: Run Nuxt
-        run: yarn dev
+        run: yarn generate
       - name: Install Playwright
         run: npx playwright install --with-deps
       - name: Run Playwright tests
