@@ -81,41 +81,49 @@
           </a>
         </p>
       </div>
-      <AppSubtitle>Recent Blog Posts</AppSubtitle>
-      <div
-        class="mt-12 grid gap-5 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
-      >
+      <section>
+        <AppSubtitle>Recent Blog Posts</AppSubtitle>
         <div
-          v-for="article of getArticles"
-          :key="article.slug"
-          class="flex flex-col"
+          class="mt-12 grid gap-5 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
         >
-          <PostsCard :item="article" />
+          <div
+            v-for="article of getArticles"
+            :key="article.slug"
+            class="flex flex-col"
+            data-test-id="posts"
+          >
+            <PostsCard :item="article" />
+          </div>
         </div>
-      </div>
+      </section>
 
-      <AppSubtitle>Recent Talks</AppSubtitle>
-      <div
-        class="mt-12 grid gap-5 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
-      >
-        <div v-for="video of getTalks" :key="video.slug">
-          <VideoCard :item="video" />
-        </div>
-      </div>
-
-      <AppSubtitle>Recent Courses</AppSubtitle>
-
-      <div
-        class="mt-12 grid gap-5 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
-      >
+      <section>
+        <AppSubtitle>Recent Talks</AppSubtitle>
         <div
-          v-for="course of getCourses"
-          :key="course.slug"
-          class="flex flex-col"
+          class="mt-12 grid gap-5 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
         >
-          <PostsCard :item="course" />
+          <div v-for="video of getTalks" :key="video.slug" data-test-id="talks">
+            <VideoCard :item="video" />
+          </div>
         </div>
-      </div>
+      </section>
+
+      <section>
+        <AppSubtitle>Recent Courses</AppSubtitle>
+
+        <div
+          class="mt-12 grid gap-5 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
+        >
+          <div
+            v-for="course of getCourses"
+            :key="course.slug"
+            data-test-id="courses"
+            class="flex flex-col"
+          >
+            <PostsCard :item="course" />
+          </div>
+        </div>
+      </section>
     </div>
   </div>
 </template>

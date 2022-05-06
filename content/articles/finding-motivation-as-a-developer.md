@@ -76,3 +76,11 @@ Life itself is one big challenge. But it can be an amazing one if you let it. Fi
 Start living and doing more of what makes you happy. For me it's sport, programming, learning, traveling and helping others. For my husband it's watching TV. We are all different. Don't compare yourself to others. Find what it is that makes you happy and start doing it.
 
 I have talked a lot about Taekwondo in this post and in previous posts and you may be wondering if I am still training. The answer is no, which might come as a surprise. Right now Taekwondo isn't making me happy. Training alone and online is just not what I want to do and so I am doing more of what makes me happy which is more social sports such as Padel and cycling. I may return to it one day as it has been a major part of my life for over 25 years but for now I'm ok with letting go. This is really important, to let go of the things that are not making you happy.
+
+I leave you with this amazing video from Billy Yang about living life on your terms which I highly encourage you to watch.
+
+<lite-youtube
+        videoid="_EFk7nWoKw0"
+        playlabel="living life on your terms."> </lite-youtube>
+
+<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/_EFk7nWoKw0" title="living life on your terms." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
