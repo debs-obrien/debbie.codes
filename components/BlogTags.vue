@@ -1,5 +1,5 @@
 <template>
-  <div class="buttons flex flex-wrap mt-8 justify-center">
+  <div class="flex flex-wrap mt-8 justify-center" data-test-id="filters">
     <div v-for="(tag, i) in tags" :key="i">
       <nuxt-link class="btn capitalize" :to="`/blog/${tag}/1`">
         {{ tag }}
