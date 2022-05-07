@@ -140,7 +140,9 @@ The questions were not easy but I had a lot of experience in standing on a stage
 
 ### The 1-1's
 
-My 1-1 interviews were the next day and they felt more like podcast interviews. We just chatted, and although obviously they were asking me questions and taking notes, I never felt like they were trying to ask the difficult questions that trip you up and make you feel stupid. It felt comfortable.
+My 1-1 interviews were the next day. The great thing about the process in Microsoft is that they tell you who you are going to be interviewed by. This meant that I could Google them to find out more about them. Although this sounds a bit like being a stalker it's actually not. What it led me to do was get to know them better so I could use my time more wisely, such as read a blog post they had written so I could bring up certain questions or knew who the right people was to talk about certain things such as imposter syndrome in the workplace. I had my questions prepared of what I wanted to ask each person and that made me more prepared for the interviews.
+
+My interviews felt more like podcast interviews. We just chatted, and although obviously they were asking me questions and taking notes, I never felt like they were trying to ask the difficult questions that trip you up and make you feel stupid. It felt comfortable.
 
 Again [diversity](https://careers.microsoft.com/us/en/diversityandinclusion) shone here as one interview was with a white guy, one with a black guy and one with a women. I have never in all my years in tech, and the many interviews I have been through, have I been interviewed by either a person of color or by a women. This was a first and it was really nice to have such a diverse interview panel.
 
