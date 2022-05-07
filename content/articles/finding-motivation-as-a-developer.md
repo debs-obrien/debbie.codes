@@ -49,8 +49,6 @@ The video below was filmed by OpenClassrooms in 2017 while I was studying JavaSc
         videoid="R8ZsDhf5Tis"
         playlabel="CODING: How To Overcome The Biggest Obstacle When Learning Web Development"> </lite-youtube>
 
-<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/R8ZsDhf5Tis" title="CODING: How To Overcome The Biggest Obstacle When Learning Web Development" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-
 So how do you get up in the morning and decide to make time to achieve your goals? Sometimes it's just about making small habits. For me getting up an hour earlier and training on my roof terrace (or in the living room when it was raining) was a new habit I created. It wasn't that difficult as it didn't mean having to travel somewhere. Yes the floor wasn't ideal and neither was the space but you can make anything work if you really try hard enough.
 
 ## Ok so now what motivates me?
@@ -77,10 +75,16 @@ Start living and doing more of what makes you happy. For me it's sport, programm
 
 I have talked a lot about Taekwondo in this post and in previous posts and you may be wondering if I am still training. The answer is no, which might come as a surprise. Right now Taekwondo isn't making me happy. Training alone and online is just not what I want to do and so I am doing more of what makes me happy which is more social sports such as Padel and cycling. I may return to it one day as it has been a major part of my life for over 25 years but for now I'm ok with letting go. This is really important, to let go of the things that are not making you happy.
 
+## Life on Your Terms
+
 I leave you with this amazing video from Billy Yang about living life on your terms which I highly encourage you to watch.
 
 <lite-youtube
         videoid="_EFk7nWoKw0"
         playlabel="living life on your terms."> </lite-youtube>
 
-<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/_EFk7nWoKw0" title="living life on your terms." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+And I also recommend watching his recent one, The Good Life, filmed after the pandemic. I personally find them both very motivating.
+
+<lite-youtube
+        videoid="KyxXpweFck4&"
+        playlabel="The Good Life"> </lite-youtube>
