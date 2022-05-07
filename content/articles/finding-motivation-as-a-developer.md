@@ -86,5 +86,5 @@ I leave you with this amazing video from Billy Yang about living life on your te
 And I also recommend watching his recent one, The Good Life, filmed after the pandemic. I personally find them both very motivating.
 
 <lite-youtube
-        videoid="KyxXpweFck4&"
+        videoid="KyxXpweFck4"
         playlabel="The Good Life"> </lite-youtube>
