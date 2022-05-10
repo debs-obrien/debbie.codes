@@ -3,6 +3,7 @@ title: Finding the Right Work Life Balance
 date: 2022-05-10
 description: To many people it might look like I have it all worked out and to be honest I do think I have a pretty good work life balance. But it wasn't always that way. I am probably older than most people who will read this and therefore I have had more time to make mistakes and learn from them.
 image: v1640965793/debbie.codes/blog/devs-in-the-forest_c_gctzoz.jpg
+ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1640965793/debbie.codes/blog/devs-in-the-forest_c_gctzoz.jpg
 provider: cloudinary
 tags: [lifestyle, all]
 published: true

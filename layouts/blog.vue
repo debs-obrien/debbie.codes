@@ -3,8 +3,6 @@
     <TheTopBar />
 
     <div class="container mt-top-bar">
-      <SocialHead :title="title" :description="description" :image="image" />
-
       <AppTitle>Welcome to my blog</AppTitle>
       <AppIntro>
         Here you will find various blog posts on all things related to Frontend
