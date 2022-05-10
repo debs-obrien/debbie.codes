@@ -3,7 +3,7 @@
     <SocialHead
       :title="page.title"
       :description="page.description"
-      :image="page.image"
+      :image="page.ogImage ? page.ogImage : page.image"
     />
     <div class="mx-auto">
       <!-- <SearchInput search-item="articles" /> -->
@@ -114,7 +114,7 @@
           {
             hid: 'twitter:image',
             name: 'twitter:image',
-            content: this.page.image
+            content: this.page.ogImage
           }
         ],
         link: [
