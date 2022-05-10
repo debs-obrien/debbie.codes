@@ -5,7 +5,7 @@ description: Let's take a look at some of the ways you can debug your tests in P
 image: v1648217584/debbie.codes/blog/2022/running-tests_2x_twjt1c.png
 ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1648217584/debbie.codes/blog/2022/running-tests_2x_twjt1c.png
 provider: cloudinary
-tags: [testing, all]
+tags: [testing, playwright]
 published: true
 loading: eager
 ---

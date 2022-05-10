@@ -57,7 +57,19 @@
             <h2 class="mt-2 text-xl leading-7 font-semibold text-gray-900">
               {{ item.title }}
             </h2>
-            <p class="mt-3 text-base leading-6 text-gray-500">
+            <div>
+              <span
+                v-for="tag in item.tags"
+                :key="tag"
+                class="inline-flex items-center px-3 py-0.5 mr-2 rounded-full text-sm font-medium leading-5 bg-indigo-100 text-indigo-800"
+              >
+                {{ tag }}
+              </span>
+            </div>
+            <p
+              v-if="description"
+              class="mt-3 text-base leading-6 text-gray-500"
+            >
               {{ item.description }}
             </p>
           </NuxtLink>
@@ -77,6 +89,10 @@
 <script>
   export default {
     props: {
+      description: {
+        type: Boolean,
+        default: true
+      },
       item: {
         type: Object,
         required: true

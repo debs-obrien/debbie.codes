@@ -4,7 +4,7 @@ date: 2021-01-29
 description: If you are adding YouTube videos to your site you might notice that they can load quite slowly especially when loading iframes. However this is a better way. With this library your YouTube videos will load super fast and your site will be more performant because of it.
 image: f_auto,q_auto/v1611939855/debbie.codes/blog/Screenshot_2021-01-29_at_18.03.52_yuqsr3
 provider: cloudinary
-tags: [nuxt, youtube, performance, all]
+tags: [nuxt, youtube, performance]
 ---
 
 We normally like to add YouTube embeds to our site so that users can easily click on a video and just watch it right there in your site and it is up to them if they want to watch in full screen or watch direct in YouTube itself. But when you have a page with lots of YouTube videos it can negatively affect performance. I have such a page where I load all the interviews and as I have done quite a lot of them the page takes a few seconds to fully load those videos.

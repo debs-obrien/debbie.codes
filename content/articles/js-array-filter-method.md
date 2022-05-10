@@ -5,7 +5,7 @@ description: The .map() method in JavaScript lets you loop over every element in
 published: false
 image: photo-1512418490979-92798cec1380?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop
 provider: imgix
-tags: [javascript, all]
+tags: [javascript, array, filter]
 ---
 
 To filter an array

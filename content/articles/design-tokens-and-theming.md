@@ -5,7 +5,7 @@ description: As frontend developers we are normally given a design from Figma or
 image: v1648117439/debbie.codes/blog/2022/pink-theme_2x_iyuccs.png
 ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1648117439/debbie.codes/blog/2022/pink-theme_2x_iyuccs.png
 provider: cloudinary
-tags: [react, all]
+tags: [react, design tokens, theming]
 published: true
 loading: eager
 ---

@@ -4,7 +4,7 @@ date: 2020-10-16
 description: Vue Directives are a great way of doing things like trimming your models or only showing something once. So many cool directives to make your life easier when coding in Vue.
 image: photo-1503437313881-503a91226402?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3578&q=80
 provider: imgix
-tags: [vue, nuxt, all]
+tags: [vue, nuxt]
 ---
 
 This taken from Sara Drasner's course on Frontend Masters. I did the original one when I was just learning Vue for the first time. Since then I have worked with Vue for a good few years and there are still things I am learning. These are my notes from the first few lessons. Hope it helps someone else learn something they didn't already know.

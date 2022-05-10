@@ -4,7 +4,7 @@ date: 2021-02-05
 description: What its like to do a live stream, why it scares me and why I know the only way to get over fear is to keep doing it again and again.
 image: fl_lossy,f_auto/v1609438516/debbie.codes/blog/livestreams_mg6ulm
 provider: cloudinary
-tags: [lifestyle, all]
+tags: [lifestyle, live streams]
 ---
 
 If any of you have watched my Live Streams you might think "Wow, she has so much energy and is so confident. I could never do what she does". But if you only knew. You see for me live streams are exciting. I love them but they scare the hell out of me. It is where you expose yourself to the world and literally say, "this is me and this is how I do things". No editing no nothing. People live just watching over your shoulders and it is terrifying.

@@ -5,7 +5,7 @@ description: Many people keep asking me where I get my motivation from, how do I
 image: v1651832018/debbie.codes/blog/2022/inspiring-books_2x_ey0xyw.png
 ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1651832018/debbie.codes/blog/2022/inspiring-books_2x_ey0xyw.png
 provider: cloudinary
-tags: [lifestyle, all]
+tags: [lifestyle, motivation]
 published: true
 loading: eager
 ---

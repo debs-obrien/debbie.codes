@@ -4,7 +4,7 @@ date: 2022-01-07
 description: Testing a button component with React Testing Library. What to test and how to test your button component when building multiple compositions of the button.
 image: v1612443662/debbie.codes/blog/button-testing_2x_oliu20
 provider: cloudinary
-tags: [react, testing, all]
+tags: [react, testing]
 published: true
 ---
 

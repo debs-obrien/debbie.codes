@@ -5,7 +5,7 @@ description: When working with SVG's sometimes we just put the svg into our code
 image: v1652107148/debbie.codes/blog/2022/dev-logo-svgomg_2x_ljbh5t.png
 ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1652107148/debbie.codes/blog/2022/dev-logo-svgomg_2x_ljbh5t.png
 provider: cloudinary
-tags: [performance, all]
+tags: [performance, svgs]
 published: true
 loading: eager
 ---

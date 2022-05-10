@@ -4,7 +4,7 @@
       class="mt-12 grid gap-6 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
     >
       <div
-        v-for="article of filteredArticles"
+        v-for="article of getArticles"
         :key="article.slug"
         class="flex flex-col"
       >
@@ -15,7 +15,7 @@
       :prevPage="pageNo > 1"
       :nextPage="nextPage"
       :pageNo="pageNo"
-      :urlPrefix="`/blog/${this.$route.params.category}`"
+      :urlPrefix="`/blog/all`"
     />
   </div>
 </template>
@@ -28,8 +28,7 @@
       const numArticles = 9
       const getArticles = await $content('articles')
         .where({
-          published: { $ne: false },
-          tags: { $contains: params.category }
+          published: { $ne: false }
         })
         .sortBy('date', 'desc')
         .limit(numArticles)
@@ -46,19 +45,6 @@
         nextPage,
         pageNo,
         getArticles
-      }
-    },
-    data() {
-      return {
-        selectedTag: this.$route.params.category
-      }
-    },
-
-    computed: {
-      filteredArticles() {
-        return this.getArticles.filter(article =>
-          article.tags.includes(this.selectedTag)
-        )
       }
     }
   }
