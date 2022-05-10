@@ -11,6 +11,8 @@ loading: eager
 
 Before you start reading this I want you to all know that I do not have all the answers and we do not all live with the same circumstances so these are just my views and experiences on how I have managed my work life balance. To many people it might look like I have it all worked out and to be honest I do think I have a pretty good work life balance. But it wasn't always that way. I am probably older than most people who will read this and therefore I have had more time to make mistakes and learn from them.
 
+![me running in the forest](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1640965793/debbie.codes/blog/devs-in-the-forest_c_gctzoz.jpg)
+
 ## Burn out at 21
 
 When I was 21 I had a great life, but a terrible work life balance. I was living in London and working in a post production company in the TV industry. You may already know that I always wanted to work in TV and at 21 I gave it a go. I had the perfect life. I loved my job so much. I would wake up in the morning dancing going to work. But I was getting paid 7 thousand pounds a year. In London that is not a lot to live on.
