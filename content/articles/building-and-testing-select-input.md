@@ -4,7 +4,7 @@ date: 2022-01-10
 description: Building a Select component with a Composition to see the component render in isolation as well as Tests using React Testing Library to test the select works on change and shows a new value.
 image: v1641812664/debbie.codes/blog/2022/select_2x_g2mbjj
 provider: cloudinary
-tags: [react, testing, all]
+tags: [react, testing]
 published: true
 ---
 

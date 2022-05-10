@@ -4,7 +4,7 @@ date: 2021-01-31
 description: Creating video courses can be very time consuming and for sure there is no one way to go about it. In this post I share what I have learnt and how I now find it easier to create courses.
 image: c_scale,fl_lossy/v1612090624/debbie.codes/blog/Screenshot_2021-01-31_at_11.54.39_mlegoc
 provider: cloudinary
-tags: [nuxt, lifestyle, all]
+tags: [lifestyle, videos]
 ---
 
 I started out creating courses for [Vue School](https://vueschool.io/) about 2 years ago. I had absolutely no idea how to go about it or where to start. I was sent out a microphone, which of course is key if you are going to record anything. Luckily I had help from Alex and Rolf in how to go about things. Create the project, write out the scripts, send them for review, fix any changes needed, send them for review again and then start recording them. I didn't have to edit my videos so luckily I didn't have to worry about that and my face is not shown in the videos, only the screen, which makes it a lot easier.

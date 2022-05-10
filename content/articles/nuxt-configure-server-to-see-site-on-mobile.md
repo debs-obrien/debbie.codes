@@ -4,7 +4,7 @@ date: 2020-04-21
 description: Sometimes you want to test out your site on your actual mobile device or tablet and not just in the dev tools. This is great when bug fixing or just to see how it looks in a real environment.
 image: photo-1423666639041-f56000c27a9a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjF9&auto=format&fit=crop
 provider: imgix
-tags: [nuxt, all]
+tags: [nuxt, server, mobile]
 ---
 
 Sometimes you want to test out your site on your actual mobile device or tablet and not just in the dev tools. This is great when bug fixing or just to see how it looks in a real environment.

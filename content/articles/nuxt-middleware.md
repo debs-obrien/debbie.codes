@@ -4,7 +4,7 @@ date: 2021-02-18
 description: Middleware lets you define custom functions that can be run before rendering either a page or a group of pages which we call layouts.
 image: photo-1446769357257-5aa1b1bfcd65?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop
 provider: imgix
-tags: [nuxt, middleware, all]
+tags: [nuxt, middleware]
 ---
 
 Middleware lets you define custom functions that can be run before rendering either a page or a group of pages which we call layouts. In universal mode, middlewares will be called once on server-side (on the first request to the Nuxt app, e.g. when directly accessing the app or refreshing the page) and on the client-side when navigating to further routes.

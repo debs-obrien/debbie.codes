@@ -4,7 +4,7 @@
 
     <AppTitle>Welcome to my tips</AppTitle>
     <AppIntro> My tips, a short collection of things to remember </AppIntro>
-    <div class="mt-12 grid gap-5 max-w-lg mx-auto lg:grid-cols-2 lg:max-w-none">
+    <div class="mt-12 grid gap-6 max-w-lg mx-auto lg:grid-cols-2 lg:max-w-none">
       <div v-for="tip of tips" :key="tip.slug">
         <TipCard :tip="tip" :page="tip" />
       </div>

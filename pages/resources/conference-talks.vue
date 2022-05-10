@@ -15,7 +15,7 @@
       {{ description }}
     </AppIntro>
     <div
-      class="mt-12 grid gap-5 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
+      class="mt-12 grid gap-6 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
     >
       <div v-for="video of videos" :key="video.slug">
         <VideoCard :item="video" />

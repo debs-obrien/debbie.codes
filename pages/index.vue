@@ -82,9 +82,11 @@
         </p>
       </div>
       <section>
-        <AppSubtitle>Recent Blog Posts</AppSubtitle>
+        <NuxtLink :to="{ name: 'blog' }"
+          ><AppSubtitle>Recent Blog Posts</AppSubtitle></NuxtLink
+        >
         <div
-          class="mt-12 grid gap-5 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
+          class="mt-12 grid gap-6 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
         >
           <div
             v-for="article of getArticles"
@@ -92,27 +94,31 @@
             class="flex flex-col"
             data-test-id="posts"
           >
-            <PostsCard :item="article" />
+            <PostsCard :item="article" :description="false" />
           </div>
         </div>
       </section>
 
       <section>
-        <AppSubtitle>Recent Talks</AppSubtitle>
+        <NuxtLink :to="{ name: 'resources-conference-talks' }"
+          ><AppSubtitle>Recent Talks</AppSubtitle></NuxtLink
+        >
         <div
-          class="mt-12 grid gap-5 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
+          class="mt-12 grid gap-6 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
         >
           <div v-for="video of getTalks" :key="video.slug" data-test-id="talks">
-            <VideoCard :item="video" />
+            <VideoCard :item="video" :description="false" />
           </div>
         </div>
       </section>
 
       <section>
-        <AppSubtitle>Recent Courses</AppSubtitle>
+        <NuxtLink :to="{ name: 'resources-courses' }"
+          ><AppSubtitle>Recent Courses</AppSubtitle></NuxtLink
+        >
 
         <div
-          class="mt-12 grid gap-5 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
+          class="mt-12 grid gap-6 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
         >
           <div
             v-for="course of getCourses"
@@ -120,7 +126,25 @@
             data-test-id="courses"
             class="flex flex-col"
           >
-            <PostsCard :item="course" />
+            <PostsCard :item="course" :description="false" />
+          </div>
+        </div>
+      </section>
+      <section>
+        <NuxtLink :to="{ name: 'resources-interviews' }"
+          ><AppSubtitle>Recent Interviews</AppSubtitle></NuxtLink
+        >
+
+        <div
+          class="mt-12 grid gap-6 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
+        >
+          <div
+            v-for="interview of getInterviews"
+            :key="interview.slug"
+            data-test-id="interviews"
+            class="flex flex-col"
+          >
+            <VideoCard :item="interview" :description="false" />
           </div>
         </div>
       </section>
@@ -164,10 +188,21 @@
       if (!getCourses.length) {
         return error({ statusCode: 404, message: 'No courses found!' })
       }
+      const getInterviews = await $content('interviews')
+        .where({
+          published: { $ne: false }
+        })
+        .sortBy('date', 'desc')
+        .limit(numArticles)
+        .fetch()
+      if (!getCourses.length) {
+        return error({ statusCode: 404, message: 'No interviews found!' })
+      }
       return {
         getArticles,
         getTalks,
-        getCourses
+        getCourses,
+        getInterviews
       }
     },
     components: { AppTitle }

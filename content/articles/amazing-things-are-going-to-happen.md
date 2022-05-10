@@ -5,7 +5,7 @@ description: Believing in yourself is hard, especially when for so long people h
 image: v1619366231/debbie.codes/blog/IMG_8227_bav9rh
 provider: cloudinary
 loading: eager
-tags: [lifestyle, all]
+tags: [lifestyle, motivation]
 ---
 
 _Listen to the Audio:_

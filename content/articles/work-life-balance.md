@@ -5,7 +5,7 @@ description: To many people it might look like I have it all worked out and to b
 image: v1640965793/debbie.codes/blog/devs-in-the-forest_c_gctzoz.jpg
 ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1640965793/debbie.codes/blog/devs-in-the-forest_c_gctzoz.jpg
 provider: cloudinary
-tags: [lifestyle, all]
+tags: [lifestyle, remote working]
 published: true
 loading: eager
 ---
