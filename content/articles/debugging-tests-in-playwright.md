@@ -3,6 +3,7 @@ title: Debugging Tests in Playwright
 date: 2022-03-25
 description: Let's take a look at some of the ways you can debug your tests in Playwright should they fail. Playwright scripts work with existing debugging tools, like Node.js debuggers and browser developer tools. Playwright also introduces new debugging features for browser automation.
 image: v1648217584/debbie.codes/blog/2022/running-tests_2x_twjt1c.png
+ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1648217584/debbie.codes/blog/2022/running-tests_2x_twjt1c.png
 provider: cloudinary
 tags: [testing, all]
 published: true

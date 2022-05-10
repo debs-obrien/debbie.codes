@@ -3,6 +3,7 @@ title: Finding Motivation as a Developer
 date: 2022-05-06
 description: Many people keep asking me where I get my motivation from, how do I find so much time and energy to do so much? I certainly don't have all the answers but I do think it is something you teach yourself.
 image: v1651832018/debbie.codes/blog/2022/inspiring-books_2x_ey0xyw.png
+ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1651832018/debbie.codes/blog/2022/inspiring-books_2x_ey0xyw.png
 provider: cloudinary
 tags: [lifestyle, all]
 published: true

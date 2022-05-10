@@ -3,6 +3,7 @@ title: Minimizing SVGs
 date: 2022-05-09
 description: When working with SVG's sometimes we just put the svg into our code and think nothing more of it. But do we always need all that code that the SVG gives us? Perhaps not. SVGO is a tool that can take an SVG and compress it down to a smaller size ensuring your site is more performant.
 image: v1652107148/debbie.codes/blog/2022/dev-logo-svgomg_2x_ljbh5t.png
+ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1652107148/debbie.codes/blog/2022/dev-logo-svgomg_2x_ljbh5t.png
 provider: cloudinary
 tags: [performance, all]
 published: true

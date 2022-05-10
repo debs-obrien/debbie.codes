@@ -3,6 +3,7 @@ title: Pagination in Nuxt Content
 date: 2022-03-26
 description: My blog was getting bigger and bigger and so time to add pagination. I am using Nuxt Content to manage my blog posts. So how do I add pagination to my blog? Let me show you how I did it.
 image: v1648296331/debbie.codes/blog/2022/pagination_2x_ppog9g.png
+ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1648296331/debbie.codes/blog/2022/pagination_2x_ppog9g.png
 provider: cloudinary
 tags: [nuxt, all]
 published: true

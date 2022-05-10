@@ -3,6 +3,7 @@ title: Playwright Reports and Traces
 date: 2022-03-25
 description: Playwright will serve up a HTML report on your local server so you can easily walk through the steps of your test. You can also open a trace file which gives you even more powerful options of viewing, reporting, interacting and even debugging your tests.
 image: v1648219793/debbie.codes/blog/2022/trace-viewer-broswer_jqoim0.png
+ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1648219793/debbie.codes/blog/2022/trace-viewer-broswer_jqoim0.png
 provider: cloudinary
 tags: [testing, all]
 published: true
