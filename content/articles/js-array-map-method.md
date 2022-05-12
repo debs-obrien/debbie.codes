@@ -97,6 +97,12 @@ const names = people.map(person => {
 
 And that's it. We now have a new array of names with a fullName plus the first and last names. We can add more keys to the objects in our people array and we will receive these new keys without having to modify anything thanks to the use of the spread operator. And of course we could in fact add more than one item to the names array if we wanted to. Have fun with `.map()`.
 
-This article is inspired by [Jake Dohm's video](https://simplygoodwork.com/blog/array-map-javascript-method) which I encourage you to check out.
+Feel free to play around with the [codepen](https://codepen.io/debs-obrien/pen/YzqXVgd) I created.
 
-Or play around with the [codepen](https://codepen.io/debs-obrien/pen/YzqXVgd) I created.
+## Learn more
+
+- This article is inspired by [Jake Dohm's video](https://simplygoodwork.com/blog/array-map-javascript-method) which I encourage you to check out.
+- To read more about it check out the MDn docs for [Array.prototype.map()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+
+- Check out my post on the [array filter method](/blog/js-array-filter-method)
+- Check out my post on the [array map method](/blog/js-array-map-method)
