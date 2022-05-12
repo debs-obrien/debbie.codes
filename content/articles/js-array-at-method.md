@@ -45,7 +45,7 @@ array[array.length - 1]
 
 ### Using the slice method
 
-Or you could use the slice method where you can slice from one index to another to get the value you want. However this method will return an array with the which might not necessarily be what you are want.
+Or you could use the slice method where you can slice from one index to another to get the value you want. However this method will return an array which might not necessarily be what you want.
 
 ```js
 array.slice(-1)
