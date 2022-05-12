@@ -4,6 +4,7 @@ date: 2022-05-11
 description: The .filter() method in JavaScript creates a new array with all elements that pass the test implemented by the provided function.
 published: true
 image: photo-1515560570411-00a0026e6086?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8ZmlsdGVyfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=800&q=60
+ogImage: https://images.unsplash.com/photo-1515560570411-00a0026e6086?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8ZmlsdGVyfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=800&q=60
 provider: imgix
 tags: [javascript, array, filter]
 ---
