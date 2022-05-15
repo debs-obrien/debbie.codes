@@ -1,41 +1,57 @@
 import { test, expect } from '@playwright/test'
 
-test('home page', async ({ page }) => {
-  // Go to /
+test.beforeEach(async ({ page }, testInfo) => {
   await page.goto('/')
+})
 
-  await page.locator("h1 text=Debbie O'Brien")
+test('contains main heading', async ({ page }) => {
+  const heading = page.locator('h1:has-text("Debbie O\'Brien")')
+  await expect(heading).toBeVisible()
+})
 
-  // Click text=Debbie O'Brien Microsoft MVP | GitHub Star | Google GDE Cloudinary MDE | Auth0 A >> img[alt="Debbie O\'Brien"]
-  await page.locator(
+test('contains intro', async ({ page }) => {
+  const intro = page.locator(
     'text=Debbie O\'Brien Microsoft MVP | GitHub Star | Google GDE Cloudinary MDE | Auth0 A >> img[alt="Debbie O\\\'Brien"]'
   )
+  await expect(intro).toBeVisible()
+})
 
-  // Click h1:has-text("Debbie O'Brien")
-  await page.locator('h1:has-text("Debbie O\'Brien")')
-
-  // Click text=Microsoft MVP | GitHub Star | Google GDE Cloudinary MDE | Auth0 Ambassador | Nux
-  await page.locator(
-    'text=Microsoft MVP | GitHub Star | Google GDE Cloudinary MDE | Auth0 Ambassador | Nux'
-  )
-
-  // Click text=Recent Blog Posts
-  await page.locator('text=Recent Blog Posts')
+test('shows minimum number of posts', async ({ page }) => {
   const posts = await page.locator('data-test-id=posts').count()
   await expect(posts).toBeGreaterThanOrEqual(3)
+})
 
-  //await page.locator('.image')
-
-  // Click text=Recent Talks
-  await page.locator('text=Recent Talks')
+test('shows minimum number of talks', async ({ page }) => {
   const talks = await page.locator('data-test-id=talks').count()
   await expect(talks).toBeGreaterThanOrEqual(3)
-  //await page.locator('.video')
+})
 
-  // Click text=Recent Courses
-  await page.locator('text=Recent Courses')
+test('shows minimum number of courses', async ({ page }) => {
   const courses = await page.locator('data-test-id=courses').count()
   await expect(courses).toBeGreaterThanOrEqual(3)
+})
 
-  //await page.locator('.image')
+test('shows minimum number of interviews', async ({ page }) => {
+  const interviews = await page.locator('data-test-id=interviews').count()
+  await expect(interviews).toBeGreaterThanOrEqual(3)
+})
+
+test('recent posts link', async ({ page }) => {
+  await page.locator('text=Recent Blog Posts').click()
+  await expect(page).toHaveURL('/blog')
+})
+
+test('recent talks link', async ({ page }) => {
+  await page.locator('text=Recent Talks').click()
+  await expect(page).toHaveURL('/resources/conference-talks')
+})
+
+test('recent interviews link', async ({ page }) => {
+  await page.locator('text=Recent Interviews').click()
+  await expect(page).toHaveURL('/resources/interviews')
+})
+
+test('recent courses link', async ({ page }) => {
+  await page.locator('text=Recent Courses').click()
+  await expect(page).toHaveURL('/resources/courses')
 })
