@@ -48,6 +48,6 @@ I am Irish and have Spanish family, Greek family and Bahraini family. We are all
 
 And thats how you should treat people in tech as if they are all just your cousins from other walks of life.
 
-> Lets make a better world. Or at least lets try.
+> Let's make a better world. Or at least let's try.
 
 My DMs are always open if you ever feel like you don't belong or feel you are being treated badly by others. Reach out. Let's get through this together. Let's fix the diversity in tech.
