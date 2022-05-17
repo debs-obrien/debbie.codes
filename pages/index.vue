@@ -19,16 +19,16 @@
       </h1>
 
       <div class="dark:text-white subtitle font-medium mb-20">
-        <!-- <p class="mb-4">
-          Head Developer Advocate at
+        <p class="mb-4">
+          Senior Program Manager at
           <a
             href="https://bit.dev"
             target="_blank"
             rel="nofollow noopener noreferrer"
           >
-            Bit
+            Microsoft
           </a>
-        </p> -->
+        </p>
         <p>
           <a
             href="https://mvp.microsoft.com/en-us/PublicProfile/5003613?fullName=Debbie%20O%27Brien"
