@@ -2,8 +2,8 @@
 title: Fixing Diversity in Tech
 date: 2022-05-15
 description: When you step back from the nationality, the color, the religion the sex etc you just get a bunch of people who become a great bunch of friends. This is tech. This is what tech should be like always, for everyone.
-image: v1652638324/debbie.codes/blog/2022/speakers-ghent_r9bdnv
-ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1652638324/debbie.codes/blog/2022/speakers-ghent_r9bdnv
+image: v1652876872/debbie.codes/blog/2022/bejs-team_om4aqb.jpg
+ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1652876872/debbie.codes/blog/2022/bejs-team_om4aqb.jpg
 provider: cloudinary
 tags: [lifestyle, diversity]
 published: true
@@ -39,6 +39,8 @@ I spent a lot of time with very talented developers, some who were almost half m
 As for minority groups. The only way we can fix this is by being there. By not walking away. By not giving up. No matter how hard it is. And for some it will be hard, for some they will have to deal with difficult managers, difficult colleagues, be treated badly for no reason. We can't stop this just like that.
 
 But we can slowly do it so the next generation grows up in a world where going to a conference won't mean they are one of few women, or people of color etc. It will mean they just feel like they belong, like they fit in.
+
+![group of s]
 
 This is obviously sometimes hard to do especially in certain countries. But when it comes to speakers, we can certainly make sure diversity is covered. And when someone in the audience looks on stage and sees another women, or person of color, or gay person or asian person etc they will feel like they do belong and they too can get on that stage and be the next speaker and help influence others.
 
