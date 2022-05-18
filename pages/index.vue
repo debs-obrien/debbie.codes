@@ -31,11 +31,19 @@
         </p>
         <p>
           <a
+            href="https://developers.google.com/community/experts/directory/profile/profile-debbie_o_brien"
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+          >
+            Google GDE
+          </a>
+          |
+          <a
             href="https://mvp.microsoft.com/en-us/PublicProfile/5003613?fullName=Debbie%20O%27Brien"
             target="_blank"
             rel="nofollow noopener noreferrer"
           >
-            Microsoft MVP
+            Former MVP
           </a>
 
           |
@@ -44,15 +52,7 @@
             target="_blank"
             rel="nofollow noopener noreferrer"
           >
-            GitHub Star
-          </a>
-          |
-          <a
-            href="https://developers.google.com/community/experts/directory/profile/profile-debbie_o_brien"
-            target="_blank"
-            rel="nofollow noopener noreferrer"
-          >
-            Google GDE
+            GitHub Star Alumni
           </a>
         </p>
         <p class="mt-4">
