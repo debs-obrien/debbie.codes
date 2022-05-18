@@ -9,12 +9,15 @@ test('contains main heading', async ({ page }) => {
   await expect(heading).toBeVisible()
 })
 
-test('contains intro', async ({ page }) => {
-  const intro = page.locator(
-    'text=Debbie O\'Brien Microsoft MVP | GitHub Star | Google GDE Cloudinary MDE | Auth0 A >> img[alt="Debbie O\\\'Brien"]'
-  )
-  await expect(intro).toBeVisible()
+test('contains job title', async ({ page }) => {
+  const jobTitle = page.locator('text=Senior Program Manager at Microsoft')
+  await expect(jobTitle).toBeVisible()
 })
+
+// test('contains intro', async ({ page }) => {
+//   const intro = page.locator('text=Microsoft MVP | GitHub Star | Google GDE')
+//   await expect(intro).toBeVisible()
+// })
 
 test('shows minimum number of posts', async ({ page }) => {
   const posts = await page.locator('data-test-id=posts').count()
