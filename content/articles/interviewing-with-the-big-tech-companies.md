@@ -3,8 +3,9 @@ title: Interviewing with the Big Tech Companies
 date: 2022-05-19
 description: When a recruiter from Meta, from America, had called me, it just opened my eyes to the possibility that maybe just maybe I was actually good enough to work for the big tech companies.
 image: v1651679092/debbie.codes/blog/2022/data-structures_2x_kvks59.png
+ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1651679092/debbie.codes/blog/2022/data-structures_2x_kvks59.png
 provider: cloudinary
-tags: [lifestyle, all]
+tags: [lifestyle, interviews]
 published: true
 ---
 

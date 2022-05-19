@@ -3,6 +3,7 @@ title: Why Microsoft and How I achieved my Goal
 date: 2022-05-19
 description: I just really liked the idea that Microsoft were willing to send people out to help others, to help them build better software with their products and I said to the two Microsoft guys, "One day I will work for Microsoft".
 image: v1651559990/debbie.codes/blog/2022/microsoft-offices-boston_vhzguu
+ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1651559990/debbie.codes/blog/2022/microsoft-offices-boston_vhzguu
 provider: cloudinary
 tags: [lifestyle, all]
 published: true
