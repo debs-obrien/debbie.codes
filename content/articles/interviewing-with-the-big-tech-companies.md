@@ -1,7 +1,7 @@
 ---
 title: Interviewing with the Big Tech Companies
-date: 2022-05-04
-description: I got a message from a Meta recruiter who insisted I have a chat with him. When I went home at Christmas and told my family that a recruiter from Meta, from America, had called me, well it just opened my eyes to the possibility that maybe just maybe I was actually good enough to work for the big tech companies.
+date: 2022-05-19
+description: When a recruiter from Meta, from America, had called me, it just opened my eyes to the possibility that maybe just maybe I was actually good enough to work for the big tech companies.
 image: v1651679092/debbie.codes/blog/2022/data-structures_2x_kvks59.png
 provider: cloudinary
 tags: [lifestyle, all]
@@ -102,7 +102,7 @@ On the 17th February, I received an email from the Hiring Manager at Microsoft. 
 
 On the 24th January I had my first interview with the hiring manager. The interview went really well and was more chatting about the role itself and what I was looking for in such a role. There was no one trying to catch me out and I was delighted to hear that there was no white board interview. Instead I would have to prepare a presentation and be asked questions after it followed by three 1-1 interviews. He also told me to expect to hear back in about 3 weeks.
 
-At this stage I had stopped studying data structures and algorithms and was now looking into Playwright. But I was also working fulltime, finishing off conference talks and a wedding to attend abroad, so I really didn't have that much time to dedicate to it.
+At this stage I had stopped studying data structures and algorithms and was now looking into Playwright. But I was also working fulltime, finishing off conference talks and a friends wedding to attend abroad, so I really didn't have that much time to dedicate to it.
 
 ### The Recruiter Email
 
@@ -114,7 +114,7 @@ That same day a recruiter reached out asking me for 2-3 preferred dates and time
 
 ### Time to Write the Talk
 
-And so interviews were planned for the 21st and 22nd of March. I now had a week to get a presentation done. I do have a lot of experience in creating talks but creating slides is always hard for me. I always spend so much time on research and then think out what story I want to tell and then I write it out in almost a blog format with screenshots and code examples. Then I can finally turn it into an actual presentation that looks somewhat presentable normally using an already created theme.
+And so interviews were planned for the 21st and 22nd of March. I now had a week to get a presentation done. I do have a lot of experience in creating talks but creating slides is always hard for me. I always spend so much time on research and then think out what story I want to tell and then I write it out in almost a blog format with screenshots and code examples. Then I can finally turn it into an actual presentation that looks somewhat presentable, normally using an already created theme.
 
 For the research I had watched every video available on Playwright and took down lots of notes plus tried to re-produce everything I saw on my own mini demo project I had created. I could never talk about something I don't understand or haven't already tried. I also really need to be comfortable with what I am explaining as I don't use speaker notes when giving a talk. I use them for prep and rehearsal but not when giving the actual talk.
 
@@ -126,7 +126,7 @@ Actually it was on the 17th March, Saint Patrick's Day, that the hiring manager 
 
 James not only answered my questions but also assured me not to be nervous about presenting in front of Scott Hanselman and that he really is just a normal person. Just being open and honest about your fears really helps.
 
-The simple email I received from James, the hiring manager, just before the interview saying "You got this!" really helped keep me calm. I guess it was because he was rooting for me rather than trying to find a way to fail me.
+The simple email I received from James, the hiring manager, just before the interview saying "You got this!" really helped keep me calm. I guess it was because he was rooting for me rather than trying to find a way to fail me which was my experience in previous interviews.
 
 ### The Presentation
 
@@ -134,13 +134,13 @@ On the 21st March I gave my presentation on Playwright. The interview panel aske
 
 I later found out that Scott Hanselman had kept his camera off so that I wouldn't be so nervous. He only turned it on after the presentation for the Q and A. And I think it worked as because I didn't see him I just presumed he wasn't there so it was one less thing to be nervous about.
 
-The presentation went really well although I spoke way too fast and did it in less time than I should. I was nervous and I guess it is to be expected. But it felt good. I felt I had given a good presentation and I had remembered everything I had planned to say. After the presentation I was asked lots of questions by the interview panel which consisted of 6 people I believe.
+The presentation went really well although I spoke way too fast and did it in less time than I should. I was nervous and I guess it is to be expected. But it felt good. I felt I had given a good presentation and I had remembered everything I had planned to say. After the presentation I was asked lots of questions by the interview panel which consisted of 6 people, I believe.
 
 The questions were not easy but I had a lot of experience in standing on a stage and being asked difficult questions about my talk and the product so I wasn't really worried and just had fun as if I was at a conference. The interview panel acted as if they were attendees at a conference and at no stage did it feel like I was actually being interviewed at all. I really enjoyed the interview process. And it was the first time I had ever had an interview where women were on the panel.
 
 ### The 1-1's
 
-My 1-1 interviews were the next day. The great thing about the process in Microsoft is that they tell you who you are going to be interviewed by. This meant that I could Google them to find out more about them. Although this sounds a bit like being a stalker it's actually not. What it led me to do was get to know them better so I could use my time more wisely, such as read a blog post they had written so I could bring up certain questions or knew who the right people was to talk about certain things such as imposter syndrome in the workplace. I had my questions prepared of what I wanted to ask each person and that made me more prepared for the interviews.
+My 1-1 interviews were the next day. The great thing about the process in Microsoft is that they tell you who you are going to be interviewed by. This meant that I could Google them to find out more about them. Although this sounds a bit like being a stalker, it's actually not. What it led me to do was get to know them better so I could use my time more wisely, such as read a blog post they had written so I could bring up certain questions or knew who the right people was to talk about certain things such as imposter syndrome in the workplace. I had my questions prepared of what I wanted to ask each person and that made me more prepared for the interviews.
 
 My interviews felt more like podcast interviews. We just chatted, and although obviously they were asking me questions and taking notes, I never felt like they were trying to ask the difficult questions that trip you up and make you feel stupid. It felt comfortable.
 
@@ -152,17 +152,17 @@ There were many reasons why I wanted to work at Microsoft and they remain the sa
 
 The hiring team were very quick at getting back to me and on the 26th of March I had the recruiter call to tell me they would like to make me an offer. Now came the tricky part. As the job was US based and I live in Spain, it now had to be moved to the Spanish offices before the actual offer on paper was made. This is due to different currency, benefits etc so I now had an offer of a job but had no idea what the salary would be.
 
-It took almost 2 weeks for recruiters in Spain to pick up from the US offices and reach out to me. I was in Ireland at the time when I got the call and the offer explaining the salary and benefits etc. I have been contracted as a freelance in my last two positions so this is really my first job that comes with all this kinda thing so I was taking so many notes and just taking it all in. It was actually really nice to get this call while in Ireland as I then got to celebrate the offer with my family.
+It took almost 2 weeks for recruiters in Spain to pick up from the US offices and reach out to me which was pretty quick. I was in Ireland at the time when I got the call and the offer explaining the salary and benefits etc. I have been contracted as a freelance in my last two positions so this is really my first job that comes with all this kinda thing so I was taking so many notes and just taking it all in. It was actually really nice to get this call while in Ireland as I then got to celebrate the offer with my family.
 
 ### The Background Checks
 
-This was by far the hardest part of all. You now have an offer. You have accepted the offer but now you are told to not hand in your notice until all background checks are completed. I have never in my life had a background check before and although I read all the information that they had sent me and watched the video explaining the process I was still not prepared it.
+This was by far the hardest part of all. You now have an offer. You have accepted the offer but now you are told to not hand in your notice until all background checks are completed. I have never in my life had a background check before and although I read all the information that they had sent me and watched the video explaining the process I was still not prepared for it.
 
 I really just thought that as I have never been in trouble with the law in my life that these checks would be super simple and complete within a few days. And boy was I wrong. The checks went back for 5 years of employment. In the last 5 years I had had 5 jobs plus volunteering work and a university degree. Not just that but some of my employment was contract work meaning I legally had my own business which is a whole other lot of paper work which had to be sent.
 
 #### Week 1
 
-I was checking the online portal every few hours of every day and it would constantly go in orange where I needed to submit another paper. At one point we were driving to a restaurant and we turned around to go home to upload another document. I just thought that the quicker I upload things the quicker it would be at finishing the process. Checking the portal was the first thing I did in the morning and the last thing I did at night.
+I was checking the online portal every few hours of every day and it would constantly go in orange where I needed to submit another document. At one point we were driving to a restaurant and we turned around to go home to upload another document. I just thought that the quicker I upload things the quicker it would be at finishing the process. Checking the portal was the first thing I did in the morning and the last thing I did at night.
 
 #### Week 2
 
@@ -172,7 +172,7 @@ Week 2 was quieter. It stopped asking me for documents and just stayed the same 
 
 Week 3 was harder. It felt like this process was never going to end. They tell you it can take up to 3 weeks but you never expect it to take as long as that and you start to worry that something must be wrong if it is taking so long. Your mind plays games with you and you start to think what if it doesn't work out, what if it doesn't pass, I'm not going to be able to work for Microsoft.
 
-Patience on week 3 was hard. Not suffering an anxiety attack on week 3 was hard. But in the middle of the week I finally got news that the report was finished but there were a few things they couldn't verify and I needed to find more documents to prove my start and end dates for these companies. Once I had uploaded about 20 documents I jus thought to myself that I can't do no more. My documents are solid but if they are not good enough then there is nothing else I can do.
+Patience on week 3 was hard. Not suffering an anxiety attack on week 3 was hard. But in the middle of the week I finally got news that the report was finished but there were a few things they couldn't verify and I needed to find more documents to prove my start and end dates for previous companies. Once I had uploaded about 20 documents I just thought to myself that I can't do anymore more. My documents are solid but if they are not good enough then there is nothing else I can do.
 
 ### Finally :)
 
@@ -180,12 +180,10 @@ The Microsoft team were very quick to get back to me thanking me for the documen
 
 I could now hand in my notice at my job and get my actual starting date.
 
-> I will start at Microsoft on the 15th May
-
 ![admin portal showing that I am hired](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1651677083/debbie.codes/blog/2022/hired-microsoft_2x_ipaos9.png)
 
 I started the process on the 4th of February. All in all it is not a long process when you think about what is involved but for someone who has never been through such a process it feels like forever and was by far the longest process I have ever had to go through.
 
-But I am glad to say that I made it and today on the 4th of May, 3 months exactly since I applied, I filled in the last documents and now it says in the Admin portal the word Hired and that just feels so good. It feels real. It is real.
+But I am glad to say that I made it and on the 16th of May, I had my first day at Microsoft and it was just so amazing, even better than I had imagined.
 
 Next it could be you. If it is your dream then I highly encourage you to just give it a go and [apply for one of the roles](https://careers.microsoft.com/us/en). Interview processes are never easy but the end result is totally worth it.

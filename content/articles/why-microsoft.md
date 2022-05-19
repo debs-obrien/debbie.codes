@@ -1,7 +1,7 @@
 ---
-title: Why Microsoft?
-date: 2022-05-03
-description: While working there we were tasked to build chat bots in Node.js. I in no way had close to enough experience, but was allowed to shadow the project and build some of the UI for the chat bots dashboard. Microsoft sent us 2 people to help us build these chat bots. It was so much fun.
+title: Why Microsoft and How I achieved my Goal
+date: 2022-05-19
+description: I just really liked the idea that Microsoft were willing to send people out to help others, to help them build better software with their products and I said to the two Microsoft guys, "One day I will work for Microsoft".
 image: v1651559990/debbie.codes/blog/2022/microsoft-offices-boston_vhzguu
 provider: cloudinary
 tags: [lifestyle, all]
@@ -86,7 +86,7 @@ As an MVP I got to collaborate a lot with many people from Microsoft which was j
 
 ### Microsoft Build 2020
 
-I also got to appear on Microsoft Build in 2020 alongside Simona Cotin and others for a short interview on Nuxt and static sites which was an incredible experience. ![me appearing on Microsoft Build](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1651592831/debbie.codes/blog/2022/buildDebbie_c7q789.jpg)
+I got to appear on Microsoft Build in 2020 alongside Simona Cotin and others for a short interview on Nuxt and static sites which was an incredible experience. ![me appearing on Microsoft Build](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1651592831/debbie.codes/blog/2022/buildDebbie_c7q789.jpg)
 
 ### Nuxt and Azure Static Web Apps MS Build
 
@@ -106,7 +106,7 @@ I had an article published on the Microsoft Startup Developers blog on [how we u
 
 ### Microsoft Cloud Skills
 
-I appeared on the Microsoft Cloud Skills show on JavaScript Communities where we got to talk about an intro to JavaScript Frameworks, with Wassim Chegham, Yohan Lasorsa and Ana Cidre. ![me and the others back stage for the show](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1651586279/debbie.codes/blog/2022/cloud-skills-show_hijswh.png)
+I also appeared on the Microsoft Cloud Skills show on JavaScript Communities where we got to talk about an intro to JavaScript Frameworks, with Wassim Chegham, Yohan Lasorsa and Ana Cidre. ![me and the others back stage for the show](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1651586279/debbie.codes/blog/2022/cloud-skills-show_hijswh.png)
 
 ## Having Clear Goals
 
