@@ -3,8 +3,9 @@ title: Being an Imposter
 date: 2022-03-27
 description: If you ever look at the home page of my site or the intro slide of my talks you will probably think I am the biggest show off in the world. However, really I am an imposter. I doubt my abilities and find it difficult to accept my accomplishments and wonder if I deserve them.
 image: v1648376409/debbie.codes/blog/2022/A26430C9-6959-45BF-83B7-EB0086E85E6A_1_105_c_occakl.jpg
+ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1648376409/debbie.codes/blog/2022/A26430C9-6959-45BF-83B7-EB0086E85E6A_1_105_c_occakl.jpg
 provider: cloudinary
-tags: [dev stuff, all]
+tags: [lifestyle, motivation]
 published: true
 loading: eager
 ---

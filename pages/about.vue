@@ -1,7 +1,7 @@
 <template>
   <div class="container mx-auto">
     <div class="mx-auto">
-      <div class=" max-w-6xl mx-auto">
+      <div class="max-w-6xl mx-auto">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div class="hidden lg:block">
             <img
@@ -12,9 +12,7 @@
           <div class="col-span-2">
             <span class="font-Saira mb-4 text-primary">Hello There!</span>
 
-            <h3 class="uppercase font-semibold mb-4">
-              I'm Debbie O'Brien
-            </h3>
+            <h3 class="uppercase font-semibold mb-4"> I'm Debbie O'Brien </h3>
             <div class="mb-4">
               <p class="mb-2">
                 <nuxt-content :document="page" class="prose" />
@@ -35,25 +33,19 @@
             <div class="mt-2">
               <img
                 v-if="company.image.dark && $colorMode.preference === 'dark'"
-                :src="
-                  `https://res.cloudinary.com/debsobrien/image/upload/${company.image.dark}`
-                "
+                :src="`https://res.cloudinary.com/debsobrien/image/upload/${company.image.dark}`"
                 alt=""
               />
               <img
                 v-else-if="
                   company.image.light && $colorMode.preference !== 'dark'
                 "
-                :src="
-                  `https://res.cloudinary.com/debsobrien/image/upload/${company.image.light}`
-                "
+                :src="`https://res.cloudinary.com/debsobrien/image/upload/${company.image.light}`"
                 alt=""
               />
               <img
                 v-else
-                :src="
-                  `https://res.cloudinary.com/debsobrien/image/upload/${company.image}`
-                "
+                :src="`https://res.cloudinary.com/debsobrien/image/upload/${company.image}`"
                 alt=""
               />
             </div>
@@ -92,7 +84,7 @@
         type: '',
         title: 'About Debbie and her experience as a developer',
         description:
-          'Head Developer Advocate at Bit, Google Developer Expert, Microsoft Most Valueable Professional, GitHub Star, Cloudinary MDE, Auth0 Ambassador',
+          'Google Developer Expert, Microsoft Most Valueable Professional, GitHub Star, Cloudinary MDE, Nuxt Ambassador, Auth0 Ambassador',
         awards: [
           {
             name: 'GitHub Star',
@@ -104,8 +96,7 @@
           },
           {
             name: 'Google Developer Expert',
-            url:
-              'https://developers.google.com/community/experts/directory/profile/profile-debbie_o_brien',
+            url: 'https://developers.google.com/community/experts/directory/profile/profile-debbie_o_brien',
             image:
               'c_scale,w_300/v1587830943/debbie.codes/gd_experts_lockup_horizontal_color_vqw2sw.jpg',
             about:
@@ -113,8 +104,7 @@
           },
           {
             name: 'Microsoft Most Valuable Professional',
-            url:
-              'https://mvp.microsoft.com/en-us/PublicProfile/5003613?fullName=Debbie%20O%27Brien',
+            url: 'https://mvp.microsoft.com/en-us/PublicProfile/5003613?fullName=Debbie%20O%27Brien',
             image: 'fl_lossy,f_auto,c_fit,w_300/v1579977213/ME/mvp_o5w23e.png',
             about:
               'The Microsoft Most Valuable Professional (MVP) award is given by Microsoft to technology experts who passionately share their knowledge with the community. They are awarded to people who actively share their technical expertise with the different technology communities related directly, or indirectly to Microsoft.'
@@ -132,8 +122,7 @@
             name: 'Auth0 Ambassador',
             url: 'https://auth0.com/ambassador-program/',
             image: {
-              dark:
-                'fl_lossy,f_auto,c_scale,w_300/v1612373628/debbie.codes/ambassador-program-logo-white_twmp4l.png',
+              dark: 'fl_lossy,f_auto,c_scale,w_300/v1612373628/debbie.codes/ambassador-program-logo-white_twmp4l.png',
               light:
                 'fl_lossy,f_auto,c_scale,w_300/v1612373628/debbie.codes/ambassador-program-logo-black_u3d5z0.png'
             },
@@ -143,8 +132,7 @@
           },
           {
             name: 'Microsoft Certified',
-            url:
-              'https://www.youracclaim.com/badges/2bb11106-cef6-4a1c-9618-1ba63b413377',
+            url: 'https://www.youracclaim.com/badges/2bb11106-cef6-4a1c-9618-1ba63b413377',
             image:
               'fl_lossy,f_auto,c_scale,w_150/v1612427038/debbie.codes/Programming_in_HTML5_with_JavaScript_and_Css3-01_p5l1ro.png',
 

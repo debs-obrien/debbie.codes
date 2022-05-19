@@ -4,7 +4,7 @@ date: 2020-04-23
 description: An error page is the page you see when you arrive at a page that can't be found. These are typically called 404 pages. To create an error page all you need to do is create an `error.vue` file in your layouts folder. Layouts?
 image: photo-1594322436404-5a0526db4d13?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop
 provider: imgix
-tags: [nuxt, all]
+tags: [nuxt, errors]
 ---
 
 An error page is the page you see when you arrive at a page that can't be found. These are typically called 404 pages. To create an error page all you need to do is create an `error.vue` file in your layouts folder. Layouts? Yes, that is correct. Although the error page is a page, it must go inside the layouts folder.

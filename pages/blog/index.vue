@@ -1,7 +1,7 @@
 <template>
-  <div class="page-wrapper mt-8">
+  <div class="page-wrapper">
     <div
-      class="mt-12 grid gap-5 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
+      class="mt-12 grid gap-6 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
     >
       <div
         v-for="article of getArticles"

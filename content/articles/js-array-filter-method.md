@@ -1,55 +1,56 @@
 ---
 title: The JavaScript Array.filter() method
-date: 2020-08-09
-description: The .map() method in JavaScript lets you loop over every element in an array and modify or add to it and then return a different element to take that elements place
-published: false
-image: photo-1512418490979-92798cec1380?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop
+date: 2022-05-11
+description: The .filter() method in JavaScript creates a new array with all elements that pass the test implemented by the provided function.
+published: true
+image: photo-1515560570411-00a0026e6086?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8ZmlsdGVyfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=800&q=60
+ogImage: https://images.unsplash.com/photo-1515560570411-00a0026e6086?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8ZmlsdGVyfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=800&q=60
 provider: imgix
-tags: [javascript, all]
+tags: [javascript, array, filter]
 ---
 
-To filter an array
-
-filter to find only the female characters
-
-array of people
+Sometimes we have an array but we want to return only a select few items from the array. For example, we can use the `array.filter()` method to filter an array of people to only find the female characters of the array.
 
 ```jsx
-const people = [{name: 'Debbie', gender: 'female'}
-{name: 'Josh', gender: 'male'}]
+const people = [
+  { name: 'Debbie', gender: 'female' },
+  { name: 'Josh', gender: 'male' }
+]
 ```
 
-decide who should be returned
+## How the filter method works
+
+The `filter()` method calls a callback function once for each element in an array and constructs a new array for all the values that pass the test provided in this callback function.
+
+The function takes 3 arguments,
+
+- the current value, which is the current value we are iterating over
+- the index, what iteration we are on
+- the original array on which filter is called
+
+### Returns female values
 
 ```jsx
 people.filter(function (currentValue, index, originalArray) {
   //decide who should be returned
-  return
+  return currentValue.gender === 'female'
 })
 ```
 
-return true then all the people will be in the array
+### Exclude the original array
 
-return false then nobody will be in the array
-
-function takes 3 arguments
-
-currentValue which is the currentValue of the item we are iterating over
-
-index, what iteration we are on
-
-originalArray which in this case is people
-
-if you don't need the originalArray you can remove it
+We can exclude the original array in our callback function if we are not using it. We may want to use it to push something to the array before we perform the test of what to return but if not we can simply remove it.
 
 ```jsx
 people.filter(function (currentValue, index) {
   //decide who should be returned
-  return
+  return currentValue.gender === 'female'
 })
 ```
 
-normally we name the currentValue the singular of the array so in this case person
+### Naming the current value
+
+Normally we name the currentValue the singular of the array so in this case we should name it person.
 
 ```jsx
 people.filter(function (person, index) {
@@ -57,9 +58,9 @@ people.filter(function (person, index) {
 })
 ```
 
-Now you will only get the female people back
+### Using the arrow function
 
-We can convert to using an arrow function
+We can also use the arrow function instead
 
 ```jsx
 people.filter((person, index) => {
@@ -67,7 +68,9 @@ people.filter((person, index) => {
 })
 ```
 
-As we are not using the index we can get rid of that
+### Removing the index and parenthesis
+
+As we are not using the index we can get rid of that. We can also get rid of the parenthesis as we don't need them if there is only one argument in an arrow function
 
 ```jsx
 people.filter(person => {
@@ -75,26 +78,36 @@ people.filter(person => {
 })
 ```
 
-We can also get rid of the parenthesis as we don't need them if there is only one argument in an arrow function
+### Removing the brackets and return keyword
 
-```jsx
-people.filter(person => {
-  return person.gender === 'female'
-})
-```
+And as it is just one line we are returning we can remove the return and the curly brackets and have it all on the one line keeping it very short. This can take a bit of getting used to as it is not as easy to read as the previous examples but many people will use this format.
 
-And as it is just one line we are returning we can remove the return and the curly brackets and have it all on the one line
+Think of it as, for the array of people filter every person and return the ones that have a gender of female.
 
 ```jsx
 people.filter(person => person.gender === 'female')
 ```
 
-The great thing about filter is that it does not mutate the original array. So if you console.log people you will still get all the people from the people array as filter creates a new array. Therefore we can store our new filter in a const.
+## Example
+
+The great thing about filter is that it does not mutate the original array. So if you `console.log(people) ` you will still get all the people from the people array as filter creates a new array. Therefore we can store our new filter in a const.
 
 ```jsx
-const womenn = people.filter(person => person.gender === 'female')
+const people = [
+  { name: 'Debbie', gender: 'female' },
+  { name: 'Josh', gender: 'male' }
+]
+const women = people.filter(person => person.gender === 'female')
+console.log(people) // [{ name: 'Debbie', gender: 'female' },{ name: 'Josh', gender: 'male' }]
+console.log(women) // [{ name: 'Debbie', gender: 'female' }]
 ```
 
-This article is inspired by [Jake Dohm's video](https://simplygoodwork.com/blog/array-map-javascript-method) which I encourage you to check out.
+Paste it in the console to see for yourself and play around with the values or check out the [codepen](https://codepen.io/debs-obrien/pen/OJQRpPW) I created.
 
-Or play around with the [codepen](https://codepen.io/debs-obrien/pen/YzqXVgd) I created.
+## Learn More
+
+- This article is inspired by [Jake Dohm's video](https://simplygoodwork.com/blog/array-map-javascript-method) which I encourage you to check out.
+
+- To read more about it check out the MDn docs for [Array.prototype.filter()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
+- Check out my post on the [array at method](/blog/js-array-at-method)
+- Check out my post on the [array map method](/blog/js-array-map-method)

@@ -1,6 +1,6 @@
 <template>
-  <div class="buttons flex flex-wrap mt-8 justify-center">
-    <div v-for="(tag, i) in tags" :key="i">
+  <div class="flex flex-wrap mt-8 justify-center" data-test-id="filters">
+    <div v-for="(tag, i) in tags" :key="i" class="mb-8">
       <nuxt-link class="btn capitalize" :to="`/blog/${tag}/1`">
         {{ tag }}
       </nuxt-link>
@@ -21,8 +21,8 @@
           'testing',
           'javascript',
           'typescript',
-          'dev stuff',
-          'performance'
+          'performance',
+          'lifestyle'
         ]
       }
     }

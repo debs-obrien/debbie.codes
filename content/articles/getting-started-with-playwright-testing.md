@@ -3,8 +3,9 @@ title: Getting Started with Playwright Testing
 date: 2022-03-24
 description: How can we get more developers to write tests? We can create better tools that makes testing easier. Let's take a look at Playwright and it's amazing features including codegen which writes your tests for you.
 image: v1648106423/debbie.codes/blog/2022/codegen_2x_psrpgk.png
+ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1648106423/debbie.codes/blog/2022/codegen_2x_psrpgk.png
 provider: cloudinary
-tags: [testing, all]
+tags: [testing, playwright]
 published: true
 ---
 

@@ -29,7 +29,7 @@
             {{ tag }}
           </span>
         </div>
-        <p class="mt-3 text-base leading-6 text-gray-500">
+        <p v-if="description" class="mt-3 text-base leading-6 text-gray-500">
           {{ item.description }}
         </p>
       </div>
@@ -47,6 +47,10 @@
 <script>
   export default {
     props: {
+      description: {
+        type: Boolean,
+        default: true
+      },
       item: {
         type: Object,
         required: true

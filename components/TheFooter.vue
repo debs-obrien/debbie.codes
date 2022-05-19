@@ -25,7 +25,7 @@
         <div class="px-5 py-2">
           <NuxtLink
             to="/resources/guest-live-streams"
-            class="text-base dark:text-gray-400 text-gray-800  hover:text-primary"
+            class="text-base dark:text-gray-400 text-gray-800 hover:text-primary"
           >
             Streams
           </NuxtLink>
@@ -111,6 +111,14 @@
         >
           <IconGithub class="h-10 w-10 fill-current" />
         </a>
+        <a
+          href="https://dev.to/debs_obrien"
+          aria-label="dev to"
+          target="_blank"
+          rel="nofollow noopener noreferrer"
+        >
+          <IconDevTo class="h-10 w-10 fill-current" />
+        </a>
 
         <a
           href="https://noti.st/debbie"
@@ -143,6 +151,7 @@
   import IconYouTube from '@/assets/icons/youtube.svg?inline'
   import IconSpeaker from '@/assets/icons/speaker.svg?inline'
   import IconCoffee from '@/assets/icons/coffee.svg?inline'
+  import IconDevTo from '@/assets/icons/dev-rainbow.svg?inline'
   export default {
     components: {
       IconGithub,
@@ -151,7 +160,8 @@
       IconYouTube,
       IconSpeaker,
       IconCoffee,
-      IconTwitch
+      IconTwitch,
+      IconDevTo
     }
   }
 </script>

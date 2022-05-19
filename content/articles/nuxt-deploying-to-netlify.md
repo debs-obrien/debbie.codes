@@ -4,7 +4,7 @@ date: 2021-02-07
 description: If you are building a Nuxt static site and want to deploy it easily and for free then Netlify is a great choice. Let me show you how easy it is.
 image: c_scale,fl_lossy,f_auto,q_auto,,w_600/v1612716320/debbie.codes/blog/new-site-from-netlify_fx4zmm
 provider: cloudinary
-tags: [nuxt, deploying, all]
+tags: [nuxt, deploying, netlify]
 ---
 
 When starting out in development we need to learn so many things. A new language, a new framework and new concepts. Once we have understood most of this and have some cool demo or app that we have created we just want to show it to the world or see what it would be like if it was deployed.

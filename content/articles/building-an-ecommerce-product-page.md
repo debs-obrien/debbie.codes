@@ -4,7 +4,7 @@ date: 2021-12-23
 description: Where do you start when building a product page for an e-commerce store? How do you think about naming the components and how much to break down the components? What do you start building first and why?
 image: v1640267556/debbie.codes/blog/product-details-component_2x_isk5aj
 provider: cloudinary
-tags: [architecture, bit, react, all]
+tags: [architecture, bit, react]
 ---
 
 I started off with a basic demo of a shoe store which uses components from different scopes including the base-ui scope for base/design components and the e-commerce scope for components that are more e-commerce focused and therefore owned by the e-commerce team. Scopes are a collection of components and can have but do not need to have their own repository.

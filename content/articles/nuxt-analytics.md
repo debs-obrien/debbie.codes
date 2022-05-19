@@ -4,7 +4,7 @@ date: 2021-01-28
 description: When you build your own site sometimes it's important to add analytics to see what is doing well, what your audience is spending time and perhaps find ways of improving your site
 image: c_scale,fl_lossy,f_auto,q_auto,w_600/v1611841528/debbie.codes/plausible_laomvr
 provider: cloudinary
-tags: [nuxt, analytics, all]
+tags: [nuxt, analytics]
 ---
 
 I recently just added [Plausible](https://plausible.io/) to my personal Nuxt site. Although I am still running the free trial version I am pretty sure that I will pay the small monthly fee and keep using this for my analytics. Why? I know right. Google Analytics is free so why pay for a service? I never normally pay for anything when there is a free option but in this case I think it's worth it.

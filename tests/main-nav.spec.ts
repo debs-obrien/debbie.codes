@@ -5,30 +5,31 @@ test('main navigation', async ({ page }) => {
   await page.goto('')
 
   // Click text=Streams >> nth=0
-  await page.locator('text=Streams').first().click()
+  await page.locator('header >> a:has-text("Streams")').first().click()
   await expect(page).toHaveURL('/resources/guest-live-streams')
 
   // Click text=Interviews >> nth=0
-  await page.locator('text=Interviews').first().click()
+
+  await page.locator('header >> a:has-text("Interviews")').first().click()
   await expect(page).toHaveURL('/resources/interviews')
 
   // Click text=Podcasts >> nth=0
-  await page.locator('text=Podcasts').first().click()
+  await page.locator('header >> a:has-text("podcasts")').first().click()
   await expect(page).toHaveURL('/resources/podcasts')
 
   // Click text=Courses >> nth=0
-  await page.locator('text=Courses').first().click()
+  await page.locator('header >> a:has-text("courses")').first().click()
   await expect(page).toHaveURL('/resources/courses')
 
   // Click text=Talks >> nth=0
-  await page.locator('text=Talks').first().click()
+  await page.locator('header >> a:has-text("talks")').first().click()
   await expect(page).toHaveURL('/resources/conference-talks')
 
   // Click text=Featured Posts >> nth=0
-  await page.locator('text=Featured Posts').first().click()
+  await page.locator('header >> a:has-text("featured posts")').first().click()
   await expect(page).toHaveURL('/resources/featured-posts')
 
   // Click a:has-text("Blog") >> nth=0
-  await page.locator('a:has-text("Blog")').first().click()
+  await page.locator('header >> a:has-text("blog")').first().click()
   await expect(page).toHaveURL('/blog')
 })

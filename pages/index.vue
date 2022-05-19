@@ -20,22 +20,30 @@
 
       <div class="dark:text-white subtitle font-medium mb-20">
         <p class="mb-4">
-          Head Developer Advocate at
+          Senior Program Manager at
           <a
             href="https://bit.dev"
             target="_blank"
             rel="nofollow noopener noreferrer"
           >
-            Bit
+            Microsoft
           </a>
         </p>
         <p>
+          <a
+            href="https://developers.google.com/community/experts/directory/profile/profile-debbie_o_brien"
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+          >
+            Google GDE
+          </a>
+          |
           <a
             href="https://mvp.microsoft.com/en-us/PublicProfile/5003613?fullName=Debbie%20O%27Brien"
             target="_blank"
             rel="nofollow noopener noreferrer"
           >
-            Microsoft MVP
+            Former MVP
           </a>
 
           |
@@ -44,15 +52,7 @@
             target="_blank"
             rel="nofollow noopener noreferrer"
           >
-            GitHub Star
-          </a>
-          |
-          <a
-            href="https://developers.google.com/community/experts/directory/profile/profile-debbie_o_brien"
-            target="_blank"
-            rel="nofollow noopener noreferrer"
-          >
-            Google GDE
+            GitHub Star Alumni
           </a>
         </p>
         <p class="mt-4">
@@ -81,13 +81,131 @@
           </a>
         </p>
       </div>
+      <section>
+        <NuxtLink :to="{ name: 'blog' }"
+          ><AppSubtitle>Recent Blog Posts</AppSubtitle></NuxtLink
+        >
+        <div
+          class="mt-12 grid gap-6 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
+        >
+          <div
+            v-for="article of getArticles"
+            :key="article.slug"
+            class="flex flex-col"
+            data-test-id="posts"
+          >
+            <PostsCard :item="article" :description="false" />
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <NuxtLink :to="{ name: 'resources-conference-talks' }"
+          ><AppSubtitle>Recent Talks</AppSubtitle></NuxtLink
+        >
+        <div
+          class="mt-12 grid gap-6 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
+        >
+          <div v-for="video of getTalks" :key="video.slug" data-test-id="talks">
+            <VideoCard :item="video" :description="false" />
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <NuxtLink :to="{ name: 'resources-courses' }"
+          ><AppSubtitle>Recent Courses</AppSubtitle></NuxtLink
+        >
+
+        <div
+          class="mt-12 grid gap-6 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
+        >
+          <div
+            v-for="course of getCourses"
+            :key="course.slug"
+            data-test-id="courses"
+            class="flex flex-col"
+          >
+            <PostsCard :item="course" :description="false" />
+          </div>
+        </div>
+      </section>
+      <section>
+        <NuxtLink :to="{ name: 'resources-interviews' }"
+          ><AppSubtitle>Recent Interviews</AppSubtitle></NuxtLink
+        >
+
+        <div
+          class="mt-12 grid gap-6 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
+        >
+          <div
+            v-for="interview of getInterviews"
+            :key="interview.slug"
+            data-test-id="interviews"
+            class="flex flex-col"
+          >
+            <VideoCard :item="interview" :description="false" />
+          </div>
+        </div>
+      </section>
     </div>
   </div>
 </template>
 <script>
+  import AppTitle from '~/components/AppTitle.vue'
   export default {
     layout: 'home',
-    colorMode: 'dark'
+    colorMode: 'dark',
+    async asyncData({ $content, error }) {
+      const numArticles = 3
+      const getArticles = await $content('articles')
+        .where({
+          published: { $ne: false }
+        })
+        .sortBy('date', 'desc')
+        .limit(numArticles)
+        .fetch()
+      if (!getArticles.length) {
+        return error({ statusCode: 404, message: 'No articles found!' })
+      }
+      const getTalks = await $content('conference-talks')
+        .where({
+          published: { $ne: false }
+        })
+        .sortBy('date', 'desc')
+        .limit(numArticles)
+        .fetch()
+      if (!getTalks.length) {
+        return error({ statusCode: 404, message: 'No talks found!' })
+      }
+      const getCourses = await $content('courses')
+        .where({
+          published: { $ne: false }
+        })
+        .sortBy('date', 'desc')
+        .limit(numArticles)
+        .fetch()
+      if (!getCourses.length) {
+        return error({ statusCode: 404, message: 'No courses found!' })
+      }
+      const getInterviews = await $content('interviews')
+        .where({
+          published: { $ne: false }
+        })
+        .sortBy('date', 'desc')
+        .limit(numArticles)
+        .fetch()
+      if (!getCourses.length) {
+        return error({ statusCode: 404, message: 'No interviews found!' })
+      }
+      return {
+        getArticles,
+        getTalks,
+        getCourses,
+        getInterviews
+      }
+    },
+    components: { AppTitle }
   }
 </script>
 
