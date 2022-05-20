@@ -11,8 +11,6 @@ published: true
 
 ## It all Started with Meta
 
-![meta logo](https://www.google.com/url?sa=i&url=https%3A%2F%2Fes.logodownload.org%2Fmeta-logo%2F&psig=AOvVaw2-dJGEbcoMfUXjleFN-4AU&ust=1651768066414000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCNjz8NihxvcCFQAAAAAdAAAAABAI)
-
 It actually all started when I got a message from a Meta recruiter who insisted I have a chat with him. So I said, ok a chat, but I am not looking for a job. However when I went home at Christmas and told my family that a recruiter from Meta, from America, had called me, well it just opened my eyes to the possibility that maybe just maybe I was actually good enough to work for the big tech companies. Maybe it was time to make my dream come true. My family of course all told me that I could do it. They always think I can achieve anything.
 
 So I decided to give it a go. Meta didn't work out for reasons I do not know, something about US roles and Europe but ok, no problem.
