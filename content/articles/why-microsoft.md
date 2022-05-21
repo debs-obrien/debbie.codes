@@ -119,7 +119,7 @@ In February 2021 I interviewed for Bit and the CEO asked me what my 3 year plan 
 
 And when I handed in my notice to him, I asked him if he remembered my answer and he said, "yes, Microsoft".
 
-So how did it happen? You can read all about it in my post [Interviewing with the Big Tech Companies](/blog/interviewing-with-the-big-tech-companies).
+So how did it happen? I guess it was right time and right place. A little bit of luck but also being prepared. Having a goal in mind and just going for it until the right opportunity arose. You can read all about it in my post [Interviewing with the Big Tech Companies](/blog/interviewing-with-the-big-tech-companies).
 
 ## My dream came true
 
