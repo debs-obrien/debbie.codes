@@ -6323,10 +6323,10 @@ husky@^8.0.1:
   resolved "https://registry.yarnpkg.com/husky/-/husky-8.0.1.tgz#511cb3e57de3e3190514ae49ed50f6bc3f50b3e9"
   integrity sha512-xs7/chUH/CKdOCs7Zy0Aev9e/dKOMZf3K1Az1nar3tzlv0jfqnYtu235bstsWTmXOR0EfINrPa97yy4Lz6RiKw==
 
-hygen@^6.2.0:
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/hygen/-/hygen-6.2.0.tgz#9f71af9218a1cb24f2c9f017a2594a6d61e6874f"
-  integrity sha512-5kma/nx7K+gJu8Q8kirkamUDb2TLvDJEiG/hfAL2Jt93SGrWEd0vWVEwaJW7qQylbIoT7gBVefrXZS2sYS8aag==
+hygen@^6.2.2:
+  version "6.2.2"
+  resolved "https://registry.yarnpkg.com/hygen/-/hygen-6.2.2.tgz#90fc127d67ba45180e394f721d7fd28ccf51103d"
+  integrity sha512-nAnZE+pE/IzekjVycFA3m5A3A+scWQnFU+bWXzewrburFkH1oXv+mpXGAR3P1gFlbvS0pB7rBECPhpDT3QDNnA==
   dependencies:
     "@types/node" "^17.0.19"
     chalk "^4.1.2"
