@@ -3,7 +3,7 @@
     <TheTopBar />
 
     <div class="container mt-top-bar">
-      <AppTitle>Welcome to my blog</AppTitle>
+      <AppTitle>Welcome to my Blog</AppTitle>
       <AppIntro>
         Here you will find various blog posts on all things related to Frontend
         and JavaScript but especially on things related to Nuxt, React, Testing

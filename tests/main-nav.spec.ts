@@ -1,35 +1,54 @@
 import { test, expect } from '@playwright/test'
 
-test('main navigation', async ({ page }) => {
-  // Go to /
-  await page.goto('')
+test.describe('Contact Form', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto('/')
+  })
 
-  // Click text=Streams >> nth=0
-  await page.locator('header >> a:has-text("Streams")').first().click()
-  await expect(page).toHaveURL('/resources/guest-live-streams')
+  test('Clicking steams in navigation goes to correct page', async ({
+    page
+  }) => {
+    await page.locator('header >> a:has-text("Streams")').first().click()
+    await expect(page).toHaveURL('/resources/guest-live-streams')
+  })
 
-  // Click text=Interviews >> nth=0
+  test('Clicking interviews in navigation goes to correct page', async ({
+    page
+  }) => {
+    await page.locator('header >> a:has-text("Interviews")').first().click()
+    await expect(page).toHaveURL('/resources/interviews')
+  })
 
-  await page.locator('header >> a:has-text("Interviews")').first().click()
-  await expect(page).toHaveURL('/resources/interviews')
+  test('Clicking podcasts in navigation goes to correct page', async ({
+    page
+  }) => {
+    await page.locator('header >> a:has-text("Podcasts")').first().click()
+    await expect(page).toHaveURL('/resources/podcasts')
+  })
 
-  // Click text=Podcasts >> nth=0
-  await page.locator('header >> a:has-text("podcasts")').first().click()
-  await expect(page).toHaveURL('/resources/podcasts')
+  test('Clicking courses in navigation goes to correct page', async ({
+    page
+  }) => {
+    await page.locator('header >> a:has-text("Courses")').first().click()
+    await expect(page).toHaveURL('/resources/courses')
+  })
 
-  // Click text=Courses >> nth=0
-  await page.locator('header >> a:has-text("courses")').first().click()
-  await expect(page).toHaveURL('/resources/courses')
+  test('Clicking talks in navigation goes to correct page', async ({
+    page
+  }) => {
+    await page.locator('header >> a:has-text("Talks")').first().click()
+    await expect(page).toHaveURL('/resources/conference-talks')
+  })
 
-  // Click text=Talks >> nth=0
-  await page.locator('header >> a:has-text("talks")').first().click()
-  await expect(page).toHaveURL('/resources/conference-talks')
+  test('Clicking featured-posts in navigation goes to correct page', async ({
+    page
+  }) => {
+    await page.locator('header >> a:has-text("Featured Posts")').first().click()
+    await expect(page).toHaveURL('/resources/featured-posts')
+  })
 
-  // Click text=Featured Posts >> nth=0
-  await page.locator('header >> a:has-text("featured posts")').first().click()
-  await expect(page).toHaveURL('/resources/featured-posts')
-
-  // Click a:has-text("Blog") >> nth=0
-  await page.locator('header >> a:has-text("blog")').first().click()
-  await expect(page).toHaveURL('/blog')
+  test('Clicking blog in navigation goes to correct page', async ({ page }) => {
+    await page.locator('header >> a:has-text("Blog")').first().click()
+    await expect(page).toHaveURL('/blog')
+  })
 })

@@ -1,26 +1,29 @@
 import { test, expect } from '@playwright/test'
 
-test('fills and sends contact form and expects a thank you message', async ({
-  page
-}) => {
-  test.slow()
-  // Go to http://localhost:8000/
-  await page.goto('')
+test.beforeEach(async ({ page }) => {
+  await page.goto('/contact')
+})
 
-  // Click text=Contact
-  await page.locator('text=Contact').click()
-  await expect(page).toHaveURL('/contact')
+test.describe('Page heading', () => {
+  test('checks the title', async ({ page }) => {
+    await expect(page.locator('h1')).toContainText('Contact')
+  })
+})
 
-  // Fill [placeholder="Your Name"]
-  await page.locator('[placeholder="Your Name"]').fill('Debbie')
+test.describe('Contact Form', () => {
+  test('fills and sends contact form and expects a thank you message', async ({
+    page
+  }) => {
+    await page.locator('[placeholder="Your Name"]').fill('Debbie')
 
-  // Fill [placeholder="Your Email"]
-  await page.locator('[placeholder="Your Email"]').fill('dobriendev@gmail.com')
+    await page
+      .locator('[placeholder="Your Email"]')
+      .fill('dobriendev@gmail.com')
 
-  // Click textarea[name="message"]
-  await page
-    .locator('textarea[name="message"]')
-    .fill('hello just testing the contact form on your page')
+    await page
+      .locator('textarea[name="message"]')
+      .fill('hello just testing the contact form on your page')
 
-  await expect(page.locator('text=Send')).toBeEnabled()
+    await expect(page.locator('text=Send')).toBeEnabled()
+  })
 })
