@@ -63,7 +63,7 @@
     "@playwright/test": "^1.22.1",
     "@vue/test-utils": "^2.0.0-rc.21",
     "autoprefixer": "^10.4.7",
-    "eslint": "^8.15.0",
+    "eslint": "^8.17.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-nuxt": "^3.2.0",
     "eslint-plugin-prettier": "^4.0.0",
