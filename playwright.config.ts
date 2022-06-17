@@ -102,12 +102,12 @@ const config: PlaywrightTestConfig = {
   //   port: 3000,
   // },
 
-  // webServer: {
-  //   command: 'yarn dev',
-  //   port: 8888,
-  //   timeout: 120 * 1000,
-  //   reuseExistingServer: !process.env.CI
-  // }
+  webServer: {
+    command: 'yarn dev',
+    port: 8888,
+    timeout: 120 * 1000,
+    reuseExistingServer: !process.env.CI
+  }
 }
 
 export default config
