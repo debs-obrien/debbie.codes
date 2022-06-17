@@ -48,7 +48,7 @@ const config: PlaywrightTestConfig = {
       use: {
         ...devices['Desktop Chrome']
       }
-    },
+    }
 
     // {
     //   name: 'firefox',
@@ -91,7 +91,7 @@ const config: PlaywrightTestConfig = {
     //     channel: 'chrome',
     //   },
     // },
-  ]
+  ],
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
   // outputDir: 'test-results/',
