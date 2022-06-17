@@ -1,48 +1,50 @@
 import { test, expect } from '@playwright/test'
 
-test('links in footer', async ({ page }) => {
-  // Go to http://localhost:8000/
-  await page.goto('')
+test.beforeEach(async ({ page }) => {
+  await page.goto('/')
+})
 
-  // Click [aria-label="Footer"] >> text=About
-  await Promise.all([
-    page.waitForNavigation(/*{ url: 'http://localhost:8000/about' }*/),
+test.describe('Footer', () => {
+  test('checks the about link goes to the correct page', async ({ page }) => {
     page.locator('[aria-label="Footer"] >> text=About').click()
-  ])
+    await expect(page).toHaveURL('/about')
+  })
 
-  // Click [aria-label="Footer"] >> text=Blog
-  await Promise.all([
-    page.waitForNavigation(/*{ url: 'http://localhost:8000/blog' }*/),
+  test('checks the blog link goes to the correct page', async ({ page }) => {
     page.locator('[aria-label="Footer"] >> text=Blog').click()
-  ])
+    await expect(page).toHaveURL('/blog')
+  })
 
-  // Click [aria-label="Footer"] >> text=Streams
-  await Promise.all([
-    page.waitForNavigation(/*{ url: 'http://localhost:8000/resources/guest-live-streams' }*/),
+  test('checks the live streams link goes to the correct page', async ({
+    page
+  }) => {
     page.locator('[aria-label="Footer"] >> text=Streams').click()
-  ])
+    await expect(page).toHaveURL('/resources/guest-live-streams')
+  })
 
-  // Click [aria-label="Footer"] >> text=Interviews
-  await Promise.all([
-    page.waitForNavigation(/*{ url: 'http://localhost:8000/resources/interviews' }*/),
+  test('checks the interviews link goes to the correct page', async ({
+    page
+  }) => {
     page.locator('[aria-label="Footer"] >> text=Interviews').click()
-  ])
+    await expect(page).toHaveURL('/resources/interviews')
+  })
 
-  // Click [aria-label="Footer"] >> text=Podcasts
-  await Promise.all([
-    page.waitForNavigation(/*{ url: 'http://localhost:8000/resources/podcasts' }*/),
+  test('checks the podcasts link goes to the correct page', async ({
+    page
+  }) => {
     page.locator('[aria-label="Footer"] >> text=Podcasts').click()
-  ])
+    await expect(page).toHaveURL('/resources/podcasts')
+  })
 
-  // Click [aria-label="Footer"] >> text=Resources
-  await Promise.all([
-    page.waitForNavigation(/*{ url: 'http://localhost:8000/resources' }*/),
+  test('checks the resources link goes to the correct page', async ({
+    page
+  }) => {
     page.locator('[aria-label="Footer"] >> text=Resources').click()
-  ])
+    await expect(page).toHaveURL('/resources')
+  })
 
-  // Click text=Contact
-  await Promise.all([
-    page.waitForNavigation(/*{ url: 'http://localhost:8000/contact' }*/),
-    page.locator('text=Contact').click()
-  ])
+  test('checks the contact link goes to the correct page', async ({ page }) => {
+    page.locator('[aria-label="Footer"] >> text=Contact').click()
+    await expect(page).toHaveURL('/contact')
+  })
 })

@@ -1,46 +1,18 @@
 import { test, expect } from '@playwright/test'
 
-test('interview page contains interviews and videos', async ({ page }) => {
-  // Go to http://localhost:8000/
-  await page.goto('')
+test.beforeEach(async ({ page }) => {
+  await page.goto('/resources/interviews')
+})
 
-  // Click text=Interviews >> nth=0
-  await Promise.all([
-    page.waitForNavigation(/*{ url: 'http://localhost:8000/resources/interviews' }*/),
-    page.locator('text=Interviews').first().click()
-  ])
+test.describe('Page heading', () => {
+  test('checks the title', async ({ page }) => {
+    await expect(page.locator('h1')).toHaveText('Guest Interviews')
+  })
+})
 
-  // Click h3:has-text("Handling Content on the Modern Web")
-  await page
-    .locator('h3:has-text("Handling Content on the Modern Web")')
-    .click()
-
-  // Click span:has-text("Web") >> nth=1
-  await page.locator('span:has-text("Web")').nth(1).click()
-
-  // Click span:has-text("Content") >> nth=1
-  await page.locator('span:has-text("Content")').nth(1).click()
-
-  // Click span:has-text("Jamstack")
-  await page.locator('span:has-text("Jamstack")').click()
-
-  // Click text=Virtual panel moderated by Kaya of Wordify with leading web personalities Tracy,
-  await page
-    .locator(
-      'text=Virtual panel moderated by Kaya of Wordify with leading web personalities Tracy,'
-    )
-    .click()
-
-  // Click text=March 24, 2022
-  await page.locator('text=March 24, 2022').click()
-
-  // Click lite-youtube:has-text("Handling Content on the Modern Web")
-  await page
-    .locator('lite-youtube:has-text("Handling Content on the Modern Web")')
-    .click()
-
-  // Click button:has-text("Handling Content on the Modern Web")
-  await page
-    .locator('button:has-text("Handling Content on the Modern Web")')
-    .click()
+test.describe('Interview Cards', () => {
+  test('shows minimum number of interview cards', async ({ page }) => {
+    const interviews = await page.locator('data-test-id=interviews').count()
+    await expect(interviews).toBeGreaterThanOrEqual(3)
+  })
 })

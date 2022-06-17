@@ -1,36 +1,18 @@
 import { test, expect } from '@playwright/test'
 
-test('talks page content and youtube videos', async ({ page }) => {
-  // Go to http://localhost:8000/
-  await page.goto('/')
+test.beforeEach(async ({ page }) => {
+  await page.goto('/resources/conference-talks')
+})
 
-  // Click text=Talks >> nth=0
-  await Promise.all([
-    page.waitForNavigation(/*{ url: '/resources/conference-talks' }*/),
-    page.locator('text=Talks').first().click()
-  ])
+test.describe('Page heading', () => {
+  test('checks the title', async ({ page }) => {
+    await expect(page.locator('h1')).toContainText('talks')
+  })
+})
 
-  // Click text=Debbie's videos from conference talks
-  await page.locator("text=Debbie's videos from conference talks").click()
-
-  // Click h3:has-text("It's All About Components")
-  await page.locator('h3:has-text("It\'s All About Components")').click()
-
-  // Click text=The frontend is a great place to be in these days and as apps get bigger and big
-  await page
-    .locator(
-      'text=The frontend is a great place to be in these days and as apps get bigger and big'
-    )
-    .click()
-
-  // Click text=March 31, 2022
-  await page.locator('text=March 31, 2022').click()
-
-  // Click lite-youtube:has-text("It's All About Components")
-  await page
-    .locator('lite-youtube:has-text("It\'s All About Components")')
-    .click()
-
-  // Click button:has-text("It's All About Components")
-  await page.locator('button:has-text("It\'s All About Components")').click()
+test.describe('Talk Cards', () => {
+  test('shows minimum number of talk cards', async ({ page }) => {
+    const talks = await page.locator('data-test-id=talks').count()
+    await expect(talks).toBeGreaterThanOrEqual(3)
+  })
 })

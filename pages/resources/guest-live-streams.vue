@@ -9,7 +9,11 @@
     <div
       class="mt-12 grid gap-6 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
     >
-      <div v-for="video of videos" :key="video.slug">
+      <div
+        v-for="video of videos"
+        :key="video.slug"
+        data-test-id="live-streams"
+      >
         <VideoCard :item="video" />
       </div>
     </div>
