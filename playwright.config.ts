@@ -38,7 +38,7 @@ const config: PlaywrightTestConfig = {
     baseURL: process.env.PLAYWRIGHT_TEST_BASE_URL || 'http://localhost:8888',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on'
+    trace: 'on-first-retry'
   },
 
   /* Configure projects for major browsers */
@@ -102,12 +102,14 @@ const config: PlaywrightTestConfig = {
   //   port: 3000,
   // },
 
-  webServer: process.env.CI ? {
-    command: 'yarn dev',
-    port: 8888,
-    timeout: 120 * 1000,
-    reuseExistingServer: !process.env.CI
-  } : undefined,
+  webServer: process.env.CI
+    ? {
+        command: 'yarn dev',
+        port: 8888,
+        timeout: 120 * 1000,
+        reuseExistingServer: !process.env.CI
+      }
+    : undefined
 }
 
 export default config
