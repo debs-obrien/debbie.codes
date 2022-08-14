@@ -16,7 +16,7 @@ export default {
         hid: 'description',
         name: 'description',
         content:
-          "Debbie O'Brien, Head Developer Advocate at Bit, with over 10 years experience in Frontend development. Microsoft Most Valuable Professional in developer technologies, Google Developer Expert in web technologies, GitHub Start, NuxtJS Ambassador and Cloudinary Media Developer Expert."
+          "Debbie O'Brien, Program Manager at Microsoft working on Playwright, with over 10 years experience in Frontend development. Google Developer Expert in web technologies, Previous Microsoft Most Valuable Professional in developer technologies, GitHub Start Alumni, NuxtJS Ambassador and Cloudinary Media Developer Expert."
       },
       // Test on: https://developers.facebook.com/tools/debug/ or https://socialsharepreview.com/
       { property: 'og:site_name', content: 'Debbie Codes' },
@@ -30,13 +30,13 @@ export default {
         hid: 'og:title',
         property: 'og:title',
         content:
-          'Debbie codes and helps others learn Bit, Component Driven Development, React, Nuxt and more'
+          'Debbie codes and helps others learn Playwright, testing, React, Nuxt and more'
       },
       {
         hid: 'og:description',
         property: 'og:description',
         content:
-          "Debbie O'Brien, Head Developer Advocate at Bit, with over 10 years experience in Frontend development. Microsoft Most Valuable Professional in developer technologies, Google Developer Expert in web technologies, GitHub Star, NuxtJS Ambassador and Cloudinary Media Developer Expert."
+          "Debbie O'Brien, Program Manager at Microsoft working on Playwright, with over 10 years experience in Frontend development. Google Developer Expert in web technologies, Previous Microsoft Most Valuable Professional in developer technologies, GitHub Start Alumni, NuxtJS Ambassador and Cloudinary Media Developer Expert."
       },
       {
         hid: 'og:image',
@@ -55,13 +55,13 @@ export default {
         hid: 'twitter:title',
         name: 'twitter:title',
         content:
-          'Debbie codes and helps others learn Bit, Component Driven Development, React, Nuxt and more'
+          'Debbie codes and helps others learn Playwright, testing, React, Nuxt and more'
       },
       {
         hid: 'twitter:description',
         name: 'twitter:description',
         content:
-          'My website of where I play around with Nuxt and more and showcase my blog, resources etc'
+          'My website of where I play around with Nuxt, Playwright and more and showcase my blog, resources etc'
       },
       {
         hid: 'twitter:image',
