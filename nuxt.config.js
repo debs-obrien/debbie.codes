@@ -4,7 +4,8 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: 'Debbie Codes with Bit, Typescript, Nuxt, React, Tailwind and more',
+    title:
+      'Debbie Codes with Playwright, Typescript, Nuxt, React, Tailwind and more',
     meta: [
       { charset: 'utf-8' },
       {
