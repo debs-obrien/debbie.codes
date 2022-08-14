@@ -5,10 +5,8 @@
         <NuxtImg
           provider="cloudinary"
           class="rounded-full mb-4 mt-8 profile-pic border-white border"
-          src="c_fill,ar_1:1,g_auto,r_max,q_auto,fl_lossy,f_auto/v1589119213/debbie.codes/home-pic_mfirod"
+          src="c_fill,ar_1:1,g_auto,r_max,q_auto,fl_lossy,f_auto/v1589119213/debbie.codes/debbie-thumb_clt00n"
           alt="Debbie O'Brien"
-          width="356"
-          height="356"
           quality="80"
           format="webp"
         />
@@ -19,16 +17,7 @@
       </h1>
 
       <div class="dark:text-white subtitle font-medium mb-20">
-        <p class="mb-4">
-          Senior Program Manager at
-          <a
-            href="https://bit.dev"
-            target="_blank"
-            rel="nofollow noopener noreferrer"
-          >
-            Microsoft
-          </a>
-        </p>
+        <p class="mb-4"> Senior Program Manager at Microsoft </p>
         <p>
           <a
             href="https://developers.google.com/community/experts/directory/profile/profile-debbie_o_brien"
@@ -43,7 +32,7 @@
             target="_blank"
             rel="nofollow noopener noreferrer"
           >
-            Former MVP
+            Former Microsoft MVP
           </a>
 
           |
