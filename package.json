@@ -40,7 +40,7 @@
     "@nuxtjs/tailwindcss": "4.2.1",
     "@tailwindcss/typography": "^0.5.4",
     "babel-eslint": "^10.1.0",
-    "graphql": "^16.5.0",
+    "graphql": "^16.6.0",
     "graphql-tag": "^2.12.6",
     "gsap": "^3.10.3",
     "lite-youtube-embed": "^0.2.0",
