@@ -144,7 +144,6 @@
   import AppTitle from '~/components/AppTitle.vue'
   export default {
     layout: 'home',
-    colorMode: 'dark',
     async asyncData({ $content, error }) {
       const numArticles = 3
       const getArticles = await $content('articles')
