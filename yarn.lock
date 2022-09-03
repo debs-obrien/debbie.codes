@@ -1366,7 +1366,7 @@
   optionalDependencies:
     ipx "^0.9.9"
 
-"@nuxt/kit@^3.0.0-rc.6":
+"@nuxt/kit@^3.0.0-rc.3", "@nuxt/kit@^3.0.0-rc.6":
   version "3.0.0-rc.9"
   resolved "https://registry.yarnpkg.com/@nuxt/kit/-/kit-3.0.0-rc.9.tgz#05d9721a7b7bf8538cd6f501ed0692cf0171bc2f"
   integrity sha512-Y+db0iw/1pKiLMEG7L/6HCq8O9xsbVJT/ksePY1Q8o3fV40Q9gCWI0YumCIzVdBiAFFEOCNASsxmGj7kPSdpCA==
@@ -1625,13 +1625,14 @@
     consola "^2.15.3"
     defu "^5.0.0"
 
-"@nuxtjs/color-mode@^2.1.1":
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/@nuxtjs/color-mode/-/color-mode-2.1.1.tgz#374f995f56a8fe27c6263ab865a034a50e90c1ea"
-  integrity sha512-kGB/FoICF4RwZkfNBhL/yGrHfaUFpviYq6HGvSkZEm2dCpjRXIv9VsWoP0uzwxnoaRAQQOkkWjaGv/nSk0gUSQ==
+"@nuxtjs/color-mode@^3.1.4":
+  version "3.1.4"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/color-mode/-/color-mode-3.1.4.tgz#7b54af2b3a21d07acac158ded8b2e8f45b4d4a24"
+  integrity sha512-3pxZNbZCFCzBgkyJLU/YvC2L2l1yRvITuD91zfJoIGm52PTx66y/Q1/UW8i9YFDVhJvvRd67s6eWvgaKQtTPlw==
   dependencies:
-    defu "^5.0.0"
+    "@nuxt/kit" "^3.0.0-rc.3"
     lodash.template "^4.5.0"
+    pathe "^0.3.0"
 
 "@nuxtjs/eslint-config@^11.0.0":
   version "11.0.0"
@@ -8992,7 +8993,7 @@ path-type@^4.0.0:
   resolved "https://registry.yarnpkg.com/path-type/-/path-type-4.0.0.tgz#84ed01c0a7ba380afe09d90a8c180dcd9d03043b"
   integrity sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==
 
-pathe@^0.3.2, pathe@^0.3.3, pathe@^0.3.4, pathe@^0.3.5:
+pathe@^0.3.0, pathe@^0.3.2, pathe@^0.3.3, pathe@^0.3.4, pathe@^0.3.5:
   version "0.3.5"
   resolved "https://registry.yarnpkg.com/pathe/-/pathe-0.3.5.tgz#87e5c1164ded1bebeb9dea5dab63563144062303"
   integrity sha512-grU/QeYP0ChuE5kjU2/k8VtAeODzbernHlue0gTa27+ayGIu3wqYBIPGfP9r5xSqgCgDd4nWrjKXEfxMillByg==
