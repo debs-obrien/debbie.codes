@@ -67,14 +67,14 @@
           </NuxtLink>
         </div>
       </nav>
-      <div class="mt-8 flex justify-center space-x-6">
+      <div class="mt-8 flex flex-wrap justify-center space-x-6">
         <a
           href="https://twitter.com/debs_obrien"
           aria-label="twitter"
           target="_blank"
           rel="nofollow noopener noreferrer"
         >
-          <IconTwitter class="h-10 w-10 fill-current" />
+          <IconTwitter class="h-10 w-10 mb-6 fill-current" />
         </a>
 
         <a
