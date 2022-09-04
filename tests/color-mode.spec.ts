@@ -23,8 +23,13 @@ test.describe('Color Picker', () => {
     await expect(page.locator('html')).toHaveAttribute('class', 'sepia')
   })
 
+  test.use({ colorScheme: 'dark' })
+
   test('shows page in system mode', async ({ page }) => {
     await page.locator('[aria-label="system mode"]').click()
-    await expect(page.locator('text=color mode >> text=system ')).toBeVisible()
+    await expect(
+      page.locator('text=color mode >> text=system (dark mode detected)')
+    ).toBeVisible()
+    await expect(page.locator('html')).toHaveAttribute('class', 'dark')
   })
 })
