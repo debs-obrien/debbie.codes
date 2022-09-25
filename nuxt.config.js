@@ -136,7 +136,7 @@ export default {
     '@nuxtjs/svg',
     '@nuxtjs/color-mode',
     '@nuxtjs/google-fonts',
-    'vue-plausible',
+    // 'vue-plausible',
     'nuxt-build-optimisations',
     '@nuxt/image'
   ],
