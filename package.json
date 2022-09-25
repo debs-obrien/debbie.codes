@@ -62,7 +62,7 @@
     "@nuxtjs/svg": "^0.4.0",
     "@playwright/test": "^1.25.2",
     "@vue/test-utils": "^2.0.2",
-    "autoprefixer": "^10.4.8",
+    "autoprefixer": "^10.4.11",
     "eslint": "^8.22.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-nuxt": "^4.0.0",
