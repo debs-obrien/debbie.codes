@@ -26,6 +26,15 @@
     async asyncData({ $content, params, error }) {
       const pageNo = parseInt(params.number)
       const numArticles = 9
+
+      const getTotalRemainingArticles = await $content('articles')
+        .where({
+          published: { $ne: false },
+          tags: { $contains: params.category }
+        })
+        .skip(numArticles * (pageNo - 1))
+        .fetch()
+
       const getArticles = await $content('articles')
         .where({
           published: { $ne: false },
@@ -35,12 +44,18 @@
         .limit(numArticles)
         .skip(numArticles * (pageNo - 1))
         .fetch()
+        .catch(error => {
+          error({ statusCode: 404, message: 'No articles found!' })
+        })
 
       if (!getArticles.length) {
         return error({ statusCode: 404, message: 'No articles found!' })
       }
 
-      const nextPage = getArticles.length === numArticles
+      const totalArticles =
+        getTotalRemainingArticles.length - getArticles.length
+
+      const nextPage = totalArticles > 0
 
       return {
         nextPage,
