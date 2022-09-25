@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "-": "^0.0.1",
-    "@babel/eslint-parser": "^7.18.9",
+    "@babel/eslint-parser": "^7.19.1",
     "@nuxt/content": "^1.15.1",
     "@nuxt/http": "^0.6.4",
     "@nuxt/image": "^0.7.1",
@@ -60,7 +60,7 @@
     "@nuxtjs/pwa": "^3.3.4",
     "@nuxtjs/stylelint-module": "^4.1.0",
     "@nuxtjs/svg": "^0.4.0",
-    "@playwright/test": "^1.25.0",
+    "@playwright/test": "^1.25.2",
     "@vue/test-utils": "^2.0.2",
     "autoprefixer": "^10.4.8",
     "eslint": "^8.22.0",
