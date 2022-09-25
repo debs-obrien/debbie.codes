@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col rounded-lg shadow-lg overflow-hidden flex-1">
-    <div class="flex-shrink-0">
+    <div class="flex-shrink-0 card">
       <div v-if="item.url">
         <a :href="item.url" class="block" rel="nofollow" target="_blank">
           <NuxtImg
