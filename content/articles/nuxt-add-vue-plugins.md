@@ -39,7 +39,7 @@ plugins: ['~/plugins/v-tooltip.js']
 
 ## Let's add some styles
 
-You can add styles how you wish but the plugin gives us some [styles that we can copy](https://github.com/Akryum/v-tooltip#style-examples) directly and add to a `.css` file which we can put in the assets folder. Then we just have to register the css file by adding it to our Nuxt config.
+You can add styles how you wish but the plugin gives us some [styles that we can copy](https://floating-vue.starpad.dev/legacy/v2/#css) directly and add to a `.css` file which we can put in the assets folder. Then we just have to register the css file by adding it to our Nuxt config.
 
 ```js{}[nuxt.config.js]
 css: ['~/assets/v-tooltip.css']
