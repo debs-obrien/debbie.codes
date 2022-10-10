@@ -60,7 +60,7 @@
     "@nuxtjs/pwa": "^3.3.4",
     "@nuxtjs/stylelint-module": "^4.1.0",
     "@nuxtjs/svg": "^0.4.0",
-    "@playwright/test": "^1.26.0",
+    "@playwright/test": "^1.27.0",
     "@vue/test-utils": "^2.0.2",
     "autoprefixer": "^10.4.12",
     "eslint": "^8.22.0",
