@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="flex flex-col rounded-lg shadow-lg overflow-hidden flex-1 max-width h-full"
-  >
+  <div class="flex flex-col overflow-hidden flex-1 max-width h-full">
     <div class="video flex-shrink-0">
       <lite-youtube
         v-if="item.video && item.start"
@@ -15,11 +13,16 @@
         :playlabel="item.title"
       />
     </div>
-    <div class="flex-1 bg-white p-6 flex flex-col justify-between">
+    <div class="flex-1 py-3 flex flex-col justify-between">
       <div class="flex-1">
-        <h3 class="mt-2 text-xl leading-7 font-semibold text-gray-900">
+        <h3 class="mt-2 text-xl leading-7 font-semibold">
           {{ item.title }}
         </h3>
+        <div v-if="item.date" class="mt-3 mb-3 flex items-center">
+          <div class="flex text-sm leading-5 py-0.5">
+            {{ formatDate(item.date) }}
+          </div>
+        </div>
         <div>
           <span
             v-for="tag in item.tags"
@@ -29,16 +32,9 @@
             {{ tag }}
           </span>
         </div>
-        <p v-if="description" class="mt-3 text-base leading-6 text-gray-500">
+        <!-- <p v-if="description" class="mt-3 text-base leading-6 text-gray-500">
           {{ item.description }}
-        </p>
-      </div>
-      <div v-if="item.date" class="mt-6 flex items-center">
-        <div class="ml-3">
-          <div class="flex text-sm leading-5 text-gray-500">
-            {{ formatDate(item.date) }}
-          </div>
-        </div>
+        </p> -->
       </div>
     </div>
   </div>

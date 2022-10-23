@@ -93,7 +93,7 @@
           ><AppSubtitle>Recent Talks</AppSubtitle></NuxtLink
         >
         <div
-          class="mt-12 grid gap-6 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
+          class="text-left mt-12 grid gap-6 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
         >
           <div v-for="video of getTalks" :key="video.slug" data-test-id="talks">
             <VideoCard :item="video" :description="false" />
@@ -125,7 +125,7 @@
         >
 
         <div
-          class="mt-12 grid gap-6 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
+          class="text-left mt-12 grid gap-6 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
         >
           <div
             v-for="interview of getInterviews"
