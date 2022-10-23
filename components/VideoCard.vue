@@ -27,7 +27,7 @@
           <span
             v-for="tag in item.tags"
             :key="tag"
-            class="inline-flex items-center px-3 py-0.5 mr-2 rounded-full text-sm font-medium leading-5 bg-indigo-100 text-indigo-800"
+            class="inline-flex items-center px-3 py-0.5 mr-2 rounded-full text-sm font-medium leading-5 bg-indigo-100 text-indigo-800 capitalize"
           >
             {{ tag }}
           </span>
