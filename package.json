@@ -37,7 +37,7 @@
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/google-fonts": "^3.0.0-0",
     "@nuxtjs/sitemap": "^2.4.0",
-    "@nuxtjs/tailwindcss": "4.2.1",
+    "@nuxtjs/tailwindcss": "6.1.2",
     "@tailwindcss/typography": "^0.5.4",
     "babel-eslint": "^10.1.0",
     "graphql": "^16.6.0",
