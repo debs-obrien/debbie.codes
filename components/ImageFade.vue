@@ -1,4 +1,4 @@
-<template functional>
+<template>
   <v-lazy-image
     :src="props.src"
     :src-placeholder="props.srcPlaceholder"
@@ -8,11 +8,11 @@
 </template>
 
 <style scoped>
-.v-lazy-image {
-  opacity: 0;
-  transition: opacity 2s;
-}
-.v-lazy-image-loaded {
-  opacity: 1;
-}
+  .v-lazy-image {
+    opacity: 0;
+    transition: opacity 2s;
+  }
+  .v-lazy-image-loaded {
+    opacity: 1;
+  }
 </style>

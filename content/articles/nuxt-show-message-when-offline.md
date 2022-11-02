@@ -17,7 +17,7 @@ In your `layouts/default.vue`
 <template>
   <div>
     <div v-if="$nuxt.isOffline">You are offline</div>
-    <nuxt />
+    <NuxtPage />
   </div>
 </template>
 ```
@@ -34,7 +34,7 @@ Then you could have the `$nuxt.isOnline` to show a message that says "yeah you a
 <template>
   <div>
     <div v-if="$nuxt.isOnline">Yeah you are online</div>
-    <nuxt />
+    <NuxtPage />
   </div>
 </template>
 ```

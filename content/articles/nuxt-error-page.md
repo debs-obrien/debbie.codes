@@ -56,4 +56,4 @@ So as you can see it is really easy to add an error page yet it is something we 
 <NuxtLink to="/">Home page</NuxtLink>
 ```
 
-Note: Although this page is in the layouts folder you do not use the `<Nuxt />` component in this page.
+Note: Although this page is in the layouts folder you do not use the `<NuxtPage />` component in this page.

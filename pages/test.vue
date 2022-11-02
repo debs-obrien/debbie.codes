@@ -3,11 +3,11 @@
     <h1>Serverless</h1>
 
     <p class="mt-10">
-      {{ hello }}
+      <!-- {{ hello }} -->
     </p>
   </div>
 </template>
-<script>
+<!-- <script>
 import axios from 'axios'
 export default {
   async asyncData () {
@@ -18,4 +18,4 @@ export default {
     return { hello: data }
   }
 }
-</script>
+</script> -->

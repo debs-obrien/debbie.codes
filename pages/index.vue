@@ -78,12 +78,12 @@
           class="mt-12 grid gap-6 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
         >
           <div
-            v-for="article of getArticles"
-            :key="article.slug"
+            v-for="post of getPosts"
+            :key="post._path"
             class="flex flex-col"
             data-test-id="posts"
           >
-            <PostsCard :item="article" :description="false" />
+            <PostsCard :item="post" :description="false" />
           </div>
         </div>
       </section>
@@ -95,7 +95,11 @@
         <div
           class="text-left mt-12 grid gap-6 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
         >
-          <div v-for="video of getTalks" :key="video.slug" data-test-id="talks">
+          <div
+            v-for="video of getTalks"
+            :key="video._path"
+            data-test-id="talks"
+          >
             <VideoCard :item="video" :description="false" />
           </div>
         </div>
@@ -140,22 +144,58 @@
     </div>
   </div>
 </template>
-<script>
-  import AppTitle from '~/components/AppTitle.vue'
+<script setup lang="ts">
+  const limit = ref(3)
+
+  const getPosts = await queryContent('/articles')
+    .where({
+      published: { $ne: false }
+    })
+    .sort({ date: -1 })
+    .limit(limit.value)
+    .find()
+
+  const getTalks = await queryContent('conference-talks')
+    .where({
+      published: { $ne: false }
+    })
+    .sort({ date: -1 })
+    .limit(limit.value)
+    .find()
+
+  const getCourses = await queryContent('courses')
+    .where({
+      published: { $ne: false }
+    })
+    .sort({ date: -1 })
+    .limit(limit.value)
+    .find()
+
+  const getInterviews = await queryContent('interviews')
+    .where({
+      published: { $ne: false }
+    })
+    .sort({ date: -1 })
+    .limit(limit.value)
+    .find()
+</script>
+
+<script lang="ts">
   export default {
     layout: 'home',
     async asyncData({ $content, error }) {
       const numArticles = 3
-      const getArticles = await $content('articles')
-        .where({
-          published: { $ne: false }
-        })
-        .sortBy('date', 'desc')
-        .limit(numArticles)
-        .fetch()
-      if (!getArticles.length) {
-        return error({ statusCode: 404, message: 'No articles found!' })
-      }
+      // const getArticles = await $content('articles')
+      //   .where({
+      //     published: { $ne: false }
+      //   })
+      //   .sortBy('date', 'desc')
+      //   .limit(numArticles)
+      //   .fetch()
+      // if (!getArticles.length) {
+      //   return error({ statusCode: 404, message: 'No articles found!' })
+      // }
+
       const getTalks = await $content('conference-talks')
         .where({
           published: { $ne: false }
@@ -187,13 +227,11 @@
         return error({ statusCode: 404, message: 'No interviews found!' })
       }
       return {
-        getArticles,
         getTalks,
         getCourses,
         getInterviews
       }
-    },
-    components: { AppTitle }
+    }
   }
 </script>
 

@@ -4,7 +4,7 @@
     <TheTopBar />
     <div class="container mt-top-bar">
       <SearchInput search-item="tips" />
-      <nuxt />
+      <NuxtPage />
     </div>
 
     <TheFooter />

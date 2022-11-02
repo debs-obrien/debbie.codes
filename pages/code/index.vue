@@ -1,21 +1,17 @@
 <template>
   <div>
-    <h1 class="main-heading">
-      Code
-    </h1>
-    <p class="mb-4">
-      Some simple code examples I have built using vue.js
-    </p>
+    <h1 class="main-heading"> Code </h1>
+    <p class="mb-4"> Some simple code examples I have built using vue.js </p>
     <nuxt-link to="code/clicksmethods" class="button--green">
       Clicks and Methods
     </nuxt-link>
     <p class="mt-10">
       This message is coming from my serverless function called hello:
-      {{ hello }}
+      <!-- {{ hello }} -->
     </p>
   </div>
 </template>
-<script>
+<!-- <script>
 import axios from 'axios'
 export default {
   async asyncData () {
@@ -26,4 +22,4 @@ export default {
     return { hello: data }
   }
 }
-</script>
+</script> -->

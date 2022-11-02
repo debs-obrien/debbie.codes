@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <article>
     <h1 class="main-heading">
       {{ page.title }}
@@ -16,4 +16,4 @@ export default {
     }
   }
 }
-</script>
+</script> -->

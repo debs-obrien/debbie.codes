@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <nuxt-content :document="page" />
 </template>
 <script>
@@ -28,4 +28,4 @@ export default {
     }
   }
 }
-</script>
+</script> -->

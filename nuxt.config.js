@@ -1,4 +1,4 @@
-export default {
+export default defineNuxtConfig({
   target: 'static',
   /*
    ** Headers of the page
@@ -94,13 +94,13 @@ export default {
    ** Global CSS
    */
   css: [
-    '~/assets/css/main',
-    'node_modules/lite-youtube-embed/src/lite-yt-embed.css'
+    '@/assets/css/main.css',
+    '@/node_modules/lite-youtube-embed/src/lite-yt-embed.css'
   ],
 
-  colorMode: {
-    classSuffix: ''
-  },
+  // colorMode: {
+  //   classSuffix: ''
+  // },
 
   router: {
     linkExactActiveClass: 'linkExactActiveClass'
@@ -115,30 +115,30 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [
-    '~/plugins/url-helpers.js',
-    // '~/plugins/vue-dompurify.js',
-    '~/plugins/hasura.js',
-    '~/plugins/preview.client.js',
-    '~/plugins/youtube.client.js'
-  ],
+  // plugins: [
+  //   '~/plugins/url-helpers.js',
+  //   // '~/plugins/vue-dompurify.js',
+  //   '~/plugins/hasura.js',
+  //   '~/plugins/preview.client.js',
+  //   '~/plugins/youtube.client.js'
+  // ],
 
   /*
    ** Nuxt.js dev-modules
    */
   buildModules: [
-    // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module',
-    // Doc: https://github.com/nuxt-community/stylelint-module
-    '@nuxtjs/stylelint-module',
-    // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
-    '@nuxtjs/tailwindcss',
-    '@nuxtjs/svg',
-    '@nuxtjs/color-mode',
-    '@nuxtjs/google-fonts',
-    // 'vue-plausible',
-    'nuxt-build-optimisations',
-    '@nuxt/image'
+    // // Doc: https://github.com/nuxt-community/eslint-module
+    // '@nuxtjs/eslint-module',
+    // // Doc: https://github.com/nuxt-community/stylelint-module
+    // '@nuxtjs/stylelint-module',
+    // // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
+    // '@nuxtjs/tailwindcss',
+    // '@nuxtjs/svg',
+    // '@nuxtjs/color-mode',
+    // '@nuxtjs/google-fonts',
+    // // 'vue-plausible',
+    // 'nuxt-build-optimisations',
+    // '@nuxt/image'
   ],
 
   /*
@@ -146,19 +146,32 @@ export default {
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios',
-    '@nuxt/http',
-    '@nuxtjs/pwa',
-    '@nuxt/content',
-    '@nuxt/image',
-    '@nuxtjs/sitemap',
-    [
-      'storyblok-nuxt',
-      {
-        accessToken: process.env.STORYBLOK_API_KEY,
-        cacheProvider: 'memory'
-      }
-    ]
+    // Doc: https://github.com/nuxt-community/eslint-module
+    '@nuxtjs/eslint-module',
+    // Doc: https://github.com/nuxt-community/stylelint-module
+    // '@nuxtjs/stylelint-module',
+    // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
+    '@nuxtjs/tailwindcss',
+    // '@nuxtjs/svg',
+    '@nuxtjs/color-mode',
+    // '@nuxtjs/google-fonts',
+    // 'vue-plausible',
+    // 'nuxt-build-optimisations',
+    // '@nuxt/image',
+    '@nuxt/image-edge',
+    // '@nuxtjs/axios',
+    // '@nuxt/http',
+    // '@nuxtjs/pwa',
+    '@nuxt/content'
+    // '@nuxt/image',
+    // '@nuxtjs/sitemap',
+    // [
+    //   'storyblok-nuxt',
+    //   {
+    //     accessToken: process.env.STORYBLOK_API_KEY,
+    //     cacheProvider: 'memory'
+    //   }
+    // ]
   ],
   sitemap: {
     hostname: 'https://debbie.codes',
@@ -166,13 +179,13 @@ export default {
     exclude: ['/code', '/code/**', '/test', '/thank-you']
   },
 
-  buildOptimisations: {
-    profile: 'risky',
-    features: {
-      // use url-loader
-      imageFileLoader: false
-    }
-  },
+  // buildOptimisations: {
+  //   profile: 'risky',
+  //   features: {
+  //     // use url-loader
+  //     imageFileLoader: false
+  //   }
+  // },
   plausible: {
     domain: 'debbie.codes'
   },
@@ -195,7 +208,7 @@ export default {
       }
     }
   },
-  components: true,
+  // components: true,
   content: {
     markdown: {
       prism: {
@@ -203,27 +216,27 @@ export default {
       }
     }
   },
-  hooks: {
-    'content:file:beforeInsert': document => {
-      if (document.extension === '.md') {
-        const { time } = require('reading-time')(document.text)
+  // hooks: {
+  //   'content:file:beforeInsert': document => {
+  //     if (document.extension === '.md') {
+  //       const { time } = require('reading-time')(document.text)
 
-        document.readingTime = time
-      }
-    }
-  },
+  //       document.readingTime = time
+  //     }
+  //   }
+  // },
 
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  // axios: {},
 
-  pwa: {
-    manifest: {
-      theme_color: '#091a28'
-    }
-  },
+  // pwa: {
+  //   manifest: {
+  //     theme_color: '#091a28'
+  //   }
+  // },
 
   googleFonts: {
     /* module options */
@@ -231,22 +244,16 @@ export default {
       Saira: [300, 400, 500, 600, 700]
     },
     display: 'swap' // 'auto' | 'block' | 'swap' | 'fallback' | 'optional'
-  },
+  }
 
   /*
    ** Exclude from generation
    */
-  generate: {
-    fallback: true,
-    exclude: [/code/, /^(?=.*\btest\b).*$/]
-  },
+  // generate: {
+  //   fallback: true,
+  //   exclude: [/code/, /^(?=.*\btest\b).*$/]
+  // }
   /*
    ** Build configuration
    */
-  build: {
-    /*
-     ** You can extend webpack config here
-     */
-    extend(config, ctx) {}
-  }
-}
+})
