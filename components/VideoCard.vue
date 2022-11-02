@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col overflow-hidden flex-1 max-width h-full">
-    <div class="video flex-shrink-0">
-      <lite-youtube
+    <div class="container flex-shrink-0">
+      <!-- <lite-youtube
         v-if="item.video && item.start"
         :videoid="item.video"
         :playlabel="item.title"
@@ -11,7 +11,30 @@
         v-else-if="item.video"
         :videoid="item.video"
         :playlabel="item.title"
-      />
+      /> -->
+      <iframe
+        class="video"
+        v-if="item.video && item.start"
+        width="560"
+        height="315"
+        :src="'https://www.youtube.com/embed/' + item.video"
+        :title="item.title"
+        :start="item.start"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+      <iframe
+        class="video"
+        v-else-if="item.video"
+        width="560"
+        height="315"
+        :src="'https://www.youtube.com/embed/' + item.video"
+        :title="item.title"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
     </div>
     <div class="flex-1 py-3 flex flex-col justify-between">
       <div class="flex-1">
@@ -65,8 +88,17 @@
   .max-width {
     max-width: 450px;
   }
+  .container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+  }
   .video {
-    width: auto;
-    height: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 </style>

@@ -1,1 +1,1 @@
-// import 'lite-youtube-embed'
+import 'vue-lite-youtube-embed'

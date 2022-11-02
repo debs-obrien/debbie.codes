@@ -50,7 +50,8 @@
     "prism-themes": "^1.9.0",
     "prismjs": "^1.28.0",
     "reading-time": "^1.5.0",
-    "storyblok-nuxt": "^2.0.1"
+    "storyblok-nuxt": "^2.0.1",
+    "vue-lite-youtube-embed": "^1.0.4"
   },
   "devDependencies": {
     "@nuxt/image-edge": "^1.0.0-27769790.4b27db3",

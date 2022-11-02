@@ -95,7 +95,8 @@ export default defineNuxtConfig({
    */
   css: [
     '@/assets/css/main.css',
-    '@/node_modules/lite-youtube-embed/src/lite-yt-embed.css'
+    '@/node_modules/lite-youtube-embed/src/lite-yt-embed.css',
+    '@/node_modules/vue-lite-youtube-embed/dist/style.css'
   ],
 
   // colorMode: {
@@ -244,7 +245,7 @@ export default defineNuxtConfig({
       Saira: [300, 400, 500, 600, 700]
     },
     display: 'swap' // 'auto' | 'block' | 'swap' | 'fallback' | 'optional'
-  }
+  },
 
   /*
    ** Exclude from generation
@@ -256,4 +257,12 @@ export default defineNuxtConfig({
   /*
    ** Build configuration
    */
+  build: {
+    transpile: ['LiteYouTubeEmbed']
+  },
+  vue: {
+    compilerOptions: {
+      isCustomElement: tag => ['LiteYouTubeEmbed'].includes(tag)
+    }
+  }
 })
