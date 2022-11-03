@@ -47,9 +47,9 @@ body {
   @apply text-gray-800 dark:text-gray-300;
   text-decoration: underline;
 }
-.nuxt-content a:hover {
-  @apply text-primary;
-}
+/* .nuxt-content a:hover {
+  @apply color-primary;
+} */
 
 section p {
   @apply mb-2;

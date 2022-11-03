@@ -33,7 +33,6 @@
     "-": "^0.0.1",
     "@babel/eslint-parser": "^7.19.1",
     "@nuxt/content": "^2.2.1",
-    "@nuxt/image": "^0.7.1",
     "@nuxtjs/color-mode": "^3.1.8",
     "@nuxtjs/google-fonts": "^3.0.0-0",
     "@nuxtjs/sitemap": "^2.4.0",

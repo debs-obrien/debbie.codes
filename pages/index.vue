@@ -145,6 +145,7 @@
   </div>
 </template>
 <script setup lang="ts">
+  const layout = 'home'
   const limit = ref(3)
 
   const getPosts = await queryContent('/articles')

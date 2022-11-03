@@ -1,1 +1,2 @@
-import 'vue-lite-youtube-embed'
+import 'lite-youtube-embed'
+export default defineNuxtPlugin(() => {})

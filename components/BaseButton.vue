@@ -7,21 +7,21 @@
   </button>
 </template>
 <script>
-export default {
-  props: {
-    text: {
-      type: String,
-      default: 'Send',
-      required: false
+  export default {
+    props: {
+      text: {
+        type: String,
+        default: 'Send',
+        required: false
+      }
     }
   }
-}
 </script>
 <style scoped>
-.btn {
-  transition: all 0.3s ease;
-}
-.btn:hover {
-  @apply text-primary bg-transparent;
-}
+  .btn {
+    transition: all 0.3s ease;
+  }
+  /* .btn:hover {
+    @apply color-primary bg-transparent;
+  } */
 </style>

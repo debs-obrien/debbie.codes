@@ -11,7 +11,14 @@
         v-else-if="item.video"
         :videoid="item.video"
         :playlabel="item.title"
-      /> -->
+      />
+      <lite-youtube
+        videoid="ogfYd705cRs"
+        style="
+          background-image: url('https://i.ytimg.com/vi/ogfYd705cRs/hqdefault.jpg');
+        "
+      ></lite-youtube> -->
+
       <iframe
         class="video"
         v-if="item.video && item.start"

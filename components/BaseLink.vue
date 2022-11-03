@@ -7,26 +7,26 @@
   </a>
 </template>
 <script>
-export default {
-  props: {
-    text: {
-      type: String,
-      default: '',
-      required: true
-    },
-    href: {
-      type: String,
-      default: '',
-      required: true
+  export default {
+    props: {
+      text: {
+        type: String,
+        default: '',
+        required: true
+      },
+      href: {
+        type: String,
+        default: '',
+        required: true
+      }
     }
   }
-}
 </script>
 <style scoped>
-.btn {
-  transition: all 0.3s ease;
-}
-.btn:hover {
-  @apply text-primary bg-transparent;
-}
+  .btn {
+    transition: all 0.3s ease;
+  }
+  .btn:hover {
+    @apply color-primary bg-transparent;
+  }
 </style>

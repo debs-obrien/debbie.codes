@@ -99,9 +99,9 @@ export default defineNuxtConfig({
     '@/node_modules/vue-lite-youtube-embed/dist/style.css'
   ],
 
-  // colorMode: {
-  //   classSuffix: ''
-  // },
+  colorMode: {
+    classSuffix: ''
+  },
 
   router: {
     linkExactActiveClass: 'linkExactActiveClass'
@@ -153,7 +153,7 @@ export default defineNuxtConfig({
     // '@nuxtjs/stylelint-module',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     '@nuxtjs/tailwindcss',
-    // '@nuxtjs/svg',
+    '@nuxtjs/svg',
     '@nuxtjs/color-mode',
     // '@nuxtjs/google-fonts',
     // 'vue-plausible',
@@ -174,6 +174,7 @@ export default defineNuxtConfig({
     //   }
     // ]
   ],
+  components: { global: true, dirs: ['~/components'] },
   sitemap: {
     hostname: 'https://debbie.codes',
     gzip: true,
@@ -258,11 +259,11 @@ export default defineNuxtConfig({
    ** Build configuration
    */
   build: {
-    transpile: ['LiteYouTubeEmbed']
+    transpile: ['lite-youtube']
   },
   vue: {
     compilerOptions: {
-      isCustomElement: tag => ['LiteYouTubeEmbed'].includes(tag)
+      isCustomElement: tag => ['lite-youtube'].includes(tag)
     }
   }
 })
