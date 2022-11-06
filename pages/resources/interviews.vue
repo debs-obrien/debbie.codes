@@ -15,44 +15,50 @@
     </div>
   </div>
 </template>
-
-<script>
-  export default {
-    async asyncData({ $content, params }) {
-      const videos = await $content('interviews')
-        .where({ published: { $ne: false } })
-        .sortBy('date', 'desc')
-        .fetch()
-
-      return {
-        videos
-      }
-    },
-    data() {
-      return {
-        title: "Debbie's interviews on different platforms",
-        description:
-          "Debbie's interviews talking aout all things Nuxt and coding in general"
-      }
-    },
-    head() {
-      return {
-        title: this.title,
-        meta: [
-          {
-            hid: 'description',
-            name: 'description',
-            content: this.description
-          }
-        ],
-        link: [
-          {
-            hid: 'canonical',
-            rel: 'canonical',
-            href: `https://debbie.codes/resources/${this.$route.params.slug}`
-          }
-        ]
-      }
-    }
-  }
+<script setup>
+const videos = await queryContent('interviews')
+  .where({ published: { $ne: false } })
+  .sort({ date: -1 })
+  .find();
 </script>
+
+<!-- <script>
+export default {
+  async asyncData({ $content, params }) {
+    const videos = await $content('interviews')
+      .where({ published: { $ne: false } })
+      .sortBy('date', 'desc')
+      .fetch();
+
+    return {
+      videos
+    };
+  },
+  data() {
+    return {
+      title: "Debbie's interviews on different platforms",
+      description:
+        "Debbie's interviews talking aout all things Nuxt and coding in general"
+    };
+  },
+  head() {
+    return {
+      title: this.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.description
+        }
+      ],
+      link: [
+        {
+          hid: 'canonical',
+          rel: 'canonical',
+          href: `https://debbie.codes/resources/${this.$route.params.slug}`
+        }
+      ]
+    };
+  }
+};
+</script> -->

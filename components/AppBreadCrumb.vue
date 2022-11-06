@@ -58,16 +58,16 @@
   </nav>
 </template>
 <script>
-  export default {
-    props: {
-      link: {
-        type: String,
-        default: 'resources'
-      },
-      title: {
-        type: String,
-        default: ''
-      }
+export default {
+  props: {
+    link: {
+      type: String,
+      default: 'resources'
+    },
+    title: {
+      type: String,
+      default: ''
     }
   }
+};
 </script>

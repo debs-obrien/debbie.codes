@@ -18,16 +18,16 @@
 </template>
 
 <script>
-  export default {
-    props: ['prevPage', 'nextPage', 'pageNo', 'urlPrefix'],
-    computed: {
-      prevLink() {
-        return this.pageNo === 1
-          ? this.urlPrefix
-          : `${this.urlPrefix}/${this.pageNo - 1}`
-      }
+export default {
+  props: ['prevPage', 'nextPage', 'pageNo', 'urlPrefix'],
+  computed: {
+    prevLink() {
+      return this.pageNo === 1
+        ? this.urlPrefix
+        : `${this.urlPrefix}/${this.pageNo - 1}`;
     }
   }
+};
 </script>
 
 <style></style>

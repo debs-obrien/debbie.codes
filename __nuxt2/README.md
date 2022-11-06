@@ -1,0 +1,9 @@
+# Debbie O'Brien
+
+This is my website which I built in NuxtJS. I use it as my playground for trying out new stuff and having fun. Feel free to have a look around and copy whatever you like as the code is open source so if it helps you then great. All content is written in markdown using Nuxt Content and makes it very easy to add new posts, videos etc. Site is a static site meaning it can be hosted for free on any hosting service such as Netlify.
+
+After cloning it make sure you run yarn or npm install to install everything and then start the dev servers.
+
+```js
+yarn dev
+```

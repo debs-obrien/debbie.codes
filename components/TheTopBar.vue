@@ -20,6 +20,7 @@
         <div class="text-white hidden lg:block">
           <TheNavigation />
         </div>
+        <ColorMode />
         <button class="block lg:hidden" aria-label="open menu" @click="toggle">
           <ul v-if="!isOpen" class="hamburger text-white">
             <li class="bg-white" />
@@ -44,29 +45,29 @@
     <!-- /Dropdown -->
   </header>
 </template>
-<script>
-  export default {
-    data() {
-      return {
-        isOpen: false
-      }
-    },
-    methods: {
-      toggle() {
-        this.isOpen = !this.isOpen
-      }
+<script lang="ts">
+export default {
+  data() {
+    return {
+      isOpen: false
+    };
+  },
+  methods: {
+    toggle() {
+      this.isOpen = !this.isOpen;
     }
   }
+};
 </script>
 
 <style scoped>
-  .hamburger li {
-    width: 35px;
-    height: 5px;
-    margin: 6px 0;
-  }
-  .profile-pic {
-    height: 50px;
-    width: 50px;
-  }
+.hamburger li {
+  width: 35px;
+  height: 5px;
+  margin: 6px 0;
+}
+.profile-pic {
+  height: 50px;
+  width: 50px;
+}
 </style>

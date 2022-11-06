@@ -1,6 +1,6 @@
 <template>
   <div class="page-wrapper">
-    <SocialHead :title="title" :description="description" />
+    <!-- <SocialHead :title="title" :description="description" /> -->
     <AppBreadCrumb title="Courses" />
 
     <AppTitle>Courses I have Created</AppTitle>
@@ -18,44 +18,49 @@
     </div>
   </div>
 </template>
-
-<script>
-  export default {
-    async asyncData({ $content, params }) {
-      const courses = await $content('courses')
-        .where({ published: { $ne: false } })
-        .sortBy('date', 'desc')
-        .fetch()
-
-      return {
-        courses
-      }
-    },
-    data() {
-      return {
-        title: "Welcome to Debbie's courses",
-        description:
-          "Debbie's Courses that she has created for various platforms"
-      }
-    },
-    head() {
-      return {
-        title: this.title,
-        meta: [
-          {
-            hid: 'description',
-            name: 'description',
-            content: this.description
-          }
-        ],
-        link: [
-          {
-            hid: 'canonical',
-            rel: 'canonical',
-            href: `https://debbie.codes/resources/${this.$route.params.slug}`
-          }
-        ]
-      }
-    }
-  }
+<script setup>
+const courses = await queryContent('courses')
+  .where({ published: { $ne: false } })
+  .sort({ date: -1 })
+  .find();
 </script>
+
+<!-- <script>
+export default {
+  async asyncData({ $content, params }) {
+    const courses = await $content('courses')
+      .where({ published: { $ne: false } })
+      .sortBy('date', 'desc')
+      .fetch();
+
+    return {
+      courses
+    };
+  },
+  data() {
+    return {
+      title: "Welcome to Debbie's courses",
+      description: "Debbie's Courses that she has created for various platforms"
+    };
+  },
+  head() {
+    return {
+      title: this.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.description
+        }
+      ],
+      link: [
+        {
+          hid: 'canonical',
+          rel: 'canonical',
+          href: `https://debbie.codes/resources/${this.$route.params.slug}`
+        }
+      ]
+    };
+  }
+};
+</script> -->

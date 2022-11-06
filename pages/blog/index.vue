@@ -5,7 +5,7 @@
     >
       <div
         v-for="article of getArticles"
-        :key="article.slug"
+        :key="article._path"
         class="flex flex-col"
       >
         <PostsCard :item="article" />
@@ -15,7 +15,22 @@
   </div>
 </template>
 
-<script>
+<script setup>
+const route = useRoute();
+const numArticles = ref(9);
+const pageNo = parseInt(route.params.number);
+
+const getArticles = await queryContent('blog')
+  .where({ published: { $ne: false } })
+  .sort({ date: -1 })
+  .limit(numArticles.value)
+  .skip(numArticles.value * (pageNo - 1))
+  .find();
+
+const nextPage = getArticles.length === numArticles;
+</script>
+
+<!-- <script>
   export default {
     layout: 'blog',
     async asyncData({ $content, params }) {
@@ -42,4 +57,4 @@
       }
     }
   }
-</script>
+</script> -->

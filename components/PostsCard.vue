@@ -17,7 +17,7 @@
         </a>
       </div>
       <div v-else class="image">
-        <NuxtLink :to="`/blog/${item.slug}`">
+        <NuxtLink :to="item._path">
           <NuxtImg
             :provider="item.provider"
             :src="item.image"
@@ -53,7 +53,7 @@
         </a>
 
         <div v-else>
-          <NuxtLink :to="`/blog/${item.slug}`" class="block">
+          <NuxtLink :to="`${item._path}`" class="block">
             <h2 class="mt-2 text-xl leading-7 font-semibold text-gray-900">
               {{ item.title }}
             </h2>
@@ -87,37 +87,37 @@
 </template>
 
 <script>
-  export default {
-    props: {
-      description: {
-        type: Boolean,
-        default: true
-      },
-      item: {
-        type: Object,
-        required: true
-      }
+export default {
+  props: {
+    description: {
+      type: Boolean,
+      default: true
     },
-    methods: {
-      formatDate(date) {
-        const options = { year: 'numeric', month: 'long', day: 'numeric' }
-        return new Date(date).toLocaleDateString('en', options)
-      }
+    item: {
+      type: Object,
+      required: true
+    }
+  },
+  methods: {
+    formatDate(date) {
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      return new Date(date).toLocaleDateString('en', options);
     }
   }
+};
 </script>
 
 <style scoped>
-  a {
-    text-decoration: none;
-  }
+a {
+  text-decoration: none;
+}
 
-  @media screen and (min-width: 1920px) {
-    .image {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-      object-position: bottom;
-    }
+@media screen and (min-width: 1920px) {
+  .image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: bottom;
   }
+}
 </style>

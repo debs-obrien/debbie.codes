@@ -144,26 +144,26 @@
   </footer>
 </template>
 <script>
-  import IconGithub from '@/assets/icons/github.svg?inline'
-  import IconTwitter from '@/assets/icons/twitter.svg?inline'
-  import IconTwitch from '@/assets/icons/twitch.svg?inline'
-  import IconLinkedIn from '@/assets/icons/linkedIn.svg?inline'
-  import IconYouTube from '@/assets/icons/youtube.svg?inline'
-  import IconSpeaker from '@/assets/icons/speaker.svg?inline'
-  import IconCoffee from '@/assets/icons/coffee.svg?inline'
-  import IconDevTo from '@/assets/icons/dev-rainbow.svg?inline'
-  export default {
-    components: {
-      IconGithub,
-      IconTwitter,
-      IconLinkedIn,
-      IconYouTube,
-      IconSpeaker,
-      IconCoffee,
-      IconTwitch,
-      IconDevTo
-    }
+import IconGithub from '@/assets/icons/github.svg?inline';
+import IconTwitter from '@/assets/icons/twitter.svg?inline';
+import IconTwitch from '@/assets/icons/twitch.svg?inline';
+import IconLinkedIn from '@/assets/icons/linkedIn.svg?inline';
+import IconYouTube from '@/assets/icons/youtube.svg?inline';
+import IconSpeaker from '@/assets/icons/speaker.svg?inline';
+import IconCoffee from '@/assets/icons/coffee.svg?inline';
+import IconDevTo from '@/assets/icons/dev-rainbow.svg?inline';
+export default {
+  components: {
+    IconGithub,
+    IconTwitter,
+    IconLinkedIn,
+    IconYouTube,
+    IconSpeaker,
+    IconCoffee,
+    IconTwitch,
+    IconDevTo
   }
+};
 </script>
 
 <style scoped></style>

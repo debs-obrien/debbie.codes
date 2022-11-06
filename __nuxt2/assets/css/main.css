@@ -1,0 +1,108 @@
+:root {
+  --color: #243746;
+  --color-primary: #d8002d;
+  --color-secondary: #0e2233;
+  --bg: #f3f5f4;
+  --bg-secondary: #fff;
+  --border-color: #ddd;
+}
+
+.dark {
+  --color: #ebf4f1;
+  --color-primary: #d8002d;
+  --color-secondary: #fdf9f3;
+  --bg: #091a28;
+  --bg-secondary: #071521;
+  --border-color: #0d2538;
+}
+.sepia-mode {
+  --color: #433422;
+  --color-secondary: #504231;
+  --bg: #f1e7d0;
+  --bg-secondary: #eae0c9;
+  --border-color: #ded0bf;
+}
+body {
+  background-color: var(--bg);
+  color: var(--color);
+  font-size: 18px;
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+  word-wrap: break-word;
+  font-weight: 400;
+  @apply font-sans;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 1500px;
+  padding: 0 10px;
+  position: relative;
+  overflow: visible;
+}
+
+.nuxt-content a {
+  @apply text-gray-800 dark:text-gray-300;
+  text-decoration: underline;
+}
+.nuxt-content a:hover {
+  @apply text-primary;
+}
+
+section p {
+  @apply mb-2;
+}
+
+.layout-enter-active,
+.layout-leave-active,
+.page-enter-active,
+.page-leave-active {
+  transition-duration: 0.3s;
+  transition-property: opacity;
+  transition-timing-function: ease;
+}
+.layout-enter,
+.layout-leave-active,
+.page-enter,
+.page-leave-active {
+  opacity: 0;
+}
+
+/* highlight page in corner of code */
+.nuxt-content-highlight {
+  @apply relative;
+}
+.nuxt-content-highlight .filename {
+  @apply absolute right-0 top-0 text-gray-400 font-light z-10 mr-2 mt-1 text-sm;
+}
+
+.nuxt-content .token.comment {
+  color: #acb5b9;
+}
+.dark .prose,
+.dark .prose h1,
+.dark .prose h2,
+.dark .prose h3 {
+  color: white;
+}
+code {
+  color: inherit;
+}
+
+/* purgecss end ignore */
+pre,
+code {
+  overflow: auto;
+  width: auto;
+  max-width: 95vw;
+  color: inherit;
+}
+.prose {
+  max-width: 85ch;
+}
+
+.prose code {
+  color: inherit;
+}

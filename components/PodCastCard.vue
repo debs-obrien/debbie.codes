@@ -31,18 +31,18 @@
 </template>
 
 <script>
-  export default {
-    props: {
-      item: {
-        type: Object,
-        required: true
-      }
-    },
-    methods: {
-      formatDate(date) {
-        const options = { year: 'numeric', month: 'long', day: 'numeric' }
-        return new Date(date).toLocaleDateString('en', options)
-      }
+export default {
+  props: {
+    item: {
+      type: Object,
+      required: true
+    }
+  },
+  methods: {
+    formatDate(date) {
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      return new Date(date).toLocaleDateString('en', options);
     }
   }
+};
 </script>

@@ -1,6 +1,6 @@
 <template>
   <article>
-    <SocialHead :title="title" :description="description" :image="image" />
+    <!-- <SocialHead :title="title" :description="description" :image="image" /> -->
     <link href="https://unpkg.com/pattern.css" rel="stylesheet" />
     <div>
       <section>
@@ -27,7 +27,13 @@
     </div>
   </article>
 </template>
-<script>
+<script setup>
+const resources = await queryContent('resources')
+  .where({ published: { $ne: false } })
+  .sort({ date: -1 })
+  .find();
+</script>
+<!-- <script>
   export default {
     async asyncData({ $content }) {
       const resources = await $content('resources').sortBy('position').fetch()
@@ -66,4 +72,4 @@
       }
     }
   }
-</script>
+</script> -->

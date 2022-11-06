@@ -8,14 +8,20 @@
     <div
       class="mt-12 grid gap-6 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
     >
-      <div v-for="item of items" :key="item.slug" class="flex flex-col">
-        <PostsCard :item="item" />
+      <div v-for="post of posts" :key="post._path" class="flex flex-col">
+        <PostsCard :item="post" />
       </div>
     </div>
   </div>
 </template>
+<script setup>
+const posts = await queryContent('featured-posts')
+  .where({ published: { $ne: false } })
+  .sort({ date: -1 })
+  .find();
+</script>
 
-<script>
+<!-- <script>
   export default {
     async asyncData({ $content, params }) {
       const items = await $content('featured-posts')
@@ -54,4 +60,4 @@
       }
     }
   }
-</script>
+</script> -->

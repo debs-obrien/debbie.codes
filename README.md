@@ -1,9 +1,42 @@
-# Debbie O'Brien
+# Nuxt 3 Minimal Starter
 
-This is my website which I built in NuxtJS. I use it as my playground for trying out new stuff and having fun. Feel free to have a look around and copy whatever you like as the code is open source so if it helps you then great. All content is written in markdown using Nuxt Content and makes it very easy to add new posts, videos etc. Site is a static site meaning it can be hosted for free on any hosting service such as Netlify.
+Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
 
-After cloning it make sure you run yarn or npm install to install everything and then start the dev servers.
+## Setup
 
-```js
-yarn dev
+Make sure to install the dependencies:
+
+```bash
+# yarn
+yarn install
+
+# npm
+npm install
+
+# pnpm
+pnpm install --shamefully-hoist
 ```
+
+## Development Server
+
+Start the development server on http://localhost:3000
+
+```bash
+npm run dev
+```
+
+## Production
+
+Build the application for production:
+
+```bash
+npm run build
+```
+
+Locally preview production build:
+
+```bash
+npm run preview
+```
+
+Checkout the [deployment documentation](https://v3.nuxtjs.org/guide/deploy/presets) for more information.

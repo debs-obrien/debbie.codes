@@ -17,7 +17,7 @@
       </h1>
 
       <div class="dark:text-white subtitle font-medium mb-20">
-        <p class="mb-4"> Senior Program Manager at Microsoft </p>
+        <p class="mb-4">Senior Program Manager at Microsoft</p>
         <p>
           <a
             href="https://developers.google.com/community/experts/directory/profile/profile-debbie_o_brien"
@@ -71,7 +71,7 @@
         </p>
       </div>
       <section>
-        <NuxtLink :to="{ name: 'blog' }"
+        <NuxtLink to="/blog"
           ><AppSubtitle>Recent Blog Posts</AppSubtitle></NuxtLink
         >
         <div
@@ -79,7 +79,7 @@
         >
           <div
             v-for="article of getArticles"
-            :key="article.slug"
+            :key="article._path"
             class="flex flex-col"
             data-test-id="posts"
           >
@@ -89,20 +89,24 @@
       </section>
 
       <section>
-        <NuxtLink :to="{ name: 'resources-conference-talks' }"
+        <NuxtLink to="resources/conference-talks"
           ><AppSubtitle>Recent Talks</AppSubtitle></NuxtLink
         >
         <div
           class="text-left mt-12 grid gap-6 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
         >
-          <div v-for="video of getTalks" :key="video.slug" data-test-id="talks">
+          <div
+            v-for="video of getTalks"
+            :key="video._path"
+            data-test-id="talks"
+          >
             <VideoCard :item="video" :description="false" />
           </div>
         </div>
       </section>
 
       <section>
-        <NuxtLink :to="{ name: 'resources-courses' }"
+        <NuxtLink to="resources/courses"
           ><AppSubtitle>Recent Courses</AppSubtitle></NuxtLink
         >
 
@@ -111,7 +115,7 @@
         >
           <div
             v-for="course of getCourses"
-            :key="course.slug"
+            :key="course._path"
             data-test-id="courses"
             class="flex flex-col"
           >
@@ -120,7 +124,7 @@
         </div>
       </section>
       <section>
-        <NuxtLink :to="{ name: 'resources-interviews' }"
+        <NuxtLink to="resources/interviews"
           ><AppSubtitle>Recent Interviews</AppSubtitle></NuxtLink
         >
 
@@ -129,7 +133,7 @@
         >
           <div
             v-for="interview of getInterviews"
-            :key="interview.slug"
+            :key="interview._path"
             data-test-id="interviews"
             class="flex flex-col"
           >
@@ -140,8 +144,33 @@
     </div>
   </div>
 </template>
-<script>
-  import AppTitle from '~/components/AppTitle.vue'
+<script setup>
+const limit = ref(3);
+const getArticles = await queryContent('blog')
+  .where({ published: { $ne: false } })
+  .sort({ date: -1 })
+  .limit(limit.value)
+  .find();
+
+const getTalks = await queryContent('conference-talks')
+  .where({ published: { $ne: false } })
+  .sort({ date: -1 })
+  .limit(limit.value)
+  .find();
+
+const getCourses = await queryContent('courses')
+  .where({ published: { $ne: false } })
+  .sort({ date: -1 })
+  .limit(limit.value)
+  .find();
+
+const getInterviews = await queryContent('interviews')
+  .where({ published: { $ne: false } })
+  .sort({ date: -1 })
+  .limit(limit.value)
+  .find();
+</script>
+<!-- <script>
   export default {
     layout: 'home',
     async asyncData({ $content, error }) {
@@ -195,25 +224,25 @@
     },
     components: { AppTitle }
   }
-</script>
+</script> -->
 
 <style scoped>
-  .hero_texts .subtitle {
-    font-size: 22px;
-  }
+.hero_texts .subtitle {
+  font-size: 22px;
+}
 
+.hero_texts .name {
+  font-size: 75px;
+  border: none;
+}
+.profile-pic {
+  height: 180px;
+  width: 180px;
+}
+
+@media (max-width: 768px) {
   .hero_texts .name {
-    font-size: 75px;
-    border: none;
+    font-size: 50px;
   }
-  .profile-pic {
-    height: 180px;
-    width: 180px;
-  }
-
-  @media (max-width: 768px) {
-    .hero_texts .name {
-      font-size: 50px;
-    }
-  }
+}
 </style>
