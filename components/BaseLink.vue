@@ -26,7 +26,7 @@
   .btn {
     transition: all 0.3s ease;
   }
-  .btn:hover {
+  /* .btn:hover {
     @apply color-primary bg-transparent;
-  }
+  } */
 </style>
