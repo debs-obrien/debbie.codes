@@ -19,33 +19,48 @@
     />
   </div>
 </template>
+<script setup>
+const route = useRoute();
+const pageNo = ref(parseInt(route.params.number));
+const numArticles = ref(9);
 
-<script>
-  export default {
-    layout: 'blog',
-    async asyncData({ $content, params, error }) {
-      const pageNo = parseInt(params.number)
-      const numArticles = 9
-      const getArticles = await $content('articles')
-        .where({
-          published: { $ne: false }
-        })
-        .sortBy('date', 'desc')
-        .limit(numArticles)
-        .skip(numArticles * (pageNo - 1))
-        .fetch()
+const getArticles = await queryContent('articles')
+  .where({
+    published: { $ne: false }
+  })
+  .sort({ date: -1 })
+  .limit(numArticles)
+  .skip(numArticles * (pageNo - 1))
+  .find();
 
-      if (!getArticles.length) {
-        return error({ statusCode: 404, message: 'No articles found!' })
-      }
-
-      const nextPage = getArticles.length === numArticles
-
-      return {
-        nextPage,
-        pageNo,
-        getArticles
-      }
-    }
-  }
+const nextPage = getArticles.length === numArticles;
 </script>
+<!-- <script>
+export default {
+  layout: 'blog',
+  async asyncData({ $content, params, error }) {
+    const pageNo = parseInt(params.number);
+    const numArticles = 9;
+    // const getArticles = await $content('articles')
+    //   .where({
+    //     published: { $ne: false }
+    //   })
+    //   .sortBy('date', 'desc')
+    //   .limit(numArticles)
+    //   .skip(numArticles * (pageNo - 1))
+    //   .fetch();
+
+    if (!getArticles.length) {
+      return error({ statusCode: 404, message: 'No articles found!' });
+    }
+
+    const nextPage = getArticles.length === numArticles;
+
+    return {
+      nextPage,
+      pageNo,
+      getArticles
+    };
+  }
+};
+</script> -->

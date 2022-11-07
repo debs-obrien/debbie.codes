@@ -1,29 +1,15 @@
 <script setup>
-definePageMeta({
-  key: (route) => route.fullPath
-});
-
-// get tag query
+// get current route
 const {
-  query: { tags }
+  params: { slug }
 } = useRoute();
 
-// const router = useRouter();
-
-const filter = ref(tags?.split(','));
+const filter = slug.split(',');
 console.log({ filter });
-
-watch(filter, (value) => {
-  console.log({ value });
-  router.push({
-    path: '/blog',
-    query: { tags: value }
-  });
-});
 
 // set meta for page
 useHead({
-  title: 'All articles',
+  title: `All articles with ${slug}`,
   meta: [
     { name: 'description', content: "Here's a list of all my great articles" }
   ]
@@ -33,15 +19,15 @@ useHead({
   <main>
     <header class="page-heading">
       <div class="wrapper">
-        <h1 class="text-5xl font-extrabold">All articles</h1>
+        <h1 class="text-5xl font-extrabold">All articles with "{{ slug }}"</h1>
         <p class="font-medium text-lg">
           Here's a list of all my great articles
         </p>
       </div>
     </header>
+
     <section class="page-section">
       <Tags />
-
       <!-- Render list of all articles in ./content/blog using `path` -->
       <!-- Provide only defined fieldsin the `:query` prop -->
       <ContentList
@@ -52,8 +38,8 @@ useHead({
             'description',
             'tags',
             '_path',
-            'provider',
             'image',
+            'provider',
             'loading'
           ],
           where: {
@@ -75,27 +61,26 @@ useHead({
               <NuxtLink :to="article._path">
                 <div class="wrapper">
                   <div class="img-cont w-128">
-                    <!-- <NuxtImg
+                    <NuxtImg
                       :provider="article.provider"
                       :src="article.image"
                       :alt="article.title"
+                      :loading="article.loading ? article.loading : 'lazy'"
                       preset="blog"
                       width="auto"
                       height="auto"
                       sizes="sm:355px md:320px lg:480px"
                       class="rounded-lg max-h-[16rem]"
-                    /> -->
+                    />
                   </div>
                   <header>
                     <h1 class="text-2xl font-semibold">{{ article.title }}</h1>
                     <p>{{ article.description }}</p>
                     <ul class="article-tags">
-                      <li
-                        class="tag !py-0.5"
-                        v-for="(tag, n) in article.tags"
-                        :key="n"
-                      >
-                        {{ tag }}
+                      <li class="tag" v-for="(tag, n) in article.tags" :key="n">
+                        <NuxtLink :to="`/blog/tags/${tag}`" class="underline">
+                          {{ tag }}
+                        </NuxtLink>
                       </li>
                     </ul>
                   </header>
@@ -113,32 +98,3 @@ useHead({
     </section>
   </main>
 </template>
-
-<style scoped>
-/* .page-heading {
-  @apply p-12 bg-slate-50;
-}
-.page-heading > .wrapper {
-  @apply max-w-3xl m-auto;
-}
-
-.page-section {
-  @apply p-4 py-8 m-auto max-w-3xl;
-}
-
-.article-list {
-  @apply flex flex-col gap-6;
-}
-
-.article-item {
-  @apply pt-6 first-of-type:border-none border-t border-slate-200;
-}
-
-.article-item a {
-  @apply no-underline;
-}
-
-.article-item > * > .wrapper {
-  @apply flex items-start gap-4;
-} */
-</style>

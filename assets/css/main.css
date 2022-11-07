@@ -106,3 +106,45 @@ code {
 .prose code {
   color: inherit;
 }
+
+.img-cont img {
+  @apply h-full w-full object-cover;
+}
+
+.article-tags {
+  @apply flex gap-2 py-2;
+}
+
+.article-tags .tag {
+  @apply bg-slate-100 text-slate-700 text-sm p-2 py-1 rounded-md;
+  @apply transition-all !py-0.5 hover:-translate-y-0.5;
+}
+
+/* BLOG PAGES */
+
+.page-heading {
+  @apply p-12;
+}
+.page-heading > .wrapper {
+  @apply max-w-3xl m-auto;
+}
+
+.page-section {
+  @apply p-4 py-8 m-auto max-w-3xl;
+}
+
+.article-list {
+  @apply flex flex-col gap-6;
+}
+
+.article-item {
+  @apply pt-6 first-of-type:border-none border-t border-slate-200;
+}
+
+.article-item a {
+  @apply no-underline;
+}
+
+.article-item > * > .wrapper {
+  @apply flex items-start gap-4;
+}

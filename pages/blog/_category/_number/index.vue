@@ -11,6 +11,7 @@
         <PostsCard :item="article" />
       </div>
     </div>
+
     <Pagination
       :prevPage="pageNo > 1"
       :nextPage="nextPage"
@@ -19,62 +20,87 @@
     />
   </div>
 </template>
+<script setup>
+const route = useRoute();
+const pageNo = ref(parseInt(route.params.number));
+const numArticles = ref(9);
 
-<script>
-  export default {
-    layout: 'blog',
-    async asyncData({ $content, params, error }) {
-      const pageNo = parseInt(params.number)
-      const numArticles = 9
+const getTotalRemainingArticles = await queryContent('articles')
+  .where({
+    published: { $ne: false },
+    tags: { $contains: route.params.category }
+  })
+  .skip(numArticles * (pageNo - 1))
+  .find();
 
-      const getTotalRemainingArticles = await $content('articles')
-        .where({
-          published: { $ne: false },
-          tags: { $contains: params.category }
-        })
-        .skip(numArticles * (pageNo - 1))
-        .fetch()
+const getArticles = await queryContent('articles')
+  .where({
+    published: { $ne: false },
+    tags: { $contains: route.params.category }
+  })
+  .sort({ date: -1 })
+  .limit(numArticles)
+  .skip(numArticles * (pageNo - 1))
+  .find();
 
-      const getArticles = await $content('articles')
-        .where({
-          published: { $ne: false },
-          tags: { $contains: params.category }
-        })
-        .sortBy('date', 'desc')
-        .limit(numArticles)
-        .skip(numArticles * (pageNo - 1))
-        .fetch()
-        .catch(error => {
-          error({ statusCode: 404, message: 'No articles found!' })
-        })
+const totalArticles = getTotalRemainingArticles.length - getArticles.length;
 
-      if (!getArticles.length) {
-        return error({ statusCode: 404, message: 'No articles found!' })
-      }
+const nextPage = totalArticles > 0;
+</script>
+<!-- <script>
+export default {
+  layout: 'blog',
+  async asyncData({ $content, params, error }) {
+    const pageNo = parseInt(params.number);
+    const numArticles = 9;
 
-      const totalArticles =
-        getTotalRemainingArticles.length - getArticles.length
+    const getTotalRemainingArticles = await $content('articles')
+      .where({
+        published: { $ne: false },
+        tags: { $contains: params.category }
+      })
+      .skip(numArticles * (pageNo - 1))
+      .fetch();
 
-      const nextPage = totalArticles > 0
+    const getArticles = await $content('articles')
+      .where({
+        published: { $ne: false },
+        tags: { $contains: params.category }
+      })
+      .sortBy('date', 'desc')
+      .limit(numArticles)
+      .skip(numArticles * (pageNo - 1))
+      .fetch()
+      .catch((error) => {
+        error({ statusCode: 404, message: 'No articles found!' });
+      });
 
-      return {
-        nextPage,
-        pageNo,
-        getArticles
-      }
-    },
-    data() {
-      return {
-        selectedTag: this.$route.params.category
-      }
-    },
+    if (!getArticles.length) {
+      return error({ statusCode: 404, message: 'No articles found!' });
+    }
 
-    computed: {
-      filteredArticles() {
-        return this.getArticles.filter(article =>
-          article.tags.includes(this.selectedTag)
-        )
-      }
+    const totalArticles = getTotalRemainingArticles.length - getArticles.length;
+
+    const nextPage = totalArticles > 0;
+
+    return {
+      nextPage,
+      pageNo,
+      getArticles
+    };
+  },
+  data() {
+    return {
+      selectedTag: this.$route.params.category
+    };
+  },
+
+  computed: {
+    filteredArticles() {
+      return this.getArticles.filter((article) =>
+        article.tags.includes(this.selectedTag)
+      );
     }
   }
-</script>
+};
+</script> -->
