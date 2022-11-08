@@ -8,7 +8,7 @@ const getArticles = await queryContent('blog')
   .sort({ date: -1 })
   .find();
 
-const title = `Blog Posts tagged with${slug}`;
+const title = `Blog Posts on ${slug}`;
 const description = `Here's a list of all my blog posts with the ${slug} tag`;
 
 useHead({
@@ -21,7 +21,7 @@ useHead({
   <main>
     <AppTitle>{{ title }}</AppTitle>
     <AppIntro>{{ description }}</AppIntro>
-
+    <TagsBlog />
     <CardsList :list="getArticles" />
   </main>
 </template>

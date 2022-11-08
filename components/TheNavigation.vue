@@ -14,40 +14,40 @@
   </nav>
 </template>
 <script>
-  export default {
-    data() {
-      return {
-        navLinks: [
-          {
-            url: '/resources/guest-live-streams',
-            link: 'Streams'
-          },
-          {
-            url: '/resources/interviews',
-            link: 'Interviews'
-          },
-          {
-            url: '/resources/podcasts',
-            link: 'Podcasts'
-          },
-          {
-            url: '/resources/courses',
-            link: 'Courses'
-          },
-          {
-            url: '/resources/conference-talks',
-            link: 'Talks'
-          },
-          {
-            url: '/resources/featured-posts',
-            link: 'Featured Posts'
-          },
-          {
-            url: '/blog',
-            link: 'Blog'
-          }
-        ]
-      }
-    }
+export default {
+  data() {
+    return {
+      navLinks: [
+        {
+          url: '/resources/guest-live-streams',
+          link: 'Streams'
+        },
+        {
+          url: '/resources/interviews',
+          link: 'Interviews'
+        },
+        {
+          url: '/podcasts',
+          link: 'Podcasts'
+        },
+        {
+          url: '/resources/courses',
+          link: 'Courses'
+        },
+        {
+          url: '/resources/conference-talks',
+          link: 'Talks'
+        },
+        {
+          url: '/resources/featured-posts',
+          link: 'Featured Posts'
+        },
+        {
+          url: '/blog',
+          link: 'Blog'
+        }
+      ]
+    };
   }
+};
 </script>
