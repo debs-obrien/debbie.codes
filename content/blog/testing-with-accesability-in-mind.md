@@ -4,7 +4,7 @@ date: 2022-04-21
 description: desc
 image: v1640962583/debbie.codes/blog/tailwindcss-button_2x_gtcqu9
 provider: cloudinary
-tags: [testing, playwright, accessibility]
+tags: [testing, playwright]
 published: false
 ---
 

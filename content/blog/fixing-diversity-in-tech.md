@@ -5,7 +5,7 @@ description: When you step back from the nationality, the color, the religion th
 image: v1652876872/debbie.codes/blog/2022/bejs-team_om4aqb.jpg
 ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1652876872/debbie.codes/blog/2022/bejs-team_om4aqb.jpg
 provider: cloudinary
-tags: [lifestyle, diversity]
+tags: [lifestyle]
 published: true
 loading: eager
 ---

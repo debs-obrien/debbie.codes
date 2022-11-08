@@ -6,7 +6,7 @@ published: true
 image: photo-1562755524-cb3e786bee18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fGF0fGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=800&q=60
 provider: imgix
 ogImage: https://images.unsplash.com/photo-1562755524-cb3e786bee18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fGF0fGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=800&q=60
-tags: [javascript, array, at]
+tags: [javascript]
 ---
 
 Often we want to return a single item from an array. There are a few methods of doing this including the `at(index)` method which returns the item at a given index. It takes both positive and negative values where negatives values count back from the last item in the array.

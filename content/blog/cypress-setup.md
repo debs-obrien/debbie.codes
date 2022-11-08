@@ -4,7 +4,7 @@ date: 2020-07-17
 description: Let's take a look at how you setup Cypress in your Nuxt.js project, setup a github action for continuous integration so that Netlify will run the tests every time your application is building.
 image: photo-1580982324076-d95230549339?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop
 provider: imgix
-tags: [nuxt, testing, cypress]
+tags: [nuxt, testing]
 ---
 
 [Cypress](https://www.cypress.io/) is a great way of testing your frontend application with end to end tests and it is so nice to work with. Writing the tests and making sure they get ran on each build is really important too. Let's take a look at how you setup Cypress in your Nuxt.js project, setup a github action for continuous integration so that Netlify will run the tests every time your application is building.

@@ -4,7 +4,7 @@ date: 2022-02-02
 description: Creating a generic cart component that can add and remove a product from the cart using React Context. This component can then be used in any other component or app to create more specific cart components.
 image: v1643820029/debbie.codes/blog/2022/cart-context_2x_qlqg5q
 provider: cloudinary
-tags: [react, context]
+tags: [react]
 ---
 
 When I was first asked to create a [shopping cart component](https://bit-shoe-store.netlify.app/product/h-3) I found it really difficult to get my head round it especially when it came to breaking it down into smaller reusable components. I won't lie to you. I actually built it as one big component and then started separating it into smaller pieces. I think sometimes that is also ok to do. It's not always easy to build things individually or at least it does take a bit of practice.

@@ -5,7 +5,7 @@ description: Playwright will serve up a HTML report on your local server so you 
 image: v1648219793/debbie.codes/blog/2022/trace-viewer-broswer_jqoim0.png
 ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1648219793/debbie.codes/blog/2022/trace-viewer-broswer_jqoim0.png
 provider: cloudinary
-tags: [testing, playwright, reports, traces]
+tags: [testing, playwright]
 published: true
 loading: eager
 ---

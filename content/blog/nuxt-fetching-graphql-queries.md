@@ -4,7 +4,7 @@ date: 2020-07-17
 description: Fetching graphQL queries
 image: photo-1516979187457-637abb4f9353?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop
 provider: imgix
-tags: [nuxt, graphql, apollo]
+tags: [nuxt]
 ---
 
 How to fetch data from graphQL without having to use libraries such as apollo

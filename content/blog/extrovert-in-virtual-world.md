@@ -4,7 +4,7 @@ date: 2020-09-12
 description: From being surrounded by amazing people to being locked up from the world. 2020 has been an interesting year and a very hard one for those who are extroverts and love being around people.
 image: photo-1545113972-bbccc3547465?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop
 provider: imgix
-tags: [lifestyle, remote working]
+tags: [lifestyle]
 ---
 
 I started off the year going on a cruise ship for 16 days with over 20 speakers from around the world. Can you imagine what that is like? For those that love speaking at conferences and cherish the speaker dinner well imagine 16 speaker dinners plus breakfasts and lunches. Amazing. Of course you could do what you wanted and be on your own but nobody chose to. Most of us didn't know each other from before, yet we all just clicked so well that it wasn't just speaker dinner but card games, karaoke, quiz nights and endless chats and fun. It was literally out of this world, especially as we entered into the vastness of Antarctica.

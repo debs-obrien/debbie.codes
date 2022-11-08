@@ -5,7 +5,7 @@ description: Have you ever had to test something in an iframe on your page with 
 image: v1648137581/debbie.codes/blog/2022/has-locator_2x_wlg69v.png
 ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1648137581/debbie.codes/blog/2022/has-locator_2x_wlg69v.png
 provider: cloudinary
-tags: [testing, iframes]
+tags: [testing]
 published: true
 loading: eager
 ---

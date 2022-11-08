@@ -5,7 +5,7 @@ description: My blog was getting bigger and bigger and so time to add pagination
 image: v1648296331/debbie.codes/blog/2022/pagination_2x_ppog9g.png
 ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1648296331/debbie.codes/blog/2022/pagination_2x_ppog9g.png
 provider: cloudinary
-tags: [nuxt, pagination]
+tags: [nuxt]
 published: true
 loading: eager
 ---

@@ -40,5 +40,13 @@ export default defineNuxtConfig({
         default: 'material-palenight'
       }
     }
+  },
+  build: {
+    transpile: ['lite-youtube']
+  },
+  vue: {
+    compilerOptions: {
+      isCustomElement: tag => ['lite-youtube'].includes(tag)
+    }
   }
 });

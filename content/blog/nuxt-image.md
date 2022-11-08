@@ -5,7 +5,7 @@ description: Showing the benefits of Nuxt image by analyzing the performance of 
 image: v1631791512/debbie.codes/blog/good-lighthouse-test_joltel
 provider: cloudinary
 loading: eager
-tags: [nuxt, performance, image]
+tags: [nuxt, performance]
 ---
 
 I built my website with Nuxt quite a while ago and have since used it as my playground for testing out features. My site contains everything you could imagine it to have and more and over time it has grown so much. It is never perfect, never done, but I am proud of how it looks and above all I am very happy with it's performance.

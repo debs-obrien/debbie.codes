@@ -6,7 +6,7 @@ published: true
 image: photo-1515560570411-00a0026e6086?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8ZmlsdGVyfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=800&q=60
 ogImage: https://images.unsplash.com/photo-1515560570411-00a0026e6086?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8ZmlsdGVyfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=800&q=60
 provider: imgix
-tags: [javascript, array, filter]
+tags: [javascript]
 ---
 
 Sometimes we have an array but we want to return only a select few items from the array. For example, we can use the `array.filter()` method to filter an array of people to only find the female characters of the array.

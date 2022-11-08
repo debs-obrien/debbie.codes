@@ -5,7 +5,7 @@ description: When a recruiter from Meta, from America, had called me, it just op
 image: v1651679092/debbie.codes/blog/2022/data-structures_2x_kvks59.png
 ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1651679092/debbie.codes/blog/2022/data-structures_2x_kvks59.png
 provider: cloudinary
-tags: [lifestyle, interviews]
+tags: [lifestyle]
 published: true
 ---
 
