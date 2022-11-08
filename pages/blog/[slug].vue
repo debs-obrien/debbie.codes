@@ -1,13 +1,10 @@
 <script setup>
 const { path } = useRoute();
 
-const article = await queryContent('blog')
-  .where({ published: { $ne: false } }, { _path: path })
-  .findOne();
+const article = await queryContent('blog').where({ _path: path }).findOne();
 
 const [prev, next] = await queryContent('blog')
   .only(['_path', 'title', 'description'])
-  .sort({ date: 1 })
   .findSurround(path);
 
 useHead({
@@ -88,14 +85,16 @@ useHead({
           width="auto"
           height="auto"
           sizes="sm:355px md:320px lg:480px"
-          class="rounded-2xl"
+          class="rounded-2xl h-full w-full object-cover"
         />
       </div>
       <h1 class="font-extrabold text-5xl">{{ article.title }}</h1>
       <p class="font-medium text-lg">{{ article.description }}</p>
       <ul class="article-tags">
         <li class="tag" v-for="(tag, n) in article.tags" :key="n">
-          {{ tag }}
+          <NuxtLink :to="`/blog/tags/${tag}`" class="font-semibold">
+            {{ tag }}
+          </NuxtLink>
         </li>
       </ul>
     </header>

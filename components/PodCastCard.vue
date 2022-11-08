@@ -23,7 +23,9 @@
           :key="tag"
           class="inline-flex items-center px-3 py-0.5 mr-2 rounded-full text-sm font-medium leading-5 bg-indigo-100 text-indigo-800"
         >
-          {{ tag }}
+          <NuxtLink :to="`/blog/tags/${tag}`" class="font-semibold">
+            {{ tag }}
+          </NuxtLink>
         </span>
       </div>
     </div>

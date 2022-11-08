@@ -84,8 +84,15 @@ section p {
 .dark .prose,
 .dark .prose h1,
 .dark .prose h2,
-.dark .prose h3 {
+.dark .prose h2 a,
+.dark .prose h3,
+.dark .prose h3 a {
   color: white;
+  text-decoration: none;
+}
+.dark .prose a {
+  color: white;
+  text-decoration: underline;
 }
 code {
   color: inherit;
