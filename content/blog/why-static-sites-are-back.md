@@ -6,6 +6,6 @@ url: https://dev.to/azure/why-static-sites-are-back-6jh
 image: v1630862645/debbie.codes/featured-posts/why-static-sites-are-back_tw2bgc
 provider: cloudinary
 loading: eager
-tags: [Static Sites]
+tags: [jamstack]
 platform: Microsoft DevTo
 ---

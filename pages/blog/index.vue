@@ -16,7 +16,7 @@ useHead({
   <main>
     <AppTitle>{{ title }}</AppTitle>
     <AppIntro>{{ description }}</AppIntro>
-    <TagsBlog />
+    <Tags page="blog" />
     <CardsList :list="getArticles" section="blog" />
   </main>
 </template>

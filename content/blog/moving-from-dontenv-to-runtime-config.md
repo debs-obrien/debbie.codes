@@ -5,6 +5,6 @@ description: In our frontend applications, we often use APIs and third-party int
 url: https://nuxtjs.org/blog/moving-from-nuxtjs-dotenv-to-runtime-config
 image: v1630862642/debbie.codes/featured-posts/moving-from-dot-env_kn8gra
 provider: cloudinary
-tags: [nuxt, Runtime Config]
+tags: [nuxt]
 platform: Nuxt
 ---

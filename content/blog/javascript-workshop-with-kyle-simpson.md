@@ -5,6 +5,6 @@ description: It has been a couple of months since Kyle, author of the “You Don
 url: https://tech.trivago.com/2018/10/15/javascript-workshop-with-kyle-simpson/
 image: v1607270365/debbie.codes/blog/trivago_w7istq
 provider: cloudinary
-tags: [Learning to Code]
+tags: [lifestyle]
 platform: Trivago
 ---

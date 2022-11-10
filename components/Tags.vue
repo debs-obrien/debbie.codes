@@ -1,9 +1,16 @@
-<script setup>
-const flatten = (tags, key) => {
+<script setup lang="ts">
+interface Props {
+  page: string;
+}
+
+const props = defineProps<Props>();
+
+const flatten = (tags: Array<any>, key: string = 'tags') => {
   let _tags = tags
     .map((tag) => {
       let _tag = tag;
-      if (tag[key]) {
+      if (tag['tags']) {
+        console.log(tag);
         let flattened = flatten(tag[key]);
         _tag = flattened;
       }
@@ -13,21 +20,22 @@ const flatten = (tags, key) => {
 
   return _tags;
 };
-
-const getAllTags = await queryContent('blog')
+const getAllTags: Array<any> = await queryContent(props.page)
   .where({ published: { $ne: false } })
   .only(['tags'])
   .sort({ tags: 1 })
   .find();
 
-const articleTags = [...new Set(flatten(getAllTags, 'tags'))];
+const articleTags: Array<any> = [...new Set(flatten(getAllTags))];
 const sortedArticleTags = Array.from(articleTags).sort((a, b) => a - b);
 </script>
 <template>
-  <div class="flex items-center gap-2 p-2 border border-transparent rounded-lg">
+  <div
+    class="m-auto max-w-4xl flex justify-center items-center gap-2 p-2 border border-transparent rounded-lg"
+  >
     <ul class="article-tags flex flex-wrap justify-center">
       <li v-for="(tag, n) in sortedArticleTags" :key="n" class="tag h-full">
-        <NuxtLink :to="`/blog/tags/${tag}`" class="font-semibold">
+        <NuxtLink :to="`/${page}/tags/${tag}`" class="font-semibold">
           {{ tag }}
         </NuxtLink>
       </li>

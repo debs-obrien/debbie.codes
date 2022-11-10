@@ -3,13 +3,13 @@ const {
   params: { slug }
 } = useRoute();
 
-const podcasts = await queryContent('podcasts')
+const interviews = await queryContent('interviews')
   .where({ published: { $ne: false }, tags: { $in: slug } })
   .sort({ date: -1 })
   .find();
 
-const title = `Podcast Interviews on ${slug}`;
-const description = `Here's a list of all my podcast interviews with the ${slug} tag`;
+const title = `Guest Interviews`;
+const description = `Recordings of various interviews on different channels`;
 
 useHead({
   title: title,
@@ -24,7 +24,7 @@ useHead({
     <AppIntro>
       {{ description }}
     </AppIntro>
-    <Tags page="podcasts" />
-    <CardsList :list="podcasts" :section="podcasts" />
+    <Tags page="interviews" />
+    <CardsList :list="interviews" :section="interviews" />
   </div>
 </template>

@@ -39,10 +39,6 @@ export default {
           link: 'Talks'
         },
         {
-          url: '/resources/featured-posts',
-          link: 'Featured Posts'
-        },
-        {
           url: '/blog',
           link: 'Blog'
         }

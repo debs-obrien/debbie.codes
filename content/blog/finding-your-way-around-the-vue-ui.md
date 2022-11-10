@@ -5,6 +5,6 @@ description: Vue CLI is the fastest way to get your Vue project off the ground a
 url: https://ultimatecourses.com/blog/finding-your-way-around-the-vue-ui
 image: v1630862638/debbie.codes/featured-posts/finding-way-round-vue-ui_gmgzf1
 provider: cloudinary
-tags: [Vue, GUI, CLI]
+tags: [vue]
 platform: Ultimate Courses
 ---

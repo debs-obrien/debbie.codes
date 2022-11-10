@@ -6,6 +6,6 @@ url: https://vuedose.tips/advanced-i18n-in-nuxt-using-interpolations/
 image: photo-1600633349333-eebb43d01e23?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80
 provider: imgix
 loading: eager
-tags: [nuxt, Vue, i18n]
+tags: [nuxt, vue]
 platform: Vue Dose
 ---

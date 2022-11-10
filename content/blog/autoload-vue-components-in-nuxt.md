@@ -5,6 +5,6 @@ description: With Nuxt components you can auto import your components really eas
 url: https://vuedose.tips/auto-load-vuejs-components-in-nuxt
 image: photo-1587654780291-39c9404d746b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80
 provider: imgix
-tags: [nuxt, Components]
+tags: [nuxt]
 platform: Vue Dose
 ---

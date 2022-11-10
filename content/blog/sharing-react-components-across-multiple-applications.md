@@ -6,6 +6,6 @@ url: https://blog.bitsrc.io/sharing-react-components-across-multiple-application
 image: v1630863000/debbie.codes/featured-posts/sharing-react-components_ejjqxp
 provider: cloudinary
 loading: eager
-tags: [react, Bit]
+tags: [react, components]
 platform: Medium
 ---
