@@ -19,7 +19,7 @@ const props = defineProps<Props>();
                 :alt="item.title"
                 width="272"
                 height="272"
-                fit="square"
+                fit="thumb"
                 format="webp"
                 class="rounded"
               />

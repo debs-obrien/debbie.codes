@@ -1,3 +1,10 @@
+<script setup lang="ts">
+type Theme = 'light' | 'dark';
+const setColorTheme = (newTheme: Theme) => {
+  useColorMode().preference = newTheme;
+};
+</script>
+
 <template>
   <button
     class="ml-5"
@@ -31,10 +38,3 @@
     </svg>
   </button>
 </template>
-
-<script setup lang="ts">
-type Theme = 'light' | 'dark';
-const setColorTheme = (newTheme: Theme) => {
-  useColorMode().preference = newTheme;
-};
-</script>

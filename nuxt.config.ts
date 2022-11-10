@@ -9,7 +9,9 @@ export default defineNuxtConfig({
     '@nuxtjs/svg'
   ],
   colorMode: {
-    classSuffix: ''
+    classSuffix: '',
+    preference: 'system', // default value of $colorMode.preference
+    fallback: 'dark'
   },
   css: [
     '~/assets/css/main.css',
@@ -42,6 +44,7 @@ export default defineNuxtConfig({
       }
     }
   },
+
   build: {
     transpile: ['lite-youtube']
   },
