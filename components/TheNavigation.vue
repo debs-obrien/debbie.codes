@@ -19,24 +19,16 @@ export default {
     return {
       navLinks: [
         {
-          url: '/resources/guest-live-streams',
-          link: 'Streams'
-        },
-        {
-          url: '/resources/interviews',
-          link: 'Interviews'
+          url: '/videos',
+          link: 'Videos'
         },
         {
           url: '/podcasts',
           link: 'Podcasts'
         },
         {
-          url: '/resources/courses',
+          url: '/courses',
           link: 'Courses'
-        },
-        {
-          url: '/resources/conference-talks',
-          link: 'Talks'
         },
         {
           url: '/blog',

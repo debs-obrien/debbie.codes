@@ -9,8 +9,8 @@
             :alt="item.title"
             :loading="item.loading ? item.loading : 'lazy'"
             preset="blog"
-            width="640"
-            height="480"
+            width="444"
+            height="256"
             sizes="sm:355px md:320px lg:480px"
             class="w-full h-64 object-cover"
           />
@@ -24,8 +24,8 @@
             :alt="item.title"
             :loading="item.loading ? item.loading : 'lazy'"
             preset="blog"
-            width="auto"
-            height="auto"
+            width="444"
+            height="256"
             sizes="sm:355px md:320px lg:480px"
             class="w-full h-64 object-cover"
           />

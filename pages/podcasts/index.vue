@@ -15,7 +15,6 @@ useHead({
 
 <template>
   <div class="page-wrapper">
-    <AppBreadCrumb title="podcasts" />
     <AppTitle>{{ title }}</AppTitle>
     <AppIntro>
       {{ description }}

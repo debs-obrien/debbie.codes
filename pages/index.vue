@@ -104,25 +104,6 @@
           </div>
         </div>
       </section>
-
-      <section>
-        <NuxtLink to="resources/courses"
-          ><AppSubtitle>Recent Courses</AppSubtitle></NuxtLink
-        >
-
-        <div
-          class="mt-12 grid gap-6 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
-        >
-          <div
-            v-for="course of getCourses"
-            :key="course._path"
-            data-test-id="courses"
-            class="flex flex-col"
-          >
-            <PostsCard :item="course" :description="false" />
-          </div>
-        </div>
-      </section>
       <section>
         <NuxtLink to="resources/interviews"
           ><AppSubtitle>Recent Interviews</AppSubtitle></NuxtLink
@@ -137,7 +118,7 @@
             data-test-id="interviews"
             class="flex flex-col"
           >
-            <VideoCard :item="interview" :description="false" />
+            <PodCastCard :item="interview" :description="false" />
           </div>
         </div>
       </section>
@@ -152,20 +133,15 @@ const getArticles = await queryContent('blog')
   .limit(limit.value)
   .find();
 
-const getTalks = await queryContent('conference-talks')
+const getTalks = await queryContent('videos')
   .where({ published: { $ne: false } })
   .sort({ date: -1 })
   .limit(limit.value)
   .find();
 
-const getCourses = await queryContent('courses')
+const getInterviews = await queryContent('podcasts')
   .where({ published: { $ne: false } })
-  .sort({ date: -1 })
-  .limit(limit.value)
-  .find();
-
-const getInterviews = await queryContent('interviews')
-  .where({ published: { $ne: false } })
+  .only(['title', 'date', 'slug', 'image', 'tags'])
   .sort({ date: -1 })
   .limit(limit.value)
   .find();

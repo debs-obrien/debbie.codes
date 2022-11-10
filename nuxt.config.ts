@@ -5,7 +5,8 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@nuxtjs/color-mode',
     '@nuxt/content',
-    '@tailwindcss/typography'
+    '@tailwindcss/typography',
+    '@nuxtjs/svg'
   ],
   colorMode: {
     classSuffix: ''
@@ -46,7 +47,7 @@ export default defineNuxtConfig({
   },
   vue: {
     compilerOptions: {
-      isCustomElement: tag => ['lite-youtube'].includes(tag)
+      isCustomElement: (tag) => ['lite-youtube'].includes(tag)
     }
   }
 });

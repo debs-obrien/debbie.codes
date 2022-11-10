@@ -24,50 +24,23 @@
 
         <div class="px-5 py-2">
           <NuxtLink
-            to="/resources/guest-live-streams"
+            to="/videos"
             class="text-base dark:text-gray-400 text-gray-800 hover:text-primary"
           >
-            Streams
+            Videos
           </NuxtLink>
         </div>
 
         <div class="px-5 py-2">
           <NuxtLink
-            to="/resources/interviews"
-            class="text-base text-gray-800 dark:text-gray-400 hover:text-primary"
-          >
-            Interviews
-          </NuxtLink>
-        </div>
-
-        <div class="px-5 py-2">
-          <NuxtLink
-            to="/resources/podcasts"
+            to="/podcasts"
             class="text-base text-gray-800 dark:text-gray-400 hover:text-primary"
           >
             Podcasts
           </NuxtLink>
         </div>
-
-        <div class="px-5 py-2">
-          <NuxtLink
-            to="/resources"
-            class="text-base text-gray-800 dark:text-gray-400 hover:text-primary"
-          >
-            Resources
-          </NuxtLink>
-        </div>
-
-        <div class="px-5 py-2">
-          <NuxtLink
-            to="/contact"
-            class="text-base text-gray-800 dark:text-gray-400 hover:text-primary"
-          >
-            Contact
-          </NuxtLink>
-        </div>
       </nav>
-      <div class="mt-8 flex flex-wrap justify-center space-x-6">
+      <!-- <div class="mt-8 flex flex-wrap justify-center space-x-6">
         <a
           href="https://twitter.com/debs_obrien"
           aria-label="twitter"
@@ -136,7 +109,7 @@
         >
           <IconCoffee class="h-10 w-10 fill-current" />
         </a>
-      </div>
+      </div> -->
       <p class="mt-8 text-center text-base text-gray-800 dark:text-gray-400">
         &copy; Debbie O'Brien, Palma de Mallorca, Spain
       </p>

@@ -10,7 +10,6 @@ const flatten = (tags: Array<any>, key: string = 'tags') => {
     .map((tag) => {
       let _tag = tag;
       if (tag['tags']) {
-        console.log(tag);
         let flattened = flatten(tag[key]);
         _tag = flattened;
       }
