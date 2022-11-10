@@ -1,6 +1,7 @@
 <script setup lang="ts">
 interface Props {
   list: Array<any>;
+  section: string;
 }
 
 const props = defineProps<Props>();
@@ -9,33 +10,52 @@ const props = defineProps<Props>();
   <section class="p-4 py-6 m-auto max-w-4xl">
     <ul class="article-list">
       <li v-for="item in list" :key="item._path" class="article-item">
-        <NuxtLink :to="item._path">
-          <div class="grid grid-cols-3 gap-6 auto-cols-[minmax(0,_2fr)]">
-            <div class="h-full w-full object-cover">
+        <div class="grid grid-cols-3 gap-6 auto-cols-[minmax(0,_2fr)]">
+          <div class="h-full w-full object-cover">
+            <a v-if="item.url" :href="item.url" target="_blank" rel="nofollow">
               <NuxtImg
                 :provider="item.provider"
                 :src="item.image"
                 :alt="item.title"
-                preset="blog"
-                width="auto"
-                height="auto"
-                sizes="sm:355px md:320px lg:480px"
-                class="rounded-lg max-h-[16rem]"
+                width="272"
+                height="272"
+                fit="thumb"
+                format="webp"
+                class="rounded"
               />
-            </div>
-            <div class="col-span-2">
+            </a>
+            <NuxtLink v-else :to="item._path">
+              <NuxtImg
+                :provider="item.provider"
+                :src="item.image"
+                :alt="item.title"
+                width="272"
+                height="272"
+                fit="thumb"
+                format="webp"
+                class="rounded"
+              />
+            </NuxtLink>
+          </div>
+
+          <div class="col-span-2">
+            <a v-if="item.url" :href="item.url" target="_blank" rel="nofollow">
               <h2 class="text-2xl font-semibold">{{ item.title }}</h2>
               <p>{{ item.description }}</p>
-              <ul class="article-tags" v-if="item.tags">
-                <li class="tag !py-0.5" v-for="(tag, n) in item.tags" :key="n">
-                  <NuxtLink :to="`/blog/tags/${tag}`" class="font-semibold">
-                    {{ tag }}
-                  </NuxtLink>
-                </li>
-              </ul>
-            </div>
+            </a>
+            <NuxtLink v-else :to="item._path">
+              <h2 class="text-2xl font-semibold">{{ item.title }}</h2>
+              <p>{{ item.description }}</p></NuxtLink
+            >
+            <ul class="article-tags" v-if="item.tags">
+              <li class="tag !py-0.5" v-for="(tag, n) in item.tags" :key="n">
+                <NuxtLink :to="`/${section}/tags/${tag}`" class="font-semibold">
+                  {{ tag }}
+                </NuxtLink>
+              </li>
+            </ul>
           </div>
-        </NuxtLink>
+        </div>
       </li>
     </ul>
   </section>

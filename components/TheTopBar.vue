@@ -21,7 +21,12 @@
           <TheNavigation />
         </div>
         <ColorMode />
-        <button class="block lg:hidden" aria-label="open menu" @click="toggle">
+        <button
+          class="block lg:hidden"
+          aria-label="open menu"
+          @click="toggle"
+          type="button"
+        >
           <ul v-if="!isOpen" class="hamburger text-white">
             <li class="bg-white" />
             <li class="bg-white" />

@@ -40,8 +40,6 @@ As for minority groups. The only way we can fix this is by being there. By not w
 
 But we can slowly do it so the next generation grows up in a world where going to a conference won't mean they are one of few women, or people of color etc. It will mean they just feel like they belong, like they fit in.
 
-![group of s]
-
 This is obviously sometimes hard to do especially in certain countries. But when it comes to speakers, we can certainly make sure diversity is covered. And when someone in the audience looks on stage and sees another women, or person of color, or gay person or asian person etc they will feel like they do belong and they too can get on that stage and be the next speaker and help influence others.
 
 ## We are all just family

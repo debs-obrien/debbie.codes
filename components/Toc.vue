@@ -1,7 +1,7 @@
-<script setup>
+<script setup lang="ts">
 defineProps(['links']);
 
-const flattenLinks = (links) => {
+const flattenLinks = (links: Array<any>) => {
   let _links = links
     .map((link) => {
       let _link = [link];
@@ -12,7 +12,6 @@ const flattenLinks = (links) => {
       return _link;
     })
     .flat(1);
-
   return _links;
 };
 </script>
@@ -26,7 +25,8 @@ const flattenLinks = (links) => {
       <li
         v-for="link of flattenLinks(links)"
         :key="link.id"
-        :class="`text-slate-500 toc-link_${link.depth}`"
+        class="text-slate-500"
+        :class="link.depth === 3 ? 'pl-3' : ''"
       >
         <a :href="`#${link.id}`">
           {{ link.text }}
@@ -35,13 +35,3 @@ const flattenLinks = (links) => {
     </ul>
   </nav>
 </template>
-
-<style scoped>
-.toc-link_3 {
-  @apply pl-3;
-}
-
-.toc-link_4 {
-  @apply pl-6;
-}
-</style>

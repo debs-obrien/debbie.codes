@@ -113,6 +113,12 @@ code {
 .prose code {
   color: inherit;
 }
+.prose blockquote{
+  color:dark;
+}
+.dark .prose blockquote{
+  color:white;
+}
 
 .img-cont img {
   @apply h-full w-full object-cover;

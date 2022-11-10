@@ -80,12 +80,12 @@ useHead({
           :provider="article.provider"
           :src="article.image"
           :alt="article.title"
-          :loading="article.loading ? article.loading : 'lazy'"
           preset="blog"
-          width="auto"
-          height="auto"
-          sizes="sm:355px md:320px lg:480px"
-          class="rounded-2xl h-full w-full object-cover"
+          width="960"
+          height="288"
+          fit="thumb"
+          format="webp"
+          class="rounded"
         />
       </div>
       <h1 class="font-extrabold text-5xl">{{ article.title }}</h1>
