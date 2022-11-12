@@ -19,6 +19,10 @@ export default {
     return {
       navLinks: [
         {
+          url: '/about',
+          link: 'About'
+        },
+        {
           url: '/videos',
           link: 'Videos'
         },
