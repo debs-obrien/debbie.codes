@@ -12,16 +12,18 @@ export default {
   <section class="bg-white dark:bg-gray-900">
     <div class="container px-6 py-10 mx-auto">
       <div class="mt-8 lg:-mx-6 lg:flex lg:items-center">
-        <NuxtImg
-          :provider="item.provider"
-          :src="item.image"
-          :alt="item.alt"
-          width="720"
-          height="280"
-          fit="fill"
-          format="webp"
-          class="rounded"
-        />
+        <NuxtLink :to="item._path">
+          <NuxtImg
+            :provider="item.provider"
+            :src="item.image"
+            :alt="item.alt"
+            width="680"
+            height="280"
+            fit="fill"
+            format="webp"
+            class="scale-90 transition-all duration-400 hover:scale-100 rounded"
+          />
+        </NuxtLink>
 
         <div class="mt-6 lg:w-1/2 lg:mt-0 lg:mx-6">
           <ul v-for="tag in item.tags" class="inline-block">

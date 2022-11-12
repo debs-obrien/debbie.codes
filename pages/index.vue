@@ -70,8 +70,27 @@
           </a>
         </p>
       </div>
+
       <AppSubtitle>Featured Post</AppSubtitle>
       <FeaturedSection :item="featuredPost" />
+
+      <section>
+        <NuxtLink to="resources/conference-talks"
+          ><AppSubtitle>Recent Talks</AppSubtitle></NuxtLink
+        >
+        <div
+          class="text-left mt-12 grid gap-6 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
+        >
+          <div
+            v-for="video of getTalks"
+            :key="video._path"
+            data-test-id="talks"
+          >
+            <VideoCard :item="video" :description="false" />
+          </div>
+        </div>
+      </section>
+
       <section>
         <NuxtLink to="/blog"
           ><AppSubtitle>Recent Blog Posts</AppSubtitle></NuxtLink
@@ -90,22 +109,6 @@
         </div>
       </section>
 
-      <section>
-        <NuxtLink to="resources/conference-talks"
-          ><AppSubtitle>Recent Talks</AppSubtitle></NuxtLink
-        >
-        <div
-          class="text-left mt-12 grid gap-6 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
-        >
-          <div
-            v-for="video of getTalks"
-            :key="video._path"
-            data-test-id="talks"
-          >
-            <VideoCard :item="video" :description="false" />
-          </div>
-        </div>
-      </section>
       <section>
         <NuxtLink to="resources/interviews"
           ><AppSubtitle>Recent Interviews</AppSubtitle></NuxtLink
@@ -131,6 +134,7 @@
 const limit = ref(3);
 const getArticles = await queryContent('blog')
   .where({ published: { $ne: false } })
+  .skip(1)
   .sort({ date: -1 })
   .limit(limit.value)
   .find();
@@ -149,7 +153,7 @@ const getTalks = await queryContent('videos')
 
 const getInterviews = await queryContent('podcasts')
   .where({ published: { $ne: false } })
-  .only(['title', 'date', 'slug', 'image', 'tags'])
+  .only(['title', 'date', 'slug', 'image', 'tags', 'url', 'description'])
   .sort({ date: -1 })
   .limit(limit.value)
   .find();

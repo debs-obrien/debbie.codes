@@ -8,7 +8,7 @@ const videos = await queryContent('videos')
   .sort({ date: -1 })
   .find();
 
-const title = `Videos on ${slug}`;
+const title = `Videos: ${slug}`;
 const description = `Videos from conference talks, interviews and live streams`;
 
 useHead({
