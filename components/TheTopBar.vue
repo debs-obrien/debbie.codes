@@ -20,7 +20,16 @@
         <div class="text-white hidden lg:block">
           <TheNavigation />
         </div>
-        <ColorMode />
+        <div class="inline-flex justify-between hidden lg:block">
+          <ul class="flex gap-4 text-white mr-5">
+            <li><IconTwitterWhite /></li>
+            <li><IconLinkedInWhite /></li>
+            <li><IconGitHubWhite /></li>
+            <li><IconYouTubeWhite /></li>
+            <li><ColorMode /></li>
+          </ul>
+        </div>
+
         <button
           class="block lg:hidden"
           aria-label="open menu"
@@ -46,6 +55,15 @@
       @click="isOpen = false"
     >
       <TheNavigation />
+      <div>
+        <ColorMode />
+      </div>
+      <ul class="flex gap-4 text-white">
+        <li><IconTwitterWhite /></li>
+        <li><IconLinkedInWhite /></li>
+        <li><IconGitHubWhite /></li>
+        <li><IconYouTubeWhite /></li>
+      </ul>
     </div>
     <!-- /Dropdown -->
   </header>

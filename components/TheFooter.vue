@@ -40,7 +40,7 @@
           </NuxtLink>
         </div>
       </nav>
-      <!-- <div class="mt-8 flex flex-wrap justify-center space-x-6">
+      <div class="mt-8 flex flex-wrap justify-center space-x-6">
         <a
           href="https://twitter.com/debs_obrien"
           aria-label="twitter"
@@ -82,7 +82,7 @@
           target="_blank"
           rel="nofollow noopener noreferrer"
         >
-          <IconGithub class="h-10 w-10 fill-current" />
+          <IconGitHub class="h-10 w-10 fill-current" />
         </a>
         <a
           href="https://dev.to/debs_obrien"
@@ -90,7 +90,7 @@
           target="_blank"
           rel="nofollow noopener noreferrer"
         >
-          <IconDevTo class="h-10 w-10 fill-current" />
+          <IconDevto class="h-10 w-10 fill-current" />
         </a>
 
         <a
@@ -109,34 +109,10 @@
         >
           <IconCoffee class="h-10 w-10 fill-current" />
         </a>
-      </div> -->
+      </div>
       <p class="mt-8 text-center text-base text-gray-800 dark:text-gray-400">
         &copy; Debbie O'Brien, Palma de Mallorca, Spain
       </p>
     </div>
   </footer>
 </template>
-<script>
-import IconGithub from '@/assets/icons/github.svg?inline';
-import IconTwitter from '@/assets/icons/twitter.svg?inline';
-import IconTwitch from '@/assets/icons/twitch.svg?inline';
-import IconLinkedIn from '@/assets/icons/linkedIn.svg?inline';
-import IconYouTube from '@/assets/icons/youtube.svg?inline';
-import IconSpeaker from '@/assets/icons/speaker.svg?inline';
-import IconCoffee from '@/assets/icons/coffee.svg?inline';
-import IconDevTo from '@/assets/icons/dev-rainbow.svg?inline';
-export default {
-  components: {
-    IconGithub,
-    IconTwitter,
-    IconLinkedIn,
-    IconYouTube,
-    IconSpeaker,
-    IconCoffee,
-    IconTwitch,
-    IconDevTo
-  }
-};
-</script>
-
-<style scoped></style>
