@@ -36,9 +36,9 @@ const sortedArticleTags = Array.from(articleTags).sort((a, b) => a - b);
       <li
         v-for="(tag, n) in sortedArticleTags"
         :key="n"
-        class="transition-all !py-0.5 hover:-translate-y-0.5 bg-slate-100 text-slate-700 text-sm p-2 py-1 rounded-md !py-0.5 h-full"
+        class="px-2 py-1 text-sm font-normal text-white capitalize bg-slate-600 rounded-md dark:text-white dark:bg-slate-600 transition-all !py-0.5 hover:-translate-y-0.5 dark:hover:bg-blue-500"
       >
-        <NuxtLink :to="`/${page}/tags/${tag}`" class="font-semibold">
+        <NuxtLink :to="`/${page}/tags/${tag}`" class="">
           {{ tag }}
         </NuxtLink>
       </li>
