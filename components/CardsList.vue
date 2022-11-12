@@ -9,7 +9,7 @@ const props = defineProps<Props>();
 <template>
   <section class="p-4 py-6 m-auto max-w-4xl">
     <ul class="article-list">
-      <li v-for="item in list" :key="item._path" class="article-item">
+      <li v-for="item in list" :key="item._path" class="py-4 border-b">
         <div class="grid grid-cols-4 gap-6 auto-cols-[minmax(0,_3fr)]">
           <div class="h-full w-full object-cover">
             <a v-if="item.url" :href="item.url" target="_blank" rel="nofollow">
@@ -40,16 +40,37 @@ const props = defineProps<Props>();
 
           <div class="col-span-3">
             <a v-if="item.url" :href="item.url" target="_blank" rel="nofollow">
-              <h2 class="text-2xl font-semibold">{{ item.title }}</h2>
-              <p>{{ item.description }}</p>
+              <h2
+                class="mb-4 text-xl font-semibold text-gray-800 hover:underline dark:text-white md:text-3xl"
+              >
+                {{ item.title }}
+              </h2>
+              <p
+                class="mt-3 text-lg text-gray-500 dark:text-gray-300 md:text-sm"
+              >
+                {{ item.description }}
+              </p>
             </a>
             <NuxtLink v-else :to="item._path">
-              <h2 class="text-2xl font-semibold">{{ item.title }}</h2>
-              <p>{{ item.description }}</p></NuxtLink
+              <h2
+                class="mb-4 text-xl font-semibold text-gray-800 hover:underline dark:text-white md:text-3xl"
+              >
+                {{ item.title }}
+              </h2>
+              <p
+                class="mt-3 text-lg text-gray-500 dark:text-gray-300 md:text-sm"
+              >
+                {{ item.description }}
+              </p></NuxtLink
             >
-            <ul class="article-tags" v-if="item.tags">
-              <li class="tag !py-0.5" v-for="(tag, n) in item.tags" :key="n">
-                <NuxtLink :to="`/${section}/tags/${tag}`" class="font-semibold">
+
+            <ul
+              v-if="item.tags"
+              v-for="(tag, n) in item.tags"
+              class="inline-block"
+            >
+              <li class="text-sm text-blue-500 uppercase flex px-2">
+                <NuxtLink :to="`/${section}/tags/${tag}`">
                   {{ tag }}
                 </NuxtLink>
               </li>

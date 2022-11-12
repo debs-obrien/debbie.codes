@@ -70,6 +70,8 @@
           </a>
         </p>
       </div>
+      <AppSubtitle>Featured Post</AppSubtitle>
+      <FeaturedSection :item="featuredPost" />
       <section>
         <NuxtLink to="/blog"
           ><AppSubtitle>Recent Blog Posts</AppSubtitle></NuxtLink
@@ -132,6 +134,12 @@ const getArticles = await queryContent('blog')
   .sort({ date: -1 })
   .limit(limit.value)
   .find();
+
+const featuredPost = await queryContent('blog')
+  .where({ published: { $ne: false } })
+  .sort({ date: -1 })
+  .limit(1)
+  .findOne();
 
 const getTalks = await queryContent('videos')
   .where({ published: { $ne: false } })

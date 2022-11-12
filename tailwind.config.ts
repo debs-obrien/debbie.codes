@@ -36,9 +36,9 @@ export default <Partial<Config>>{
       margin: {
         'top-bar': '100px'
       },
-      fontFamily: {
-        Saira: ['Saira']
-      },
+      // fontFamily: {
+      //   Saira: ['Saira']
+      // },
       maxWidth: {
         '1/4': '25%'
       }

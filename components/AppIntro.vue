@@ -1,6 +1,8 @@
 <template>
   <div>
-    <p class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-center">
+    <p
+      class="font-sans text-base font-semibold xl:w-2/4 lg:w-3/4 mx-auto text-center"
+    >
       <slot></slot>
     </p>
     <div class="flex mt-6 justify-center">

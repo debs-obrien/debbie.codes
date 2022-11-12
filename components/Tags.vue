@@ -32,8 +32,12 @@ const sortedArticleTags = Array.from(articleTags).sort((a, b) => a - b);
   <div
     class="m-auto max-w-4xl flex justify-center items-center gap-2 p-2 border border-transparent rounded-lg"
   >
-    <ul class="article-tags flex flex-wrap justify-center">
-      <li v-for="(tag, n) in sortedArticleTags" :key="n" class="tag h-full">
+    <ul class="flex gap-2 py-2 flex flex-wrap justify-center">
+      <li
+        v-for="(tag, n) in sortedArticleTags"
+        :key="n"
+        class="transition-all !py-0.5 hover:-translate-y-0.5 bg-slate-100 text-slate-700 text-sm p-2 py-1 rounded-md !py-0.5 h-full"
+      >
         <NuxtLink :to="`/${page}/tags/${tag}`" class="font-semibold">
           {{ tag }}
         </NuxtLink>

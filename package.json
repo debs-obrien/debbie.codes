@@ -11,13 +11,10 @@
     "@nuxt/content": "^2.2.1",
     "@nuxt/image-edge": "^1.0.0-27769790.4b27db3",
     "@nuxtjs/color-mode": "^3.1.8",
-    "@nuxtjs/svg": "^0.1.12",
     "@nuxtjs/tailwindcss": "^6.1.3",
     "@tailwindcss/typography": "^0.5.7",
     "lite-youtube-embed": "^0.2.0",
     "nuxt": "npm:nuxt3@latest"
   },
-  "dependencies": {
-    "cc": "^3.0.1"
-  }
+  "dependencies": {}
 }
