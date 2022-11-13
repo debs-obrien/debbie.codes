@@ -6,6 +6,6 @@ url: https://www.youtube.com/playlist?list=PLtIMuymsF0jcsFDIAq6fGGU2kuOFrFPSm
 image: v1650467074/debbie.codes/workshops/nuxt-playlist_2x_telgll.png
 provider: cloudinary
 loading: eager
-tags: [Nuxt]
+tags: [nuxt]
 platform: YouTube
 ---

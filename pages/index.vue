@@ -72,7 +72,7 @@
       </div>
 
       <AppSubtitle>Featured Post</AppSubtitle>
-      <FeaturedSection :item="featuredPost" />
+      <FeaturedSection :item="featuredPost" section="blog" />
 
       <section>
         <NuxtLink to="resources/conference-talks"

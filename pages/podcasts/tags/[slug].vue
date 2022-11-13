@@ -25,6 +25,9 @@ useHead({
       {{ description }}
     </AppIntro>
     <Tags section="podcasts" />
-    <CardsList :list="podcasts" section="podcasts" />
+    <CardsList v-if="podcasts.length" :list="podcasts" section="podcasts" />
+    <div v-else class="m-auto max-w-4xl text-center mt-8">
+      <NotFound />
+    </div>
   </div>
 </template>

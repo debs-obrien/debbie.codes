@@ -25,11 +25,15 @@ useHead({
     </AppIntro>
     <Tags section="videos" />
     <div
+      v-if="videos.length"
       class="mt-12 grid gap-8 mx-auto grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 md:max-w-none"
     >
       <div v-for="video of videos" :key="video.slug" data-test-id="interviews">
         <VideoCard :item="video" />
       </div>
+    </div>
+    <div v-else class="m-auto max-w-4xl text-center mt-8">
+      <NotFound />
     </div>
   </div>
 </template>

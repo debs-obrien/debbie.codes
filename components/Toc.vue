@@ -28,7 +28,7 @@ const flattenLinks = (links: Array<any>) => {
         class="text-slate-500"
         :class="link.depth === 3 ? 'pl-3' : ''"
       >
-        <a :href="`#${link.id}`">
+        <a :href="`#${link.id}`" class="hover:underline">
           {{ link.text }}
         </a>
       </li>

@@ -4,6 +4,10 @@ export default {
     item: {
       type: Object,
       required: true
+    },
+    section: {
+      type: String,
+      required: true
     }
   }
 };

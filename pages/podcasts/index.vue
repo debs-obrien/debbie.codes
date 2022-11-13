@@ -20,6 +20,6 @@ useHead({
       {{ description }}
     </AppIntro>
     <Tags section="podcasts" />
-    <CardsList :list="podcasts" :section="podcasts" />
+    <CardsList :list="podcasts" section="podcasts" />
   </div>
 </template>

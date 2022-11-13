@@ -6,6 +6,6 @@ url: https://www.youtube.com/playlist?list=PLtIMuymsF0jdUeZetvF9S9djZuNGIm3GM
 image: v1650467074/debbie.codes/workshops/react-playlist.png
 provider: cloudinary
 loading: eager
-tags: [React]
+tags: [react]
 platform: YouTube
 ---
