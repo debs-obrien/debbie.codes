@@ -7,16 +7,10 @@
         <h1 class="my-2 font-bold text-2xl">
           Ooops looks like that page doesn't exist
         </h1>
-        <p class="my-2 mb-8">
-          Sorry about that. No idea what went wrong but hey, nobody's perfect.
-          Lets take you somewhere that actually exists. go.
+        <p class="my-2">
+          Sorry about that Try choosing a different category from the list above
+          go.
         </p>
-        <NuxtLink
-          to="/"
-          class="sm:w-full lg:w-auto my-2 border rounded md py-4 px-8 text-center bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-opacity-50"
-        >
-          Take me there!
-        </NuxtLink>
       </div>
     </div>
     <div>
