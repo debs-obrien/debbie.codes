@@ -7,4 +7,5 @@ image: photo-1528840942-6d0562674ad6?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufD
 provider: imgix
 tags: [vue]
 platform: Ultimate Courses
+featured: true
 ---

@@ -7,4 +7,5 @@ image: v1630862642/debbie.codes/featured-posts/moving-from-dot-env_kn8gra
 provider: cloudinary
 tags: [nuxt]
 platform: Nuxt
+featured: true
 ---

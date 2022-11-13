@@ -7,4 +7,5 @@ image: v1607270253/debbie.codes/blog/debbie-oc_qtvsnj
 provider: cloudinary
 tags: [lifestyle]
 platform: OpenClassrooms
+featured: true
 ---

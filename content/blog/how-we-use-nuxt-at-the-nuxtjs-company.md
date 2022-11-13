@@ -8,4 +8,5 @@ provider: cloudinary
 loading: eager
 tags: [nuxt]
 platform: Microsoft
+featured: true
 ---

@@ -8,4 +8,5 @@ provider: cloudinary
 loading: eager
 tags: [jamstack]
 platform: Microsoft DevTo
+featured: true
 ---

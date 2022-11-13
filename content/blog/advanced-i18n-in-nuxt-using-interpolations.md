@@ -8,4 +8,5 @@ provider: imgix
 loading: eager
 tags: [nuxt, vue]
 platform: Vue Dose
+featured: true
 ---

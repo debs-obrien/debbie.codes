@@ -8,4 +8,5 @@ provider: cloudinary
 loading: eager
 tags: [dev-rel]
 platform: Andela
+featured: true
 ---

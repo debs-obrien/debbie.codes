@@ -8,4 +8,5 @@ provider: cloudinary
 loading: eager
 tags: [react, architecture]
 platform: Medium
+featured: true
 ---
