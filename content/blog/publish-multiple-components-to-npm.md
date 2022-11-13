@@ -6,6 +6,6 @@ url: https://blog.bitsrc.io/publish-multiple-components-to-npm-with-no-package-j
 image: photo-1543966888-7c1dc482a810?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80
 provider: imgix
 loading: eager
-tags: [components]
+tags: [architecture]
 platform: Bits n Pieces
 ---
