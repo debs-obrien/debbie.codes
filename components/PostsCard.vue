@@ -46,7 +46,6 @@ export default {
               :src="item.image"
               :alt="item.title"
               :loading="item.loading ? item.loading : 'lazy'"
-              preset="blog"
               width="444"
               height="256"
               sizes="sm:355px md:320px lg:480px"

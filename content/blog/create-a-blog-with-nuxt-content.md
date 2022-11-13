@@ -7,4 +7,5 @@ image: v1630862643/debbie.codes/featured-posts/create-blog-nuxt-content_yoae9h
 provider: cloudinary
 tags: [nuxt]
 platform: Nuxt
+featured: true
 ---
