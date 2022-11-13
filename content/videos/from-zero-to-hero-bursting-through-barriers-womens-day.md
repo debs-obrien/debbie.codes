@@ -5,6 +5,6 @@ description: Are you afraid to take the next step? Do you think you’re not goo
 video: L9jHxzRbWg8
 start: 9985
 published: false
-tags: [conference talk, imposter syndrome]
+tags: [conference-talk, imposter-syndrome]
 conference: CityJS Meetup
 ---

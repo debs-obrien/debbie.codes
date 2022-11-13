@@ -5,6 +5,6 @@ description: A year ago, I was in a very different place. I had come to the end 
 url: https://blog.teamtreehouse.com/learning-to-code-changed-my-life
 image: v1607270030/debbie.codes/Bluekiri-office_gmihtu
 provider: cloudinary
-tags: [Learning to Code]
+tags: [learning-to-code]
 platform: Treehouse
 ---

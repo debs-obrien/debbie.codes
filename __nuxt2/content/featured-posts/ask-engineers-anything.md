@@ -6,6 +6,6 @@ url: https://andela.com/insights/community-developer-advocacy-impostor-syndrome/
 image: f_auto,c_fill,g_auto,e_sharpen/v1615392668/debbie.codes/featured-posts/ask-engineers-anything_m3vmrk
 provider: cloudinary
 loading: eager
-tags: [Dev Rel]
+tags: [dev-rel]
 platform: Andela
 ---

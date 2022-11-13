@@ -89,7 +89,7 @@ But I went out that night and had a Margarita and celebrated the fact that I had
 
 On the 4th of February a friend told me about a position at Microsoft and encouraged me to apply. I was referred for the position but to be honest I didn't really have high hopes because I was still not ready to pass these white board interviews at all and I was still struggling to learn data structures and algorithms.
 
-Also I didn't feel I was good enough for the role or had enough knowledge or experience and even asked my fellow Microsoft friends if they thought I was good enough to work for Microsoft. Yes [Imposter Syndrome](https://debbie.codes/blog/being-an-imposter), is a nightmare.
+Also I didn't feel I was good enough for the role or had enough knowledge or experience and even asked my fellow Microsoft friends if they thought I was good enough to work for Microsoft. Yes [imposter-syndrome](https://debbie.codes/blog/being-an-imposter), is a nightmare.
 
 ![tweets messages about me doubting im good enough to join Microsoft and being told I have everything I need](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1651654301/debbie.codes/blog/2022/twitter-messages-wasim_2x_tum5f7.png)
 

@@ -3,7 +3,7 @@ title: VS Code Tips
 date: 2021-05-13
 description: Tips, shortcuts and extensions to make working with VS Code easier so you can developer faster and let the tools do the job for you.
 image: photo-1510751007277-36932aac9ebd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop
-tags: [VS Code]
+tags: [VS-code]
 provider: imgix
 loading: eager
 published: true
@@ -45,7 +45,7 @@ components/button.tsx
 
 ### Monospaced fonts
 
-To use coll fonts that turn your symbols into real looking symbols you can use [Fira Code](https://github.com/tonsky/FiraCode) which is free. You can [enable on VS Code](https://github.com/tonsky/FiraCode/wiki/VS-Code-Instructions) by selecting the font in the settings editor under "Commonly Used" or you can add a '.vscode/settings.json` file.
+To use coll fonts that turn your symbols into real looking symbols you can use [Fira Code](https://github.com/tonsky/FiraCode) which is free. You can [enable on VS-code](https://github.com/tonsky/FiraCode/wiki/VS-Code-Instructions) by selecting the font in the settings editor under "Commonly Used" or you can add a '.vscode/settings.json` file.
 
 ```json
 {
