@@ -1,6 +1,6 @@
 <template>
   <TheTopBar />
-  <div class="container mt-top-bar">
+  <div class="container mx-auto mt-top-bar">
     <NuxtPage />
   </div>
 

@@ -28,7 +28,7 @@ const navLinks = reactive([
       <li
         v-for="(nav, index) in navLinks"
         :key="index"
-        class="pb-6 lg:pb-0 pr-6"
+        class="pb-6 lg:pb-0 pr-6 sm:text-2xl"
       >
         <nuxt-link :to="nav.url" class="hover:no-underline">
           {{ nav.link }}

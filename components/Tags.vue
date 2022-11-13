@@ -36,7 +36,7 @@ const sortedArticleTags = articleTags.sort();
         v-for="(tag, n) in sortedArticleTags"
         :key="n"
         :to="`/${section}/tags/${tag}`"
-        class="tag px-2 py-1 text-sm font-normal text-white uppercase bg-slate-600 rounded-md dark:text-white dark:bg-slate-600 transition-all !py-0.5 hover:-translate-y-0.5 hover:bg-blue-500"
+        class="px-2 py-1 md:text-sm sm:text-xl font-normal text-white uppercase bg-slate-600 rounded-md dark:text-white dark:bg-slate-600 transition-all !py-0.5 hover:-translate-y-0.5 hover:bg-blue-500"
       >
         <li>
           {{ tag.replaceAll('-', ' ') }}
@@ -46,7 +46,7 @@ const sortedArticleTags = articleTags.sort();
   </div>
 </template>
 <style scoped>
-.tag.router-link-exact-active {
+.router-link-exact-active {
   @apply bg-blue-500;
 }
 </style>
