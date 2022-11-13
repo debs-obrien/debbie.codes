@@ -1,7 +1,7 @@
 <template>
-  <header class="grax_topbar w-full fixed top-0 left-0 z-10 bg-dark py-4">
-    <div class="container">
-      <div class="w-100 h-auto items-center flex justify-between">
+  <header class="w-full fixed top-0 left-0 z-10 bg-dark py-4">
+    <div class="container mx-auto">
+      <div class="w-100 h-auto items-center flex justify-between px-3">
         <div class="w-auto text-white">
           <NuxtLink to="/" class="hover:no-underline flex">
             <NuxtImg
@@ -41,7 +41,11 @@
             <li class="bg-white" />
             <li class="bg-white" />
           </ul>
-          <span v-if="isOpen" class="text-white" aria-label="close menu">
+          <span
+            v-if="isOpen"
+            class="text-white text-2xl"
+            aria-label="close menu"
+          >
             X
           </span>
         </button>
@@ -51,18 +55,16 @@
     <!-- Dropdown -->
     <div
       v-show="isOpen"
-      class="text-white bg-dark w-full h-full px-10"
+      class="text-white bg-dark w-full h-full px-10 mt-6 text-center"
       @click="isOpen = false"
     >
       <TheNavigation />
-      <div>
-        <ColorMode />
-      </div>
-      <ul class="flex gap-4 text-white">
-        <li><IconTwitterWhite /></li>
-        <li><IconLinkedInWhite /></li>
-        <li><IconGitHubWhite /></li>
-        <li><IconYouTubeWhite /></li>
+      <ul class="flex gap-6 text-white justify-center mt-4">
+        <li><IconTwitterWhite class="w-7 h-7" /></li>
+        <li><IconLinkedInWhite class="w-7 h-7" /></li>
+        <li><IconGitHub class="w-7 h-7" /></li>
+        <li><IconYouTubeWhite class="w-7 h-7" /></li>
+        <li><ColorMode class="w-7 h-7" /></li>
       </ul>
     </div>
     <!-- /Dropdown -->
