@@ -20,7 +20,14 @@
       </div>
     </div>
     <div>
-      <img src="https://i.ibb.co/ck1SGFJ/Group.png" />
+      <NuxtImg
+        provider="cloudinary"
+        src="v1668347473/debbie.codes/broken_vktobk.png"
+        alt="broken connection"
+        width="444"
+        height="256"
+        sizes="sm:355px md:320px lg:480px"
+      />
     </div>
   </div>
 </template>
