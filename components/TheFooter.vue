@@ -23,7 +23,7 @@ const navLinks = reactive([
 ]);
 </script>
 <template>
-  <footer class="w-full bg-dark py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
+  <footer class="w-full bg-dark py-12 mt-4 overflow-hidden sm:px-6 lg:px-8">
     <ul class="-mx-5 -my-2 flex flex-wrap justify-center text-white">
       <li
         v-for="(nav, index) in navLinks"
@@ -44,7 +44,7 @@ const navLinks = reactive([
           target="_blank"
           rel="nofollow noopener noreferrer"
         >
-          <IconTwitter class="h-10 w-10 mb-6 fill-current" />
+          <IconTwitter class="h-10 w-10 mb-6" />
         </a>
       </li>
 
@@ -55,7 +55,7 @@ const navLinks = reactive([
           rel="nofollow noopener noreferrer"
           aria-label="linkedIn"
         >
-          <IconLinkedIn class="h-10 w-10 fill-current" />
+          <IconLinkedIn class="h-10 w-10" />
         </a>
       </li>
 
@@ -66,7 +66,7 @@ const navLinks = reactive([
           rel="nofollow noopener noreferrer"
           aria-label="youtube"
         >
-          <IconYouTube class="h-10 w-10 fill-current" />
+          <IconYouTube class="h-10 w-10" />
         </a>
       </li>
       <li>
@@ -76,7 +76,7 @@ const navLinks = reactive([
           rel="nofollow noopener noreferrer"
           aria-label="twitch"
         >
-          <IconTwitch class="h-10 w-10 fill-current" />
+          <IconTwitch class="h-10 w-10" />
         </a>
       </li>
 
@@ -87,7 +87,7 @@ const navLinks = reactive([
           target="_blank"
           rel="nofollow noopener noreferrer"
         >
-          <IconGitHub class="h-10 w-10 fill-white" />
+          <IconGitHub class="h-10 w-10" />
         </a>
       </li>
       <li>
@@ -97,7 +97,7 @@ const navLinks = reactive([
           target="_blank"
           rel="nofollow noopener noreferrer"
         >
-          <IconDevto class="h-10 w-10 fill-current" />
+          <IconDevto class="h-10 w-10" />
         </a>
       </li>
 
@@ -118,7 +118,7 @@ const navLinks = reactive([
           target="_blank"
           rel="nofollow noopener noreferrer"
         >
-          <IconCoffee class="h-10 w-10 fill-current" />
+          <IconCoffee class="h-10 w-10" />
         </a>
       </li>
     </ul>
