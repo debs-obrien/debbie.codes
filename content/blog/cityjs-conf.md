@@ -7,4 +7,5 @@ image: fl_lossy,f_auto/v1607270077/debbie.codes/blog/cityjsconf_ozoe4u
 provider: cloudinary
 tags: [lifestyle]
 platform: CityJS Conf
+featured: true
 ---

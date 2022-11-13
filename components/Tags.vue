@@ -36,7 +36,7 @@ const sortedArticleTags = articleTags.sort();
         v-for="(tag, n) in sortedArticleTags"
         :key="n"
         :to="`/${section}/tags/${tag}`"
-        class="px-2 py-1 md:text-sm sm:text-xl font-normal text-white uppercase bg-slate-600 rounded-md dark:text-white dark:bg-slate-600 transition-all !py-0.5 hover:-translate-y-0.5 hover:bg-blue-500"
+        class="px-2 py-1 md:text-sm sm:text-xl font-normal text-white uppercase bg-slate-600 rounded-md transition-all !py-0.5 hover:-translate-y-0.5 hover:bg-blue-500"
       >
         <li>
           {{ tag.replaceAll('-', ' ') }}

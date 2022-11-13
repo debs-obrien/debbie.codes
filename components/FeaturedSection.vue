@@ -28,7 +28,9 @@ export default {
         <div class="mt-6 lg:w-1/2 lg:mt-0 lg:mx-6">
           <ul v-for="tag in item.tags" class="inline-block">
             <li class="text-sm text-blue-500 uppercase flex px-4">
-              {{ tag }}
+              <NuxtLink :to="`/${section}/tags/${tag}`" class="hover:underline">
+                {{ tag }}
+              </NuxtLink>
             </li>
           </ul>
 

@@ -4,6 +4,8 @@ const { path } = useRoute();
 const article = await queryContent('blog').where({ _path: path }).findOne();
 
 const [prev, next] = await queryContent('blog')
+  .where({ published: { $ne: false }, featured: { $ne: true } })
+
   .only(['_path', 'title', 'description'])
   .findSurround(path);
 
@@ -88,11 +90,18 @@ useHead({
           class="rounded"
         />
       </div>
-      <h1 class="font-extrabold text-5xl">{{ article.title }}</h1>
+      <h1 class="font-extrabold text-5xl mb-4">{{ article.title }}</h1>
       <p class="font-medium text-lg">{{ article.description }}</p>
-      <ul class="article-tags">
-        <li class="tag" v-for="(tag, n) in article.tags" :key="n">
-          <NuxtLink :to="`/blog/tags/${tag}`" class="font-semibold">
+      <ul class="">
+        <li
+          class="inline-block"
+          v-for="(tag, n) in article.tags"
+          :key="article.title"
+        >
+          <NuxtLink
+            :to="`/blog/tags/${tag}`"
+            class="text-sm text-blue-500 uppercase flex pr-4"
+          >
             {{ tag }}
           </NuxtLink>
         </li>

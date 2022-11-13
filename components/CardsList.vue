@@ -21,7 +21,7 @@ const props = defineProps<Props>();
                 height="272"
                 fit="thumb"
                 format="webp"
-                class="rounded"
+                class="scale-90 transition-all duration-400 hover:scale-100 rounded"
               />
             </a>
             <NuxtLink v-else :to="item._path">
@@ -33,7 +33,7 @@ const props = defineProps<Props>();
                 height="272"
                 fit="thumb"
                 format="webp"
-                class="rounded"
+                class="scale-90 transition-all duration-400 hover:scale-100 rounded"
               />
             </NuxtLink>
           </div>
@@ -70,7 +70,10 @@ const props = defineProps<Props>();
               class="inline-block"
             >
               <li class="text-sm text-blue-500 uppercase flex px-2">
-                <NuxtLink :to="`/${section}/tags/${tag}`">
+                <NuxtLink
+                  :to="`/${section}/tags/${tag}`"
+                  class="hover:underline"
+                >
                   {{ tag }}
                 </NuxtLink>
               </li>

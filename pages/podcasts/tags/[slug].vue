@@ -4,7 +4,7 @@ const {
 } = useRoute();
 
 const podcasts = await queryContent('podcasts')
-  .where({ published: { $ne: false }, tags: { $in: slug } })
+  .where({ published: { $ne: false }, tags: { $contains: slug } })
   .sort({ date: -1 })
   .find();
 
@@ -25,6 +25,6 @@ useHead({
       {{ description }}
     </AppIntro>
     <Tags section="podcasts" />
-    <CardsList :list="podcasts" :section="podcasts" />
+    <CardsList :list="podcasts" section="podcasts" />
   </div>
 </template>
