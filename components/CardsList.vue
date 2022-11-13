@@ -1,7 +1,7 @@
 <script setup lang="ts">
 interface Props {
   list: Array<any>;
-  section: Object;
+  section: string;
 }
 
 const props = defineProps<Props>();

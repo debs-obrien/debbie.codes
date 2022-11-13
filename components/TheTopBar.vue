@@ -24,7 +24,7 @@
           <ul class="flex gap-4 text-white mr-5">
             <li><IconTwitterWhite /></li>
             <li><IconLinkedInWhite /></li>
-            <li><IconGitHubWhite /></li>
+            <li><IconGitHub /></li>
             <li><IconYouTubeWhite /></li>
             <li><ColorMode /></li>
           </ul>

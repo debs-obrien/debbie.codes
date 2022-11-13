@@ -158,61 +158,6 @@ const getInterviews = await queryContent('podcasts')
   .limit(limit.value)
   .find();
 </script>
-<!-- <script>
-  export default {
-    layout: 'home',
-    async asyncData({ $content, error }) {
-      const numArticles = 3
-      const getArticles = await $content('articles')
-        .where({
-          published: { $ne: false }
-        })
-        .sortBy('date', 'desc')
-        .limit(numArticles)
-        .fetch()
-      if (!getArticles.length) {
-        return error({ statusCode: 404, message: 'No articles found!' })
-      }
-      const getTalks = await $content('conference-talks')
-        .where({
-          published: { $ne: false }
-        })
-        .sortBy('date', 'desc')
-        .limit(numArticles)
-        .fetch()
-      if (!getTalks.length) {
-        return error({ statusCode: 404, message: 'No talks found!' })
-      }
-      const getCourses = await $content('courses')
-        .where({
-          published: { $ne: false }
-        })
-        .sortBy('date', 'desc')
-        .limit(numArticles)
-        .fetch()
-      if (!getCourses.length) {
-        return error({ statusCode: 404, message: 'No courses found!' })
-      }
-      const getInterviews = await $content('interviews')
-        .where({
-          published: { $ne: false }
-        })
-        .sortBy('date', 'desc')
-        .limit(numArticles)
-        .fetch()
-      if (!getCourses.length) {
-        return error({ statusCode: 404, message: 'No interviews found!' })
-      }
-      return {
-        getArticles,
-        getTalks,
-        getCourses,
-        getInterviews
-      }
-    },
-    components: { AppTitle }
-  }
-</script> -->
 
 <style scoped>
 .hero_texts .subtitle {

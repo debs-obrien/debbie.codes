@@ -1,3 +1,27 @@
+<script setup>
+const navLinks = reactive([
+  {
+    url: '/about',
+    link: 'About'
+  },
+  {
+    url: '/videos',
+    link: 'Videos'
+  },
+  {
+    url: '/podcasts',
+    link: 'Podcasts'
+  },
+  {
+    url: '/courses',
+    link: 'Courses'
+  },
+  {
+    url: '/blog',
+    link: 'Blog'
+  }
+]);
+</script>
 <template>
   <nav>
     <ul class="block lg:flex">
@@ -13,33 +37,3 @@
     </ul>
   </nav>
 </template>
-<script>
-export default {
-  data() {
-    return {
-      navLinks: [
-        {
-          url: '/about',
-          link: 'About'
-        },
-        {
-          url: '/videos',
-          link: 'Videos'
-        },
-        {
-          url: '/podcasts',
-          link: 'Podcasts'
-        },
-        {
-          url: '/courses',
-          link: 'Courses'
-        },
-        {
-          url: '/blog',
-          link: 'Blog'
-        }
-      ]
-    };
-  }
-};
-</script>
