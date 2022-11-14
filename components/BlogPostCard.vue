@@ -1,16 +1,8 @@
-<script>
-export default {
-  props: {
-    description: {
-      type: Boolean,
-      default: true
-    },
-    item: {
-      type: Object,
-      required: true
-    }
-  }
-};
+<script setup lang="ts">
+import type { BlogPost } from '~/types';
+defineProps<{
+  item: BlogPost;
+}>();
 </script>
 <template>
   <div class="flex flex-col overflow-hidden flex-1 max-width h-full">
@@ -39,7 +31,6 @@ export default {
               :provider="item.provider"
               :src="item.image"
               :alt="item.title"
-              :loading="item.loading ? item.loading : 'lazy'"
               width="444"
               height="256"
               sizes="sm:355px md:320px lg:480px"
