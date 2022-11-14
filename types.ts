@@ -50,3 +50,8 @@ export interface BlogPost {
   loading?: 'loading' | 'eager';
   _path: string;
 }
+
+export interface Navigation {
+  url: string;
+  link: string;
+}

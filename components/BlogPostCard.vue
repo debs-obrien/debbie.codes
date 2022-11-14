@@ -59,11 +59,6 @@ defineProps<{
               {{ item.title }}
             </h4>
           </NuxtLink>
-
-          <p v-if="description" class="mt-3 text-base leading-6 text-gray-500">
-            {{ item.description }}
-          </p>
-
           <ul v-for="tag in item.tags" class="inline-block">
             <li class="text-sm text-blue-500 uppercase flex pr-4">
               {{ tag }}

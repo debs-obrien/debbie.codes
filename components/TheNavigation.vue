@@ -1,32 +1,11 @@
-<script setup>
-const navLinks = reactive([
-  {
-    url: '/about',
-    link: 'About'
-  },
-  {
-    url: '/videos',
-    link: 'Videos'
-  },
-  {
-    url: '/podcasts',
-    link: 'Podcasts'
-  },
-  {
-    url: '/courses',
-    link: 'Courses'
-  },
-  {
-    url: '/blog',
-    link: 'Blog'
-  }
-]);
+<script setup lang="ts">
+import { NavLinks } from '~/constants/navigation';
 </script>
 <template>
   <nav>
     <ul class="block lg:flex">
       <li
-        v-for="(nav, index) in navLinks"
+        v-for="(nav, index) in NavLinks"
         :key="index"
         class="pb-6 lg:pb-0 pr-6 sm:text-2xl md:text-lg"
       >
