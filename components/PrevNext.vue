@@ -1,5 +1,9 @@
-<script setup>
-defineProps(['prev', 'next']);
+<script setup lang="ts">
+import type { BlogPost } from '~/types';
+defineProps<{
+  prev: BlogPost;
+  next: BlogPost;
+}>();
 </script>
 
 <template>

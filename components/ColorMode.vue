@@ -7,7 +7,6 @@ const setColorTheme = (newTheme: Theme) => {
 
 <template>
   <button
-    class=""
     @click="setColorTheme($colorMode.preference == 'dark' ? 'light' : 'dark')"
     :aria-label="$colorMode.preference"
     type="button"

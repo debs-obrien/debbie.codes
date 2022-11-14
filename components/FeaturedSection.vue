@@ -1,16 +1,9 @@
-<script>
-export default {
-  props: {
-    item: {
-      type: Object,
-      required: true
-    },
-    section: {
-      type: String,
-      required: true
-    }
-  }
-};
+<script setup lang="ts">
+import type { BlogPost, Section } from '~/types';
+defineProps<{
+  item: BlogPost;
+  section: Section;
+}>();
 </script>
 <template>
   <section class="bg-white dark:bg-gray-900">

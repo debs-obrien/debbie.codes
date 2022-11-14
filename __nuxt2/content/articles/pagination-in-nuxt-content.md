@@ -143,7 +143,7 @@ The next step is to render the posts. We do this by using `v-for` and looping ov
 
 ```js
 <div v-for="article of getArticles" :key="article.slug" class="flex flex-col">
-  <PostsCard :item="article" />
+  <BlogPostCard :item="article" />
 </div>
 ```
 
@@ -194,7 +194,7 @@ Now when rendering our posts we need to use the `filteredArticles` instead of th
   :key="article.slug"
   class="flex flex-col"
 >
-  <PostsCard :item="article" />
+  <BlogPostCard :item="article" />
 </div>
 ```
 

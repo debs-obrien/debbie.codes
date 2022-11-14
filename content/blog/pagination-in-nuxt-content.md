@@ -35,7 +35,7 @@ To fetch the data we use `asyncData` passing in `$content` and `params` so we ca
 I want to get 9 Articles per page so we create a const called `getArticles` and then use the `$content` method passing in the folder to where my posts are stored. We then add a condition using `.where`. We want to make sure we only publish posts that do not have published set to false.
 
 ```js
-const getArticles = await $content('articles').fetch()
+const getArticles = await $content('articles').fetch();
 ```
 
 Make sure you always add the `.fetch()` at the end of your query. I have very often forgotten this and wondered why I wasn't getting any data back.
@@ -47,7 +47,7 @@ In my posts I add `published: false` for those posts that are still a work in pr
 ```js
 const getArticles = await $content('articles')
   .where({ published: { $ne: false } })
-  .fetch()
+  .fetch();
 ```
 
 ### Limit the amount of posts returned
@@ -58,7 +58,7 @@ Next we want to limit the amount of posts that come back so that we only have 9 
 const getArticles = await $content('articles')
   .where({ published: { $ne: false } })
   .limit(9)
-  .fetch()
+  .fetch();
 ```
 
 ### Skip the posts based on page number
@@ -70,7 +70,7 @@ const getArticles = await $content('articles')
   .where({ published: { $ne: false } })
   .limit(9)
   .skip(9 * (pageNo - 1))
-  .fetch()
+  .fetch();
 ```
 
 ### Sort the posts by date
@@ -83,7 +83,7 @@ const getArticles = await $content('articles')
   .limit(9)
   .skip(9 * (pageNo - 1))
   .sortBy('date', 'desc')
-  .fetch()
+  .fetch();
 ```
 
 ### Set the next page
@@ -91,7 +91,7 @@ const getArticles = await $content('articles')
 Next page is set to true if the amount of articles received is equal to 9. This means we can then render our next page button if the condition is true.
 
 ```js
-const nextPage = getArticles.length === 9
+const nextPage = getArticles.length === 9;
 ```
 
 ### Return what we need
@@ -103,7 +103,7 @@ return {
   nextPage,
   getArticles,
   pageNo
-}
+};
 ```
 
 The final code looks something like this. Note I have the layout properties in here so that all my blog pages use the same layout which I named blog. I also added a const called `numArticles` making it equal to 9 just to keep things dry and finally I added an if statement to deal with errors incase there are no articles returned. This will render my error page with the message of 'no articles found'
@@ -112,29 +112,29 @@ The final code looks something like this. Note I have the layout properties in h
 export default {
   layout: 'blog',
   async asyncData({ $content, params }) {
-    const pageNo = parseInt(params.number)
-    const numArticles = 9
+    const pageNo = parseInt(params.number);
+    const numArticles = 9;
 
     const getArticles = await $content('articles')
       .where({ published: { $ne: false } })
       .limit(numArticles)
       .skip(numArticles * (pageNo - 1))
       .sortBy('date', 'desc')
-      .fetch()
+      .fetch();
 
     if (!getArticles.length) {
-      return error({ statusCode: 404, message: 'No articles found!' })
+      return error({ statusCode: 404, message: 'No articles found!' });
     }
 
-    const nextPage = getArticles.length === numArticles
-    getArticles
+    const nextPage = getArticles.length === numArticles;
+    getArticles;
     return {
       nextPage,
       getArticles,
       pageNo
-    }
+    };
   }
-}
+};
 ```
 
 ## Rendering the posts
@@ -143,7 +143,7 @@ The next step is to render the posts. We do this by using `v-for` and looping ov
 
 ```js
 <div v-for="article of getArticles" :key="article.slug" class="flex flex-col">
-  <PostsCard :item="article" />
+  <BlogPostCard :item="article" />
 </div>
 ```
 
@@ -194,7 +194,7 @@ Now when rendering our posts we need to use the `filteredArticles` instead of th
   :key="article.slug"
   class="flex flex-col"
 >
-  <PostsCard :item="article" />
+  <BlogPostCard :item="article" />
 </div>
 ```
 

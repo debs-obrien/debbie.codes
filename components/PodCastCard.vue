@@ -1,18 +1,8 @@
-<script>
-export default {
-  props: {
-    item: {
-      type: Object,
-      required: true
-    }
-  },
-  methods: {
-    formatDate(date) {
-      const options = { year: 'numeric', month: 'long', day: 'numeric' };
-      return new Date(date).toLocaleDateString('en', options);
-    }
-  }
-};
+<script setup lang="ts">
+import type { Podcast } from '~/types';
+defineProps<{
+  item: Podcast;
+}>();
 </script>
 <template>
   <div class="flex flex-col overflow-hidden flex-1 max-width h-full">
@@ -25,7 +15,6 @@ export default {
             :provider="item.provider"
             :src="item.image"
             :alt="item.title"
-            :loading="item.loading ? item.loading : 'lazy'"
             preset="blog"
             width="444"
             height="256"
@@ -45,10 +34,6 @@ export default {
               {{ item.title }}
             </h4>
           </a>
-
-          <p v-if="description" class="mt-3 text-base leading-6 text-gray-500">
-            {{ item.description }}
-          </p>
 
           <ul v-for="tag in item.tags" class="inline-block">
             <li class="text-sm text-blue-500 uppercase flex pr-4">

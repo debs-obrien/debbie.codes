@@ -1,11 +1,11 @@
 <script setup lang="ts">
-interface Props {
-  list: Array<any>;
-  section: string;
-}
-
-const props = defineProps<Props>();
+import type { BlogPost, Podcast, Course, Section } from '~/types';
+defineProps<{
+  list: Array<BlogPost | Podcast | Course>;
+  section: Section;
+}>();
 </script>
+
 <template>
   <section class="p-4 py-6 m-auto max-w-4xl">
     <ul class="article-list">

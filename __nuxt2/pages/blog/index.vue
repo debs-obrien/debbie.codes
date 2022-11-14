@@ -8,7 +8,7 @@
         :key="article.slug"
         class="flex flex-col"
       >
-        <PostsCard :item="article" />
+        <BlogPostCard :item="article" />
       </div>
     </div>
     <Pagination :nextPage="nextPage" :pageNo="1" urlPrefix="/blog/all" />

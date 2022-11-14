@@ -9,12 +9,6 @@ export default {
       type: Object,
       required: true
     }
-  },
-  methods: {
-    formatDate(date) {
-      const options = { year: 'numeric', month: 'long', day: 'numeric' };
-      return new Date(date).toLocaleDateString('en', options);
-    }
   }
 };
 </script>

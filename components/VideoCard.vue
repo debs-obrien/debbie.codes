@@ -1,23 +1,10 @@
-<script>
-export default {
-  props: {
-    description: {
-      type: Boolean,
-      default: true
-    },
-    item: {
-      type: Object,
-      required: true
-    }
-  },
-  methods: {
-    formatDate(date) {
-      const options = { year: 'numeric', month: 'long', day: 'numeric' };
-      return new Date(date).toLocaleDateString('en', options);
-    }
-  }
-};
+<script setup lang="ts">
+import type { Video } from '~/types';
+defineProps<{
+  item: Video;
+}>();
 </script>
+
 <template>
   <div class="flex flex-col overflow-hidden flex-1 max-width h-full">
     <div

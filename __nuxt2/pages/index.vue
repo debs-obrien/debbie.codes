@@ -83,7 +83,7 @@
             class="flex flex-col"
             data-test-id="posts"
           >
-            <PostsCard :item="article" :description="false" />
+            <BlogPostCard :item="article" :description="false" />
           </div>
         </div>
       </section>
@@ -115,7 +115,7 @@
             data-test-id="courses"
             class="flex flex-col"
           >
-            <PostsCard :item="course" :description="false" />
+            <BlogPostCard :item="course" :description="false" />
           </div>
         </div>
       </section>

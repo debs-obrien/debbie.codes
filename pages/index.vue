@@ -104,7 +104,7 @@
             class="flex flex-col"
             data-test-id="posts"
           >
-            <PostsCard :item="article" :description="false" />
+            <BlogPostCard :item="article" :description="false" />
           </div>
         </div>
       </section>
