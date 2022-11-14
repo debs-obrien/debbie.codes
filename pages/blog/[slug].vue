@@ -110,7 +110,7 @@ useHead({
     <hr />
     <section class="grid grid-cols-8">
       <aside class="col-span-full md:col-span-2 row-start-1 w-full pt-14">
-        <Toc :links="article.body.toc.links" class="sticky top-20" />
+        <BlogToc :links="article.body.toc.links" class="sticky top-20" />
       </aside>
       <article
         class="col-span-full md:col-span-6 md:col-start-1 md:row-start-1 prose w-full p-4 max-w-3xl m-auto"
@@ -123,6 +123,6 @@ useHead({
       </article>
     </section>
 
-    <PrevNext :prev="prev" :next="next" />
+    <BlogPrevNext :prev="prev" :next="next" />
   </main>
 </template>

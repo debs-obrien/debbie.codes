@@ -69,18 +69,3 @@ defineProps<{
     </section>
   </div>
 </template>
-
-<style scoped>
-a {
-  text-decoration: none;
-}
-
-@media screen and (min-width: 1920px) {
-  .image {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    object-position: bottom;
-  }
-}
-</style>
