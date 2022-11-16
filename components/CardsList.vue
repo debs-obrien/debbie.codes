@@ -43,12 +43,13 @@ defineProps<{
                 class="mt-3 text-lg text-gray-500 dark:text-gray-300 md:text-sm"
               >
                 {{ item.description }}
-              </p></NuxtLink
-            >
+              </p>
+            </NuxtLink>
 
             <ul
               v-if="item.tags"
               v-for="(tag, n) in item.tags"
+              :key="n"
               class="inline-block"
             >
               <li class="text-sm text-blue-500 uppercase flex px-2">
