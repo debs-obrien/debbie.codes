@@ -11,16 +11,11 @@ defineProps<{
       class="h-full rounded-xl shadow-cla-blue bg-gradient-to-r from-indigo-50 to-blue-50 overflow-hidden"
     >
       <lite-youtube
-        v-if="item.video && item.start"
         :videoid="item.video"
         :playlabel="item.title"
-        :start="item.start"
+        :start="item.start ? item.start : 0"
       />
-      <lite-youtube
-        v-else-if="item.video"
-        :videoid="item.video"
-        :playlabel="item.title"
-      />
+
       <div class="p-6">
         <p
           class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1"

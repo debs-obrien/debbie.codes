@@ -82,7 +82,6 @@ useHead({
           :provider="article.provider"
           :src="article.image"
           :alt="article.title"
-          preset="blog"
           width="960"
           height="288"
           fit="thumb"
