@@ -23,6 +23,7 @@ defineProps<{
             width="600"
             height="340"
             fit="cover"
+            lazy="loading"
             class="aspect-video w-full h-full object-cover object-center scale-110 transition-all duration-400 hover:scale-100"
             format="webp"
           />
@@ -39,13 +40,15 @@ defineProps<{
             >
               {{ formatDate(item.date) }}
             </p>
-            <h4 class="title-font text-lg font-medium text-gray-600 mb-3">
+            <h3 class="title-font text-lg font-medium text-gray-600 mb-3">
               {{ item.title }}
-            </h4>
+            </h3>
           </NuxtLink>
           <ul v-for="tag in item.tags" :key="tag" class="inline-block">
             <li class="text-sm text-blue-500 uppercase flex pr-4">
-              {{ tag }}
+              <NuxtLink :to="`/blog/tags/${tag}`" class="hover:underline">
+                {{ tag }}
+              </NuxtLink>
             </li>
           </ul>
         </div>

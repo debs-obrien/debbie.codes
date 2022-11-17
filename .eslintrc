@@ -1,4 +1,16 @@
 {
   "extends": "@antfu",
-  "semi": "always"
+  "ignorePatterns": [
+    "/.github/workflows/playwright.yml"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.spec.ts"
+      ],
+      "rules": {
+        "@typescript-eslint/semi": 0
+      }
+    }
+  ]
 }

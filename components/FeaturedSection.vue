@@ -11,11 +11,11 @@ defineProps<{
   <section class="bg-white dark:bg-gray-900">
     <div class="container px-6 py-10 mx-auto">
       <div class="mt-8 lg:-mx-6 lg:flex lg:items-center">
-        <NuxtLink :to="item._path">
+        <NuxtLink :to="item._path" :aria-label="item.title">
           <NuxtImg
             :provider="item.provider"
             :src="item.image"
-            :alt="item.alt"
+            :alt="item.title"
             width="680"
             height="280"
             fit="fill"
@@ -46,6 +46,7 @@ defineProps<{
 
           <NuxtLink
             :to="item._path"
+            :aria-label="item.title"
             class="inline-block mt-2 text-blue-500 underline hover:text-blue-400"
           >
             Read more

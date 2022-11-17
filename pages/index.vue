@@ -106,8 +106,8 @@ const getInterviews = await queryContent('podcasts')
       <FeaturedSection :item="featuredPost" section="blog" />
 
       <section>
-        <NuxtLink to="resources/conference-talks">
-          <AppSubtitle>Recent Talks</AppSubtitle>
+        <NuxtLink to="/videos">
+          <AppSubtitle>Recent Videos</AppSubtitle>
         </NuxtLink>
         <div
           class="text-left mt-12 grid gap-6 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
@@ -141,8 +141,8 @@ const getInterviews = await queryContent('podcasts')
       </section>
 
       <section>
-        <NuxtLink to="resources/interviews">
-          <AppSubtitle>Recent Interviews</AppSubtitle>
+        <NuxtLink to="/podcasts">
+          <AppSubtitle>Recent Podcasts</AppSubtitle>
         </NuxtLink>
 
         <div

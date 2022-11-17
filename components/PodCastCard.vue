@@ -16,9 +16,10 @@ defineProps<{
             :provider="item.provider"
             :src="item.image"
             :alt="item.title"
-            preset="blog"
             width="444"
             height="256"
+            format="webp"
+            lazy="loading"
             sizes="sm:355px md:320px lg:480px"
             class="lg:h-48 md:h-36 w-full object-cover object-center scale-110 transition-all duration-400 hover:scale-100"
           />
@@ -31,14 +32,16 @@ defineProps<{
             >
               {{ formatDate(item.date) }}
             </p>
-            <h4 class="title-font text-lg font-medium text-gray-600 mb-3">
+            <h3 class="title-font text-lg font-medium text-gray-600 mb-3">
               {{ item.title }}
-            </h4>
+            </h3>
           </a>
 
           <ul v-for="tag in item.tags" :key="tag" class="inline-block">
             <li class="text-sm text-blue-500 uppercase flex pr-4">
-              {{ tag }}
+              <NuxtLink :to="`/podcasts/tags/${tag}`" class="hover:underline">
+                {{ tag }}
+              </NuxtLink>
             </li>
           </ul>
         </div>

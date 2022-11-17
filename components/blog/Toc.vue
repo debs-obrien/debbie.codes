@@ -19,9 +19,9 @@ const flattenLinks = (links: Array<any>) => {
 <template>
   <nav class="p-4 bg-slate-50 border border-slate-200 rounded-lg text-dark">
     <header class="pb-2 mb-2 border-b border-slate-200">
-      <h3 class="text-xl font-bold">
+      <h2 class="text-xl font-bold">
         Table of contents
-      </h3>
+      </h2>
     </header>
     <ul class="flex flex-col gap-2 px-2">
       <li
