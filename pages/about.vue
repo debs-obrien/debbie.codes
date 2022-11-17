@@ -8,8 +8,8 @@ export default {
         'Google Developer Expert, Microsoft Most Valueable Professional, GitHub Star, Cloudinary MDE, Nuxt Ambassador, Auth0 Ambassador',
       awards: [
         {
-          name: 'GitHub Star',
-          url: 'https://stars.github.com/profiles/debs-obrien/',
+          name: 'GitHub Star Alumni',
+          url: 'https://stars.github.com/alumni/',
           image:
             'c_scale,h_130,fl_lossy,f_auto/v1612373645/debbie.codes/github-stars-logo_color_eochea.png',
           about:
@@ -24,7 +24,7 @@ export default {
             'The Google Developers Experts program is a global network of highly experienced technology experts, influencers and thought leaders who actively support developers, companies and tech communities by speaking at events, publishing content. Nearly 700 Experts represent 18+ Google technologies around the world!',
         },
         {
-          name: 'Microsoft Most Valuable Professional',
+          name: 'Former Microsoft Most Valuable Professional',
           url: 'https://mvp.microsoft.com/en-us/PublicProfile/5003613?fullName=Debbie%20O%27Brien',
           image: 'fl_lossy,f_auto,c_fit,w_300/v1579977213/ME/mvp_o5w23e.png',
           about:
@@ -108,13 +108,13 @@ export default {
   <div class="container mx-auto">
     <div class="mx-auto">
       <div class="max-w-6xl mx-auto">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div class="hidden lg:block">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <!-- <div class="hidden lg:block">
             <img
               src="https://res.cloudinary.com/debsobrien/image/upload/c_scale,w_300/v1579977198/ME/debbie-mvp_gcgsof.png"
               alt="Debbie O'Brien - Microsoft Most Valuable Professional"
             >
-          </div>
+          </div> -->
           <div class="col-span-2">
             <span class="font-Saira mb-4 text-primary">Hello There!</span>
 
@@ -136,9 +136,9 @@ export default {
           <div
             v-for="company in awards"
             :key="company.name"
-            class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16"
+            class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16"
           >
-            <div class="mt-2">
+            <!-- <div class="mt-2">
               <img
                 v-if="company.image.dark && $colorMode.preference === 'dark'"
                 :src="`https://res.cloudinary.com/debsobrien/image/upload/${company.image.dark}`"
@@ -156,7 +156,7 @@ export default {
                 :src="`https://res.cloudinary.com/debsobrien/image/upload/${company.image}`"
                 alt=""
               >
-            </div>
+            </div> -->
 
             <div class="col-span-2">
               <h3 class="font-bold text-primary text-2xl pb-4">

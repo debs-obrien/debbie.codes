@@ -24,7 +24,7 @@ useHead({
     <Tags section="blog" />
     <CardsList v-if="getArticles.length" :list="getArticles" section="blog" />
     <div v-else class="m-auto max-w-4xl text-center mt-8">
-      <TagNotFound />
+      <TagsNotFound />
     </div>
   </main>
 </template>

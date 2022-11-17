@@ -61,7 +61,6 @@ code {
   color: inherit;
 }
 
-/* purgecss end ignore */
 pre,
 code {
   overflow: auto;
@@ -85,4 +84,16 @@ code {
 
 .img-cont img {
   @apply h-full w-full object-cover;
+}
+
+
+.page-enter-active,
+.page-leave-active {
+  transition-duration: 0.3s;
+  transition-property: opacity;
+  transition-timing-function: ease;
+}
+.page-enter,
+.page-leave-active {
+  opacity: 0;
 }

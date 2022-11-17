@@ -7,7 +7,7 @@ export default defineNuxtConfig({
     '@nuxt/image-edge',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/color-mode',
-    // '@nuxt/content',
+    '@nuxt/content',
     '@tailwindcss/typography',
   ],
 

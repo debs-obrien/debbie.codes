@@ -7,7 +7,7 @@ defineProps<{
 </script>
 
 <template>
-  <Section class="p-4 py-6 m-auto max-w-4xl">
+  <section class="p-4 py-6 m-auto max-w-4xl">
     <ul class="article-list">
       <li v-for="item in list" :key="item._path" class="py-4 border-b">
         <div class="grid grid-cols-4 gap-6 auto-cols-[minmax(0,_3fr)]">

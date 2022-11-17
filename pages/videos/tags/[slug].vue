@@ -33,7 +33,7 @@ useHead({
       </div>
     </div>
     <div v-else class="m-auto max-w-4xl text-center mt-8">
-      <TagNotFound />
+      <TagsNotFound />
     </div>
   </div>
 </template>
