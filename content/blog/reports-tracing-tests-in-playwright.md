@@ -41,7 +41,7 @@ To run the trace file you first need to modify the `playwright.config.ts` file. 
 
 For this example I have set the trace to 'on' so that I always get trace files for my tests.
 
-```ts
+```jsx
 const config: PlaywrightTestConfig = {
   ...
   use: {

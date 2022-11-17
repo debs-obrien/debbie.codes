@@ -1,3 +1,18 @@
+<script lang="ts">
+export default {
+  data() {
+    return {
+      isOpen: false,
+    }
+  },
+  methods: {
+    toggle() {
+      this.isOpen = !this.isOpen
+    },
+  },
+}
+</script>
+
 <template>
   <header class="w-full fixed top-0 left-0 z-10 bg-dark py-4">
     <div class="container mx-auto">
@@ -33,8 +48,8 @@
         <button
           class="block lg:hidden"
           aria-label="open menu"
-          @click="toggle"
           type="button"
+          @click="toggle"
         >
           <ul v-if="!isOpen" class="hamburger text-white">
             <li class="bg-white" />
@@ -70,20 +85,6 @@
     <!-- /Dropdown -->
   </header>
 </template>
-<script lang="ts">
-export default {
-  data() {
-    return {
-      isOpen: false
-    };
-  },
-  methods: {
-    toggle() {
-      this.isOpen = !this.isOpen;
-    }
-  }
-};
-</script>
 
 <style scoped>
 .hamburger li {

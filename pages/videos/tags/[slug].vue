@@ -1,20 +1,20 @@
 <script setup>
 const {
-  params: { slug }
-} = useRoute();
+  params: { slug },
+} = useRoute()
 
 const videos = await queryContent('videos')
   .where({ published: { $ne: false }, tags: { $in: slug } })
   .sort({ date: -1 })
-  .find();
+  .find()
 
-const title = `Videos: ${slug}`;
-const description = `Videos from conference talks, interviews and live streams`;
+const title = `Videos: ${slug}`
+const description = 'Videos from conference talks, interviews and live streams'
 
 useHead({
-  title: title,
-  meta: [{ name: 'description', content: description }]
-});
+  title,
+  meta: [{ name: 'description', content: description }],
+})
 </script>
 
 <template>

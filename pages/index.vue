@@ -1,3 +1,32 @@
+<script setup>
+const limit = ref(3)
+const getArticles = await queryContent('blog')
+  .where({ published: { $ne: false } })
+  .skip(1)
+  .sort({ date: -1 })
+  .limit(limit.value)
+  .find()
+
+const featuredPost = await queryContent('blog')
+  .where({ published: { $ne: false } })
+  .sort({ date: -1 })
+  .limit(1)
+  .findOne()
+
+const getTalks = await queryContent('videos')
+  .where({ published: { $ne: false } })
+  .sort({ date: -1 })
+  .limit(limit.value)
+  .find()
+
+const getInterviews = await queryContent('podcasts')
+  .where({ published: { $ne: false } })
+  .only(['title', 'date', 'slug', 'image', 'tags', 'url', 'description'])
+  .sort({ date: -1 })
+  .limit(limit.value)
+  .find()
+</script>
+
 <template>
   <div class="container">
     <div class="hero_texts text-center px-2">
@@ -17,7 +46,9 @@
       </h1>
 
       <div class="dark:text-white subtitle font-medium mb-20">
-        <p class="mb-4">Senior Program Manager at Microsoft</p>
+        <p class="mb-4">
+          Senior Program Manager at Microsoft
+        </p>
         <p>
           <a
             href="https://developers.google.com/community/experts/directory/profile/profile-debbie_o_brien"
@@ -75,9 +106,9 @@
       <FeaturedSection :item="featuredPost" section="blog" />
 
       <section>
-        <NuxtLink to="resources/conference-talks"
-          ><AppSubtitle>Recent Talks</AppSubtitle></NuxtLink
-        >
+        <NuxtLink to="resources/conference-talks">
+          <AppSubtitle>Recent Talks</AppSubtitle>
+        </NuxtLink>
         <div
           class="text-left mt-12 grid gap-6 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
         >
@@ -92,9 +123,9 @@
       </section>
 
       <section>
-        <NuxtLink to="/blog"
-          ><AppSubtitle>Recent Blog Posts</AppSubtitle></NuxtLink
-        >
+        <NuxtLink to="/blog">
+          <AppSubtitle>Recent Blog Posts</AppSubtitle>
+        </NuxtLink>
         <div
           class="mt-12 grid gap-6 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
         >
@@ -110,9 +141,9 @@
       </section>
 
       <section>
-        <NuxtLink to="resources/interviews"
-          ><AppSubtitle>Recent Interviews</AppSubtitle></NuxtLink
-        >
+        <NuxtLink to="resources/interviews">
+          <AppSubtitle>Recent Interviews</AppSubtitle>
+        </NuxtLink>
 
         <div
           class="text-left mt-12 grid gap-6 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
@@ -130,34 +161,6 @@
     </div>
   </div>
 </template>
-<script setup>
-const limit = ref(3);
-const getArticles = await queryContent('blog')
-  .where({ published: { $ne: false } })
-  .skip(1)
-  .sort({ date: -1 })
-  .limit(limit.value)
-  .find();
-
-const featuredPost = await queryContent('blog')
-  .where({ published: { $ne: false } })
-  .sort({ date: -1 })
-  .limit(1)
-  .findOne();
-
-const getTalks = await queryContent('videos')
-  .where({ published: { $ne: false } })
-  .sort({ date: -1 })
-  .limit(limit.value)
-  .find();
-
-const getInterviews = await queryContent('podcasts')
-  .where({ published: { $ne: false } })
-  .only(['title', 'date', 'slug', 'image', 'tags', 'url', 'description'])
-  .sort({ date: -1 })
-  .limit(limit.value)
-  .find();
-</script>
 
 <style scoped>
 .hero_texts .subtitle {

@@ -383,7 +383,7 @@ Again another way of doing this is to create a completely new component of shoe 
 
 We are all used to building things inside our application kinda like a monorepo where we have access to all components all the time. When working with Bit we are working in one workspace. I used the shoe store workspace. But I needed to build components that are part of a different scope, part of a different repo. When creating new components I can choose to which scope they belong to and when exporting them I can add a default scope to the variants section of the workspace for each directory.
 
-```json
+```jsx
 "teambit.workspace/variants": {
 	"ecommerce": {
       "defaultScope": "learn-bit-react.ecommerce"

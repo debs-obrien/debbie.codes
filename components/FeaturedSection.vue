@@ -1,12 +1,14 @@
 <script setup lang="ts">
-import type { BlogPost, Section } from '~/types';
+import { Section } from '~/types'
+import type { BlogPost } from '~/types'
 defineProps<{
-  item: BlogPost;
-  section: Section;
-}>();
+  item: BlogPost
+  section: Section
+}>()
 </script>
+
 <template>
-  <section class="bg-white dark:bg-gray-900">
+  <Section class="bg-white dark:bg-gray-900">
     <div class="container px-6 py-10 mx-auto">
       <div class="mt-8 lg:-mx-6 lg:flex lg:items-center">
         <NuxtLink :to="item._path">
@@ -23,7 +25,7 @@ defineProps<{
         </NuxtLink>
 
         <div class="mt-6 lg:w-1/2 lg:mt-0 lg:mx-6">
-          <ul v-for="tag in item.tags" class="inline-block">
+          <ul v-for="tag in item.tags" :key="tag" class="inline-block">
             <li class="text-sm text-blue-500 uppercase flex px-4">
               <NuxtLink :to="`/${section}/tags/${tag}`" class="hover:underline">
                 {{ tag }}
@@ -45,10 +47,11 @@ defineProps<{
           <NuxtLink
             :to="item._path"
             class="inline-block mt-2 text-blue-500 underline hover:text-blue-400"
-            >Read more
+          >
+            Read more
           </NuxtLink>
         </div>
       </div>
     </div>
-  </section>
+  </Section>
 </template>

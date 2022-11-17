@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import type { Podcast } from '~/types';
+import type { Podcast } from '~/types'
 defineProps<{
-  item: Podcast;
-}>();
+  item: Podcast
+}>()
 </script>
+
 <template>
   <div class="flex flex-col overflow-hidden flex-1 max-width h-full">
     <section class="text-gray-600 body-font">
@@ -35,7 +36,7 @@ defineProps<{
             </h4>
           </a>
 
-          <ul v-for="tag in item.tags" class="inline-block">
+          <ul v-for="tag in item.tags" :key="tag" class="inline-block">
             <li class="text-sm text-blue-500 uppercase flex pr-4">
               {{ tag }}
             </li>

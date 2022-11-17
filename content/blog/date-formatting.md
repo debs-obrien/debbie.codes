@@ -11,7 +11,7 @@ When it comes to dates we often add big libraries like Moment.js or Luxon just t
 
 In the example below we are using vue so therefore we create a method called `formatDate()` and pass in the date that we want to format. We then set our options of how we want the date to be shown. This is an object where we can choose if we want the month to be numeric or long for example. We then return the new date passing in our date we want formatted. We then chain our `toLocalDateString()` method passing in the language we want to use followed by the options.
 
-```js
+```jsx
 <script>
 export default {
   methods: {
@@ -39,7 +39,7 @@ Result: **December 25, 2021**
 
 We can also use different options. Perhaps we want to show the day of the week. We can do this by adding in the weekday.
 
-```js
+```jsx
 formatDateDay(date) {
   const options = {  weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
   return new Date(date).toLocaleDateString('en-us', options)
@@ -52,7 +52,7 @@ Result: **Friday, October 9, 2020**
 
 And we can also pass in different locales so we get the date in the right order which is especially useful for when working with UK v US date formatting.
 
-```js
+```jsx
 formatDateEN(date) {
   const options = { year: 'numeric', month: 'numeric', day: 'numeric' }
   return new Date(date).toLocaleDateString('en-GB', options)
@@ -61,7 +61,7 @@ formatDateEN(date) {
 
 Result: **25/12/2020**
 
-```js
+```jsx
 formatDateUS(date) {
   const options = { year: 'numeric', month: 'numeric', day: 'numeric' }
   return new Date(date).toLocaleDateString('en-US', options)
@@ -72,7 +72,7 @@ Result: **12/25/2020**
 
 And of course we can also change the format to show the day and month in a different language.
 
-```js
+```jsx
 formatDateDayEs(date) {
   const options = {  weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
   return new Date(date).toLocaleDateString('es', options)

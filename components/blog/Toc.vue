@@ -1,25 +1,27 @@
 <script setup lang="ts">
-defineProps(['links']);
+defineProps(['links'])
 
 const flattenLinks = (links: Array<any>) => {
-  let _links = links
+  const _links = links
     .map((link) => {
-      let _link = [link];
+      let _link = [link]
       if (link.children) {
-        let flattened = flattenLinks(link.children);
-        _link = [link, ...flattened];
+        const flattened = flattenLinks(link.children)
+        _link = [link, ...flattened]
       }
-      return _link;
+      return _link
     })
-    .flat(1);
-  return _links;
-};
+    .flat(1)
+  return _links
+}
 </script>
 
 <template>
   <nav class="p-4 bg-slate-50 border border-slate-200 rounded-lg text-dark">
     <header class="pb-2 mb-2 border-b border-slate-200">
-      <h3 class="text-xl font-bold">Table of contents</h3>
+      <h3 class="text-xl font-bold">
+        Table of contents
+      </h3>
     </header>
     <ul class="flex flex-col gap-2 px-2">
       <li

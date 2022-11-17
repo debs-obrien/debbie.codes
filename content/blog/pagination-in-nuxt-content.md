@@ -24,7 +24,7 @@ The first thing I did was try to get pagination on the main blog page and then w
 
 Remember you can test your queries locally by adding `_content` in your localhost URL and seeing the results of the data returned.
 
-```js
+```bash
 http://localhost:3000/_content/articles?only=title&limit=9&skip=9
 ```
 
@@ -35,7 +35,7 @@ To fetch the data we use `asyncData` passing in `$content` and `params` so we ca
 I want to get 9 Articles per page so we create a const called `getArticles` and then use the `$content` method passing in the folder to where my posts are stored. We then add a condition using `.where`. We want to make sure we only publish posts that do not have published set to false.
 
 ```js
-const getArticles = await $content('articles').fetch();
+const getArticles = await $content('articles').fetch()
 ```
 
 Make sure you always add the `.fetch()` at the end of your query. I have very often forgotten this and wondered why I wasn't getting any data back.
@@ -47,7 +47,7 @@ In my posts I add `published: false` for those posts that are still a work in pr
 ```js
 const getArticles = await $content('articles')
   .where({ published: { $ne: false } })
-  .fetch();
+  .fetch()
 ```
 
 ### Limit the amount of posts returned
@@ -58,7 +58,7 @@ Next we want to limit the amount of posts that come back so that we only have 9 
 const getArticles = await $content('articles')
   .where({ published: { $ne: false } })
   .limit(9)
-  .fetch();
+  .fetch()
 ```
 
 ### Skip the posts based on page number
@@ -70,7 +70,7 @@ const getArticles = await $content('articles')
   .where({ published: { $ne: false } })
   .limit(9)
   .skip(9 * (pageNo - 1))
-  .fetch();
+  .fetch()
 ```
 
 ### Sort the posts by date
@@ -83,7 +83,7 @@ const getArticles = await $content('articles')
   .limit(9)
   .skip(9 * (pageNo - 1))
   .sortBy('date', 'desc')
-  .fetch();
+  .fetch()
 ```
 
 ### Set the next page
@@ -91,7 +91,7 @@ const getArticles = await $content('articles')
 Next page is set to true if the amount of articles received is equal to 9. This means we can then render our next page button if the condition is true.
 
 ```js
-const nextPage = getArticles.length === 9;
+const nextPage = getArticles.length === 9
 ```
 
 ### Return what we need
@@ -103,45 +103,44 @@ return {
   nextPage,
   getArticles,
   pageNo
-};
+}
 ```
 
 The final code looks something like this. Note I have the layout properties in here so that all my blog pages use the same layout which I named blog. I also added a const called `numArticles` making it equal to 9 just to keep things dry and finally I added an if statement to deal with errors incase there are no articles returned. This will render my error page with the message of 'no articles found'
 
-```js
+```jsx
 export default {
   layout: 'blog',
   async asyncData({ $content, params }) {
-    const pageNo = parseInt(params.number);
-    const numArticles = 9;
+    const pageNo = parseInt(params.number)
+    const numArticles = 9
 
     const getArticles = await $content('articles')
       .where({ published: { $ne: false } })
       .limit(numArticles)
       .skip(numArticles * (pageNo - 1))
       .sortBy('date', 'desc')
-      .fetch();
+      .fetch()
 
-    if (!getArticles.length) {
-      return error({ statusCode: 404, message: 'No articles found!' });
-    }
+    if (!getArticles.length)
+      return error({ statusCode: 404, message: 'No articles found!' })
 
-    const nextPage = getArticles.length === numArticles;
-    getArticles;
+    const nextPage = getArticles.length === numArticles
+    getArticles
     return {
       nextPage,
       getArticles,
       pageNo
-    };
+    }
   }
-};
+}
 ```
 
 ## Rendering the posts
 
 The next step is to render the posts. We do this by using `v-for` and looping over the `getArticles` and rendering each article using the 'PostsCard' component.
 
-```js
+```jsx
 <div v-for="article of getArticles" :key="article.slug" class="flex flex-col">
   <BlogPostCard :item="article" />
 </div>
@@ -151,7 +150,7 @@ The next step is to render the posts. We do this by using `v-for` and looping ov
 
 We then render the pagination component which has a prop of `nextPage` and a prop of `pageNo`. We want the first page to be 1 and the `nextPage` will be either true or false depending on if the length of our articles is equal to 9.
 
-```js
+```jsx
 <Pagination :nextPage="nextPage" :pageNo="1" urlPrefix="/blog/all" />
 ```
 
@@ -163,7 +162,7 @@ We then create an index file inside the `_number` folder. This will be the page 
 
 The main difference between this and the main blog page is adding the `selectedTag` to our data with the value of the category we get back from our route params.
 
-```js
+```jsx
 data() {
       return {
         selectedTag: this.$route.params.category
@@ -174,7 +173,7 @@ data() {
 
 We also need to add a computed property to filter the articles by the selected Tag. Using the `.filter()` method it will go through each article to see if the selected Tag, which we get from our route params, is found inside the tags array that is added to the yaml of each article. The tags array looks something like this `tags: [nuxt]`.
 
-```js
+```jsx
     computed: {
       filteredArticles() {
         return this.getArticles.filter(article =>
@@ -188,7 +187,7 @@ We also need to add a computed property to filter the articles by the selected T
 
 Now when rendering our posts we need to use the `filteredArticles` instead of the `getArticles`.
 
-```html
+```jsx
 <div
   v-for="article of filteredArticles"
   :key="article.slug"
@@ -202,7 +201,7 @@ Now when rendering our posts we need to use the `filteredArticles` instead of th
 
 For our pagination component we need to pass in the prop of `prevPage` and set it to true of false if the page number is greater than 1. We also pass in our `nextPage` and `pageNo` props and finally our `urlPrefix` which gets our category from the route params.
 
-```html
+```jsx
 <Pagination
   :prevPage="pageNo > 1"
   :nextPage="nextPage"

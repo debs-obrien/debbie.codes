@@ -1,2 +1,3 @@
-import 'lite-youtube-embed';
-export default defineNuxtPlugin(() => {});
+import 'lite-youtube-embed'
+// eslint-disable-next-line no-undef
+export default defineNuxtPlugin(() => {})

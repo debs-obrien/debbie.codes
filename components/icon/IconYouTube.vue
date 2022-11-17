@@ -1,8 +1,8 @@
 <template>
   <svg
+    id="youTube"
     enable-background="new 0 0 512 512"
     height="512px"
-    id="youTube"
     version="1.1"
     viewBox="0 0 512 512"
     width="512px"
@@ -12,8 +12,8 @@
   >
     <g>
       <linearGradient
-        gradientUnits="userSpaceOnUse"
         id="SVGID_1_"
+        gradientUnits="userSpaceOnUse"
         x1="29.8503"
         x2="443.0858"
         y1="48.8522"
@@ -28,8 +28,8 @@
         points="217.949,313.149 313.196,256 217.949,198.851  "
       />
       <linearGradient
-        gradientUnits="userSpaceOnUse"
         id="SVGID_2_"
+        gradientUnits="userSpaceOnUse"
         x1="39.3513"
         x2="452.5868"
         y1="39.3513"

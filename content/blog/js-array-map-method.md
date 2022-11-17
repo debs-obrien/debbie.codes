@@ -17,7 +17,7 @@ const people = ['first item', 'second item']
 const people = [
   {
     firstName: 'Debbie',
-    lastName: "O'Brien"
+    lastName: 'O\'Brien'
   },
   {
     firstName: 'Jake',
@@ -30,26 +30,26 @@ The `.map()` method allows you to loop over every element in an array and modify
 
 The `.map()` method takes a function which accepts 3 arguments. The first one is the current value, the second is the index and the third one is the original array we are iterating over.
 
-```js
+```jsx
 const names = people.map(function (currentValue, index, allPeople) {})
 ```
 
 The function will look over the array of people and will run once for each item in the array. It therefore makes more sense to name the first argument person, the singular version of people. Most of the time you will only need and use the first argument.
 
-```js
+```jsx
 const names = people.map(function (person) {})
 ```
 
 We can use an arrow function instead of an anonymous function. And as we only are using one argument we can remove the brackets from person.
 
-```js
-const names = people.map(person => {})
+```jsx
+const names = people.map((person) => {})
 ```
 
 Inside the function we need to return something. As the `map()`method calls the function on each item in the array, whatever we return in the function becomes that items value. Therefore if we return `person` we will get back exactly what we had in the original array.
 
 ```js
-const names = people.map(person => {
+const names = people.map((person) => {
   return person
 })
 ```
@@ -57,7 +57,7 @@ const names = people.map(person => {
 We can return anything we want even though the original array is an array of Objects we could return a string instead. If we return a string with some text then we will get that same string for each item in the array.
 
 ```js
-const names = people.map(person => {
+const names = people.map((person) => {
   return 'Debbie'
 })
 ```
@@ -65,7 +65,7 @@ const names = people.map(person => {
 Normally what we want to do is to modify the data or add to it. We could create a variable called fullName and concatenate the values of firstName and lastName.
 
 ```js
-const names = people.map(person => {
+const names = people.map((person) => {
   return {
     fullName: `${person.firstName} ${person.lastName}`
   }
@@ -75,7 +75,7 @@ const names = people.map(person => {
 This will give us a new array with only the fullName returned as that is all we asked for. If however we wanted to have the full name as well as all the rest of the contents in the array we can also easily return them.
 
 ```js
-const names = people.map(person => {
+const names = people.map((person) => {
   return {
     fullName: `${person.firstName} ${person.lastName}`,
     firstName: person.firstName,
@@ -87,7 +87,7 @@ const names = people.map(person => {
 In this example we only have 2 other keys the firstName and lastName but imagine if we had more such as age, address etc. It would be tedious to have to write all of these out. Instead we can use the spread operator. The spread operator expands an iterable object into the list of arguments. We prefix the value with an ellipsis of three dots `...person`.
 
 ```js
-const names = people.map(person => {
+const names = people.map((person) => {
   return {
     fullName: `${person.firstName} ${person.lastName}`,
     ...person

@@ -15,7 +15,7 @@ Sometimes we have an array but we want to return only a select few items from th
 const people = [
   { name: 'Debbie', gender: 'female' },
   { name: 'Josh', gender: 'male' }
-];
+]
 ```
 
 ## How the filter method works
@@ -31,10 +31,10 @@ The function takes 3 arguments,
 ### Returns female values
 
 ```js
-people.filter(function (currentValue, index, originalArray) {
-  //decide who should be returned
-  return currentValue.gender === 'female';
-});
+people.filter((currentValue, index, originalArray) => {
+  // decide who should be returned
+  return currentValue.gender === 'female'
+})
 ```
 
 ### Exclude the original array
@@ -42,10 +42,10 @@ people.filter(function (currentValue, index, originalArray) {
 We can exclude the original array in our callback function if we are not using it. We may want to use it to push something to the array before we perform the test of what to return but if not we can simply remove it.
 
 ```js
-people.filter(function (currentValue, index) {
-  //decide who should be returned
-  return currentValue.gender === 'female';
-});
+people.filter((currentValue, index) => {
+  // decide who should be returned
+  return currentValue.gender === 'female'
+})
 ```
 
 ### Naming the current value
@@ -53,9 +53,9 @@ people.filter(function (currentValue, index) {
 Normally we name the currentValue the singular of the array so in this case we should name it person.
 
 ```js
-people.filter(function (person, index) {
-  return person.gender === 'female';
-});
+people.filter((person, index) => {
+  return person.gender === 'female'
+})
 ```
 
 ### Using the arrow function
@@ -64,8 +64,8 @@ We can also use the arrow function instead
 
 ```js
 people.filter((person, index) => {
-  return person.gender === 'female';
-});
+  return person.gender === 'female'
+})
 ```
 
 ### Removing the index and parenthesis
@@ -74,8 +74,8 @@ As we are not using the index we can get rid of that. We can also get rid of the
 
 ```js
 people.filter((person) => {
-  return person.gender === 'female';
-});
+  return person.gender === 'female'
+})
 ```
 
 ### Removing the brackets and return keyword
@@ -85,7 +85,7 @@ And as it is just one line we are returning we can remove the return and the cur
 Think of it as, for the array of people filter every person and return the ones that have a gender of female.
 
 ```js
-people.filter((person) => person.gender === 'female');
+people.filter(person => person.gender === 'female')
 ```
 
 ## Example
@@ -96,10 +96,10 @@ The great thing about filter is that it does not mutate the original array. So i
 const people = [
   { name: 'Debbie', gender: 'female' },
   { name: 'Josh', gender: 'male' }
-];
-const women = people.filter((person) => person.gender === 'female');
-console.log(people); // [{ name: 'Debbie', gender: 'female' },{ name: 'Josh', gender: 'male' }]
-console.log(women); // [{ name: 'Debbie', gender: 'female' }]
+]
+const women = people.filter(person => person.gender === 'female')
+console.log(people) // [{ name: 'Debbie', gender: 'female' },{ name: 'Josh', gender: 'male' }]
+console.log(women) // [{ name: 'Debbie', gender: 'female' }]
 ```
 
 Paste it in the console to see for yourself and play around with the values or check out the [codepen](https://codepen.io/debs-obrien/pen/OJQRpPW) I created.

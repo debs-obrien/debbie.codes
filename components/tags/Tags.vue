@@ -1,32 +1,33 @@
 <script setup lang="ts">
 interface Props {
-  section: string;
+  section: string
 }
 
-const props = defineProps<Props>();
+const props = defineProps<Props>()
 
-const flatten = (tags: Array<any>, key: string = 'tags') => {
-  let _tags = tags
+const flatten = (tags: Array<any>, key = 'tags') => {
+  const _tags = tags
     .map((tag) => {
-      let _tag = tag;
-      if (tag['tags']) {
-        let flattened = flatten(tag[key]);
-        _tag = flattened;
+      let _tag = tag
+      if (tag.tags) {
+        const flattened = flatten(tag[key])
+        _tag = flattened
       }
-      return _tag;
+      return _tag
     })
-    .flat(1);
+    .flat(1)
 
-  return _tags;
-};
+  return _tags
+}
 const getAllTags: Array<any> = await queryContent(props.section)
   .where({ published: { $ne: false } })
   .only(['tags'])
-  .find();
+  .find()
 
-const articleTags: Array<any> = [...new Set(flatten(getAllTags))];
-const sortedArticleTags = articleTags.sort();
+const articleTags: Array<any> = [...new Set(flatten(getAllTags))]
+const sortedArticleTags = articleTags.sort()
 </script>
+
 <template>
   <div
     class="m-auto max-w-4xl flex justify-center items-center gap-2 p-2 border border-transparent rounded-lg"
@@ -45,6 +46,7 @@ const sortedArticleTags = articleTags.sort();
     </ul>
   </div>
 </template>
+
 <style scoped>
 .router-link-exact-active {
   @apply bg-blue-500;

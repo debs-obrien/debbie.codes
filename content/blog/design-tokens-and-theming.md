@@ -133,7 +133,7 @@ A button component should be a basic button component that may accept props for 
 
 A remove from cart component should have the functionality of removing a component from a cart and include the button component. This means consistency will be kept across all apps as the button component which contains the styling is used inside these wrapper components that add the functionality needed.
 
-```ts
+```jsx
 export type RemoveShoeFromCartProps = {
   /**
    * item in cart
@@ -148,8 +148,7 @@ export function RemoveShoeFromCart({ cartItem }: RemoveShoeFromCartProps) {
       className={styles.removeFromCart}
       secondary
       onClick={() => context.removeProductFromCart(cartItem)}
-      aria-label="Remove from Cart"
-    >
+      aria-label="Remove from Cart">
       X
     </Button>
   )

@@ -14,7 +14,7 @@ Recently I decided to add the dev.to icon to my site in the footer. From the [de
 
 I am using the svgs inline so I need to import it in the script tag with `?inline` at the end. Then in the components object I add the component name.
 
-```js
+```jsx
 <script>
   import IconDevTo from '@/assets/icons/dev-rainbow.svg?inline'
   export default {

@@ -1,24 +1,24 @@
-import type { Navigation } from '~/types';
+import type { Navigation } from '~/types'
 
 export const NavLinks: Navigation[] = [
   {
     url: '/about',
-    link: 'About'
+    link: 'About',
   },
   {
     url: '/videos',
-    link: 'Videos'
+    link: 'Videos',
   },
   {
     url: '/podcasts',
-    link: 'Podcasts'
+    link: 'Podcasts',
   },
   {
     url: '/courses',
-    link: 'Courses'
+    link: 'Courses',
   },
   {
     url: '/blog',
-    link: 'Blog'
-  }
-];
+    link: 'Blog',
+  },
+]

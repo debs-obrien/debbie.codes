@@ -1,6 +1,6 @@
-import type { RouterConfig } from '@nuxt/schema';
+import type { RouterConfig } from '@nuxt/schema'
 export default <RouterConfig>{
   scrollBehavior() {
-    return { top: 0 };
-  }
-};
+    return { top: 0 }
+  },
+}

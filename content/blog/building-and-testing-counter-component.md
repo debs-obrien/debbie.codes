@@ -28,7 +28,7 @@ import styles from './counter.module.scss'
 
 The next thing we need to define is our types for our props. We want the consumer to be able to start the count at any number as well as end it at any number. It might be useful to have a count starting at zero for scoring or 1 for purchasing a product. We also want the consumer to be able to increment and decrement by a given amount such as 1 or 5. And finally we want to have a function that is called when the count is changed.
 
-```js
+```jsx
 export type CounterProps = {
   /**
    * min Value of counter
@@ -61,7 +61,7 @@ Next is our input component which will be of type Number and here we pass in the
 
 And finally we add our next button component which will be responsible for decreasing the count. This accepts the prop of counter for styling and an `onClick` with the value of `handleClickAdd` which we will create later.
 
-```js
+```jsx
 ...
 export function Counter({
   ...
@@ -148,19 +148,19 @@ export type CounterProps = {
   /**
    * min Value of counter
    */
-  min?: number,
+  min?: number
   /**
    * max Value
    */
-  max?: number,
+  max?: number
   /**
    * increment value
    */
-  increment?: number,
+  increment?: number
   /**
    * decrement value
    */
-  decrement?: number,
+  decrement?: number
   /**
    * a function that registers the count when changed
    */
@@ -233,7 +233,7 @@ export function CounterWithSetCount() {
   return (
     <>
       <Counter
-        onCountChange={count => {
+        onCountChange={(count) => {
           setCount(count)
         }}
       />

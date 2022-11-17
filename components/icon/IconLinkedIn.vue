@@ -1,8 +1,8 @@
 <template>
   <svg
+    id="linkedIn"
     enable-background="new 0 0 128 128"
     height="128px"
-    id="linkedIn"
     version="1.1"
     viewBox="0 0 128 128"
     width="128px"

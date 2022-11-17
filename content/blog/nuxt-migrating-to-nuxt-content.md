@@ -25,7 +25,7 @@ You can answer all prompts or just press enter and answer them later.
 
 In the content folder inside the docs folder you can fill in the following info:
 
-```js
+```json
 {
   "title": "Nuxt Content", // title of your module
   "url": "https://content.nuxtjs.org", // url of your docs
@@ -60,7 +60,7 @@ The index page contains an empty category with position 1. This means it will be
 ```yaml
 ---
 title: Introduction
-description: 'i18n (Internationalization) for your Nuxt project'
+description: i18n (Internationalization) for your Nuxt project
 position: 1
 category: ''
 features:
@@ -79,7 +79,7 @@ In the setup page you will see we have a title and description as well as a posi
 ```yaml
 ---
 title: Setup
-description: 'How to setup i18n'
+description: How to setup i18n
 position: 2
 category: Guide
 ---
@@ -92,7 +92,7 @@ All pages from the old docs can be copied over to this new docs folder inside th
 ```yaml
 ---
 title: API Reference
-description: 'API Reference'
+description: API Reference
 position: 20
 category: Api
 ---
@@ -178,7 +178,7 @@ module.exports = {
 
 Add a netlify.toml or modify the existing one if your docs are being published to Netlify. We need to use the base of docs, if that is what you named the folder for your docs. Then add the generate command to generate a static site and the dist folder so Netlify knows which folder to publish and the ignore rule to make sure package.json is kept up to date as Netlify will skip the build process if only the content has changed.
 
-```json
+```toml
 # https://docs.netlify.com/configure-builds/file-based-configuration
 
 [build]

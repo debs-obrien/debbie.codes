@@ -64,8 +64,10 @@ HOST=0 PORT=8000 npm run dev
 You can even setup a script command in your package.json. For this example I will call it dev:host but you can call it whatever you like. You can add the hostname you always want to use or you can add '0' to get a random one.
 
 ```json
-"scripts": {
-  "dev:host": "nuxt --hostname '192.168.0.199' --port 8000"
+{
+  "scripts": {
+    "dev:host": "nuxt --hostname '192.168.0.199' --port 8000"
+  }
 }
 ```
 

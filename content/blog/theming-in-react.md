@@ -28,12 +28,12 @@ So lets get started with theming in React.
 2. Add a `theme-schema.tsx` file and include all types for your design tokens.
 
 ```js
-export type ThemeSchema = {
+export interface ThemeSchema {
   myColorText?: string
   myFontSize?: string
   myBorderColor?: string
   myBorderRadius?: string
-};
+}
 ```
 
 Add a '?' to make the tokens optional so you can use tokens from the default theme as well as override any tokens the theme wants to change.
@@ -114,7 +114,7 @@ bit create react themes/dark-theme
 2. Add a `dark-theme-tokens.tsx` file with the design tokens and values you want to override from the default theme.
 
 ```js
-import { ThemeSchema } from '@learn-bit-react/theming.themes.theme-provider'
+import type { ThemeSchema } from '@learn-bit-react/theming.themes.theme-provider'
 
 export const darkTheme: ThemeSchema = {
   myColorBackground: '#000',

@@ -111,7 +111,7 @@ The default provider for Nuxt Image is ipx or static (for target: static). Eithe
 
 If you have images coming from an image provider you can set it in the nuxt.config and then choose which provider it will use. Cloudinary uses the cloudinary provider whereas Unsplash uses the imgix provider.
 
-```js
+```jsx
   image: {
     cloudinary: {
       baseURL: 'https://res.cloudinary.com/your-account-name/image/upload/'
@@ -130,14 +130,13 @@ If you have images coming from an image provider you can set it in the nuxt.conf
 
 Presets are a set of image modifiers that you can add to your images. By setting these as presets you don't have to add them one by one to each image and it is much easier to modify. You can have more than one preset, just give them a name and add the modifiers that should be applied to that preset.
 
-```js
+```jsx
   image: {
-    ...
     presets: {
       blog: {
         modifiers: {
-          format: 'webp',
-          fit: 'cover',
+          format: 'webp';
+          fit: 'cover';
           quality: '60'
         }
       }
@@ -191,7 +190,7 @@ This will create a `srcset` attribute for the image adding each of the image siz
 
 You can define the size of the image to be displayed at different screen sizes. The default screen sizes predefined by Nuxt Image are:
 
-```js
+```jsx
 image: {
     screens: {
       xs: 320,

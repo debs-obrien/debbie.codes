@@ -1,4 +1,4 @@
-import type { Config } from 'tailwindcss';
+import type { Config } from 'tailwindcss'
 
 export default <Partial<Config>>{
   content: [
@@ -11,7 +11,7 @@ export default <Partial<Config>>{
     'app.{js,ts,vue}',
     'Error.{js,ts,vue}',
     'error.{js,ts,vue}',
-    'content/**/*.md'
+    'content/**/*.md',
   ],
   darkMode: 'class',
 
@@ -22,27 +22,27 @@ export default <Partial<Config>>{
         DEFAULT: {
           css: {
             'code::before': { content: '' },
-            'code::after': { content: '' }
-          }
-        }
+            'code::after': { content: '' },
+          },
+        },
       },
       colors: {
         primary: '#d8002d',
         secondary: '#333',
         dark: '#091a28',
         elevated: '#dfe8ef',
-        linkExactActiveClass: '#fd213b'
+        linkExactActiveClass: '#fd213b',
       },
       margin: {
-        'top-bar': '100px'
+        'top-bar': '100px',
       },
       // fontFamily: {
       //   Saira: ['Saira']
       // },
       maxWidth: {
-        '1/4': '25%'
-      }
-    }
+        '1/4': '25%',
+      },
+    },
   },
   variants: {
     backgroundColor: [
@@ -51,12 +51,12 @@ export default <Partial<Config>>{
       // 'dark-group-hover',
       // 'dark-even',
       // 'dark-odd'
-    ]
+    ],
     // borderColor: ['dark', 'dark-focus', 'dark-focus-within'],
     // textColor: ['dark', 'dark-hover', 'dark-active']
   },
   plugins: [
     // require('tailwindcss-dark-mode'),
-    require('@tailwindcss/typography')
-  ]
-};
+    require('@tailwindcss/typography'),
+  ],
+}

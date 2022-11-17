@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { NavLinks } from '~/constants/navigation';
+import { NavLinks } from '~/constants/navigation'
 </script>
+
 <template>
   <nav>
     <ul class="block lg:flex">

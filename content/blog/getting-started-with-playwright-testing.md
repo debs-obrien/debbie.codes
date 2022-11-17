@@ -27,7 +27,7 @@ But how easy is it to get started? Let me show you.
 
 You can run this script in an already existing project or you can create a new project.
 
-```js
+```bash
 # Run from your project's root directory
 npm init playwright@latest
 # Or create a new project
@@ -62,7 +62,7 @@ The example test file is a very complete example of how to write tests for a TOD
 
 We will use [codegen](https://playwright.dev/docs/cli#generate-code) which generates tests by recording your actions. You can literally open any website and start browsing your application and interacting with it and as you do your tests will literally be written before you very own eyes. To open Codegen run the following command:
 
-```js
+```bash
 npm playwright codegen
 ```
 
@@ -88,13 +88,13 @@ If you now want to run your test and are using the VS Code extension then you ca
 
 Or you can run the tests by running the following command in your terminal:
 
-```js
+```bash
 npx playwright test
 ```
 
 This will run the test and give you the output in the cli. If you want to run your tests in a headed manner, meaning it will open your browser so you can visually see it run the tests, then you can use the following command:
 
-```js
+```bash
 npx playwright test --headed
 ```
 

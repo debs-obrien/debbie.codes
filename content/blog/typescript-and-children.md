@@ -18,7 +18,7 @@ There are a couple of types we could choose from:
 Children must be a single JSX element. Doesn't allow multiple children, or strings etc.
 
 ```js
-type ButtonProps = {
+interface ButtonProps {
   children: JSX.Element
 }
 const Button = ({ children }: ButtonProps) => <button>{children}</button>
@@ -37,7 +37,7 @@ export function Card() {
 Allows multiple JSX elements but no strings, numbers etc
 
 ```js
-type ButtonProps = {
+interface ButtonProps {
   children: JSX.Element[]
 }
 const Button = ({ children }: ButtonProps) => <button>{children}</button>
@@ -57,19 +57,19 @@ export default function Card() {
 Allows single or multiple JSX elements but no strings, numbers etc
 
 ```js
-type ButtonProps = {
+interface ButtonProps {
   children: JSX.Element | JSX.Element[]
 }
 const Button = ({ children }: ButtonProps) => <button>{children}</button>
 
-export default function Card() {
+export function Card() {
   return (
     <Button>
       <span>click me</span>
     </Button>
   )
 }
-export default function Card2() {
+export function Card2() {
   return (
     <Button>
       <span>click me</span>
@@ -84,7 +84,7 @@ export default function Card2() {
 Allows one React element, string or number
 
 ```js
-type ButtonProps = {
+interface ButtonProps {
   children: React.ReactChild
 }
 const Button = ({ children }: ButtonProps) => <button>{children}</button>
@@ -99,7 +99,7 @@ export default function Card() {
 Allows multiple React elements, strings or numbers
 
 ```js
-type ButtonProps = {
+interface ButtonProps {
   children: React.ReactChild
 }
 const Button = ({ children }: ButtonProps) => <button>{children}</button>
@@ -119,16 +119,16 @@ export default function Card() {
 Allows single or multiple React elements, strings or numbers
 
 ```js
-type ButtonProps = {
+interface ButtonProps {
   children: React.ReactChild
 }
 const Button = ({ children }: ButtonProps) => <button>{children}</button>
 
-export default function Card() {
+export function Card() {
   return <Button>click me</Button>
 }
 
-export default function Card2() {
+export function Card2() {
   return (
     <Button>
       click me
@@ -143,7 +143,7 @@ export default function Card2() {
 Allows multiple children, strings, numbers, fragments, portals... We could use the above example but it is a little verbose and ReactNode covers a little more.
 
 ```js
-type ButtonProps = {
+interface ButtonProps {
   children: React.ReactNode
 }
 const Button = ({ children }: ButtonProps) => <button>{children}</button>

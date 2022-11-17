@@ -23,42 +23,42 @@ To build our context we start off with creating our types. We want to have an in
 
 ```js
 export interface CartItemBase {
-  id: string;
+  id: string
 }
 ```
 
 The cart list item will extend the cart base item and will show the items in the cart as well as the quantity of items
 
 ```js
-export type CartListItem<TItemType extends CartItemBase> = {
+export interface CartListItem<TItemType extends CartItemBase> {
   /**
    * item in cart
    */
-  item: TItemType;
+  item: TItemType
   /**
    * quantity of item in cart
    */
-  quantity: number;
-};
+  quantity: number
+}
 ```
 
 And finally we create the cart Context Type which also extends the cart base item. This gives us the cart as well as the function to add products and the function to remove products. Every cart should have these types.
 
 ```js
-export type CartContextType<TItemType extends CartItemBase> = {
+export interface CartContextType<TItemType extends CartItemBase> {
   /**
    * items in cart
    */
-  cart: CartListItem<TItemType>[];
+  cart: CartListItem<TItemType>[]
   /**
    * adds products to cart
    */
-  addProductToCart: (item: CartListItem<TItemType>) => void;
+  addProductToCart: (item: CartListItem<TItemType>) => void
   /**
    * removes products from cart
    */
-  removeProductFromCart: (item: TItemType) => void;
-};
+  removeProductFromCart: (item: TItemType) => void
+}
 ```
 
 We can now go ahead and create a default context for our cart to show these cart items and add and remove functions.
@@ -75,7 +75,7 @@ And finally we create our CreateCartContext function that will create our contex
 
 ```js
 export function CreateCartContext<TItemType extends CartItemBase>() {
-  return createContext<CartContextType<TItemType>>(defaultContext);
+  return createContext < CartContextType < TItemType >> (defaultContext)
 }
 ```
 
@@ -83,10 +83,10 @@ export function CreateCartContext<TItemType extends CartItemBase>() {
 
 We now need to create our [provider component](https://bit.dev/learn-bit-react/ecommerce/ui/cart/cart-context/~code/cart-context-provider.tsx). We start by creating our types for the Cart Context.
 
-```js
+```jsx
 export type CartContextProps<TItemType extends CartItemBase> = {
-  context: React.Context<CartContextType<TItemType>>;
-} & HTMLAttributes<HTMLDivElement>;
+  context: React.Context<CartContextType<TItemType>>
+} & HTMLAttributes<HTMLDivElement>
 ```
 
 The provider component passes in children and context and uses useState to manage the state of the products or to know if there are any products in the store. Our function getProductsById checks to see if a product already exits in the cart. In this case we would want to update the quantity and not repeat the product.
@@ -95,49 +95,49 @@ Our addProductToCart function will use the getProductById function to see if the
 
 The removeProductFromCart function filters the products by id and removes the product from the cart.
 
-```js
+```jsx
 export function CartContextProvider<TItemType extends CartItemBase>({
   children,
   context
 }: CartContextProps<TItemType>) {
-  const [products, setProducts] = useState<CartListItem<TItemType>[]>([]);
+  const [products, setProducts] = useState < CartListItem < TItemType > [] > ([])
 
   const getProductById = (id: string): CartListItem<TItemType> | undefined => {
-    return products.find((p) => p.item.id === id);
-  };
+    return products.find(p => p.item.id === id)
+  }
 
   const addProductToCart = (product: CartListItem<TItemType>): void => {
     {
-      const existingProduct = getProductById(product.item.id);
-      let newState: CartListItem<TItemType>[] = [];
+      const existingProduct = getProductById(product.item.id)
+      let newState: CartListItem<TItemType>[] = []
       if (existingProduct) {
         newState = products.map((p) => {
           if (p.item.id === existingProduct.item.id) {
             return {
               item: p.item,
               quantity: p.quantity + product.quantity
-            };
+            }
           }
-          return p;
-        });
-        setProducts(newState);
+          return p
+        })
+        setProducts(newState)
       }
-      setProducts([...products, product]);
+      setProducts([...products, product])
     }
-  };
+  }
   const removeProductFromCart = (product: TItemType) => {
-    const newProducts = products.filter((p) => p.item.id !== product.id);
+    const newProducts = products.filter(p => p.item.id !== product.id)
 
-    setProducts(newProducts);
-  };
+    setProducts(newProducts)
+  }
 
   const contextValue: CartContextType<TItemType> = {
     cart: products,
-    addProductToCart: addProductToCart,
-    removeProductFromCart: removeProductFromCart
-  };
+    addProductToCart,
+    removeProductFromCart
+  }
 
-  return <context.Provider value={contextValue}>{children}</context.Provider>;
+  return <context.Provider value={contextValue}>{children}</context.Provider>
 }
 ```
 
@@ -147,7 +147,7 @@ We can now use our provider component to wrap our cart components so that anythi
 
 We start of by creating the context with the type of Product which we have already created. Feel free to check out [the code for the product types](https://bit.dev/learn-bit-react/ecommerce/entity/product?version=1.0.7) yourself to see how it works but it is simply just types that every product should have such as an id, title, text, price, etc.
 
-```js
+```jsx
 const contextObject = CreateCartContext<Product>();
 ```
 
@@ -214,7 +214,7 @@ const MockUpdateContextComponent = () => {
 
 We can now create our component that is responsible for showing how the cart works. This component will show the cart display component as well as the button to add a product to the cart and both of these components as they need access to the cart context will be wrapped in the context provider. The context passed into the provider is the contextObject.
 
-```js
+```jsx
 export const BasicCartUsage = () => {
   return (
     <CartContextProvider<Product> context={contextObject}>
@@ -241,7 +241,7 @@ Check out a [simple example I have created here](https://github.com/debs-obrien/
 
 ### Example Usage
 
-```js
+```jsx
 import {
   CartContextProvider,
   CreateCartContext

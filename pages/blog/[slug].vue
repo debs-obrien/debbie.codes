@@ -1,13 +1,13 @@
 <script setup>
-const { path } = useRoute();
+const { path } = useRoute()
 
-const article = await queryContent('blog').where({ _path: path }).findOne();
+const article = await queryContent('blog').where({ _path: path }).findOne()
 
 const [prev, next] = await queryContent('blog')
   .where({ published: { $ne: false }, featured: { $ne: true } })
 
   .only(['_path', 'title', 'description'])
-  .findSurround(path);
+  .findSurround(path)
 
 useHead({
   title: article.title,
@@ -16,7 +16,7 @@ useHead({
     {
       hid: 'description',
       name: 'description',
-      content: article.description
+      content: article.description,
     },
     // Test on: https://developers.facebook.com/tools/debug/ or https://socialsharepreview.com/
     { property: 'og:site_name', content: 'Debbie Codes' },
@@ -24,22 +24,22 @@ useHead({
     {
       hid: 'og:url',
       property: 'og:url',
-      content: 'https://debbie.codes'
+      content: 'https://debbie.codes',
     },
     {
       hid: 'og:title',
       property: 'og:title',
-      content: article.title
+      content: article.title,
     },
     {
       hid: 'og:description',
       property: 'og:description',
-      content: article.description
+      content: article.description,
     },
     {
       hid: 'og:image',
       property: 'og:image',
-      content: article.image
+      content: article.image,
     },
     // Test on: https://cards-dev.twitter.com/validator or https://socialsharepreview.com/
     { name: 'twitter:site', content: '@debs_obrien' },
@@ -47,33 +47,34 @@ useHead({
     {
       hid: 'twitter:url',
       name: 'twitter:url',
-      content: 'https://debbie.codes'
+      content: 'https://debbie.codes',
     },
     {
       hid: 'twitter:title',
       name: 'twitter:title',
-      content: article.title
+      content: article.title,
     },
     {
       hid: 'twitter:description',
       name: 'twitter:description',
-      content: article.description
+      content: article.description,
     },
     {
       hid: 'twitter:image',
       name: 'twitter:image',
-      content: article.ogImage
-    }
+      content: article.ogImage,
+    },
   ],
   link: [
     {
       hid: 'canonical',
       rel: 'canonical',
-      href: `https://debbie.codes/${path}`
-    }
-  ]
-});
+      href: `https://debbie.codes/${path}`,
+    },
+  ],
+})
 </script>
+
 <template>
   <main class="p-4 max-w-5xl m-auto">
     <header v-if="article" class="p-4 pb-12">
@@ -89,13 +90,17 @@ useHead({
           class="rounded"
         />
       </div>
-      <h1 class="font-extrabold text-5xl mb-4">{{ article.title }}</h1>
-      <p class="font-medium text-lg">{{ article.description }}</p>
+      <h1 class="font-extrabold text-5xl mb-4">
+        {{ article.title }}
+      </h1>
+      <p class="font-medium text-lg">
+        {{ article.description }}
+      </p>
       <ul class="">
         <li
+          v-for="tag in article.tags"
+          :key="tag"
           class="inline-block"
-          v-for="(tag, n) in article.tags"
-          :key="article.title"
         >
           <NuxtLink
             :to="`/blog/tags/${tag}`"
@@ -106,7 +111,7 @@ useHead({
         </li>
       </ul>
     </header>
-    <hr />
+    <hr>
     <section class="grid grid-cols-8">
       <aside class="col-span-full md:col-span-2 row-start-1 w-full pt-14">
         <BlogToc :links="article.body.toc.links" class="sticky top-20" />

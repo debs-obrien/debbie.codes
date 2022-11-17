@@ -21,7 +21,7 @@ First [install Playwright](https://playwright.dev/docs/intro) and then import `t
 Before each test we want to go to the home page and test from there as the color mode module is not available on all pages. We can do this by adding a `beforeEach` function and then calling `page.goto` to go to the home page.
 
 ```js
-import { test, expect } from '@playwright/test'
+import { expect, test } from '@playwright/test'
 
 test.beforeEach(async ({ page }) => {
   await page.goto('/')
@@ -34,7 +34,6 @@ I have set the Base URL in the `playwright.config` file as the `localhost: 8888`
 
 ```js
 const config: PlaywrightTestConfig = {
-  ...
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
     baseURL: process.env.PLAYWRIGHT_TEST_BASE_URL || 'http://localhost:8888'
@@ -48,7 +47,6 @@ I am running my tests on a local build rather than a staging or preview environm
 
 ```js
 const config: PlaywrightTestConfig = {
-  ...
   /* Run your local dev server before starting the tests */
   webServer: process.env.CI
     ? {
@@ -66,8 +64,6 @@ const config: PlaywrightTestConfig = {
 Next we can test the color mode picker starting with a `describe` block where we will add all our tests. Our first test will test the page in light mode. We use locators to find an element on a page and selectors to select the `aria-label` selector as this also tests our accessability. We then expect the locator with the text of color mode to have the text of light and expect it to be visible on the page.
 
 ```js
-...
-
 test.describe('Color Picker', () => {
   test('shows page in light mode', async ({ page }) => {
     await page.locator('[aria-label="light mode"]').click()
@@ -81,8 +77,6 @@ test.describe('Color Picker', () => {
 This test will work but really is only testing that the text updated on the page. What if the css class never updated which is what happened on my site. The module adds a css class of 'light' or 'dark' to the html element but you may have something in your config file that stops this from updating or the module might have changed. So how can we make sure the css class is also giving us the right mode? We can do this by using a selector to select the html element and check it contains an attribute with the class of 'light'.
 
 ```js
-...
-
 test.describe('Color Picker', () => {
   test('shows page in light mode', async ({ page }) => {
     await page.locator('[aria-label="light mode"]').click()
@@ -97,20 +91,18 @@ test.describe('Color Picker', () => {
 Now we can do the same for dark mode and sepia mode.
 
 ```js
-...
+test('shows page in dark mode', async ({ page }) => {
+  await page.locator('[aria-label="dark mode"]').click()
+  await expect(page.locator('text=color mode >> text=dark')).toBeVisible()
+  await expect(page.locator('html')).toHaveAttribute('class', 'dark')
+})
 
-  test('shows page in dark mode', async ({ page }) => {
-    await page.locator('[aria-label="dark mode"]').click()
-    await expect(page.locator('text=color mode >> text=dark')).toBeVisible()
-    await expect(page.locator('html')).toHaveAttribute('class', 'dark')
-  })
+test('shows page in sepia mode', async ({ page }) => {
+  await page.locator('[aria-label="sepia mode"]').click()
+  await expect(page.locator('text=color mode >> text=sepia')).toBeVisible()
+  await expect(page.locator('html')).toHaveAttribute('class', 'sepia')
+})
 
-  test('shows page in sepia mode', async ({ page }) => {
-    await page.locator('[aria-label="sepia mode"]').click()
-    await expect(page.locator('text=color mode >> text=sepia')).toBeVisible()
-    await expect(page.locator('html')).toHaveAttribute('class', 'sepia')
-  })
-...
 ```
 
 ## Testing system preference
@@ -118,18 +110,16 @@ Now we can do the same for dark mode and sepia mode.
 And finally we need to test our system preference. If the user has their system set to dark mode then the page should change to dark mode when the system preference icon is selected or light mode if the system preference is light mode. So how can we test this? We can emulate the color scheme by telling your test to use the `colorScheme` property and set it to the value you require which in our case is dark. This will now emulate the users color preference to dark mode and we can now test that the page is in dark mode when clicked.
 
 ```js
-...
+test.use({ colorScheme: 'dark' })
 
-  test.use({ colorScheme: 'dark' })
+test('shows page in system mode', async ({ page }) => {
+  await page.locator('[aria-label="system mode"]').click()
+  await expect(
+    page.locator('text=color mode >> text=system (dark mode detected)')
+  ).toBeVisible()
+  await expect(page.locator('html')).toHaveAttribute('class', 'dark')
+})
 
-  test('shows page in system mode', async ({ page }) => {
-    await page.locator('[aria-label="system mode"]').click()
-    await expect(
-      page.locator('text=color mode >> text=system (dark mode detected)')
-    ).toBeVisible()
-    await expect(page.locator('html')).toHaveAttribute('class', 'dark')
-  })
-...
 ```
 
 ## Final Test
@@ -137,7 +127,7 @@ And finally we need to test our system preference. If the user has their system 
 Our final test now looks like this.
 
 ```js
-import { test, expect } from '@playwright/test'
+import { expect, test } from '@playwright/test'
 
 test.beforeEach(async ({ page }) => {
   await page.goto('/')

@@ -23,7 +23,7 @@ In JavaScript we would just allow anything to happen and fix it later which is n
 
 TypeScript is about checking your types. What do I mean by that? When you have props that you pass down into your components, for example a name prop then this prop should only accept a string. If someone passes it a number then TypeScript will simply not allow it as it checks the types and a number is not the same type as a string. We basically need to define these types when we are passing our props.
 
-```js
+```jsx
 const Button = (props: { buttonText: string }) => ({
   <button>{props.buttonText}</button>
 })
@@ -50,8 +50,8 @@ Types can be defined as any of the primitive values:
 You can get even deeper here and define the shape of an object, for example an object that takes an id of string and a title of string or an array of object types
 
 ```js
-type Items{
-  id: string,
+type Items = {
+  id: string
   title: string
 }[]
 ```
@@ -59,12 +59,12 @@ type Items{
 This can also be cleaned up further by creating a type of item an then passing that to the array
 
 ```ts
-type Item = {
+interface Item {
   id: string
   title: string
 }
 
-type ComponentProps = {
+interface ComponentProps {
   item: item
   items: items
 }
@@ -75,7 +75,7 @@ type ComponentProps = {
 We can define an array where all keys have to be a number and the value has to be a string
 
 ```js
-type Items = {
+interface Items {
   [key: number]: string
 }
 ```
@@ -83,7 +83,7 @@ type Items = {
 Or we could make all keys a string and the value has to be of the type Item which was previously defined.
 
 ```js
-type Items = {
+interface Items {
   [key: string]: Item
 }
 ```
@@ -97,7 +97,7 @@ You can also define types for functions:
 Function takes no arguments and does not return anything.
 
 ```js
-type ButtonProps = {
+interface ButtonProps {
   onHover: () => void
 }
 ```
@@ -105,7 +105,7 @@ type ButtonProps = {
 Passes in the id of type number and returns nothing, eg undefined
 
 ```js
-type ButtonProps = {
+interface ButtonProps {
   onChange: (id: number) => void
 }
 ```
@@ -113,7 +113,7 @@ type ButtonProps = {
 Takes an event that is based on clicking the button and returns nothing. Notice the `<HTMLButtonElement>`, this means pass in all the available props that the HTML Button provides so it knows you might want to have access to`event.target` for example.
 
 ```js
-type ButtonProps = {
+interface ButtonProps {
   onClick(event: React.MouseEvent<HTMLButtonElement>): void
 }
 ```
@@ -132,7 +132,7 @@ We previously added our button with the buttonText prop containing the type of s
 
 From this:
 
-```js
+```jsx
 const Button = (props: { buttonText: string }) => ({
   <button>{props.buttonText}</button>
 })
@@ -140,7 +140,7 @@ const Button = (props: { buttonText: string }) => ({
 
 To this:
 
-```js
+```jsx
 export type ButtonProps = {
   buttonText: string
 }
@@ -153,7 +153,7 @@ const Button = (props: ButtonProps) => ({
 
 Again we can improve it further by using the names of the props instead of using the props keyword and adding them in curly brackets to destructure them.
 
-```js
+```jsx
 export type ButtonProps = {
   buttonText: string
 }
@@ -167,7 +167,7 @@ const Button = ({buttonText}: ButtonProps) => ({
 
 To make props optional we can add a question mark to the end of the type. TypeScript will then only check it's type if it is passed in.
 
-```js
+```jsx
 export type ButtonProps = {
   buttonText: string
   variation?: 'primary' | 'secondary'
@@ -189,7 +189,7 @@ const Button = ({buttonText, variation}: ButtonProps) => ({
 
 Comments are a great way to help others understand what your props are for.
 
-```js
+```jsx
 export type ButtonProps = {
   /**
    * a text for the button
@@ -211,7 +211,7 @@ const Button = ({buttonText, variation}: ButtonProps) => ({
 
 Default values can be added to your props by giving it a value as you pass it into the function. Then if someone doesn't define a value for that prop the default will be used.
 
-```js
+```jsx
 export type ButtonProps = {
   /**
    * a text for the button

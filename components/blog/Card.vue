@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import type { BlogPost } from '~/types';
+import type { BlogPost } from '~/types'
 defineProps<{
-  item: BlogPost;
-}>();
+  item: BlogPost
+}>()
 </script>
+
 <template>
   <div class="flex flex-col overflow-hidden flex-1 max-width h-full">
     <section class="text-gray-600 body-font">
@@ -42,7 +43,7 @@ defineProps<{
               {{ item.title }}
             </h4>
           </NuxtLink>
-          <ul v-for="tag in item.tags" class="inline-block">
+          <ul v-for="tag in item.tags" :key="tag" class="inline-block">
             <li class="text-sm text-blue-500 uppercase flex pr-4">
               {{ tag }}
             </li>

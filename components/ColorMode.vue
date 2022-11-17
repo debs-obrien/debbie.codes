@@ -1,18 +1,18 @@
 <script setup lang="ts">
-type Theme = 'light' | 'dark';
+type Theme = 'light' | 'dark'
 const setColorTheme = (newTheme: Theme) => {
-  useColorMode().preference = newTheme;
-};
+  useColorMode().preference = newTheme
+}
 </script>
 
 <template>
   <button
-    @click="setColorTheme($colorMode.preference == 'dark' ? 'light' : 'dark')"
     :aria-label="$colorMode.preference"
     type="button"
+    @click="setColorTheme($colorMode.preference === 'dark' ? 'light' : 'dark')"
   >
     <svg
-      v-if="$colorMode.value == 'dark'"
+      v-if="$colorMode.value === 'dark'"
       xmlns="http://www.w3.org/2000/svg"
       class="h-6 w-6 text-gray-50"
       viewBox="0 0 20 20"

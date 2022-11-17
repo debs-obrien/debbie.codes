@@ -38,13 +38,13 @@ In the `button.spec.tsx` file we will import the React library and the Testing L
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import {
+  ButtonAsLink,
   PrimaryButton,
+  PrimaryButtonDisabled,
   SecondaryButton,
   SecondaryButtonDisabled,
-  PrimaryButtonDisabled,
   WhiteButton,
-  WhiteButtonDisabled,
-  ButtonAsLink
+  WhiteButtonDisabled
 } from './button.composition'
 ```
 

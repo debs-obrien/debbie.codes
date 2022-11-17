@@ -2,15 +2,15 @@
 const podcasts = await queryContent('podcasts')
   .where({ published: { $ne: false } })
   .sort({ date: -1 })
-  .find();
+  .find()
 
-const title = `Podcast Interviews`;
-const description = `Here's a list of all my podcast interviews`;
+const title = 'Podcast Interviews'
+const description = 'Here\'s a list of all my podcast interviews'
 
 useHead({
-  title: title,
-  meta: [{ name: 'description', content: description }]
-});
+  title,
+  meta: [{ name: 'description', content: description }],
+})
 </script>
 
 <template>

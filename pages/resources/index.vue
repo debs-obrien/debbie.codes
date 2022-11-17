@@ -1,7 +1,14 @@
+<script setup>
+const resources = await queryContent('resources')
+  .where({ published: { $ne: false } })
+  .sort({ date: -1 })
+  .find()
+</script>
+
 <template>
   <article>
     <!-- <SocialHead :title="title" :description="description" :image="image" /> -->
-    <link href="https://unpkg.com/pattern.css" rel="stylesheet" />
+    <link href="https://unpkg.com/pattern.css" rel="stylesheet">
     <div>
       <section>
         <div class="max-w-6xl mx-auto px-5 py-5">
@@ -27,12 +34,6 @@
     </div>
   </article>
 </template>
-<script setup>
-const resources = await queryContent('resources')
-  .where({ published: { $ne: false } })
-  .sort({ date: -1 })
-  .find();
-</script>
 <!-- <script>
   export default {
     async asyncData({ $content }) {
