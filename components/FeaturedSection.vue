@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { Section } from '~/types'
-import type { BlogPost } from '~/types'
+import type { BlogPost, Sections } from '~/types'
+
 defineProps<{
   item: BlogPost
-  section: Section
+  section: Sections
 }>()
 </script>
 

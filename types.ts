@@ -1,4 +1,4 @@
-export type Section = 'blog' | 'podcasts' | 'videos'
+export type Sections = 'blog' | 'podcasts' | 'videos'
 
 export interface Video {
   video: string
