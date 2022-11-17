@@ -1,6 +1,8 @@
-# Nuxt 3 Minimal Starter
+# Debbie O'Brien
 
-Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
+This is my website which I built in Nuxt 3. I use it as my playground for trying out new stuff and having fun. Feel free to have a look around and copy whatever you like as the code is open source so if it helps you then great. All content is written in markdown using Nuxt Content v2 and makes it very easy to add new posts, videos etc. Site is a static site meaning it can be hosted for free on any hosting service such as Netlify.
+
+After cloning it make sure you run yarn or npm install to install everything and then start the dev servers.
 
 ## Setup
 
@@ -39,4 +41,3 @@ Locally preview production build:
 npm run preview
 ```
 
-Checkout the [deployment documentation](https://v3.nuxtjs.org/guide/deploy/presets) for more information.
