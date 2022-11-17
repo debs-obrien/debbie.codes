@@ -108,3 +108,6 @@ playwright-report/
 .output
 .env
 dist
+/test-results/
+/playwright-report/
+/playwright/.cache/
