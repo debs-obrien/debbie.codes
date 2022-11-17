@@ -67,7 +67,7 @@ import { NavLinks } from '~/constants/navigation'
           target="_blank"
           rel="nofollow noopener noreferrer"
         >
-          <IconGitHub class="h-10 w-10" />
+          <IconGitHub class="github" />
         </a>
       </li>
       <li>
@@ -107,3 +107,9 @@ import { NavLinks } from '~/constants/navigation'
     </p>
   </footer>
 </template>
+
+<style scoped>
+.github {
+  width: 2.25rem;
+}
+</style>
