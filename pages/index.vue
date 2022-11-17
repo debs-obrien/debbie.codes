@@ -1,30 +1,30 @@
 <script setup>
-const limit = ref(3)
-const getArticles = await queryContent('blog')
-  .where({ published: { $ne: false } })
-  .skip(1)
-  .sort({ date: -1 })
-  .limit(limit.value)
-  .find()
+// const limit = ref(3)
+// const getArticles = await queryContent('blog')
+//   .where({ published: { $ne: false } })
+//   .skip(1)
+//   .sort({ date: -1 })
+//   .limit(limit.value)
+//   .find()
 
-const featuredPost = await queryContent('blog')
-  .where({ published: { $ne: false } })
-  .sort({ date: -1 })
-  .limit(1)
-  .findOne()
+// const featuredPost = await queryContent('blog')
+//   .where({ published: { $ne: false } })
+//   .sort({ date: -1 })
+//   .limit(1)
+//   .findOne()
 
-const getTalks = await queryContent('videos')
-  .where({ published: { $ne: false } })
-  .sort({ date: -1 })
-  .limit(limit.value)
-  .find()
+// const getTalks = await queryContent('videos')
+//   .where({ published: { $ne: false } })
+//   .sort({ date: -1 })
+//   .limit(limit.value)
+//   .find()
 
-const getInterviews = await queryContent('podcasts')
-  .where({ published: { $ne: false } })
-  .only(['title', 'date', 'slug', 'image', 'tags', 'url', 'description'])
-  .sort({ date: -1 })
-  .limit(limit.value)
-  .find()
+// const getInterviews = await queryContent('podcasts')
+//   .where({ published: { $ne: false } })
+//   .only(['title', 'date', 'slug', 'image', 'tags', 'url', 'description'])
+//   .sort({ date: -1 })
+//   .limit(limit.value)
+//   .find()
 </script>
 
 <template>
@@ -102,10 +102,10 @@ const getInterviews = await queryContent('podcasts')
         </p>
       </div>
 
-      <AppSubtitle>Featured Post</AppSubtitle>
-      <FeaturedSection :item="featuredPost" section="blog" />
+      <!-- <AppSubtitle>Featured Post</AppSubtitle>
+      <FeaturedSection :item="featuredPost" section="blog" /> -->
 
-      <section>
+      <!-- <section>
         <NuxtLink to="resources/conference-talks">
           <AppSubtitle>Recent Talks</AppSubtitle>
         </NuxtLink>
@@ -120,9 +120,9 @@ const getInterviews = await queryContent('podcasts')
             <VideoCard :item="video" :description="false" />
           </div>
         </div>
-      </section>
+      </section> -->
 
-      <section>
+      <!-- <section>
         <NuxtLink to="/blog">
           <AppSubtitle>Recent Blog Posts</AppSubtitle>
         </NuxtLink>
@@ -138,9 +138,9 @@ const getInterviews = await queryContent('podcasts')
             <BlogCard :item="article" :description="false" />
           </div>
         </div>
-      </section>
+      </section> -->
 
-      <section>
+      <!-- <section>
         <NuxtLink to="resources/interviews">
           <AppSubtitle>Recent Interviews</AppSubtitle>
         </NuxtLink>
@@ -157,7 +157,7 @@ const getInterviews = await queryContent('podcasts')
             <PodCastCard :item="interview" :description="false" />
           </div>
         </div>
-      </section>
+      </section> -->
     </div>
   </div>
 </template>
