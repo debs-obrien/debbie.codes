@@ -33,7 +33,7 @@ export default {
           </NuxtLink>
         </div>
         <div class="text-white hidden lg:block">
-          <TheNavigation />
+          <TheNavigation class="text-white hidden lg:block" />
         </div>
         <div class="inline-flex justify-between hidden lg:block">
           <ul class="flex gap-4 text-white mr-5">

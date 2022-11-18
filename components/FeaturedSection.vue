@@ -44,5 +44,5 @@ defineProps<{
         Read more
       </NuxtLink>
     </div>
-  </Section>
+  </section>
 </template>

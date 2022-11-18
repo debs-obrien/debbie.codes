@@ -30,11 +30,6 @@ defineProps<{
         <h3 class="mt-3 text-base leading-6 text-gray-500">
           {{ item.title }}
         </h3>
-        <!-- <ul v-for="tag in item.tags" class="inline-block">
-            <li class="text-xs text-blue-500 uppercase flex pr-4">
-              {{ tag }}
-            </li>
-          </ul> -->
       </div>
     </div>
   </div>
