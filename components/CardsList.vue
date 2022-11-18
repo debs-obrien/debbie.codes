@@ -46,20 +46,7 @@ defineProps<{
               </p>
             </NuxtLink>
             <div v-if="item.tags">
-              <ul
-                v-for="tag in item.tags"
-                :key="tag"
-                class="inline-block"
-              >
-                <li class="text-sm text-blue-500 uppercase flex px-2">
-                  <NuxtLink
-                    :to="`/${section}/tags/${tag}`"
-                    class="hover:underline"
-                  >
-                    {{ tag }}
-                  </NuxtLink>
-                </li>
-              </ul>
+              <TagsList :tags="item.tags" :section="section" />
             </div>
           </div>
         </div>

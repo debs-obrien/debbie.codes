@@ -37,13 +37,7 @@ defineProps<{
             </h3>
           </a>
 
-          <ul v-for="tag in item.tags" :key="tag" class="inline-block">
-            <li class="text-sm text-blue-500 uppercase flex pr-4">
-              <NuxtLink :to="`/podcasts/tags/${tag}`" class="hover:underline">
-                {{ tag }}
-              </NuxtLink>
-            </li>
-          </ul>
+          <TagsList :tags="item.tags" section="podcasts" />
         </div>
       </div>
     </section>

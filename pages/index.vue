@@ -115,7 +115,6 @@ const getInterviews = await queryContent('podcasts')
           <div
             v-for="video of getTalks"
             :key="video._path"
-            data-test-id="talks"
           >
             <VideoCard :item="video" :description="false" />
           </div>
@@ -133,7 +132,6 @@ const getInterviews = await queryContent('podcasts')
             v-for="article of getArticles"
             :key="article._path"
             class="flex flex-col"
-            data-test-id="posts"
           >
             <BlogCard :item="article" :description="false" />
           </div>
@@ -151,7 +149,6 @@ const getInterviews = await queryContent('podcasts')
           <div
             v-for="interview of getInterviews"
             :key="interview._path"
-            data-test-id="interviews"
             class="flex flex-col"
           >
             <PodCastCard :item="interview" :description="false" />
