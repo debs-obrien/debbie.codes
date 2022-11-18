@@ -159,7 +159,7 @@ const getInterviews = await queryContent('podcasts')
 
 <style scoped>
 .hero_texts .subtitle {
-  font-size: 22px;
+  font-size: 1.25rem;
 }
 
 .hero_texts .name {

@@ -17,9 +17,7 @@ useHead({
 <template>
   <main>
     <AppTitle>{{ title }}</AppTitle>
-    <AppIntro>
-      {{ description }}
-    </AppIntro>
+    <AppIntro>{{ description }}</AppIntro>
     <Tags :section="section" />
     <CardsList :list="podcasts" :section="section" />
   </main>
