@@ -30,9 +30,9 @@ const flattenLinks = (links: Array<any>) => {
         class="text-slate-500"
         :class="link.depth === 3 ? 'pl-3' : ''"
       >
-        <a :href="`#${link.id}`" class="hover:underline">
+        <NuxtLink :href="`#${link.id}`" class="hover:underline">
           {{ link.text }}
-        </a>
+        </NuxtLink>
       </li>
     </ul>
   </nav>

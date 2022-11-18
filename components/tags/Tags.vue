@@ -32,8 +32,8 @@ const sortedArticleTags = articleTags.sort()
   <div
     class="m-auto max-w-4xl flex justify-center items-center gap-2 p-2 border border-transparent rounded-lg"
   >
-    <ul class="flex gap-2 py-2 flex flex-wrap justify-center">
-      <li>
+    <ul>
+      <li class="flex gap-2 py-2 flex flex-wrap justify-center">
         <NuxtLink
           v-for="(tag, n) in sortedArticleTags"
           :key="n"
