@@ -10,6 +10,7 @@ const courses = await queryContent('courses')
 
 const title = `Courses on ${slug}`
 const description = `Here's a list of all my courses with the ${slug} tag`
+const section = 'courses'
 
 useHead({
   title,
@@ -18,16 +19,13 @@ useHead({
 </script>
 
 <template>
-  <div class="page-wrapper">
-    <AppBreadCrumb title="courses" />
+  <main>
     <AppTitle>{{ title }}</AppTitle>
-    <AppIntro>
-      {{ description }}
-    </AppIntro>
-    <Tags section="courses" />
-    <CardsList v-if="courses.length" :list="courses" section="courses" />
+    <AppIntro>{{ description }}</AppIntro>
+    <Tags :section="section" />
+    <CardsList v-if="courses.length" :list="courses" :section="section" />
     <div v-else class="m-auto max-w-4xl text-center mt-8">
       <TagsNotFound />
     </div>
-  </div>
+  </main>
 </template>

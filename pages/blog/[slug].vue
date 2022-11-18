@@ -9,6 +9,8 @@ const [prev, next] = await queryContent('blog')
   .only(['_path', 'title', 'description'])
   .findSurround(path)
 
+const section = 'blog'
+
 useHead({
   title: article.title,
   meta: [
@@ -97,7 +99,7 @@ useHead({
       <p class="font-medium text-lg mb-4">
         {{ article.description }}
       </p>
-      <TagsList :tags="article.tags" section="blog" />
+      <TagsList :tags="article.tags" :section="section" />
     </header>
     <hr>
     <section class="grid grid-cols-8">

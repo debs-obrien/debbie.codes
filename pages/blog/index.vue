@@ -6,6 +6,7 @@ const getArticles = await queryContent('blog')
 
 const title = 'All Blog Posts'
 const description = 'Here\'s a list of all my blog posts'
+const section = 'blog'
 
 useHead({
   title,
@@ -17,7 +18,7 @@ useHead({
   <main>
     <AppTitle>{{ title }}</AppTitle>
     <AppIntro>{{ description }}</AppIntro>
-    <Tags section="blog" />
-    <CardsList :list="getArticles" section="blog" />
+    <Tags :section="section" />
+    <CardsList :list="getArticles" :section="section" />
   </main>
 </template>

@@ -6,7 +6,7 @@ const videos = await queryContent('videos')
 
 const title = 'Videos'
 const description = 'Videos from conference talks, interviews and live streams'
-
+const section = 'videos'
 useHead({
   title,
   meta: [{ name: 'description', content: description }],
@@ -14,12 +14,10 @@ useHead({
 </script>
 
 <template>
-  <div class="page-wrapper">
+  <main>
     <AppTitle>{{ title }}</AppTitle>
-    <AppIntro>
-      {{ description }}
-    </AppIntro>
-    <Tags section="videos" />
+    <AppIntro>{{ description }}</AppIntro>
+    <Tags :section="section" />
     <div
       class="mt-12 grid gap-8 mx-auto grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 md:max-w-none"
     >
@@ -27,5 +25,5 @@ useHead({
         <VideoCard :item="video" />
       </div>
     </div>
-  </div>
+  </main>
 </template>

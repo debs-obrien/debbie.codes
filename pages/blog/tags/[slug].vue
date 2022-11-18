@@ -10,6 +10,7 @@ const getArticles = await queryContent('blog')
 
 const title = `Blog Posts on ${slug}`
 const description = `Here's a list of all my blog posts with the ${slug} tag`
+const section = 'blog'
 
 useHead({
   title,
@@ -21,8 +22,8 @@ useHead({
   <main>
     <AppTitle>{{ title }}</AppTitle>
     <AppIntro>{{ description }}</AppIntro>
-    <Tags section="blog" />
-    <CardsList v-if="getArticles.length" :list="getArticles" section="blog" />
+    <Tags :section="section" />
+    <CardsList v-if="getArticles.length" :list="getArticles" :section="section" />
     <div v-else class="m-auto max-w-4xl text-center mt-8">
       <TagsNotFound />
     </div>

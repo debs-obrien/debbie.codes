@@ -6,6 +6,7 @@ const courses = await queryContent('courses')
 
 const title = 'Courses'
 const description = 'Collection of courses I have created'
+const section = 'courses'
 
 useHead({
   title,
@@ -14,12 +15,12 @@ useHead({
 </script>
 
 <template>
-  <div class="page-wrapper">
+  <main>
     <AppTitle>{{ title }}</AppTitle>
     <AppIntro>
       {{ description }}
     </AppIntro>
-    <Tags section="courses" />
-    <CardsList :list="courses" section="courses" />
-  </div>
+    <Tags :section="section" />
+    <CardsList :list="courses" :section="section" />
+  </main>
 </template>

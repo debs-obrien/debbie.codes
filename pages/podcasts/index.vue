@@ -6,6 +6,7 @@ const podcasts = await queryContent('podcasts')
 
 const title = 'Podcast Interviews'
 const description = 'Here\'s a list of all my podcast interviews'
+const section = 'podcasts'
 
 useHead({
   title,
@@ -14,12 +15,12 @@ useHead({
 </script>
 
 <template>
-  <div class="page-wrapper">
+  <main>
     <AppTitle>{{ title }}</AppTitle>
     <AppIntro>
       {{ description }}
     </AppIntro>
-    <Tags section="podcasts" />
-    <CardsList :list="podcasts" section="podcasts" />
-  </div>
+    <Tags :section="section" />
+    <CardsList :list="podcasts" :section="section" />
+  </main>
 </template>
