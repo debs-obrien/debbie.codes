@@ -33,6 +33,7 @@ body {
   @apply font-sans;
 }
 
+
 /* highlight page in corner of code */
 .nuxt-content-highlight {
   @apply relative;

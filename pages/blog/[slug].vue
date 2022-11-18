@@ -77,8 +77,11 @@ useHead({
 
 <template>
   <main class="p-4 max-w-5xl m-auto">
-    <header v-if="article" class="p-4 pb-12">
-      <div class="img-cont h-72 mb-12">
+    <header v-if="article" class="p-4 pb-8">
+      <h1 class="font-extrabold text-5xl mb-8">
+        {{ article.title }}
+      </h1>
+      <div class="rounded h-72 mb-8">
         <NuxtImg
           :provider="article.provider"
           :src="article.image"
@@ -90,26 +93,11 @@ useHead({
           class="rounded"
         />
       </div>
-      <h1 class="font-extrabold text-5xl mb-4">
-        {{ article.title }}
-      </h1>
-      <p class="font-medium text-lg">
+
+      <p class="font-medium text-lg mb-4">
         {{ article.description }}
       </p>
-      <ul class="">
-        <li
-          v-for="tag in article.tags"
-          :key="tag"
-          class="inline-block"
-        >
-          <NuxtLink
-            :to="`/blog/tags/${tag}`"
-            class="text-sm text-blue-500 uppercase flex pr-4"
-          >
-            {{ tag }}
-          </NuxtLink>
-        </li>
-      </ul>
+      <TagsList :tags="article.tags" section="blog" />
     </header>
     <hr>
     <section class="grid grid-cols-8">

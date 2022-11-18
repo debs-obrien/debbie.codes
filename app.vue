@@ -71,9 +71,8 @@ useHead({
 
 <template>
   <TheTopBar />
-  <div class="container mx-auto mt-top-bar">
+  <div class="container mx-auto mt-top-bar px-8 md:px-4">
     <NuxtPage />
   </div>
-
   <TheFooter />
 </template>
