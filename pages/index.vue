@@ -112,7 +112,7 @@ const podcasts: Array<any> = await queryContent('podcasts')
       <NuxtLink to="/blog">
         <AppSubtitle>Recent Blog Posts</AppSubtitle>
       </NuxtLink>
-      <CardList :list="articles" />
+      <CardList :list="articles" section="blog" />
     </section>
 
     <section>
@@ -128,7 +128,7 @@ const podcasts: Array<any> = await queryContent('podcasts')
         <AppSubtitle>Recent Podcasts</AppSubtitle>
       </NuxtLink>
 
-      <CardList :list="podcasts" />
+      <CardList :list="podcasts" section="podcasts" />
     </section>
   </div>
 </template>

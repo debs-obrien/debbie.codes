@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import type { BlogPost, Podcast } from '~/types'
+import type { BlogPost, Podcast, Sections } from '~/types'
 defineProps<{
   item: BlogPost | Podcast
+  section: Sections
 }>()
 </script>
 
@@ -39,7 +40,7 @@ defineProps<{
           {{ formatDate(item.date) }}
         </p>
       </NuxtLink>
-      <TagsList :tags="item.tags" section="blog" />
+      <TagsList :tags="item.tags" :section="section" />
     </div>
   </article>
 </template>

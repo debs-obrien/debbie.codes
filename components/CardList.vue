@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import type { BlogPost, Podcast } from '~/types'
+import type { Sections } from '~/types'
 defineProps<{
   list: any
+  section: Sections
 }>()
 </script>
 
@@ -14,7 +15,7 @@ defineProps<{
       :key="item.url || item._path"
       class="flex flex-col"
     >
-      <Card :item="item" :description="false" />
+      <Card :item="item" :section="section" />
     </li>
   </ul>
 </template>
