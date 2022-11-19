@@ -8,4 +8,39 @@
 /blog/all/2 /blog/2 301
 /blog/all/2 /blog/2 301
 
+/resources/ / 301
+/contact/ / 301
 /resources/podcasts /podcasts 301
+/resources/guest-live-streams /videos/tags/live-streams 301
+/resources/conference-talks /videos/tags/conference-talks 301
+/resources/interviews /videos/tags/interviews 301
+/resources/featured-posts /blog 301
+/resources/podcasts /podcasts 301
+/resources/courses /courses 301
+
+
+/blog/nuxt/1 /blog/tags/nuxt 301
+/blog/nuxt/2 /blog/tags/nuxt 301
+/blog/nuxt/3 /blog/tags/nuxt 301
+
+/blog/react/1 /blog/tags/react 301
+/blog/react/2 /blog/tags/react 301
+
+/blog/testing/1 /blog/tags/testing 301
+
+/blog/javascript/1 /blog/tags/javascript 301
+
+/blog/typescript/1 /blog/tags/typescript 301
+
+/blog/performance/1 /blog/tags/performance 301
+
+/blog/lifestyle/1 /blog/tags/lifestyle 301
+/blog/lifestyle/2 /blog/tags/lifestyle 301
+
+/blog/all/1 /blog 301
+/blog/all/2 /blog 301
+/blog/all/3 /blog 301
+/blog/all/4 /blog 301
+/blog/all/5 /blog 301
+/blog/all/6 /blog 301
+/blog/all/7 /blog 301

@@ -21,6 +21,7 @@ const flatten = (tags: Array<any>, key = 'tags') => {
 
   return _tags
 }
+
 const getAllTags: Array<any> = await queryContent(props.section)
   .where({ published: { $ne: false } })
   .only(['tags'])
