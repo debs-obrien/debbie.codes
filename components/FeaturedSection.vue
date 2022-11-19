@@ -2,7 +2,7 @@
 import type { BlogPost, Sections } from '~/types'
 
 defineProps<{
-  item: BlogPost
+  item: any
   section: Sections
 }>()
 </script>

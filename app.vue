@@ -70,9 +70,11 @@ useHead({
 </script>
 
 <template>
-  <TheTopBar />
-  <div class="container mx-auto mt-top-bar px-8 md:px-4">
-    <NuxtPage />
+  <div>
+    <TheTopBar />
+    <div class="container mx-auto mt-top-bar px-8 md:px-4">
+      <NuxtPage />
+    </div>
+    <TheFooter />
   </div>
-  <TheFooter />
 </template>

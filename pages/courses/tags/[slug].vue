@@ -1,16 +1,18 @@
-<script setup>
+<script setup lang="ts">
+import type { Sections } from '~/types'
+
 const {
   params: { slug },
 } = useRoute()
 
-const courses = await queryContent('courses')
+const courses: Array<any> = await queryContent('courses')
   .where({ published: { $ne: false }, tags: { $contains: slug } })
   .sort({ date: -1 })
   .find()
 
 const title = `Courses on ${slug}`
 const description = `Here's a list of all my courses with the ${slug} tag`
-const section = 'courses'
+const section: Sections = 'courses'
 
 useHead({
   title,
@@ -23,7 +25,7 @@ useHead({
     <AppTitle>{{ title }}</AppTitle>
     <AppIntro>{{ description }}</AppIntro>
     <Tags :section="section" />
-    <CardList v-if="courses.length" :list="courses" :section="section" />
+    <ItemList v-if="courses.length" :list="courses" :section="section" />
     <TagsNotFound v-else />
   </main>
 </template>

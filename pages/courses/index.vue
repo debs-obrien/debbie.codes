@@ -1,12 +1,14 @@
-<script setup>
-const courses = await queryContent('courses')
+<script setup lang="ts">
+import type { Sections } from '~/types'
+
+const courses: Array<any> = await queryContent('courses')
   .where({ published: { $ne: false } })
   .sort({ date: -1 })
   .find()
 
 const title = 'Courses'
 const description = 'Collection of courses I have created'
-const section = 'courses'
+const section: Sections = 'courses'
 
 useHead({
   title,
@@ -19,6 +21,6 @@ useHead({
     <AppTitle>{{ title }}</AppTitle>
     <AppIntro>{{ description }}</AppIntro>
     <Tags :section="section" />
-    <CardList :list="courses" :section="section" />
+    <ItemList :list="courses" :section="section" />
   </main>
 </template>

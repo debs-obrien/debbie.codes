@@ -1,16 +1,18 @@
-<script setup>
+<script setup lang="ts">
+import type { Sections } from '~/types'
+
 const {
   params: { slug },
 } = useRoute()
 
-const getArticles = await queryContent('blog')
+const articles: Array<any> = await queryContent('blog')
   .where({ published: { $ne: false }, tags: { $contains: slug } })
   .sort({ date: -1 })
   .find()
 
 const title = `Blog Posts on ${slug}`
 const description = `Here's a list of all my blog posts with the ${slug} tag`
-const section = 'blog'
+const section: Sections = 'blog'
 
 useHead({
   title,
@@ -23,7 +25,7 @@ useHead({
     <AppTitle>{{ title }}</AppTitle>
     <AppIntro>{{ description }}</AppIntro>
     <Tags :section="section" />
-    <CardList v-if="getArticles.length" :list="getArticles" :section="section" />
+    <ItemList v-if="articles.length" :list="articles" :section="section" />
     <TagsNotFound v-else />
   </main>
 </template>

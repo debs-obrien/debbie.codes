@@ -1,15 +1,16 @@
-<script setup>
+<script setup lang="ts">
+import type { Sections } from '~/types'
+
 const { path } = useRoute()
 
 const article = await queryContent('blog').where({ _path: path }).findOne()
 
-const [prev, next] = await queryContent('blog')
+const [prev, next]: any = await queryContent('blog')
   .where({ published: { $ne: false }, featured: { $ne: true } })
-
   .only(['_path', 'title', 'description'])
   .findSurround(path)
 
-const section = 'blog'
+const section: Sections = 'blog'
 
 useHead({
   title: article.title,
@@ -83,7 +84,7 @@ useHead({
       <h1 class="font-extrabold text-5xl mb-8">
         {{ article.title }}
       </h1>
-      <div class="rounded h-72 mb-8">
+      <div class="rounded h-72 mb-8 overflow-hidden object-cover object-center">
         <NuxtImg
           :provider="article.provider"
           :src="article.image"

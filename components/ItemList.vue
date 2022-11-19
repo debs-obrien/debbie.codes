@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { BlogPost, Course, Podcast, Sections } from '~/types'
+import type { Sections } from '~/types'
 defineProps<{
-  list: Array<BlogPost | Podcast | Course>
+  list: Array<any>
   section: Sections
 }>()
 </script>

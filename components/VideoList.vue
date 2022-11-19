@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Video } from '~/types'
 defineProps<{
-  list: Array<Video>
+  list: any
 }>()
 </script>
 

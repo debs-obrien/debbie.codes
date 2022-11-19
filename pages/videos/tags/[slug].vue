@@ -1,16 +1,18 @@
-<script setup>
+<script setup lang="ts">
+import type { Sections } from '~/types'
+
 const {
   params: { slug },
 } = useRoute()
 
-const videos = await queryContent('videos')
-  .where({ published: { $ne: false }, tags: { $in: slug } })
+const videos: Array<any> = await queryContent('videos')
+  .where({ published: { $ne: false }, tags: { $contains: slug } })
   .sort({ date: -1 })
   .find()
 
 const title = `Videos: ${slug}`
 const description = 'Videos from conference talks, interviews and live streams'
-const section = 'videos'
+const section: Sections = 'videos'
 
 useHead({
   title,

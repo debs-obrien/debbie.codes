@@ -1,12 +1,15 @@
-<script setup>
-const videos = await queryContent('videos')
+<script setup lang="ts">
+import type { Sections } from '~/types'
+
+const videos: Array<any> = await queryContent('videos')
   .where({ published: { $ne: false } })
   .sort({ date: -1 })
   .find()
 
 const title = 'Videos'
 const description = 'Videos from conference talks, interviews and live streams'
-const section = 'videos'
+const section: Sections = 'videos'
+
 useHead({
   title,
   meta: [{ name: 'description', content: description }],
