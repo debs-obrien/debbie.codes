@@ -1,15 +1,21 @@
 <script setup lang="ts">
-import type { BlogPost, Course, Podcast, Sections } from '~/types'
+import type { BlogPost, Podcast } from '~/types'
 defineProps<{
-  list: Array<BlogPost | Podcast | Course>
-  section: Sections
+  list: Array<BlogPost | Podcast>
 }>()
 </script>
 
 <template>
-  <ul class="p-4 py-6 m-auto max-w-4xl">
-    <li v-for="item in list" :key="item._path" class="py-4 border-b">
-      <Card :item="item" :section="section" />
+  <ul
+    class="mt-12 grid gap-6 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
+  >
+    <li
+      v-for="item of list"
+      :key="item.url || item._path"
+      class="flex flex-col"
+    >
+      <Card :item="item" :description="false" />
     </li>
   </ul>
 </template>
+
