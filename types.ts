@@ -1,4 +1,4 @@
-export type Sections = 'blog' | 'podcasts' | 'videos'
+export type Sections = 'blog' | 'podcasts' | 'videos' | 'courses'
 
 export interface Video {
   video: string
@@ -45,9 +45,7 @@ export interface BlogPost {
   ogImage?: string
   provider: string
   tags: string[]
-  host: string
   published?: boolean
-  loading?: 'loading' | 'eager'
   _path: string
 }
 

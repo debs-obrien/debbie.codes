@@ -1,11 +1,10 @@
 <script setup lang="ts">
 import type { Sections } from '~/types'
-interface Props {
+
+defineProps<{
   tags: Array<string>
   section: Sections
-}
-
-const props = defineProps<Props>()
+}>()
 </script>
 
 <template>
@@ -14,7 +13,7 @@ const props = defineProps<Props>()
     :key="tag"
     class="inline-block"
   >
-    <li class="text-sm text-blue-600 dark:text-blue-500 uppercase flex px-2">
+    <li class="text-sm text-blue-600 dark:text-blue-500 uppercase flex pr-2">
       <NuxtLink
         :to="`/${section}/tags/${tag}`"
         class="hover:underline"

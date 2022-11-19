@@ -8,7 +8,7 @@ defineProps<{
 </script>
 
 <template>
-  <section class="bg-white dark:bg-gray-900 container px-6 py-10 mx-auto mt-8 lg:-mx-6 lg:flex lg:items-center">
+  <section class="bg-white dark:bg-gray-900 container py-10 mx-auto mt-8 lg:-mx-6 lg:flex lg:items-center">
     <NuxtLink :to="item._path" :aria-label="item.title">
       <NuxtImg
         :provider="item.provider"
