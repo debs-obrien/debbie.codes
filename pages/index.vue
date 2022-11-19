@@ -1,29 +1,33 @@
-<script setup>
-const limit = ref(3)
-const getArticles = await queryContent('blog')
+<script setup lang="ts">
+import type { BlogPost } from '~/types'
+
+const articles: Array<any> = await queryContent('blog')
   .where({ published: { $ne: false } })
+  .without('body')
   .skip(1)
   .sort({ date: -1 })
-  .limit(limit.value)
+  .limit(6)
   .find()
 
-const featuredPost = await queryContent('blog')
+const featuredPost: any = await queryContent('blog')
   .where({ published: { $ne: false } })
+  .without('body')
   .sort({ date: -1 })
   .limit(1)
   .findOne()
 
-const getTalks = await queryContent('videos')
+const videos: Array<any> = await queryContent('videos')
   .where({ published: { $ne: false } })
+  .without('body')
   .sort({ date: -1 })
-  .limit(limit.value)
+  .limit(5)
   .find()
 
-const getInterviews = await queryContent('podcasts')
+const podcasts: Array<any> = await queryContent('podcasts')
   .where({ published: { $ne: false } })
-  .only(['title', 'date', 'slug', 'image', 'tags', 'url', 'description'])
+  .without('body')
   .sort({ date: -1 })
-  .limit(limit.value)
+  .limit(3)
   .find()
 </script>
 
@@ -106,36 +110,18 @@ const getInterviews = await queryContent('podcasts')
   <FeaturedSection :item="featuredPost" section="blog" />
 
   <section>
-    <NuxtLink to="/videos">
-      <AppSubtitle>Recent Videos</AppSubtitle>
-    </NuxtLink>
-    <div
-      class="text-left mt-12 grid gap-6 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
-    >
-      <div
-        v-for="video of getTalks"
-        :key="video._path"
-      >
-        <VideoCard :item="video" :description="false" />
-      </div>
-    </div>
-  </section>
-
-  <section>
     <NuxtLink to="/blog">
       <AppSubtitle>Recent Blog Posts</AppSubtitle>
     </NuxtLink>
-    <div
-      class="mt-12 grid gap-6 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
-    >
-      <div
-        v-for="article of getArticles"
-        :key="article._path"
-        class="flex flex-col"
-      >
-        <BlogCard :item="article" :description="false" />
-      </div>
-    </div>
+    <CardList :list="articles" />
+  </section>
+
+  <section>
+    <NuxtLink to="/videos">
+      <AppSubtitle>Recent Videos</AppSubtitle>
+    </NuxtLink>
+
+    <VideoList :list="videos" />
   </section>
 
   <section>
@@ -143,17 +129,7 @@ const getInterviews = await queryContent('podcasts')
       <AppSubtitle>Recent Podcasts</AppSubtitle>
     </NuxtLink>
 
-    <div
-      class="text-left mt-12 grid gap-6 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
-    >
-      <div
-        v-for="interview of getInterviews"
-        :key="interview._path"
-        class="flex flex-col"
-      >
-        <PodCastCard :item="interview" :description="false" />
-      </div>
-    </div>
+    <CardList :list="podcasts" />
   </section>
 </template>
 
