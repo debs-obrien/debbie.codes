@@ -36,41 +36,7 @@ export default {
           <TheNavigation class="text-white hidden lg:block" />
         </div>
         <div class="inline-flex justify-between hidden lg:block">
-          <ul class="flex gap-4 text-white mr-5">
-            <li>
-              <a
-                href="https://twitter.com/debs_obrien"
-                aria-label="twitter"
-                target="_blank"
-                rel="nofollow noopener noreferrer"
-              ><IconTwitterWhite /></a>
-            </li>
-            <li>
-              <a
-                href="https://www.linkedin.com/in/debbie-o-brien-1a199975/"
-                target="_blank"
-                rel="nofollow noopener noreferrer"
-                aria-label="linkedIn"
-              ><IconLinkedInWhite /></a>
-            </li>
-            <li>
-              <a
-                href="https://github.com/debs-obrien"
-                aria-label="github"
-                target="_blank"
-                rel="nofollow noopener noreferrer"
-              ><IconGitHub /></a>
-            </li>
-            <li>
-              <a
-                href="https://www.youtube.com/c/DebbieOBrien"
-                target="_blank"
-                rel="nofollow noopener noreferrer"
-                aria-label="youtube"
-              ><IconYouTubeWhite /></a>
-            </li>
-            <li><ColorMode /></li>
-          </ul>
+          <TopBaSocial />
         </div>
 
         <button
@@ -98,44 +64,11 @@ export default {
     <!-- Dropdown -->
     <div
       v-show="isOpen"
-      class="text-white bg-dark w-full h-full px-10 mt-6 text-center"
+      class="text-white bg-dark w-full h-full px-10 mt-6 mb-6 text-center"
       @click="isOpen = false"
     >
       <TheNavigation />
-      <ul class="flex gap-6 text-white justify-center mt-4">
-        <li>
-          <a
-            href="https://twitter.com/debs_obrien"
-            aria-label="twitter"
-            target="_blank"
-            rel="nofollow noopener noreferrer"
-          ><IconTwitterWhite class="w-7 h-7" /></a>
-        </li>
-        <li>
-          <a
-            href="https://www.linkedin.com/in/debbie-o-brien-1a199975/"
-            target="_blank"
-            rel="nofollow noopener noreferrer"
-            aria-label="linkedIn"
-          ><IconLinkedInWhite class="w-7 h-7" /></a>
-        </li>
-        <li>
-          <a
-            href="https://github.com/debs-obrien"
-            aria-label="github"
-            target="_blank"
-            rel="nofollow noopener noreferrer"
-          ><IconGitHub class="w-5 h-5" /></a>
-        </li>
-        <li>
-          <a
-            href="https://www.youtube.com/c/DebbieOBrien"
-            target="_blank"
-            rel="nofollow noopener noreferrer"
-            aria-label="youtube"
-          ><IconYouTubeWhite class="w-7 h-7" /></a>
-        </li><li><ColorMode class="w-7 h-7" /></li>
-      </ul>
+      <TopBaSocial />
     </div>
     <!-- /Dropdown -->
   </header>

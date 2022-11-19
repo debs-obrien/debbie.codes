@@ -23,7 +23,7 @@ useHead({
     <AppTitle>{{ title }}</AppTitle>
     <AppIntro>{{ description }}</AppIntro>
     <Tags :section="section" />
-    <CardsList v-if="courses.length" :list="courses" :section="section" />
+    <CardList v-if="courses.length" :list="courses" :section="section" />
     <TagsNotFound v-else />
   </main>
 </template>

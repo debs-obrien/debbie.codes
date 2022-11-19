@@ -9,12 +9,13 @@ const setColorTheme = (newTheme: Theme) => {
   <button
     :aria-label="$colorMode.preference"
     type="button"
+    class="block"
     @click="setColorTheme($colorMode.preference === 'dark' ? 'light' : 'dark')"
   >
     <svg
       v-if="$colorMode.value === 'dark'"
       xmlns="http://www.w3.org/2000/svg"
-      class="h-6 w-6 text-gray-50"
+      class="lg:h-6 lg:w-6 w-8 h-8 text-gray-50"
       viewBox="0 0 20 20"
       fill="currentColor"
     >
@@ -25,7 +26,7 @@ const setColorTheme = (newTheme: Theme) => {
     <svg
       v-else
       xmlns="http://www.w3.org/2000/svg"
-      class="h-6 w-6"
+      class="lg:h-6 lg:w-6 w-8 h-8"
       viewBox="0 0 20 20"
       fill="white"
     >

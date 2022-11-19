@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import type { Sections } from '~/types'
+
 interface Props {
-  section: string
+  section: Sections
 }
 
 const props = defineProps<Props>()
@@ -32,8 +34,8 @@ const sortedArticleTags = articleTags.sort()
   <ul class="m-auto max-w-4xl flex justify-center items-center gap-2 p-2 border border-transparent rounded-lg">
     <li class="flex gap-2 py-2 flex flex-wrap justify-center">
       <NuxtLink
-        v-for="(tag, n) in sortedArticleTags"
-        :key="n"
+        v-for="tag in sortedArticleTags"
+        :key="tag"
         :to="`/${section}/tags/${tag}`"
         class="px-2 py-1 md:text-sm sm:text-xl font-normal text-white uppercase bg-slate-600 rounded-md transition-all !py-0.5 hover:-translate-y-0.5 hover:bg-blue-500"
       >

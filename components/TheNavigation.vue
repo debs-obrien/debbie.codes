@@ -8,7 +8,7 @@ import { NavLinks } from '~/constants/navigation'
       <li
         v-for="(nav, index) in NavLinks"
         :key="index"
-        class="pb-6 lg:pb-0 pr-6 sm:text-2xl md:text-lg"
+        class="pb-8 lg:pb-0 pr-6 text-2xl lg:text-lg"
       >
         <nuxt-link :to="nav.url" class="hover:no-underline">
           {{ nav.link }}
