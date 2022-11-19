@@ -15,7 +15,7 @@ const setColorTheme = (newTheme: Theme) => {
     <svg
       v-if="$colorMode.value === 'dark'"
       xmlns="http://www.w3.org/2000/svg"
-      class="lg:h-6 lg:w-6 w-8 h-8 text-gray-50"
+      class="w-8 h-8 lg:h-5 lg:w-5 text-gray-50"
       viewBox="0 0 20 20"
       fill="currentColor"
     >
@@ -26,7 +26,7 @@ const setColorTheme = (newTheme: Theme) => {
     <svg
       v-else
       xmlns="http://www.w3.org/2000/svg"
-      class="lg:h-6 lg:w-6 w-8 h-8"
+      class="w-8 h-8 lg:h-5 lg:w-5"
       viewBox="0 0 20 20"
       fill="white"
     >

@@ -6,7 +6,7 @@
         aria-label="twitter"
         target="_blank"
         rel="nofollow noopener noreferrer"
-      ><IconTwitterWhite class="lg:h-6 lg:w-6 w-8 h-8" /></a>
+      ><IconTwitterWhite class=" w-8 h-8 lg:h-4 lg:w-4" /></a>
     </li>
     <li>
       <a
@@ -14,7 +14,7 @@
         target="_blank"
         rel="nofollow noopener noreferrer"
         aria-label="linkedIn"
-      ><IconLinkedInWhite class="lg:h-6 lg:w-6 w-8 h-8" /></a>
+      ><IconLinkedInWhite class=" w-8 h-8 lg:h-4 lg:w-4" /></a>
     </li>
     <li>
       <a
@@ -22,7 +22,7 @@
         aria-label="github"
         target="_blank"
         rel="nofollow noopener noreferrer"
-      ><IconGitHub class="lg:h-6 lg:w-6 w-8 h-8" /></a>
+      ><IconGitHub class="w-8 h-8 lg:h-4 lg:w-4" /></a>
     </li>
     <li>
       <a
@@ -30,7 +30,7 @@
         target="_blank"
         rel="nofollow noopener noreferrer"
         aria-label="youtube"
-      ><IconYouTubeWhite class="lg:h-6 lg:w-6 w-8 h-8" /></a>
+      ><IconYouTubeWhite class="w-8 h-8 lg:h-5 lg:w-5" /></a>
     </li>
     <li><ColorMode /></li>
   </ul>

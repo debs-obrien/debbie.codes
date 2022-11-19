@@ -1,15 +1,8 @@
-<script lang="ts">
-export default {
-  data() {
-    return {
-      isOpen: false,
-    }
-  },
-  methods: {
-    toggle() {
-      this.isOpen = !this.isOpen
-    },
-  },
+<script setup lang="ts">
+const isOpen = ref(false)
+
+const toggle = () => {
+  isOpen.value = !isOpen.value
 }
 </script>
 
