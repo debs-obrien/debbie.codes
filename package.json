@@ -17,7 +17,7 @@
     "@nuxtjs/tailwindcss": "^6.1.3",
     "@playwright/test": "^1.28.0",
     "@tailwindcss/typography": "^0.5.8",
-    "eslint": "^8.27.0",
+    "eslint": "^8.28.0",
     "husky": "^8.0.2",
     "lint-staged": "^13.0.3",
     "lite-youtube-embed": "^0.2.0",
