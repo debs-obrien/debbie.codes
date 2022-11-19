@@ -1,5 +1,5 @@
 [build]
-  command = "yarn generate"
+  command = "npm run generate"
   publish = "dist"
   ignore = "git log -1 --pretty=%B | grep dependabot"
 

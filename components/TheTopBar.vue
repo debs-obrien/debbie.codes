@@ -1,7 +1,15 @@
+<script setup lang="ts">
+const isOpen = ref(false)
+
+const toggle = () => {
+  isOpen.value = !isOpen.value
+}
+</script>
+
 <template>
-  <header class="grax_topbar w-full fixed top-0 left-0 z-10 bg-dark py-4">
-    <div class="container">
-      <div class="w-100 h-auto items-center flex justify-between">
+  <header class="w-full fixed top-0 left-0 z-10 bg-dark py-4">
+    <div class="container mx-auto">
+      <div class="w-100 h-auto items-center flex justify-between px-3">
         <div class="w-auto text-white">
           <NuxtLink to="/" class="hover:no-underline flex">
             <NuxtImg
@@ -18,15 +26,28 @@
           </NuxtLink>
         </div>
         <div class="text-white hidden lg:block">
-          <TheNavigation />
+          <TheNavigation class="text-white hidden lg:block" />
         </div>
-        <button class="block lg:hidden" aria-label="open menu" @click="toggle">
+        <div class="inline-flex justify-between hidden lg:block">
+          <TopBaSocial />
+        </div>
+
+        <button
+          class="block lg:hidden"
+          aria-label="open menu"
+          type="button"
+          @click="toggle"
+        >
           <ul v-if="!isOpen" class="hamburger text-white">
             <li class="bg-white" />
             <li class="bg-white" />
             <li class="bg-white" />
           </ul>
-          <span v-if="isOpen" class="text-white" aria-label="close menu">
+          <span
+            v-if="isOpen"
+            class="text-white text-2xl"
+            aria-label="close menu"
+          >
             X
           </span>
         </button>
@@ -36,37 +57,24 @@
     <!-- Dropdown -->
     <div
       v-show="isOpen"
-      class="text-white bg-dark w-full h-full px-10"
+      class="text-white bg-dark w-full h-full px-10 mt-6 mb-6 text-center"
       @click="isOpen = false"
     >
       <TheNavigation />
+      <TopBaSocial />
     </div>
     <!-- /Dropdown -->
   </header>
 </template>
-<script>
-  export default {
-    data() {
-      return {
-        isOpen: false
-      }
-    },
-    methods: {
-      toggle() {
-        this.isOpen = !this.isOpen
-      }
-    }
-  }
-</script>
 
 <style scoped>
-  .hamburger li {
-    width: 35px;
-    height: 5px;
-    margin: 6px 0;
-  }
-  .profile-pic {
-    height: 50px;
-    width: 50px;
-  }
+.hamburger li {
+  width: 35px;
+  height: 5px;
+  margin: 6px 0;
+}
+.profile-pic {
+  height: 50px;
+  width: 50px;
+}
 </style>

@@ -6,6 +6,6 @@ url: https://vueschool.io/courses/learn-graphql-fundamentals
 image: v1607261486/debbie.codes/courses/graphql_wisdxv
 provider: cloudinary
 loading: eager
-tags: [GraphQL]
+tags: [graphql]
 platform: Vue School
 ---

@@ -33,42 +33,6 @@ body {
   @apply font-sans;
 }
 
-.container {
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  max-width: 1500px;
-  padding: 0 10px;
-  position: relative;
-  overflow: visible;
-}
-
-.nuxt-content a {
-  @apply text-gray-800 dark:text-gray-300;
-  text-decoration: underline;
-}
-.nuxt-content a:hover {
-  @apply text-primary;
-}
-
-section p {
-  @apply mb-2;
-}
-
-.layout-enter-active,
-.layout-leave-active,
-.page-enter-active,
-.page-leave-active {
-  transition-duration: 0.3s;
-  transition-property: opacity;
-  transition-timing-function: ease;
-}
-.layout-enter,
-.layout-leave-active,
-.page-enter,
-.page-leave-active {
-  opacity: 0;
-}
 
 /* highlight page in corner of code */
 .nuxt-content-highlight {
@@ -84,14 +48,20 @@ section p {
 .dark .prose,
 .dark .prose h1,
 .dark .prose h2,
-.dark .prose h3 {
+.dark .prose h2 a,
+.dark .prose h3,
+.dark .prose h3 a {
   color: white;
+  text-decoration: none;
+}
+.dark .prose a {
+  color: white;
+  text-decoration: underline;
 }
 code {
   color: inherit;
 }
 
-/* purgecss end ignore */
 pre,
 code {
   overflow: auto;
@@ -105,4 +75,26 @@ code {
 
 .prose code {
   color: inherit;
+}
+.prose blockquote {
+  color: dark;
+}
+.dark .prose blockquote {
+  color: white;
+}
+
+.img-cont img {
+  @apply h-full w-full object-cover;
+}
+
+
+.page-enter-active,
+.page-leave-active {
+  transition-duration: 0.3s;
+  transition-property: opacity;
+  transition-timing-function: ease;
+}
+.page-enter,
+.page-leave-active {
+  opacity: 0;
 }

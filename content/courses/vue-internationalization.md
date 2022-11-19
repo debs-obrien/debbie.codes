@@ -6,6 +6,6 @@ url: https://vueschool.io/courses/internationalization-with-vue-i18n
 image: v1607261489/debbie.codes/courses/vue-i18n_tyj6ak
 provider: cloudinary
 loading: eager
-tags: [Vue, Internationalization]
+tags: [vue, i18n]
 platform: Vue School
 ---

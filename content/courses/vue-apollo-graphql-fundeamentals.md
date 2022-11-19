@@ -6,6 +6,6 @@ url: https://vueschool.io/courses/vue-apollo-graphql-fundamentals
 image: v1607260652/debbie.codes/courses/vue-apollo-graphql-fundamentals_vnfw0h
 provider: cloudinary
 loading: eager
-tags: [GraphQL, Apollo, Vue]
+tags: [graphql, apollo, vue]
 platform: Vue School
 ---

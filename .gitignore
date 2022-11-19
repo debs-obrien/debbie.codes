@@ -92,9 +92,22 @@ ClicksMethods.md
 # Local Netlify folder
 .netlify
 
-# cypress
+# tests
 cypress/integration/examples
 cypress/videos
 cypress/screenshots
 test-results/
 playwright-report/
+
+
+# Nuxt
+*.log*
+.nuxt
+.nitro
+.cache
+.output
+.env
+dist
+/test-results/
+/playwright-report/
+/playwright/.cache/

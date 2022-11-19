@@ -1,5 +1,36 @@
+<script setup lang="ts">
+const articles: Array<any> = await queryContent('blog')
+  .where({ published: { $ne: false } })
+  .without('body')
+  .skip(1)
+  .sort({ date: -1 })
+  .limit(6)
+  .find()
+
+const featuredPost: any = await queryContent('blog')
+  .where({ published: { $ne: false } })
+  .without('body')
+  .sort({ date: -1 })
+  .limit(1)
+  .findOne()
+
+const videos: Array<any> = await queryContent('videos')
+  .where({ published: { $ne: false } })
+  .without('body')
+  .sort({ date: -1 })
+  .limit(5)
+  .find()
+
+const podcasts: Array<any> = await queryContent('podcasts')
+  .where({ published: { $ne: false } })
+  .without('body')
+  .sort({ date: -1 })
+  .limit(3)
+  .find()
+</script>
+
 <template>
-  <div class="container">
+  <div>
     <div class="hero_texts text-center px-2">
       <div class="hero_image flex justify-center">
         <NuxtImg
@@ -17,7 +48,9 @@
       </h1>
 
       <div class="dark:text-white subtitle font-medium mb-20">
-        <p class="mb-4"> Senior Program Manager at Microsoft </p>
+        <p class="mb-4">
+          Senior Program Manager at Microsoft
+        </p>
         <p>
           <a
             href="https://developers.google.com/community/experts/directory/profile/profile-debbie_o_brien"
@@ -70,150 +103,53 @@
           </a>
         </p>
       </div>
-      <section>
-        <NuxtLink :to="{ name: 'blog' }"
-          ><AppSubtitle>Recent Blog Posts</AppSubtitle></NuxtLink
-        >
-        <div
-          class="mt-12 grid gap-6 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
-        >
-          <div
-            v-for="article of getArticles"
-            :key="article.slug"
-            class="flex flex-col"
-            data-test-id="posts"
-          >
-            <PostsCard :item="article" :description="false" />
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <NuxtLink :to="{ name: 'resources-conference-talks' }"
-          ><AppSubtitle>Recent Talks</AppSubtitle></NuxtLink
-        >
-        <div
-          class="text-left mt-12 grid gap-6 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
-        >
-          <div v-for="video of getTalks" :key="video.slug" data-test-id="talks">
-            <VideoCard :item="video" :description="false" />
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <NuxtLink :to="{ name: 'resources-courses' }"
-          ><AppSubtitle>Recent Courses</AppSubtitle></NuxtLink
-        >
-
-        <div
-          class="mt-12 grid gap-6 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
-        >
-          <div
-            v-for="course of getCourses"
-            :key="course.slug"
-            data-test-id="courses"
-            class="flex flex-col"
-          >
-            <PostsCard :item="course" :description="false" />
-          </div>
-        </div>
-      </section>
-      <section>
-        <NuxtLink :to="{ name: 'resources-interviews' }"
-          ><AppSubtitle>Recent Interviews</AppSubtitle></NuxtLink
-        >
-
-        <div
-          class="text-left mt-12 grid gap-6 sm:px-8 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
-        >
-          <div
-            v-for="interview of getInterviews"
-            :key="interview.slug"
-            data-test-id="interviews"
-            class="flex flex-col"
-          >
-            <VideoCard :item="interview" :description="false" />
-          </div>
-        </div>
-      </section>
     </div>
+
+    <AppSubtitle>Featured Post</AppSubtitle>
+    <FeaturedSection :item="featuredPost" section="blog" />
+
+    <section>
+      <NuxtLink to="/blog">
+        <AppSubtitle>Recent Blog Posts</AppSubtitle>
+      </NuxtLink>
+      <CardList :list="articles" section="blog" />
+    </section>
+
+    <section>
+      <NuxtLink to="/videos">
+        <AppSubtitle>Recent Videos</AppSubtitle>
+      </NuxtLink>
+
+      <VideoList :list="videos" />
+    </section>
+
+    <section>
+      <NuxtLink to="/podcasts">
+        <AppSubtitle>Recent Podcasts</AppSubtitle>
+      </NuxtLink>
+
+      <CardList :list="podcasts" section="podcasts" />
+    </section>
   </div>
 </template>
-<script>
-  import AppTitle from '~/components/AppTitle.vue'
-  export default {
-    layout: 'home',
-    async asyncData({ $content, error }) {
-      const numArticles = 3
-      const getArticles = await $content('articles')
-        .where({
-          published: { $ne: false }
-        })
-        .sortBy('date', 'desc')
-        .limit(numArticles)
-        .fetch()
-      if (!getArticles.length) {
-        return error({ statusCode: 404, message: 'No articles found!' })
-      }
-      const getTalks = await $content('conference-talks')
-        .where({
-          published: { $ne: false }
-        })
-        .sortBy('date', 'desc')
-        .limit(numArticles)
-        .fetch()
-      if (!getTalks.length) {
-        return error({ statusCode: 404, message: 'No talks found!' })
-      }
-      const getCourses = await $content('courses')
-        .where({
-          published: { $ne: false }
-        })
-        .sortBy('date', 'desc')
-        .limit(numArticles)
-        .fetch()
-      if (!getCourses.length) {
-        return error({ statusCode: 404, message: 'No courses found!' })
-      }
-      const getInterviews = await $content('interviews')
-        .where({
-          published: { $ne: false }
-        })
-        .sortBy('date', 'desc')
-        .limit(numArticles)
-        .fetch()
-      if (!getCourses.length) {
-        return error({ statusCode: 404, message: 'No interviews found!' })
-      }
-      return {
-        getArticles,
-        getTalks,
-        getCourses,
-        getInterviews
-      }
-    },
-    components: { AppTitle }
-  }
-</script>
 
 <style scoped>
-  .hero_texts .subtitle {
-    font-size: 22px;
-  }
+.hero_texts .subtitle {
+  font-size: 1.25rem;
+}
 
+.hero_texts .name {
+  font-size: 75px;
+  border: none;
+}
+.profile-pic {
+  height: 180px;
+  width: 180px;
+}
+
+@media (max-width: 768px) {
   .hero_texts .name {
-    font-size: 75px;
-    border: none;
+    font-size: 50px;
   }
-  .profile-pic {
-    height: 180px;
-    width: 180px;
-  }
-
-  @media (max-width: 768px) {
-    .hero_texts .name {
-      font-size: 50px;
-    }
-  }
+}
 </style>
