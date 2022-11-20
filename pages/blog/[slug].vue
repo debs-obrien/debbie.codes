@@ -79,8 +79,10 @@ useHead({
 </script>
 
 <template>
-  <main class="">
-    <header v-if="article" class="p-4 pb-8">
+  <main
+    class="container mx-auto max-w-5xl"
+  >
+    <header v-if="article" class="p-4">
       <h1 class="font-extrabold text-xl lg:text-5xl mb-2 lg:mb-8">
         {{ article.title }}
       </h1>
