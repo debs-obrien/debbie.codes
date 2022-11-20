@@ -72,7 +72,7 @@ useHead({
 <template>
   <div>
     <TheTopBar />
-    <div class="container mx-auto mt-top-bar px-8 md:px-4">
+    <div class="lg:container mx-auto mt-top-bar px-2 md:px-4">
       <NuxtPage />
     </div>
     <TheFooter />

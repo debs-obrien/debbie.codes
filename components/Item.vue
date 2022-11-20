@@ -33,12 +33,12 @@ defineProps<{
         :target="item.url ? '_blank' : '_self'"
       >
         <h2
-          class="mb-4 text-xl font-semibold text-gray-800 hover:underline dark:text-white md:text-3xl"
+          class="mb-0 lg:mb-4 text-lg md:text-3xl font-semibold text-gray-800 hover:underline dark:text-white"
         >
           {{ item.title }}
         </h2>
         <p
-          class="mt-3 text-lg text-gray-500 dark:text-gray-300 md:text-sm"
+          class="mt-0 lg:mt-3 text-base lg:text-lg text-gray-500 dark:text-gray-300 md:text-sm overflow-hidden md:overflow-visible whitespace-nowrap md:whitespace-normal text-ellipsis"
         >
           {{ item.description }}
         </p>

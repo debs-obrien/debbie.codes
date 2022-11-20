@@ -23,7 +23,7 @@ defineProps<{
           {{ formatDate(item.date) }}
         </p>
 
-        <p class="text-md font-medium text-gray-600 mb-3">
+        <p class="text-base font-medium text-gray-600 mb-3">
           {{ item.conference }}{{ item.host }}
         </p>
 

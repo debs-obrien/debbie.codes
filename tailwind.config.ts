@@ -36,9 +36,6 @@ export default <Partial<Config>>{
       margin: {
         'top-bar': '100px',
       },
-      // fontFamily: {
-      //   Saira: ['Saira']
-      // },
       maxWidth: {
         '1/4': '25%',
       },
@@ -46,17 +43,9 @@ export default <Partial<Config>>{
   },
   variants: {
     backgroundColor: [
-      // 'dark',
-      // 'dark-hover',
-      // 'dark-group-hover',
-      // 'dark-even',
-      // 'dark-odd'
     ],
-    // borderColor: ['dark', 'dark-focus', 'dark-focus-within'],
-    // textColor: ['dark', 'dark-hover', 'dark-active']
   },
   plugins: [
-    // require('tailwindcss-dark-mode'),
     require('@tailwindcss/typography'),
   ],
 }
