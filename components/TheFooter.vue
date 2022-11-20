@@ -4,7 +4,7 @@ import { NavLinks } from '~/constants/navigation'
 
 <template>
   <footer class="w-full bg-dark py-12 overflow-hidden sm:px-6 lg:px-8 mt-12">
-    <ul class="-mx-5 -my-2 flex flex-wrap justify-center text-white">
+    <ul class="-mx-5 -my-2 flex flex-wrap justify-center text-white px-6">
       <li
         v-for="(nav, index) in NavLinks"
         :key="index"
@@ -16,7 +16,7 @@ import { NavLinks } from '~/constants/navigation'
       </li>
     </ul>
 
-    <ul class="mt-8 flex flex-wrap justify-center space-x-6 mb-6">
+    <ul class="mt-8 flex flex-wrap justify-center space-x-6 mb-6 px-6">
       <li>
         <a
           href="https://twitter.com/debs_obrien"

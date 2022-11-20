@@ -32,13 +32,15 @@ const sortedArticleTags = articleTags.sort()
 </script>
 
 <template>
-  <ul class="m-auto max-w-4xl flex justify-center items-center gap-2 p-2 border border-transparent rounded-lg">
-    <li class="flex gap-2 pr-2 flex flex-wrap justify-center">
+  <ul class="max-w-4xl flex justify-left md:justify-center items-center gap-2 my-4 mx-0 md:mx-auto border border-transparent rounded-lg overflow-x-scroll md:overflow-visible flex-nowrap md:flex-wrap font-normal md:text-sm sm:text-xl text-white uppercase">
+    <li
+      v-for="tag in sortedArticleTags"
+      :key="tag" class="flex gap-2 justify-center flex-nowrap "
+    >
       <NuxtLink
-        v-for="tag in sortedArticleTags"
-        :key="tag"
+
         :to="`/${section}/tags/${tag}`"
-        class="px-2 py-1 md:text-sm sm:text-xl font-normal text-white uppercase bg-slate-600 rounded-md transition-all !py-0.5 hover:-translate-y-0.5 hover:bg-blue-500"
+        class="px-2 py-1 !py-0.5 bg-slate-600 rounded-md transition-all hover:-translate-y-0.5 hover:bg-blue-500 whitespace-nowrap"
       >
         {{ tag.replaceAll('-', ' ') }}
       </NuxtLink>

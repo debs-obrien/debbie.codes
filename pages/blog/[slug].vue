@@ -79,12 +79,12 @@ useHead({
 </script>
 
 <template>
-  <main class="p-4 max-w-5xl m-auto">
+  <main class="">
     <header v-if="article" class="p-4 pb-8">
-      <h1 class="font-extrabold text-5xl mb-8">
+      <h1 class="font-extrabold text-xl lg:text-5xl mb-2 lg:mb-8">
         {{ article.title }}
       </h1>
-      <div class="rounded h-72 mb-8 overflow-hidden object-cover object-center">
+      <div class="rounded h-32 lg:h-72 mb-2 lg:mb-8 overflow-hidden object-cover object-center">
         <NuxtImg
           :provider="article.provider"
           :src="article.image"
@@ -104,7 +104,7 @@ useHead({
     </header>
     <hr>
     <section class="grid grid-cols-8">
-      <aside class="col-span-full md:col-span-2 row-start-1 w-full pt-14">
+      <aside class="col-span-full md:col-span-2 row-start-1 w-full pt-8">
         <BlogToc :links="article.body.toc.links" class="sticky top-20" />
       </aside>
       <article
