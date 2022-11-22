@@ -8,19 +8,18 @@ defineProps<{
 </script>
 
 <template>
-  <ul
-    v-for="tag in tags"
-    :key="tag"
-    class="inline-block"
+  <div
+
+    class="text-sm text-blue-600 dark:text-blue-500 uppercase flex"
   >
-    <li class="text-sm text-blue-600 dark:text-blue-500 uppercase flex pr-2">
-      <NuxtLink
-        :to="`/${section}/tags/${tag}`"
-        class="hover:underline"
-      >
-        {{ tag }}
-      </NuxtLink>
-    </li>
-  </ul>
+    <NuxtLink
+      v-for="tag in tags"
+      :key="tag"
+      :to="`/${section}/tags/${tag}`"
+      class="hover:underline inline-block pr-2"
+    >
+      {{ tag }}
+    </NuxtLink>
+  </div>
 </template>
 
