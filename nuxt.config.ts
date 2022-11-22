@@ -15,13 +15,13 @@ export default defineNuxtConfig({
       meta: [
         {
           name: 'google-site-verification',
-          content: 'Nb9JyfPdxgxIzfosyzt-JsvJZkoUVlhEYN4TuoLPWF0'
+          content: 'Nb9JyfPdxgxIzfosyzt-JsvJZkoUVlhEYN4TuoLPWF0',
         },
         {
           hid: 'description',
           name: 'description',
           content:
-            "Debbie O'Brien, Program Manager at Microsoft working on Playwright, with over 10 years experience in Frontend development. Google Developer Expert in web technologies, Previous Microsoft Most Valuable Professional in developer technologies, GitHub Start Alumni, NuxtJS Ambassador and Cloudinary Media Developer Expert."
+            'Debbie O\'Brien, Program Manager at Microsoft working on Playwright, with over 10 years experience in Frontend development. Google Developer Expert in web technologies, Previous Microsoft Most Valuable Professional in developer technologies, GitHub Start Alumni, NuxtJS Ambassador and Cloudinary Media Developer Expert.',
         },
         // Test on: https://developers.facebook.com/tools/debug/ or https://socialsharepreview.com/
         { property: 'og:site_name', content: 'Debbie Codes' },
@@ -29,24 +29,24 @@ export default defineNuxtConfig({
         {
           hid: 'og:url',
           property: 'og:url',
-          content: 'https://debbie.codes'
+          content: 'https://debbie.codes',
         },
         {
           hid: 'og:title',
           property: 'og:title',
           content:
-            'Debbie codes and helps others learn Playwright, testing, React, Nuxt and more'
+            'Debbie codes and helps others learn Playwright, testing, React, Nuxt and more',
         },
         {
           hid: 'og:description',
           property: 'og:description',
           content:
-            "Debbie O'Brien, Program Manager at Microsoft working on Playwright, with over 10 years experience in Frontend development. Google Developer Expert in web technologies, Previous Microsoft Most Valuable Professional in developer technologies, GitHub Start Alumni, NuxtJS Ambassador and Cloudinary Media Developer Expert."
+            'Debbie O\'Brien, Program Manager at Microsoft working on Playwright, with over 10 years experience in Frontend development. Google Developer Expert in web technologies, Previous Microsoft Most Valuable Professional in developer technologies, GitHub Start Alumni, NuxtJS Ambassador and Cloudinary Media Developer Expert.',
         },
         {
           hid: 'og:image',
           property: 'og:image',
-          content: 'https://debbie.codes/twitter-card.png'
+          content: 'https://debbie.codes/twitter-card.png',
         },
         // Test on: https://cards-dev.twitter.com/validator or https://socialsharepreview.com/
         { name: 'twitter:site', content: '@debs_obrien' },
@@ -54,41 +54,40 @@ export default defineNuxtConfig({
         {
           hid: 'twitter:url',
           name: 'twitter:url',
-          content: 'https://debbie.codes'
+          content: 'https://debbie.codes',
         },
         {
           hid: 'twitter:title',
           name: 'twitter:title',
           content:
-            'Debbie codes and helps others learn Playwright, testing, React, Nuxt and more'
+            'Debbie codes and helps others learn Playwright, testing, React, Nuxt and more',
         },
         {
           hid: 'twitter:description',
           name: 'twitter:description',
           content:
-            'My website of where I play around with Nuxt, Playwright and more and showcase my blog, resources etc'
+            'My website of where I play around with Nuxt, Playwright and more and showcase my blog, resources etc',
         },
         {
           hid: 'twitter:image',
           name: 'twitter:image',
-          content: 'https://debbie.codes/twitter-card.png'
-        }
+          content: 'https://debbie.codes/twitter-card.png',
+        },
       ],
       script: [
         // <script src="https://myawesome-lib.js"></script>
-        { src: 'https://awesome-lib.js' }
+        { src: 'https://awesome-lib.js' },
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         {
           hid: 'canonical',
           rel: 'canonical',
-          href: 'https://debbie.codes'
-        }
-      ]
-      
-      
-    }
+          href: 'https://debbie.codes',
+        },
+      ],
+
+    },
   },
   modules: [
     '@nuxt/image-edge',
@@ -145,86 +144,3 @@ export default defineNuxtConfig({
   },
 })
 
-head: {
-  title:
-    'Debbie Codes with Playwright, Typescript, Nuxt, React, Tailwind and more',
-  meta: [
-    { charset: 'utf-8' },
-    {
-      name: 'google-site-verification',
-      content: 'Nb9JyfPdxgxIzfosyzt-JsvJZkoUVlhEYN4TuoLPWF0'
-    },
-    { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-    {
-      hid: 'description',
-      name: 'description',
-      content:
-        "Debbie O'Brien, Program Manager at Microsoft working on Playwright, with over 10 years experience in Frontend development. Google Developer Expert in web technologies, Previous Microsoft Most Valuable Professional in developer technologies, GitHub Start Alumni, NuxtJS Ambassador and Cloudinary Media Developer Expert."
-    },
-    // Test on: https://developers.facebook.com/tools/debug/ or https://socialsharepreview.com/
-    { property: 'og:site_name', content: 'Debbie Codes' },
-    { hid: 'og:type', property: 'og:type', content: 'website' },
-    {
-      hid: 'og:url',
-      property: 'og:url',
-      content: 'https://debbie.codes'
-    },
-    {
-      hid: 'og:title',
-      property: 'og:title',
-      content:
-        'Debbie codes and helps others learn Playwright, testing, React, Nuxt and more'
-    },
-    {
-      hid: 'og:description',
-      property: 'og:description',
-      content:
-        "Debbie O'Brien, Program Manager at Microsoft working on Playwright, with over 10 years experience in Frontend development. Google Developer Expert in web technologies, Previous Microsoft Most Valuable Professional in developer technologies, GitHub Start Alumni, NuxtJS Ambassador and Cloudinary Media Developer Expert."
-    },
-    {
-      hid: 'og:image',
-      property: 'og:image',
-      content: 'https://debbie.codes/twitter-card.png'
-    },
-    // Test on: https://cards-dev.twitter.com/validator or https://socialsharepreview.com/
-    { name: 'twitter:site', content: '@debs_obrien' },
-    { name: 'twitter:card', content: 'summary_large_image' },
-    {
-      hid: 'twitter:url',
-      name: 'twitter:url',
-      content: 'https://debbie.codes'
-    },
-    {
-      hid: 'twitter:title',
-      name: 'twitter:title',
-      content:
-        'Debbie codes and helps others learn Playwright, testing, React, Nuxt and more'
-    },
-    {
-      hid: 'twitter:description',
-      name: 'twitter:description',
-      content:
-        'My website of where I play around with Nuxt, Playwright and more and showcase my blog, resources etc'
-    },
-    {
-      hid: 'twitter:image',
-      name: 'twitter:image',
-      content: 'https://debbie.codes/twitter-card.png'
-    }
-  ],
-
-  link: [
-    { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-    {
-      hid: 'canonical',
-      rel: 'canonical',
-      href: 'https://debbie.codes'
-    }
-  ]
-  // script: [
-  //   {
-  //     src: 'https://identity.netlify.com/v1/netlify-identity-widget.js',
-  //     defer: true
-  //   }
-  // ]
-},
