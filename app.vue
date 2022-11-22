@@ -3,7 +3,6 @@ useHead({
   htmlAttrs: {
     lang: 'en',
   },
-  charset: 'utf-8',
   title: 'Debbie Codes with Playwright, Nuxt, React, Tailwind and more',
   titleTemplate: title =>
     title !== 'Debbie Codes with Playwright, Nuxt, React, Tailwind and more'
