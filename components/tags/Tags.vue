@@ -32,7 +32,10 @@ const sortedArticleTags = articleTags.sort()
 </script>
 
 <template>
-  <ul class="max-w-4xl flex justify-left md:justify-center items-center gap-2 my-4 mx-0 md:mx-auto border border-transparent rounded-lg overflow-x-scroll md:overflow-visible flex-nowrap md:flex-wrap font-normal md:text-sm sm:text-xl text-white uppercase">
+  <ul
+    aria-description="List of clickable topics"
+    aria-label="List of clickable topics" class="max-w-4xl flex justify-left md:justify-center items-center gap-2 my-4 mx-0 md:mx-auto border border-transparent rounded-lg overflow-x-scroll md:overflow-visible flex-nowrap md:flex-wrap font-normal md:text-sm sm:text-xl text-white uppercase"
+  >
     <li
       v-for="tag in sortedArticleTags"
       :key="tag" class="flex gap-2 justify-center flex-nowrap "
