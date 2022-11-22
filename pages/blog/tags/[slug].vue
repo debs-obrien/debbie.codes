@@ -10,8 +10,10 @@ const articles: Array<any> = await queryContent('blog')
   .sort({ date: -1 })
   .find()
 
-const title = `Blog Posts on ${slug}`
-const description = `Here's a list of all my blog posts with the ${slug} tag`
+const topic: string = slug.replace('-', ' ')
+
+const title = `Blog Posts on ${topic}`
+const description = `Here's a list of all my blog posts with the ${topic} tag`
 const section: Sections = 'blog'
 
 useHead({
@@ -22,7 +24,9 @@ useHead({
 
 <template>
   <main>
-    <AppTitle>{{ title }}</AppTitle>
+    <AppTitle class="capitalize">
+      {{ title }}
+    </AppTitle>
     <AppIntro>{{ description }}</AppIntro>
     <Tags :section="section" />
     <ItemList v-if="articles.length" :list="articles" :section="section" />
