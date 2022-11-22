@@ -8,7 +8,7 @@ defineProps<{
 </script>
 
 <template>
-  <article class="grid grid-cols-4 gap-6 auto-cols-[minmax(0,_3fr)] py-4 border-b">
+  <article class="grid grid-cols-4 gap-6 auto-cols-[minmax(0,_3fr)] py-4">
     <div class="h-full w-full object-cover">
       <NuxtLink
         :to="item.url || item._path"
