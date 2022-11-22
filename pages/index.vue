@@ -53,7 +53,7 @@ const podcasts: Array<any> = await queryContent('podcasts')
         </p>
         <p>
           <a
-            href="https://developers.google.com/community/experts/directory/profile/profile-debbie_o_brien"
+            href="https://developers.google.com/community/experts/directory/profile/profile-debbie-o-brien"
             target="_blank"
             rel="nofollow noopener noreferrer"
           >
@@ -61,7 +61,7 @@ const podcasts: Array<any> = await queryContent('podcasts')
           </a>
           |
           <a
-            href="https://mvp.microsoft.com/en-us/PublicProfile/5003613?fullName=Debbie%20O%27Brien"
+            href="https://mvp.microsoft.com/en-us"
             target="_blank"
             rel="nofollow noopener noreferrer"
           >
@@ -70,7 +70,7 @@ const podcasts: Array<any> = await queryContent('podcasts')
 
           |
           <a
-            href="https://stars.github.com/profiles/debs-obrien/"
+            href="https://stars.github.com/alumni/"
             target="_blank"
             rel="nofollow noopener noreferrer"
           >
@@ -95,7 +95,7 @@ const podcasts: Array<any> = await queryContent('podcasts')
           </a>
           |
           <a
-            href="https://nuxtjs.org/team"
+            href="https://nuxtjs.org/teams/"
             target="_blank"
             rel="nofollow noopener noreferrer"
           >
@@ -108,24 +108,30 @@ const podcasts: Array<any> = await queryContent('podcasts')
     <AppSubtitle>Featured Post</AppSubtitle>
     <FeaturedSection :item="featuredPost" section="blog" />
 
-    <section>
+    <section aria-labelledby="recent-posts">
       <NuxtLink to="/blog">
-        <AppSubtitle>Recent Blog Posts</AppSubtitle>
+        <AppSubtitle id="recent-posts">
+          Recent Blog Posts
+        </AppSubtitle>
       </NuxtLink>
       <CardList :list="articles" section="blog" />
     </section>
 
-    <section>
+    <section aria-labelledby="recent-videos">
       <NuxtLink to="/videos">
-        <AppSubtitle>Recent Videos</AppSubtitle>
+        <AppSubtitle id="recent-videos">
+          Recent Videos
+        </AppSubtitle>
       </NuxtLink>
 
       <VideoList :list="videos" />
     </section>
 
-    <section>
+    <section aria-labelledby="recent-podcasts">
       <NuxtLink to="/podcasts">
-        <AppSubtitle>Recent Podcasts</AppSubtitle>
+        <AppSubtitle id="recent-podcasts">
+          Recent Podcasts
+        </AppSubtitle>
       </NuxtLink>
 
       <CardList :list="podcasts" section="podcasts" />

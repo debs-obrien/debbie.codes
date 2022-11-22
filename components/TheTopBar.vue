@@ -29,7 +29,7 @@ const toggle = () => {
           <TheNavigation class="text-white hidden lg:block" />
         </div>
         <div class="inline-flex justify-between hidden lg:block">
-          <TopBaSocial />
+          <TopBarSocial />
         </div>
 
         <button
@@ -61,7 +61,7 @@ const toggle = () => {
       @click="isOpen = false"
     >
       <TheNavigation />
-      <TopBaSocial />
+      <TopBarSocial />
     </div>
     <!-- /Dropdown -->
   </header>

@@ -6,7 +6,7 @@ defineProps<{
 </script>
 
 <template>
-  <div class="flex flex-col overflow-hidden flex-1 max-width h-full">
+  <article class="flex flex-col overflow-hidden flex-1 max-width h-full">
     <div
       class="h-full rounded-xl shadow-cla-blue bg-gradient-to-r from-indigo-50 to-blue-50 overflow-hidden"
     >
@@ -17,11 +17,7 @@ defineProps<{
       />
 
       <div class="p-6">
-        <p
-          class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1"
-        >
-          {{ formatDate(item.date) }}
-        </p>
+        <Date :date="item.date" />
 
         <p class="text-base font-medium text-gray-600 mb-3">
           {{ item.conference }}{{ item.host }}
@@ -32,5 +28,5 @@ defineProps<{
         </h3>
       </div>
     </div>
-  </div>
+  </article>
 </template>

@@ -31,14 +31,11 @@ defineProps<{
         :to="item.url || item._path"
         :target="item.url ? '_blank' : '_self'"
       >
-        <h3 class="title-font text-lg font-medium text-gray-600 mb-3">
+        <h3 class="title-font text-lg font-medium text-gray-600 mb-2 leading-tight">
           {{ item.title }}
         </h3>
-        <p
-          class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1"
-        >
-          {{ formatDate(item.date) }}
-        </p>
+
+        <Date :date="item.date" />
       </NuxtLink>
       <TagsList :tags="item.tags" :section="section" />
     </div>

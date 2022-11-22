@@ -7,7 +7,7 @@ const article = await queryContent('blog').where({ _path: path }).findOne()
 
 const [prev, next]: any = await queryContent('blog')
   .where({ published: { $ne: false }, featured: { $ne: true } })
-  .only(['_path', 'title', 'description'])
+  .only(['_path', 'title', 'description', 'date'])
   .findSurround(path)
 
 const section: Sections = 'blog'
@@ -82,10 +82,14 @@ useHead({
   <main
     class="container mx-auto max-w-5xl"
   >
-    <header v-if="article" class="p-4">
-      <h1 class="font-extrabold text-xl lg:text-5xl mb-2 lg:mb-8">
-        {{ article.title }}
-      </h1>
+    <article>
+      <header v-if="article" class="p-4">
+        <h1 class="font-extrabold text-xl lg:text-5xl mb-1 lg:mb-2">
+          {{ article.title }}
+        </h1>
+
+        <Date :date="article.date" />
+      </header>
       <div class="rounded h-32 lg:h-72 mb-2 lg:mb-8 overflow-hidden object-cover object-center">
         <NuxtImg
           :provider="article.provider"
@@ -98,28 +102,30 @@ useHead({
           class="rounded"
         />
       </div>
-
-      <p class="font-medium text-lg mb-4">
-        {{ article.description }}
-      </p>
+      <section aria-label="summary">
+        <p class="font-medium text-lg mb-4">
+          {{ article.description }}
+        </p>
+      </section>
       <TagsList :tags="article.tags" :section="section" />
-    </header>
-    <hr>
-    <section class="grid grid-cols-8">
-      <aside class="col-span-full md:col-span-2 row-start-1 w-full pt-8">
-        <BlogToc :links="article.body.toc.links" class="sticky top-20" />
-      </aside>
-      <article
-        class="col-span-full md:col-span-6 md:col-start-1 md:row-start-1 prose w-full p-4 max-w-3xl m-auto"
-      >
-        <ContentRenderer :value="article" class="prose">
-          <template #empty>
-            <p>No content found.</p>
-          </template>
-        </ContentRenderer>
-      </article>
-    </section>
 
-    <BlogPrevNext :prev="prev" :next="next" />
+      <hr>
+      <div class="grid grid-cols-8">
+        <aside class="col-span-full md:col-span-2 row-start-1 w-full pt-8">
+          <BlogToc :links="article.body.toc.links" class="sticky top-20" />
+        </aside>
+        <div
+          class="col-span-full md:col-span-6 md:col-start-1 md:row-start-1 prose w-full p-4 max-w-3xl m-auto"
+        >
+          <ContentRenderer :value="article" class="prose">
+            <template #empty>
+              <p>No content found.</p>
+            </template>
+          </ContentRenderer>
+        </div>
+      </div>
+
+      <BlogPrevNext :prev="prev" :next="next" />
+    </article>
   </main>
 </template>
