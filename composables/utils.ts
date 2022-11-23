@@ -3,3 +3,7 @@ export function formatDate(string: string) {
   const date = new Date(string).toLocaleDateString('en-US', options)
   return date
 }
+
+export function formatTopic(slug: string) {
+  return String(slug).replace('-', ' ')
+}

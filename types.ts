@@ -1,6 +1,7 @@
+import type { ParsedContent } from '@nuxt/content/dist/runtime/types'
 export type Sections = 'blog' | 'podcasts' | 'videos' | 'courses'
 
-export interface Video {
+export interface Video extends ParsedContent {
   video: string
   title: string
   start?: number
@@ -11,7 +12,7 @@ export interface Video {
   _path: string
 }
 
-export interface Podcast {
+export interface Podcast extends ParsedContent {
   title: string
   date: string
   description: string
@@ -23,7 +24,7 @@ export interface Podcast {
   _path: string
 }
 
-export interface Course {
+export interface Course extends ParsedContent {
   title: string
   date: string
   description: string
@@ -35,7 +36,7 @@ export interface Course {
   _path: string
 }
 
-export interface BlogPost {
+export interface BlogPost extends ParsedContent {
   title: string
   date: string
   description: string
@@ -47,6 +48,16 @@ export interface BlogPost {
   tags: string[]
   published?: boolean
   _path: string
+}
+
+export type BlogPostPreview = Omit<BlogPost, 'body'>
+export type PodcastPreview = Omit<Podcast, 'body'>
+export type VideoPreview = Omit<Video, 'body'>
+export type CoursePreview = Omit<Video, 'body'>
+
+export interface PrevNext {
+  title?: string
+  _path?: string
 }
 
 export interface Navigation {

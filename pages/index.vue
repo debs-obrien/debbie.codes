@@ -1,32 +1,42 @@
 <script setup lang="ts">
-const articles: Array<any> = await queryContent('blog')
-  .where({ published: { $ne: false } })
-  .without('body')
-  .skip(1)
-  .sort({ date: -1 })
-  .limit(6)
-  .find()
+import type { BlogPostPreview, PodcastPreview, VideoPreview } from '~/types'
 
-const featuredPost: any = await queryContent('blog')
-  .where({ published: { $ne: false } })
-  .without('body')
-  .sort({ date: -1 })
-  .limit(1)
-  .findOne()
+const { data: articles } = await useAsyncData(
+  () => queryContent<BlogPostPreview>('blog')
+    .where({ published: { $ne: false } })
+    .without('body')
+    .skip(1)
+    .sort({ date: -1 })
+    .limit(6)
+    .find(),
+)
 
-const videos: Array<any> = await queryContent('videos')
-  .where({ published: { $ne: false } })
-  .without('body')
-  .sort({ date: -1 })
-  .limit(5)
-  .find()
+const { data: featuredPost } = await useAsyncData(
+  () => queryContent<BlogPostPreview>('blog')
+    .where({ published: { $ne: false } })
+    .without('body')
+    .sort({ date: -1 })
+    .limit(1)
+    .findOne(),
+)
 
-const podcasts: Array<any> = await queryContent('podcasts')
-  .where({ published: { $ne: false } })
-  .without('body')
-  .sort({ date: -1 })
-  .limit(3)
-  .find()
+const { data: videos } = await useAsyncData(
+  () => queryContent<VideoPreview>('videos')
+    .where({ published: { $ne: false } })
+    .without('body')
+    .sort({ date: -1 })
+    .limit(5)
+    .find(),
+)
+
+const { data: podcasts } = await useAsyncData(
+  () => queryContent<PodcastPreview>('podcasts')
+    .where({ published: { $ne: false } })
+    .without('body')
+    .sort({ date: -1 })
+    .limit(3)
+    .find(),
+)
 </script>
 
 <template>
@@ -114,7 +124,7 @@ const podcasts: Array<any> = await queryContent('podcasts')
           Recent Blog Posts
         </AppSubtitle>
       </NuxtLink>
-      <CardList :list="articles" section="blog" />
+      <CardList v-if="articles !== null" :list="articles" section="blog" />
     </section>
 
     <section aria-labelledby="recent-videos">
@@ -124,7 +134,7 @@ const podcasts: Array<any> = await queryContent('podcasts')
         </AppSubtitle>
       </NuxtLink>
 
-      <VideoList :list="videos" />
+      <VideoList v-if="videos !== null" :list="videos" />
     </section>
 
     <section aria-labelledby="recent-podcasts">
@@ -134,7 +144,7 @@ const podcasts: Array<any> = await queryContent('podcasts')
         </AppSubtitle>
       </NuxtLink>
 
-      <CardList :list="podcasts" section="podcasts" />
+      <CardList v-if="podcasts !== null" :list="podcasts" section="podcasts" />
     </section>
   </div>
 </template>

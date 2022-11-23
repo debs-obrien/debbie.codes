@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { BlogPost } from '~/types'
+import type { PrevNext } from '~/types'
 defineProps<{
-  prev: BlogPost
-  next: BlogPost
+  prev: PrevNext
+  next: PrevNext
 }>()
 </script>
 
