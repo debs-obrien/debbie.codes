@@ -20,7 +20,7 @@ So if my site is getting full 100% on performance then there is no more work to 
 
 You can imagine how shocked I was when I ran the test on this page and got only 54 for performance. This is terrible. My very cool and performant site is actually performing terrible when there is a normal amount of content on the page. The Lighthouse test tells you where you are going wrong with links to learn more. If you are unsure of how to read LightHouse tests you can check out this free course on [Performance Audits](https://web.dev/lighthouse-performance/).
 
-<NuxtImg src="v1631774426/debbie.codes/blog/bad-lighthouse-test_yjg64n" provider="cloudinary" preset="blog" alt="my site showing score of 54 and warning for images" loading="lazy" width="1400" height="800" ></NuxtImg>
+<img src="https://res.cloudinary.com/debsobrien/image/upload/v1631774426/debbie.codes/blog/bad-lighthouse-test_yjg64n" provider="cloudinary" alt="my site showing score of 54 and warning for images" loading="lazy" width="1400" height="800" ></img>
 
 ## Running WebPageTest
 
@@ -32,7 +32,7 @@ Once the test finishes running you can start to analyze where things are going w
 
 As the name suggests it is a waterfall view and most people know what a waterfall should look like. It should go down but at a slight angle as the water falls. If you take a look at my waterfall view, well it is far from a waterfall. Line 12 to line 13 is crazy looking. The lines below it also. As you can see they are coloured purple which means they are images. What all this means is that my images or these images in specific are taking a long time to load and are affecting the performance of this page.
 
-<NuxtImg src="v1631775326/debbie.codes/blog/bad-waterfall-view_xlgw0k" provider="cloudinary" preset="blog" alt="waterfall view of sites shows large differences and does not look like a waterfall" loading="lazy" width="1400" height="800" /></NuxtImg>
+<img src="https://res.cloudinary.com/debsobrien/image/upload/v1631775326/debbie.codes/blog/bad-waterfall-view_xlgw0k" provider="cloudinary" preset="blog" alt="waterfall view of sites shows large differences and does not look like a waterfall" loading="lazy" width="1400" height="800" /></img>
 
 ### Largest Contentful Paint
 
@@ -50,7 +50,7 @@ By running my site though [What Does My Site Cost](https://whatdoesmysitecost.co
 
 So what exactly was going on with my images? I was already using [Cloudinary](https://cloudinary.com/). Surely they would just be performant out of the box. From the video I could see that the main image for the [Largest Contentful paint](https://web.dev/lcp/) was the image in the middle. Inspecting this image showed me even more. The image was rendering at a size of 480px x 256px yet the Intrinsic size, the size that an image will be displayed if no CSS is applied to change the rendering, was 4032px x 3024px and the overall size of the file was 1.5MB. This is crazy big.
 
-<NuxtImg src="v1631776449/debbie.codes/blog/inspect-image_xrjcxm" provider="cloudinary" preset="blog" alt="inspecting the image shows large file size of 1.5mb" loading="lazy" width="1400" height="800" /></NuxtImg>
+<img src="https://res.cloudinary.com/debsobrien/image/upload/v1631776449/debbie.codes/blog/inspect-image_xrjcxm" provider="cloudinary" preset="blog" alt="inspecting the image shows large file size of 1.5mb" loading="lazy" width="1400" height="800" /></img>
 
 ## Nuxt Image
 
@@ -208,11 +208,11 @@ image: {
 
 Using Nuxt Image instead of the regular <img> tag and adding some basic presets such as quality and format we can see the difference not only by inspecting the code and seeing the file sizes reduced dramatically but also in the waterfall view. Now this is what a waterfall should look like.
 
-<NuxtImg src="v1631790377/debbie.codes/blog/good-waterfall-view_cynn46" provider="cloudinary" preset="blog" alt="good waterfall view with images greatly reduced" loading="lazy" width="1400" height="800" /></NuxtImg>
+<img src="https://res.cloudinary.com/debsobrien/image/upload/v1631790377/debbie.codes/blog/good-waterfall-view_cynn46" provider="cloudinary" preset="blog" alt="good waterfall view with images greatly reduced" loading="lazy" width="1400" height="800" /></img>
 
 Not just is our waterfall view better but our images now only make up 30% of the page, down from 90%. This is a huge improvement. The load time as also been reduced and to a total of 1167ms meaning we are very much in green. Our page now costs a lot less to run and our Lighthouse tests are showing 100%. All this thanks to using [Nuxt Image](https://image.nuxtjs.org/).
 
-<NuxtImg src="v1631791512/debbie.codes/blog/good-lighthouse-test_joltel" provider="cloudinary" preset="blog" alt="lighthouse test results showing full 100 scores" loading="lazy" width="1400" height="800" /></NuxtImg>
+<img src="https://res.cloudinary.com/debsobrien/image/upload/v1631791512/debbie.codes/blog/good-lighthouse-test_joltel" provider="cloudinary" preset="blog" alt="lighthouse test results showing full 100 scores" loading="lazy" width="1400" height="800" /></img>
 
 ## Conclusion
 
