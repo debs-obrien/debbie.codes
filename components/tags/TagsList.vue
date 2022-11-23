@@ -8,18 +8,21 @@ defineProps<{
 </script>
 
 <template>
-  <div
-
-    class="text-sm text-blue-600 dark:text-blue-500 uppercase flex"
+  <ul
+    class="text-sm text-blue-600 dark:text-blue-500 uppercase flex flex-wrap"
   >
-    <NuxtLink
+    <li
       v-for="tag in tags"
       :key="tag"
-      :to="`/${section}/tags/${tag}`"
-      class="hover:underline inline-block pr-2"
+      class="whitespace-nowrap "
     >
-      {{ tag }}
-    </NuxtLink>
-  </div>
+      <NuxtLink
+        :to="`/${section}/tags/${tag}`"
+        class="hover:underline inline-block pr-2"
+      >
+        {{ replaceHyphen(tag) }}
+      </NuxtLink>
+    </li>
+  </ul>
 </template>
 

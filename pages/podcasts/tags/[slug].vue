@@ -12,7 +12,7 @@ const { data: podcasts } = await useAsyncData(
     .find(),
 )
 
-const topic: string = formatTopic(slug as string)
+const topic: string = replaceHyphen(slug as string)
 const title = `Podcast Interviews on ${topic}`
 const description = `Here's a list of all my podcast interviews with the ${topic} tag`
 const section: Sections = 'podcasts'

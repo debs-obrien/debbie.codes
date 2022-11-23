@@ -12,7 +12,7 @@ const { data: videos } = await useAsyncData(
     .find(),
 )
 
-const topic: string = formatTopic(slug as string)
+const topic: string = replaceHyphen(slug as string)
 const title = `Videos: ${topic}`
 const description = `Videos with the ${topic} tag`
 const section: Sections = 'videos'

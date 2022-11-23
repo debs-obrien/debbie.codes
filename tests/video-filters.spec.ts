@@ -1,10 +1,10 @@
 import { expect, test } from '@playwright/test';
 
-const topics = ['architecture', 'dev rel', 'jamstack', 'javascript', 'lifestyle', 'mentoring', 'motivation', 'nuxt', 'performance', 'playwright', 'react', 'testing', 'typescript', 'vs code', 'vue']
+const topics = ['architecture', 'cms', 'conference talk', 'css', 'dev rel', 'hasura', 'imposter syndrome', 'interviews', 'jamstack', 'learning to code', 'live streams', 'nuxt', 'performance', 'playwright', 'react', 'testing', 'vue']
 
 for (const topic of topics) {
-  test(`tag links to page with posts on ${topic}`, async ({ page }) => {
-    await page.goto('/blog');
+  test(`tag links to page with videos on ${topic}`, async ({ page }) => {
+    await page.goto('/videos');
     await page.getByRole('list', { name: 'topics' }).getByRole('link', { name: topic }).click();
     await expect(page.getByRole('heading', { level: 1 })).toContainText(topic);
     await expect.poll(() =>

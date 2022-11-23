@@ -12,8 +12,7 @@ const { data: articles } = await useAsyncData(
     .find(),
 )
 
-const topic: string = formatTopic(slug as string)
-
+const topic: string = replaceHyphen(slug as string)
 const title = `Blog Posts on ${topic}`
 const description = `Here's a list of all my blog posts with the ${topic} tag`
 const section: Sections = 'blog'
@@ -26,11 +25,13 @@ useHead({
 
 <template>
   <main>
-    <AppTitle>
-      {{ title }}
-    </AppTitle>
-    <AppIntro>{{ description }}</AppIntro>
-    <Tags :section="section" />
+    <header>
+      <AppTitle>
+        {{ title }}
+      </AppTitle>
+      <AppIntro>{{ description }}</AppIntro>
+      <Tags :section="section" />
+    </header>
     <ItemList v-if="articles !== null" :list="articles" :section="section" />
     <TagsNotFound v-else />
   </main>
