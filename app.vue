@@ -1,68 +1,76 @@
 <script setup>
+const description = 'Debbie O\'Brien, Program Manager at Microsoft working on Playwright, with over 10 years experience in Frontend development. Google Developer Expert in web technologies, Previous Microsoft Most Valuable Professional in developer technologies, GitHub Start Alumni, NuxtJS Ambassador and Cloudinary Media Developer Expert.'
+const ogTitle = 'Debbie codes and helps others learn Playwright, testing, React, Nuxt and more'
+const twitterDescription = 'My website of where I play around with Nuxt, Playwright and more and showcase my blog, resources etc'
+const twitterCard = 'https://debbie.codes/twitter-card.png'
+const mySite = 'https://debbie.codes'
 useHead({
   htmlAttrs: {
     lang: 'en',
   },
-  title: 'Debbie Codes with Playwright, Nuxt, React, Tailwind and more',
+  charset: 'utf-8',
+  title: ogTitle,
   titleTemplate: title =>
-    title !== 'Debbie Codes with Playwright, Nuxt, React, Tailwind and more'
+    title !== ogTitle
       ? `${title} · Debbie Codes`
       : title,
   meta: [
     {
+      name: 'google-site-verification',
+      content: 'Nb9JyfPdxgxIzfosyzt-JsvJZkoUVlhEYN4TuoLPWF0',
+    },
+    {
       name: 'description',
       content:
-        'Debbie O\'Brien, Program Manager at Microsoft working on Playwright, with over 10 years experience in Frontend development. Google Developer Expert in web technologies, Previous Microsoft Most Valuable Professional in developer technologies, GitHub Start Alumni, NuxtJS Ambassador and Cloudinary Media Developer Expert.',
+          description,
     },
-    { property: 'og:site_name', content: 'Debbie Codes' },
+    // Test on: https://developers.facebook.com/tools/debug/ or https://socialsharepreview.com/
+    { property: 'og:site_name', content: mySite },
     { property: 'og:type', content: 'website' },
     {
       property: 'og:url',
-      content: 'https://debbie.codes',
+      content: mySite,
     },
     {
       property: 'og:title',
-      content:
-        'Debbie codes and helps others learn Playwright, testing, React, Nuxt and more',
+      content: ogTitle
+      ,
     },
     {
       property: 'og:description',
       content:
-        'Debbie O\'Brien, Program Manager at Microsoft working on Playwright, with over 10 years experience in Frontend development. Google Developer Expert in web technologies, Previous Microsoft Most Valuable Professional in developer technologies, GitHub Start Alumni, NuxtJS Ambassador and Cloudinary Media Developer Expert.',
+          description,
     },
     {
       property: 'og:image',
-      content: 'https://debbie.codes/twitter-card.png',
+      content: twitterCard,
     },
     // Test on: https://cards-dev.twitter.com/validator or https://socialsharepreview.com/
     { name: 'twitter:site', content: '@debs_obrien' },
     { name: 'twitter:card', content: 'summary_large_image' },
     {
       name: 'twitter:url',
-      content: 'https://debbie.codes',
+      content: mySite,
     },
     {
       name: 'twitter:title',
-      content:
-        'Debbie codes and helps others learn Playwright, testing, React, Nuxt and more',
+      content: ogTitle,
     },
     {
       name: 'twitter:description',
-      content:
-        'My website of where I play around with Nuxt, Playwright and more and showcase my blog, resources etc',
+      content: twitterDescription,
     },
     {
       name: 'twitter:image',
-      content: 'https://debbie.codes/twitter-card.png',
+      content: twitterCard,
     },
-  ],
 
+  ],
   link: [
     { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
     {
-      hid: 'canonical',
       rel: 'canonical',
-      href: 'https://debbie.codes',
+      href: mySite,
     },
   ],
 })
