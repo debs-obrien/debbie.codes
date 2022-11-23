@@ -76,7 +76,7 @@ export default defineNuxtConfig({
       ],
       script: [
         // <script src="https://myawesome-lib.js"></script>
-        { src: 'https://awesome-lib.js' },
+        // { src: 'https://awesome-lib.js' },
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
