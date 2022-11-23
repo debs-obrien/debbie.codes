@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { Video } from '~/types'
+import type { VideoPreview } from '~/types'
 defineProps<{
-  item: Video
+  item: VideoPreview
 }>()
 </script>
 
