@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import type { Sections } from '~/types'
+import type { Sections, Video } from '~/types'
 
-const videos: Array<any> = await queryContent('videos')
-  .where({ published: { $ne: false } })
-  .sort({ date: -1 })
-  .find()
+const { data: videos } = await useAsyncData(
+  () => queryContent<Video>('videos')
+    .where({ published: { $ne: false } })
+    .sort({ date: -1 })
+    .find(),
+)
 
 const title = 'Videos'
 const description = 'Videos from conference talks, interviews and live streams'
@@ -21,6 +23,6 @@ useHead({
     <AppTitle>{{ title }}</AppTitle>
     <AppIntro>{{ description }}</AppIntro>
     <Tags :section="section" />
-    <VideoList :list="videos" />
+    <VideoList v-if="videos !== null" :list="videos" />
   </main>
 </template>

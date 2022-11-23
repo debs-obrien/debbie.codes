@@ -1,76 +1,76 @@
 <script setup lang="ts">
-import type { Sections } from '~/types'
+import type { BlogPost, PrevNext, Sections } from '~/types'
 
 const { path } = useRoute()
 
-const article = await queryContent('blog').where({ _path: path }).findOne()
+const { data: article } = await useAsyncData(
+  () => queryContent<BlogPost>('blog')
+    .where({ _path: path })
+    .findOne(),
+)
 
-const [prev, next]: any = await queryContent('blog')
-  .where({ published: { $ne: false }, featured: { $ne: true } })
-  .only(['_path', 'title', 'description', 'date'])
-  .findSurround(path)
-
+const { data } = await useAsyncData(
+  () => queryContent<PrevNext>('blog')
+    .where({ published: { $ne: false }, featured: { $ne: true } })
+    .only(['_path', 'title'])
+    .findSurround(path),
+)
+const [prev, next] = data.value || []
 const section: Sections = 'blog'
+const title = article.value?.title || ''
+const description = article.value?.description || ''
+const image = article.value?.image || ''
+const ogImage = article.value?.ogImage || ''
 
 useHead({
-  title: article.title,
+  title: article.value?.title || '',
   meta: [
-    { name: 'description', content: article.description },
+    { name: 'description', content: description },
     {
-      hid: 'description',
       name: 'description',
-      content: article.description,
+      content: description,
     },
     // Test on: https://developers.facebook.com/tools/debug/ or https://socialsharepreview.com/
     { property: 'og:site_name', content: 'Debbie Codes' },
     { hid: 'og:type', property: 'og:type', content: 'website' },
     {
-      hid: 'og:url',
       property: 'og:url',
       content: 'https://debbie.codes',
     },
     {
-      hid: 'og:title',
       property: 'og:title',
-      content: article.title,
+      content: title,
     },
     {
-      hid: 'og:description',
       property: 'og:description',
-      content: article.description,
+      content: description,
     },
     {
-      hid: 'og:image',
       property: 'og:image',
-      content: article.image,
+      content: ogImage || image,
     },
     // Test on: https://cards-dev.twitter.com/validator or https://socialsharepreview.com/
     { name: 'twitter:site', content: '@debs_obrien' },
     { name: 'twitter:card', content: 'summary_large_image' },
     {
-      hid: 'twitter:url',
       name: 'twitter:url',
       content: 'https://debbie.codes',
     },
     {
-      hid: 'twitter:title',
       name: 'twitter:title',
-      content: article.title,
+      content: title,
     },
     {
-      hid: 'twitter:description',
       name: 'twitter:description',
-      content: article.description,
+      content: description,
     },
     {
-      hid: 'twitter:image',
       name: 'twitter:image',
-      content: article.ogImage,
+      content: ogImage || image,
     },
   ],
   link: [
     {
-      hid: 'canonical',
       rel: 'canonical',
       href: `https://debbie.codes/${path}`,
     },
@@ -82,7 +82,7 @@ useHead({
   <main
     class="container mx-auto max-w-5xl"
   >
-    <article>
+    <article v-if="article !== null">
       <header v-if="article" class="p-4">
         <h1 class="font-extrabold text-xl lg:text-5xl mb-1 lg:mb-2">
           {{ article.title }}

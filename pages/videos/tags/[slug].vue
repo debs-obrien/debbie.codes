@@ -1,17 +1,20 @@
 <script setup lang="ts">
-import type { Sections } from '~/types'
+import type { Sections, Video } from '~/types'
 
 const {
   params: { slug },
 } = useRoute()
 
-const videos: Array<any> = await queryContent('videos')
-  .where({ published: { $ne: false }, tags: { $contains: slug } })
-  .sort({ date: -1 })
-  .find()
+const { data: videos } = await useAsyncData(
+  () => queryContent<Video>('videos')
+    .where({ published: { $ne: false }, tags: { $contains: slug } })
+    .sort({ date: -1 })
+    .find(),
+)
 
-const title = `Videos: ${slug}`
-const description = 'Videos from conference talks, interviews and live streams'
+const topic: string = formatTopic(slug as string)
+const title = `Videos: ${topic}`
+const description = `Videos with the ${topic} tag`
 const section: Sections = 'videos'
 
 useHead({
@@ -25,7 +28,7 @@ useHead({
     <AppTitle>{{ title }}</AppTitle>
     <AppIntro>{{ description }}</AppIntro>
     <Tags :section="section" />
-    <VideoList v-if="videos.length" :list="videos" />
+    <VideoList v-if="videos !== null" :list="videos" />
     <TagsNotFound v-else />
   </main>
 </template>

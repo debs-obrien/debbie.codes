@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { BlogPost, Course, Podcast, Sections } from '~/types'
+import type { BlogPostPreview, CoursePreview, PodcastPreview, Sections } from '~/types'
 
 defineProps<{
-  item: BlogPost | Podcast | Course
+  item: BlogPostPreview | CoursePreview | PodcastPreview
   section: Sections
 }>()
 </script>
