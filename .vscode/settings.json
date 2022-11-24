@@ -10,5 +10,7 @@
     "videoid",
     "playlabel",
     "cloudinary"
-  ]
+  ],
+  "html.format.wrapLineLength": 85,
+  "editor.wordWrap": "on"
 }

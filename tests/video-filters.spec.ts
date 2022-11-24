@@ -5,8 +5,10 @@ const topics = ['architecture', 'cms', 'conference talk', 'css', 'dev rel', 'has
 for (const topic of topics) {
   test(`tag links to page with videos on ${topic}`, async ({ page }) => {
     await page.goto('/videos');
+
     await page.getByRole('list', { name: 'topics' }).getByRole('link', { name: topic }).click();
     await expect(page.getByRole('heading', { level: 1 })).toContainText(topic);
+
     await expect.poll(() =>
       page.getByRole('article').getByRole('link', { name: topic }).count())
       .toBeGreaterThan(0);

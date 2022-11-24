@@ -11,15 +11,11 @@ test('blog has a heading', async ({ page }) => {
 });
 
 test('blog has a date', async ({ page }) => {
-  await expect(page
-    .getByText('September 3, 2022'))
-    .toBeVisible();
+  await expect(page.getByText('September 3, 2022')).toBeVisible();
 });
 
 test('blog has an image', async ({ page }) => {
-  await expect(page
-    .getByRole('img', { name: 'Testing a Sites Color Mode with Playwright' }))
-    .toBeVisible();
+  await expect(page.getByRole('img', { name: 'Testing a Sites Color Mode with Playwright' })).toBeVisible();
 });
 
 test('blog has a summary', async ({ page }) => {
@@ -35,9 +31,7 @@ test('blog has a tag that links to tag page', async ({ page }) => {
     .getByRole('link', { name: 'testing' })
     .click();
 
-  await expect(page
-    .getByRole('heading', { name: 'Blog Posts on testing' }))
-    .toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Blog Posts on testing' })).toBeVisible();
 });
 
 test('blog has content', async ({ page }) => {
@@ -47,12 +41,9 @@ test('blog has content', async ({ page }) => {
 });
 
 test('blog has a working TOC', async ({ page }) => {
-  await expect(page
-    .getByRole('heading', { name: 'Table of contents' }))
-    .toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Table of contents' })).toBeVisible();
 
-  await page.getByRole('complementary').getByRole('link', { name: 'Getting Started' })
-    .click();
+  await page.getByRole('complementary').getByRole('link', { name: 'Getting Started' }).click();
 
   await expect(page
     .getByRole('heading', { name: 'Getting Started' })
@@ -69,10 +60,7 @@ test('blog has a working TOC', async ({ page }) => {
     .getByRole('link', { name: 'Setting the Base' }))
     .toBeVisible();
 
-  await page
-    .getByRole('complementary')
-    .getByRole('link', { name: 'Checking it works' })
-    .click();
+  await page.getByRole('complementary').getByRole('link', { name: 'Checking it works' }).click();
 
   await expect(page
     .getByRole('heading', { name: 'Checking it works' })
@@ -81,21 +69,13 @@ test('blog has a working TOC', async ({ page }) => {
 });
 
 test('blog has prev links', async ({ page }) => {
-  await page
-    .getByRole('link', { name: 'Testing a Button Component' })
-    .click();
+  await page.getByRole('link', { name: 'Testing a Button Component' }).click();
 
-  await expect(page
-    .getByRole('heading', { name: 'Testing a Button Component' }))
-    .toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Testing a Button Component' })).toBeVisible();
 });
 
 test('blog has next links', async ({ page }) => {
-  await page
-    .getByRole('link', { name: 'Testing iframes with Playwright' })
-    .click();
+  await page.getByRole('link', { name: 'Testing iframes with Playwright' }).click();
 
-  await expect(page
-    .getByRole('link', { name: 'Testing iframes with Playwright' }))
-    .toBeVisible();
+  await expect(page.getByRole('link', { name: 'Testing iframes with Playwright' })).toBeVisible();
 });

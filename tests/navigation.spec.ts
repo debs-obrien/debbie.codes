@@ -22,7 +22,7 @@ test('navigation in header works', async ({ page }) => {
   await navigation.getByRole('link', { name: 'Blog' }).click();
   await expect(page).toHaveURL('blog');
 
-  await page.getByRole('link', { name: 'Debbie O\'Brien Debbie O\'Brien' }).click();
+  await page.getByRole('link', { name: 'Debbie O\'Brien' }).click();
   await expect(page).toHaveURL('/');
 });
 
@@ -44,6 +44,6 @@ test('navigation in footer works', async ({ page }) => {
   await navigation.getByRole('link', { name: 'Blog' }).click();
   await expect(page).toHaveURL('blog');
 
-  await page.getByRole('link', { name: 'Debbie O\'Brien Debbie O\'Brien' }).click();
+  await page.getByRole('link', { name: 'Debbie O\'Brien' }).click();
   await expect(page).toHaveURL('/');
 });
