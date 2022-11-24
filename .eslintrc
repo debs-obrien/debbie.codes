@@ -9,7 +9,12 @@
         "*.spec.ts"
       ],
       "rules": {
-        "@typescript-eslint/semi": 0
+        "comma-dangle": [
+          "error",
+          "never"
+        ],
+        "@typescript-eslint/semi": "off",
+        "@typescript-eslint/comma-dangle": "off"
       }
     }
   ]

@@ -4,6 +4,6 @@ export function formatDate(string: string) {
   return date
 }
 
-export function formatTopic(slug: string) {
-  return String(slug).replace('-', ' ')
+export function replaceHyphen(slug: string) {
+  return String(slug).replaceAll('-', ' ')
 }

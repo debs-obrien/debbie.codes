@@ -23,9 +23,11 @@ defineProps<{
           {{ item.conference }}{{ item.host }}
         </p>
 
-        <h3 class="mt-3 text-base leading-6 text-gray-500">
+        <h3 class="my-3 text-base leading-6 text-gray-500">
           {{ item.title }}
         </h3>
+
+        <TagsList :tags="item.tags" section="videos" />
       </div>
     </div>
   </article>

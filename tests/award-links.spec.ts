@@ -4,40 +4,75 @@ test.beforeEach(async ({ page }) => {
   await page.goto('/');
 })
 
-test('home contains award links', async ({ page }) => {
+test('google gde link in home page works', async ({ page }) => {
+  await page.context().route('https://developers.google.com/**', route => route.fulfill({
+    body: '<html><body><h1>Google GDE</h1></body></html>'
+  }));
+
   const [page1] = await Promise.all([
     page.waitForEvent('popup'),
-    page.getByRole('link', { name: 'Google GDE' }).click(),
+    await page.getByRole('link', { name: 'Google GDE' }).click()
   ]);
   await expect(page1).toHaveURL('https://developers.google.com/community/experts/directory/profile/profile-debbie-o-brien');
-
-  const [page2] = await Promise.all([
-    page.waitForEvent('popup'),
-    page.getByRole('link', { name: 'Former Microsoft MVP' }).click(),
-  ]);
-  await expect(page2).toHaveURL('https://mvp.microsoft.com/en-us');
-
-  const [page3] = await Promise.all([
-    page.waitForEvent('popup'),
-    page.getByRole('link', { name: 'GitHub Star Alumni' }).click(),
-  ]);
-  await expect(page3).toHaveURL('https://stars.github.com/alumni/');
-
-  const [page4] = await Promise.all([
-    page.waitForEvent('popup'),
-    page.getByRole('link', { name: 'Cloudinary MDE' }).click(),
-  ]);
-  await expect(page4).toHaveURL('https://cloudinary.com/mde');
-
-  const [page5] = await Promise.all([
-    page.waitForEvent('popup'),
-    page.getByRole('link', { name: 'Auth0 Ambassador' }).click(),
-  ]);
-  await expect(page5).toHaveURL('https://auth0.com/ambassador-program');
-
-  const [page6] = await Promise.all([
-    page.waitForEvent('popup'),
-    page.getByRole('link', { name: 'Nuxt Ambassador' }).click(),
-  ]);
-  await expect(page6).toHaveURL('https://nuxtjs.org/teams/');
 });
+
+test('microsoft mvp link in home page works', async ({ page }) => {
+  await page.context().route('https://mvp.microsoft.com/**', route => route.fulfill({
+    body: '<html><body><h1>Microsoft MVP</h1></body></html>'
+  }));
+
+  const [page1] = await Promise.all([
+    page.waitForEvent('popup'),
+    await page.getByRole('link', { name: 'Former Microsoft MVP' }).click()
+  ]);
+  await expect(page1).toHaveURL('https://mvp.microsoft.com/en-us');
+});
+
+test('GitHub Star link in home page works', async ({ page }) => {
+  await page.context().route('https://stars.github.com/alumni/**', route => route.fulfill({
+    body: '<html><body><h1>Github Star</h1></body></html>'
+  }));
+
+  const [page1] = await Promise.all([
+    page.waitForEvent('popup'),
+    await page.getByRole('link', { name: 'GitHub Star Alumni' }).click()
+  ]);
+  await expect(page1).toHaveURL('https://stars.github.com/alumni/');
+});
+
+test('Cloudinary MDE link in home page works', async ({ page }) => {
+  await page.context().route('https://cloudinary.com/**', route => route.fulfill({
+    body: '<html><body><h1>Cloudinary MDE</h1></body></html>'
+  }));
+
+  const [page1] = await Promise.all([
+    page.waitForEvent('popup'),
+    await page.getByRole('link', { name: 'Cloudinary MDE' }).click()
+  ]);
+  await expect(page1).toHaveURL('https://cloudinary.com/mde');
+});
+
+test('Auth0 Ambassador link in home page works', async ({ page }) => {
+  await page.context().route('https://auth0.com/**', route => route.fulfill({
+    body: '<html><body><h1>Auth0 Ambassador</h1></body></html>'
+  }));
+
+  const [page1] = await Promise.all([
+    page.waitForEvent('popup'),
+    await page.getByRole('link', { name: 'Auth0 Ambassador' }).click()
+  ]);
+  await expect(page1).toHaveURL('https://auth0.com/ambassador-program/');
+});
+
+test('Nuxt Ambassador link in home page works', async ({ page }) => {
+  await page.context().route('https://nuxtjs.org/**', route => route.fulfill({
+    body: '<html><body><h1>Nuxt Ambassador</h1></body></html>'
+  }));
+
+  const [page1] = await Promise.all([
+    page.waitForEvent('popup'),
+    await page.getByRole('link', { name: 'Nuxt Ambassador' }).click()
+  ]);
+  await expect(page1).toHaveURL('https://nuxtjs.org/teams/');
+});
+

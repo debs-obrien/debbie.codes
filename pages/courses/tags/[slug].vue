@@ -12,7 +12,7 @@ const { data: courses } = await useAsyncData(
     .find(),
 )
 
-const topic: string = formatTopic(slug as string)
+const topic: string = replaceHyphen(slug as string)
 const title = `Courses on ${topic}`
 const description = `Here's a list of all my courses with the ${topic} tag`
 const section: Sections = 'courses'

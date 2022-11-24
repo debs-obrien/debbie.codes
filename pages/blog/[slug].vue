@@ -107,15 +107,15 @@ useHead({
           {{ article.description }}
         </p>
       </section>
-      <TagsList :tags="article.tags" :section="section" />
+      <TagsList class="mb-2" :tags="article.tags" :section="section" />
 
       <hr>
-      <div class="grid grid-cols-8">
+      <div class="grid grid-cols-8 mt-4">
         <aside class="col-span-full md:col-span-2 row-start-1 w-full pt-8">
           <BlogToc :links="article.body.toc.links" class="sticky top-20" />
         </aside>
         <div
-          class="col-span-full md:col-span-6 md:col-start-1 md:row-start-1 prose w-full p-4 max-w-3xl m-auto"
+          class="col-span-full md:col-span-6 md:col-start-1 md:row-start-1 prose w-full pr-4 max-w-3xl m-auto"
         >
           <ContentRenderer :value="article" class="prose">
             <template #empty>

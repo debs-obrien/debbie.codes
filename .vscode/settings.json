@@ -1,6 +1,6 @@
 {
-  "prettier.enable": false,
-  "editor.formatOnSave": true,
+  "prettier.enable": true,
+  "editor.formatOnSave": false,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
@@ -10,5 +10,7 @@
     "videoid",
     "playlabel",
     "cloudinary"
-  ]
+  ],
+  "html.format.wrapLineLength": 85,
+  "editor.wordWrap": "on"
 }
