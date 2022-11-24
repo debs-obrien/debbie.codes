@@ -77,5 +77,5 @@ test('blog has prev links', async ({ page }) => {
 test('blog has next links', async ({ page }) => {
   await page.getByRole('link', { name: 'Testing iframes with Playwright' }).click();
 
-  await expect(page.getByRole('link', { name: 'Testing iframes with Playwright' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Testing iframes with Playwright' })).toBeVisible();
 });
