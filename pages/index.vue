@@ -25,7 +25,7 @@ const { data: videos } = await useAsyncData(
     .where({ published: { $ne: false } })
     .without('body')
     .sort({ date: -1 })
-    .limit(5)
+    .limit(4)
     .find(),
 )
 
@@ -115,8 +115,8 @@ const { data: podcasts } = await useAsyncData(
       </div>
     </div>
 
-    <AppSubtitle>Featured Post</AppSubtitle>
-    <FeaturedSection :item="featuredPost" section="blog" />
+    <AppSubtitle id="featured-posts">Featured Post</AppSubtitle>
+    <FeaturedSection aria-labelledby="featured-posts" :item="featuredPost" section="blog" />
 
     <section aria-labelledby="recent-posts">
       <NuxtLink to="/blog">
