@@ -19,9 +19,9 @@ test('home page has recent blog posts with 6 items', async ({ page }) => {
   await expect(recentPosts.getByRole('article')).toHaveCount(6);
 });
 
-test('home page has recent videos with 5 items', async ({ page }) => {
+test('home page has recent videos with 4 items', async ({ page }) => {
   const recentPosts = await page.getByRole('region', { name: /Recent Videos/i });
-  await expect(recentPosts.getByRole('article')).toHaveCount(5);
+  await expect(recentPosts.getByRole('article')).toHaveCount(4);
 });
 
 test('how page has recent podcasts with 4 items', async ({ page }) => {
