@@ -8,7 +8,7 @@ const { data: articles } = await useAsyncData(
     .skip(1)
     .sort({ date: -1 })
     .limit(6)
-    .find(),
+    .find()
 )
 
 const { data: featuredPost } = await useAsyncData(
@@ -17,7 +17,7 @@ const { data: featuredPost } = await useAsyncData(
     .without('body')
     .sort({ date: -1 })
     .limit(1)
-    .findOne(),
+    .findOne()
 )
 
 const { data: videos } = await useAsyncData(
@@ -26,7 +26,7 @@ const { data: videos } = await useAsyncData(
     .without('body')
     .sort({ date: -1 })
     .limit(4)
-    .find(),
+    .find()
 )
 
 const { data: podcasts } = await useAsyncData(
@@ -35,7 +35,7 @@ const { data: podcasts } = await useAsyncData(
     .without('body')
     .sort({ date: -1 })
     .limit(3)
-    .find(),
+    .find()
 )
 </script>
 
@@ -116,7 +116,7 @@ const { data: podcasts } = await useAsyncData(
     </div>
 
     <AppSubtitle id="featured-posts">Featured Post</AppSubtitle>
-    <FeaturedSection aria-labelledby="featured-posts" :item="featuredPost" section="blog" />
+    <FeaturedSection v-if="featuredPost !== null" aria-labelledby="featured-posts" :item="featuredPost" section="blog" />
 
     <section aria-labelledby="recent-posts">
       <NuxtLink to="/blog">

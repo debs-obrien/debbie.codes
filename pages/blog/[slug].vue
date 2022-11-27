@@ -17,10 +17,10 @@ const { data } = await useAsyncData(
 )
 const [prev, next] = data.value || []
 const section: Sections = 'blog'
-const title = article.value?.title || ''
-const description = article.value?.description || ''
-const image = article.value?.image || ''
-const ogImage = article.value?.ogImage || ''
+const title: string = article.value?.title || ''
+const description: string = article.value?.description || ''
+const image: string = article.value?.image || ''
+const ogImage: string = article.value?.ogImage || ''
 
 useHead({
   title: article.value?.title || '',
