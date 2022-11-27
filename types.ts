@@ -9,7 +9,6 @@ export interface Video extends ParsedContent {
   host?: string
   conference?: string
   tags: string[]
-  _path: string
 }
 
 export interface Podcast extends ParsedContent {
@@ -21,7 +20,6 @@ export interface Podcast extends ParsedContent {
   host: string
   provider: string
   image: string
-  _path: string
 }
 
 export interface Course extends ParsedContent {
@@ -33,7 +31,6 @@ export interface Course extends ParsedContent {
   provider: string
   image: string
   platform: string
-  _path: string
 }
 
 export interface BlogPost extends ParsedContent {
@@ -47,7 +44,6 @@ export interface BlogPost extends ParsedContent {
   provider: string
   tags: string[]
   published?: boolean
-  _path: string
 }
 
 export type BlogPostPreview = Omit<BlogPost, 'body'>

@@ -22,12 +22,12 @@ const flatten = (tags: Array<any>, key = 'tags') => {
   return _tags
 }
 
-const getAllTags: Array<any> = await queryContent(props.section)
+const { data } = await useAsyncData("tags", () => queryContent(props.section)
+  .only(["tags"])
   .where({ published: { $ne: false } })
-  .only(['tags'])
-  .find()
-
-const articleTags: Array<any> = [...new Set(flatten(getAllTags))]
+  .find());
+  
+const articleTags = [...new Set(flatten(data.value, "tags"))];
 const sortedArticleTags = articleTags.sort()
 </script>
 
@@ -36,8 +36,8 @@ const sortedArticleTags = articleTags.sort()
     aria-label="topics" class="max-w-4xl flex justify-left md:justify-center items-center gap-2 my-4 mx-0 md:mx-auto border border-transparent rounded-lg overflow-x-scroll md:overflow-visible flex-nowrap md:flex-wrap font-normal md:text-sm sm:text-xl text-white uppercase"
   >
     <li
-      v-for="tag in sortedArticleTags"
-      :key="tag" class="flex gap-2 justify-center flex-nowrap "
+      v-for="(tag, i) in sortedArticleTags"
+      :key="tag+i" class="flex gap-2 justify-center flex-nowrap "
     >
       <NuxtLink
 

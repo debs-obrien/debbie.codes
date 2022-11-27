@@ -13,8 +13,8 @@ const { data: videos } = await useAsyncData(
 )
 
 const topic: string = replaceHyphen(slug as string)
-const title = `Videos: ${topic}`
-const description = `Videos with the ${topic} tag`
+const title: string = `Videos: ${topic}`
+const description: string = `Videos with the ${topic} tag`
 const section: Sections = 'videos'
 
 useHead({
