@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Course, Sections } from '~/types'
 
-const { data: courses } = await useAsyncData(
+const { data: courses } = await useAsyncData('courses',
   () => queryContent<Course>('courses')
     .where({ published: { $ne: false } })
     .sort({ date: -1 })
