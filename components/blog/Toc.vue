@@ -23,7 +23,7 @@ const flattenLinks = (links: Array<any>) => {
         Table of contents
       </h2>
     </header>
-    <ul class="flex flex-col gap-2 px-2">
+    <ul class="flex flex-col gap-2 px-2 text-sm">
       <li
         v-for="link of flattenLinks(links)"
         :key="link.id"
