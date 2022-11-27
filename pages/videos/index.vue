@@ -8,8 +8,8 @@ const { data: videos } = await useAsyncData(
     .find(),
 )
 
-const title = 'Videos'
-const description = 'Videos from conference talks, interviews and live streams'
+const title: string = 'Videos'
+const description: string = 'Videos from conference talks, interviews and live streams'
 const section: Sections = 'videos'
 
 useHead({

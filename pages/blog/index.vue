@@ -8,8 +8,8 @@ const { data: articles } = await useAsyncData('articles',
     .find(),
 )
 
-const title = 'All Blog Posts'
-const description = 'Here\'s a list of all my blog posts'
+const title: string = 'All Blog Posts'
+const description: string = 'Here\'s a list of all my blog posts'
 const section: Sections = 'blog'
 
 useHead({
