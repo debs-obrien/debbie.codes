@@ -2,8 +2,8 @@
 title: Migrating from Nuxt 2 to Nuxt 3
 date: 2022-11-27
 description: My personal website was built many years ago and had collected quite a large amount of code as I used my site to play around and experiment new features of Nuxt. It took me ages to finally decide to migrate cause lets face it, we all hate migrations. But I finally did it and I'm so glad I did. I'm going to share with you the steps I took to migrate my site from Nuxt 2 to Nuxt 3.
-image: v1640965793/debbie.codes/blog/2022/nuxt3_gwjbcs.png
-ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1640965793/debbie.codes/blog/2022/nuxt3_gwjbcs.png
+image: v1640965793/debbie.codes/blog/2022/nuxt3_q10xtr.png
+ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1640965793/debbie.codes/blog/2022/nuxt3_q10xtr.png
 provider: cloudinary
 tags: [nuxt]
 published: true
@@ -85,7 +85,7 @@ Next step was to query some content. There are a few differences between Nuxt co
 I stared out with a stripped back version of my query in order to just see some data rendered. In my content folder I previously had a folder called articles which I renamed to blog as blog is used as the root path.
 
 ```js
-const { data: articles } = await useAsyncData(
+const { data: articles } = await useAsyncData('articles',
   () => queryContent('blog')
     .find()
 )
@@ -98,10 +98,10 @@ Then in the template I added a `<pre>` tag to render the data.
 </template>
 ```
 
-Once I saw I had some data back I then improved the query to only get back the data I needed. The `sort` is a little bit different than before and of course the `find` instead of `fetch` but the rest was the same.
+Once I saw I had some data back I then improved the query to only get back the data I needed. The `sort` is a little bit different than before and of course the `find` instead of `fetch` but the rest was the same. Also make sure you add a key as the first argument to the `useAsyncData` function.
 
 ```js
-const { data: articles } = await useAsyncData(
+const { data: articles } = await useAsyncData('articles',
   () => queryContent('blog')
     .where({ published: { $ne: false } })
     .without('body')
@@ -115,7 +115,7 @@ const { data: articles } = await useAsyncData(
 I now had just the data from the `yaml` part of my markdown files so I uncommented out the rest of my queries changing the `$content` variable to `queryContent` and `fetch` to `find` and fixing the date. 
 
 ```js
-const { data: videos } = await useAsyncData(
+const { data: videos } = await useAsyncData('videos',
   () => queryContent('videos')
     .where({ published: { $ne: false } })
     .without('body')
@@ -124,7 +124,7 @@ const { data: videos } = await useAsyncData(
     .find()
 )
 
-const { data: podcasts } = await useAsyncData(
+const { data: podcasts } = await useAsyncData('podcasts',
   () => queryContent('podcasts')
     .where({ published: { $ne: false } })
     .without('body')
@@ -142,6 +142,7 @@ I then added a `<pre>` tag to render each query.
   <pre>{{ videos }}</pre>
 </template>
 ```
+
 ## Adding components
 
 Next step was to add the components so that they could be rendered correctly. I copied over only the components I needed from my Nuxt 2 folder starting with the BlogPostCard component, VideoCard component and PodcastCard component. I then uncommented out the components from the `index.vue` file and removed the `<pre>` tags. Things now looked a little tidier on the page but were still super ugly as I had no styling added yet. I also had some title components which I copied to the components folder and then uncommented out the code so they could also be rendered.
@@ -216,6 +217,22 @@ I now had images rendered and a pretty good looking home page. Next step was to 
 The home page was pretty much complete but none of the links in the Navigation worked as I didn't have any pages yet in my pages folder except the about page I previously created. Nuxt does all the work for you when it comes to routing so the only thing you have to do is add the pages into the pages folder. I copied over the missing pages for the blog, podcasts and videos etc. As these pages all query the content folder I refactored the query to use Convent v2 just like I had done on the home page. 
 
 The main difference was dynamic pages. This had changed and now the dynamic page is wrapped in square brackets, `[slug].vue` instead of the `_slug.vue`. I took this opportunity to refactor the way I was handing the blog categories and remove pagination in favour of adding more categories and improving the filtering. This was done by creating a `[slug].vue` page in a tags folder so that I could have a page for each tag such as a page for 'nuxt', 'testing' etc. I also added all videos into one content folder called videos and added categories and the tags component to all other similar pages.
+
+
+When working with params in Nuxt 3 we have a `useRoute()` composeable. For the data call make sure you add a unique key to your `useAsyncData()` so that the change in slug changes the value of the call. This gets passed in as the first argument to the `useAsyncData()` function.
+
+```js
+const {
+  params: { slug },
+} = useRoute()
+
+const { data: articles } = await useAsyncData(`articles-${slug}`,
+  () => queryContent<BlogPost>('blog')
+    .where({ published: { $ne: false }, tags: { $contains: slug } })
+    .sort({ date: -1 })
+    .find(),
+)
+```
 
 ## Rendering markdown content
 
@@ -475,7 +492,7 @@ I really wanted to make use of the fact that Nuxt 3 is TypeScript first and I wa
 
 I started by adding the `lang="ts"` to the `<script>` tag of one of the components. This meant I could now use TypeScript in this component. The great thing about this is that I could refactor one by one taking my time to make sure I knew what I was doing for each component.
 
-```js
+```ts
 <script setup lang="ts">
   ...
 </script>
@@ -490,7 +507,7 @@ export type Sections = 'blog' | 'podcasts' | 'videos' | 'courses'
 ```
 This meant I could then import the types and use them in various components.
 
-```js
+```ts
 <script setup lang="ts">
 import type { Sections } from '~/types'
 defineProps<{
@@ -504,7 +521,7 @@ defineProps<{
 The props for my content coming form Nuxt content was a little more complex. I had to import `ParsedContent` from `@nuxt/content` and then add the type to the props I was using for my blog post.
 
 
-```js
+```ts
 import type { ParsedContent } from '@nuxt/content/dist/runtime/types'
 export type Sections = 'blog' | 'podcasts' | 'videos' | 'courses'
 
@@ -524,11 +541,11 @@ export interface BlogPost extends ParsedContent {
 
 I could then import this type and use it in pages or components.
 
-```js
+```ts
 <script setup lang="ts">
 import type { BlogPost } from '~/types'
 
-const { data: articles } = await useAsyncData(
+const { data: articles } = await useAsyncData(`articles-${slug}`
   () => queryContent<BlogPost>('blog')
     .where({ published: { $ne: false } })
     .sort({ date: -1 })
@@ -540,13 +557,13 @@ const { data: articles } = await useAsyncData(
 For the preview components where I omit the body tag I created a type called `BlogPostPreview` and used the `Omit` type to omit the body tag from the `BlogPost` type.
 
 
-```js
+```ts
 export type BlogPostPreview = Omit<BlogPost, 'body'>
 ```
 
 Then in my component I could import this type and use it in the props.
 
-```js
+```ts
 <script setup lang="ts">
 import type { BlogPostPreview } from '~/types'
 
