@@ -69,13 +69,13 @@ test('blog has a working TOC', async ({ page }) => {
 });
 
 test('blog has prev links', async ({ page }) => {
-  await page.getByRole('link', { name: 'Testing a Button Component' }).click();
+  await page.getByRole('link', { name: 'Challenging Yourself' }).click();
 
-  await expect(page.getByRole('heading', { name: 'Testing a Button Component' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Challenging Yourself' })).toBeVisible();
 });
 
 test('blog has next links', async ({ page }) => {
-  await page.getByRole('link', { name: 'Testing iframes with Playwright' }).click();
+  await page.getByRole('link', { name: 'Interviewing with the Big Tech Companies' }).click();
 
-  await expect(page.getByRole('heading', { name: 'Testing iframes with Playwright' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Interviewing with the Big Tech Companies' })).toBeVisible();
 });

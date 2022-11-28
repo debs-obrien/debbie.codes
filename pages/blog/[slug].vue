@@ -84,19 +84,19 @@ useHead({
     class="container mx-auto max-w-5xl"
   >
     <article v-if="article !== null">
-      <header v-if="article" class="p-4">
+      <header v-if="article" class="py-4">
         <h1 class="font-extrabold text-xl lg:text-5xl mb-1 lg:mb-2">
           {{ article.title }}
         </h1>
 
         <Date :date="article.date" />
       </header>
-      <div class="rounded h-32 lg:h-72 mb-2 lg:mb-8 overflow-hidden object-cover object-center">
+      <div class="rounded h-32 lg:h-72 mb-2 lg:mb-8 overflow-hidden object-cover object-center center">
         <NuxtImg
           :provider="article.provider"
           :src="article.image"
           :alt="article?.alt || article.title"
-          width="960"
+          width="1024"
           height="288"
           fit="thumb"
           format="webp"
@@ -118,7 +118,7 @@ useHead({
         <div
           class="col-span-full md:col-span-6 md:col-start-1 md:row-start-1 prose w-full pr-4 max-w-3xl m-auto"
         >
-          <ContentRenderer :value="article" class="prose">
+          <ContentRenderer :value="article">
             <template #empty>
               <p>No content found.</p>
             </template>

@@ -38,15 +38,15 @@ export default defineNuxtConfig({
     },
   },
   content: {
-    // https://content.nuxtjs.org/api/configuration
     highlight: {
-      theme: {
-        // Default theme (same as single string)
-        default: 'material-palenight',
-      },
+      theme: 'github-dark'
     },
   },
-
+   nitro: {
+    prerender: {
+      routes: ['/sitemap.xml']
+    }
+  },
   build: {
     transpile: ['lite-youtube'],
   },

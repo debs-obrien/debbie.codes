@@ -99,7 +99,7 @@ Then in the template I added a `<pre>` tag to render the data.
 </template>
 ```
 
-Once I saw I had some data back I then improved the query to only get back the data I needed. The `sort` is a little bit different than before and of course the `find` instead of `fetch` but the rest was the same. Also make sure you add a key as the first argument to the `useAsyncData` function.
+Once I saw I had some data back I then improved the query to only get back the data I needed. The `sort()` method is a little bit different than before and the `find()` method has changed to a `fetch()` method but the rest was the same. Also make sure you add a key as the first argument to the `useAsyncData()` function.
 
 ```js
 const { data: articles } = await useAsyncData('articles',
@@ -113,7 +113,7 @@ const { data: articles } = await useAsyncData('articles',
 )
 ```
 
-I now had just the data from the `yaml` part of my markdown files so I uncommented out the rest of my queries changing the `$content` variable to `queryContent` and `fetch` to `find` and fixing the date. 
+I now had just the data from the `yaml` part of my markdown files so I uncommented out the rest of my queries changing the `$content` variable to `queryContent()` and `fetch()` to `find()` and refactoring the `sort()` method.
 
 ```js
 const { data: videos } = await useAsyncData('videos',
