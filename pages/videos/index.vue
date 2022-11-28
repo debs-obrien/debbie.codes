@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Sections, Video } from '~/types'
 
-const { data: videos } = await useAsyncData(
+const { data: videos } = await useAsyncData('videos',
   () => queryContent<Video>('videos')
     .where({ published: { $ne: false } })
     .sort({ date: -1 })

@@ -3,6 +3,7 @@ title: Migrating from Nuxt 2 to Nuxt 3
 date: 2022-11-27
 description: My personal website was built many years ago and had collected quite a large amount of code as I used my site to play around and experiment new features of Nuxt. It took me ages to finally decide to migrate cause lets face it, we all hate migrations. But I finally did it and I'm so glad I did. I'm going to share with you the steps I took to migrate my site from Nuxt 2 to Nuxt 3.
 image: v1640965793/debbie.codes/blog/2022/nuxt3_q10xtr.png
+alt: Nuxt logo with text of Migration to Nuxt 3
 ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1640965793/debbie.codes/blog/2022/nuxt3_q10xtr.png
 provider: cloudinary
 tags: [nuxt]

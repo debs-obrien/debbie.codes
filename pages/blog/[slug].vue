@@ -9,9 +9,10 @@ const { data: article } = await useAsyncData(path,
     .findOne(),
 )
 
-const { data } = await useAsyncData(
+const { data } = await useAsyncData('prev-next',
   () => queryContent<PrevNext>('blog')
     .where({ published: { $ne: false }, featured: { $ne: true } })
+    .sort({ date: -1 })
     .only(['_path', 'title'])
     .findSurround(path),
 )
@@ -94,7 +95,7 @@ useHead({
         <NuxtImg
           :provider="article.provider"
           :src="article.image"
-          :alt="article.title"
+          :alt="article?.alt || article.title"
           width="960"
           height="288"
           fit="thumb"
