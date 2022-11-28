@@ -22,12 +22,12 @@ const flatten = (tags: Array<any>, key = 'tags') => {
   return _tags
 }
 
-const { data } = await useAsyncData("tags", () => queryContent(props.section)
+const { data } = await useAsyncData('tags', () => queryContent(props.section)
   .only(["tags"])
   .where({ published: { $ne: false } })
   .find());
   
-const articleTags = [...new Set(flatten(data.value, "tags"))];
+const articleTags = [...new Set(flatten(data.value, 'tags'))];
 const sortedArticleTags = articleTags.sort()
 </script>
 

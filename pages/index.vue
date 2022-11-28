@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { BlogPostPreview, PodcastPreview, VideoPreview } from '~/types'
 
-const { data: articles } = await useAsyncData(
+const { data: articles } = await useAsyncData('articles',
   () => queryContent<BlogPostPreview>('blog')
     .where({ published: { $ne: false } })
     .without('body')
@@ -11,7 +11,7 @@ const { data: articles } = await useAsyncData(
     .find()
 )
 
-const { data: featuredPost } = await useAsyncData(
+const { data: featuredPost } = await useAsyncData('featured-article',
   () => queryContent<BlogPostPreview>('blog')
     .where({ published: { $ne: false } })
     .without('body')
@@ -20,7 +20,7 @@ const { data: featuredPost } = await useAsyncData(
     .findOne()
 )
 
-const { data: videos } = await useAsyncData(
+const { data: videos } = await useAsyncData('videos',
   () => queryContent<VideoPreview>('videos')
     .where({ published: { $ne: false } })
     .without('body')
@@ -29,7 +29,7 @@ const { data: videos } = await useAsyncData(
     .find()
 )
 
-const { data: podcasts } = await useAsyncData(
+const { data: podcasts } = await useAsyncData('podcasts',
   () => queryContent<PodcastPreview>('podcasts')
     .where({ published: { $ne: false } })
     .without('body')

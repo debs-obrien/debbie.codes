@@ -5,7 +5,7 @@ const {
   params: { slug },
 } = useRoute()
 
-const { data: courses } = await useAsyncData(
+const { data: courses } = await useAsyncData(`courses-${slug}`,
   () => queryContent<Course>('courses')
     .where({ published: { $ne: false }, tags: { $contains: slug } })
     .sort({ date: -1 })
