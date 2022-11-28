@@ -475,9 +475,11 @@ I really wanted to make use of the fact that Nuxt 3 is TypeScript first and I wa
 
 I started by adding the `lang="ts"` to the `<script>` tag of one of the components. This meant I could now use TypeScript in this component. The great thing about this is that I could refactor one by one taking my time to make sure I knew what I was doing for each component.
 
+```js
 <script setup lang="ts">
   ...
 </script>
+```
 
 ### Types file
 
