@@ -3,7 +3,7 @@ import type { BlogPost, PrevNext, Sections } from '~/types'
 
 const { path } = useRoute()
 
-const { data: article } = await useAsyncData(path,
+const { data: article } = await useAsyncData(path.replace(/\/$/, ''),
   () => queryContent<BlogPost>('blog')
     .where({ _path: path })
     .findOne(),
