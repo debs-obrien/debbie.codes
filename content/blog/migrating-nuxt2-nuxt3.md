@@ -597,7 +597,7 @@ Also the [movies repo](https://github.com/nuxt/movies) was a great reference for
 
 Other things I didn't cover in this post were `useHead` for meta data which has changed and you can see an example in the `app.vue` file although I may revert to adding this back to the `nuxt.config` file instead. 
 
-Also the 404 page is now created by adding a `[//...slug].vue` file in the pages folder. This will then catch all routes that are not found and render what is inside this file instead.
+Also the 404 page is now created by adding a `[...slug].vue` file in the pages folder. This will then catch all routes that are not found and render what is inside this file instead.
 
 Also I added testing with [Playwright](https://playwright.dev/) and generated end to end tests using Codegen, Playwrights test generator, to test my site and ensure everything works. I will cover this in a future post.
 
