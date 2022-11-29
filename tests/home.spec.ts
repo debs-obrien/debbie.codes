@@ -32,13 +32,13 @@ test('how page has recent podcasts with 4 items', async ({ page }) => {
 });
 
 
-test('testing api content', async ({ page }) => {
+// test('testing api content', async ({ page }) => {
 
-  await page.route('**/_payload', route => route.fulfill({
-  status: 200,
-  body: fs.readFileSync(path.join(__dirname, 'homepage-payload.js'), 'utf8'),
-  }));
+//   await page.route('**/_payload', route => route.fulfill({
+//   status: 200,
+//   body: fs.readFileSync(path.join(__dirname, 'homepage-payload.js'), 'utf8'),
+//   }));
   
-  await page.goto('/');
-  page.getByRole('article', { name: 'Featured Post' }).getByRole('listitem').getByRole('link', { name: 'nuxt' }).click();
-});
+//   await page.goto('/');
+//   page.getByRole('article', { name: 'Featured Post' }).getByRole('listitem').getByRole('link', { name: 'nuxt' }).click();
+// });
