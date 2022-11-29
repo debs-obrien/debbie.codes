@@ -1,6 +1,8 @@
 import { expect, test } from '@playwright/test';
 
-test('color made works', async ({ page }) => {
+test.use({ colorScheme: 'dark' });
+
+test('test system color mode', async ({ page }) => {
   await page.goto('/');
 
   await page.getByRole('button', { name: 'system' }).click();

@@ -17,11 +17,20 @@ jobs:
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
-    - name: Run Playwright tests
+    - name: Waiting for 200 from the Netlify Preview
+      uses: jakepartusch/wait-for-netlify-action@v1.2
+      id: waitFor200
+      with:
+        site_name: "debbiecodes"
+        max_timeout: 360 # 6 Minutes, depends on your build pipeline duration
+    - name: Run E2E Tests on Netlify URL
       run: npx playwright test
+      env:
+        PLAYWRIGHT_TEST_BASE_URL: ${{ steps.waitFor200.outputs.url }}
     - uses: actions/upload-artifact@v3
       if: always()
       with:
         name: playwright-report
         path: playwright-report/
         retention-days: 30
+

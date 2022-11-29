@@ -1,4 +1,6 @@
 import { expect, test } from '@playwright/test';
+import fs from 'fs';
+import path from 'path';
 
 test.beforeEach(async ({ page }) => {
   await page.goto('/');
@@ -28,3 +30,15 @@ test('how page has recent podcasts with 4 items', async ({ page }) => {
   const recentPosts = await page.getByRole('region', { name: /Recent Podcasts/i });
   await expect(recentPosts.getByRole('article')).toHaveCount(3);
 });
+
+
+// test('testing api content', async ({ page }) => {
+
+//   await page.route('**/_payload', route => route.fulfill({
+//   status: 200,
+//   body: fs.readFileSync(path.join(__dirname, 'homepage-payload.js'), 'utf8'),
+//   }));
+  
+//   await page.goto('/');
+//   page.getByRole('article', { name: 'Featured Post' }).getByRole('listitem').getByRole('link', { name: 'nuxt' }).click();
+// });
