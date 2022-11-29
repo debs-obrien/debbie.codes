@@ -32,7 +32,7 @@ test('how page has recent podcasts with 4 items', async ({ page }) => {
 });
 
 
-test('testing api content', async ({ page }) => {
+test.only('testing api content', async ({ page }) => {
 
   await page.route('**/_payload', route => route.fulfill({
   status: 200,
