@@ -7,7 +7,7 @@ const { data: articles } = await useAsyncData('articles',
     .without('body')
     .skip(1)
     .sort({ date: -1 })
-    .limit(6)
+    .limit(1)
     .find()
 )
 
