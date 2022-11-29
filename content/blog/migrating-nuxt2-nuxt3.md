@@ -249,28 +249,13 @@ There were also some small difference when rending the blog page and there is no
 
 ## Styling the blog page
 
-To easily style the main blog article I used the `@tailwindcss/typography` module just like before. I first installed it.
+To easily style the main blog article I used the `@tailwindcss/typography` plugin just like before. I first installed it.
 
 ```bash
 npm i -D @tailwindcss/typography
 ```
 
-I Then added the module to the `nuxt.config.js` file.
-
-```js
-export default defineNuxtConfig({
-...
-  modules: [
-    '@nuxt/image-edge',
-    '@nuxtjs/tailwindcss',
-    '@nuxt/content',
-    '@tailwindcss/typography',
-    '@nuxtjs/color-mode',
-  ],
-  ...
-```
-
-I already had this plugin added to my plugins array in the `tailwind.config.js` file as I had copied over the whole config file and was previously using this module for styling markdown content.
+I already had this plugin added to my plugins array in the `tailwind.config.js` file as I had copied over the whole config file and was previously using this for styling markdown content.
 
 ```js
 module.exports = {
@@ -285,7 +270,7 @@ For syntax highlighting of the codeblocks I added the `material-palenight` theme
 
 ```js
 export default defineNuxtConfig({
-...
+//...
  content: {
     highlight: {
       theme: {
@@ -316,13 +301,30 @@ In Nuxt 3 plugins are automatically imported which is very cool indeed, so I did
 
 ```js
 export default defineNuxtConfig({
-  ...
+  //...
   css: [
     '~/assets/css/main.css',
     '~/node_modules/lite-youtube-embed/src/lite-yt-embed.css',
   ],
-  ...
-}
+  //...
+})
+```
+
+I then needed to add the following to the `nuxt.config.js` file so that the component could be transpiled correctly as this was a custom element.
+
+```js
+export default defineNuxtConfig({
+  //...
+  build: {
+    transpile: ['lite-youtube'],
+  },
+  vue: {
+    compilerOptions: {
+      isCustomElement: tag => ['lite-youtube'].includes(tag),
+    },
+  },
+  //...
+})
 ```
 
 ## Color mode module
@@ -338,12 +340,11 @@ I then added the module to the `nuxt.config.js` file and added the configuration
 
 ```js
 export default defineNuxtConfig({
-...
+//...
   modules: [
     '@nuxt/image-edge',
     '@nuxtjs/tailwindcss',
     '@nuxt/content',
-    '@tailwindcss/typography',
     '@nuxtjs/color-mode',
   ],
   colorMode: {
@@ -351,7 +352,7 @@ export default defineNuxtConfig({
     preference: 'system', // default value of $colorMode.preference
     fallback: 'dark',
   },
-  ...
+  //...
 ```
 
 For the component itself there was some slight refactoring to do adding the `useColorMode()` composable instead of the method. I also decided to use TypeScript and therefore added the type of Theme to be either light or dark. Previously I also had a sepia theme but decided not to keep maintaining it.
@@ -371,7 +372,7 @@ All my code worked and my site was pretty much finished and ready to deploy. How
 
 ```js
 <script setup>
-...
+//...
 </script>
 ```
 
@@ -495,7 +496,7 @@ I started by adding the `lang="ts"` to the `<script>` tag of one of the componen
 
 ```ts
 <script setup lang="ts">
-  ...
+  //...
 </script>
 ```
 
@@ -594,7 +595,7 @@ Also the [movies repo](https://github.com/nuxt/movies) was a great reference for
 
 Other things I didn't cover in this post were `useHead` for meta data which has changed and you can see an example in the `app.vue` file although I may revert to adding this back to the `nuxt.config` file instead. 
 
-Also the 404 page is now created by adding a `[...slug].vue` file in the pages folder. This will then catch all routes that are not found and render what is inside this file instead.
+Also the 404 page is now created by adding a `[//...slug].vue` file in the pages folder. This will then catch all routes that are not found and render what is inside this file instead.
 
 Also I added testing with [Playwright](https://playwright.dev/) and generated end to end tests using Codegen, Playwrights test generator, to test my site and ensure everything works. I will cover this in a future post.
 
