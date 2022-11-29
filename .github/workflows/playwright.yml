@@ -18,11 +18,11 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Waiting for 200 from the Netlify Preview
-      uses: jakepartusch/wait-for-netlify-action@v1.2
+      uses: jakepartusch/wait-for-netlify-action@v1.3
       id: waitFor200
       with:
         site_name: "debbiecodes"
-        max_timeout: 360 # 6 Minutes, depends on your build pipeline duration
+        max_timeout: 60
     - name: Run E2E Tests on Netlify URL
       run: npx playwright test
       env:
