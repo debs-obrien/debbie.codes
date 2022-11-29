@@ -249,28 +249,13 @@ There were also some small difference when rending the blog page and there is no
 
 ## Styling the blog page
 
-To easily style the main blog article I used the `@tailwindcss/typography` module just like before. I first installed it.
+To easily style the main blog article I used the `@tailwindcss/typography` plugin just like before. I first installed it.
 
 ```bash
 npm i -D @tailwindcss/typography
 ```
 
-I Then added the module to the `nuxt.config.js` file.
-
-```js
-export default defineNuxtConfig({
-...
-  modules: [
-    '@nuxt/image-edge',
-    '@nuxtjs/tailwindcss',
-    '@nuxt/content',
-    '@tailwindcss/typography',
-    '@nuxtjs/color-mode',
-  ],
-  ...
-```
-
-I already had this plugin added to my plugins array in the `tailwind.config.js` file as I had copied over the whole config file and was previously using this module for styling markdown content.
+I already had this plugin added to my plugins array in the `tailwind.config.js` file as I had copied over the whole config file and was previously using this for styling markdown content.
 
 ```js
 module.exports = {
@@ -285,14 +270,14 @@ For syntax highlighting of the codeblocks I added the `material-palenight` theme
 
 ```js
 export default defineNuxtConfig({
-...
+//...
  content: {
     highlight: {
-      theme: {
-        default: 'material-palenight',
-      },
+      theme: 'github-dark'
     },
   },
+  //...
+})
 ``` 
 
 The blog page now looked pretty good although I did make some extra changes to it and improved the previous and next component as well as adding the table of contents component and a better heading for the page complete with an image and tags.
@@ -316,13 +301,30 @@ In Nuxt 3 plugins are automatically imported which is very cool indeed, so I did
 
 ```js
 export default defineNuxtConfig({
-  ...
+  //...
   css: [
     '~/assets/css/main.css',
     '~/node_modules/lite-youtube-embed/src/lite-yt-embed.css',
   ],
-  ...
-}
+  //...
+})
+```
+
+I then needed to add the following to the `nuxt.config.js` file so that the component could be transpiled correctly as this was a custom element.
+
+```js
+export default defineNuxtConfig({
+  //...
+  build: {
+    transpile: ['lite-youtube'],
+  },
+  vue: {
+    compilerOptions: {
+      isCustomElement: tag => ['lite-youtube'].includes(tag),
+    },
+  },
+  //...
+})
 ```
 
 ## Color mode module
@@ -338,12 +340,11 @@ I then added the module to the `nuxt.config.js` file and added the configuration
 
 ```js
 export default defineNuxtConfig({
-...
+//...
   modules: [
     '@nuxt/image-edge',
     '@nuxtjs/tailwindcss',
     '@nuxt/content',
-    '@tailwindcss/typography',
     '@nuxtjs/color-mode',
   ],
   colorMode: {
@@ -351,7 +352,8 @@ export default defineNuxtConfig({
     preference: 'system', // default value of $colorMode.preference
     fallback: 'dark',
   },
-  ...
+  //...
+})
 ```
 
 For the component itself there was some slight refactoring to do adding the `useColorMode()` composable instead of the method. I also decided to use TypeScript and therefore added the type of Theme to be either light or dark. Previously I also had a sepia theme but decided not to keep maintaining it.
@@ -371,7 +373,7 @@ All my code worked and my site was pretty much finished and ready to deploy. How
 
 ```js
 <script setup>
-...
+
 </script>
 ```
 
@@ -393,9 +395,9 @@ In Vue 3 we can use `defineProps` instead.
 
 ```js
 <script setup>
-defineProps<{
-  list
-}>()
+  defineProps<{
+    list
+  }>()
 </script>
 ```
 
@@ -423,11 +425,11 @@ I refactored this to use `refs` passing in the initial value of false and toggli
 
 ```js
 <script setup>
-const isOpen = ref(false)
+  const isOpen = ref(false)
 
-const toggle = () => {
-  isOpen.value = !isOpen.value
-}
+  const toggle = () => {
+    isOpen.value = !isOpen.value
+  }
 </script>
 ```
 
@@ -495,7 +497,7 @@ I started by adding the `lang="ts"` to the `<script>` tag of one of the componen
 
 ```ts
 <script setup lang="ts">
-  ...
+
 </script>
 ```
 
@@ -552,6 +554,7 @@ const { data: articles } = await useAsyncData(`articles-${slug}`
     .sort({ date: -1 })
     .find(),
 )
+</script>
 ```
 ### Omiting types
 
