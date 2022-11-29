@@ -8,8 +8,6 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@nuxt/content',
     '@nuxtjs/robots',
-    '@nuxtjs/web-vitals',
-    '@nuxtjs/html-validator',
   ],
 
   colorMode: {
