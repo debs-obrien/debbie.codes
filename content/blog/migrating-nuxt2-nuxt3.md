@@ -273,11 +273,11 @@ export default defineNuxtConfig({
 //...
  content: {
     highlight: {
-      theme: {
-        default: 'material-palenight',
-      },
+      theme: 'github-dark'
     },
   },
+  //...
+})
 ``` 
 
 The blog page now looked pretty good although I did make some extra changes to it and improved the previous and next component as well as adding the table of contents component and a better heading for the page complete with an image and tags.
@@ -353,6 +353,7 @@ export default defineNuxtConfig({
     fallback: 'dark',
   },
   //...
+})
 ```
 
 For the component itself there was some slight refactoring to do adding the `useColorMode()` composable instead of the method. I also decided to use TypeScript and therefore added the type of Theme to be either light or dark. Previously I also had a sepia theme but decided not to keep maintaining it.
@@ -372,7 +373,7 @@ All my code worked and my site was pretty much finished and ready to deploy. How
 
 ```js
 <script setup>
-//...
+
 </script>
 ```
 
@@ -394,9 +395,9 @@ In Vue 3 we can use `defineProps` instead.
 
 ```js
 <script setup>
-defineProps<{
-  list
-}>()
+  defineProps<{
+    list
+  }>()
 </script>
 ```
 
@@ -424,11 +425,11 @@ I refactored this to use `refs` passing in the initial value of false and toggli
 
 ```js
 <script setup>
-const isOpen = ref(false)
+  const isOpen = ref(false)
 
-const toggle = () => {
-  isOpen.value = !isOpen.value
-}
+  const toggle = () => {
+    isOpen.value = !isOpen.value
+  }
 </script>
 ```
 
@@ -496,7 +497,7 @@ I started by adding the `lang="ts"` to the `<script>` tag of one of the componen
 
 ```ts
 <script setup lang="ts">
-  //...
+
 </script>
 ```
 
@@ -553,6 +554,7 @@ const { data: articles } = await useAsyncData(`articles-${slug}`
     .sort({ date: -1 })
     .find(),
 )
+</script>
 ```
 ### Omiting types
 
