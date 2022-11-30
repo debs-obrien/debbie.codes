@@ -18,7 +18,7 @@ But before we dive into how to use the test generator, first let's understand wh
 
 ## What is a link?
 
-The HTML [`<a>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a), also known as the anchor element, is an interactive element that creates a hyperlink to another page either within your site or externally to another site. It can also be use to link to specific areas on the same page as well as for emails, file downloads or anything else a URL can address. The `<a>` element uses the `href` attribute to pass in the URL that the hyperlink points to.
+The HTML [`<a>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a), also known as the anchor element, is an interactive element that creates a hyperlink to another page either within your site or externally to another site. It can also be used to link to specific areas on the same page as well as for emails, file downloads or anything else a URL can address. The `<a>` element uses the `href` attribute to pass in the URL that the hyperlink points to.
 
 > So how can we locate a link element so we can click it? We use Locators.
 
