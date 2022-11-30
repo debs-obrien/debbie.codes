@@ -127,7 +127,7 @@ npx playwright open
 
 ### Chaining locators
 
-If your site contains duplicate links, for example two about links, one in the header and one in the footer, then the test generator will create a unique locator for each one. It does this by looking at the next accessible ancestor to the link and chains the locators.
+If your site contains duplicate links, for example two about links, one in the header and one in the footer, then the test generator will create a unique locator for each one. It does this by looking for an easily-identifiable ancestor of the link and chains the locators.
 
 ```js
 getByRole('navigation').getByRole('link', { name: 'About' })
