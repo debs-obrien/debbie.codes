@@ -146,7 +146,7 @@ getByRole('contentinfo').getByRole('link', { name: 'About' })
 
 ### Filtering locators
 
-If the test generator can't give you a unique locator when chaining it will use the [`filter()`](https://playwright.dev/docs/locators#filtering-locators) method to ensure the locator is unique. For example we might have two lists that contain topics for blog posts. The first list is used to filter the blog posts and the second list is used to display the topics for each post. The test generator will use the [`filter()`](https://playwright.dev/docs/locators#filtering-locators) method to ensure the locator is unique.
+If the test generator can't give you a unique locator through chaining it will use the [`filter()`](https://playwright.dev/docs/locators#filtering-locators) method to ensure the locator is unique. For example, we might have two lists that contain topics for blog posts. The first list is used to filter the blog posts and the second list is used to display the topics for each post. The test generator will use the [`filter()`](https://playwright.dev/docs/locators#filtering-locators) method to ensure the locator is unique.
 
 ```js
 getByRole('list')
