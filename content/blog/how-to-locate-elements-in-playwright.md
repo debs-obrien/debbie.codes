@@ -136,7 +136,7 @@ getByRole('navigation').getByRole('link', { name: 'About' })
 ![test generator highlighting the about link in the header](https://res.cloudinary.com/debsobrien/image/upload/v1669795104/debbie.codes/blog/2022/locator-chaining-header_hacas1.png)
 
 
-For the about link in the footer the test generator again looks at the next accessible ancestor to the link and chains the two [`getByRole()`](https://playwright.dev/docs/locators#locate-by-role) locators ensuring that there is only one instance for this locator.
+For the about link in the footer the test generator again looks for an ancestor and chains the two [`getByRole()`](https://playwright.dev/docs/locators#locate-by-role) locators ensuring that there is only one element matching this locator.
 
 ```js
 getByRole('contentinfo').getByRole('link', { name: 'About' })
