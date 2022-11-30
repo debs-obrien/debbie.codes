@@ -99,7 +99,7 @@ You can generate code right from VS Code when using the [VS Code extension](http
 
 ![test generator in vs code editor](https://res.cloudinary.com/debsobrien/image/upload/v1669817488/debbie.codes/blog/2022/vs-code-codegen_gxf58x.png)
 
-As you click on an element on your website, the generator will look at your DOM and figure out the best locator for you, prioritizing role based locators over other locators such as text or test id locators. If the generator comes across two locators with the same name it will either chain locators or use the [`filter()`](https://playwright.dev/docs/locators#filtering-locators) method to ensure the locator is resilient so you don't have to worry about failing tests due to locators.
+As you click on an element on your website, the generator will look at your page and figure out the best locator for you, prioritizing role, text and test id locators. If the generator finds multiple elements matching the locator, it will improve the locator to make it resilient and uniquely identify the target element, so you don't have to worry about failing tests due to locators. For example, it could chain locators to narrow down the scope, or use the [`filter()`](https://playwright.dev/docs/locators#filtering-locators) method to select between multiple elements.
 
 If you are not using the VS Code extension Playwright comes with a standalone test generator called [Codegen](https://playwright.dev/docs/test generator-intro).
 
