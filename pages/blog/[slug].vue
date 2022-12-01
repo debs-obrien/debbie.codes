@@ -98,7 +98,7 @@ useHead({
           :alt="article?.alt || article.title"
           width="1024"
           height="288"
-          fit="thumb"
+          fit="fill"
           format="webp"
           class="rounded"
         />

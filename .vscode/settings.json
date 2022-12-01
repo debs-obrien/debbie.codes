@@ -9,7 +9,8 @@
     "Monospaced",
     "videoid",
     "playlabel",
-    "cloudinary"
+    "cloudinary",
+    "Codegen"
   ],
   "html.format.wrapLineLength": 85,
   "editor.wordWrap": "on"

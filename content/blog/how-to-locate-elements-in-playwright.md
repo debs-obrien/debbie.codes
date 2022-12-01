@@ -158,7 +158,18 @@ getByRole('list')
 
 ### Improving your locators
 
-You may notice that filtering by text can sometimes give you a really ugly locator, like in the example above, and may cause you issues later, especially if you add another topic to the filters. If you want to improve this locator you first need to improve the HTML. For example you can add an aria-label to the first `<ul>` element with the value of topics. This not only helps improve the accessibility of the page but also allows Playwright to locate by role.
+You may notice that filtering by text can sometimes give you a really ugly locator, like in the example above, and may cause you issues later, especially if you add another topic to the filters. 
+
+You can improve this filter by using a regular expression to match certain words in the text, choosing ones that would normally not be seen together in a post such as 'architecture', 'mentoring' and 'testing'.
+
+```js
+getByRole('list')
+  .filter({ hasText: /architecture.*mentoring.*testing/ })
+  .getByRole('link', { name: 'architecture' })
+```
+
+
+Another option is to add an aria-label to the first `<ul>` element with the value of topics. This not only helps improve the accessibility of the page but also allows Playwright to locate by role.
 
 ```html
 <ul aria-label="topics">
