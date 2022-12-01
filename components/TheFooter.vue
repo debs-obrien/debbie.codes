@@ -1,7 +1,3 @@
-<script setup>
-import { NavLinks } from '~/constants/navigation'
-</script>
-
 <template>
   <footer class="w-full bg-dark py-12 overflow-hidden sm:px-6 lg:px-8 mt-12">
     <ul class="-mx-5 -my-2 flex flex-wrap justify-center text-white px-6">
