@@ -12,14 +12,14 @@ jobs:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
       with:
-        node-version: 16
+        node-version: '18.x'
     - name: Install dependencies
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
-    - name: Waiting for 200 from the Netlify Preview
-      uses: jakepartusch/wait-for-netlify-action@v1.3
-      id: waitFor200
+    - name: Waiting for Netlify Preview
+      uses: josephduffy/wait-for-netlify-action@v1
+      id: wait-for-netlify-preview
       with:
         site_name: "debbiecodes"
         max_timeout: 60
