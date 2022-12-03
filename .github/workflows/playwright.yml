@@ -6,7 +6,7 @@ on:
     branches: [ main, master ]
 jobs:
   test:
-    if: github.event.pull_request.merged !== true
+    if: github.event.pull_request.merged != true
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
