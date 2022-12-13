@@ -53,7 +53,7 @@ Now in order to see something rendered I needed to create a pages folder and a f
 ```html
 <template>
   <h1>Debbie</h1>
-<template>
+</template>
 ```
 
 And it worked! I now had my name rendered on the page. I then added a second page called `about.vue` and added some text. I checked routing was working by adding 'about' at the end of `http://localhost:3000/about` in the browser url. This has always been one of my favourite features of Nuxt. No need to setup or understand how routing works. You just have to add `.vue` files to the pages folder and thats it.
