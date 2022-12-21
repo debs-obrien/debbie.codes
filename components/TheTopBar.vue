@@ -57,7 +57,7 @@ const toggle = () => {
     <!-- Dropdown -->
     <div
       v-show="isOpen"
-      class="text-white bg-dark w-full h-full px-10 mt-6 mb-6 text-center"
+      class="text-white bg-dark w-full h-full px-10 mt-6 mb-6 text-center lg:hidden"
       @click="isOpen = false"
     >
       <TheNavigation />
