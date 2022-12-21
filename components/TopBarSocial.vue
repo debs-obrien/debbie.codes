@@ -1,5 +1,5 @@
 <template>
-  <ul class="flex gap-6 lg:gap-4 justify-center text-white mr-5 align-center">
+  <ul class="flex gap-6 lg:gap-4 justify-center text-white mr-5 items-center">
     <li>
       <a
         href="https://twitter.com/debs_obrien"
