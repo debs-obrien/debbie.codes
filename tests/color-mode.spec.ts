@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 
 test.use({ colorScheme: 'dark' });
 
-test('test system color mode', async ({ page, isMobile }) => {
+test('test color mode', async ({ page, isMobile }) => {
   await page.goto('/');
 
   const hamburger = page.getByRole('button', { name: 'open menu' });

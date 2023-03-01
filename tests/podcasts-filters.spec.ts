@@ -2,8 +2,9 @@ import { expect, test } from '@playwright/test';
 
 const topics = ['bit', 'dev rel', 'jamstack', 'mentoring', 'nuxt', 'playwright', 'react', 'testing']
 
-for (const topic of topics) {
-  test(`tag links to page with podcasts on ${topic}`, async ({ page, isMobile }) => {
+
+test(`tag links to page with podcasts on a topic`, async ({ page, isMobile }) => {
+  for (const topic of topics) {
     if (!isMobile) {
       await page.goto('/podcasts');
 
@@ -14,6 +15,6 @@ for (const topic of topics) {
       await expect.poll(() =>
         page.getByRole('article').getByRole('link', { name: topic }).count())
         .toBeGreaterThan(0);
-    }
-    })
-}
+    }  
+  }
+})

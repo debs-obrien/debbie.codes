@@ -2,8 +2,9 @@ import { expect, test } from '@playwright/test';
 
 const topics = ['apollo', 'graphql', 'i18n', 'nuxt', 'react', 'router', 'vue']
 
-for (const topic of topics) {
-  test(`tag links to page with courses on ${topic}`, async ({ page, isMobile }) => {
+
+test(`tag links to page with courses on a topic`, async ({ page, isMobile }) => {
+  for (const topic of topics) {
     if (!isMobile) {
       await page.goto('/courses');
 
@@ -14,5 +15,5 @@ for (const topic of topics) {
         page.getByRole('article').getByRole('link', { name: topic }).count())
         .toBeGreaterThan(0);
     }
-  })
-}
+  }
+})

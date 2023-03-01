@@ -2,8 +2,9 @@ import { expect, test } from '@playwright/test';
 
 const topics = ['architecture', 'cms', 'conference talk', 'css', 'dev rel', 'hasura', 'imposter syndrome', 'interviews', 'jamstack', 'learning to code', 'live streams', 'nuxt', 'performance', 'playwright', 'react', 'testing', 'vue']
 
-for (const topic of topics) {
-  test(`tag links to page with videos on ${topic}`, async ({ page, isMobile }) => {
+
+test(`tag links to page with videos on a topic`, async ({ page, isMobile }) => {
+  for (const topic of topics) {
     if(!isMobile){
       await page.goto('/videos');
 
@@ -13,6 +14,6 @@ for (const topic of topics) {
       await expect.poll(() =>
         page.getByRole('article').getByRole('link', { name: topic }).count())
           .toBeGreaterThan(0);
-      }
-  })
-}
+    }
+  }
+})
