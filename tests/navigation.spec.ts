@@ -9,33 +9,28 @@ test('logo links to home page', async ({ page }) => {
   await expect(page).toHaveURL('/');
 });
 
-const links = ['about', 'videos', 'podcasts', 'blog', 'courses']
 
-test.describe('main navigation', () => {
+test.describe('navigation', () => {
 
-  test.beforeEach(async ({ page, isMobile }) => {
+  const links = ['about', 'videos', 'podcasts', 'blog', 'courses']
 
-    if(isMobile){
-      await page.getByRole('button', { name: 'open menu' }).click();
-    }
-  });
-
-
-  for (const link of links) {
-    test(`menu links to ${link}`, async ({ page }) => {
-      await page.getByRole('navigation').getByRole('link', { name: link }).click();
-      await expect(page).toHaveURL(link);
-    })
-  }
-
-})
-
-test.describe('footer navigation', () => {
-
-  for (const link of links) {
-    test(`footer menu links to ${link}`, async ({ page }) => {
-        await page.getByRole('contentinfo').getByRole('link', { name: link }).click();
+  test(`header nav links to correct pages`, async ({ page, isMobile }) => {
+    for (const link of links) {
+      if(isMobile){
+        await page.getByRole('button', { name: 'open menu' }).click();
+      }
+        await page.getByRole('navigation').getByRole('link', { name: link }).click();
         await expect(page).toHaveURL(link);
-      })
     }
+  })
+
+  test(`footer nav links to correct pages`, async ({ page, isMobile }) => {
+    if(isMobile){
+        await page.getByRole('button', { name: 'open menu' }).click();
+      }
+    for (const link of links) {
+      await page.getByRole('contentinfo').getByRole('link', { name: link }).click();
+      await expect(page).toHaveURL(link);
+    }
+  })
 })
