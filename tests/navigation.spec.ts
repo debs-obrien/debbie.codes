@@ -24,10 +24,7 @@ test.describe('navigation', () => {
     }
   })
 
-  test(`footer nav links to correct pages`, async ({ page, isMobile }) => {
-    if(isMobile){
-        await page.getByRole('button', { name: 'open menu' }).click();
-      }
+  test(`footer nav links to correct pages`, async ({ page }) => {
     for (const link of links) {
       await page.getByRole('contentinfo').getByRole('link', { name: link }).click();
       await expect(page).toHaveURL(link);
