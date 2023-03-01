@@ -1,7 +1,11 @@
 import { expect, test } from '@playwright/test';
 
-test.beforeEach(async ({ page }) => {
+test.beforeEach(async ({ page, isMobile }) => {
   await page.goto('/');
+
+  if(isMobile){
+      await page.getByRole('button', { name: 'open menu' }).click();
+    }
 })
 
 test.describe('social links in header', () => {

@@ -47,6 +47,10 @@ body {
   text-decoration: underline;
 }
 
+.dark .prose strong {
+  color: white;
+}
+
 .prose code {
   color: inherit;
 }
