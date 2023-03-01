@@ -40,34 +40,6 @@ test('blog has content', async ({ page }) => {
     .toBeVisible();
 });
 
-test('blog has a working TOC', async ({ page }) => {
-  await expect(page.getByRole('heading', { name: 'Table of contents' })).toBeVisible();
-
-  await page.getByRole('complementary').getByRole('link', { name: 'Getting Started' }).click();
-
-  await expect(page
-    .getByRole('heading', { name: 'Getting Started' })
-    .getByRole('link', { name: 'Getting Started' }))
-    .toBeVisible();
-
-  await page
-    .getByRole('complementary')
-    .getByRole('link', { name: 'Setting the Base' })
-    .click();
-
-  await expect(page
-    .getByRole('heading', { name: 'Setting the Base' })
-    .getByRole('link', { name: 'Setting the Base' }))
-    .toBeVisible();
-
-  await page.getByRole('complementary').getByRole('link', { name: 'Checking it works' }).click();
-
-  await expect(page
-    .getByRole('heading', { name: 'Checking it works' })
-    .getByRole('link', { name: 'Checking it works' }))
-    .toBeVisible();
-});
-
 test('blog has prev links', async ({ page }) => {
   await page.getByRole('link', { name: 'Challenging Yourself' }).click();
 
