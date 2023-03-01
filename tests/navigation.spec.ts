@@ -9,40 +9,36 @@ test('logo links to home page', async ({ page }) => {
   await expect(page).toHaveURL('/');
 });
 
-test('navigation in header works', async ({ page }) => {
-  const navigation = page.getByRole('navigation')
+const routes = ['about', 'videos', 'podcasts', 'blog', 'courses']
 
-  await navigation.getByRole('link', { name: 'About' }).click();
-  await expect(page).toHaveURL('about');
+test.describe('main navigation', () => {
 
-  await navigation.getByRole('link', { name: 'Videos' }).click();
-  await expect(page).toHaveURL('videos');
+  test.beforeEach(async ({ page, isMobile }) => {
 
-  await navigation.getByRole('link', { name: 'Podcasts' }).click();
-  await expect(page).toHaveURL('podcasts');
+    if(isMobile){
+      await page.getByRole('button', { name: 'open menu' }).click();
+    }
+  });
 
-  await navigation.getByRole('link', { name: 'Courses' }).click();
-  await expect(page).toHaveURL('courses');
 
-  await navigation.getByRole('link', { name: 'Blog' }).click();
-  await expect(page).toHaveURL('blog');
-});
+  for (const route of routes) {
+    test(`menu links to ${route}`, async ({ page }) => {
+      await page.getByRole('navigation').getByRole('link', { name: route }).click();
+      await expect(page).toHaveURL(route);
+      await page.goto(`/${route}`);
 
-test('navigation in footer works', async ({ page }) => {
-  const navigation = page.getByRole('contentinfo')
+    })
+  }
 
-  await navigation.getByRole('link', { name: 'About' }).click();
-  await expect(page).toHaveURL('about');
+})
 
-  await navigation.getByRole('link', { name: 'Videos' }).click();
-  await expect(page).toHaveURL('videos');
+test.describe('footer navigation', () => {
 
-  await navigation.getByRole('link', { name: 'Podcasts' }).click();
-  await expect(page).toHaveURL('podcasts');
-
-  await navigation.getByRole('link', { name: 'Courses' }).click();
-  await expect(page).toHaveURL('courses');
-
-  await navigation.getByRole('link', { name: 'Blog' }).click();
-  await expect(page).toHaveURL('blog');
-});
+  for (const route of routes) {
+    test(`footer menu links to ${route}`, async ({ page }) => {
+      await page.getByRole('contentinfo').getByRole('link', { name: route }).click();
+      await expect(page).toHaveURL(route);
+      await page.goto(`/${route}`);
+      })
+    }
+})
