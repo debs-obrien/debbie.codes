@@ -47,7 +47,7 @@ import { expect, test } from '@playwright/test';
 
 const links = ['about', 'videos', 'podcasts', 'blog', 'courses']
 
-test(`menu links to ${link}`, async ({ page }) => {
+test('menu links to correct page', async ({ page }) => {
   await page.goto('/');
 
   for (const link of links) {
@@ -82,7 +82,7 @@ projects: [
 ]
 ``` 
 
-The [Playwrigh VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright) runs on 'Chromium' by default but we can change this to run on one of our mobile projects by clicking on the arrow next to the play button at the top of the testing sidebar and then clicking on **select the default profile**. Here we can choose 'Mobile Safari'. Now when we run our test in VS Code it will use the mobile Safari browser.
+The [Playwright VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright) runs on 'Chromium' by default but we can change this to run on one of our mobile projects by clicking on the arrow next to the play button at the top of the testing sidebar and then clicking on **select the default profile**. Here we can choose 'Mobile Safari'. Now when we run our test in VS Code it will use the mobile Safari browser.
 
 When we run the test we will see that the test fails. This is because the menu is hidden on mobile viewports and we need to click on the hamburger menu to open and see the navigation links. So how do we tell Playwright to click on the hamburger if the viewport is mobile?
 
@@ -98,24 +98,29 @@ if(isMobile){
 
 ### Adding a describe block and beforeEach block
 
-We can tidy up the code a little by adding a `describe` block and a `beforeEach` block. The `describe` block will group all the tests together and the `beforeEach` block will run before each test. We can then move the `if` statement into the `beforeEach` block so that it runs before each test.
+We can tidy up the code a little by adding a `describe` block and a `beforeEach` block. The `describe` block will group all the tests together, we can later add more for footer navigation, and the `beforeEach` block will run before each test. We can then move the `if` statement into the `for` loop so that it runs for each link.
 
 
 ```js
-test.describe('main navigation', () => {
+import { expect, test } from '@playwright/test';
 
-  test.beforeEach(async ({ page, isMobile }) => {
-    if(isMobile){
-      await page.getByRole('button', { name: 'open menu' }).click();
+test.beforeEach(async ({ page }) => {
+  await page.goto('/');
+});
+
+test.describe('navigation', () => {
+
+  const links = ['about', 'videos', 'podcasts', 'blog', 'courses']
+
+  test(`header nav links to correct pages`, async ({ page, isMobile }) => {
+    for (const link of links) {
+      if(isMobile){
+        await page.getByRole('button', { name: 'open menu' }).click();
+      }
+        await page.getByRole('navigation').getByRole('link', { name: link }).click();
+        await expect(page).toHaveURL(link);
     }
-  });
-
-  for (const link of links) {
-    test(`menu links to ${link}`, async ({ page }) => {
-      await page.getByRole('navigation').getByRole('link', { name: link }).click();
-      await expect(page).toHaveURL(link);
-    })
-  }
+  })
 })
 ```
 
