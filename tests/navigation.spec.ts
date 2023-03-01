@@ -9,7 +9,7 @@ test('logo links to home page', async ({ page }) => {
   await expect(page).toHaveURL('/');
 });
 
-const routes = ['about', 'videos', 'podcasts', 'blog', 'courses']
+const links = ['about', 'videos', 'podcasts', 'blog', 'courses']
 
 test.describe('main navigation', () => {
 
@@ -21,12 +21,10 @@ test.describe('main navigation', () => {
   });
 
 
-  for (const route of routes) {
-    test(`menu links to ${route}`, async ({ page }) => {
-      await page.getByRole('navigation').getByRole('link', { name: route }).click();
-      await expect(page).toHaveURL(route);
-      await page.goto(`/${route}`);
-
+  for (const link of links) {
+    test(`menu links to ${link}`, async ({ page }) => {
+      await page.getByRole('navigation').getByRole('link', { name: link }).click();
+      await expect(page).toHaveURL(link);
     })
   }
 
@@ -34,11 +32,10 @@ test.describe('main navigation', () => {
 
 test.describe('footer navigation', () => {
 
-  for (const route of routes) {
-    test(`footer menu links to ${route}`, async ({ page }) => {
-      await page.getByRole('contentinfo').getByRole('link', { name: route }).click();
-      await expect(page).toHaveURL(route);
-      await page.goto(`/${route}`);
+  for (const link of links) {
+    test(`footer menu links to ${link}`, async ({ page }) => {
+        await page.getByRole('contentinfo').getByRole('link', { name: link }).click();
+        await expect(page).toHaveURL(link);
       })
     }
 })
