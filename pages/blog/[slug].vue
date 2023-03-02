@@ -84,47 +84,34 @@ useHead({
     class="container mx-auto max-w-5xl"
   >
     <article v-if="article !== null">
-      <header v-if="article" class="py-4">
+      <header v-if="article" class="py-4 text-center">
         <h1 class="font-extrabold text-xl lg:text-5xl mb-1 lg:mb-2">
           {{ article.title }}
         </h1>
 
         <Date :date="article.date" />
       </header>
-      <div class="rounded h-32 lg:h-72 mb-2 lg:mb-8 overflow-hidden object-cover object-center center">
+      <div class="rounded mb-2 lg:mb-8 overflow-hidden object-cover object-center center">
         <NuxtImg
           :provider="article.provider"
           :src="article.image"
           :alt="article?.alt || article.title"
-          width="1024"
-          height="288"
+          width="900"
+          height="600"
           fit="fill"
           format="webp"
-          class="rounded"
+          class="rounded center mx-auto"
         />
       </div>
-      <section aria-label="summary">
-        <p class="font-medium text-lg mb-4">
-          {{ article.description }}
-        </p>
-      </section>
-      <TagsList class="mb-2" :tags="article.tags" :section="section" />
-
-      <hr>
-      <div class="grid grid-cols-8 mt-4">
-        <aside class="col-span-full md:col-span-2 row-start-1 w-full pt-8">
-          <BlogToc :links="article.body.toc.links" class="sticky top-20" />
-        </aside>
         <div
-          class="col-span-full md:col-span-6 md:col-start-1 md:row-start-1 prose w-full pr-4 max-w-3xl m-auto"
+          class="grid grid-cols-4 gap-x-4 md:grid-cols-8 lg:grid-cols-12 lg:gap-x-6 mx-auto max-w-7xl prose mb-24 break-words"
         >
-          <ContentRenderer :value="article">
+          <ContentRenderer :value="article" class="col-span-10 col-start-2 text-lg font-normal">
             <template #empty>
               <p>No content found.</p>
             </template>
           </ContentRenderer>
         </div>
-      </div>
 
       <BlogPrevNext :prev="prev" :next="next" />
     </article>

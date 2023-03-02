@@ -30,6 +30,7 @@ body {
   letter-spacing: 0.5px;
   word-wrap: break-word;
   font-weight: 400;
+  font-family: "Roboto", sans-serif;
   @apply font-sans;
 }
 
