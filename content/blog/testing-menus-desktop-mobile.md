@@ -59,7 +59,7 @@ test('menu links to correct page', async ({ page }) => {
 
 We now have a very simple test that will test all the links in the menu. We can run this test by clicking on the play button in the testing sidebar. This will run the test with the browser opened once we have **show browser** checked in our testing sidebar in VS Code.
 
-## Testing the menu on desktop
+## Testing the menu on mobile
 
 So what happens when we want to run this test on mobile? Setting up testing on mobile viewports is easily done through the Playwright config. There are two examples in the projects array already commented out so we can just uncomment them. This means our tests will now run on these mobile viewports as well as the default desktop browsers.
 
