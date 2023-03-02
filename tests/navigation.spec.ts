@@ -12,7 +12,7 @@ test('logo links to home page', async ({ page }) => {
 
 test.describe('navigation', () => {
 
-  const links = ['about', 'videos', 'podcasts', 'blog', 'courses']
+  const links = ['about', 'videos', 'podcasts', 'courses', 'blog']
 
   test(`header nav links to correct pages`, async ({ page, isMobile }) => {
     for (const link of links) {
