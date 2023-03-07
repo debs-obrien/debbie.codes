@@ -12,16 +12,42 @@ test('logo links to home page', async ({ page }) => {
 
 test.describe('navigation', () => {
 
-  const links = ['about', 'videos', 'podcasts', 'blog', 'courses']
+  const links = ['about', 'videos', 'podcasts', 'courses', 'blog',]
 
   test(`header nav links to correct pages`, async ({ page, isMobile }) => {
-    for (const link of links) {
-      if(isMobile){
-        await page.getByRole('button', { name: 'open menu' }).click();
-      }
-        await page.getByRole('navigation').getByRole('link', { name: link }).click();
-        await expect(page).toHaveURL(link);
+
+    const hamburgerMenu = page.getByRole('button', { name: 'open menu' });
+
+    if (isMobile) {
+      await hamburgerMenu.click();
     }
+    await page.getByRole('navigation').getByRole('link', { name: 'about' }).click();
+    await expect(page).toHaveURL('about');
+      
+    if (isMobile) {
+      await hamburgerMenu.click();
+    }
+    await page.getByRole('navigation').getByRole('link', { name: 'videos' }).click();
+    await expect(page).toHaveURL('videos');
+      
+    if (isMobile) {
+      await hamburgerMenu.click();
+    }
+    await page.getByRole('navigation').getByRole('link', { name: 'podcasts' }).click();
+    await expect(page).toHaveURL('podcasts');
+      
+    if (isMobile) {
+      await hamburgerMenu.click();
+    }
+    await page.getByRole('navigation').getByRole('link', { name: 'courses' }).click();
+    await expect(page).toHaveURL('courses');
+      
+    if (isMobile) {
+      await hamburgerMenu.click();
+    }
+    await page.getByRole('navigation').getByRole('link', { name: 'blog' }).click();
+    await expect(page).toHaveURL('blog');
+
   })
 
   test(`footer nav links to correct pages`, async ({ page }) => {
