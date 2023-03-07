@@ -12,8 +12,6 @@ test('logo links to home page', async ({ page }) => {
 
 test.describe('navigation', () => {
 
-  const links = ['about', 'videos', 'podcasts', 'courses', 'blog',]
-
   test(`header nav links to correct pages`, async ({ page, isMobile }) => {
 
     const hamburgerMenu = page.getByRole('button', { name: 'open menu' });
@@ -51,9 +49,19 @@ test.describe('navigation', () => {
   })
 
   test(`footer nav links to correct pages`, async ({ page }) => {
-    for (const link of links) {
-      await page.getByRole('contentinfo').getByRole('link', { name: link }).click();
-      await expect(page).toHaveURL(link);
-    }
-  })
+      await page.getByRole('contentinfo').getByRole('link', { name: 'about' }).click();
+      await expect(page).toHaveURL('about');
+
+      await page.getByRole('contentinfo').getByRole('link', { name: 'videos' }).click();
+      await expect(page).toHaveURL('videos');
+        
+      await page.getByRole('contentinfo').getByRole('link', { name: 'podcasts' }).click();
+      await expect(page).toHaveURL('podcasts');
+        
+      await page.getByRole('contentinfo').getByRole('link', { name: 'courses' }).click();
+      await expect(page).toHaveURL('courses');
+        
+      await page.getByRole('contentinfo').getByRole('link', { name: 'blog' }).click();
+      await expect(page).toHaveURL('blog');
+    })
 })
