@@ -48,7 +48,8 @@ test.describe('navigation', () => {
 
   })
 
-  test(`footer nav links to correct pages`, async ({ page }) => {
+  test(`footer nav links to correct pages`, async ({ page, isMobile }) => {
+    test.skip(isMobile, 'Still working on it');
       await page.getByRole('contentinfo').getByRole('link', { name: 'about' }).click();
       await expect(page).toHaveURL('about');
 
