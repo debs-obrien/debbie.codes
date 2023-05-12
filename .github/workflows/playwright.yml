@@ -10,6 +10,18 @@ env:
   GITHUB_PR_NUMBER: ${{github.event.pull_request.number}}
 
 jobs:
+  tests_e2e:
+    name: Run end-to-end tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - name: install dependencies
+        run: npm ci
+      - name: install playwright browsers
+        run: npx playwright install --with-deps
+      - name: npm run test:e2e
+        run: npm run test:e2e
 
   tests_e2e_netlify_prepare:
     name: Wait for deployment on Netlify
