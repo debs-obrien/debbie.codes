@@ -19,7 +19,7 @@ jobs:
         uses: josephduffy/wait-for-netlify-action@v1
         id: wait-for-netflify-preview
         with:
-          site_name: "pull-request"
+          site_name: "debbiecodes"
           max_timeout: 180
 
   tests_e2e_netlify:
