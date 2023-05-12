@@ -18,16 +18,13 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Wait for Netlify Deploy
-      uses: probablyup/wait-for-netlify-action@3.2.0
+      uses: jakepartusch/wait-for-netlify-action@v1.2
       id: waitForDeployment
       with:
         site_id: 'debbiecodes'
-      env:
-        NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
     - name: Run Playwright tests
       run: npx playwright test
       env:
-        # This might depend on your test-runner/language binding
         PLAYWRIGHT_TEST_BASE_URL: ${{ steps.waitForDeployment.outputs.url }}
     - uses: actions/upload-artifact@v3
       if: always()
