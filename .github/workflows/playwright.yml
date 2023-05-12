@@ -21,7 +21,7 @@ jobs:
       - name: install playwright browsers
         run: npx playwright install --with-deps
       - name: npm run test:e2e
-        run: npm run test:e2e
+        run: npx playwright test
 
   tests_e2e_netlify_prepare:
     name: Wait for deployment on Netlify
