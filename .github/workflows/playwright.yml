@@ -1,27 +1,42 @@
 name: Playwright Tests
+
 on:
   push:
-    branches: [main, master]
+    branches: [ main, master ]
   pull_request:
-    branches: [main, master]
+    branches: [ main, master ]
+
+env:
+  GITHUB_PR_NUMBER: ${{github.event.pull_request.number}}
+
 jobs:
-  test:
+
+  tests_e2e_netlify_prepare:
+    name: Wait for deployment on Netlify
+    runs-on: ubuntu-latest
+    steps:
+      - name: Waiting for Netlify Preview
+        uses: josephduffy/wait-for-netlify-action@v1
+        id: wait-for-netflify-preview
+        with:
+          site_name: "debbiecodes"
+          max_timeout: 180
+
+  tests_e2e_netlify:
     timeout-minutes: 60
+    needs: tests_e2e_netlify_prepare
+    name: Run end-to-end tests on Netlify PR preview
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - name: Install dependencies
+      - name: install dependencies
         run: npm ci
-      - name: Install Playwright Browsers
+      - name: install playwright browsers
         run: npx playwright install --with-deps
       - name: Run Playwright tests
         run: npx playwright test
-      - uses: actions/upload-artifact@v3
-        if: always()
-        with:
-          name: playwright-report
-          path: playwright-report/
-          retention-days: 30
+        env:
+          PLAYWRIGHT_TEST_BASE_URL: "https://deploy-preview-${{env.GITHUB_PR_NUMBER}}--pull-request.netlify.app/"
