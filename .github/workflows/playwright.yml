@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  playwright-tests:
+  tests:
     strategy:
       fail-fast: false
       matrix:
