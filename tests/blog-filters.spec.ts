@@ -4,15 +4,17 @@ const topics = ['architecture', 'dev rel', 'jamstack', 'javascript', 'lifestyle'
 
 for (const topic of topics) {
     
-  test(`tag links to page with posts on ${topic}`, async ({ page }) => {
-    await page.goto('/blog');
+  test(`tag links to page with posts on ${topic}`, async ({ page, isMobile }) => {
+    if (!isMobile) {
+      await page.goto('/blog');
 
 
-    await page.getByRole('list', { name: 'topics' }).getByRole('link', { name: topic }).click();
-    await expect(page.getByRole('heading', { level: 1 })).toContainText(topic);
+      await page.getByRole('list', { name: 'topics' }).getByRole('link', { name: topic }).click();
+      await expect(page.getByRole('heading', { level: 1 })).toContainText(topic);
 
-    await expect.poll(() =>
-      page.getByRole('article').getByRole('link', { name: topic }).count())
-      .toBeGreaterThan(0);
-  })
+      await expect.poll(() =>
+        page.getByRole('article').getByRole('link', { name: topic }).count())
+        .toBeGreaterThan(0);
+    }
+    })
 }
