@@ -79,16 +79,6 @@
 
       <li>
         <a
-          href="https://noti.st/debbie"
-          aria-label="speaker profile"
-          target="_blank"
-          rel="nofollow noopener noreferrer"
-        >
-          <IconSpeaker class="h-10 w-10 fill-white" />
-        </a>
-      </li>
-      <li>
-        <a
           href="https://www.buymeacoffee.com/debbieobrien"
           aria-label="buy me a coffee"
           target="_blank"
