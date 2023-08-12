@@ -59,7 +59,7 @@ const { data: podcasts } = await useAsyncData('podcasts-home',
 
       <div class="dark:text-white subtitle font-medium mb-20">
         <p class="mb-4">
-          Senior Program Manager at Microsoft
+          Senior Technical Program Manager at Microsoft
         </p>
         <p>
           <a
@@ -93,15 +93,7 @@ const { data: podcasts } = await useAsyncData('podcasts-home',
             target="_blank"
             rel="nofollow noopener noreferrer"
           >
-            Cloudinary MDE
-          </a>
-          |
-          <a
-            href="https://auth0.com/ambassador-program/"
-            target="_blank"
-            rel="nofollow noopener noreferrer"
-          >
-            Auth0 Ambassador
+            Cloudinary Ambassador
           </a>
           |
           <a

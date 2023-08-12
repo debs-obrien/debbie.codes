@@ -114,9 +114,9 @@ test.describe('social links in footer', () => {
 
     const [page1] = await Promise.all([
       page.waitForEvent('popup'),
-      await page.getByRole('contentinfo').getByRole('link', { name: 'speaker profile' }).click()
+      await page.getByRole('contentinfo').getByRole('link', { name: 'dev to' }).click()
     ]);
-    await expect(page1).toHaveURL('https://noti.st/debbie');
+    await expect(page1).toHaveURL('https://dev.to/debs_obrien');
   });
 
   test('twitch link in footer works', async ({ page }) => {
@@ -129,18 +129,6 @@ test.describe('social links in footer', () => {
       await page.getByRole('contentinfo').getByRole('link', { name: 'twitch' }).click()
     ]);
     await expect(page1).toHaveURL('https://www.twitch.tv/debs_obrien');
-  });
-
-  test('notist link in footer works', async ({ page }) => {
-    await page.context().route('https://noti.st/**', route => route.fulfill({
-      body: '<html><body><h1>notist</h1></body></html>'
-    }));
-
-    const [page1] = await Promise.all([
-      page.waitForEvent('popup'),
-      await page.getByRole('contentinfo').getByRole('link', { name: 'speaker profile' }).click()
-    ]);
-    await expect(page1).toHaveURL('https://noti.st/debbie');
   });
 
   test('buy me a coffee link in footer works', async ({ page }) => {

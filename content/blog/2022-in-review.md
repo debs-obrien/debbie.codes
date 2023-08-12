@@ -1,5 +1,5 @@
 ---
-title: 2022 Recap - Achieving your dreams
+title: 2022 Recap - Achieving your dreams Debbie
 date: 2022-12-31
 description: And there it is, another year gone but when you look back at all you have achieved then really there is no more to say than; what a year. From Google interviews to being hired by Microsoft, speaking at conferences and traveling to so many conferences and lots of sport, 2022 was a great year.
 image: v1673861872/debbie.codes/blog/2022/microsoft-running_gztjdu.jpg
