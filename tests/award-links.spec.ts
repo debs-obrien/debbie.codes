@@ -44,14 +44,14 @@ test('GitHub Star link in home page works', async ({ page }) => {
   await expect(page1).toHaveURL('https://stars.github.com/alumni/');
 });
 
-test('Cloudinary MDE link in home page works', async ({ page }) => {
+test('Cloudinary Ambassador link in home page works', async ({ page }) => {
   await page.context().route('https://cloudinary.com/**', route => route.fulfill({
-    body: '<html><body><h1>Cloudinary MDE</h1></body></html>'
+    body: '<html><body><h1>Cloudinary Ambassador</h1></body></html>'
   }));
 
   const [page1] = await Promise.all([
     page.waitForEvent('popup'),
-    await page.getByRole('link', { name: 'Cloudinary MDE' }).click()
+    await page.getByRole('link', { name: 'Cloudinary Ambassador' }).click()
   ]);
   await expect(page1).toHaveURL('https://cloudinary.com/mde');
 });
