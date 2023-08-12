@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  tests:
+  test:
     strategy:
       fail-fast: false
       matrix:
