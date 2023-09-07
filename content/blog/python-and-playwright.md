@@ -1,5 +1,5 @@
 ---
-title: Python and Playwright
+title: Getting Started with Python and Playwright
 date: 2023-09-07
 description: For those new to Python here is a quick beginners guide on how to setup Python and Pytest and install Playwright. We then create an example test and run it in both headed and headless mode meaning with and without a browser window.
 published: true
