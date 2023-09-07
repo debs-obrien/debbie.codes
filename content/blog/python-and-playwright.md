@@ -13,7 +13,7 @@ This is a quick guide on how to setup Python and Pytest and install Playwright a
 Once Python has been installed on your computer you can check it has been properly installed by running the following command in your terminal:
 
 ```bash
-python --version
+python3 --version
 ```
 
 ## Manage multiple versions of Python
@@ -90,12 +90,14 @@ Now in our editor of choice we can create a new file called `test_example.py` an
 import re
 from playwright.sync_api import Page, expect
 
-
-def test_homepage_has_Playwright_in_title_and_get_started_link_linking_to_the_intro_page(page: Page):
+def test_has_title(page: Page):
     page.goto("https://playwright.dev/")
 
     # Expect a title "to contain" a substring.
     expect(page).to_have_title(re.compile("Playwright"))
+
+def test_get_started_link(page: Page):
+    page.goto("https://playwright.dev/")
 
     # create a locator
     get_started = page.get_by_role("link", name="Get started")
@@ -105,7 +107,7 @@ def test_homepage_has_Playwright_in_title_and_get_started_link_linking_to_the_in
 
     # Click the get started link.
     get_started.click()
-
+    
     # Expects page to have a heading with the name of Installation.
     expect(page.get_by_role("heading", name="Installation")).to_be_visible()
 ```
