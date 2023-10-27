@@ -31,9 +31,9 @@ export default defineConfig(config, {
   // Define more generous timeout for the service operation if necessary.
   // timeout: 60000,
    expect: {
-     timeout: 10000,
+     timeout: 20000,
    },
-  workers: 20,
+  workers: 8,
 
   // Enable screenshot testing and configure directory with expectations.
   // https://learn.microsoft.com/azure/playwright-testing/how-to-configure-visual-comparisons
