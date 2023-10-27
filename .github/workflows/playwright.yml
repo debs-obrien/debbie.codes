@@ -13,7 +13,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        shard: [1]
+        shard: [1] # Running all test in single run
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -24,7 +24,13 @@ jobs:
       #run: npx playwright install --with-deps
 
     - name: Run Playwright tests
-      run: npx playwright test --shard ${{ matrix.shard }}
+      working-directory: ./
+      env:
+        # Access token and regional endpoint for Microsoft Playwright Testing
+        PLAYWRIGHT_SERVICE_ACCESS_TOKEN: ${{ secrets.PLAYWRIGHT_SERVICE_ACCESS_TOKEN }}
+        PLAYWRIGHT_SERVICE_URL: ${{ secrets.PLAYWRIGHT_SERVICE_URL }}
+        PLAYWRIGHT_SERVICE_RUN_ID: ${{ github.run_id }}-${{ github.run_attempt }}-${{ github.sha }}
+      run: npx playwright test -c playwright.service.config.ts
 
     - name: Upload blob report to GitHub Actions Artifacts
       if: always()
