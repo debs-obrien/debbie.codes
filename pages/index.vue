@@ -59,7 +59,7 @@ const { data: podcasts } = await useAsyncData('podcasts-home',
 
       <div class="dark:text-white subtitle font-medium mb-20">
         <p class="mb-4">
-          Senior Technical Program Manager at Microsoft
+          Principal Technical Program Manager at Microsoft
         </p>
         <p>
           <a
@@ -88,14 +88,7 @@ const { data: podcasts } = await useAsyncData('podcasts-home',
           </a>
         </p>
         <p class="mt-4">
-          <a
-            href="https://cloudinary.com/mde"
-            target="_blank"
-            rel="nofollow noopener noreferrer"
-          >
-            Cloudinary Ambassador
-          </a>
-          |
+ 
           <a
             href="https://nuxtjs.org/teams/"
             target="_blank"
