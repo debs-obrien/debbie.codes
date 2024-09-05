@@ -5,7 +5,7 @@ description: “I guess you could say I love the buzz of the stage but also beca
 url: https://medium.com/cityjsconf/cityjsconf-talks-to-debbie-obrien-3a3a2cb9a5cd
 image: fl_lossy,f_auto/v1607270077/debbie.codes/blog/cityjsconf_ozoe4u
 provider: cloudinary
-tags: [lifestyle]
+tags: [personal]
 platform: CityJS Conf
 featured: true
 ---

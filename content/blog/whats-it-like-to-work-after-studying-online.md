@@ -5,7 +5,7 @@ description: I was one of the first graduates from the Front-End Web Development
 url: https://blog.openclassrooms.com/en/2017/11/30/like-works-study-online/
 image: v1607269937/debbie.codes/OC_DEbbie_tny82j
 provider: cloudinary
-tags: [lifestyle]
+tags: [personal]
 platform: OpenClassrooms
 featured: true
 ---

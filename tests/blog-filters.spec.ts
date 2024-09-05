@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 
-const topics = ['architecture', 'dev rel', 'jamstack', 'javascript', 'lifestyle', 'mentoring', 'motivation', 'nuxt', 'performance', 'playwright', 'react', 'testing', 'typescript', 'vs code', 'vue']
+const topics = ['architecture', 'dev rel', 'jamstack', 'javascript', 'personal', 'mentoring', 'motivation', 'nuxt', 'performance', 'playwright', 'react', 'testing', 'typescript', 'vs code', 'vue']
 
 for (const topic of topics) {
     

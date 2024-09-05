@@ -4,7 +4,7 @@ date: 2021-04-03
 description: We use Discord as our virtual office at Bit and I have to tell you all about it as it really is a great way to work and collaborate with others especially when working in different time zones.
 image: photo-1614680376739-414d95ff43df?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop
 provider: imgix
-tags: [lifestyle]
+tags: [personal]
 ---
 
 Recently I changed jobs and changing jobs always means new things such as learning how the company works, how to work as a team and how to collaborate on things. When I was told in my interview that [Bit](https://bit.dev) uses Discord for their virtual office I just presumed that it works the same as how we use Discord in all the servers I am a member of. But that wasn't the case at all. Let me tell you about it.

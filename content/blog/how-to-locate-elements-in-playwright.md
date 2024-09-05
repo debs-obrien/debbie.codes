@@ -150,7 +150,7 @@ If the test generator can't give you a unique locator through chaining it will u
 
 ```js
 getByRole('list')
-  .filter({ hasText: 'architecturedev reljamstackjavascriptlifestylementoringmotivationnuxtperformance' })
+  .filter({ hasText: 'architecturedev reljamstackjavascriptpersonalmentoringmotivationnuxtperformance' })
   .getByRole('link', { name: 'architecture' })
 ```
 

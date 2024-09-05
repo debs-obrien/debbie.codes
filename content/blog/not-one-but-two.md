@@ -5,7 +5,7 @@ description: On our 9th attempt at fertility treatment, we were super excited wh
 image: v1691829487/debbie.codes/blog/2023/scan-twins-2_iwmfs3.jpg
 ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1651559990/debbie.codes/blog/2023/scan-twins-2_iwmfs3.jpg
 provider: cloudinary
-tags: [lifestyle]
+tags: [personal]
 ---
 
 On our 9th attempt at fertility treatment, we were super excited when the doctor called us 10 days after the transfer to tell us that we were pregnant. It had worked. We had done the blood test that morning and then gone for ice cream. We had just left the coffee shop and were in the street on a busy road about to cross when he rang. I asked him if he was sure and he said "yes, very sure, High levels meaning it's a healthy pregnancy". My husband cried; I was still in disbelief. We went to the department store and walked through the children's floor but then felt we were tempting fate and decided to turn back. It was still way too early, and anything could go wrong.
