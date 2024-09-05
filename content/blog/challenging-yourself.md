@@ -5,7 +5,7 @@ description: Cycle all around the island of Mallorca for a total of 235km with a
 image: v1648376409/debbie.codes/blog/2022/IMG_5391_pp2gha
 ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1648376409/debbie.codes/blog/2022/IMG_5391_pp2gha
 provider: cloudinary
-tags: [lifestyle, motivation]
+tags: [personal, motivation]
 loading: eager
 ---
 

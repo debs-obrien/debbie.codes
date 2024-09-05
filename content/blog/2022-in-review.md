@@ -5,7 +5,7 @@ description: And there it is, another year gone but when you look back at all yo
 image: v1673861872/debbie.codes/blog/2022/microsoft-running_gztjdu.jpg
 ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1651559990/debbie.codes/blog/2022/microsoft-running_gztjdu.jpg
 provider: cloudinary
-tags: [lifestyle]
+tags: [personal]
 published: true
 ---
 

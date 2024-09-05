@@ -5,7 +5,7 @@ description: Each day we look forward to seeing our students around the world su
 url: https://blog.openclassrooms.com/en/2017/12/27/success-story-8-months-front-end-architect-bluekiri/
 image: v1607270253/debbie.codes/blog/debbie-oc_qtvsnj
 provider: cloudinary
-tags: [lifestyle]
+tags: [personal]
 platform: OpenClassrooms
 featured: true
 ---
