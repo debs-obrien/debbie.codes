@@ -5,7 +5,7 @@ description: How can we walk on that stage with more confidence, deliver a great
 image: v1673861872/debbie.codes/blog/2023/vue-amsterdam_i3hjbi.jpg
 ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1651559990/debbie.codes/blog/2023/vue-amsterdam_i3hjbi.jpg
 provider: cloudinary
-tags: [personal]
+tags: [personal, mentoring, motivation]
 published: true
 ---
 
