@@ -4,6 +4,14 @@ const ogTitle = 'Debbie codes and helps others learn Playwright, testing, React,
 const twitterDescription = 'My website of where I play around with Nuxt, Playwright and more and showcase my blog, resources etc'
 const twitterCard = 'https://debbie.codes/twitter-card.png'
 const mySite = 'https://debbie.codes'
+
+const { path } = useRoute()
+const canonical = computed(()=> {
+  if (path === '/') return mySite
+  const { href: canonical } = new URL(path, mySite)
+  return canonical
+})
+
 useHead({
   htmlAttrs: {
     lang: 'en',
@@ -70,7 +78,7 @@ useHead({
     { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
     {
       rel: 'canonical',
-      href: mySite,
+      href: canonical.value,
     },
   ],
 })
