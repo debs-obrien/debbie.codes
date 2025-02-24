@@ -10,22 +10,22 @@
     "lint:fix": "eslint . --fix"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.31.0",
+    "@antfu/eslint-config": "^4.3.0",
     "@nuxt/content": "^2.4.3",
     "@nuxt/image": "^1.9.0",
     "@nuxthq/studio": "^0.12.1",
     "@nuxtjs/color-mode": "^3.2.0",
-    "@nuxtjs/robots": "^3.0.0",
+    "@nuxtjs/robots": "^5.2.4",
     "@nuxtjs/tailwindcss": "^6.13.1",
-    "@playwright/test": "^1.46.1",
+    "@playwright/test": "^1.50.1",
     "@tailwindcss/typography": "^0.5.9",
     "dotenv": "^16.3.1",
-    "eslint": "^8.35.0",
-    "husky": "^8.0.3",
-    "lint-staged": "^13.1.2",
-    "lite-youtube-embed": "^0.2.0",
+    "eslint": "^9.21.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.4.3",
+    "lite-youtube-embed": "^0.3.3",
     "nuxt": "^3.15.4",
-    "sitemap": "^7.1.1"
+    "sitemap": "^8.0.0"
   },
   "husky": {
     "hooks": {
