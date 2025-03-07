@@ -5,15 +5,18 @@ export default defineEventHandler(async (event) => {
   // Fetch all documents
   const docs = await serverQueryContent(event).find()
   const sitemap = new SitemapStream({
-    hostname: 'https://debbie.codes'
+    hostname: 'https://debbie.codes',
   })
 
   for (const doc of docs) {
+    const url = doc._path?.endsWith('/') ? doc._path : `${doc._path}/`
+
     sitemap.write({
-      url: doc._path,
-      changefreq: 'monthly'
+      url,
+      changefreq: 'monthly',
     })
   }
+
   sitemap.end()
 
   return streamToPromise(sitemap)
