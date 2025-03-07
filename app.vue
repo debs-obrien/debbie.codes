@@ -9,7 +9,7 @@ const { path } = useRoute()
 const canonical = computed(()=> {
   if (path === '/') return mySite
   const { href: canonical } = new URL(path, mySite)
-  return canonical
+  return canonical.endsWith('/') ? canonical : `${canonical}/`
 })
 
 useHead({
