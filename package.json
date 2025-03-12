@@ -22,9 +22,9 @@
     "eslint": "^9.22.0",
     "husky": "^9.1.7",
     "lint-staged": "^15.5.0",
-    "lite-youtube-embed": "^0.2.0",
+    "lite-youtube-embed": "^0.3.3",
     "nuxt": "^3.16.0",
-    "sitemap": "^7.1.1"
+    "sitemap": "^8.0.0"
   },
   "husky": {
     "hooks": {
