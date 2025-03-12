@@ -16,7 +16,7 @@ const { data } = await useAsyncData('prev-next',
     .only(['_path', 'title'])
     .findSurround(path),
 )
-const [prev, next] = data.value || []
+const [prev, next] = data.value || [{}, {}]
 const section: Sections = 'blog'
 const title: string = article.value?.title || ''
 const description: string = article.value?.description || ''
