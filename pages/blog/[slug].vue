@@ -23,6 +23,13 @@ const description: string = article.value?.description || ''
 const image: string = article.value?.image || ''
 const ogImage: string = article.value?.ogImage || ''
 
+const mySite = 'https://debbie.codes/'
+const canonical = computed(() => {
+  if (path === '/') return mySite
+  const { href: canonical } = new URL(path, mySite)
+  return canonical.endsWith('/') ? canonical : `${canonical}/`
+})
+
 useHead({
   title: article.value?.title || '',
   meta: [
@@ -73,7 +80,7 @@ useHead({
   link: [
     {
       rel: 'canonical',
-      href: `https://debbie.codes/${path}`,
+      href: canonical.value,
     },
   ],
 })
