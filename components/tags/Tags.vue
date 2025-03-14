@@ -22,7 +22,7 @@ const flatten = (tags: Array<any>, key = 'tags') => {
   return _tags
 }
 
-const { data } = await useAsyncData(`tags-${props.section}`, () => queryContent(props.section)
+const { data } = await useAsyncData(`tags-${props.section}`, () => queryCollection(props.section)
   .only(["tags"])
   .where({ published: { $ne: false } })
   .find());

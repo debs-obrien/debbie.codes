@@ -2,7 +2,7 @@
 import type { Sections, Video } from '~/types'
 
 const { data: videos } = await useAsyncData('videos',
-  () => queryContent<Video>('videos')
+  () => queryCollection<Video>('videos')
     .where({ published: { $ne: false } })
     .sort({ date: -1 })
     .find(),

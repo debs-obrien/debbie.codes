@@ -4,13 +4,13 @@ import type { BlogPost, PrevNext, Sections } from '~/types'
 const { path } = useRoute()
 
 const { data: article } = await useAsyncData(path.replace(/\/$/, ''),
-  () => queryContent<BlogPost>('blog')
+  () => queryCollection<BlogPost>('blog')
     .where({ _path: path })
     .findOne(),
 )
 
 const { data } = await useAsyncData('prev-next',
-  () => queryContent<PrevNext>('blog')
+  () => queryCollection<PrevNext>('blog')
     .where({ published: { $ne: false }, featured: { $ne: true } })
     .sort({ date: -1 })
     .only(['_path', 'title'])

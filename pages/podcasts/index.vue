@@ -2,7 +2,7 @@
 import type { Podcast, Sections } from '~/types'
 
 const { data: podcasts } = await useAsyncData('podcasts',
-  () => queryContent<Podcast>('podcasts')
+  () => queryCollection<Podcast>('podcasts')
     .where({ published: { $ne: false } })
     .sort({ date: -1 })
     .find(),

@@ -6,7 +6,7 @@ const {
 } = useRoute()
 
 const { data: articles } = await useAsyncData(`articles-${slug}`,
-  () => queryContent<BlogPost>('blog')
+  () => queryCollection<BlogPost>('blog')
     .where({ published: { $ne: false }, tags: { $contains: slug } })
     .sort({ date: -1 })
     .find(),

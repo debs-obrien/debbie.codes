@@ -6,7 +6,7 @@ const {
 } = useRoute()
 
 const { data: videos } = await useAsyncData(`videos-${slug}`,
-  () => queryContent<Video>('videos')
+  () => queryCollection<Video>('videos')
     .where({ published: { $ne: false }, tags: { $contains: slug } })
     .sort({ date: -1 })
     .find(),

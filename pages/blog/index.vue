@@ -2,7 +2,7 @@
 import type { BlogPost, Sections } from '~/types'
 
 const { data: articles } = await useAsyncData('articles',
-  () => queryContent<BlogPost>('blog')
+  () => queryCollection<BlogPost>('blog')
     .where({ published: { $ne: false } })
     .sort({ date: -1 })
     .find(),

@@ -2,7 +2,7 @@
 import type { BlogPostPreview, PodcastPreview, VideoPreview } from '~/types'
 
 const { data: articles } = await useAsyncData('articles-home',
-  () => queryContent<BlogPostPreview>('blog')
+  () => queryCollection<BlogPostPreview>('blog')
     .where({ published: { $ne: false } })
     .without('body')
     .skip(1)
@@ -12,7 +12,7 @@ const { data: articles } = await useAsyncData('articles-home',
 )
 
 const { data: featuredPost } = await useAsyncData('featured-article',
-  () => queryContent<BlogPostPreview>('blog')
+  () => queryCollection<BlogPostPreview>('blog')
     .where({ published: { $ne: false } })
     .without('body')
     .sort({ date: -1 })
@@ -21,7 +21,7 @@ const { data: featuredPost } = await useAsyncData('featured-article',
 )
 
 const { data: videos } = await useAsyncData('videos-home',
-  () => queryContent<VideoPreview>('videos')
+  () => queryCollection<VideoPreview>('videos')
     .where({ published: { $ne: false } })
     .without('body')
     .sort({ date: -1 })
@@ -30,7 +30,7 @@ const { data: videos } = await useAsyncData('videos-home',
 )
 
 const { data: podcasts } = await useAsyncData('podcasts-home',
-  () => queryContent<PodcastPreview>('podcasts')
+  () => queryCollection<PodcastPreview>('podcasts')
     .where({ published: { $ne: false } })
     .without('body')
     .sort({ date: -1 })
