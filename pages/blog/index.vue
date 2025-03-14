@@ -3,6 +3,7 @@ import type { Sections } from '~/types'
 
 const { data: articles } = await useAsyncData('articles',
   () => queryCollection('blog')
+    .where('published', 'NOT LIKE', 'false')
     .order('date', 'DESC')
     .all(),
 )

@@ -6,10 +6,10 @@ const {
 } = useRoute()
 
 const { data: articles } = await useAsyncData(`articles-${slug}`,
-  () => queryCollection<BlogPost>('blog')
-    .where({ published: { $ne: false }, tags: { $contains: slug } })
-    .sort({ date: -1 })
-    .find(),
+  () => queryCollection('blog')
+    .where('tags', 'LIKE', `%${slug}%`)
+    .order('date', 'DESC')
+    .all(),
 )
 
 const topic: string = replaceHyphen(slug as string)

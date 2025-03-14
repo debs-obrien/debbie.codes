@@ -2,10 +2,9 @@
 import type { Podcast, Sections } from '~/types'
 
 const { data: podcasts } = await useAsyncData('podcasts',
-  () => queryCollection<Podcast>('podcasts')
-    .where({ published: { $ne: false } })
-    .sort({ date: -1 })
-    .find(),
+  () => queryCollection('podcasts')
+    .order('date', 'DESC')
+    .all(),
 )
 
 const title: string = 'Podcast Interviews'

@@ -8,14 +8,11 @@ const { data: article } = await useAsyncData(path.replace(/\/$/, ''),
     .where('path', 'LIKE', path)
     .first(),
 )
-const targetPath = '/blog'
-const { data } = await queryCollectionItemSurroundings(
-    'blog',
-  targetPath,
-  {
-    fields: ['title', 'description', 'navigation']
-  }
-)
+
+const { data } = await useAsyncData('surround', () => {
+  return queryCollectionItemSurroundings('blog', path)
+    .order('date', 'DESC')
+})
 
 const [prev, next] = data.value || []
 const section: Sections = 'blog'
