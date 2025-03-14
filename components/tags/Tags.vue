@@ -24,8 +24,8 @@ const flatten = (tags: Array<any>, key = 'tags') => {
 
 const { data } = await useAsyncData(`tags-${props.section}`, () => queryCollection(props.section)
   .only(["tags"])
-  .where({ published: { $ne: false } })
-  .find());
+  .where('published', 'LIKE', '/false%')
+  .first());
   
 const articleTags = [...new Set(flatten(data.value, 'tags'))];
 const sortedArticleTags = articleTags.sort()

@@ -4,11 +4,11 @@ export default defineNuxtConfig({
   },
 
   modules: [
+    '@nuxtjs/robots',
     '@nuxt/image',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/color-mode',
     '@nuxt/content',
-    '@nuxtjs/robots',
   ],
 
   colorMode: {
@@ -42,9 +42,9 @@ export default defineNuxtConfig({
   },
 
   content: {
-    highlight: {
-      theme: 'github-dark'
-    },
+    preview: {
+      api: 'https://api.nuxt.studio'
+    }
   },
 
   nitro: {

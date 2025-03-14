@@ -9,7 +9,7 @@ defineProps<{
 
 <template>
   <article class="bg-white dark:bg-gray-900 container mx-auto my-5 p-5 lg:-mx-6 lg:flex lg:items-center">
-    <NuxtLink :to="item._path" :aria-label="item.title">
+    <NuxtLink :to="item.path" :aria-label="item.title">
       <NuxtImg
         :provider="item.provider"
         :src="item.image"
@@ -26,7 +26,7 @@ defineProps<{
       <TagsList :tags="item.tags" section="blog" />
 
       <NuxtLink
-        :to="item._path"
+        :to="item.path"
         class="block mt-4 text-2xl font-semibold text-gray-800 hover:underline dark:text-white md:text-3xl"
       >
         {{ item.title }}
@@ -37,7 +37,7 @@ defineProps<{
       </p>
 
       <NuxtLink
-        :to="item._path"
+        :to="item.path"
         :aria-label="`read more about ${item.title}`"
         class="inline-block mt-2 text-blue-600 dark:text-blue-500 underline hover:text-blue-400"
       >

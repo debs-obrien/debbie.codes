@@ -1,41 +1,31 @@
 <script setup lang="ts">
-import type { BlogPostPreview, PodcastPreview, VideoPreview } from '~/types'
 
 const { data: articles } = await useAsyncData('articles-home',
-  () => queryCollection<BlogPostPreview>('blog')
-    .where({ published: { $ne: false } })
-    .without('body')
+  () => queryCollection('blog')
     .skip(1)
-    .sort({ date: -1 })
     .limit(6)
-    .find()
+    .all()
 )
 
 const { data: featuredPost } = await useAsyncData('featured-article',
-  () => queryCollection<BlogPostPreview>('blog')
-    .where({ published: { $ne: false } })
-    .without('body')
-    .sort({ date: -1 })
+  () => queryCollection('blog')
+    .order('date', 'DESC')
     .limit(1)
-    .findOne()
+    .first()
 )
 
 const { data: videos } = await useAsyncData('videos-home',
-  () => queryCollection<VideoPreview>('videos')
-    .where({ published: { $ne: false } })
-    .without('body')
-    .sort({ date: -1 })
+  () => queryCollection('videos')
+    .order('date', 'DESC')
     .limit(4)
-    .find()
+    .all()
 )
 
 const { data: podcasts } = await useAsyncData('podcasts-home',
-  () => queryCollection<PodcastPreview>('podcasts')
-    .where({ published: { $ne: false } })
-    .without('body')
-    .sort({ date: -1 })
+  () => queryCollection('podcasts')
+    .order('date', 'DESC')
     .limit(3)
-    .find()
+    .all()
 )
 </script>
 
