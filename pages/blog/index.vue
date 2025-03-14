@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import type { BlogPost, Sections } from '~/types'
+import type { Sections } from '~/types'
 
 const { data: articles } = await useAsyncData('articles',
-  () => queryCollection<BlogPost>('blog')
-    .where({ published: { $ne: false } })
-    .sort({ date: -1 })
-    .find(),
+  () => queryCollection('blog')
+    .order('date', 'DESC')
+    .all(),
 )
 
 const title: string = 'All Blog Posts'

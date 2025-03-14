@@ -4,18 +4,19 @@ import type { BlogPost, PrevNext, Sections } from '~/types'
 const { path } = useRoute()
 
 const { data: article } = await useAsyncData(path.replace(/\/$/, ''),
-  () => queryCollection<BlogPost>('blog')
-    .where({ _path: path })
-    .findOne(),
+  () => queryCollection('blog')
+    .where('path', 'LIKE', path)
+    .first(),
+)
+const targetPath = '/blog'
+const { data } = await queryCollectionItemSurroundings(
+    'blog',
+  targetPath,
+  {
+    fields: ['title', 'description', 'navigation']
+  }
 )
 
-const { data } = await useAsyncData('prev-next',
-  () => queryCollection<PrevNext>('blog')
-    .where({ published: { $ne: false }, featured: { $ne: true } })
-    .sort({ date: -1 })
-    .only(['_path', 'title'])
-    .findSurround(path),
-)
 const [prev, next] = data.value || []
 const section: Sections = 'blog'
 const title: string = article.value?.title || ''

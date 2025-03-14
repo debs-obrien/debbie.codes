@@ -2,10 +2,9 @@
 import type { Course, Sections } from '~/types'
 
 const { data: courses } = await useAsyncData('courses',
-  () => queryCollection<Course>('courses')
-    .where({ published: { $ne: false } })
-    .sort({ date: -1 })
-    .find(),
+  () => queryCollection('courses')
+    .order('date', 'DESC')
+    .all(),
 )
 
 const title: string = 'Courses'

@@ -78,6 +78,13 @@ export default defineContentConfig({
         host: z.string().optional(),
         conference: z.string().optional()
       })
-    })
+    }),
+    about: defineCollection({
+      source: 'about.md',
+      type: 'page',
+      schema: z.object({
+        title: z.string(),
+      }),
+    }),
   }
 })

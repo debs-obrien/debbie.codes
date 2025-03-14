@@ -1,5 +1,10 @@
 <script lang="ts">
+// const route = useRoute()
+// const { data: about } = await useAsyncData('about', () => {
+//   return queryCollection('about').path(route.path).first()
+// })
 export default {
+  
   data() {
     return {
       type: '',
@@ -123,7 +128,7 @@ export default {
             </h3>
             <div class="mb-4">
               <p class="mb-2">
-                <ContentDoc class="prose" />
+                 <!-- <ContentRenderer :if="about" :value="about" /> -->
               </p>
             </div>
           </div>
