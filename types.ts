@@ -53,7 +53,7 @@ export type CoursePreview = Omit<Video, 'body'>;
 
 export interface PrevNext {
   title?: string,
-  _path?: string
+  path?: string
 }
 
 export interface Navigation {
