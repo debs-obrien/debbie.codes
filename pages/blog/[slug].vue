@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { BlogPost, PrevNext, Sections } from '~/types'
+import { formatDate } from '~/utils/date'
 
 const { path } = useRoute()
 
@@ -21,8 +22,7 @@ const description: string = article.value?.description || ''
 const image: string = article.value?.image || ''
 const ogImage: string = article.value?.ogimage || ''
 
-// Format date as string for the Date component
-const formattedDate = article.value?.date ? new Date(article.value.date).toISOString().split('T')[0] : ''
+const formattedDate = formatDate(article.value?.date || '')
 
 useHead({
   title: article.value?.title || '',

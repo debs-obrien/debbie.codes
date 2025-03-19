@@ -8,7 +8,7 @@ export default defineContentConfig({
       schema: z.object({
         tags: z.array(z.string()),
         image: z.string(),
-        date: z.date(),
+        date: z.string(),
         title: z.string(),
         description: z.string(),
         provider: z.string(),
@@ -22,7 +22,7 @@ export default defineContentConfig({
       type: 'page',
       schema: z.object({
         title: z.string(),
-        date: z.date(),
+        date: z.string(),
         description: z.string(),
         url: z.string().url(),
         image: z.string(),
@@ -36,7 +36,7 @@ export default defineContentConfig({
       type: 'page',
       schema: z.object({
         title: z.string(),
-        date: z.date(),
+        date: z.string(),
         description: z.string(),
         url: z.string().url(),
         image: z.string(),
@@ -48,12 +48,13 @@ export default defineContentConfig({
       type: 'page',
       schema: z.object({
         title: z.string(),
-        date: z.date(),
+        date: z.string(),
         description: z.string(),
         url: z.string().url(),
         image: z.string(),
         tags: z.array(z.string()),
-        host: z.string()
+        host: z.string(),
+        provider: z.string()
       })
     }),
     tips: defineCollection({
@@ -61,7 +62,7 @@ export default defineContentConfig({
       type: 'page',
       schema: z.object({
         title: z.string(),
-        date: z.date(),
+        date: z.string(),
         description: z.string(),
         tags: z.array(z.string())
       })
@@ -71,12 +72,13 @@ export default defineContentConfig({
       type: 'page',
       schema: z.object({
         title: z.string(),
-        date: z.date(),
+        date: z.string(),
         description: z.string(),
         video: z.string(),
         tags: z.array(z.string()),
         host: z.string().optional(),
-        conference: z.string().optional()
+        conference: z.string().optional(),
+        image: z.string()
       })
     }),
     about: defineCollection({
