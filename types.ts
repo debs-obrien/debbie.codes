@@ -5,7 +5,7 @@ export interface Video extends ParsedContent {
   video: string,
   title: string,
   start?: number,
-  date: string,
+  date: Date,
   host?: string,
   conference?: string,
   tags: string[]
@@ -13,18 +13,17 @@ export interface Video extends ParsedContent {
 
 export interface Podcast extends ParsedContent {
   title: string,
-  date: string,
+  date: Date,
   description: string,
   url: string,
   tags: string[],
   host: string,
-  provider: string,
   image: string
 }
 
 export interface Course extends ParsedContent {
   title: string,
-  date: string,
+  date: Date,
   description: string,
   url: string,
   tags: string[],
@@ -35,15 +34,14 @@ export interface Course extends ParsedContent {
 
 export interface BlogPost extends MarkdownParsedContent {
   title: string,
-  date: string,
+  date: Date,
   description: string,
   url?: string,
   image: string,
-  alt: string,
-  ogImage?: string,
+  ogimage: string,
   provider: string,
   tags: string[],
-  published?: boolean
+  published: boolean
 }
 
 export type BlogPostPreview = Omit<BlogPost, 'body'>;

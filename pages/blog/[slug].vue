@@ -19,19 +19,18 @@ const section: Sections = 'blog'
 const title: string = article.value?.title || ''
 const description: string = article.value?.description || ''
 const image: string = article.value?.image || ''
-const ogImage: string = article.value?.ogImage || ''
+const ogImage: string = article.value?.ogimage || ''
+
+// Format date as string for the Date component
+const formattedDate = article.value?.date ? new Date(article.value.date).toISOString().split('T')[0] : ''
 
 useHead({
   title: article.value?.title || '',
   meta: [
     { name: 'description', content: description },
-    {
-      name: 'description',
-      content: description,
-    },
     // Test on: https://developers.facebook.com/tools/debug/ or https://socialsharepreview.com/
     { property: 'og:site_name', content: 'Debbie Codes' },
-    { hid: 'og:type', property: 'og:type', content: 'website' },
+    { property: 'og:type', content: 'website' },
     {
       property: 'og:url',
       content: 'https://debbie.codes',
@@ -87,13 +86,13 @@ useHead({
           {{ article.title }}
         </h1>
 
-        <Date :date="article.date" />
+        <Date :date="formattedDate" />
       </header>
       <div class="rounded mb-2 lg:mb-8 overflow-hidden object-cover object-center center">
         <NuxtImg
           :provider="article.provider"
           :src="article.image"
-          :alt="article?.alt || article.title"
+          :alt="article.title"
           width="900"
           height="600"
           fit="fill"
