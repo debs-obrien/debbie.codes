@@ -24,11 +24,8 @@ useHead({
 </script>
 
 <template>
-  <main>
-    <AppTitle>{{ title }}</AppTitle>
-    <AppIntro>{{ description }}</AppIntro>
-    <Tags :section="section" />
+  <PageLayout :title="title" :description="description" :section="section">
     <VideoList v-if="videos !== null" :list="videos" />
     <TagsNotFound v-else />
-  </main>
+  </PageLayout>
 </template>

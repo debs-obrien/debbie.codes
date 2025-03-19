@@ -24,11 +24,8 @@ useHead({
 </script>
 
 <template>
-  <main>
-    <AppTitle>{{ title }}</AppTitle>
-    <AppIntro>{{ description }}</AppIntro>
-    <Tags :section="section" />
+  <PageLayout :title="title" :description="description" :section="section">
     <ItemList v-if="courses !== null" :list="courses" :section="section" />
     <TagsNotFound v-else />
-  </main>
+  </PageLayout>
 </template>

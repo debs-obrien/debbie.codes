@@ -77,18 +77,16 @@ useHead({
 </script>
 
 <template>
-  <main
-    class="container mx-auto max-w-5xl"
-  >
+  <main class="container mx-auto px-4 sm:px-6 max-w-5xl">
     <article v-if="article !== null">
-      <header v-if="article" class="py-4 text-center">
-        <h1 class="font-extrabold text-xl lg:text-5xl mb-1 lg:mb-2">
+      <header v-if="article" class="py-4 sm:py-6 text-center">
+        <h1 class="font-extrabold text-2xl sm:text-3xl lg:text-5xl mb-2 sm:mb-3">
           {{ article.title }}
         </h1>
 
         <Date :date="formattedDate" />
       </header>
-      <div class="rounded mb-2 lg:mb-8 overflow-hidden object-cover object-center center">
+      <div class="rounded mb-4 sm:mb-6 lg:mb-8 overflow-hidden object-cover object-center center">
         <NuxtImg
           :provider="article.provider"
           :src="article.image"
@@ -100,21 +98,21 @@ useHead({
           class="rounded center mx-auto"
         />
       </div>
-        <div class="prose mx-auto max-w-4xl mb-24 break-words">
-          <ContentRenderer :value="article" class="text-lg font-normal">
-            <template #empty>
-              <template v-if="article.url">
-                <a :href="article.url" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-full text-primary hover:text-primary/80 transition-colors py-4">
-                  <span>Read on external site</span>
-                  <span class="ml-1">→</span>
-                </a>
-              </template>
-              <template v-else>
-                <p>No content found.</p>
-              </template>
+      <div class="prose mx-auto max-w-4xl mb-16 sm:mb-20 lg:mb-24 break-words">
+        <ContentRenderer :value="article" class="text-base sm:text-lg font-normal">
+          <template #empty>
+            <template v-if="article.url">
+              <a :href="article.url" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-full text-primary hover:text-primary/80 transition-colors py-4">
+                <span>Read on external site</span>
+                <span class="ml-1">→</span>
+              </a>
             </template>
-          </ContentRenderer>
-        </div>
+            <template v-else>
+              <p>No content found.</p>
+            </template>
+          </template>
+        </ContentRenderer>
+      </div>
 
       <BlogPrevNext :prev="prev" :next="next" />
     </article>

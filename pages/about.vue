@@ -93,7 +93,7 @@ useHead({
 </script>
 
 <template>
-  <div class="container mx-auto">
+  <div class="container mx-auto px-4 sm:px-6">
     <div class="mx-auto">
       <div class="max-w-6xl mx-auto">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -114,15 +114,15 @@ useHead({
             </div>
           </div>
         </div>
-        <h2 class="font-bold text-primary text-3xl my-12">
+        <h2 class="font-bold text-primary text-3xl my-8 sm:my-12">
           Awards and Achievements
         </h2>
 
-        <div class="space-y-16">
+        <div class="space-y-12 sm:space-y-16">
           <div
             v-for="company in awards"
             :key="company.name"
-            class="grid grid-cols-1 lg:grid-cols-2 gap-8"
+            class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8"
           >
             <!-- <div class="mt-2">
               <img
@@ -145,7 +145,7 @@ useHead({
             </div> -->
 
             <div class="col-span-2">
-              <h3 class="font-bold text-primary text-2xl pb-4 hover:text-primary/80 transition-colors">
+              <h3 class="font-bold text-primary text-xl sm:text-2xl pb-3 sm:pb-4 hover:text-primary/80 transition-colors">
                 <a
                   :href="company.url"
                   target="_blank"
@@ -154,7 +154,7 @@ useHead({
                   {{ company.name }}
                 </a>
               </h3>
-              <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+              <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-base sm:text-lg">
                 {{ company.about }}
               </p>
             </div>
