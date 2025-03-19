@@ -104,27 +104,25 @@ useHead({
             >
           </div> -->
           <div class="col-span-2">
-            <span class="font-Saira mb-4 text-primary">Hello There!</span>
+            <span class="font-Saira mb-4 text-primary text-lg">Hello There!</span>
 
-            <h3 class="uppercase font-semibold mb-4">
+            <h3 class="uppercase font-semibold mb-6 text-2xl">
               I'm Debbie O'Brien
             </h3>
-            <div class="mb-4">
-              <p class="mb-2">
-                <ContentRenderer v-if="about" :value="about" />
-              </p>
+            <div class="prose prose-lg dark:prose-invert max-w-none">
+              <ContentRenderer v-if="about" :value="about" class="text-gray-600 dark:text-gray-300 leading-relaxed" />
             </div>
           </div>
         </div>
-        <h2 class="font-bold text-primary text-3xl my-8">
+        <h2 class="font-bold text-primary text-3xl my-12">
           Awards and Achievements
         </h2>
 
-        <div class="">
+        <div class="space-y-16">
           <div
             v-for="company in awards"
             :key="company.name"
-            class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16"
+            class="grid grid-cols-1 lg:grid-cols-2 gap-8"
           >
             <!-- <div class="mt-2">
               <img
@@ -147,7 +145,7 @@ useHead({
             </div> -->
 
             <div class="col-span-2">
-              <h3 class="font-bold text-primary text-2xl pb-4">
+              <h3 class="font-bold text-primary text-2xl pb-4 hover:text-primary/80 transition-colors">
                 <a
                   :href="company.url"
                   target="_blank"
@@ -156,7 +154,7 @@ useHead({
                   {{ company.name }}
                 </a>
               </h3>
-              <p>
+              <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
                 {{ company.about }}
               </p>
             </div>
