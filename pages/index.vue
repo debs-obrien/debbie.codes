@@ -114,6 +114,16 @@ const { data: podcasts } = await useAsyncData('podcasts-home',
 
         <VideoList v-if="videos !== null" :list="videos" />
       </section>
+
+      <section aria-labelledby="recent-podcasts" class="mt-12 sm:mt-16">
+        <NuxtLink to="/podcasts">
+          <AppSubtitle id="recent-podcasts">
+            Recent Podcasts
+          </AppSubtitle>
+        </NuxtLink>
+
+        <CardList v-if="podcasts !== null" :list="podcasts" section="podcasts" />
+      </section>
     </div>
   </div>
 </template>
