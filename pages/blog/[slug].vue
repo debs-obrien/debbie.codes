@@ -86,16 +86,16 @@ useHead({
 
         <Date :date="formattedDate" />
       </header>
-      <div class="rounded mb-4 sm:mb-6 lg:mb-8 overflow-hidden object-cover object-center center">
+      <div class="rounded mb-4 sm:mb-6 overflow-hidden object-cover object-center max-w-xl mx-auto">
         <NuxtImg
           :provider="article.provider"
           :src="article.image"
           :alt="article.title"
-          width="900"
-          height="600"
-          fit="fill"
+          width="600"
+          height="300"
+          fit="cover"
           format="webp"
-          class="rounded center mx-auto"
+          class="rounded center mx-auto w-full"
         />
       </div>
       <div class="prose mx-auto max-w-4xl mb-16 sm:mb-20 lg:mb-24 break-words">
