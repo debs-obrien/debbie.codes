@@ -101,12 +101,18 @@ useHead({
           class="rounded center mx-auto"
         />
       </div>
-        <div
-          class="grid grid-cols-4 gap-x-4 md:grid-cols-8 lg:grid-cols-12 lg:gap-x-6 mx-auto max-w-7xl prose mb-24 break-words"
-        >
-          <ContentRenderer :value="article" class="col-span-10 col-start-2 text-lg font-normal">
+        <div class="prose mx-auto max-w-4xl mb-24 break-words">
+          <ContentRenderer :value="article" class="text-lg font-normal">
             <template #empty>
-              <p>No content found.</p>
+              <template v-if="article.url">
+                <a :href="article.url" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-full text-primary hover:text-primary/80 transition-colors py-4">
+                  <span>Read on external site</span>
+                  <span class="ml-1">→</span>
+                </a>
+              </template>
+              <template v-else>
+                <p>No content found.</p>
+              </template>
             </template>
           </ContentRenderer>
         </div>
