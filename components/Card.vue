@@ -14,7 +14,7 @@ defineProps<{
         :target="item.url ? '_blank' : '_self'"
       >
         <NuxtImg
-          :provider="item.provider"
+          :provider="item.provider || 'cloudinary'"
           :src="item.image"
           :alt="item.title"
           width="272"

@@ -99,15 +99,7 @@ cypress/screenshots
 test-results/
 playwright-report/
 
-
-# Nuxt
-*.log*
-.nuxt
-.nitro
-.cache
-.output
-.env
-dist
+# Nuxt Content
 .data/content/contents.sqlite
 
 # Playwright
