@@ -4,7 +4,7 @@ test.beforeEach(async ({ page }) => {
   await page.goto('/blog/testing-color-mode');
 })
 
-test.fixme('blog has a heading, date, content and prev and next links', async ({ page }) => {
+test('blog has a heading, date, content and prev and next links', async ({ page }) => {
   await expect(page
     .getByRole('heading', { name: 'Testing a Sites Color Mode with Playwright' }))
     .toBeVisible();
