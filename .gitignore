@@ -108,6 +108,9 @@ playwright-report/
 .output
 .env
 dist
+.data/content/contents.sqlite
+
+# Playwright
 /test-results/
 /playwright-report/
 /playwright/.cache/
