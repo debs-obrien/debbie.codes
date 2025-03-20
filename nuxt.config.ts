@@ -44,6 +44,15 @@ export default defineNuxtConfig({
   content: {
     preview: {
       api: 'https://api.nuxt.studio'
+    },
+    highlight: {
+      theme: {
+        default: 'github-dark',
+        light: 'github-light',
+        dark: 'github-dark'
+      },
+      preload: ['json', 'js', 'ts', 'html', 'css', 'vue', 'bash', 'markdown'],
+      lineNumbers: true
     }
   },
 
