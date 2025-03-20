@@ -111,6 +111,3 @@ dist
 /test-results/
 /playwright-report/
 /playwright/.cache/
-
-# Content
-.data/content/contents.sqlite
