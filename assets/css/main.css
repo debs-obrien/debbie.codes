@@ -70,15 +70,16 @@ body {
 .prose pre {
   background-color: #f8f9fa;
   border: 1px solid #e9ecef;
-  border-radius: 0.5rem;
-  padding: 1.25rem;
-  margin: 1.5rem 0;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin: 2rem 0;
   overflow-x: auto;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .prose pre code {
   color: #24292e;
-  font-family: 'Fira Code', monospace;
+  font-family: 'Menlo', monospace;
   font-size: 0.875rem;
   line-height: 1.7;
 }
@@ -90,21 +91,18 @@ body {
   padding: 0.2em 0.4em;
   border-radius: 0.25rem;
   font-size: 0.875em;
-  font-family: 'Fira Code', monospace;
+  font-family: 'Menlo', monospace;
+  border: 1px solid #e5e7eb;
 }
 
 /* Dark mode code block styling */
 .dark .prose pre {
   background-color: #1e1e1e;
   border-color: #2d2d2d;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
 }
 
 .dark .prose pre code {
-  color: #e5e7eb;
-}
-
-.dark .prose :not(pre) > code {
-  background-color: #2d2d2d;
   color: #e5e7eb;
 }
 
@@ -123,6 +121,7 @@ body {
   -webkit-user-select: none;
   user-select: none;
   border-right: 1px solid #e5e7eb;
+  font-size: 0.8em;
 }
 
 .dark .prose pre code[data-line-numbers] > .line::before {
@@ -138,11 +137,13 @@ body {
 .prose pre::-webkit-scrollbar-track {
   background: #f1f1f1;
   border-radius: 4px;
+  margin: 0 4px;
 }
 
 .prose pre::-webkit-scrollbar-thumb {
   background: #c1c1c1;
   border-radius: 4px;
+  border: 2px solid #f1f1f1;
 }
 
 .prose pre::-webkit-scrollbar-thumb:hover {
@@ -155,6 +156,7 @@ body {
 
 .dark .prose pre::-webkit-scrollbar-thumb {
   background: #4b5563;
+  border-color: #2d2d2d;
 }
 
 .dark .prose pre::-webkit-scrollbar-thumb:hover {
