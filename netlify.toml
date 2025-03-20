@@ -1,8 +1,9 @@
 [build]
-  command = "npm run generate"
-  publish = "dist"
+  command = "npm run build"
+  publish = ".output/public"
   ignore = "git log -1 --pretty=%B | grep dependabot"
 
 
 [build.environment]
+  NODE_VERSION = "18"
 
