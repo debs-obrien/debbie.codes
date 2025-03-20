@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import type { BlogPost, Sections } from '~/types'
+import type { Sections } from '~/types'
 
 const { data: articles } = await useAsyncData('articles',
-  () => queryContent<BlogPost>('blog')
-    .where({ published: { $ne: false } })
-    .sort({ date: -1 })
-    .find(),
+  () => queryCollection('blog')
+    .order('date', 'DESC')
+    .all(),
 )
 
 const title: string = 'All Blog Posts'
@@ -19,10 +18,7 @@ useHead({
 </script>
 
 <template>
-  <main>
-    <AppTitle>{{ title }}</AppTitle>
-    <AppIntro>{{ description }}</AppIntro>
-    <Tags :section="section" />
+  <PageLayout :title="title" :description="description" :section="section">
     <ItemList v-if="articles !== null" :list="articles" :section="section" />
-  </main>
+  </PageLayout>
 </template>

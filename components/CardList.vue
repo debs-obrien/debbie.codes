@@ -12,7 +12,7 @@ defineProps<{
   >
     <li
       v-for="item of list"
-      :key="item.url || item._path"
+      :key="item.url || item.path"
       class="flex flex-col"
     >
       <Card :item="item" :section="section" />

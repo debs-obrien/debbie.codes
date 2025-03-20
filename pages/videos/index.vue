@@ -2,10 +2,9 @@
 import type { Sections, Video } from '~/types'
 
 const { data: videos } = await useAsyncData('videos',
-  () => queryContent<Video>('videos')
-    .where({ published: { $ne: false } })
-    .sort({ date: -1 })
-    .find(),
+  () => queryCollection('videos')
+    .order('date', 'DESC')
+    .all(),
 )
 
 const title: string = 'Videos'
@@ -19,10 +18,7 @@ useHead({
 </script>
 
 <template>
-  <main>
-    <AppTitle>{{ title }}</AppTitle>
-    <AppIntro>{{ description }}</AppIntro>
-    <Tags :section="section" />
+  <PageLayout :title="title" :description="description" :section="section">
     <VideoList v-if="videos !== null" :list="videos" />
-  </main>
+  </PageLayout>
 </template>

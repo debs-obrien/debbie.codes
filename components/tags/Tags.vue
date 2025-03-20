@@ -22,12 +22,11 @@ const flatten = (tags: Array<any>, key = 'tags') => {
   return _tags
 }
 
-const { data } = await useAsyncData(`tags-${props.section}`, () => queryContent(props.section)
-  .only(["tags"])
-  .where({ published: { $ne: false } })
-  .find());
+const { data } = await useAsyncData(`tags-${props.section}`, () => queryCollection(props.section)
+  .select('tags')
+  .all());
   
-const articleTags = [...new Set(flatten(data.value, 'tags'))];
+const articleTags = Array.isArray(data.value) ? [...new Set(flatten(data.value, 'tags'))] : [];
 const sortedArticleTags = articleTags.sort()
 </script>
 
@@ -42,7 +41,7 @@ const sortedArticleTags = articleTags.sort()
       <NuxtLink
 
         :to="`/${section}/tags/${tag}`"
-        class="px-2 py-1 !py-0.5 bg-slate-600 rounded-md transition-all hover:-translate-y-0.5 hover:bg-blue-500 whitespace-nowrap"
+        class="px-2 py-0.5 bg-slate-600 rounded-md transition-all hover:-translate-y-0.5 hover:bg-blue-500 whitespace-nowrap"
       >
         {{ replaceHyphen(tag) }}
       </NuxtLink>
@@ -52,6 +51,6 @@ const sortedArticleTags = articleTags.sort()
 
 <style scoped>
 .router-link-exact-active {
-  @apply bg-blue-500;
+  background-color: #3b82f6; /* Tailwind's bg-blue-500 */
 }
 </style>

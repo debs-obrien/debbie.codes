@@ -6,10 +6,10 @@ const {
 } = useRoute()
 
 const { data: courses } = await useAsyncData(`courses-${slug}`,
-  () => queryContent<Course>('courses')
-    .where({ published: { $ne: false }, tags: { $contains: slug } })
-    .sort({ date: -1 })
-    .find(),
+  () => queryCollection('courses')
+    .where('tags', 'LIKE', `%${slug}%`)
+    .order('date', 'DESC')
+    .all(),
 )
 
 const topic: string = replaceHyphen(slug as string)
@@ -24,11 +24,8 @@ useHead({
 </script>
 
 <template>
-  <main>
-    <AppTitle>{{ title }}</AppTitle>
-    <AppIntro>{{ description }}</AppIntro>
-    <Tags :section="section" />
+  <PageLayout :title="title" :description="description" :section="section">
     <ItemList v-if="courses !== null" :list="courses" :section="section" />
     <TagsNotFound v-else />
-  </main>
+  </PageLayout>
 </template>

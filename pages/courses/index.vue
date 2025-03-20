@@ -2,10 +2,9 @@
 import type { Course, Sections } from '~/types'
 
 const { data: courses } = await useAsyncData('courses',
-  () => queryContent<Course>('courses')
-    .where({ published: { $ne: false } })
-    .sort({ date: -1 })
-    .find(),
+  () => queryCollection('courses')
+    .order('date', 'DESC')
+    .all(),
 )
 
 const title: string = 'Courses'
@@ -19,10 +18,7 @@ useHead({
 </script>
 
 <template>
-  <main>
-    <AppTitle>{{ title }}</AppTitle>
-    <AppIntro>{{ description }}</AppIntro>
-    <Tags :section="section" />
+  <PageLayout :title="title" :description="description" :section="section">
     <ItemList v-if="courses !== null" :list="courses" :section="section" />
-  </main>
+  </PageLayout>
 </template>
