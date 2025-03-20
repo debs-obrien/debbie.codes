@@ -27,8 +27,7 @@
     "husky": "^9.1.7",
     "lint-staged": "^15.5.0",
     "lite-youtube-embed": "^0.3.3",
-    "nuxt": "^3.16.0",
-    "sitemap": "^8.0.0"
+    "nuxt": "^3.16.0"
   },
   "husky": {
     "hooks": {
