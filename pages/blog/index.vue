@@ -24,8 +24,9 @@ useHead({
     <BlogSearch
       :articles="articles || []"
       v-model:filteredArticles="filteredArticles"
+      :showImages="false"
     />
-    <ItemList v-if="filteredArticles.length > 0" :list="filteredArticles" :section="section" />
+    <ItemList v-if="filteredArticles.length > 0" :list="filteredArticles" :section="section" :showImages="false" />
     <div v-else class="text-center py-8">
       <p class="text-gray-600">No articles found matching your search.</p>
     </div>

@@ -3,6 +3,7 @@ import type { BlogPost } from '~/types'
 
 const props = defineProps<{
   articles: BlogPost[]
+  showImages?: boolean
 }>()
 
 const emit = defineEmits<{

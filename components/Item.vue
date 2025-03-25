@@ -4,12 +4,13 @@ import type { BlogPostPreview, CoursePreview, PodcastPreview, Sections } from '~
 defineProps<{
   item: BlogPostPreview | CoursePreview | PodcastPreview
   section: Sections
+  showImages?: boolean
 }>()
 </script>
 
 <template>
   <article class="grid grid-cols-4 gap-6 auto-cols-[minmax(0,_3fr)] py-4">
-    <div class="h-full w-full object-cover">
+    <div v-if="showImages !== false" class="h-full w-full object-cover">
       <NuxtLink
         :to="item.url || item.path"
         :target="item.url ? '_blank' : '_self'"
@@ -27,7 +28,7 @@ defineProps<{
       </NuxtLink>
     </div>
 
-    <div class="col-span-3">
+    <div :class="{ 'col-span-4': showImages === false, 'col-span-3': showImages !== false }">
       <NuxtLink
         :to="item.url || item.path"
         :target="item.url ? '_blank' : '_self'"
