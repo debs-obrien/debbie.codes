@@ -1,16 +1,19 @@
 <script setup lang="ts">
-import type { Sections, BlogPost } from '~/types'
+import type { BlogPost, Sections } from '~/types'
+
+const { tag } = useRoute().params
 
 const { data: articles } = await useAsyncData('articles',
   () => queryCollection('blog')
+    .where('tags', 'LIKE', `%${tag}%`)
     .order('date', 'DESC')
     .all(),
 )
 
 const filteredArticles = ref<BlogPost[]>([])
 
-const title: string = 'All Blog Posts'
-const description: string = 'Here\'s a list of all my blog posts'
+const title: string = `Blog Posts tagged with ${tag}`
+const description: string = `Here\'s a list of all my blog posts tagged with ${tag}`
 const section: Sections = 'blog'
 
 useHead({
@@ -30,4 +33,4 @@ useHead({
       <p class="text-gray-600">No articles found matching your search.</p>
     </div>
   </PageLayout>
-</template>
+</template> 
