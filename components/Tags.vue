@@ -60,4 +60,4 @@ const sortedArticleTags = articleTags.sort()
 .router-link-exact-active {
   background-color: #3b82f6; /* Tailwind's bg-blue-500 */
 }
-</style>
+</style> 
