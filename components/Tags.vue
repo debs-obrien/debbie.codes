@@ -25,21 +25,9 @@ const flatten = (tags: Array<any>, key = 'tags') => {
 const { data } = await useAsyncData(`tags-${props.section}`, () => queryCollection(props.section)
   .select('tags')
   .all());
-
-// Count occurrences of each tag
-const tagCounts = new Map<string, number>();
-if (Array.isArray(data.value)) {
-  const allTags = flatten(data.value, 'tags');
-  allTags.forEach(tag => {
-    tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1);
-  });
-}
-
-// Filter tags that have 4 or more items and sort them
-const articleTags = Array.from(tagCounts.entries())
-  .filter(([_, count]) => props.section === 'courses' || 'videos' || 'podcasts' || count >= 4)
-  .map(([tag]) => tag);
-const sortedArticleTags = articleTags.sort();
+  
+const articleTags = Array.isArray(data.value) ? [...new Set(flatten(data.value, 'tags'))] : [];
+const sortedArticleTags = articleTags.sort()
 </script>
 
 <template>
@@ -72,4 +60,4 @@ const sortedArticleTags = articleTags.sort();
 .router-link-exact-active {
   background-color: #3b82f6; /* Tailwind's bg-blue-500 */
 }
-</style>
+</style> 
