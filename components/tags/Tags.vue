@@ -37,7 +37,7 @@ if (Array.isArray(data.value)) {
 
 // Filter tags that have 4 or more items and sort them
 const articleTags = Array.from(tagCounts.entries())
-  .filter(([_, count]) => count >= 4)
+  .filter(([_, count]) => props.section === 'courses' || 'videos' || 'podcasts' || count >= 4)
   .map(([tag]) => tag);
 const sortedArticleTags = articleTags.sort();
 </script>
