@@ -106,3 +106,12 @@ The GitHub MCP Server provides a powerful way to integrate AI tools with GitHub'
 
 
 Remember to keep your personal access token secure and to only grant the permissions necessary for your use case.
+
+## Additional Resources
+
+Check out the following videos on the Playwright MCP Server:
+
+- [AI Goes Shopping for You with Playwright's MCP Server!](https://youtu.be/r3PzUlbfMXA?si=5g2luSzvTyppcOR2)
+- [Install Playwright MCP Server in VS Code – AI-Powered Web Automation!](https://youtu.be/cifdyJkKs04?si=BcXNHQe-tRIfxdaF)
+- [Install Playwright MCP Server in VS Code – AI-Powered Web Automation!](https://youtu.be/cifdyJkKs04?si=CfMk5y2hY3MFlfL6)
+- 
