@@ -1,7 +1,7 @@
 <template>
-  <h2 :id="id">
+  <h3 :id="id">
     <slot />
-  </h2>
+  </h3>
 </template>
 
 <script>
@@ -9,8 +9,8 @@ export default {
   props: {
     id: {
       type: String,
-      required: true
-    }
-  }
+      required: false,
+    },
+  },
 };
 </script>
