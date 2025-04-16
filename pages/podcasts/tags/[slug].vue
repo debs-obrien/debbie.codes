@@ -27,7 +27,7 @@ useHead({
   <main>
     <AppTitle>{{ title }}</AppTitle>
     <AppIntro>{{ description }}</AppIntro>
-    <Tags :section="section" />
+    <TagsFiltered :section="section" />
     <ItemList v-if="podcasts !== null" :list="podcasts" :section="section" />
     <TagsNotFound v-else />
   </main>

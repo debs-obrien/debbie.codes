@@ -1,11 +1,11 @@
 ---
-title: Getting Started with Playwright Testing
+title: Setting Up the Official GitHub MCP Server, A simple Guide
 date: 2025-04-16
 description: The GitHub MCP (Model Context Protocol) Server is a powerful tool that provides seamless integration with GitHub APIs, enabling advanced automation and interaction capabilities. This guide will walk you through how to set up and use the official GitHub MCP Server.
 image: v1648106423/debbie.codes/blog/2025/GitHub_MCP_server_2x_1_jizwlw
 ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1648106423/debbie.codes/blog/2025/GitHub_MCP_server_2x_1_jizwlw
 provider: cloudinary
-tags: [mcp, github, ai]
+tags: [MCP, AI]
 published: true
 ---
 
@@ -114,4 +114,3 @@ Check out the following videos on the Playwright MCP Server:
 - [AI Goes Shopping for You with Playwright's MCP Server!](https://youtu.be/r3PzUlbfMXA?si=5g2luSzvTyppcOR2)
 - [Install Playwright MCP Server in VS Code – AI-Powered Web Automation!](https://youtu.be/cifdyJkKs04?si=BcXNHQe-tRIfxdaF)
 - [Install Playwright MCP Server in VS Code – AI-Powered Web Automation!](https://youtu.be/cifdyJkKs04?si=CfMk5y2hY3MFlfL6)
-- 

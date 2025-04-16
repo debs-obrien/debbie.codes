@@ -13,7 +13,7 @@ defineProps<{
     <header v-if="title || description">
       <AppTitle v-if="title">{{ title }}</AppTitle>
       <AppIntro v-if="description">{{ description }}</AppIntro>
-      <Tags v-if="section" :section="section" />
+      <TagsFiltered v-if="section" :section="section" />
     </header>
     <slot />
   </main>

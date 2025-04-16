@@ -1,3 +1,4 @@
+// filepath: /Users/debbieobrien/workspace/debbie.codes/components/tags/TagsFiltered.vue
 <script setup lang="ts">
 import type { Sections } from '~/types'
 
