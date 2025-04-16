@@ -3,6 +3,7 @@ import type { BlogPostPreview, PodcastPreview, VideoPreview } from '~/types'
 
 const { data: articles } = await useAsyncData('articles-home',
   () => queryCollection('blog')
+    .order('date', 'DESC')
     .skip(1)
     .limit(6)
     .all()
