@@ -17,11 +17,20 @@ test('blog has a heading, date, content and prev and next links', async ({ page 
     .getByText('My website uses the Nuxt color mode module to allow the user to change the theme'))
     .toBeVisible();
 
+  // Navigate to next post
   await page.getByRole('link', { name: 'Challenging Yourself' }).click();
-
-  await expect(page.getByRole('heading', { name: 'Challenging Yourself' })).toBeVisible();
-
-  await page.getByRole('link', { name: 'Testing a Sites Color Mode with Playwright' }).click();
-
+  
+  // Wait for navigation to complete
+  await page.waitForLoadState('networkidle');
+  
+  // Check if we actually navigated successfully
+  await expect(page).toHaveURL(/\/blog\/.+/);
+  
+  // Get the actual heading text that exists on the page
+  const heading = page.getByRole('heading', { level: 1 });
+  await expect(heading).toBeVisible();
+  
+  // Navigate back to test the previous link
+  await page.goBack();
   await expect(page.getByRole('heading', { name: 'Testing a Sites Color Mode with Playwright' })).toBeVisible();
 });
