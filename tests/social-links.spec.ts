@@ -46,7 +46,7 @@ test.describe('social links in header', () => {
   });
 
   test('youTube link in header works', async ({ page }) => {
-    await page.context().route('https://www.youTube.com/**', route => route.fulfill({
+    await page.context().route('https://www.youtube.com/**', route => route.fulfill({
       body: '<html><body><h1>YouTube</h1></body></html>'
     }));
 
@@ -96,7 +96,7 @@ test.describe('social links in footer', () => {
   });
 
   test('youTube link in footer works', async ({ page }) => {
-    await page.context().route('https://www.youTube.com/**', route => route.fulfill({
+    await page.context().route('https://www.youtube.com/**', route => route.fulfill({
       body: '<html><body><h1>YouTube</h1></body></html>'
     }));
 
