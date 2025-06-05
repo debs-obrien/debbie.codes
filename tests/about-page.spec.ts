@@ -155,7 +155,6 @@ test.describe('About Page', () => {
     await expect(page.getByText('I am a senior Technical Program manager at Microsoft')).toBeVisible();
     await expect(page.getByText('With over 15 years experience in Frontend development')).toBeVisible();
   });
-  });
 
   test('personal information and interests are mentioned', async ({ page }) => {
     // Check personal details
@@ -164,6 +163,8 @@ test.describe('About Page', () => {
     await expect(page.getByText(/Taekwondo/)).toBeVisible();
     await expect(page.getByText(/4th degree black belt/)).toBeVisible();
     await expect(page.getByText(/Antarctica/)).toBeVisible();
+  });
+
   test('professional roles and experience are highlighted', async ({ page }) => {
     // Check professional experience mentions
     await expect(page.getByText('With over 15 years experience in Frontend development')).toBeVisible();
@@ -175,8 +176,6 @@ test.describe('About Page', () => {
     await expect(expertParagraph).toBeVisible();
     
     await expect(page.getByText('Nuxt Ambassador')).toBeVisible();
-    await expect(page.getByText('I am an international speaker')).toBeVisible();
-  });
     await expect(page.getByText(/international speaker/)).toBeVisible();
   });
 });

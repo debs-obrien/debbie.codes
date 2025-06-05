@@ -8,15 +8,18 @@ test.describe('Blog Search Functionality', () => {
   test('search field is present and functional', async ({ page, isMobile }) => {
     if (!isMobile) {
       // Check search input is visible
-      const searchInput = page.getByRole('textbox', { name: 'Search' });
+      const searchInput = page.getByPlaceholder('Search articles...');
       await expect(searchInput).toBeVisible();
-      await expect(searchInput).toHaveAttribute('placeholder', 'Search');
+      await expect(searchInput).toHaveAttribute('placeholder', 'Search articles...');
     }
   });
 
   test('search filters blog posts correctly', async ({ page, isMobile }) => {
     if (!isMobile) {
-      const searchInput = page.getByRole('textbox', { name: 'Search' });
+      const searchInput = page.getByPlaceholder('Search articles...');
+      
+      // Wait for articles to be visible before counting
+      await expect(page.getByRole('article').first()).toBeVisible();
       
       // Get initial count of articles
       const initialArticles = page.getByRole('article');
@@ -46,7 +49,7 @@ test.describe('Blog Search Functionality', () => {
 
   test('search works with different search terms', async ({ page, isMobile }) => {
     if (!isMobile) {
-      const searchInput = page.getByRole('textbox', { name: 'Search' });
+      const searchInput = page.getByPlaceholder('Search articles...');
       
       // Test search for "nuxt"
       await searchInput.fill('nuxt');
@@ -69,7 +72,10 @@ test.describe('Blog Search Functionality', () => {
 
   test('clearing search shows all posts', async ({ page, isMobile }) => {
     if (!isMobile) {
-      const searchInput = page.getByRole('textbox', { name: 'Search' });
+      const searchInput = page.getByPlaceholder('Search articles...');
+      
+      // Wait for articles to be visible before counting
+      await expect(page.getByRole('article').first()).toBeVisible();
       
       // Get initial count
       const initialCount = await page.getByRole('article').count();
@@ -90,11 +96,15 @@ test.describe('Blog Search Functionality', () => {
 
   test('search with no results shows appropriate state', async ({ page, isMobile }) => {
     if (!isMobile) {
-      const searchInput = page.getByRole('textbox', { name: 'Search' });
+      // Wait for articles to be visible first
+      await expect(page.getByRole('article').first()).toBeVisible();
+      
+      const searchInput = page.getByPlaceholder('Search articles...');
       
       // Search for something that definitely won't exist
-      await searchInput.fill('xyz123nonexistent');
-      await page.waitForTimeout(500);
+      await searchInput.click();
+      await searchInput.type('xyz123nonexistent', { delay: 50 });
+      await page.waitForTimeout(1000);
       
       // Should have no articles
       const articleCount = await page.getByRole('article').count();
