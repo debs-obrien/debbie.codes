@@ -44,9 +44,9 @@ test.describe('Home Page Featured Content', () => {
     // Check for "Read more" link
     await expect(page.getByRole('link', { name: 'read more about Setting Up the Official GitHub MCP Server, A simple Guide' })).toBeVisible();
     
-    // Check for post tags
-    await expect(page.getByRole('link', { name: 'MCP' })).toBeVisible();
-    await expect(page.getByRole('link', { name: 'AI' })).toBeVisible();
+    // Check for post tags (use first to avoid ambiguity)
+    await expect(page.getByRole('link', { name: 'MCP' }).first()).toBeVisible();
+    await expect(page.getByRole('link', { name: 'AI' }).first()).toBeVisible();
   });
 
   test('recent blog posts section displays correctly', async ({ page }) => {
@@ -154,13 +154,13 @@ test.describe('Home Page Featured Content', () => {
     
     await page.goBack();
     
-    // Test tag links
-    await page.getByRole('link', { name: 'MCP' }).click();
+    // Test tag links (click on the tag links specifically, not the post title)
+    await page.locator('a[href="/blog/tags/MCP"]:has-text("MCP")').first().click();
     await expect(page).toHaveURL('/blog/tags/MCP');
     
     await page.goBack();
     
-    await page.getByRole('link', { name: 'AI' }).click();
+    await page.locator('a[href="/blog/tags/AI"]:has-text("AI")').first().click();
     await expect(page).toHaveURL('/blog/tags/AI');
   });
 
@@ -189,12 +189,12 @@ test.describe('Home Page Featured Content', () => {
     await expect(starPopup).toHaveURL(/stars\.github\.com/);
     await starPopup.close();
     
-    // Test Nuxt Ambassador link (external)
+    // Test Nuxt Ambassador link (external) - URL has changed to v2.nuxt.com
     const [nuxtPopup] = await Promise.all([
       page.waitForEvent('popup'),
       page.getByRole('link', { name: 'Nuxt Ambassador' }).click()
     ]);
-    await expect(nuxtPopup).toHaveURL(/nuxtjs\.org/);
+    await expect(nuxtPopup).toHaveURL(/nuxt\.com/);
     await nuxtPopup.close();
   });
 

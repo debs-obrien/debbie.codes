@@ -160,9 +160,10 @@ test.describe('Podcast Tag Filtering', () => {
     // Check that tag filter list is still visible
     await expect(page.getByRole('list', { name: 'topics' })).toBeVisible();
     
-    // Check that all tag options are still available
-    await expect(page.getByRole('link', { name: 'All' })).toBeVisible();
-    await expect(page.getByRole('link', { name: 'playwright' })).toBeVisible();
-    await expect(page.getByRole('link', { name: 'nuxt' })).toBeVisible();
+    // Check that all tag options are still available (use the topic list container to be specific)
+    const topicsList = page.getByRole('list', { name: 'topics' });
+    await expect(topicsList.getByRole('link', { name: 'All' })).toBeVisible();
+    await expect(topicsList.getByRole('link', { name: 'playwright' })).toBeVisible();
+    await expect(topicsList.getByRole('link', { name: 'nuxt' })).toBeVisible();
   });
 });

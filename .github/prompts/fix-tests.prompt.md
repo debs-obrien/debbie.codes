@@ -4,13 +4,17 @@ description: 'fixing broken tests'
 ---
 # Fixing Broken Tests
 
-When you encounter broken tests in a Playwright project, follow these steps to identify and fix the issues:
-1. **Run the Tests**: Start by running the tests to see which ones are failing. Use the command npx playwright test followed by the file name.
+Make sure the local dev server is running before starting the tests. 
+```bash
+npm run dev
+```
+
+1. **Run the Tests**: Start by running the tests to see which ones are failing.
    ```bash
-   npx playwright test <file-name>
+   npx playwright test
    ```
 
-2. **Review the Output**: Look at the output of the test run to identify which tests are failing. The output will provide error messages and stack traces that can help you understand the issues.
+2. **Review the Output**: Look at the output of the test run to identify which tests are failing. The output will provide error messages and stack traces that can help you understand the issues. 
 
 3. **Investigate the Failures**: For each failing test:
    - Read the error messages and stack traces to understand what went wrong.
@@ -26,7 +30,9 @@ When you encounter broken tests in a Playwright project, follow these steps to i
    ```
    This will run only the tests that failed in the last run, allowing you to focus on the issues you are currently addressing.
 
-6. **Use Playwright MCP**: If you need to manually test the site, use the Playwright MCP (Model Context Protocol) to navigate, click, and take snapshots of the page. This can help you understand the layout and functionality of the page better.
+6. **Use Playwright MCP**: Use the Playwright MCP SERVER to check the tests are passing. manually test it like a manual tester to make sure it works as expected then make any fixes needed to the tests or the codebase.
+Then create a pr with a detailed description of the changes made.
+
 7. **Final Run**: Once you have fixed all the issues, run all tests to ensure everything is working correctly:
    ```bash
    npx playwright test

@@ -17,10 +17,12 @@ test('blog has a heading, date, content and prev and next links', async ({ page 
     .getByText('My website uses the Nuxt color mode module to allow the user to change the theme'))
     .toBeVisible();
 
+  // Test next post navigation
   await page.getByRole('link', { name: 'Challenging Yourself' }).click();
 
   await expect(page.getByRole('heading', { name: 'Challenging Yourself' })).toBeVisible();
 
+  // Navigate back to the original post
   await page.getByRole('link', { name: 'Testing a Sites Color Mode with Playwright' }).click();
 
   await expect(page.getByRole('heading', { name: 'Testing a Sites Color Mode with Playwright' })).toBeVisible();

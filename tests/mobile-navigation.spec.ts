@@ -24,12 +24,13 @@ test.describe('Mobile Navigation', () => {
     // Click hamburger menu
     await page.getByRole('button', { name: 'open menu' }).click();
     
-    // Check that navigation links become visible
-    await expect(page.getByRole('link', { name: 'About' })).toBeVisible();
-    await expect(page.getByRole('link', { name: 'Videos' })).toBeVisible();
-    await expect(page.getByRole('link', { name: 'Podcasts' })).toBeVisible();
-    await expect(page.getByRole('link', { name: 'Courses' })).toBeVisible();
-    await expect(page.getByRole('link', { name: 'Blog' })).toBeVisible();
+    // Check that navigation links become visible (use navigation role to be more specific)
+    const navigation = page.getByRole('navigation');
+    await expect(navigation.getByRole('link', { name: 'About' })).toBeVisible();
+    await expect(navigation.getByRole('link', { name: 'Videos' })).toBeVisible();
+    await expect(navigation.getByRole('link', { name: 'Podcasts' })).toBeVisible();
+    await expect(navigation.getByRole('link', { name: 'Courses' })).toBeVisible();
+    await expect(navigation.getByRole('link', { name: 'Blog' })).toBeVisible();
     
     // Check that social media links are also visible
     await expect(page.getByRole('banner').getByRole('link', { name: 'twitter' })).toBeVisible();
@@ -45,8 +46,8 @@ test.describe('Mobile Navigation', () => {
     // Open hamburger menu
     await page.getByRole('button', { name: 'open menu' }).click();
     
-    // Click on Blog link
-    await page.getByRole('link', { name: 'Blog' }).click();
+    // Click on Blog link (use navigation role to be more specific)
+    await page.getByRole('navigation').getByRole('link', { name: 'Blog' }).click();
     
     // Should navigate to blog page
     await expect(page).toHaveURL('/blog');
@@ -87,21 +88,21 @@ test.describe('Mobile Navigation', () => {
   test('mobile menu works across different pages', async ({ page }) => {
     // Start on home page
     await page.getByRole('button', { name: 'open menu' }).click();
-    await page.getByRole('link', { name: 'Videos' }).click();
+    await page.getByRole('navigation').getByRole('link', { name: 'Videos' }).click();
     
     // Should be on videos page
     await expect(page).toHaveURL('/videos');
     
     // Open menu again and navigate to another page
     await page.getByRole('button', { name: 'open menu' }).click();
-    await page.getByRole('link', { name: 'About' }).click();
+    await page.getByRole('navigation').getByRole('link', { name: 'About' }).click();
     
     // Should be on about page
     await expect(page).toHaveURL('/about');
     
     // Verify menu still works
     await page.getByRole('button', { name: 'open menu' }).click();
-    await expect(page.getByRole('link', { name: 'Courses' })).toBeVisible();
+    await expect(page.getByRole('navigation').getByRole('link', { name: 'Courses' })).toBeVisible();
   });
 
   test('mobile menu hamburger icon accessibility', async ({ page }) => {
@@ -115,7 +116,7 @@ test.describe('Mobile Navigation', () => {
     await hamburgerButton.press('Enter');
     
     // Menu should open
-    await expect(page.getByRole('link', { name: 'About' })).toBeVisible();
+    await expect(page.getByRole('navigation').getByRole('link', { name: 'About' })).toBeVisible();
   });
 
   test('mobile menu on blog page with search functionality', async ({ page }) => {
@@ -125,10 +126,9 @@ test.describe('Mobile Navigation', () => {
     // Open mobile menu
     await page.getByRole('button', { name: 'open menu' }).click();
     
-    // Check that all navigation options are available
-    await expect(page.getByRole('link', { name: 'Home', exact: false })).toBeVisible();
-    await expect(page.getByRole('link', { name: 'About' })).toBeVisible();
-    await expect(page.getByRole('link', { name: 'Videos' })).toBeVisible();
+    // Check that all navigation options are available (no Home link in navigation)
+    await expect(page.getByRole('navigation').getByRole('link', { name: 'About' })).toBeVisible();
+    await expect(page.getByRole('navigation').getByRole('link', { name: 'Videos' })).toBeVisible();
     
     // Close menu and verify search functionality still works
     await page.getByRole('button', { name: 'open menu' }).click();
