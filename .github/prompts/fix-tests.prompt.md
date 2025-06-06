@@ -24,9 +24,9 @@ npm run dev
     - If the issue is with the test code (e.g., incorrect selectors, assertions, or setup), fix the test code to make it pass.
     - If the issue is with the application code (e.g., a bug in the feature being tested), fix the application code to resolve the issue.
 
-5. **Re-run the Tests**: After making changes, re-run the tests to see if the issues are resolved. Use the command:
+5. **Re-run the Tests**: After making changes, re-run only the last failed tests to see if the issues are resolved. Use the command:
    ```bash
-   npx playwright test <filename>
+   npx playwright test --last-failed
    ```
    This will run only the tests that failed in the last run, allowing you to focus on the issues you are currently addressing.
 
