@@ -7,7 +7,7 @@ test.beforeEach(async ({ page }) => {
 })
 
 test('home contains name and title', async ({ page }) => {
-  await expect(page.getByRole('heading', { name: /Debbie O'Brien/i })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Debbie O\'Brien', level: 1 })).toBeVisible();
   await expect(page.getByText('Principal Technical Program Manager at Microsoft')).toBeVisible();
 });
 
