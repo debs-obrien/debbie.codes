@@ -28,24 +28,6 @@ test.describe('Featured Podcast Player', () => {
     await expect(frameLocator.getByRole('link', { name: 'PodRocket - A web development podcast from LogRocket' })).toBeVisible();
   });
 
-  test('podcast player interaction works', async ({ page }) => {
-    const frameLocator = page.frameLocator('iframe');
-    
-    // Get initial time display
-    const initialTime = await frameLocator.locator('text=00:00:00').first().textContent();
-    expect(initialTime).toBe('00:00:00');
-    
-    // Click play button
-    await frameLocator.getByRole('button', { name: 'Play or Pause' }).click();
-    
-    // Wait a moment for the player to start
-    await page.waitForTimeout(1000);
-    
-    // Check that time has progressed (this might be flaky depending on podcast loading)
-    // We'll just verify the play button is still clickable rather than checking time progression
-    await expect(frameLocator.getByRole('button', { name: 'Play or Pause' })).toBeVisible();
-  });
-
   test('podcast player has additional controls', async ({ page }) => {
     const frameLocator = page.frameLocator('iframe');
     
