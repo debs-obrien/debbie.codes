@@ -2,10 +2,7 @@
 title: Letting Playwright MCP explore your site and write your tests
 date: 2025-06-18
 description: Learn how to use Playwright MCP (Model Context Protocol) to explore your website and automatically generate comprehensive tests, making web testing more efficient and thorough.
-image: v1734624000/debbie.codes/blog/2024/playwright-mcp_2x.png
-ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1734624000/debbie.codes/blog/2024/playwright-mcp_2x.png
-provider: cloudinary
-tags: [playwright, testing, mcp, automation]
+tags: [playwright, testing]
 published: true
 loading: eager
 ---
