@@ -7,7 +7,7 @@ const { data: articles } = await useAsyncData('articles',
     .all(),
 )
 
-const filteredArticles = ref<BlogPost[]>([])
+const filteredArticles = ref<BlogPost[]>(articles.value || [])
 
 const title: string = 'All Blog Posts'
 const description: string = 'Here\'s a list of all my blog posts'
