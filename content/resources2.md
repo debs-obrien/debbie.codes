@@ -73,7 +73,9 @@ List of all my courses, podcasts, opensource projects and blog posts
 
 ### Dev.to
 
-[Various posts on Dev.to](https://dev.to/debs_obrien)
+- [Letting Playwright MCP explore your site and write your tests](https://dev.to/debs_obrien/letting-playwright-mcp-explore-your-site-and-write-your-tests-mf1)
+- [Generate Playwright tests without code access using MCP and Copilot](https://dev.to/debs_obrien/generate-playwright-tests-without-code-access-using-mcp-and-copilot-2m05)
+- [Various other posts on Dev.to](https://dev.to/debs_obrien)
 
 ### Vue Dose
 

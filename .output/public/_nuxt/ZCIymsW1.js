@@ -1,1 +1,0 @@
-import{l as r,f as o,k as s,I as n}from"./DR8EPS0E.js";const a={props:{id:{type:String,required:!0}}},c=["id"];function d(e,i,t,p,_,f){return s(),o("h2",{id:t.id},[n(e.$slots,"default")],8,c)}const u=r(a,[["render",d]]);export{u as default};
