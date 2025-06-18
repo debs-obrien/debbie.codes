@@ -10,99 +10,105 @@ published: true
 loading: eager
 ---
 
-One of the most exciting developments in automated testing is the ability to generate comprehensive Playwright tests without having access to your application's source code. Using MCP (Model Context Protocol) combined with GitHub Copilot, you can now create robust test suites for any website, whether it's your own application or a third-party service.
+Getting GitHub Copilot to write end-to-end tests usually requires giving it access to your source code. That’s because Copilot on its own can’t open a browser, explore a webpage, or understand how a UI behaves, so it lacks the context needed to generate accurate tests.
 
-## The Challenge of Black-Box Testing
+But that changes with **Playwright MCP (Model Context Protocol)**.
 
-Traditionally, testing applications without source code access has been challenging. You need to:
+An MCP acts as a bridge between Copilot and the real browser, allowing it to open websites, interact with UI elements, and take snapshots of the page. This unlocks a whole new capability: generating Playwright tests from natural language instructions, even when you don’t have access to the application’s codebase.
 
-- Understand the application's functionality through exploration
-- Identify all interactive elements and their expected behaviors
-- Create comprehensive test scenarios
-- Maintain tests as the application evolves
+In this post, we’ll show how Copilot, with the help of the Playwright MCP, can generate, run, and validate E2E tests just by telling it what you want in plain English and with no access to the source code.
 
-## Enter MCP and Copilot
 
-The combination of MCP and GitHub Copilot changes the game entirely. Here's how this powerful duo works:
+## 🧠 Why Not Just Use Copilot Alone?
 
-### MCP (Model Context Protocol)
-MCP acts as a bridge that allows AI to interact with your web applications in a structured way. It can:
-- Navigate through web pages
-- Interact with elements
-- Understand application state
-- Capture application behavior
+GitHub Copilot is powerful—but it typically works best when it has access to your source code. If you're only interacting with a web app in the browser and need to generate tests, Copilot doesn’t have the context it needs.
 
-### GitHub Copilot
-Copilot brings AI-powered code generation to the mix, helping to:
-- Generate test code based on observed behavior
-- Create meaningful assertions
-- Structure test files properly
-- Suggest edge cases and scenarios
+That's where the **Model Context Protocol (MCP)** changes the game. It gives Copilot the ability to interact with the browser through a real-time interface, gather contextual data like **ARIA snapshots**, and perform UI actions that can be converted into executable Playwright tests.
 
-## How It Works
 
-The process is surprisingly straightforward:
+## 🛠️ Setting Up the Test Prompt
 
-1. **Set up MCP**: Configure the MCP server to connect to your target website
-2. **AI Exploration**: Let the AI explore the application through MCP
-3. **Test Generation**: Copilot generates Playwright tests based on the exploration
-4. **Refinement**: Review and refine the generated tests
+We start with a custom **test generation prompt** inside a `.github/prompts/generate.prompt.md` file. It instructs Copilot to act as a test generator and use all available tools through the MCP agent.
 
-## Benefits of This Approach
+```md
+- You are a playwright test generator.
+- You are given a scenario and you need to generate a playwright test for it.
+- DO NOT generate test code based on the scenario alone. 
+- DO run steps one by one using the tools provided by the Playwright MCP.
+- Only after all steps are completed, emit a Playwright TypeScript test that uses @playwright/test based on message history
+- Save generated test file in the tests directory
+- Execute the test file and iterate until the test passes
+```
 
-### No Source Code Required
-You can test any website, whether it's your own application, a competitor's site, or a third-party service.
+Here’s a sample instruction we give to Copilot in plain English:
 
-### Rapid Test Creation
-Generate comprehensive test suites in minutes rather than hours or days.
+```md
+Generate a Playwright test for the following scenario:
+1. Navigate to https://debs-obrien.github.io/playwright-movies-app
+2. search for 'Garfield'
+3. verify the movie is in the list
+```
 
-### Objective Testing
-Since the AI doesn't have preconceived notions about how the application should work, it can discover unexpected behaviors.
+From here, Copilot and MCP take over.
 
-### Continuous Discovery
-As the application changes, the AI can re-explore and update tests accordingly.
 
-## Best Practices
+## 🌐 From Browser Interaction to Test Code
 
-### Start with Clear Objectives
-Define what you want to test before beginning the exploration phase.
+Once the command is triggered in Copilot Chat (using **Cloud 3.5 Sonnet** in this example), the MCP spins up a browser session and starts executing the steps.
 
-### Review Generated Tests
-Always review and validate the generated tests to ensure they meet your quality standards.
+### Key highlights:
+- It navigates to the given URL using the Playwright MCP server.
+- It encounters a challenge locating the search field, so it uses a **page snapshot** to analyze the DOM.
+- It identifies the right input, types “Garfield,” and proceeds.
+- Finally, it auto-generates a Playwright test using those interactions.
 
-### Combine with Manual Testing
-Use AI-generated tests as a foundation, but supplement with manual test cases for critical scenarios.
+The MCP provides Copilot with rich contextual insight about the page, like a vision system for your LLM.
 
-### Maintain Test Hygiene
-Keep your test suites organized and remove redundant or obsolete tests.
 
-## Real-World Applications
+## ✅ Validating the Test
 
-This approach is particularly valuable for:
-- **Competitive Analysis**: Testing competitor websites to understand their functionality
-- **Integration Testing**: Testing third-party services your application depends on
-- **Regression Testing**: Ensuring external services work as expected
-- **Accessibility Testing**: Validating that external sites meet accessibility standards
+Because our prompt included test validation, Copilot runs the test it just wrote, and it passes ✅
 
-## Getting Started
+```ts
+import { test, expect } from '@playwright/test';
 
-To begin generating tests without code access:
+test('Movie search - Search for a movie by title', async ({ page }) => {
+  // Navigate to the movies app
+  await page.goto('https://debs-obrien.github.io/playwright-movies-app');
 
-1. Set up a Playwright project
-2. Configure MCP for web exploration
-3. Enable GitHub Copilot in your development environment
-4. Start the exploration and generation process
+  // Click on the search button to activate the search input
+  await page.getByRole('search').click();
+  
+  // Type 'Garfield' into the search input and press Enter
+  await page.getByRole('textbox', { name: 'Search Input' }).fill('Garfield');
+  await page.getByRole('textbox', { name: 'Search Input' }).press('Enter');
 
-## The Future of Testing
+  // Verify that 'The Garfield Movie' appears in the search results
+  await expect(page.getByRole('heading', { name: 'The Garfield Movie', level: 2 })).toBeVisible();
+});
+```
 
-This approach represents a significant shift in how we think about testing. We're moving from a world where testing requires intimate knowledge of the codebase to one where AI can understand and test applications just by interacting with them.
 
-## Conclusion
+🔁 What’s Next?
+From here, you can:
+- Review or refine the test
+- Use GitHub MCP to open a pull request
+- Merge it into your test suite
 
-The combination of MCP and GitHub Copilot for generating Playwright tests opens up new possibilities for testing workflows. Whether you're testing your own applications or exploring external services, this approach provides a powerful way to create comprehensive test suites without needing source code access.
+And remember this all happened without needing access to the codebase.
 
-As AI continues to evolve, we can expect even more sophisticated testing capabilities that will make our applications more reliable and robust.
+💡 Why This Matters
+This workflow is a major win for:
 
----
+- QA testers in black-box environments
+- Agencies testing external or client-owned websites
+- Regulated industries with restricted code access
+- Developers wanting to speed up test creation with natural language
 
-*This post was originally published on [Dev.to](https://dev.to/debs_obrien/generate-playwright-tests-without-code-access-using-mcp-and-copilot-2m05).*
+🎬 Watch It in Action
+Want to see the full demo? Watch the YouTube video and experience how easy it is to generate reliable Playwright tests with the Playwright MCP and Copilot: [Watch the Demo](https://youtu.be/AaCj939XIQ4)
+
+🎉 Final Thoughts
+The combination of Playwright, Copilot, and the Model Context Protocol (MCP) unlocks a new level of intelligent automation. 
+
+Go give it a try. Happy testing!
