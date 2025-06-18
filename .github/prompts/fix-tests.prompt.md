@@ -9,7 +9,7 @@ Make sure the local dev server is running before starting the tests.
 npm run dev
 ```
 
-1. **Run the Tests**: Start by running the tests to see which ones are failing.
+1. **Run the Tests**: run the tests to see which ones are failing.
    ```bash
    npx playwright test
    ```
