@@ -8,21 +8,8 @@ defineProps<{
 </script>
 
 <template>
-  <article class="bg-white dark:bg-gray-900 container mx-auto my-5 p-5 lg:-mx-6 lg:flex lg:items-center">
-    <NuxtLink :to="item.path" :aria-label="item.title">
-      <NuxtImg
-        :provider="item.provider"
-        :src="item.image"
-        :alt="item.title"
-        width="680"
-        height="280"
-        fit="fill"
-        format="webp"
-        class="scale-90 transition-all duration-400 hover:scale-100 rounded"
-      />
-    </NuxtLink>
-
-    <div class="mt-6 lg:w-1/2 lg:mt-0 lg:mx-6">
+  <article class="bg-white dark:bg-gray-900 container mx-auto my-5 p-5 lg:-mx-6">
+    <div class="lg:mx-6">
       <TagsList :tags="item.tags" section="blog" />
 
       <NuxtLink

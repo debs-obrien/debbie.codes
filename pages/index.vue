@@ -34,16 +34,6 @@ const { data: podcasts } = await useAsyncData('podcasts-home',
 <template>
   <div>
     <div class="hero_texts text-center px-4 sm:px-6">
-      <div class="hero_image flex justify-center">
-        <NuxtImg
-          provider="cloudinary"
-          class="rounded-full mb-4 mt-8 profile-pic border-white border"
-          src="c_fill,ar_1:1,g_auto,r_max,q_auto,fl_lossy,f_auto/v1589119213/debbie.codes/debbie-thumb_clt00n"
-          alt="Debbie O'Brien"
-          quality="80"
-          format="webp"
-        />
-      </div>
       <h1 class="name dark:text-white uppercase mb-4 text-2xl sm:text-3xl">
         Debbie
         <span class="text-primary">O'Brien</span>

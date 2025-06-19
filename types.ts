@@ -5,7 +5,7 @@ interface BaseContent {
   date: string,
   description: string,
   tags: string[],
-  image: string,
+  image?: string,
   url?: string,
   path?: string
 }
@@ -19,7 +19,7 @@ export interface Video extends BaseContent {
 
 export interface Podcast extends BaseContent {
   host: string,
-  provider: string
+  provider?: string
 }
 
 export interface Course extends BaseContent {
@@ -28,8 +28,8 @@ export interface Course extends BaseContent {
 }
 
 export interface BlogPost extends BaseContent {
-  ogimage: string,
-  provider: string,
+  ogimage?: string,
+  provider?: string,
   published: boolean
 }
 
