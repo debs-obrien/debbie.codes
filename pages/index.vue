@@ -32,9 +32,9 @@ const { data: podcasts } = await useAsyncData('podcasts-home',
 </script>
 
 <template>
-  <div>
+  <div class="pt-16">
     <div class="hero_texts text-center px-4 sm:px-6">
-      <h1 class="name dark:text-white uppercase mb-4 text-2xl sm:text-3xl">
+      <h1 class="name dark:text-white uppercase mb-4 text-2xl sm:text-3xl mt-8">
         Debbie
         <span class="text-primary">O'Brien</span>
       </h1>
