@@ -84,6 +84,9 @@ const { data: podcasts } = await useAsyncData('podcasts-home',
       <AppSubtitle id="featured-posts">Featured Posts</AppSubtitle>
       <FeaturedSection v-if="featuredPosts !== null" aria-labelledby="featured-posts" :items="featuredPosts" section="blog" />
 
+      <AppSubtitle id="featured-podcast" class="mt-12 sm:mt-16">Featured Podcast</AppSubtitle>
+      <FeaturedPodcast aria-labelledby="featured-podcast" />
+
       <section aria-labelledby="recent-posts" class="mt-12 sm:mt-16">
         <NuxtLink to="/blog">
           <AppSubtitle id="recent-posts">
