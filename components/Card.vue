@@ -7,7 +7,7 @@ defineProps<{
 </script>
 
 <template>
-  <article class="container bg-white shadow-2xl rounded-2xl p-5">
+  <article class="container bg-white shadow-2xl rounded-2xl p-5 h-full">
     <div>
       <NuxtLink
         :to="item.url || item.path"

@@ -9,11 +9,11 @@ const { data: articles } = await useAsyncData('articles-home',
     .all()
 )
 
-const { data: featuredPost } = await useAsyncData('featured-article',
+const { data: featuredPosts } = await useAsyncData('featured-article',
   () => queryCollection('blog')
     .order('date', 'DESC')
-    .limit(1)
-    .first()
+    .limit(2)
+    .all()
 )
 
 const { data: videos } = await useAsyncData('videos-home',
@@ -81,11 +81,8 @@ const { data: podcasts } = await useAsyncData('podcasts-home',
     </div>
 
     <div class="px-4 sm:px-6">
-      <AppSubtitle id="featured-posts">Featured Post</AppSubtitle>
-      <FeaturedSection v-if="featuredPost !== null" aria-labelledby="featured-posts" :item="featuredPost" section="blog" />
-
-      <AppSubtitle id="featured-posts">Featured Podcast</AppSubtitle>
-      <FeaturedPodcast v-if="featuredPost !== null" aria-labelledby="featured-podcast" />
+      <AppSubtitle id="featured-posts">Featured Posts</AppSubtitle>
+      <FeaturedSection v-if="featuredPosts !== null" aria-labelledby="featured-posts" :items="featuredPosts" section="blog" />
 
       <section aria-labelledby="recent-posts" class="mt-12 sm:mt-16">
         <NuxtLink to="/blog">
