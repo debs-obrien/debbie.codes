@@ -25,47 +25,52 @@ test.describe('Home Page Featured Content', () => {
 
   test('featured post section displays correctly', async ({ page }) => {
     // Check for section heading
-    await expect(page.getByRole('heading', { name: 'Featured Post' })).toBeVisible();
-    
+    await expect(page.getByRole('heading', { name: 'Featured Posts' })).toBeVisible();
+
     // Check for featured post article
-    const featuredPost = page.getByRole('article', { name: 'Featured Post' });
-    await expect(featuredPost).toBeVisible();
-    
-    // Check for post title link
-    await expect(page.getByRole('link', { name: 'Setting Up the Official GitHub MCP Server, A simple Guide' }).first()).toBeVisible();
-    
-    // Check for post image
-    const postImage = page.getByRole('img', { name: 'Setting Up the Official GitHub MCP Server, A simple Guide' });
-    await expect(postImage).toBeVisible();
-    
-    // Check for post excerpt
-    await expect(page.getByText('The GitHub MCP (Model Context Protocol) Server')).toBeVisible();
-    
-    // Check for "Read more" link
-    await expect(page.getByRole('link', { name: 'read more about Setting Up the Official GitHub MCP Server, A simple Guide' })).toBeVisible();
-    
-    // Check for post tags (use first to avoid ambiguity)
-    await expect(page.getByRole('link', { name: 'MCP' }).first()).toBeVisible();
-    await expect(page.getByRole('link', { name: 'AI' }).first()).toBeVisible();
+    const featuredArticles = page.getByRole('article').filter({ hasText: 'Read more' });
+    await expect(featuredArticles).toHaveCount(2);
+
+    // Get the first article for dynamic checks
+    const firstArticle = featuredArticles.first();
+
+    // Check for post title link on first article
+    const titleLink = firstArticle.getByRole('link').filter({ hasNotText: 'Read more' }).filter({ hasNotText: /^[A-Z][a-z]+$/ }).first();
+    await expect(titleLink).toBeVisible();
+    await expect(titleLink).toHaveAttribute('href', /.+/);
+
+    // Check for post excerpt on first article
+    const excerpt = firstArticle.locator('p');
+    await expect(excerpt).toBeVisible();
+    await expect(excerpt).not.toBeEmpty();
+
+    // Check for "Read more" link on first article
+    const readMoreLink = firstArticle.getByRole('link', { name: /read more/ });
+    await expect(readMoreLink).toBeVisible();
+    await expect(readMoreLink).toHaveAttribute('href', /.+/);
+
+    // Check for post tags on first article
+    const tags = firstArticle.getByRole('list').getByRole('link');
+    await expect(tags.first()).toBeVisible();
+    await expect(tags.first()).toHaveAttribute('href', /.+/);
   });
 
   test('recent blog posts section displays correctly', async ({ page }) => {
     const blogSection = page.getByRole('region', { name: 'Recent Blog Posts' });
     await expect(blogSection).toBeVisible();
-    
+
     // Check for section heading with link
     await expect(blogSection.getByRole('heading', { name: 'Recent Blog Posts' })).toBeVisible();
     await expect(blogSection.getByRole('link', { name: 'Recent Blog Posts' })).toBeVisible();
-    
+
     // Check that multiple blog posts are displayed
     const blogPosts = blogSection.getByRole('article');
     const blogPostCount = await blogPosts.count();
     expect(blogPostCount).toBeGreaterThan(0);
     expect(blogPostCount).toBeLessThanOrEqual(6); // Typically shows 6 recent posts
-    
+
     // Check first blog post structure
     const firstPost = blogPosts.first();
-    await expect(firstPost.getByRole('img')).toBeVisible();
     await expect(firstPost.getByRole('heading', { level: 3 })).toBeVisible();
     await expect(firstPost.locator('time')).toBeVisible();
   });

@@ -7,8 +7,14 @@ defineProps<{
 </script>
 
 <template>
-  <article class="container bg-white shadow-2xl rounded-2xl p-5 grid grid-cols-3 gap-6 auto-cols-[minmax(0,_2fr)]">
-    <div class="h-full w-full object-cover">
+  <article
+    class="container bg-white shadow-2xl rounded-2xl p-5 h-full"
+    :class="{
+      'grid grid-cols-3 gap-6 auto-cols-[minmax(0,_2fr)]':
+        section === 'podcasts',
+    }"
+  >
+    <div v-if="section === 'podcasts'" class="h-full w-full object-cover">
       <NuxtLink
         :to="item.url || item.path"
         :target="item.url ? '_blank' : '_self'"
@@ -26,7 +32,7 @@ defineProps<{
         />
       </NuxtLink>
     </div>
-    <div class="col-span-2">
+    <div :class="{ 'col-span-2': section === 'podcasts' }">
       <NuxtLink
         :to="item.url || item.path"
         :target="item.url ? '_blank' : '_self'"

@@ -9,11 +9,11 @@ const { data: articles } = await useAsyncData('articles-home',
     .all()
 )
 
-const { data: featuredPost } = await useAsyncData('featured-article',
+const { data: featuredPosts } = await useAsyncData('featured-article',
   () => queryCollection('blog')
     .order('date', 'DESC')
-    .limit(1)
-    .first()
+    .limit(2)
+    .all()
 )
 
 const { data: videos } = await useAsyncData('videos-home',
@@ -32,19 +32,9 @@ const { data: podcasts } = await useAsyncData('podcasts-home',
 </script>
 
 <template>
-  <div>
+  <div class="pt-16">
     <div class="hero_texts text-center px-4 sm:px-6">
-      <div class="hero_image flex justify-center">
-        <NuxtImg
-          provider="cloudinary"
-          class="rounded-full mb-4 mt-8 profile-pic border-white border"
-          src="c_fill,ar_1:1,g_auto,r_max,q_auto,fl_lossy,f_auto/v1589119213/debbie.codes/debbie-thumb_clt00n"
-          alt="Debbie O'Brien"
-          quality="80"
-          format="webp"
-        />
-      </div>
-      <h1 class="name dark:text-white uppercase mb-4 text-2xl sm:text-3xl">
+      <h1 class="name dark:text-white uppercase mb-4 text-2xl sm:text-3xl mt-8">
         Debbie
         <span class="text-primary">O'Brien</span>
       </h1>
@@ -91,11 +81,11 @@ const { data: podcasts } = await useAsyncData('podcasts-home',
     </div>
 
     <div class="px-4 sm:px-6">
-      <AppSubtitle id="featured-posts">Featured Post</AppSubtitle>
-      <FeaturedSection v-if="featuredPost !== null" aria-labelledby="featured-posts" :item="featuredPost" section="blog" />
+      <AppSubtitle id="featured-posts">Featured Posts</AppSubtitle>
+      <FeaturedSection v-if="featuredPosts !== null" aria-labelledby="featured-posts" :items="featuredPosts" section="blog" />
 
-      <AppSubtitle id="featured-posts">Featured Podcast</AppSubtitle>
-      <FeaturedPodcast v-if="featuredPost !== null" aria-labelledby="featured-podcast" />
+      <AppSubtitle id="featured-podcast" class="mt-12 sm:mt-16">Featured Podcast</AppSubtitle>
+      <FeaturedPodcast aria-labelledby="featured-podcast" />
 
       <section aria-labelledby="recent-posts" class="mt-12 sm:mt-16">
         <NuxtLink to="/blog">
