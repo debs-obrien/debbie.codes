@@ -43,8 +43,9 @@ test.describe('Error Pages', () => {
     await expect(page.getByRole('navigation').getByRole('link', { name: 'Courses' })).toBeVisible();
     
     // Footer links should be present
-    await expect(page.getByRole('contentinfo').getByRole('link', { name: 'twitter' })).toBeVisible();
-    await expect(page.getByRole('contentinfo').getByRole('link', { name: 'github' })).toBeVisible();
+    await expect(page.getByRole('contentinfo').getByRole('link', { name: 'x' })).toBeVisible();
+    await expect(page.getByRole('contentinfo').getByRole('link', { name: 'YouTube' })).toBeVisible();
+    await expect(page.getByRole('contentinfo').getByRole('link', { name: 'Twitch' })).toBeVisible();
     
     // Test navigation from 404 page
     await page.getByRole('navigation').getByRole('link', { name: 'Blog' }).click();

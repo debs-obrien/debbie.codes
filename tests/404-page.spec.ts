@@ -46,8 +46,9 @@ test.describe('404 Error Page', () => {
     
     // Check that footer is present with social links
     await expect(page.getByRole('contentinfo')).toBeVisible();
-    await expect(page.getByRole('contentinfo').getByRole('link', { name: 'twitter' })).toBeVisible();
-    await expect(page.getByRole('contentinfo').getByRole('link', { name: 'github' })).toBeVisible();
+    await expect(page.getByRole('contentinfo').getByRole('link', { name: 'x' })).toBeVisible();
+    await expect(page.getByRole('contentinfo').getByRole('link', { name: 'YouTube' })).toBeVisible();
+    await expect(page.getByRole('contentinfo').getByRole('link', { name: 'Twitch' })).toBeVisible();
   });
 
   test('navigation from 404 page works correctly', async ({ page }) => {

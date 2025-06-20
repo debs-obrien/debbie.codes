@@ -15,12 +15,19 @@
     <ul class="mt-8 flex flex-wrap justify-center space-x-6 mb-6 px-6">
       <li>
         <a
-          href="https://twitter.com/debs_obrien"
-          aria-label="twitter"
+          href="https://x.com/debs_obrien"
           target="_blank"
-          rel="nofollow noopener noreferrer"
+          rel="noopener"
+          aria-label="x"
+          class="
+            text-gray-700
+            transition
+            hover:text-primary
+            dark:text-gray-200
+            dark:hover:text-primary-dark
+          "
         >
-          <IconTwitter class="h-10 w-10 mb-6" />
+          <IconX class="h-10 w-10 mb-6" />
         </a>
       </li>
 

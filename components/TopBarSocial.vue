@@ -2,11 +2,12 @@
   <ul class="flex gap-6 lg:gap-4 justify-center text-white mr-5 items-center">
     <li>
       <a
-        href="https://twitter.com/debs_obrien"
-        aria-label="twitter"
+        href="https://x.com/debs_obrien"
         target="_blank"
-        rel="nofollow noopener noreferrer"
-      ><IconTwitterWhite class=" w-8 h-8 lg:h-4 lg:w-4" /></a>
+        rel="noopener"
+        aria-label="x"
+        class="text-white transition duration-300 ease-in-out transform custom-hover"
+      ><IconXWhite class=" w-8 h-8 lg:h-4 lg:w-4" /></a>
     </li>
     <li>
       <a
@@ -35,4 +36,12 @@
     <li><ColorMode /></li>
   </ul>
 </template>
+
+<script setup lang="ts">
+import IconDevto from '~/components/icon/IconDevto.vue';
+import IconTwitch from '~/components/icon/IconTwitch.vue';
+import IconXWhite from '~/components/icon/IconXWhite.vue';
+import IconYouTubeWhite from '~/components/icon/IconYouTubeWhite.vue';
+import IconLinkedInWhite from '~/components/icon/IconLinkedInWhite.vue';
+</script>
 
