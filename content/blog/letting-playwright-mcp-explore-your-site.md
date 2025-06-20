@@ -5,6 +5,7 @@ description: Learn how to use Playwright MCP (Model Context Protocol) to explore
 tags: [playwright, testing]
 published: true
 loading: eager
+canonical: https://dev.to/debs_obrien/letting-playwright-mcp-explore-your-site-and-write-your-tests-mf1
 ---
 
 What if your tests could write themselves — just by using your app like a real user?

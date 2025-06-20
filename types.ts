@@ -30,7 +30,8 @@ export interface Course extends BaseContent {
 export interface BlogPost extends BaseContent {
   ogimage?: string,
   provider?: string,
-  published: boolean
+  published: boolean,
+  canonical?: string
 }
 
 export type BlogPostPreview = BlogPost;

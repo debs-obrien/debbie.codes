@@ -70,7 +70,7 @@ useHead({
   link: [
     {
       rel: 'canonical',
-      href: `https://debbie.codes/${path}`,
+      href: article.value?.canonical || `https://debbie.codes${path}`,
     },
   ],
 })
@@ -86,7 +86,7 @@ useHead({
 
         <Date :date="formattedDate" />
       </header>
-      <div class="rounded mb-4 sm:mb-6 overflow-hidden object-cover object-center max-w-xl mx-auto">
+      <div v-if="article.image" class="rounded mb-4 sm:mb-6 overflow-hidden object-cover object-center max-w-xl mx-auto">
         <NuxtImg
           :provider="article.provider"
           :src="article.image"
