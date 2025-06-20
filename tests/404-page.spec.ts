@@ -53,12 +53,21 @@ test.describe('404 Error Page', () => {
   test('navigation from 404 page works correctly', async ({ page }) => {
     await page.goto('/some-random-page');
     
+    // Wait for the page to be fully loaded
+    await page.waitForLoadState('networkidle');
+    
+    // Make sure the banner and its navigation links are visible
+    await expect(page.getByRole('banner')).toBeVisible();
+    await expect(page.getByRole('banner').getByRole('link', { name: 'Blog' })).toBeVisible();
+    
     // Navigate to different sections from the 404 page - use banner to avoid footer duplicates
     await page.getByRole('banner').getByRole('link', { name: 'Blog' }).click();
     await expect(page).toHaveURL('/blog');
     
     // Go back to a 404 page and test another navigation
     await page.goto('/another-random-page');
+    await page.waitForLoadState('networkidle');
+    await expect(page.getByRole('banner').getByRole('link', { name: 'About' })).toBeVisible();
     await page.getByRole('banner').getByRole('link', { name: 'About' }).click();
     await expect(page).toHaveURL('/about');
   });
