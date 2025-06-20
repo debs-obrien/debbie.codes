@@ -42,3 +42,7 @@ Watch here: [Vibe Coding with Copilot and Gemini 2.5: Removing Blog Images, Fixi
 This session reminded me that small barriers, like managing images, can hold back your momentum as a creator. By removing friction and getting help from AI, it becomes easier to ship improvements and stay focused on what matters.
 
 If you have not tried coding with an AI assistant yet, this is a good example of how it can be helpful. It is not perfect, but it is a powerful partner when combined with tests and a clear workflow.
+
+---
+
+*This post was originally published on [DEV.to](https://dev.to/debs_obrien/vibe-coding-with-copilot-and-gemini-25-pro-simplifying-my-blog-with-ai-assisted-refactoring-3033).*

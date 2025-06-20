@@ -179,3 +179,7 @@ Tip: In my `.vscode` folder in a file called `settings.json` I add this line of 
     "chat.tools.autoApprove": true
 }
 ```
+
+---
+
+*This post was originally published on [DEV.to](https://dev.to/debs_obrien/letting-playwright-mcp-explore-your-site-and-write-your-tests-mf1).*

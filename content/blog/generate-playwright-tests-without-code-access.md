@@ -110,3 +110,7 @@ Want to see the full demo? Watch the YouTube video and experience how easy it is
 The combination of Playwright, Copilot, and the Model Context Protocol (MCP) unlocks a new level of intelligent automation. 
 
 Go give it a try. Happy testing!
+
+---
+
+*This post was originally published on [DEV.to](https://dev.to/debs_obrien/generate-playwright-tests-without-code-access-using-mcp-and-copilot-2m05).*
