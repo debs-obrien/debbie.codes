@@ -27,8 +27,8 @@ test.describe('Error Pages', () => {
     // Should redirect to home page
     await expect(page).toHaveURL('/');
     
-    // Should show home page content
-    await expect(page.getByRole('heading', { name: 'Debbie O\'Brien' })).toBeVisible();
+    // Should show home page content - specify level 1 heading to avoid conflicts
+    await expect(page.getByRole('heading', { name: 'Debbie O\'Brien', level: 1 })).toBeVisible();
     await expect(page.getByText('Principal Technical Program Manager at Microsoft')).toBeVisible();
   });
 

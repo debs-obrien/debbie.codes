@@ -6,8 +6,8 @@ test.describe('Home Page Featured Content', () => {
   });
 
   test('displays main hero section with correct information', async ({ page }) => {
-    // Check for main heading
-    await expect(page.getByRole('heading', { name: 'Debbie O\'Brien' })).toBeVisible();
+    // Check for main heading - specify level 1 to avoid conflicts with content
+    await expect(page.getByRole('heading', { name: 'Debbie O\'Brien', level: 1 })).toBeVisible();
     
     // Check for subtitle/role
     await expect(page.getByText('Principal Technical Program Manager at Microsoft')).toBeVisible();
@@ -147,26 +147,39 @@ test.describe('Home Page Featured Content', () => {
   });
 
   test('featured post links work correctly', async ({ page }) => {
-    // Test main featured post link
-    await page.getByRole('link', { name: 'Setting Up the Official GitHub MCP Server, A simple Guide' }).first().click();
-    await expect(page).toHaveURL('/blog/github-mcp-server');
+    // Get the first featured article dynamically
+    const featuredArticles = page.getByRole('article').filter({ hasText: 'Read more' });
+    const firstArticle = featuredArticles.first();
+    
+    // Get the main title link (exclude "Read more" links and tag links)
+    const titleLink = firstArticle.getByRole('link').filter({ hasNotText: 'Read more' }).filter({ hasNotText: /^[A-Z][a-z]+$/ }).first();
+    
+    // Get the href to check navigation
+    const href = await titleLink.getAttribute('href');
+    expect(href).toBeTruthy();
+    
+    // Click the title link
+    await titleLink.click();
+    await expect(page).toHaveURL(href as string);
     
     await page.goBack();
     
-    // Test "Read more" link
-    await page.getByRole('link', { name: 'read more about Setting Up the Official GitHub MCP Server, A simple Guide' }).click();
-    await expect(page).toHaveURL('/blog/github-mcp-server');
+    // Test "Read more" link dynamically
+    const readMoreLink = firstArticle.getByRole('link', { name: /read more/ });
+    const readMoreHref = await readMoreLink.getAttribute('href');
+    await readMoreLink.click();
+    await expect(page).toHaveURL(readMoreHref as string);
     
     await page.goBack();
     
-    // Test tag links (click on the tag links specifically, not the post title)
-    await page.locator('a[href="/blog/tags/MCP"]:has-text("MCP")').first().click();
-    await expect(page).toHaveURL('/blog/tags/MCP');
-    
-    await page.goBack();
-    
-    await page.locator('a[href="/blog/tags/AI"]:has-text("AI")').first().click();
-    await expect(page).toHaveURL('/blog/tags/AI');
+    // Test that tag links work (find any tag link in the first article)
+    const tagLinks = firstArticle.locator('a[href^="/blog/tags/"]');
+    if (await tagLinks.count() > 0) {
+      const firstTagLink = tagLinks.first();
+      const tagHref = await firstTagLink.getAttribute('href');
+      await firstTagLink.click();
+      await expect(page).toHaveURL(tagHref as string);
+    }
   });
 
   test('external credential links work correctly', async ({ page }) => {

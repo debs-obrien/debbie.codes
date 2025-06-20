@@ -137,7 +137,6 @@ test.describe('Mobile Navigation', () => {
     await expect(page.getByRole('navigation').getByRole('link', { name: 'About' })).not.toBeVisible();
     
     // Test that search input is accessible directly on the blog page
-    // Use a more generic selector as the input might not have the proper accessibility name
     const searchInput = page.getByRole('searchbox');
     await expect(searchInput).toBeVisible();
     

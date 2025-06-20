@@ -26,8 +26,8 @@ test.describe('404 Error Page', () => {
     // Should navigate to the home page
     await expect(page).toHaveURL('/');
     
-    // Check that we're on the home page by looking for the main heading
-    await expect(page.getByRole('heading', { name: 'Debbie O\'Brien' })).toBeVisible();
+    // Check that we're on the home page by looking for the main heading (level 1)
+    await expect(page.getByRole('heading', { name: 'Debbie O\'Brien', level: 1 })).toBeVisible();
   });
 
   test('404 page maintains header and footer navigation', async ({ page }) => {
