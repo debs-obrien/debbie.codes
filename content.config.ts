@@ -7,14 +7,15 @@ export default defineContentConfig({
       type: 'page',
       schema: z.object({
         tags: z.array(z.string()),
-        image: z.string(),
+        image: z.string().optional(),
         date: z.string(),
         title: z.string(),
         description: z.string(),
-        provider: z.string(),
-        url: z.string().url(),
-        ogimage: z.string(),
+        provider: z.string().optional(),
+        url: z.string().url().optional(),
+        ogimage: z.string().optional(),
         published: z.boolean(),
+        canonical: z.string().url().optional()
       })
     }),
     courses: defineCollection({

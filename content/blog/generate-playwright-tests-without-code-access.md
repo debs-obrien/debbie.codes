@@ -5,6 +5,7 @@ description: Discover how to use MCP (Model Context Protocol) and GitHub Copilot
 tags: [playwright, testing]
 published: true
 loading: eager
+canonical: https://dev.to/debs_obrien/generate-playwright-tests-without-code-access-using-mcp-and-copilot-2m05
 ---
 
 Getting GitHub Copilot to write end-to-end tests usually requires giving it access to your source code. That’s because Copilot on its own can’t open a browser, explore a webpage, or understand how a UI behaves, so it lacks the context needed to generate accurate tests.
