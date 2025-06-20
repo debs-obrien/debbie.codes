@@ -3,6 +3,7 @@ import type { BlogPost, PrevNext, Sections } from '~/types'
 import { formatDate } from '~/utils/date'
 
 const { path } = useRoute()
+const slug = path.split('/').pop()
 
 const { data: article } = await useAsyncData(path.replace(/\/$/, ''),
   () => queryCollection('blog')
@@ -52,7 +53,7 @@ useHead({
     { name: 'twitter:card', content: 'summary_large_image' },
     {
       name: 'twitter:url',
-      content: 'https://debbie.codes',
+      content: `https://debbie.codes/blog/${slug}`,
     },
     {
       name: 'twitter:title',

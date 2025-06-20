@@ -15,12 +15,17 @@
     <ul class="mt-8 flex flex-wrap justify-center space-x-6 mb-6 px-6">
       <li>
         <a
-          href="https://twitter.com/debs_obrien"
-          aria-label="twitter"
+          href="https://x.com/debs_obrien"
           target="_blank"
-          rel="nofollow noopener noreferrer"
+          rel="noopener"
+          aria-label="x"
+          class="
+            text-white
+            transition
+            hover:text-white
+          "
         >
-          <IconTwitter class="h-10 w-10 mb-6" />
+          <IconX class="h-10 w-10 mb-6" />
         </a>
       </li>
 
@@ -29,7 +34,12 @@
           href="https://www.linkedin.com/in/debbie-o-brien-1a199975/"
           target="_blank"
           rel="nofollow noopener noreferrer"
-          aria-label="linkedIn"
+          aria-label="LinkedIn"
+          class="
+            text-white
+            transition
+            hover:text-white
+          "
         >
           <IconLinkedIn class="h-10 w-10" />
         </a>
@@ -40,7 +50,12 @@
           href="https://www.youtube.com/c/DebbieOBrien"
           target="_blank"
           rel="nofollow noopener noreferrer"
-          aria-label="youtube"
+          aria-label="YouTube"
+          class="
+            text-white
+            transition
+            hover:text-white
+          "
         >
           <IconYouTube class="h-10 w-10" />
         </a>
@@ -50,7 +65,12 @@
           href="https://www.twitch.tv/debs_obrien"
           target="_blank"
           rel="nofollow noopener noreferrer"
-          aria-label="twitch"
+          aria-label="Twitch"
+          class="
+            text-white
+            transition
+            hover:text-white
+          "
         >
           <IconTwitch class="h-10 w-10" />
         </a>
@@ -59,19 +79,29 @@
       <li>
         <a
           href="https://github.com/debs-obrien"
-          aria-label="github"
+          aria-label="GitHub"
           target="_blank"
           rel="nofollow noopener noreferrer"
+          class="
+            text-white
+            transition
+            hover:text-white
+          "
         >
-          <IconGitHub class="github" />
+          <IconGitHub class="h-10 w-10" />
         </a>
       </li>
       <li>
         <a
           href="https://dev.to/debs_obrien"
-          aria-label="dev to"
+          aria-label="Devto"
           target="_blank"
           rel="nofollow noopener noreferrer"
+          class="
+            text-white
+            transition
+            hover:text-white
+          "
         >
           <IconDevto class="h-10 w-10" />
         </a>

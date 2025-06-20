@@ -33,10 +33,12 @@ test.describe('Mobile Navigation', () => {
     await expect(navigation.getByRole('link', { name: 'Blog' })).toBeVisible();
     
     // Check that social media links are also visible
-    await expect(page.getByRole('banner').getByRole('link', { name: 'twitter' })).toBeVisible();
-    await expect(page.getByRole('banner').getByRole('link', { name: 'linkedIn' })).toBeVisible();
-    await expect(page.getByRole('banner').getByRole('link', { name: 'github' })).toBeVisible();
-    await expect(page.getByRole('banner').getByRole('link', { name: 'youtube' })).toBeVisible();
+    // Using more specific role-based selectors to target the mobile menu social links
+    const mobileMenu = page.locator('div.text-white.bg-dark').filter({ visible: true });
+    await expect(mobileMenu.getByRole('link', { name: 'x' })).toBeVisible();
+    await expect(mobileMenu.getByRole('link', { name: 'linkedIn' })).toBeVisible();
+    await expect(mobileMenu.getByRole('link', { name: 'github' })).toBeVisible();
+    await expect(mobileMenu.getByRole('link', { name: 'youtube' })).toBeVisible();
     
     // Check that color mode toggle is visible
     await expect(page.getByRole('button', { name: 'system' })).toBeVisible();
@@ -51,23 +53,24 @@ test.describe('Mobile Navigation', () => {
     
     // Should navigate to blog page
     await expect(page).toHaveURL('/blog');
-    await expect(page.getByRole('heading', { name: 'Blog' })).toBeVisible();
+    await expect(page.getByRole('heading', { level: 1, name: 'All Blog Posts' })).toBeVisible();
   });
 
   test('social media links work from mobile menu', async ({ page }) => {
     // Open hamburger menu
     await page.getByRole('button', { name: 'open menu' }).click();
     
-    // Test twitter link (with route mocking)
-    await page.context().route('https://twitter.com/**', route => route.fulfill({
-      body: '<html><body><h1>Twitter</h1></body></html>'
+    // Test X link (with route mocking)
+    await page.context().route('https://x.com/**', route => route.fulfill({
+      body: '<html><body><h1>X</h1></body></html>'
     }));
 
+    const mobileMenu = page.locator('div.text-white.bg-dark').filter({ visible: true });
     const [page1] = await Promise.all([
       page.waitForEvent('popup'),
-      page.getByRole('banner').getByRole('link', { name: 'twitter' }).click()
+      mobileMenu.getByRole('link', { name: 'x' }).click()
     ]);
-    await expect(page1).toHaveURL('https://twitter.com/debs_obrien');
+    await expect(page1).toHaveURL('https://x.com/debs_obrien');
   });
 
   test('color mode toggle works from mobile menu', async ({ page }) => {
