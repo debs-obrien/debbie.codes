@@ -79,7 +79,8 @@ export default defineContentConfig({
         tags: z.array(z.string()),
         host: z.string().optional(),
         conference: z.string().optional(),
-        image: z.string()
+        image: z.string(),
+        featured: z.boolean().optional()
       })
     }),
     about: defineCollection({
