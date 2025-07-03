@@ -2,7 +2,7 @@
 title: Building Your First MCP Server - A Beginner's Tutorial
 date: 2024-07-03
 description: Learn how to build your first Model Context Protocol (MCP) server from scratch. This beginner-friendly tutorial walks you through the fundamentals of MCP and guides you step-by-step through creating your own server to enhance AI applications.
-tags: [mcp, ai, tutorial, development, javascript]
+tags: [mcp, ai]
 published: true
 loading: eager
 canonical: https://dev.to/debs_obrien/building-your-first-mcp-server-a-beginners-tutorial-5fag
