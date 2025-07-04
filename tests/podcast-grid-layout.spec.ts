@@ -10,8 +10,8 @@ test.describe('Podcast Grid Layout', () => {
 
     // Check stats section
     await expect(page.getByText('28+')).toBeVisible();
-    const episodesStat = page.locator('div').filter({ hasText: /^Episodes$/ }).first();
-    await expect(episodesStat).toBeVisible();
+    const episodesStatLabel = page.locator('div').filter({ hasText: /^Episodes$/ }).first();
+    await expect(episodesStatLabel).toBeVisible();
     await expect(page.getByText('5+')).toBeVisible();
     await expect(page.getByText('Years')).toBeVisible();
     await expect(page.getByText('20+')).toBeVisible();
@@ -35,13 +35,13 @@ test.describe('Podcast Grid Layout', () => {
 
     // Check grid layout - should have multiple podcast cards
     const podcastCards = page.getByRole('article').filter({ hasNot: page.locator('iframe') });
-    await expect(podcastCards).toHaveCount(28); // Should match total episodes
+    await expect(podcastCards).toHaveCount(28); // Should match total episodes displayed
 
     // Check that podcast cards have proper structure
     const firstCard = podcastCards.first();
     const cardImage = firstCard.locator('img').first();
     await expect(cardImage).toBeVisible(); // Podcast cover image
-    await expect(firstCard.getByRole('heading', { level: 3 })).toBeVisible(); // Podcast title
+    await expect(firstCard.getByRole('heading', { level: 2 })).toBeVisible(); // Podcast title
     const cardLink = firstCard.getByRole('link').first();
     await expect(cardLink).toBeVisible(); // Clickable links
 
@@ -66,7 +66,7 @@ test.describe('Podcast Grid Layout', () => {
     // Test that card contains expected elements
     const cardImage = firstCard.locator('img').first();
     await expect(cardImage).toBeVisible();
-    await expect(firstCard.getByRole('heading', { level: 3 })).toBeVisible();
+    await expect(firstCard.getByRole('heading', { level: 2 })).toBeVisible();
     await expect(firstCard.locator('time')).toBeVisible(); // Date element
     
     // Test that links are clickable
@@ -136,14 +136,16 @@ test.describe('Podcast Grid Layout', () => {
     const firstCard = podcastCards.first();
     
     // Should have a title
-    const title = firstCard.getByRole('heading', { level: 3 });
+    const title = firstCard.getByRole('heading', { level: 2 });
     await expect(title).toBeVisible();
     const titleText = await title.textContent();
     expect(titleText?.length).toBeGreaterThan(0);
     
     // Should have a host/author
-    const hostText = firstCard.locator('text=.NET Rocks, Web Rush, Legacy Rocks, QA Therapy, PodRocket').first();
-    // Note: This is flexible since different podcasts have different hosts
+    const hostElement = firstCard.locator('.text-blue-600, .text-blue-400').first();
+    await expect(hostElement).toBeVisible();
+    const hostContent = await hostElement.textContent();
+    expect(hostContent?.length).toBeGreaterThan(0);
     
     // Should have a date
     const dateElement = firstCard.locator('time');

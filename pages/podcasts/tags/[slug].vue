@@ -30,7 +30,7 @@ useHead({
         {{ title }}
       </h1>
       <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-6">
-        Discover podcast episodes about {{ topic.toLowerCase() }} and related topics.
+        Discover podcast episodes about {{ topic }} and related topics.
       </p>
     </div>
 
