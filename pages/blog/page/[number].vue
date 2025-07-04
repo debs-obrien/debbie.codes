@@ -8,6 +8,11 @@ const postsPerPage = 12
 // Calculate offset
 const offset = (page - 1) * postsPerPage
 
+// Debug pagination
+if (process.dev) {
+  console.log(`Pagination Debug: page=${page}, postsPerPage=${postsPerPage}, offset=${offset}`)
+}
+
 // Fetch paginated posts
 const { data: posts } = await useAsyncData(`blog-page-${page}`,
   () => queryCollection('blog')
@@ -16,6 +21,11 @@ const { data: posts } = await useAsyncData(`blog-page-${page}`,
     .skip(offset)
     .all(),
 )
+
+// Debug post results
+if (process.dev) {
+  console.log(`Posts fetched: ${posts.value?.length || 0} posts`)
+}
 
 // Get total count for pagination
 const { data: totalCount } = await useAsyncData('blog-total-count',
@@ -29,6 +39,11 @@ const { data: allPosts } = await useAsyncData('all-blog-posts',
     .order('date', 'DESC')
     .all(),
 )
+
+// Debug all posts
+if (process.dev) {
+  console.log(`All posts fetched: ${allPosts.value?.length || 0} posts`)
+}
 
 const filteredArticles = ref<BlogPost[]>(posts.value || [])
 const isSearchActive = ref(false)
@@ -60,6 +75,7 @@ useHead({
     <!-- Search Component -->
     <BlogSearch
       :articles="allPosts || []"
+      :default-articles="posts || []"
       v-model:filteredArticles="filteredArticles"
       :showImages="false"
       @search-active="isSearchActive = $event"

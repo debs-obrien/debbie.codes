@@ -5,6 +5,7 @@ const props = defineProps<{
   articles: BlogPost[]
   filteredArticles: BlogPost[]
   showImages?: boolean
+  defaultArticles?: BlogPost[]  // The original limited/paginated articles
 }>()
 
 const emit = defineEmits<{
@@ -17,7 +18,8 @@ const searchQuery = ref('')
 // Use a direct function to filter articles
 function filterArticles() {
   if (!searchQuery.value.trim()) {
-    return props.articles
+    // Return default articles (limited/paginated) if no search, otherwise return all articles
+    return props.defaultArticles || props.articles
   }
   
   const query = searchQuery.value.toLowerCase().trim()

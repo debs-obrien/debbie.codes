@@ -21,14 +21,20 @@ const { data: articles } = await useAsyncData(`blog-year-${year}`,
 // Debug year filtering
 if (process.dev) {
   console.log(`Articles for year ${year}:`, articles.value?.length)
+  if (articles.value && articles.value.length > 0) {
+    console.log('First few articles:', articles.value.slice(0, 3).map(a => ({ title: a.title, date: a.date })))
+  }
 }
-
-const filteredArticles = ref<BlogPost[]>(articles.value || [])
 
 // Check if year has any posts
 if (!articles.value || articles.value.length === 0) {
+  // Let's see all articles and their dates to debug
+  console.log('No articles found for year:', year)
+  
   throw createError({ statusCode: 404, statusMessage: `No blog posts found for ${year}` })
 }
+
+const filteredArticles = ref<BlogPost[]>(articles.value || [])
 
 const title: string = `Blog Posts from ${year}`
 const description: string = `Browse all blog posts from ${year}`
