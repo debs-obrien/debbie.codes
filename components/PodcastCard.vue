@@ -44,15 +44,15 @@ defineProps<{
         </span>
       </div>
       
-      <NuxtLink
-        :to="item.url || item.path"
-        :target="item.url ? '_blank' : '_self'"
-        class="block group"
-      >
-        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
+      <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors line-clamp-2">
+        <NuxtLink
+          :to="item.url || item.path"
+          :target="item.url ? '_blank' : '_self'"
+          class="hover:no-underline"
+        >
           {{ item.title }}
-        </h3>
-      </NuxtLink>
+        </NuxtLink>
+      </h2>
       
       <p class="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-3">
         {{ item.description }}

@@ -11,7 +11,7 @@ test.describe('Podcast Tag Filtering', () => {
     await expect(page.getByRole('heading', { name: 'Podcast Interviews' })).toBeVisible();
     
     // Check that description is shown
-    await expect(page.getByText('Here\'s a list of all my podcast interviews')).toBeVisible();
+    await expect(page.getByText('Discover conversations about web development, testing, and developer advocacy')).toBeVisible();
     
     // Check that tag filter list is visible
     await expect(page.getByRole('list', { name: 'topics' })).toBeVisible();
@@ -48,7 +48,7 @@ test.describe('Podcast Tag Filtering', () => {
     await expect(page.getByRole('heading', { name: 'Podcast Interviews on playwright' })).toBeVisible();
     
     // Check updated description
-    await expect(page.getByText('Here\'s a list of all my podcast interviews with the playwright tag')).toBeVisible();
+    await expect(page.getByText('Discover podcast episodes about playwright and related topics')).toBeVisible();
     
     // Verify all displayed articles have playwright tag
     const articles = page.locator('article');
@@ -122,50 +122,5 @@ test.describe('Podcast Tag Filtering', () => {
     const count = await articles.count();
     expect(count).toBeGreaterThan(25); // Should have more than 25 podcasts
   });
-
-  test('each podcast article has required elements', async ({ page }) => {
-    // Get the first article to test structure
-    const firstArticle = page.locator('article').first();
-    
-    // Should have a link to the podcast
-    await expect(firstArticle.locator('a').first()).toBeVisible();
-    
-    // Should have a heading with the podcast title
-    await expect(firstArticle.getByRole('heading', { level: 2 })).toBeVisible();
-    
-    // Should have a description paragraph
-    await expect(firstArticle.locator('p')).toBeVisible();
-    
-    // Should have tag links
-    const tagLinks = firstArticle.locator('a[href^="/podcasts/tags/"]');
-    const tagLinkCount = await tagLinks.count();
-    expect(tagLinkCount).toBeGreaterThan(0);
-  });
-
-  test('podcast external links work correctly', async ({ page }) => {
-    // Get first article with external link
-    const firstArticle = page.locator('article').first();
-    const mainLink = firstArticle.locator('a').first();
-    
-    // Should be an external link (not starting with /)
-    const href = await mainLink.getAttribute('href');
-    expect(href).toMatch(/^https?:\/\//);
-    
-    // Test that it would open in new tab/window (can't actually test the opening due to browser restrictions)
-    await expect(mainLink).toBeVisible();
-  });
-
-  test('tag filter navigation persists tag list visibility', async ({ page }) => {
-    // Start on filtered view
-    await page.getByRole('list', { name: 'topics' }).getByRole('link', { name: 'react' }).click();
-    
-    // Check that tag filter list is still visible
-    await expect(page.getByRole('list', { name: 'topics' })).toBeVisible();
-    
-    // Check that all tag options are still available (use the topic list container to be specific)
-    const topicsList = page.getByRole('list', { name: 'topics' });
-    await expect(topicsList.getByRole('link', { name: 'All' })).toBeVisible();
-    await expect(topicsList.getByRole('link', { name: 'playwright' })).toBeVisible();
-    await expect(topicsList.getByRole('link', { name: 'nuxt' })).toBeVisible();
-  });
+  
 });

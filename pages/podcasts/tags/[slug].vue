@@ -14,7 +14,7 @@ const { data: podcasts } = await useAsyncData(`podcasts-${slug}`,
 
 const topic: string = replaceHyphen(slug as string)
 const title: string = `Podcast Interviews on ${topic}`
-const description: string = `Here's a list of all my podcast interviews with the ${topic} tag`
+const description: string = `Discover podcast episodes about ${topic} and related topics`
 const section: Sections = 'podcasts'
 
 useHead({
