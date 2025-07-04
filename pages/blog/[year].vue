@@ -9,32 +9,52 @@ if (!/^\d{4}$/.test(year)) {
   throw createError({ statusCode: 404, statusMessage: 'Invalid year format' })
 }
 
-// Fetch posts for the specified year
-const { data: articles } = await useAsyncData(`blog-year-${year}`,
+// Fetch all posts and filter by year on the client side
+const { data: allArticles } = await useAsyncData(`blog-year-${year}`,
   () => queryCollection('blog')
-    .where('date', '>=', `${year}-01-01`)
-    .where('date', '<', `${parseInt(year) + 1}-01-01`)
     .order('date', 'DESC')
     .all(),
 )
 
-// Debug year filtering
-if (process.dev) {
-  console.log(`Articles for year ${year}:`, articles.value?.length)
-  if (articles.value && articles.value.length > 0) {
-    console.log('First few articles:', articles.value.slice(0, 3).map(a => ({ title: a.title, date: a.date })))
-  }
-}
-
-// Check if year has any posts
-if (!articles.value || articles.value.length === 0) {
-  // Let's see all articles and their dates to debug
-  console.log('No articles found for year:', year)
+// Filter articles for the specific year
+const articles = computed(() => {
+  if (!allArticles.value) return []
   
-  throw createError({ statusCode: 404, statusMessage: `No blog posts found for ${year}` })
+  return allArticles.value.filter((article: BlogPost) => {
+    if (!article.date) return false
+    const articleYear = new Date(article.date).getFullYear().toString()
+    return articleYear === year
+  })
+})
+
+// Debug year filtering - use watchEffect to run when data is available
+if (process.dev) {
+  watchEffect(() => {
+    console.log(`Articles for year ${year}:`, articles.value?.length)
+    if (articles.value && articles.value.length > 0) {
+      console.log('First few articles:', articles.value.slice(0, 3).map(a => ({ title: a.title, date: a.date })))
+    }
+    if (allArticles.value) {
+      console.log('Total articles:', allArticles.value.length)
+      const yearCounts: {[key: string]: number} = {}
+      allArticles.value.forEach((article: BlogPost) => {
+        if (article.date) {
+          const articleYear = new Date(article.date).getFullYear().toString()
+          yearCounts[articleYear] = (yearCounts[articleYear] || 0) + 1
+        }
+      })
+      console.log('Articles by year:', yearCounts)
+    }
+  })
 }
 
-const filteredArticles = ref<BlogPost[]>(articles.value || [])
+// Remove the immediate 404 check - let the template handle it
+const filteredArticles = ref<BlogPost[]>([])
+
+// Update filtered articles when data changes
+watchEffect(() => {
+  filteredArticles.value = articles.value || []
+})
 
 const title: string = `Blog Posts from ${year}`
 const description: string = `Browse all blog posts from ${year}`
@@ -74,8 +94,16 @@ useHead({
     />
     
     <!-- No Results -->
+    <div v-else-if="allArticles && articles?.length === 0" class="text-center py-8">
+      <p class="text-gray-600 dark:text-gray-400">No articles found for {{ year }}.</p>
+      <p class="text-sm text-gray-500 dark:text-gray-500 mt-2">
+        Try a different year or go back to the main blog.
+      </p>
+    </div>
+    
+    <!-- Loading -->
     <div v-else class="text-center py-8">
-      <p class="text-gray-600 dark:text-gray-400">No articles found matching your search in {{ year }}.</p>
+      <p class="text-gray-600 dark:text-gray-400">Loading articles...</p>
     </div>
     
     <!-- Back to blog navigation -->
