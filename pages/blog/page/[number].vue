@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Sections, BlogPost } from '~/types'
+import type { Sections } from '~/types'
 
 const route = useRoute()
 const page = parseInt(route.params.number as string) || 1
@@ -45,7 +45,7 @@ if (process.dev) {
   console.log(`All posts fetched: ${allPosts.value?.length || 0} posts`)
 }
 
-const filteredArticles = ref<BlogPost[]>(posts.value || [])
+const filteredArticles = ref<any[]>(posts.value || [])
 const isSearchActive = ref(false)
 
 const totalPages = computed(() => {

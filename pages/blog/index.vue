@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Sections, BlogPost } from '~/types'
+import type { Sections } from '~/types'
 
 // Fetch featured blog posts - include featured field explicitly
 const { data: allBlogPosts } = await useAsyncData('all-blog-posts-for-featured',
@@ -27,7 +27,6 @@ const { data: recentPosts } = await useAsyncData('recent-blog-posts',
 // Get all unique tags with counts for "Browse by Topic" section and years
 const { data: allPosts } = await useAsyncData('all-blog-posts-for-tags',
   () => queryCollection('blog')
-    .only(['tags', 'date'])
     .all(),
 )
 
@@ -36,10 +35,14 @@ const popularTags = computed(() => {
   
   const tagCounts = new Map<string, number>()
   
-  allPosts.value.forEach((post: BlogPost) => {
+  allPosts.value.forEach((post: any) => {
     if (post.tags) {
       post.tags.forEach((tag: string) => {
-        tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1)
+        // Normalize tag: trim, lowercase for comparison, remove extra spaces
+        const normalizedTag = tag.trim().toLowerCase().replace(/\s+/g, '-')
+        if (normalizedTag) {
+          tagCounts.set(normalizedTag, (tagCounts.get(normalizedTag) || 0) + 1)
+        }
       })
     }
   })
@@ -51,19 +54,21 @@ const popularTags = computed(() => {
     .slice(0, 8)
 })
 
-// Get years for archive navigation
+// Get years for archive navigation with post counts
 const postYears = computed(() => {
   if (!allPosts.value) return []
   
-  const years = new Set<string>()
-  allPosts.value.forEach((post: BlogPost) => {
+  const yearCounts = new Map<string, number>()
+  allPosts.value.forEach((post: any) => {
     if (post.date) {
       const year = new Date(post.date).getFullYear().toString()
-      years.add(year)
+      yearCounts.set(year, (yearCounts.get(year) || 0) + 1)
     }
   })
   
-  return Array.from(years).sort((a, b) => b.localeCompare(a))
+  return Array.from(yearCounts.entries())
+    .map(([year, count]) => ({ year, count }))
+    .sort((a, b) => b.year.localeCompare(a.year))
 })
 
 const title: string = 'Blog'
@@ -133,14 +138,15 @@ useHead({
     <!-- Browse by Year Section -->
     <section v-if="postYears.length > 0">
       <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Browse by Year</h2>
-      <div class="grid grid-cols-3 md:grid-cols-6 gap-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
         <NuxtLink
-          v-for="year in postYears"
+          v-for="{ year, count } in postYears"
           :key="year"
           :to="`/blog/year/${year}`"
           class="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg p-4 text-center font-medium text-gray-700 dark:text-gray-300 transition-colors"
         >
-          {{ year }}
+          <div class="font-semibold">{{ year }}</div>
+          <div class="text-sm text-gray-500 dark:text-gray-400">{{ count }} post{{ count !== 1 ? 's' : '' }}</div>
         </NuxtLink>
       </div>
     </section>

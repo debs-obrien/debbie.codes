@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BlogPost, Sections } from '~/types'
+import type { Sections } from '~/types'
 
 const route = useRoute()
 const year = route.params.year as string
@@ -20,7 +20,7 @@ const { data: allArticles } = await useAsyncData(`blog-year-${year}`,
 const articles = computed(() => {
   if (!allArticles.value) return []
   
-  return allArticles.value.filter((article: BlogPost) => {
+  return allArticles.value.filter((article: any) => {
     if (!article.date) return false
     const articleYear = new Date(article.date).getFullYear().toString()
     return articleYear === year
@@ -37,7 +37,7 @@ if (process.dev) {
     if (allArticles.value) {
       console.log('Total articles:', allArticles.value.length)
       const yearCounts: {[key: string]: number} = {}
-      allArticles.value.forEach((article: BlogPost) => {
+      allArticles.value.forEach((article: any) => {
         if (article.date) {
           const articleYear = new Date(article.date).getFullYear().toString()
           yearCounts[articleYear] = (yearCounts[articleYear] || 0) + 1

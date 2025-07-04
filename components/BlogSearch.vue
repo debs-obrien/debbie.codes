@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import type { BlogPost } from '~/types'
+import type { } from '~/types'
 
 const props = defineProps<{
-  articles: BlogPost[]
-  filteredArticles: BlogPost[]
+  articles: any[]
+  filteredArticles: any[]
   showImages?: boolean
-  defaultArticles?: BlogPost[]  // The original limited/paginated articles
+  defaultArticles?: any[]  // The original limited/paginated articles
 }>()
 
 const emit = defineEmits<{
-  (e: 'update:filteredArticles', articles: BlogPost[]): void
+  (e: 'update:filteredArticles', articles: any[]): void
   (e: 'search-active', isActive: boolean): void
 }>()
 
@@ -24,7 +24,7 @@ function filterArticles() {
   
   const query = searchQuery.value.toLowerCase().trim()
   
-  return props.articles.filter((article: BlogPost) => {
+  return props.articles.filter((article: any) => {
     // Search in title
     const titleMatch = article.title?.toLowerCase().includes(query)
     
