@@ -15,7 +15,8 @@ export default defineContentConfig({
         url: z.string().url().optional(),
         ogimage: z.string().optional(),
         published: z.boolean(),
-        canonical: z.string().url().optional()
+        canonical: z.string().url().optional(),
+        featured: z.boolean().optional()
       })
     }),
     courses: defineCollection({

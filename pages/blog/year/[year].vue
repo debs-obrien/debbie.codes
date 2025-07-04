@@ -48,14 +48,6 @@ if (process.dev) {
   })
 }
 
-// Remove the immediate 404 check - let the template handle it
-const filteredArticles = ref<BlogPost[]>([])
-
-// Update filtered articles when data changes
-watchEffect(() => {
-  filteredArticles.value = articles.value || []
-})
-
 const title: string = `Blog Posts from ${year}`
 const description: string = `Browse all blog posts from ${year}`
 const section: Sections = 'blog'
@@ -68,13 +60,6 @@ useHead({
 
 <template>
   <PageLayout :title="title" :description="description" :section="section">
-    <!-- Search within year -->
-    <BlogSearch
-      :articles="articles || []"
-      v-model:filteredArticles="filteredArticles"
-      :showImages="false"
-    />
-    
     <!-- Year summary -->
     <div class="mb-8 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
       <h2 class="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-2">
@@ -87,8 +72,8 @@ useHead({
     
     <!-- Posts List -->
     <ItemList 
-      v-if="filteredArticles.length > 0" 
-      :list="filteredArticles" 
+      v-if="articles && articles.length > 0" 
+      :list="articles" 
       :section="section" 
       :showImages="false" 
     />

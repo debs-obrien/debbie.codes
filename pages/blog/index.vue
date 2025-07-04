@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Sections, BlogPost } from '~/types'
 
-// Fetch featured blog posts - try fetching all and filtering manually
+// Fetch featured blog posts - include featured field explicitly
 const { data: allBlogPosts } = await useAsyncData('all-blog-posts-for-featured',
   () => queryCollection('blog')
     .order('date', 'DESC')
@@ -24,10 +24,10 @@ const { data: recentPosts } = await useAsyncData('recent-blog-posts',
     .all(),
 )
 
-// Get all unique tags with counts for "Browse by Topic" section
+// Get all unique tags with counts for "Browse by Topic" section and years
 const { data: allPosts } = await useAsyncData('all-blog-posts-for-tags',
   () => queryCollection('blog')
-    .only(['tags'])
+    .only(['tags', 'date'])
     .all(),
 )
 
@@ -137,7 +137,7 @@ useHead({
         <NuxtLink
           v-for="year in postYears"
           :key="year"
-          :to="`/blog/${year}`"
+          :to="`/blog/year/${year}`"
           class="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg p-4 text-center font-medium text-gray-700 dark:text-gray-300 transition-colors"
         >
           {{ year }}
