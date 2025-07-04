@@ -31,6 +31,7 @@ const { data: allPosts } = await useAsyncData('all-blog-posts',
 )
 
 const filteredArticles = ref<BlogPost[]>(posts.value || [])
+const isSearchActive = ref(false)
 
 const totalPages = computed(() => {
   if (!totalCount.value) return 1
@@ -61,6 +62,7 @@ useHead({
       :articles="allPosts || []"
       v-model:filteredArticles="filteredArticles"
       :showImages="false"
+      @search-active="isSearchActive = $event"
     />
     
     <!-- Posts List -->
@@ -78,7 +80,7 @@ useHead({
     
     <!-- Pagination -->
     <Pagination
-      v-if="posts && posts.length > 0 && filteredArticles === posts"
+      v-if="posts && posts.length > 0 && !isSearchActive"
       :current-page="page"
       :total-pages="totalPages"
       base-url="/blog"

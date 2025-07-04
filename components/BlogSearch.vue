@@ -9,6 +9,7 @@ const props = defineProps<{
 
 const emit = defineEmits<{
   (e: 'update:filteredArticles', articles: BlogPost[]): void
+  (e: 'search-active', isActive: boolean): void
 }>()
 
 const searchQuery = ref('')
@@ -39,12 +40,16 @@ function filterArticles() {
 
 // Watch search query changes and emit filtered results
 watch(searchQuery, () => {
-  emit('update:filteredArticles', filterArticles())
+  const filtered = filterArticles()
+  emit('update:filteredArticles', filtered)
+  emit('search-active', searchQuery.value.trim().length > 0)
 }, { immediate: true })
 
 // Also watch for articles prop changes
 watch(() => props.articles, () => {
-  emit('update:filteredArticles', filterArticles())
+  const filtered = filterArticles()
+  emit('update:filteredArticles', filtered)
+  emit('search-active', searchQuery.value.trim().length > 0)
 }, { immediate: true })
 </script>
 

@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import type { BlogPostPreview, PodcastPreview, Sections } from '~/types'
+import { calculateReadingTime, formatReadingTime } from '~/utils/reading-time'
+
 defineProps<{
   item: BlogPostPreview | PodcastPreview
   section: Sections
@@ -41,7 +43,12 @@ defineProps<{
           {{ item.title }}
         </h3>
 
-        <Date :date="item.date" />
+        <div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400 mb-2">
+          <Date :date="item.date" />
+          <span v-if="section === 'blog' && (item.body || item.content)" class="ml-2">
+            {{ formatReadingTime(calculateReadingTime(String(item.body || item.content || ''))) }}
+          </span>
+        </div>
       </NuxtLink>
       <TagsList :tags="item.tags" :section="section" />
     </div>

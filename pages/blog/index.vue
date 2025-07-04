@@ -1,14 +1,20 @@
 <script setup lang="ts">
 import type { Sections, BlogPost } from '~/types'
 
-// Fetch featured blog posts
-const { data: featuredPosts } = await useAsyncData('featured-blog-posts',
+// Fetch featured blog posts - try fetching all and filtering manually
+const { data: allBlogPosts } = await useAsyncData('all-blog-posts-for-featured',
   () => queryCollection('blog')
-    .where('featured', true)
     .order('date', 'DESC')
-    .limit(6)
     .all(),
 )
+
+// Filter featured posts manually
+const featuredPosts = computed(() => {
+  if (!allBlogPosts.value) return []
+  return allBlogPosts.value
+    .filter((post: any) => post.featured === true)
+    .slice(0, 6)
+})
 
 // Fetch recent blog posts (latest 8)
 const { data: recentPosts } = await useAsyncData('recent-blog-posts',
@@ -63,6 +69,22 @@ const postYears = computed(() => {
 const title: string = 'Blog'
 const description: string = 'Thoughts on web development, testing, performance, and developer experience'
 const section: Sections = 'blog'
+
+// Debug featured posts
+if (process.dev) {
+  console.log('Featured posts:', featuredPosts.value?.length, featuredPosts.value)
+  if (recentPosts.value?.length) {
+    console.log('Recent posts sample fields:', Object.keys(recentPosts.value[0]))
+    console.log('Recent posts sample featured field:', recentPosts.value[0].featured)
+  }
+  if (allBlogPosts.value?.length) {
+    const withFeatured = allBlogPosts.value.filter((p: any) => p.featured !== undefined)
+    console.log('Posts with featured field:', withFeatured.length)
+    if (withFeatured.length > 0) {
+      console.log('First featured post:', withFeatured[0].title, withFeatured[0].featured)
+    }
+  }
+}
 
 useHead({
   title,

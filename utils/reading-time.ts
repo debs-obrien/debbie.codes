@@ -5,7 +5,7 @@
  * @returns Reading time in minutes
  */
 export function calculateReadingTime(content: string, wordsPerMinute: number = 200): number {
-  if (!content) return 0
+  if (!content || typeof content !== 'string') return 0
   
   // Remove HTML tags and normalize whitespace
   const plainText = content

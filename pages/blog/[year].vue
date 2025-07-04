@@ -18,6 +18,11 @@ const { data: articles } = await useAsyncData(`blog-year-${year}`,
     .all(),
 )
 
+// Debug year filtering
+if (process.dev) {
+  console.log(`Articles for year ${year}:`, articles.value?.length)
+}
+
 const filteredArticles = ref<BlogPost[]>(articles.value || [])
 
 // Check if year has any posts
