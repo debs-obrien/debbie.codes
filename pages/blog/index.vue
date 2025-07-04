@@ -1,16 +1,67 @@
 <script setup lang="ts">
 import type { Sections, BlogPost } from '~/types'
 
-const { data: articles } = await useAsyncData('articles',
+// Fetch featured blog posts
+const { data: featuredPosts } = await useAsyncData('featured-blog-posts',
   () => queryCollection('blog')
+    .where('featured', true)
     .order('date', 'DESC')
+    .limit(6)
     .all(),
 )
 
-const filteredArticles = ref<BlogPost[]>(articles.value || [])
+// Fetch recent blog posts (latest 8)
+const { data: recentPosts } = await useAsyncData('recent-blog-posts',
+  () => queryCollection('blog')
+    .order('date', 'DESC')
+    .limit(8)
+    .all(),
+)
 
-const title: string = 'All Blog Posts'
-const description: string = 'Here\'s a list of all my blog posts'
+// Get all unique tags with counts for "Browse by Topic" section
+const { data: allPosts } = await useAsyncData('all-blog-posts-for-tags',
+  () => queryCollection('blog')
+    .only(['tags'])
+    .all(),
+)
+
+const popularTags = computed(() => {
+  if (!allPosts.value) return []
+  
+  const tagCounts = new Map<string, number>()
+  
+  allPosts.value.forEach((post: BlogPost) => {
+    if (post.tags) {
+      post.tags.forEach((tag: string) => {
+        tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1)
+      })
+    }
+  })
+  
+  // Convert to array and sort by count, then take top 8
+  return Array.from(tagCounts.entries())
+    .map(([tag, count]) => ({ tag, count }))
+    .sort((a, b) => b.count - a.count)
+    .slice(0, 8)
+})
+
+// Get years for archive navigation
+const postYears = computed(() => {
+  if (!allPosts.value) return []
+  
+  const years = new Set<string>()
+  allPosts.value.forEach((post: BlogPost) => {
+    if (post.date) {
+      const year = new Date(post.date).getFullYear().toString()
+      years.add(year)
+    }
+  })
+  
+  return Array.from(years).sort((a, b) => b.localeCompare(a))
+})
+
+const title: string = 'Blog'
+const description: string = 'Thoughts on web development, testing, performance, and developer experience'
 const section: Sections = 'blog'
 
 useHead({
@@ -21,14 +72,55 @@ useHead({
 
 <template>
   <PageLayout :title="title" :description="description" :section="section">
-    <BlogSearch
-      :articles="articles || []"
-      v-model:filteredArticles="filteredArticles"
-      :showImages="false"
-    />
-    <ItemList v-if="filteredArticles.length > 0" :list="filteredArticles" :section="section" :showImages="false" />
-    <div v-else class="text-center py-8">
-      <p class="text-gray-600">No articles found matching your search.</p>
-    </div>
+    <!-- Featured Posts Section -->
+    <section v-if="featuredPosts && featuredPosts.length > 0" class="mb-16">
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Featured Posts</h2>
+      <FeaturedSection :items="featuredPosts" :section="section" />
+    </section>
+    
+    <!-- Recent Posts Section -->
+    <section class="mb-16">
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Recent Posts</h2>
+      <FeaturedSection v-if="recentPosts" :items="recentPosts" :section="section" />
+      <div class="text-center mt-8">
+        <NuxtLink 
+          to="/blog/page/1" 
+          class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
+        >
+          View All Posts
+        </NuxtLink>
+      </div>
+    </section>
+    
+    <!-- Browse by Topic Section -->
+    <section v-if="popularTags.length > 0" class="mb-16">
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Browse by Topic</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <NuxtLink
+          v-for="{ tag, count } in popularTags"
+          :key="tag"
+          :to="`/blog/tags/${tag}`"
+          class="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg p-4 text-center font-medium text-gray-700 dark:text-gray-300 capitalize transition-colors"
+        >
+          <div class="font-semibold">{{ tag.replace('-', ' ') }}</div>
+          <div class="text-sm text-gray-500 dark:text-gray-400">{{ count }} post{{ count !== 1 ? 's' : '' }}</div>
+        </NuxtLink>
+      </div>
+    </section>
+    
+    <!-- Browse by Year Section -->
+    <section v-if="postYears.length > 0">
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Browse by Year</h2>
+      <div class="grid grid-cols-3 md:grid-cols-6 gap-4">
+        <NuxtLink
+          v-for="year in postYears"
+          :key="year"
+          :to="`/blog/${year}`"
+          class="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg p-4 text-center font-medium text-gray-700 dark:text-gray-300 transition-colors"
+        >
+          {{ year }}
+        </NuxtLink>
+      </div>
+    </section>
   </PageLayout>
 </template>
