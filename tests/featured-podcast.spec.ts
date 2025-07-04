@@ -2,12 +2,10 @@ import { expect, test } from '@playwright/test';
 
 test.describe('Featured Podcast Player', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/podcasts');
   });
 
-  test('featured podcast section is visible', async ({ page }) => {
-    await expect(page.getByRole('heading', { name: 'Featured Podcast' })).toBeVisible();
-    
+  test('featured podcast section is visible on podcasts page', async ({ page }) => {
     // Check that the iframe containing the podcast player is present
     await expect(page.locator('iframe')).toBeVisible();
   });
@@ -82,8 +80,8 @@ test.describe('Featured Podcast Player', () => {
     expect(src).toBeTruthy();
     expect(src).not.toBe('');
     
-    // The iframe should be within the Featured Podcast section
-    const podcastSection = page.locator('text=Featured Podcast').locator('..').locator('..');
+    // The iframe should be within the featured podcast article section
+    const podcastSection = page.getByRole('article').first();
     await expect(podcastSection.locator('iframe')).toBeVisible();
   });
 });
