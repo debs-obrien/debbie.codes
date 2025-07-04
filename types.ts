@@ -32,7 +32,9 @@ export interface BlogPost extends BaseContent {
   ogimage?: string,
   provider?: string,
   published: boolean,
-  canonical?: string
+  canonical?: string,
+  body?: string,
+  content?: string
 }
 
 export type BlogPostPreview = BlogPost;

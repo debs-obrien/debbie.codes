@@ -2,7 +2,7 @@
 import type { BlogPostPreview, Sections } from '~/types'
 
 defineProps<{
-  items: BlogPostPreview[]
+  items: any[]
   section: Sections
 }>()
 </script>

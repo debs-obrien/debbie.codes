@@ -2,7 +2,7 @@
 import type { BlogPostPreview, CoursePreview, PodcastPreview, Sections } from '~/types'
 
 defineProps<{
-  list: Array<BlogPostPreview | CoursePreview | PodcastPreview>
+  list: any[]
   section: Sections
   showImages?: boolean
 }>()

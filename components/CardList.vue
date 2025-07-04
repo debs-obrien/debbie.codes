@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { BlogPostPreview, PodcastPreview, Sections } from '~/types'
 defineProps<{
-  list: Array<BlogPostPreview | PodcastPreview>
+  list: any[]
   section: Sections
 }>()
 </script>
