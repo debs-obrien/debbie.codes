@@ -138,16 +138,22 @@ useHead({
     <!-- Browse by Year Section -->
     <section v-if="postYears.length > 0">
       <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Browse by Year</h2>
+      <div class="mb-4 text-center">
+        <p class="text-gray-600 dark:text-gray-400 mb-4">Explore posts from different years</p>
+      </div>
       <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
         <NuxtLink
           v-for="{ year, count } in postYears"
           :key="year"
           :to="`/blog/year/${year}`"
-          class="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg p-4 text-center font-medium text-gray-700 dark:text-gray-300 transition-colors"
+          class="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg p-4 text-center font-medium text-gray-700 dark:text-gray-300 transition-colors border-2 border-transparent hover:border-blue-300 dark:hover:border-blue-600"
         >
-          <div class="font-semibold">{{ year }}</div>
+          <div class="font-semibold text-lg">{{ year }}</div>
           <div class="text-sm text-gray-500 dark:text-gray-400">{{ count }} post{{ count !== 1 ? 's' : '' }}</div>
         </NuxtLink>
+      </div>
+      <div class="text-center mt-4">
+        <p class="text-sm text-gray-500 dark:text-gray-400">Click any year to browse posts from that period</p>
       </div>
     </section>
   </PageLayout>

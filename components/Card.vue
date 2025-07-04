@@ -45,8 +45,8 @@ defineProps<{
 
         <div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400 mb-2">
           <Date :date="item.date" />
-          <span v-if="section === 'blog' && (item.body || item.content)" class="ml-2">
-            {{ formatReadingTime(calculateReadingTime(String(item.body || item.content || ''))) }}
+          <span v-if="section === 'blog' && ((item as any).body || (item as any).content)" class="ml-2">
+            {{ formatReadingTime(calculateReadingTime(String((item as any).body || (item as any).content || ''))) }}
           </span>
         </div>
       </NuxtLink>
