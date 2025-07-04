@@ -6,7 +6,7 @@ const { data: featuredVideos } = await useAsyncData('featured-videos',
   () => queryCollection('videos')
     .where('featured', true)
     .order('date', 'DESC')
-    .limit(3)
+    .limit(8)
     .all(),
 )
 
@@ -23,7 +23,7 @@ const { data: conferenceVideos } = await useAsyncData('conference-videos',
   () => queryCollection('videos')
     .where('tags', 'LIKE', '%conference%')
     .order('date', 'DESC')
-    .limit(6)
+    .limit(8)
     .all(),
 )
 
@@ -32,7 +32,7 @@ const { data: liveStreamVideos } = await useAsyncData('livestream-videos',
   () => queryCollection('videos')
     .where('tags', 'LIKE', '%live-streams%')
     .order('date', 'DESC')
-    .limit(6)
+    .limit(8)
     .all(),
 )
 
