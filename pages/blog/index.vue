@@ -33,7 +33,26 @@ const { data: allPosts } = await useAsyncData('all-blog-posts-for-tags',
 const popularTags = computed(() => {
   if (!allPosts.value) return []
   
-  const tagCounts = new Map<string, number>()
+  const tagCounts = new Map<string, { count: number; displayName: string }>()
+  
+  // Define preferred casing for common tags
+  const preferredCasing: Record<string, string> = {
+    'mcp': 'MCP',
+    'ai': 'AI',
+    'javascript': 'JavaScript',
+    'typescript': 'TypeScript',
+    'vue': 'Vue',
+    'nuxt': 'Nuxt',
+    'react': 'React',
+    'jamstack': 'JAMstack',
+    'devrel': 'Dev Rel',
+    'dev-rel': 'Dev Rel',
+    'github': 'GitHub',
+    'githubcopilot': 'GitHub Copilot',
+    'vscode': 'VS Code',
+    'vs-code': 'VS Code',
+    'webdev': 'WebDev'
+  }
   
   allPosts.value.forEach((post: any) => {
     if (post.tags) {
@@ -41,7 +60,13 @@ const popularTags = computed(() => {
         // Normalize tag: trim, lowercase for comparison, remove extra spaces
         const normalizedTag = tag.trim().toLowerCase().replace(/\s+/g, '-')
         if (normalizedTag) {
-          tagCounts.set(normalizedTag, (tagCounts.get(normalizedTag) || 0) + 1)
+          const displayName = preferredCasing[normalizedTag] || tag.trim()
+          
+          if (tagCounts.has(normalizedTag)) {
+            tagCounts.get(normalizedTag)!.count += 1
+          } else {
+            tagCounts.set(normalizedTag, { count: 1, displayName })
+          }
         }
       })
     }
@@ -49,7 +74,7 @@ const popularTags = computed(() => {
   
   // Convert to array and sort by count, then take top 8
   return Array.from(tagCounts.entries())
-    .map(([tag, count]) => ({ tag, count }))
+    .map(([tag, { count, displayName }]) => ({ tag, count, displayName }))
     .sort((a, b) => b.count - a.count)
     .slice(0, 8)
 })
@@ -121,15 +146,15 @@ useHead({
     
     <!-- Browse by Topic Section -->
     <section v-if="popularTags.length > 0" class="mb-16">
-      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Browse by Topic</h2>
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">Browse by Topic</h2>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         <NuxtLink
-          v-for="{ tag, count } in popularTags"
+          v-for="{ tag, count, displayName } in popularTags"
           :key="tag"
           :to="`/blog/tags/${tag}`"
-          class="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg p-4 text-center font-medium text-gray-700 dark:text-gray-300 capitalize transition-colors"
+          class="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg p-4 text-center font-medium text-gray-700 dark:text-gray-300 transition-colors"
         >
-          <div class="font-semibold">{{ tag.replace('-', ' ') }}</div>
+          <div class="font-semibold">{{ displayName }}</div>
           <div class="text-sm text-gray-500 dark:text-gray-400">{{ count }} post{{ count !== 1 ? 's' : '' }}</div>
         </NuxtLink>
       </div>
@@ -137,7 +162,7 @@ useHead({
     
     <!-- Browse by Year Section -->
     <section v-if="postYears.length > 0">
-      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Browse by Year</h2>
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">Browse by Year</h2>
       <div class="mb-4 text-center">
         <p class="text-gray-600 dark:text-gray-400 mb-4">Explore posts from different years</p>
       </div>

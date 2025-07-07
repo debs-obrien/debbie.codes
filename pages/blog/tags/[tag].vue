@@ -30,20 +30,40 @@ const taggedArticles = computed(() => {
 const popularTags = computed(() => {
   if (!articles.value) return []
   
-  const tagCounts = new Map<string, number>()
-  const seenTags = new Set<string>()
+  const tagCounts = new Map<string, { count: number; displayName: string }>()
+  
+  // Define preferred casing for common tags
+  const preferredCasing: Record<string, string> = {
+    'mcp': 'MCP',
+    'ai': 'AI',
+    'javascript': 'JavaScript',
+    'typescript': 'TypeScript',
+    'vue': 'Vue',
+    'nuxt': 'Nuxt',
+    'react': 'React',
+    'jamstack': 'JAMstack',
+    'devrel': 'Dev Rel',
+    'dev-rel': 'Dev Rel',
+    'github': 'GitHub',
+    'githubcopilot': 'GitHub Copilot',
+    'vscode': 'VS Code',
+    'vs-code': 'VS Code',
+    'webdev': 'WebDev'
+  }
   
   articles.value.forEach((post: any) => {
     if (post.tags) {
       post.tags.forEach((tag: string) => {
         // Normalize tag: trim, lowercase for comparison, remove extra spaces
         const normalizedTag = tag.trim().toLowerCase().replace(/\s+/g, '-')
-        if (normalizedTag && !seenTags.has(normalizedTag)) {
-          seenTags.add(normalizedTag)
-          tagCounts.set(normalizedTag, (tagCounts.get(normalizedTag) || 0) + 1)
-        } else if (normalizedTag && seenTags.has(normalizedTag)) {
-          // Increment count for existing normalized tag
-          tagCounts.set(normalizedTag, (tagCounts.get(normalizedTag) || 0) + 1)
+        if (normalizedTag) {
+          const displayName = preferredCasing[normalizedTag] || tag.trim()
+          
+          if (tagCounts.has(normalizedTag)) {
+            tagCounts.get(normalizedTag)!.count += 1
+          } else {
+            tagCounts.set(normalizedTag, { count: 1, displayName })
+          }
         }
       })
     }
@@ -51,7 +71,7 @@ const popularTags = computed(() => {
   
   // Convert to array and sort by count, then take top 8
   return Array.from(tagCounts.entries())
-    .map(([tag, count]) => ({ tag, count }))
+    .map(([tag, { count, displayName }]) => ({ tag, count, displayName }))
     .sort((a, b) => b.count - a.count)
     .slice(0, 8)
 })
