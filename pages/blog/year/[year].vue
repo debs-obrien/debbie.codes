@@ -27,6 +27,53 @@ const articles = computed(() => {
   })
 })
 
+// Get popular tags for browse components
+const popularTags = computed(() => {
+  if (!allArticles.value) return []
+  
+  const tagCounts = new Map<string, number>()
+  const seenTags = new Set<string>()
+  
+  allArticles.value.forEach((post: any) => {
+    if (post.tags) {
+      post.tags.forEach((tag: string) => {
+        // Normalize tag: trim, lowercase for comparison, remove extra spaces
+        const normalizedTag = tag.trim().toLowerCase().replace(/\s+/g, '-')
+        if (normalizedTag && !seenTags.has(normalizedTag)) {
+          seenTags.add(normalizedTag)
+          tagCounts.set(normalizedTag, (tagCounts.get(normalizedTag) || 0) + 1)
+        } else if (normalizedTag && seenTags.has(normalizedTag)) {
+          // Increment count for existing normalized tag
+          tagCounts.set(normalizedTag, (tagCounts.get(normalizedTag) || 0) + 1)
+        }
+      })
+    }
+  })
+  
+  // Convert to array and sort by count, then take top 8
+  return Array.from(tagCounts.entries())
+    .map(([tag, count]) => ({ tag, count }))
+    .sort((a, b) => b.count - a.count)
+    .slice(0, 8)
+})
+
+// Get years for archive navigation with post counts
+const postYears = computed(() => {
+  if (!allArticles.value) return []
+  
+  const yearCounts = new Map<string, number>()
+  allArticles.value.forEach((post: any) => {
+    if (post.date) {
+      const postYear = new Date(post.date).getFullYear().toString()
+      yearCounts.set(postYear, (yearCounts.get(postYear) || 0) + 1)
+    }
+  })
+  
+  return Array.from(yearCounts.entries())
+    .map(([year, count]) => ({ year, count }))
+    .sort((a, b) => b.year.localeCompare(a.year))
+})
+
 // Debug year filtering - use watchEffect to run when data is available
 if (process.dev) {
   watchEffect(() => {
@@ -102,6 +149,14 @@ useHead({
         </svg>
         Back to Blog
       </NuxtLink>
+    </div>
+    
+    <!-- Browse Components for consistency -->
+    <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+      <BlogBrowseComponents 
+        :popularTags="popularTags"
+        :postYears="postYears"
+      />
     </div>
   </PageLayout>
 </template>
