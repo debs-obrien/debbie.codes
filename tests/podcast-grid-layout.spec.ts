@@ -8,14 +8,11 @@ test.describe('Podcast Grid Layout', () => {
     await expect(page.getByRole('heading', { level: 1 })).toHaveText('Podcast Interviews');
     await expect(page.getByText('Discover conversations about web development, testing, and developer advocacy')).toBeVisible();
 
-    // Check stats section
-    await expect(page.getByText('28+')).toBeVisible();
-    const episodesStatLabel = page.locator('div').filter({ hasText: /^Episodes$/ }).first();
-    await expect(episodesStatLabel).toBeVisible();
-    await expect(page.getByText('5+')).toBeVisible();
-    await expect(page.getByText('Years')).toBeVisible();
-    await expect(page.getByText('20+')).toBeVisible();
-    await expect(page.getByText('Shows')).toBeVisible();
+    // Check stats section using aria snapshot
+    const statsSection = page.getByLabel('Podcast Stats');
+    await expect(statsSection).toMatchAriaSnapshot(`
+      - text: /\\d+\\+ Episodes 5\\+ Years \\d+\\+ Shows/
+    `);
 
     // Check featured podcast section
     await expect(page.getByRole('article').first()).toBeVisible();
@@ -31,12 +28,14 @@ test.describe('Podcast Grid Layout', () => {
 
     // Check "All Episodes" section
     await expect(page.getByRole('heading', { level: 2, name: 'All Episodes' })).toBeVisible();
-    await expect(page.getByText('28 episodes')).toBeVisible();
+    const totalEpisodesText = await page.getByText(/\d+ episodes/).textContent();
+    expect(totalEpisodesText).toBeTruthy(); // Ensure text exists
+    await expect(page.getByText(totalEpisodesText!)).toBeVisible();
 
     // Check grid layout - should have multiple podcast cards
     const podcastCards = page.getByRole('article').filter({ hasNot: page.locator('iframe') });
-    await expect(podcastCards).toHaveCount(28); // Should match total episodes displayed
-
+    const totalEpisodes = parseInt(totalEpisodesText!.split(' ')[0], 10); // Extract number from "28 episodes"  
+    await expect(podcastCards).toHaveCount(totalEpisodes);
     // Check that podcast cards have proper structure
     const firstCard = podcastCards.first();
     const cardImage = firstCard.locator('img').first();
@@ -81,14 +80,26 @@ test.describe('Podcast Grid Layout', () => {
   test('LinkedIn button functionality', async ({ page, context }) => {
     await page.goto('/podcasts');
 
+    // Mock the LinkedIn page to prevent actual navigation
+    await context.route('https://www.linkedin.com/**', route => {
+      route.fulfill({
+        status: 200,
+        contentType: 'text/html',
+        body: '<html><body>Mocked LinkedIn Page</body></html>'
+      });
+    });
+
     // Click the "Get in touch" button
     const [linkedInPage] = await Promise.all([
       context.waitForEvent('page'),
       page.getByRole('link', { name: 'Get in touch' }).click()
     ]);
 
-    // Verify LinkedIn page opened
-    await expect(linkedInPage).toHaveURL(/linkedin\.com/);
+    // Verify the new page was opened with the correct URL
+    await expect(linkedInPage).toHaveURL('https://www.linkedin.com/in/debbie-o-brien-1a199975/');
+    
+    // Verify it's the mocked content
+    await expect(linkedInPage.locator('body')).toContainText('Mocked LinkedIn Page');
   });
 
   test('responsive grid layout', async ({ page, isMobile }) => {

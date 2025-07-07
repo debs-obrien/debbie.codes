@@ -29,7 +29,7 @@ useHead({
       </p>
       
       <!-- Stats -->
-      <div class="flex justify-center gap-8 text-center">
+      <div class="flex justify-center gap-8 text-center" aria-label="Podcast Stats">
         <div>
           <div class="text-3xl font-bold text-blue-600">{{ podcasts?.length || 0 }}+</div>
           <div class="text-sm text-gray-500">Episodes</div>
