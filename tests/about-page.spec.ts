@@ -138,9 +138,9 @@ test.describe('About Page', () => {
   test('professional roles and experience are highlighted', async ({ page }) => {
     await expect(page.getByText('With over 15 years experience in Frontend development')).toBeVisible();
     await expect(page.getByText('I have worked as a Tech Lead and consultant')).toBeVisible();
-    await expect(page.getByText('I am a senior Technical Program manager at Microsoft')).toBeVisible();
+    await expect(page.getByText('I am a Principal Technical Program manager at Microsoft')).toBeVisible();
     
-    const expertParagraph = page.getByText('I am a senior Technical Program manager at Microsoft, Google Developer Expert in web technologies');
+    const expertParagraph = page.getByText('I am a Principal Technical Program manager at Microsoft, Google Developer Expert in web technologies');
     await expect(expertParagraph).toBeVisible();
     
     await expect(page.getByText('Nuxt Ambassador')).toBeVisible();
