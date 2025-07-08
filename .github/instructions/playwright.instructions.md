@@ -26,7 +26,7 @@ applyTo: '**'
 
 ## Assertion Best Practices
 - **UI Structure**: Use `toMatchAriaSnapshot` to verify the accessibility tree structure of a component. This provides a comprehensive and accessible snapshot. 
-  - Do not add text content to the yaml. Choose one of the following strategies:   
+  - Do not add text content or paragraph content to the yaml. Choose one of the following strategies:   
     - Omit the text content entirely - Just reference the element without its text:
     - Use partial text matching - Include just the beginning of the text:
     - Focus on structure over content - Test the presence and hierarchy of elements without their text content.
