@@ -1,14 +1,16 @@
 <script setup lang="ts">
-import type { BlogPost } from '~/types'
+import type { } from '~/types'
 
 const props = defineProps<{
-  articles: BlogPost[]
-  filteredArticles: BlogPost[]
+  articles: any[]
+  filteredArticles: any[]
   showImages?: boolean
+  defaultArticles?: any[]  // The original limited/paginated articles
 }>()
 
 const emit = defineEmits<{
-  (e: 'update:filteredArticles', articles: BlogPost[]): void
+  (e: 'update:filteredArticles', articles: any[]): void
+  (e: 'search-active', isActive: boolean): void
 }>()
 
 const searchQuery = ref('')
@@ -16,12 +18,13 @@ const searchQuery = ref('')
 // Use a direct function to filter articles
 function filterArticles() {
   if (!searchQuery.value.trim()) {
-    return props.articles
+    // Return default articles (limited/paginated) if no search, otherwise return all articles
+    return props.defaultArticles || props.articles
   }
   
   const query = searchQuery.value.toLowerCase().trim()
   
-  return props.articles.filter((article: BlogPost) => {
+  return props.articles.filter((article: any) => {
     // Search in title
     const titleMatch = article.title?.toLowerCase().includes(query)
     
@@ -39,12 +42,16 @@ function filterArticles() {
 
 // Watch search query changes and emit filtered results
 watch(searchQuery, () => {
-  emit('update:filteredArticles', filterArticles())
+  const filtered = filterArticles()
+  emit('update:filteredArticles', filtered)
+  emit('search-active', searchQuery.value.trim().length > 0)
 }, { immediate: true })
 
 // Also watch for articles prop changes
 watch(() => props.articles, () => {
-  emit('update:filteredArticles', filterArticles())
+  const filtered = filterArticles()
+  emit('update:filteredArticles', filtered)
+  emit('search-active', searchQuery.value.trim().length > 0)
 }, { immediate: true })
 </script>
 
