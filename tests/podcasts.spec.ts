@@ -306,10 +306,18 @@ test.describe('Podcasts Page', () => {
         await page.getByRole('list', { name: 'topics' }).getByRole('link', { name: 'bit' }).click();
         
         await expect(page).toHaveURL('/podcasts/tags/bit');
+        await expect(page.getByRole('heading', { name: 'Podcast Interviews on bit' })).toBeVisible();
         
-        const articles = page.locator('article');
+        // Filter out the featured podcast iframe article
+        const articles = page.getByRole('article').filter({ hasNot: page.locator('iframe') });
         const count = await articles.count();
         expect(count).toBeGreaterThan(0);
+        
+        // Verify that at least some articles contain the bit tag link
+        // (not all articles need to show the tag link, they just need to be bit-related)
+        await expect.poll(() =>
+          page.getByRole('article').getByRole('link', { name: 'bit' }).count()
+        ).toBeGreaterThan(0);
       });
     });
 

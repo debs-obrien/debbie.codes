@@ -10,7 +10,7 @@ for (const topic of topics) {
       await page.getByRole('list', { name: 'topics' }).getByRole('link', { name: topic }).click();
       
       // Check that we navigated to the correct URL instead of checking heading text
-      await expect(page).toHaveURL(new RegExp(`/videos/tags/${topic.replace(' ', '-')}`));
+      await expect(page).toHaveURL(new RegExp(`/videos/tags/${topic.replace(/\s+/g, '-')}`));
 
       await expect.poll(() =>
         page.getByRole('article').getByRole('link', { name: topic }).count())
