@@ -18,7 +18,7 @@ test.describe('About Page', () => {
   });
 
   test('displays Awards and Achievements section', async ({ page }) => {
-    await expect(page.getByRole('heading', { name: 'Awards and Achievements' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Awards & Achievements' })).toBeVisible();
     
     await expect(page.getByRole('heading', { name: 'GitHub Star Alumni' })).toBeVisible();
     await expect(page.getByRole('heading', { name: 'Google Developer Expert' })).toBeVisible();
