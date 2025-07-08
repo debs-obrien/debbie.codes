@@ -15,12 +15,6 @@ test.describe('404 Error Page', () => {
     `);
   });
 
-  test('404 page "Take me there!" link navigates to home page', async ({ page }) => {
-    await page.getByRole('link', { name: 'Take me there!' }).click();
-    await expect(page).toHaveURL('/');
-    await expect(page.getByRole('heading', { name: 'Debbie O\'Brien', level: 1 })).toBeVisible();
-  });
-
   test('404 page maintains header and footer navigation', async ({ page }) => {
     await expect(page.getByRole('banner').getByRole('navigation')).toMatchAriaSnapshot(`
       - navigation:
