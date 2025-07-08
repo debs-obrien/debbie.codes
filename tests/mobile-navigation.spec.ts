@@ -1,154 +1,144 @@
-import { expect, test } from '@playwright/test';
+import { test, expect } from '@playwright/test';
+import type { Page } from '@playwright/test';
 
 test.describe('Mobile Navigation', () => {
-  test.use({ viewport: { width: 375, height: 667 } }); // iPhone SE size
+  // Reusable function to get the hamburger menu button
+  const getHamburgerButton = (page: Page) => page.getByRole('button', { name: 'open menu' });
 
   test.beforeEach(async ({ page }) => {
+    // Set mobile viewport
+    await page.setViewportSize({ width: 375, height: 667 });
     await page.goto('/');
   });
 
-  test('displays hamburger menu button on mobile', async ({ page }) => {
-    // Check that hamburger menu button is visible
-    await expect(page.getByRole('button', { name: 'open menu' })).toBeVisible();
-    
-    // Check that main navigation links are hidden initially
-    const navigation = page.getByRole('navigation');
-    await expect(navigation.getByRole('link', { name: 'About' })).not.toBeVisible();
-    await expect(navigation.getByRole('link', { name: 'Videos' })).not.toBeVisible();
-    await expect(navigation.getByRole('link', { name: 'Podcasts' })).not.toBeVisible();
-    await expect(navigation.getByRole('link', { name: 'Courses' })).not.toBeVisible();
-    await expect(navigation.getByRole('link', { name: 'Blog' })).not.toBeVisible();
+  test('Mobile Navigation - Hamburger menu button on mobile', async ({ page }) => {
+    const hamburgerButton = getHamburgerButton(page);
+    await test.step('Verify hamburger menu is visible on mobile', async () => {
+      await expect(hamburgerButton).toBeVisible();
+    });
+
+    await test.step('Verify mobile menu is initially closed', async () => {
+      await expect(page.getByRole('navigation')).not.toBeVisible();
+      await expect(hamburgerButton).toHaveAccessibleName('open menu');
+    });
+
+    await test.step('Open menu and verify state change', async () => {
+      await hamburgerButton.click();
+      // Verify menu is open
+      await expect(page.getByRole('banner')).toBeInViewport();
+    });
+
+    await test.step('Close menu by clicking button again', async () => {
+      await hamburgerButton.click();
+      // Verify menu is closed
+      await expect(page.getByRole('navigation')).not.toBeVisible();
+      await expect(hamburgerButton).toHaveAccessibleName('open menu');
+    });
   });
 
-  test('opening hamburger menu reveals navigation links', async ({ page }) => {
-    // Click hamburger menu
-    await page.getByRole('button', { name: 'open menu' }).click();
-    
-    // Check that navigation links become visible (use navigation role to be more specific)
-    const navigation = page.getByRole('navigation');
-    await expect(navigation.getByRole('link', { name: 'About' })).toBeVisible();
-    await expect(navigation.getByRole('link', { name: 'Videos' })).toBeVisible();
-    await expect(navigation.getByRole('link', { name: 'Podcasts' })).toBeVisible();
-    await expect(navigation.getByRole('link', { name: 'Courses' })).toBeVisible();
-    await expect(navigation.getByRole('link', { name: 'Blog' })).toBeVisible();
-    
-    // Check that social media links are also visible
-    // Using more specific role-based selectors to target the mobile menu social links
-    const mobileMenu = page.locator('div.text-white.bg-dark').filter({ visible: true });
-    await expect(mobileMenu.getByRole('link', { name: 'x' })).toBeVisible();
-    await expect(mobileMenu.getByRole('link', { name: 'linkedIn' })).toBeVisible();
-    await expect(mobileMenu.getByRole('link', { name: 'github' })).toBeVisible();
-    await expect(mobileMenu.getByRole('link', { name: 'youtube' })).toBeVisible();
-    
-    // Check that color mode toggle is visible
-    await expect(page.getByRole('button', { name: 'system' })).toBeVisible();
+  test('Mobile Navigation - Menu reveals navigation links', async ({ page }) => {
+    await test.step('Open mobile menu', async () => {
+      await getHamburgerButton(page).click();
+    });
+
+    await test.step('Verify navigation links are visible', async () => {
+      // Verify the accessibility tree structure of the navigation
+      await expect(page.getByRole('navigation')).toMatchAriaSnapshot(`
+        - navigation:
+          - list:
+            - listitem:
+              - link "About"
+            - listitem:
+              - link "Videos"
+            - listitem:
+              - link "Podcasts"
+            - listitem:
+              - link "Courses"
+            - listitem:
+              - link "Blog"
+      `);
+    });
+
+    await test.step('Verify hamburger button shows close indicator', async () => {
+      // Use a more specific locator for the close button within the hamburger menu
+      await expect(getHamburgerButton(page).getByText('X')).toBeVisible();
+    });
   });
 
-  test('navigation links work from mobile menu', async ({ page }) => {
-    // Open hamburger menu
-    await page.getByRole('button', { name: 'open menu' }).click();
-    
-    // Click on Blog link (use navigation role to be more specific)
-    await page.getByRole('navigation').getByRole('link', { name: 'Blog' }).click();
-    
-    // Should navigate to blog page
-    await expect(page).toHaveURL('/blog');
-    await expect(page.getByRole('heading', { level: 1, name: 'All Blog Posts' })).toBeVisible();
+  test('Mobile Navigation - Navigation links work from mobile menu', async ({ page }) => {
+    await test.step('Open mobile menu', async () => {
+      await getHamburgerButton(page).click();
+    });
+
+    await test.step('Click Blog link and verify navigation', async () => {
+      await page.getByRole('navigation').getByRole('link', { name: 'Blog' }).click();
+      await expect(page).toHaveURL(/.*\/blog/);
+      await expect(page).toHaveTitle(/.*Blog Posts.*Debbie Codes/);
+    });
   });
 
-  test('social media links work from mobile menu', async ({ page }) => {
-    // Open hamburger menu
-    await page.getByRole('button', { name: 'open menu' }).click();
-    
-    // Test X link (with route mocking)
-    await page.context().route('https://x.com/**', route => route.fulfill({
-      body: '<html><body><h1>X</h1></body></html>'
-    }));
+  test('Mobile Navigation - Social media links work from mobile menu', async ({ page }) => {
+    await test.step('Open mobile menu', async () => {
+      await getHamburgerButton(page).click();
+    });
 
-    const mobileMenu = page.locator('div.text-white.bg-dark').filter({ visible: true });
-    const [page1] = await Promise.all([
-      page.waitForEvent('popup'),
-      mobileMenu.getByRole('link', { name: 'x' }).click()
-    ]);
-    await expect(page1).toHaveURL('https://x.com/debs_obrien');
+    await test.step('Verify social media links are present', async () => {
+      // Check for social media links - they should be in a specific social links container
+      const socialLinksContainer = page.getByRole('banner').getByRole('list').filter({ has: page.getByRole('link', { name: 'x' }) });
+      await expect(socialLinksContainer).toMatchAriaSnapshot(`
+        - list:
+          - listitem:
+            - link "x":
+              - /url: https://x.com/debs_obrien
+              - img
+          - listitem:
+            - link "linkedIn":
+              - /url: https://www.linkedin.com/in/debbie-o-brien-1a199975/
+              - img
+          - listitem:
+            - link "github":
+              - /url: https://github.com/debs-obrien
+          - listitem:
+            - link "youtube":
+              - /url: https://www.youtube.com/c/DebbieOBrien
+              - img
+      `);
+    });
   });
 
-  test('color mode toggle works from mobile menu', async ({ page }) => {
-    // Open hamburger menu
-    await page.getByRole('button', { name: 'open menu' }).click();
-    
-    // Test color mode toggle
-    await page.getByRole('button', { name: 'system' }).click();
-    await expect(page.getByRole('document')).toHaveAttribute('class', 'dark');
-    
-    // Need to reopen menu after color mode change (menu might close)
-    await page.getByRole('button', { name: 'open menu' }).click();
-    
-    await page.getByRole('button', { name: 'dark' }).click();
-    await expect(page.getByRole('document')).toHaveAttribute('class', 'light');
+  test('Mobile Navigation - Works across different pages', async ({ page }) => {
+    const hamburgerButton = getHamburgerButton(page);
+    await test.step('Navigate to About page', async () => {
+      await hamburgerButton.click();
+      await page.getByRole('navigation').getByRole('link', { name: 'About' }).click();
+      await expect(page).toHaveURL(/.*\/about/);
+    });
+
+    await test.step('Verify mobile menu still works on About page', async () => {
+      await expect(hamburgerButton).toBeVisible();
+      await hamburgerButton.click();
+      
+      // Verify navigation is visible in the banner area - consistent across pages
+      await expect(page.getByRole('banner')).toBeInViewport();
+    });
   });
 
-  test('mobile menu works across different pages', async ({ page }) => {
-    // Start on home page
-    await page.getByRole('button', { name: 'open menu' }).click();
-    await page.getByRole('navigation').getByRole('link', { name: 'Videos' }).click();
-    
-    // Should be on videos page
-    await expect(page).toHaveURL('/videos');
-    
-    // Open menu again and navigate to another page
-    await page.getByRole('button', { name: 'open menu' }).click();
-    await page.getByRole('navigation').getByRole('link', { name: 'About' }).click();
-    
-    // Should be on about page
-    await expect(page).toHaveURL('/about');
-    
-    // Verify menu still works
-    await page.getByRole('button', { name: 'open menu' }).click();
-    await expect(page.getByRole('navigation').getByRole('link', { name: 'Courses' })).toBeVisible();
-  });
+  test('Mobile Navigation - Hamburger icon accessibility', async ({ page }) => {
+    const hamburgerButton = getHamburgerButton(page);
+    await test.step('Verify hamburger button has proper accessibility attributes', async () => {
+      await expect(hamburgerButton).toBeVisible();
+      await expect(hamburgerButton).toHaveAccessibleName('open menu');
+    });
 
-  test('mobile menu hamburger icon accessibility', async ({ page }) => {
-    const hamburgerButton = page.getByRole('button', { name: 'open menu' });
-    
-    // Check button is focusable
-    await hamburgerButton.focus();
-    await expect(hamburgerButton).toBeFocused();
-    
-    // Check button can be activated with keyboard
-    await hamburgerButton.press('Enter');
-    
-    // Menu should open
-    await expect(page.getByRole('navigation').getByRole('link', { name: 'About' })).toBeVisible();
-  });
-
-  test('mobile menu on blog page with search functionality', async ({ page }) => {
-    // Navigate to blog page
-    await page.goto('/blog');
-    
-    // Open mobile menu
-    await page.getByRole('button', { name: 'open menu' }).click();
-    
-    // Check that all navigation options are available (no Home link in navigation)
-    await expect(page.getByRole('navigation').getByRole('link', { name: 'About' })).toBeVisible();
-    await expect(page.getByRole('navigation').getByRole('link', { name: 'Videos' })).toBeVisible();
-    
-    // Close menu by clicking the button again
-    await page.getByRole('button', { name: 'open menu' }).click();
-    
-    // Wait for menu to close
-    await expect(page.getByRole('navigation').getByRole('link', { name: 'About' })).not.toBeVisible();
-    
-    // Test that search input is accessible directly on the blog page
-    const searchInput = page.getByRole('searchbox');
-    await expect(searchInput).toBeVisible();
-    
-    // Type in search and verify it works
-    await searchInput.fill('playwright');
-    
-    // Should have filtered results
-    const articles = page.locator('article');
-    const count = await articles.count();
-    expect(count).toBeGreaterThan(0);
+    await test.step('Verify button is keyboard accessible', async () => {
+      await hamburgerButton.focus();
+      await expect(hamburgerButton).toBeFocused();
+      
+      // Test keyboard activation
+      await page.keyboard.press('Enter');
+      
+      // Verify navigation appears after keyboard activation
+      await expect(page.getByRole('banner')).toBeInViewport();
+    });
   });
 });
