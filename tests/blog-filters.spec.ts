@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 
-const topics = ['nuxt', 'playwright', 'testing', 'react', 'personal', 'javascript']
+const topics = ['nuxt', 'playwright', 'testing', 'react', 'personal', 'javascript'];
 
 for (const topic of topics) {
     
@@ -15,5 +15,5 @@ for (const topic of topics) {
         page.getByRole('article').getByRole('link', { name: topic }).count())
         .toBeGreaterThan(0);
     }
-    })
+    });
 }

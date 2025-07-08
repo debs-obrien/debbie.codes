@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 
-const topics = ['bit', 'dev rel', 'jamstack', 'mentoring', 'nuxt', 'playwright', 'react', 'testing']
+const topics = ['bit', 'dev rel', 'jamstack', 'mentoring', 'nuxt', 'playwright', 'react', 'testing'];
 
 for (const topic of topics) {
   test(`tag links to page with podcasts on ${topic}`, async ({ page, isMobile }) => {
@@ -15,5 +15,5 @@ for (const topic of topics) {
         page.getByRole('article').getByRole('link', { name: topic }).count())
         .toBeGreaterThan(0);
     }
-    })
+    });
 }
