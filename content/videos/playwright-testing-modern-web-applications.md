@@ -1,7 +1,7 @@
 ---
-title: Playwright Testing for Modern Web Applications
+title: The Angular Show: Playwright Takes Center Stage
 date: 2025-01-15
-description: Learn how to leverage Playwright for end-to-end testing in modern web applications. This session covers best practices, advanced techniques, and real-world examples to help you build robust test suites that catch bugs before they reach production.
+description: insights on what makes Playwright different, the latest features transforming the testing landscape, and how AI is being integrated to make testing more intelligent and efficient. You can expect to learn why Playwright is becoming the go-to choice for modern web testing and how to leverage its powerful features in your projects.
 video: tdmgXAUfWFo
 tags: [playwright, testing]
 ---
