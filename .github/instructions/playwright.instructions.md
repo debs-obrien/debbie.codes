@@ -25,7 +25,12 @@ applyTo: '**'
 - **Scope**: Aim for one test file per major application feature or page.
 
 ## Assertion Best Practices
-- **UI Structure**: Use `toMatchAriaSnapshot` to verify the accessibility tree structure of a component. This provides a comprehensive and accessible snapshot.
+- **UI Structure**: Use `toMatchAriaSnapshot` to verify the accessibility tree structure of a component. This provides a comprehensive and accessible snapshot. 
+  - Do not add text content to the yaml. Choose one of the following strategies:   
+    - Omit the text content entirely - Just reference the element without its text:
+    - Use partial text matching - Include just the beginning of the text:
+    - Focus on structure over content - Test the presence and hierarchy of elements without their text content.
+  - Add `url` to the yaml if not already present. You can find the correct url by navigating to the page with the Playwright MCP Server and viewing the page snapshot.
 - **Element Counts**: Use `toHaveCount` to assert the number of elements found by a locator.
 - **Text Content**: Use `toHaveText` for exact text matches and `toContainText` for partial matches.
 - **Navigation**: Use `toHaveURL` to verify the page URL after an action.
