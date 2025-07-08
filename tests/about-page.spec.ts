@@ -12,7 +12,7 @@ test.describe('About Page', () => {
     await expect(page.getByRole('heading', { name: "I'm Debbie O'Brien" })).toBeVisible();
     
     await expect(page.getByText('With over 15 years experience in Frontend development')).toBeVisible();
-    await expect(page.getByText('I am a senior Technical Program manager at Microsoft')).toBeVisible();
+    await expect(page.getByText('I am a Principal Technical Program manager at Microsoft')).toBeVisible();
     await expect(page.getByText('I have a special love for JavaScript frameworks')).toBeVisible();
     await expect(page.getByText('I am Irish but live in Mallorca, Spain')).toBeVisible();
   });
