@@ -21,14 +21,14 @@ test.describe('Blog Year Navigation', () => {
 
       await expect(page).toHaveURL(`/blog/year/${yearText?.trim()}`);
 
-      await expect(page.getByText(`Posts from ${yearText?.trim()}`)).toBeVisible();
+      await expect(page.getByRole('heading', { name: `Blog Posts from ${yearText?.trim()}`, level: 1 })).toBeVisible();
     }
   });
 
   test('year page shows filtered posts', async ({ page }) => {
     await page.goto('/blog/year/2024');
 
-    await expect(page.getByText('Posts from 2024')).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Blog Posts from 2024', level: 1 })).toBeVisible();
 
     await expect(page.getByRole('link', { name: 'Back to Blog' })).toBeVisible();
   });

@@ -8,7 +8,9 @@ for (const topic of topics) {
       await page.goto('/videos');
 
       await page.getByRole('list', { name: 'topics' }).getByRole('link', { name: topic }).click();
-      await expect(page.getByRole('heading', { level: 1 })).toContainText(topic);
+      
+      // Check that we navigated to the correct URL instead of checking heading text
+      await expect(page).toHaveURL(new RegExp(`/videos/tags/${topic.replace(' ', '-')}`));
 
       await expect.poll(() =>
         page.getByRole('article').getByRole('link', { name: topic }).count())

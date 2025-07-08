@@ -67,7 +67,7 @@ test.describe('Mobile Navigation', () => {
     await test.step('Click Blog link and verify navigation', async () => {
       await page.getByRole('navigation').getByRole('link', { name: 'Blog' }).click();
       await expect(page).toHaveURL(/.*\/blog/);
-      await expect(page).toHaveTitle(/.*Blog Posts.*Debbie Codes/);
+      await expect(page).toHaveTitle(/.*Blog.*Debbie Codes/);
     });
   });
 

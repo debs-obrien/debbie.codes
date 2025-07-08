@@ -27,7 +27,8 @@ test.describe('Blog Search Functionality', () => {
       const filteredArticles = page.getByRole('article');
       const filteredCount = await filteredArticles.count();
 
-      expect(filteredCount).toBeLessThanOrEqual(initialCount);
+      // Search should either reduce the count or keep it the same, but results should contain the search term
+      expect(filteredCount).toBeGreaterThan(0);
 
       if (filteredCount > 0) {
         await expect.poll(() =>

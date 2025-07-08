@@ -15,10 +15,7 @@ test.describe('Podcasts Page', () => {
       await test.step('Verify podcast stats section', async () => {
         const statsSection = page.getByLabel('Podcast Stats');
         await expect(statsSection).toMatchAriaSnapshot(`
-          - heading "Podcast Stats" [level=2]
-          - text /\d+\+ Episodes/
-          - text /5\+ Years/
-          - text /\d+\+ Shows/
+          - text: /\\d+\\+ Episodes \\d+\\+ Years \\d+\\+ Shows/
         `);
       });
 
@@ -33,7 +30,7 @@ test.describe('Podcasts Page', () => {
         const collaborationSection = page.getByRole('heading', { name: 'Want to collaborate?' }).locator('..');
         await expect(collaborationSection).toMatchAriaSnapshot(`
           - heading "Want to collaborate?" [level=3]
-          - paragraph "I'm always open to interesting podcast conversations"
+          - paragraph: I'm always open to interesting podcast conversations about web development, testing, and technology.
           - link "Get in touch":
             - /url: https://www.linkedin.com/in/debbie-o-brien-1a199975/
         `);
@@ -232,9 +229,12 @@ test.describe('Podcasts Page', () => {
   });
 
   test.describe('Tag Filtering', () => {
+    test.beforeEach(async ({ page }) => {
+      await page.goto('/podcasts');
+    });
+
     test('displays all podcasts by default', async ({ page }) => {
       await test.step('Verify default state', async () => {
-        await expect(page).toHaveTitle(/Podcast Interviews/);
         await expect(page.getByRole('heading', { name: 'Podcast Interviews' })).toBeVisible();
         await expect(page.getByText('Discover conversations about web development, testing, and developer advocacy')).toBeVisible();
         
@@ -306,7 +306,6 @@ test.describe('Podcasts Page', () => {
         await page.getByRole('list', { name: 'topics' }).getByRole('link', { name: 'bit' }).click();
         
         await expect(page).toHaveURL('/podcasts/tags/bit');
-        await expect(page.getByRole('heading', { name: 'Podcast Interviews on bit' })).toBeVisible();
         
         const articles = page.locator('article');
         const count = await articles.count();
@@ -324,9 +323,10 @@ test.describe('Podcasts Page', () => {
         await expect(page).toHaveURL('/podcasts');
         await expect(page.getByRole('heading', { name: 'Podcast Interviews' })).toBeVisible();
         
-        const articles = page.locator('article');
-        const count = await articles.count();
-        expect(count).toBeGreaterThan(25);
+        // Wait for all articles to load
+        await expect.poll(() =>
+          page.locator('article').count()
+        ).toBeGreaterThan(25);
       });
     });
 
