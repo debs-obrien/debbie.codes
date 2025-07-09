@@ -6,7 +6,7 @@ test.beforeEach(async ({ page, isMobile }) => {
   if(isMobile){
     await page.getByRole('button', { name: 'open menu' }).click();
   }
-})
+});
 
 test('google gde link in home page works', async ({ page }) => {
   await page.context().route('https://developers.google.com/**', route => route.fulfill({

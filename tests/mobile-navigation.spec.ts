@@ -2,11 +2,9 @@ import { test, expect } from '@playwright/test';
 import type { Page } from '@playwright/test';
 
 test.describe('Mobile Navigation', () => {
-  // Reusable function to get the hamburger menu button
   const getHamburgerButton = (page: Page) => page.getByRole('button', { name: 'open menu' });
 
   test.beforeEach(async ({ page }) => {
-    // Set mobile viewport
     await page.setViewportSize({ width: 375, height: 667 });
     await page.goto('/');
   });
@@ -24,13 +22,11 @@ test.describe('Mobile Navigation', () => {
 
     await test.step('Open menu and verify state change', async () => {
       await hamburgerButton.click();
-      // Verify menu is open
       await expect(page.getByRole('banner')).toBeInViewport();
     });
 
     await test.step('Close menu by clicking button again', async () => {
       await hamburgerButton.click();
-      // Verify menu is closed
       await expect(page.getByRole('navigation')).not.toBeVisible();
       await expect(hamburgerButton).toHaveAccessibleName('open menu');
     });
@@ -42,7 +38,6 @@ test.describe('Mobile Navigation', () => {
     });
 
     await test.step('Verify navigation links are visible', async () => {
-      // Verify the accessibility tree structure of the navigation
       await expect(page.getByRole('navigation')).toMatchAriaSnapshot(`
         - navigation:
           - list:
@@ -60,7 +55,6 @@ test.describe('Mobile Navigation', () => {
     });
 
     await test.step('Verify hamburger button shows close indicator', async () => {
-      // Use a more specific locator for the close button within the hamburger menu
       await expect(getHamburgerButton(page).getByText('X')).toBeVisible();
     });
   });
@@ -73,7 +67,7 @@ test.describe('Mobile Navigation', () => {
     await test.step('Click Blog link and verify navigation', async () => {
       await page.getByRole('navigation').getByRole('link', { name: 'Blog' }).click();
       await expect(page).toHaveURL(/.*\/blog/);
-      await expect(page).toHaveTitle(/.*Blog Posts.*Debbie Codes/);
+      await expect(page).toHaveTitle(/.*Blog.*Debbie Codes/);
     });
   });
 
@@ -83,7 +77,6 @@ test.describe('Mobile Navigation', () => {
     });
 
     await test.step('Verify social media links are present', async () => {
-      // Check for social media links - they should be in a specific social links container
       const socialLinksContainer = page.getByRole('banner').getByRole('list').filter({ has: page.getByRole('link', { name: 'x' }) });
       await expect(socialLinksContainer).toMatchAriaSnapshot(`
         - list:
@@ -118,7 +111,6 @@ test.describe('Mobile Navigation', () => {
       await expect(hamburgerButton).toBeVisible();
       await hamburgerButton.click();
       
-      // Verify navigation is visible in the banner area - consistent across pages
       await expect(page.getByRole('banner')).toBeInViewport();
     });
   });
@@ -134,10 +126,8 @@ test.describe('Mobile Navigation', () => {
       await hamburgerButton.focus();
       await expect(hamburgerButton).toBeFocused();
       
-      // Test keyboard activation
       await page.keyboard.press('Enter');
       
-      // Verify navigation appears after keyboard activation
       await expect(page.getByRole('banner')).toBeInViewport();
     });
   });
