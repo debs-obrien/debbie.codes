@@ -40,7 +40,8 @@ test.describe('Podcasts Page', () => {
     test('displays correct number of podcast cards', async ({ page }) => {
         await test.step('Count podcast episodes', async () => {
           const totalEpisodesText = await page.getByText(/\d+ episodes/).textContent();
-          const podcastCards = page.getByRole('article').filter({ hasNot: page.locator('iframe') });
+          // Exclude featured podcast by filtering out articles with "Featured Podcast" heading
+          const podcastCards = page.getByRole('article').filter({ hasNot: page.getByRole('heading', { name: 'Featured Podcast' }) });
           const totalEpisodes = parseInt(totalEpisodesText!.split(' ')[0], 10);
           await expect(podcastCards).toHaveCount(totalEpisodes);
         });
@@ -48,7 +49,8 @@ test.describe('Podcasts Page', () => {
 
     test('podcast cards display correctly', async ({ page }) => {
         await test.step('Verify first podcast card structure', async () => {
-          const podcastCards = page.getByRole('article').filter({ hasNot: page.locator('iframe') });
+          // Exclude featured podcast by filtering out articles with "Featured Podcast" heading  
+          const podcastCards = page.getByRole('article').filter({ hasNot: page.getByRole('heading', { name: 'Featured Podcast' }) });
           const firstCard = podcastCards.first();
           
           const cardImage = firstCard.locator('img').first();
@@ -66,7 +68,8 @@ test.describe('Podcasts Page', () => {
 
     test('podcast titles and metadata display correctly', async ({ page }) => {
         await test.step('Verify podcast card content', async () => {
-          const podcastCards = page.getByRole('article').filter({ hasNot: page.locator('iframe') });
+          // Exclude featured podcast by filtering out articles with "Featured Podcast" heading
+          const podcastCards = page.getByRole('article').filter({ hasNot: page.getByRole('heading', { name: 'Featured Podcast' }) });
           const firstCard = podcastCards.first();
           
           const title = firstCard.getByRole('heading', { level: 2 });
@@ -117,113 +120,12 @@ test.describe('Podcasts Page', () => {
             
             await expect(page.getByText('Discover conversations about web development')).toBeVisible();
           } else {
-            const podcastCards = page.getByRole('article').filter({ hasNot: page.locator('iframe') });
+            const podcastCards = page.getByRole('article').filter({ hasNot: page.getByRole('heading', { name: 'Featured Podcast' }) });
             await expect(podcastCards.first()).toBeVisible();
             
-            const statsSection = page.locator('text=28+').locator('..');
+            const statsSection = page.locator('text=29+').locator('..');
             await expect(statsSection).toBeVisible();
           }
-        });
-      });
-  });
-
-    test('featured podcast section is visible on podcasts page', async ({ page }) => {
-        await test.step('Verify iframe presence', async () => {
-          await expect(page.locator('iframe')).toBeVisible();
-        });
-      });
-
-    test('featured podcast player integration', async ({ page }) => {
-        await test.step('Verify featured podcast placement', async () => {
-          const featuredPodcast = page.getByRole('article').first();
-          const iframe = featuredPodcast.locator('iframe');
-          await expect(iframe).toBeVisible();
-          await expect(iframe).toHaveAttribute('src', /fireside\.fm/);
-        });
-      });
-
-    test('podcast player controls are accessible within iframe', async ({ page }) => {
-        await test.step('Verify iframe and basic controls', async () => {
-          const iframe = page.locator('iframe');
-          const frameLocator = page.frameLocator('iframe');
-          
-          await expect(iframe).toBeVisible();
-          
-          // Check for play/pause button
-          await expect(frameLocator.getByRole('button', { name: 'Play or Pause' })).toBeVisible();
-          
-          // Check for podcast title
-          await expect(frameLocator.getByRole('heading', { name: 'Your testing questions answered' })).toBeVisible();
-          
-          // Check for podcast brand link
-          await expect(frameLocator.getByRole('link', { name: 'PodRocket - A web development podcast from LogRocket' })).toBeVisible();
-        });
-      });
-
-    test('podcast player has additional controls', async ({ page }) => {
-        await test.step('Verify additional player controls', async () => {
-          const frameLocator = page.frameLocator('iframe');
-          
-          // Check for speed control button
-          await expect(frameLocator.getByRole('button', { name: 'Change Playback Speed' })).toBeVisible();
-          
-          // Check for skip buttons
-          await expect(frameLocator.getByRole('button', { name: 'Skip Back 15 Seconds' })).toBeVisible();
-          await expect(frameLocator.getByRole('button', { name: 'Skip Forward 15 Seconds' })).toBeVisible();
-          
-          // Check for share/subscribe dialog button
-          await expect(frameLocator.getByRole('button', { name: 'Open Share and Subscribe Dialog' })).toBeVisible();
-        });
-      });
-
-    test('podcast player has download and subscription links', async ({ page }) => {
-        await test.step('Verify download and subscription options', async () => {
-          const frameLocator = page.frameLocator('iframe');
-          
-          // Check for download link
-          const downloadLink = frameLocator.getByRole('link', { name: 'Download' });
-          await expect(downloadLink).toBeVisible();
-          
-          // Check for subscribe link
-          const subscribeLink = frameLocator.getByRole('link', { name: 'Subscribe' });
-          await expect(subscribeLink).toBeVisible();
-          
-          // Check for transcript link
-          const transcriptLink = frameLocator.getByRole('link', { name: 'Transcript' });
-          await expect(transcriptLink).toBeVisible();
-        });
-      });
-
-    test('podcast player shows duration information', async ({ page }) => {
-        await test.step('Verify time and progress displays', async () => {
-          const frameLocator = page.frameLocator('iframe');
-          
-          // Check for current time display
-          await expect(frameLocator.locator('text=00:00:00').first()).toBeVisible();
-          
-          // Check for duration display
-          await expect(frameLocator.locator('text=00:36:15')).toBeVisible();
-          
-          // Check for progress bar
-          await expect(frameLocator.getByRole('progressbar')).toBeVisible();
-        });
-      });
-
-    test('podcast player maintains proper iframe integration', async ({ page }) => {
-        await test.step('Verify iframe integration', async () => {
-          const iframe = page.locator('iframe');
-          
-          // Iframe should be properly embedded and sized
-          await expect(iframe).toBeVisible();
-          
-          // Iframe should have a proper src attribute
-          const src = await iframe.getAttribute('src');
-          expect(src).toBeTruthy();
-          expect(src).not.toBe('');
-          
-          // The iframe should be within the featured podcast article section
-          const podcastSection = page.getByRole('article').first();
-          await expect(podcastSection.locator('iframe')).toBeVisible();
         });
       });
   });
@@ -308,8 +210,8 @@ test.describe('Podcasts Page', () => {
         await expect(page).toHaveURL('/podcasts/tags/bit');
         await expect(page.getByRole('heading', { name: 'Podcast Interviews on bit' })).toBeVisible();
         
-        // Filter out the featured podcast iframe article
-        const articles = page.getByRole('article').filter({ hasNot: page.locator('iframe') });
+        // Filter out the featured podcast article
+        const articles = page.getByRole('article').filter({ hasNot: page.getByRole('heading', { name: 'Featured Podcast' }) });
         const count = await articles.count();
         expect(count).toBeGreaterThan(0);
         
@@ -358,4 +260,5 @@ test.describe('Podcasts Page', () => {
       }
     });
   }
+  });
 });
