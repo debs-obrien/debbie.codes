@@ -7,5 +7,4 @@ image: v1630862638/debbie.codes/featured-posts/finding-way-round-vue-ui_gmgzf1
 provider: cloudinary
 tags: [vue]
 platform: Ultimate Courses
-featured: true
 ---

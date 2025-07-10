@@ -4,6 +4,7 @@ date: 2025-06-18
 description: Discover how to use MCP (Model Context Protocol) and GitHub Copilot to generate Playwright tests without needing access to your application's source code, perfect for testing external sites or black-box testing scenarios.
 tags: [playwright, testing, mcp, ai]
 published: true
+featured: true
 loading: eager
 canonical: https://dev.to/debs_obrien/generate-playwright-tests-without-code-access-using-mcp-and-copilot-2m05
 ---

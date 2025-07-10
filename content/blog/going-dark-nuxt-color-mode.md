@@ -7,5 +7,4 @@ image: v1630862640/debbie.codes/featured-posts/going-dark-mode_jizwlw
 provider: cloudinary
 tags: [nuxt]
 platform: Nuxt
-featured: true
 ---

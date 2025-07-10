@@ -7,5 +7,4 @@ image: v1630862642/debbie.codes/featured-posts/ui-mode_tgv3o4
 provider: cloudinary
 tags: [playwright, testing]
 platform: Dev.to
-featured: true
 ---

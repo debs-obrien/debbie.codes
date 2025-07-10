@@ -7,5 +7,4 @@ image: v1630862642/debbie.codes/featured-posts/local-dev-server_z2dylp
 provider: cloudinary
 tags: [playwright, testing]
 platform: Dev.to
-featured: true
 ---

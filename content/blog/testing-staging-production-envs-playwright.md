@@ -7,5 +7,4 @@ image: v1725567832/debbie.codes/blog/2024/staging-production_fivhwv
 provider: cloudinary
 tags: [playwright, testing]
 platform: Dev.to
-featured: true
 ---

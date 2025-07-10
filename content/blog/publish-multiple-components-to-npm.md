@@ -8,5 +8,4 @@ provider: imgix
 loading: eager
 tags: [architecture]
 platform: Bits n Pieces
-featured: true
 ---
