@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import type { Podcast, Sections } from '~/types'
+import type { Sections } from '~/types'
 
-const { data: podcasts } = await useAsyncData('podcasts',
-  () => queryCollection('podcasts')
-    .order('date', 'DESC')
-    .all(),
-)
+const { data: allPodcasts } = await useAsyncData('podcasts', () => queryCollection('podcasts').order('date', 'DESC').all())
+
+// Filter out the featured podcast from the main list
+const featuredPodcastTitle = 'Changing Testing using Playwright MCP with Debbie O\'Brien'
+const podcasts = allPodcasts?.value?.filter(podcast => podcast.title !== featuredPodcastTitle) || []
 
 const title: string = 'Podcast Interviews'
 const description: string = 'Discover conversations about web development, testing, and developer advocacy'
@@ -27,20 +27,32 @@ useHead({
       <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8">
         {{ description }}
       </p>
-      
+
       <!-- Stats -->
       <div class="flex justify-center gap-8 text-center" aria-label="Podcast Stats">
         <div>
-          <div class="text-3xl font-bold text-blue-600">{{ podcasts?.length || 0 }}+</div>
-          <div class="text-sm text-gray-500">Episodes</div>
+          <div class="text-3xl font-bold text-blue-600">
+            {{ podcasts?.length || 0 }}+
+          </div>
+          <div class="text-sm text-gray-500">
+            Episodes
+          </div>
         </div>
         <div>
-          <div class="text-3xl font-bold text-blue-600">5+</div>
-          <div class="text-sm text-gray-500">Years</div>
+          <div class="text-3xl font-bold text-blue-600">
+            5+
+          </div>
+          <div class="text-sm text-gray-500">
+            Years
+          </div>
         </div>
         <div>
-          <div class="text-3xl font-bold text-blue-600">20+</div>
-          <div class="text-sm text-gray-500">Shows</div>
+          <div class="text-3xl font-bold text-blue-600">
+            20+
+          </div>
+          <div class="text-sm text-gray-500">
+            Shows
+          </div>
         </div>
       </div>
     </div>
@@ -65,7 +77,7 @@ useHead({
           {{ podcasts.length }} episodes
         </div>
       </div>
-      
+
       <PodcastGrid :list="podcasts" />
     </section>
 
@@ -77,8 +89,8 @@ useHead({
       <p class="text-gray-600 dark:text-gray-300 mb-6">
         I'm always open to interesting podcast conversations about web development, testing, and technology.
       </p>
-      <a 
-        href="https://www.linkedin.com/in/debbie-o-brien-1a199975/" 
+      <a
+        href="https://www.linkedin.com/in/debbie-o-brien-1a199975/"
         target="_blank"
         rel="noopener noreferrer"
         class="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
