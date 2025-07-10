@@ -7,5 +7,4 @@ image: v1630862642/debbie.codes/featured-posts/api-mocking_mvo0sn
 provider: cloudinary
 tags: [playwright, testing]
 platform: Dev.to
-featured: true
 ---

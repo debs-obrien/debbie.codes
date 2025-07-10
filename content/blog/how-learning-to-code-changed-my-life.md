@@ -7,5 +7,4 @@ image: v1607270030/debbie.codes/Bluekiri-office_gmihtu
 provider: cloudinary
 tags: [personal]
 platform: Treehouse
-featured: true
 ---

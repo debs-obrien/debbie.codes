@@ -8,5 +8,4 @@ provider: cloudinary
 loading: eager
 tags: [nuxt]
 platform: Nuxt
-featured: true
 ---

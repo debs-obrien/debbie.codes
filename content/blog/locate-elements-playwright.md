@@ -7,5 +7,4 @@ image: v1630862642/debbie.codes/featured-posts/locators_jip380
 provider: cloudinary
 tags: [playwright, testing]
 platform: Dev.to
-featured: true
 ---

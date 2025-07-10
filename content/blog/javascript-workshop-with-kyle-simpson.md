@@ -7,5 +7,4 @@ image: v1607270365/debbie.codes/blog/trivago_w7istq
 provider: cloudinary
 tags: [personal]
 platform: Trivago
-featured: true
 ---

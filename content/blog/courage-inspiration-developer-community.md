@@ -8,5 +8,4 @@ provider: cloudinary
 loading: eager
 tags: [mentoring]
 platform: Web.dev
-featured: true
 ---
