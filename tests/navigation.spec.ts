@@ -46,7 +46,7 @@ test.describe('navigation', () => {
     await page.getByRole('navigation').getByRole('link', { name: 'blog' }).click();
     await expect(page).toHaveURL('blog');
 
-  })
+  });
 
   test(`footer nav links to correct pages`, async ({ page, isMobile }) => {
     test.skip(isMobile, 'Still working on it');
@@ -64,5 +64,5 @@ test.describe('navigation', () => {
         
       await page.getByRole('contentinfo').getByRole('link', { name: 'blog' }).click();
       await expect(page).toHaveURL('blog');
-    })
-})
+    });
+});

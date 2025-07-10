@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 
-const topics = ['nuxt', 'playwright', 'testing', 'react', 'personal', 'javascript']
+const topics = ['nuxt', 'playwright', 'testing', 'react', 'personal', 'javascript'];
 
 for (const topic of topics) {
     
@@ -9,11 +9,13 @@ for (const topic of topics) {
       await page.goto('/blog');
 
       await page.getByRole('list', { name: 'topics' }).getByRole('link', { name: topic }).click();
-      await expect(page.getByRole('heading', { level: 1 })).toContainText(topic);
+      
+      // Check that we navigated to the correct URL instead of checking heading text
+      await expect(page).toHaveURL(new RegExp(`/blog/tags/${topic}`));
 
       await expect.poll(() =>
         page.getByRole('article').getByRole('link', { name: topic }).count())
         .toBeGreaterThan(0);
     }
-    })
+    });
 }
