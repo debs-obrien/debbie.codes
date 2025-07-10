@@ -1,34 +1,26 @@
 <script setup lang="ts">
 import type { BlogPostPreview, PodcastPreview, VideoPreview } from '~/types'
 
-const { data: articles } = await useAsyncData('articles-home',
-  () => queryCollection('blog')
-    .order('date', 'DESC')
-    .skip(1)
-    .limit(6)
-    .all()
-)
+const { data: articles } = await useAsyncData('articles-home', () => queryCollection('blog')
+  .order('date', 'DESC')
+  .skip(1)
+  .limit(6)
+  .all())
 
-const { data: featuredPosts } = await useAsyncData('featured-article',
-  () => queryCollection('blog')
-    .order('date', 'DESC')
-    .limit(2)
-    .all()
-)
+const { data: featuredPosts } = await useAsyncData('featured-article', () => queryCollection('blog')
+  .order('date', 'DESC')
+  .limit(2)
+  .all())
 
-const { data: videos } = await useAsyncData('videos-home',
-  () => queryCollection('videos')
-    .order('date', 'DESC')
-    .limit(4)
-    .all()
-)
+const { data: videos } = await useAsyncData('videos-home', () => queryCollection('videos')
+  .order('date', 'DESC')
+  .limit(4)
+  .all())
 
-const { data: podcasts } = await useAsyncData('podcasts-home',
-  () => queryCollection('podcasts')
-    .order('date', 'DESC')
-    .limit(3)
-    .all()
-)
+const { data: podcasts } = await useAsyncData('podcasts-home', () => queryCollection('podcasts')
+  .order('date', 'DESC')
+  .limit(3)
+  .all())
 </script>
 
 <template>
@@ -81,10 +73,24 @@ const { data: podcasts } = await useAsyncData('podcasts-home',
     </div>
 
     <div class="px-4 sm:px-6">
-      <AppSubtitle id="featured-posts">Featured Posts</AppSubtitle>
+      <section aria-labelledby="recent-videos">
+        <NuxtLink to="/videos">
+          <AppSubtitle id="recent-videos">
+            Recent Videos
+          </AppSubtitle>
+        </NuxtLink>
+
+        <VideoList v-if="videos !== null" :list="videos" />
+      </section>
+
+      <AppSubtitle id="featured-posts" class="mt-12 sm:mt-16">
+        Featured Posts
+      </AppSubtitle>
       <FeaturedSection v-if="featuredPosts !== null" aria-labelledby="featured-posts" :items="featuredPosts" section="blog" />
 
-      <AppSubtitle id="featured-podcast" class="mt-12 sm:mt-16">Featured Podcast</AppSubtitle>
+      <AppSubtitle id="featured-podcast" class="mt-12 sm:mt-16">
+        Featured Podcast
+      </AppSubtitle>
       <FeaturedPodcast aria-labelledby="featured-podcast" />
 
       <section aria-labelledby="recent-posts" class="mt-12 sm:mt-16">
@@ -94,16 +100,6 @@ const { data: podcasts } = await useAsyncData('podcasts-home',
           </AppSubtitle>
         </NuxtLink>
         <CardList v-if="articles !== null" :list="articles" section="blog" />
-      </section>
-
-      <section aria-labelledby="recent-videos" class="mt-12 sm:mt-16">
-        <NuxtLink to="/videos">
-          <AppSubtitle id="recent-videos">
-            Recent Videos
-          </AppSubtitle>
-        </NuxtLink>
-
-        <VideoList v-if="videos !== null" :list="videos" />
       </section>
 
       <section aria-labelledby="recent-podcasts" class="mt-12 sm:mt-16">
