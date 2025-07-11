@@ -8,7 +8,7 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const flatten = (tags: Array<any>, key = 'tags') => {
+function flatten(tags: Array<any>, key = 'tags') {
   const _tags = tags
     .map((tag) => {
       let _tag = tag
@@ -25,22 +25,51 @@ const flatten = (tags: Array<any>, key = 'tags') => {
 
 const { data } = await useAsyncData(`tags-${props.section}`, () => queryCollection(props.section)
   .select('tags')
-  .all());
+  .all())
 
-// Count occurrences of each tag
-const tagCounts = new Map<string, number>();
+// Count occurrences of each tag with normalization
+const tagCounts = new Map<string, number>()
+const tagDisplayNames = new Map<string, string>()
+
+// Define preferred casing for common tags
+const preferredCasing: Record<string, string> = {
+  'mcp': 'MCP',
+  'ai': 'AI',
+  'javascript': 'JavaScript',
+  'typescript': 'TypeScript',
+  'vue': 'Vue',
+  'nuxt': 'Nuxt',
+  'react': 'React',
+  'jamstack': 'JAMstack',
+  'devrel': 'Dev Rel',
+  'dev-rel': 'Dev Rel',
+  'github': 'GitHub',
+  'githubcopilot': 'GitHub Copilot',
+  'vscode': 'VS Code',
+  'vs-code': 'VS Code',
+  'webdev': 'WebDev',
+}
+
 if (Array.isArray(data.value)) {
-  const allTags = flatten(data.value, 'tags');
-  allTags.forEach(tag => {
-    tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1);
-  });
+  const allTags = flatten(data.value, 'tags')
+  allTags.forEach((tag) => {
+    // Normalize tag: trim, lowercase for comparison, remove extra spaces
+    const normalizedTag = tag.trim().toLowerCase().replace(/\s+/g, '-')
+    if (normalizedTag) {
+      const displayName = preferredCasing[normalizedTag] || tag.trim()
+      tagCounts.set(normalizedTag, (tagCounts.get(normalizedTag) || 0) + 1)
+      if (!tagDisplayNames.has(normalizedTag)) {
+        tagDisplayNames.set(normalizedTag, displayName)
+      }
+    }
+  })
 }
 
 // Filter tags that have 4 or more items and sort them
 const articleTags = Array.from(tagCounts.entries())
   .filter(([_, count]) => props.section === 'courses' || 'videos' || 'podcasts' || count >= 4)
-  .map(([tag]) => tag);
-const sortedArticleTags = articleTags.sort();
+  .map(([tag]) => tag)
+const sortedArticleTags = articleTags.sort()
 </script>
 
 <template>
@@ -57,13 +86,13 @@ const sortedArticleTags = articleTags.sort();
     </li>
     <li
       v-for="(tag, i) in sortedArticleTags"
-      :key="tag+i" class="flex gap-2 justify-center flex-nowrap "
+      :key="tag + i" class="flex gap-2 justify-center flex-nowrap "
     >
       <NuxtLink
         :to="`/${section}/tags/${tag}`"
         class="px-2 py-0.5 bg-slate-600 rounded-md transition-all hover:-translate-y-0.5 hover:bg-blue-500 whitespace-nowrap"
       >
-        {{ replaceHyphen(tag) }}
+        {{ tagDisplayNames.get(tag) || replaceHyphen(tag) }}
       </NuxtLink>
     </li>
   </ul>

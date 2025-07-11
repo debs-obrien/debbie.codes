@@ -5,7 +5,7 @@ description: The GitHub MCP (Model Context Protocol) Server is a powerful tool t
 image: v1648106423/debbie.codes/blog/2025/GitHub_MCP_server_2x_1_jizwlw
 ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1648106423/debbie.codes/blog/2025/GitHub_MCP_server_2x_1_jizwlw
 provider: cloudinary
-tags: [MCP, AI]
+tags: [mcp, ai]
 published: true
 ---
 
