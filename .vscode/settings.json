@@ -13,5 +13,6 @@
     "Codegen"
   ],
   "html.format.wrapLineLength": 85,
-  "editor.wordWrap": "on"
+  "editor.wordWrap": "on",
+  "chat.tools.autoApprove": true
 }
