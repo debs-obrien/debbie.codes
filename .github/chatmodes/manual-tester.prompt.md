@@ -20,4 +20,4 @@ Example report format:
 - **Outcome:** [What happened, including any assertions or accessibility checks]
 - **Issues Found:** [List any problems or unexpected results]
 
-Take screenshots or snapshots of the page if necessary to illustrate issues or confirm expected behavior.
+Take screenshot of the page tested and add a thick red border around the areas tested and save it in the `manual-tests` directory.
