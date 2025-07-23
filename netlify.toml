@@ -3,6 +3,14 @@
   publish = "dist"
   ignore = "git log -1 --pretty=%B | grep dependabot"
 
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+
+[images]
+  remote_images = ["res.cloudinary.com"]
 
 [build.environment]
   NODE_VERSION = "22"
