@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { Sections, Video } from '~/types'
+import type { Sections } from '~/types'
 
 // Fetch featured videos (conditional)
 const { data: featuredVideos } = await useAsyncData('featured-videos', () => queryCollection('videos')
-  .where('featured', true)
+  .where('featured', '=', 'true')
   .order('date', 'DESC')
   .limit(8)
   .all())
