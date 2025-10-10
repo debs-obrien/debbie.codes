@@ -1,6 +1,8 @@
 ---
-mode: 'agent'
+mode: agent
 description: 'Manual testing with Playwright MCP Server'
+tools: ['changes', 'search/codebase', 'edit/editFiles', 'fetch', 'problems', 'runCommands', 'runTasks', 'runTests', 'search', 'search/searchResults', 'runCommands/terminalLastCommand', 'runCommands/terminalSelection', 'testFailure', 'microsoft/playwright-mcp/*']
+model: 'Claude Sonnet 4'
 ---
 
 # Manual Testing Instructions
