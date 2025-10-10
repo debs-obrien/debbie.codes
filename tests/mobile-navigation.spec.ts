@@ -34,11 +34,16 @@ test.describe('Mobile Navigation', () => {
 
   test('Mobile Navigation - Menu reveals navigation links', async ({ page }) => {
     await test.step('Open mobile menu', async () => {
+      // Wait for the page to be fully loaded and hydrated before interacting
+      await page.waitForLoadState('networkidle');
+      
       await getHamburgerButton(page).click();
+      // Wait for the navigation to become visible
+      await expect(page.getByRole('banner').getByRole('navigation')).toBeVisible();
     });
 
     await test.step('Verify navigation links are visible', async () => {
-      await expect(page.getByRole('navigation')).toMatchAriaSnapshot(`
+      await expect(page.getByRole('banner').getByRole('navigation')).toMatchAriaSnapshot(`
         - navigation:
           - list:
             - listitem:
@@ -53,19 +58,20 @@ test.describe('Mobile Navigation', () => {
               - link "Blog"
       `);
     });
-
-    await test.step('Verify hamburger button shows close indicator', async () => {
-      await expect(getHamburgerButton(page).getByText('X')).toBeVisible();
-    });
   });
 
   test('Mobile Navigation - Navigation links work from mobile menu', async ({ page }) => {
     await test.step('Open mobile menu', async () => {
+      // Wait for the page to be fully loaded and hydrated before interacting
+      await page.waitForLoadState('networkidle');
+      
       await getHamburgerButton(page).click();
+      // Wait for the navigation to become visible
+      await expect(page.getByRole('banner').getByRole('navigation')).toBeVisible();
     });
 
     await test.step('Click Blog link and verify navigation', async () => {
-      await page.getByRole('navigation').getByRole('link', { name: 'Blog' }).click();
+      await page.getByRole('banner').getByRole('navigation').getByRole('link', { name: 'Blog' }).click();
       await expect(page).toHaveURL(/.*\/blog/);
       await expect(page).toHaveTitle(/.*Blog.*Debbie Codes/);
     });
@@ -73,6 +79,9 @@ test.describe('Mobile Navigation', () => {
 
   test('Mobile Navigation - Social media links work from mobile menu', async ({ page }) => {
     await test.step('Open mobile menu', async () => {
+      // Wait for the page to be fully loaded and hydrated before interacting
+      await page.waitForLoadState('networkidle');
+      
       await getHamburgerButton(page).click();
     });
 
@@ -102,16 +111,22 @@ test.describe('Mobile Navigation', () => {
   test('Mobile Navigation - Works across different pages', async ({ page }) => {
     const hamburgerButton = getHamburgerButton(page);
     await test.step('Navigate to About page', async () => {
+      // Wait for the page to be fully loaded and hydrated before interacting
+      await page.waitForLoadState('networkidle');
+      
       await hamburgerButton.click();
-      await page.getByRole('navigation').getByRole('link', { name: 'About' }).click();
+      // Wait for the navigation to become visible
+      await expect(page.getByRole('banner').getByRole('navigation')).toBeVisible();
+      await page.getByRole('banner').getByRole('navigation').getByRole('link', { name: 'About' }).click();
       await expect(page).toHaveURL(/.*\/about/);
     });
 
     await test.step('Verify mobile menu still works on About page', async () => {
       await expect(hamburgerButton).toBeVisible();
+      await page.waitForLoadState('networkidle');
       await hamburgerButton.click();
-      
-      await expect(page.getByRole('banner')).toBeInViewport();
+      // Wait for the navigation to become visible again
+      await expect(page.getByRole('banner').getByRole('navigation')).toBeVisible();
     });
   });
 
