@@ -13,4 +13,4 @@
   remote_images = ["res.cloudinary.com"]
 
 [build.environment]
-  NODE_VERSION = "22"
+  NODE_VERSION = "22.12.0"
