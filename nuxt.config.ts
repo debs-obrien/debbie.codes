@@ -1,4 +1,6 @@
 export default defineNuxtConfig({
+  srcDir: '.',
+
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
   },
@@ -28,7 +30,7 @@ export default defineNuxtConfig({
       modifiers: {
         format: 'webp',
         quality: '80',
-      }
+      },
     },
     imgix: {
       baseURL: 'https://images.unsplash.com/',
@@ -46,29 +48,29 @@ export default defineNuxtConfig({
     format: ['webp'],
     quality: 80,
     screens: {
-      xs: 320,
-      sm: 640,
-      md: 768,
-      lg: 1024,
-      xl: 1280,
-      xxl: 1536,
-      '2xl': 1536
-    }
+      'xs': 320,
+      'sm': 640,
+      'md': 768,
+      'lg': 1024,
+      'xl': 1280,
+      'xxl': 1536,
+      '2xl': 1536,
+    },
   },
 
   content: {
     preview: {
-      api: 'https://api.nuxt.studio'
+      api: 'https://api.nuxt.studio',
     },
     highlight: {
       theme: {
         default: 'github-dark',
         light: 'github-light',
-        dark: 'github-dark'
+        dark: 'github-dark',
       },
       preload: ['json', 'js', 'ts', 'html', 'css', 'vue', 'bash', 'markdown'],
-      lineNumbers: true
-    }
+      lineNumbers: true,
+    },
   },
 
   build: {

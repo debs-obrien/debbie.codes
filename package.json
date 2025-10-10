@@ -13,6 +13,9 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
+  "dependencies": {
+    "better-sqlite3": "^12.4.1"
+  },
   "devDependencies": {
     "@antfu/eslint-config": "^5.4.1",
     "@nuxt/content": "^3.3.0",
@@ -28,7 +31,7 @@
     "husky": "^9.1.7",
     "lint-staged": "^16.2.3",
     "lite-youtube-embed": "^0.3.3",
-    "nuxt": "^3.16.0"
+    "nuxt": "^4.1.3"
   },
   "husky": {
     "hooks": {
@@ -37,8 +40,5 @@
     "lint-staged": {
       "*.{js,jsx,ts,tsx}": "npm run lint:fix"
     }
-  },
-  "dependencies": {
-    "better-sqlite3": "^12.4.1"
   }
 }
