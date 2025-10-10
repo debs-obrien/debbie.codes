@@ -37,5 +37,8 @@
     "lint-staged": {
       "*.{js,jsx,ts,tsx}": "npm run lint:fix"
     }
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.4.1"
   }
 }
