@@ -1,7 +1,20 @@
 <script setup lang="ts">
-type Theme = 'light' | 'dark'
-const setColorTheme = (newTheme: Theme) => {
+type Theme = 'light' | 'dark' | 'system'
+function setColorTheme(newTheme: Theme) {
   useColorMode().preference = newTheme
+}
+
+function cycleColorMode() {
+  const current = useColorMode().preference
+  if (current === 'system') {
+    setColorTheme('dark')
+  }
+  else if (current === 'dark') {
+    setColorTheme('light')
+  }
+  else {
+    setColorTheme('system')
+  }
 }
 </script>
 
@@ -10,7 +23,7 @@ const setColorTheme = (newTheme: Theme) => {
     :aria-label="$colorMode.preference"
     type="button"
     class="block"
-    @click="setColorTheme($colorMode.preference === 'dark' ? 'light' : 'dark')"
+    @click="cycleColorMode"
   >
     <svg
       v-if="$colorMode.value === 'dark'"

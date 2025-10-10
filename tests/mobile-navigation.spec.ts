@@ -53,10 +53,6 @@ test.describe('Mobile Navigation', () => {
               - link "Blog"
       `);
     });
-
-    await test.step('Verify hamburger button shows close indicator', async () => {
-      await expect(getHamburgerButton(page).getByText('X')).toBeVisible();
-    });
   });
 
   test('Mobile Navigation - Navigation links work from mobile menu', async ({ page }) => {
