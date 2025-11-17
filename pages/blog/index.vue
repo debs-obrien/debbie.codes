@@ -121,32 +121,40 @@ useHead({
       @search-active="isSearchActive = $event"
     />
 
-    <!-- Browse by Topic and Year -->
-    <section v-if="postYears.length > 0 || popularTags.length > 0" class="mb-12 max-w-4xl mx-auto">
-      <!-- Tags -->
-      <div v-if="popularTags.length > 0" class="text-center mb-6">
+    <!-- Browse by Topic and Year - Compact Design -->
+    <section v-if="postYears.length > 0 || popularTags.length > 0" class="mb-8 max-w-4xl mx-auto">
+      <div class="flex flex-wrap gap-3 justify-center items-center">
+        <!-- Tags -->
         <NuxtLink
           v-for="({ tag, displayName }, index) in popularTags"
           :key="tag"
           :to="`/blog/tags/${tag}`"
           :class="[
-            'hover:opacity-70 transition-opacity mx-2',
-            ['text-blue-500', 'text-green-500', 'text-purple-500', 'text-orange-500', 'text-pink-500', 'text-cyan-500'][index % 6]
+            'text-xs px-2.5 py-1 rounded-full font-medium hover:opacity-80 transition-opacity whitespace-nowrap',
+            ['bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200', 
+             'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-200', 
+             'bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-200', 
+             'bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-200', 
+             'bg-pink-100 text-pink-700 dark:bg-pink-900 dark:text-pink-200', 
+             'bg-cyan-100 text-cyan-700 dark:bg-cyan-900 dark:text-cyan-200'][index % 6]
           ]"
         >
           #{{ displayName }}
         </NuxtLink>
-      </div>
 
-      <!-- Years -->
-      <div v-if="postYears.length > 0" class="text-center">
+        <!-- Years -->
         <NuxtLink
           v-for="({ year }, index) in postYears"
           :key="year"
           :to="`/blog/year/${year}`"
           :class="[
-            'text-lg font-semibold hover:opacity-70 transition-opacity mx-2',
-            ['text-blue-500', 'text-orange-500', 'text-green-500', 'text-purple-500', 'text-pink-500', 'text-cyan-500'][index % 6]
+            'text-xs px-2.5 py-1 rounded-full font-medium hover:opacity-80 transition-opacity whitespace-nowrap',
+            ['bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200', 
+             'bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-200', 
+             'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-200', 
+             'bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-200', 
+             'bg-pink-100 text-pink-700 dark:bg-pink-900 dark:text-pink-200', 
+             'bg-cyan-100 text-cyan-700 dark:bg-cyan-900 dark:text-cyan-200'][index % 6]
           ]"
         >
           {{ year }}

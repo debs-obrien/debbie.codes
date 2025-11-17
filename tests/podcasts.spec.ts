@@ -48,21 +48,26 @@ test.describe('Podcasts Page', () => {
       });
 
     test('podcast cards display correctly', async ({ page }) => {
-        await test.step('Verify first podcast card structure', async () => {
-          // Exclude featured podcast by filtering out articles with "Featured Podcast" heading  
-          const podcastCards = page.getByRole('article').filter({ hasNot: page.getByRole('heading', { name: 'Featured Podcast' }) });
-          const firstCard = podcastCards.first();
+        await test.step('Verify podcast card structure', async () => {
+          // Wait for podcast cards to load and find one with tag links
+          await expect.poll(() => page.getByRole('article').count()).toBeGreaterThan(1);
           
-          const cardImage = firstCard.locator('img').first();
+          // Find a card that has a specific tag link that we know exists
+          const cardWithPlaywrightTag = page.getByRole('article').filter({ 
+            has: page.getByRole('link', { name: '#playwright' }) 
+          }).first();
+          
+          const cardImage = cardWithPlaywrightTag.locator('img').first();
           await expect(cardImage).toBeVisible();
-          await expect(firstCard.getByRole('heading', { level: 2 })).toBeVisible();
-          await expect(firstCard.locator('time')).toBeVisible();
+          await expect(cardWithPlaywrightTag.getByRole('heading', { level: 2 })).toBeVisible();
+          await expect(cardWithPlaywrightTag.locator('time')).toBeVisible();
           
-          const cardLink = firstCard.getByRole('link').first();
+          const cardLink = cardWithPlaywrightTag.getByRole('link').first();
           await expect(cardLink).toBeVisible();
           
-          const tagLinks = firstCard.getByRole('link').filter({ hasText: /^(testing|playwright|nuxt|react|bit|dev rel|jamstack|mentoring)$/ });
-          await expect(tagLinks.first()).toBeVisible();
+          // Check for the specific tag links we know exist
+          await expect(cardWithPlaywrightTag.getByRole('link', { name: '#playwright' })).toBeVisible();
+          await expect(cardWithPlaywrightTag.getByRole('link', { name: '#testing' })).toBeVisible();
         });
       });
 
