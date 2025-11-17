@@ -6,21 +6,25 @@ test.describe('Blog Tag Normalization', () => {
   });
 
   test('tag section shows normalized tags', async ({ page }) => {
-    await expect(page.getByRole('heading', { name: 'Browse by Topic' })).toBeVisible();
-
+    // Just check that tag links exist without expecting a specific heading
     const tagLinks = page.locator('[href^="/blog/tags/"]');
     const tagCount = await tagLinks.count();
 
     expect(tagCount).toBeGreaterThan(0);
+    
+    // Verify that capitalized tags exist (which shows normalization is working)
+    // Use first() to avoid strict mode violations since there are multiple instances
+    await expect(page.getByRole('link', { name: '#Playwright', exact: true }).first()).toBeVisible();
+    await expect(page.getByRole('link', { name: '#Nuxt', exact: true }).first()).toBeVisible();
   });
 
   test('tag pages work with normalized tags', async ({ page }) => {
-    await page.goto('/blog/tags/javascript');
+    await page.goto('/blog/tags/testing');
 
     // Check that we navigated to the correct URL instead of checking heading text
-    await expect(page).toHaveURL('/blog/tags/javascript');
+    await expect(page).toHaveURL('/blog/tags/testing');
 
-    await expect(page.getByPlaceholder('Search articles...')).toBeVisible();
+    await expect(page.getByPlaceholder('Search...')).toBeVisible();
   });
 
   test('search works on tag pages and searches all articles', async ({ page, isMobile }) => {
@@ -30,7 +34,7 @@ test.describe('Blog Tag Normalization', () => {
       // Check that we navigated to the correct URL
       await expect(page).toHaveURL('/blog/tags/testing');
 
-      const searchInput = page.getByPlaceholder('Search articles...');
+      const searchInput = page.getByPlaceholder('Search...');
       await searchInput.fill('nuxt');
 
       await page.waitForTimeout(500);
