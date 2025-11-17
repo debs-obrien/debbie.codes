@@ -40,6 +40,23 @@ useHead({
 
 <template>
   <PageLayout :title="title" :description="description" :section="section">
+    <!-- Browse by Topic Section -->
+    <section class="mb-12 max-w-4xl mx-auto">
+      <div class="text-center mb-6">
+        <NuxtLink
+          v-for="(tag, index) in ['nuxt', 'playwright', 'testing', 'vue', 'javascript', 'react', 'performance', 'accessibility']"
+          :key="tag"
+          :to="`/videos/tags/${tag}`"
+          :class="[
+            'hover:opacity-70 transition-opacity mx-2',
+            ['text-blue-500', 'text-green-500', 'text-purple-500', 'text-orange-500', 'text-pink-500', 'text-cyan-500'][index % 6]
+          ]"
+        >
+          #{{ tag.replace('-', ' ') }}
+        </NuxtLink>
+      </div>
+    </section>
+
     <!-- Featured Videos Section -->
     <section v-if="featuredVideos && featuredVideos.length > 0" class="mb-16">
       <h2 class="text-2xl font-bold text-gray-900 mb-6">
@@ -94,23 +111,6 @@ useHead({
         </NuxtLink>
       </div>
       <VideoList :list="liveStreamVideos" />
-    </section>
-
-    <!-- Browse by Topic Section -->
-    <section>
-      <h2 class="text-2xl font-bold text-gray-900 mb-6">
-        Browse by Topic
-      </h2>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <NuxtLink
-          v-for="tag in ['nuxt', 'playwright', 'testing', 'vue', 'javascript', 'react', 'performance', 'accessibility']"
-          :key="tag"
-          :to="`/videos/tags/${tag}`"
-          class="bg-gray-100 hover:bg-gray-200 rounded-lg p-4 text-center font-medium text-gray-700 capitalize transition-colors"
-        >
-          {{ tag.replace('-', ' ') }}
-        </NuxtLink>
-      </div>
     </section>
   </PageLayout>
 </template>
