@@ -55,7 +55,7 @@ const popularTags = computed(() => {
     'vs-code': 'VS Code',
     'webdev': 'WebDev'
   }
-  
+
   allArticles.value.forEach((post: any) => {
     if (post.tags) {
       post.tags.forEach((tag: string) => {
@@ -63,7 +63,7 @@ const popularTags = computed(() => {
         const normalizedTag = tag.trim().toLowerCase().replace(/\s+/g, '-')
         if (normalizedTag) {
           const displayName = preferredCasing[normalizedTag] || tag.trim()
-          
+
           if (tagCounts.has(normalizedTag)) {
             tagCounts.get(normalizedTag)!.count += 1
           } else {
@@ -74,13 +74,13 @@ const popularTags = computed(() => {
     }
   })
   
-  // Define custom sort order for featured tags
-  const customOrder = ['ai', 'mcp', 'playwright', 'testing', 'react', 'performance', 'personal']
-
-  // Convert to array
+  // Convert to array and sort by count, then take top 8
   const allTags = Array.from(tagCounts.entries())
     .map(([tag, { count, displayName }]) => ({ tag, count, displayName }))
 
+  // Define custom order for important tags
+  const customOrder = ['playwright', 'ai', 'mcp', 'javascript', 'typescript', 'vue', 'nuxt', 'react']
+  
   // Sort with custom order first, then by count
   return allTags.sort((a, b) => {
     const aIndex = customOrder.indexOf(a.tag)
@@ -137,8 +137,8 @@ if (process.dev) {
   })
 }
 
-const title: string = `Blog Posts from ${year}`
-const description: string = `Browse all blog posts from ${year}`
+const title: string = year
+const description: string = ''
 const section: Sections = 'blog'
 
 useHead({
