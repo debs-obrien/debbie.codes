@@ -123,7 +123,7 @@ test.describe('Podcasts Page', () => {
             const podcastCards = page.getByRole('article').filter({ hasNot: page.getByRole('heading', { name: 'Featured Podcast' }) });
             await expect(podcastCards.first()).toBeVisible();
             
-            const statsSection = page.locator('text=29+').locator('..');
+            const statsSection = page.getByLabel('Podcast Stats');
             await expect(statsSection).toBeVisible();
           }
         });
