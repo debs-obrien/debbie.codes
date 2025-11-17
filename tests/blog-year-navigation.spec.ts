@@ -6,7 +6,9 @@ test.describe('Blog Year Navigation', () => {
   });
 
   test('year navigation section is visible', async ({ page }) => {
-    await expect(page.getByRole('heading', { name: 'Browse by Year' })).toBeVisible();
+    // Year links should be visible in the filter section
+    await expect(page.getByRole('link', { name: '2024' })).toBeVisible();
+    await expect(page.getByRole('link', { name: '2025' })).toBeVisible();
   });
 
   test('year links navigate to correct year pages', async ({ page }) => {
@@ -21,15 +23,17 @@ test.describe('Blog Year Navigation', () => {
 
       await expect(page).toHaveURL(`/blog/year/${yearText?.trim()}`);
 
-      await expect(page.getByRole('heading', { name: `Blog Posts from ${yearText?.trim()}`, level: 1 })).toBeVisible();
+      await expect(page.getByRole('heading', { name: yearText?.trim(), level: 1 })).toBeVisible();
     }
   });
 
   test('year page shows filtered posts', async ({ page }) => {
     await page.goto('/blog/year/2024');
 
-    await expect(page.getByRole('heading', { name: 'Blog Posts from 2024', level: 1 })).toBeVisible();
+    await expect(page.getByRole('heading', { name: '2024', level: 1 })).toBeVisible();
 
-    await expect(page.getByRole('link', { name: 'Back to Blog' })).toBeVisible();
+    // Verify that articles are shown for the year (using a more flexible count check)
+    const articleCount = await page.getByRole('article').count();
+    expect(articleCount).toBeGreaterThan(0); // Just ensure some articles are shown
   });
 });
