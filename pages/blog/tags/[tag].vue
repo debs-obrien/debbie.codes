@@ -113,12 +113,35 @@ const postYears = computed(() => {
 })
 
 const filteredArticles = ref<any[]>([])
+const isSearchActive = ref(false)
 
-// Display the original tag format for the title
-const displayTag = (tag as string).replace(/-/g, ' ')
+// Get proper display name for the tag using preferredCasing
+const preferredCasing: Record<string, string> = {
+  'mcp': 'MCP',
+  'ai': 'AI',
+  'playwright': 'Playwright',
+  'javascript': 'JavaScript',
+  'typescript': 'TypeScript',
+  'vue': 'Vue',
+  'nuxt': 'Nuxt',
+  'react': 'React',
+  'jamstack': 'JAMstack',
+  'devrel': 'Dev Rel',
+  'dev-rel': 'Dev Rel',
+  'github': 'GitHub',
+  'githubcopilot': 'GitHub Copilot',
+  'vscode': 'VS Code',
+  'vs-code': 'VS Code',
+  'webdev': 'WebDev',
+  'testing': 'Testing',
+  'performance': 'Performance',
+  'personal': 'Personal'
+}
 
-const title: string = `Blog Posts tagged with ${displayTag}`
-const description: string = `Here's a list of all my blog posts tagged with ${displayTag}`
+const displayTag = preferredCasing[normalizedUrlTag] || (tag as string).replace(/-/g, ' ')
+
+const title: string = `${displayTag} Blog Posts`
+const description: string = ''
 const section: Sections = 'blog'
 
 useHead({
@@ -131,19 +154,27 @@ useHead({
   <PageLayout :title="title" :description="description" :section="section">
     <BlogSearch
       :articles="articles || []"
-      :defaultArticles="taggedArticles"
-      v-model:filteredArticles="filteredArticles"
+      :default-articles="taggedArticles"
+      @update:filtered-articles="filteredArticles = $event"
+      @search-active="isSearchActive = $event"
     />
 
     <!-- Browse by Topic and Year -->
     <BlogBrowseComponents
-      :popularTags="popularTags"
-      :postYears="postYears"
+      :popular-tags="popularTags"
+      :post-years="postYears"
     />
 
-    <FeaturedSection v-if="filteredArticles.length > 0" :items="filteredArticles" :section="section" />
+    <!-- Posts List -->
+    <FeaturedSection
+      v-if="filteredArticles.length > 0"
+      :items="filteredArticles"
+      :section="section"
+    />
+
+    <!-- No Results -->
     <div v-else class="text-center py-8">
-      <p class="text-gray-600 dark:text-gray-400">No articles found matching your search.</p>
+      <p class="text-gray-600 dark:text-gray-400">No articles found{{ isSearchActive ? ' matching your search' : ` tagged with ${displayTag}` }}.</p>
     </div>
   </PageLayout>
 </template> 

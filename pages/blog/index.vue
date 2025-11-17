@@ -103,7 +103,7 @@ const postYears = computed(() => {
 })
 
 const title: string = 'Blog'
-const description: string = 'Thoughts on web development, testing, performance, and developer experience'
+const description: string = ''
 const section: Sections = 'blog'
 
 useHead({
