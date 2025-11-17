@@ -1,6 +1,16 @@
 import { expect, test } from '@playwright/test';
 
-const topics = ['nuxt', 'playwright', 'testing', 'react', 'personal', 'javascript'];
+// Map of test topics to their display names with # prefix and proper capitalization
+const topicMappings: Record<string, string> = {
+  'nuxt': '#Nuxt',
+  'playwright': '#Playwright', 
+  'testing': '#testing',
+  'react': '#React',
+  'personal': '#personal',
+  'javascript': '#JavaScript'
+};
+
+const topics = Object.keys(topicMappings);
 
 for (const topic of topics) {
     
@@ -8,13 +18,16 @@ for (const topic of topics) {
     if (!isMobile) {
       await page.goto('/blog');
 
-      await page.getByRole('list', { name: 'topics' }).getByRole('link', { name: topic }).click();
+      // Use the display name with # prefix to find the link
+      const displayName = topicMappings[topic];
+      await page.getByRole('link', { name: displayName, exact: true }).click();
       
-      // Check that we navigated to the correct URL instead of checking heading text
+      // Check that we navigated to the correct URL
       await expect(page).toHaveURL(new RegExp(`/blog/tags/${topic}`));
 
+      // Check that there are articles with tag links matching the topic
       await expect.poll(() =>
-        page.getByRole('article').getByRole('link', { name: topic }).count())
+        page.getByRole('article').getByRole('link', { name: `#${topic}` }).count())
         .toBeGreaterThan(0);
     }
     });
