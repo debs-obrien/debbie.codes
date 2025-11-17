@@ -19,13 +19,16 @@ const { data: allArticles } = await useAsyncData(`blog-year-${year}`,
 // Filter articles for the specific year
 const articles = computed(() => {
   if (!allArticles.value) return []
-  
+
   return allArticles.value.filter((article: any) => {
     if (!article.date) return false
     const articleYear = new Date(article.date).getFullYear().toString()
     return articleYear === year
   })
 })
+
+const filteredArticles = ref<any[]>([])
+const isSearchActive = ref(false)
 
 // Get popular tags for browse components
 const popularTags = computed(() => {
@@ -37,6 +40,7 @@ const popularTags = computed(() => {
   const preferredCasing: Record<string, string> = {
     'mcp': 'MCP',
     'ai': 'AI',
+    'playwright': 'Playwright',
     'javascript': 'JavaScript',
     'typescript': 'TypeScript',
     'vue': 'Vue',
@@ -70,11 +74,29 @@ const popularTags = computed(() => {
     }
   })
   
-  // Convert to array and sort by count, then take top 8
-  return Array.from(tagCounts.entries())
+  // Define custom sort order for featured tags
+  const customOrder = ['ai', 'mcp', 'playwright', 'testing', 'react', 'performance', 'personal']
+
+  // Convert to array
+  const allTags = Array.from(tagCounts.entries())
     .map(([tag, { count, displayName }]) => ({ tag, count, displayName }))
-    .sort((a, b) => b.count - a.count)
-    .slice(0, 8)
+
+  // Sort with custom order first, then by count
+  return allTags.sort((a, b) => {
+    const aIndex = customOrder.indexOf(a.tag)
+    const bIndex = customOrder.indexOf(b.tag)
+
+    // If both are in custom order, sort by custom order
+    if (aIndex !== -1 && bIndex !== -1) {
+      return aIndex - bIndex
+    }
+    // If only a is in custom order, a comes first
+    if (aIndex !== -1) return -1
+    // If only b is in custom order, b comes first
+    if (bIndex !== -1) return 1
+    // Otherwise sort by count
+    return b.count - a.count
+  }).slice(0, 8)
 })
 
 // Get years for archive navigation with post counts
@@ -127,56 +149,29 @@ useHead({
 
 <template>
   <PageLayout :title="title" :description="description" :section="section">
-    <!-- Year summary -->
-    <div class="mb-8 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-      <h2 class="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-2">
-        Posts from {{ year }}
-      </h2>
-      <p class="text-blue-700 dark:text-blue-300">
-        {{ articles?.length || 0 }} post{{ (articles?.length || 0) !== 1 ? 's' : '' }} published in {{ year }}
-      </p>
-    </div>
-    
-    <!-- Posts List -->
-    <ItemList 
-      v-if="articles && articles.length > 0" 
-      :list="articles" 
-      :section="section" 
-      :showImages="false" 
+    <BlogSearch
+      :articles="allArticles || []"
+      :default-articles="articles"
+      @update:filtered-articles="filteredArticles = $event"
+      @search-active="isSearchActive = $event"
     />
-    
+
+    <!-- Browse by Topic and Year -->
+    <BlogBrowseComponents
+      :popularTags="popularTags"
+      :postYears="postYears"
+    />
+
+    <!-- Posts List -->
+    <FeaturedSection
+      v-if="filteredArticles.length > 0"
+      :items="filteredArticles"
+      :section="section"
+    />
+
     <!-- No Results -->
-    <div v-else-if="allArticles && articles?.length === 0" class="text-center py-8">
-      <p class="text-gray-600 dark:text-gray-400">No articles found for {{ year }}.</p>
-      <p class="text-sm text-gray-500 dark:text-gray-500 mt-2">
-        Try a different year or go back to the main blog.
-      </p>
-    </div>
-    
-    <!-- Loading -->
     <div v-else class="text-center py-8">
-      <p class="text-gray-600 dark:text-gray-400">Loading articles...</p>
-    </div>
-    
-    <!-- Back to blog navigation -->
-    <div class="mt-8 text-center">
-      <NuxtLink 
-        to="/blog" 
-        class="inline-flex items-center text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200 font-medium"
-      >
-        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-        </svg>
-        Back to Blog
-      </NuxtLink>
-    </div>
-    
-    <!-- Browse Components for consistency -->
-    <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
-      <BlogBrowseComponents 
-        :popularTags="popularTags"
-        :postYears="postYears"
-      />
+      <p class="text-gray-600 dark:text-gray-400">No articles found{{ isSearchActive ? ' matching your search' : ` for ${year}` }}.</p>
     </div>
   </PageLayout>
 </template>

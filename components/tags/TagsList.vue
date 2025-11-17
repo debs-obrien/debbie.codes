@@ -5,22 +5,32 @@ defineProps<{
   tags: Array<string>
   section: Sections
 }>()
+
+// Color palette for tags
+const colors = [
+  'text-blue-500',
+  'text-green-500',
+  'text-purple-500',
+  'text-orange-500',
+  'text-pink-500',
+  'text-cyan-500',
+]
+
+const getTagColor = (index: number) => colors[index % colors.length]
 </script>
 
 <template>
-  <ul
-    class="text-sm text-blue-600 dark:text-blue-500 uppercase flex flex-wrap"
-  >
+  <ul class="flex flex-wrap gap-3">
     <li
-      v-for="tag in tags"
+      v-for="(tag, index) in tags"
       :key="tag"
-      class="whitespace-nowrap "
+      class="whitespace-nowrap"
     >
       <NuxtLink
         :to="`/${section}/tags/${tag}`"
-        class="hover:underline inline-block pr-2"
+        :class="['hover:opacity-70 transition-opacity', getTagColor(index)]"
       >
-        {{ replaceHyphen(tag) }}
+        #{{ replaceHyphen(tag) }}
       </NuxtLink>
     </li>
   </ul>

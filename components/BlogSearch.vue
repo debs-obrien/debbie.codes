@@ -56,7 +56,7 @@ watch(() => props.articles, () => {
 </script>
 
 <template>
-  <div class="max-w-2xl mx-auto mb-8">
+  <div class="max-w-2xl mx-auto mt-6 mb-4">
     <div class="relative">
       <input
         v-model="searchQuery"

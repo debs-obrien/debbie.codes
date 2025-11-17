@@ -36,6 +36,7 @@ const popularTags = computed(() => {
   const preferredCasing: Record<string, string> = {
     'mcp': 'MCP',
     'ai': 'AI',
+    'playwright': 'Playwright',
     'javascript': 'JavaScript',
     'typescript': 'TypeScript',
     'vue': 'Vue',
@@ -69,11 +70,29 @@ const popularTags = computed(() => {
     }
   })
   
-  // Convert to array and sort by count, then take top 8
-  return Array.from(tagCounts.entries())
+  // Define custom sort order for featured tags
+  const customOrder = ['ai', 'mcp', 'playwright', 'testing', 'react', 'performance', 'personal']
+
+  // Convert to array
+  const allTags = Array.from(tagCounts.entries())
     .map(([tag, { count, displayName }]) => ({ tag, count, displayName }))
-    .sort((a, b) => b.count - a.count)
-    .slice(0, 8)
+
+  // Sort with custom order first, then by count
+  return allTags.sort((a, b) => {
+    const aIndex = customOrder.indexOf(a.tag)
+    const bIndex = customOrder.indexOf(b.tag)
+
+    // If both are in custom order, sort by custom order
+    if (aIndex !== -1 && bIndex !== -1) {
+      return aIndex - bIndex
+    }
+    // If only a is in custom order, a comes first
+    if (aIndex !== -1) return -1
+    // If only b is in custom order, b comes first
+    if (bIndex !== -1) return 1
+    // Otherwise sort by count
+    return b.count - a.count
+  }).slice(0, 8)
 })
 
 // Get years for archive navigation with post counts
@@ -115,17 +134,16 @@ useHead({
       :defaultArticles="taggedArticles"
       v-model:filteredArticles="filteredArticles"
     />
-    <ItemList v-if="filteredArticles.length > 0" :list="filteredArticles" :section="section" />
+
+    <!-- Browse by Topic and Year -->
+    <BlogBrowseComponents
+      :popularTags="popularTags"
+      :postYears="postYears"
+    />
+
+    <FeaturedSection v-if="filteredArticles.length > 0" :items="filteredArticles" :section="section" />
     <div v-else class="text-center py-8">
       <p class="text-gray-600 dark:text-gray-400">No articles found matching your search.</p>
-    </div>
-    
-    <!-- Browse Components for consistency -->
-    <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
-      <BlogBrowseComponents 
-        :popularTags="popularTags"
-        :postYears="postYears"
-      />
     </div>
   </PageLayout>
 </template> 
