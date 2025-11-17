@@ -29,13 +29,13 @@ test.describe('Home Page Content Display', { tag: '@agent' }, () => {
       await expect(article.locator('time')).toBeVisible();
       
       // Publisher/source (paragraph)
-      await expect(article.locator('paragraph').first()).toBeVisible();
+      await expect(article.getByRole('paragraph')).toBeVisible();
       
       // Title (heading level 3)
       await expect(article.getByRole('heading', { level: 3 })).toBeVisible();
       
       // Tags list
-      await expect(article.locator('list')).toBeVisible();
+      await expect(article.getByRole('list')).toBeVisible();
     }
   });
 });

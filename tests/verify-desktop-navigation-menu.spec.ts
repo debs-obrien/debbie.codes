@@ -9,16 +9,26 @@ test.describe('Navigation Functionality', { tag: '@agent' }, () => {
     await page.goto('/');
 
     // 2. Locate the navigation bar in the header
-    await expect(page.getByRole('navigation', { name: '' })).toBeVisible();
+    await expect(page.getByRole('navigation')).toBeVisible();
 
     // 3. Verify all navigation links are present
-    await expect(page.locator('body')).toMatchAriaSnapshot(`
+    await expect(page.getByRole('navigation')).toMatchAriaSnapshot(`
       - list:
-        - listitem: "About"
-        - listitem: "Videos"
-        - listitem: "Podcasts"
-        - listitem: "Courses"
-        - listitem: "Blog"
+        - listitem:
+          - link "About":
+            - /url: /about
+        - listitem:
+          - link "Videos":
+            - /url: /videos
+        - listitem:
+          - link "Podcasts":
+            - /url: /podcasts
+        - listitem:
+          - link "Courses":
+            - /url: /courses
+        - listitem:
+          - link "Blog":
+            - /url: /blog
     `);
 
     // Logo/name link navigates back to home

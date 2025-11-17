@@ -19,14 +19,14 @@ test.describe('Home Page Content Display', { tag: '@agent' }, () => {
     await expect(featuredPodcastArticle).toBeVisible();
 
     // Verify podcast title is displayed
-    await expect(page.getByText('Changing Testing using Playwright MCP with Debbie O\'Brien')).toBeVisible();
+    await expect(featuredPodcastArticle.locator('p').getByText('Changing Testing using Playwright MCP with Debbie O\'Brien')).toBeVisible();
 
     // Verify 'Listen Now' link with external URL
     const listenNowLink = page.getByRole('link', { name: 'Listen Now' });
     await expect(listenNowLink).toBeVisible();
     await expect(listenNowLink).toHaveAttribute('href', 'https://www.dotnetrocks.com/details/1954');
 
-    // Verify podcast image is present
-    await expect(featuredPodcastArticle.locator('img')).toBeVisible();
+    // Verify podcast image is present in the Listen Now link
+    await expect(listenNowLink.getByRole('img')).toBeVisible();
   });
 });

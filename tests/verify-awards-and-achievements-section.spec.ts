@@ -17,8 +17,8 @@ test.describe('About Page Content', () => {
     await expect(awardCards).toHaveCount(8);
 
     // Verify specific awards are displayed
-    await expect(page.getByRole('link', { name: 'GitHub Star Alumni' })).toBeVisible();
-    await expect(page.getByRole('link', { name: 'Google Developer Expert' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Learn more about GitHub Star Alumni (opens in new tab)' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Learn more about Google Developer Expert (opens in new tab)' })).toBeVisible();
     
     // Verify "Learn More" links are present
     await expect(page.getByRole('link', { name: 'Learn More' }).first()).toBeVisible();

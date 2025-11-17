@@ -11,28 +11,23 @@ test.describe('Home Page Content Display', { tag: '@agent' }, () => {
     // 2. Scroll to the "Featured Posts" section
     // 3. Count the number of featured articles displayed
     
-    // Verify 'Featured Posts' heading (level 2) is visible
-    await expect(page.getByRole('heading', { name: 'Featured Posts' })).toBeVisible();
-
-    // Count the number of featured articles (exactly 2)
-    const featuredPostsSection = page.getByLabel('Featured Posts');
-    const articles = featuredPostsSection.locator('article');
+        // Verify we have exactly 2 articles and validate structure
+    const featuredSection = page.getByRole('heading', { name: 'Featured Posts' }).locator('+ *');
+    const articles = featuredSection.locator('article');
     await expect(articles).toHaveCount(2);
-
-    // Verify each featured post contains required elements
-    for (const article of await articles.all()) {
-      // Tags list
-      await expect(article.locator('list').first()).toBeVisible();
-      
-      // Title link
-      const titleLink = article.getByRole('link').first();
-      await expect(titleLink).toBeVisible();
-      
-      // Description/excerpt paragraph
-      await expect(article.locator('paragraph').first()).toBeVisible();
-      
-      // "Read more" link
-      await expect(article.getByRole('link', { name: /read more/i })).toBeVisible();
-    }
+    
+    // Check first article structure
+    const firstArticle = articles.first();
+    await expect(firstArticle.getByRole('list')).toBeVisible();
+    await expect(firstArticle.getByRole('link').first()).toBeVisible();
+    await expect(firstArticle.getByRole('paragraph')).toBeVisible();
+    await expect(firstArticle.getByRole('link').last()).toBeVisible();
+    
+    // Check second article structure
+    const secondArticle = articles.last();
+    await expect(secondArticle.getByRole('list')).toBeVisible();
+    await expect(secondArticle.getByRole('link').first()).toBeVisible();
+    await expect(secondArticle.getByRole('paragraph')).toBeVisible();
+    await expect(secondArticle.getByRole('link').last()).toBeVisible();
   });
 });

@@ -9,7 +9,7 @@ test.describe('Home Page Content Display', { tag: '@agent' }, () => {
     await page.goto('http://localhost:3020/');
 
     // 2. Locate the main heading
-    await expect(page.getByRole('heading', { name: 'Debbie O\'Brien' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Debbie O\'Brien', level: 1 })).toBeVisible();
 
     // 3. Locate the subtitle describing Debbie's role
     await expect(page.getByText('Principal Technical Program Manager at Microsoft')).toBeVisible();
