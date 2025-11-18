@@ -1,16 +1,14 @@
 <script setup lang="ts">
-import type { Podcast, Sections } from '~/types'
+import type { Sections } from '~/types'
 
 const {
   params: { slug },
 } = useRoute()
 
-const { data: podcasts } = await useAsyncData(`podcasts-${slug}`,
-  () => queryCollection('podcasts')
-    .where('tags', 'LIKE', `%${slug}%`)
-    .order('date', 'DESC')
-    .all(),
-)
+const { data: podcasts } = await useAsyncData(`podcasts-${slug}`, () => queryCollection('podcasts')
+  .where('tags', 'LIKE', `%${slug}%`)
+  .order('date', 'DESC')
+  .all())
 
 const filteredPodcasts = ref<any[]>([])
 const isSearchActive = ref(false)
@@ -68,14 +66,13 @@ useHead({
           v-for="(tag, index) in podcastTags"
           :key="tag"
           :to="`/podcasts/tags/${tag}`"
-          :class="[
-            'text-xs px-2.5 py-1 rounded-full font-medium hover:opacity-80 transition-opacity whitespace-nowrap',
-            ['bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200', 
-             'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-200', 
-             'bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-200', 
-             'bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-200', 
-             'bg-pink-100 text-pink-700 dark:bg-pink-900 dark:text-pink-200', 
-             'bg-cyan-100 text-cyan-700 dark:bg-cyan-900 dark:text-cyan-200'][index % 6]
+          class="text-xs px-2.5 py-1 rounded-full font-medium hover:opacity-80 transition-opacity whitespace-nowrap" :class="[
+            ['bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200',
+             'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-200',
+             'bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-200',
+             'bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-200',
+             'bg-pink-100 text-pink-700 dark:bg-pink-900 dark:text-pink-200',
+             'bg-cyan-100 text-cyan-700 dark:bg-cyan-900 dark:text-cyan-200'][index % 6],
           ]"
         >
           #{{ tag.replace('-', ' ') }}
@@ -104,8 +101,8 @@ useHead({
       <p class="text-gray-600 dark:text-gray-300 mb-6">
         I'm always open to interesting podcast conversations about web development, testing, and technology.
       </p>
-      <a 
-        href="https://www.linkedin.com/in/debbie-o-brien-1a199975/" 
+      <a
+        href="https://www.linkedin.com/in/debbie-o-brien-1a199975/"
         target="_blank"
         rel="noopener noreferrer"
         class="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"

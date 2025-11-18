@@ -1,4 +1,4 @@
-export type Sections = 'blog' | 'podcasts' | 'videos' | 'courses';
+export type Sections = 'blog' | 'podcasts' | 'videos' | 'courses'
 
 interface BaseContent {
   title: string,
@@ -11,10 +11,10 @@ interface BaseContent {
 }
 
 export interface Video extends BaseContent {
-  video: string,
-  start?: number,
-  host?: string,
-  conference?: string,
+  video: string
+  start?: number
+  host?: string
+  conference?: string
   featured?: boolean
 }
 
@@ -48,6 +48,6 @@ export interface PrevNext {
 }
 
 export interface Navigation {
-  url: string,
+  url: string
   link: string
 }

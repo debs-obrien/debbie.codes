@@ -28,11 +28,10 @@ const getTagColor = (index: number) => colors[index % colors.length]
     >
       <NuxtLink
         :to="`/${section}/tags/${tag}`"
-        :class="['hover:opacity-70 transition-opacity', getTagColor(index)]"
+        class="hover:opacity-70 transition-opacity" :class="[getTagColor(index)]"
       >
         #{{ replaceHyphen(tag) }}
       </NuxtLink>
     </li>
   </ul>
 </template>
-

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { VideoPreview } from '~/types'
+
 defineProps<{
   item: VideoPreview
 }>()

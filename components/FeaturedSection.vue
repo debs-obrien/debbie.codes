@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BlogPostPreview, Sections } from '~/types'
+import type { Sections } from '~/types'
 
 defineProps<{
   items: any[]

@@ -1,9 +1,3 @@
-<template>
-  <h3 :id="id">
-    <slot />
-  </h3>
-</template>
-
 <script>
 export default {
   props: {
@@ -12,5 +6,11 @@ export default {
       required: false,
     },
   },
-};
+}
 </script>
+
+<template>
+  <h3 :id="id">
+    <slot />
+  </h3>
+</template>

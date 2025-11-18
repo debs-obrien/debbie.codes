@@ -4,15 +4,15 @@
 
 // Props for the component
 interface Props {
-  popularTags?: Array<{ tag: string; count: number; displayName?: string }>
-  postYears?: Array<{ year: string; count: number }>
+  popularTags?: Array<{ tag: string, count: number, displayName?: string }>
+  postYears?: Array<{ year: string, count: number }>
   showTags?: boolean
   showYears?: boolean
 }
 
-const props = withDefaults(defineProps<Props>(), {
+const _props = withDefaults(defineProps<Props>(), {
   showTags: true,
-  showYears: true
+  showYears: true,
 })
 </script>
 
@@ -24,9 +24,8 @@ const props = withDefaults(defineProps<Props>(), {
         v-for="({ tag, displayName }, index) in popularTags"
         :key="tag"
         :to="`/blog/tags/${tag}`"
-        :class="[
-          'hover:opacity-70 transition-opacity mx-2',
-          ['text-blue-500', 'text-green-500', 'text-purple-500', 'text-orange-500', 'text-pink-500', 'text-cyan-500'][index % 6]
+        class="hover:opacity-70 transition-opacity mx-2" :class="[
+          ['text-blue-500', 'text-green-500', 'text-purple-500', 'text-orange-500', 'text-pink-500', 'text-cyan-500'][index % 6],
         ]"
       >
         #{{ displayName || tag.replace('-', ' ') }}
@@ -39,9 +38,8 @@ const props = withDefaults(defineProps<Props>(), {
         v-for="({ year }, index) in postYears"
         :key="year"
         :to="`/blog/year/${year}`"
-        :class="[
-          'text-lg font-semibold hover:opacity-70 transition-opacity mx-2',
-          ['text-blue-500', 'text-orange-500', 'text-green-500', 'text-purple-500', 'text-pink-500', 'text-cyan-500'][index % 6]
+        class="text-lg font-semibold hover:opacity-70 transition-opacity mx-2" :class="[
+          ['text-blue-500', 'text-orange-500', 'text-green-500', 'text-purple-500', 'text-pink-500', 'text-cyan-500'][index % 6],
         ]"
       >
         {{ year }}

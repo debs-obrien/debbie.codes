@@ -1,15 +1,12 @@
 <script setup lang="ts">
-import type { BlogPost, PrevNext, Sections } from '~/types'
 import { formatDate } from '~/utils/date'
 
 const { path } = useRoute()
 const slug = path.split('/').pop()
 
-const { data: article } = await useAsyncData(path.replace(/\/$/, ''),
-  () => queryCollection('blog')
-    .where('path', 'LIKE', path)
-    .first(),
-)
+const { data: article } = await useAsyncData(path.replace(/\/$/, ''), () => queryCollection('blog')
+  .where('path', 'LIKE', path)
+  .first())
 
 const { data } = await useAsyncData('surround', () => {
   return queryCollectionItemSurroundings('blog', path)
@@ -17,7 +14,6 @@ const { data } = await useAsyncData('surround', () => {
 })
 
 const [prev, next] = data.value || []
-const section: Sections = 'blog'
 const title: string = article.value?.title || ''
 const description: string = article.value?.description || ''
 const image: string = article.value?.image || ''

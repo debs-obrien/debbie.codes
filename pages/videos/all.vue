@@ -1,14 +1,8 @@
 <script setup lang="ts">
-import type { Sections, Video } from '~/types'
+import type { Sections } from '~/types'
 
 const filteredVideos = ref<any[]>([])
 const isSearchActive = ref(false)
-
-const { data: videos } = await useAsyncData('all-videos',
-  () => queryCollection('videos')
-    .order('date', 'DESC')
-    .all(),
-)
 
 // Get all videos to extract real tags
 const { data: allVideos } = await useAsyncData('all-videos-for-tags-all-page', () => queryCollection('videos')
@@ -62,14 +56,13 @@ useHead({
           v-for="(tag, index) in videoTags"
           :key="tag"
           :to="`/videos/tags/${tag}`"
-          :class="[
-            'text-xs px-2.5 py-1 rounded-full font-medium hover:opacity-80 transition-opacity whitespace-nowrap',
-            ['bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200', 
-             'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-200', 
-             'bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-200', 
-             'bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-200', 
-             'bg-pink-100 text-pink-700 dark:bg-pink-900 dark:text-pink-200', 
-             'bg-cyan-100 text-cyan-700 dark:bg-cyan-900 dark:text-cyan-200'][index % 6]
+          class="text-xs px-2.5 py-1 rounded-full font-medium hover:opacity-80 transition-opacity whitespace-nowrap" :class="[
+            ['bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200',
+             'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-200',
+             'bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-200',
+             'bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-200',
+             'bg-pink-100 text-pink-700 dark:bg-pink-900 dark:text-pink-200',
+             'bg-cyan-100 text-cyan-700 dark:bg-cyan-900 dark:text-cyan-200'][index % 6],
           ]"
         >
           #{{ tag.replace('-', ' ') }}

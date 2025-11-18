@@ -54,4 +54,3 @@ defineProps<{
     </div>
   </article>
 </template>
-

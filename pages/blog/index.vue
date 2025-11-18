@@ -76,9 +76,11 @@ const popularTags = computed(() => {
       return aIndex - bIndex
     }
     // If only a is in custom order, a comes first
-    if (aIndex !== -1) return -1
+    if (aIndex !== -1)
+      return -1
     // If only b is in custom order, b comes first
-    if (bIndex !== -1) return 1
+    if (bIndex !== -1)
+      return 1
     // Otherwise sort by count
     return b.count - a.count
   }).slice(0, 8)
@@ -129,14 +131,13 @@ useHead({
           v-for="({ tag, displayName }, index) in popularTags"
           :key="tag"
           :to="`/blog/tags/${tag}`"
-          :class="[
-            'text-xs px-2.5 py-1 rounded-full font-medium hover:opacity-80 transition-opacity whitespace-nowrap',
-            ['bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200', 
-             'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-200', 
-             'bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-200', 
-             'bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-200', 
-             'bg-pink-100 text-pink-700 dark:bg-pink-900 dark:text-pink-200', 
-             'bg-cyan-100 text-cyan-700 dark:bg-cyan-900 dark:text-cyan-200'][index % 6]
+          class="text-xs px-2.5 py-1 rounded-full font-medium hover:opacity-80 transition-opacity whitespace-nowrap" :class="[
+            ['bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200',
+             'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-200',
+             'bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-200',
+             'bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-200',
+             'bg-pink-100 text-pink-700 dark:bg-pink-900 dark:text-pink-200',
+             'bg-cyan-100 text-cyan-700 dark:bg-cyan-900 dark:text-cyan-200'][index % 6],
           ]"
         >
           #{{ displayName }}
@@ -149,14 +150,13 @@ useHead({
           v-for="({ year }, index) in postYears"
           :key="year"
           :to="`/blog/year/${year}`"
-          :class="[
-            'text-xs px-2.5 py-1 rounded-full font-medium hover:opacity-80 transition-opacity whitespace-nowrap',
-            ['bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200', 
-             'bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-200', 
-             'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-200', 
-             'bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-200', 
-             'bg-pink-100 text-pink-700 dark:bg-pink-900 dark:text-pink-200', 
-             'bg-cyan-100 text-cyan-700 dark:bg-cyan-900 dark:text-cyan-200'][index % 6]
+          class="text-xs px-2.5 py-1 rounded-full font-medium hover:opacity-80 transition-opacity whitespace-nowrap" :class="[
+            ['bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200',
+             'bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-200',
+             'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-200',
+             'bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-200',
+             'bg-pink-100 text-pink-700 dark:bg-pink-900 dark:text-pink-200',
+             'bg-cyan-100 text-cyan-700 dark:bg-cyan-900 dark:text-cyan-200'][index % 6],
           ]"
         >
           {{ year }}

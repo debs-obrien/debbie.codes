@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { PrevNext } from '~/types'
+
 defineProps<{
   prev: PrevNext
   next: PrevNext

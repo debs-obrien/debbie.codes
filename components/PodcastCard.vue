@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { PodcastPreview } from '~/types'
+
 defineProps<{
   item: PodcastPreview
 }>()
@@ -29,13 +30,13 @@ defineProps<{
         <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
           <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg">
             <svg class="w-8 h-8 text-gray-800 ml-1" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M8 5v14l11-7z"/>
+              <path d="M8 5v14l11-7z" />
             </svg>
           </div>
         </div>
       </NuxtLink>
     </div>
-    
+
     <!-- Content -->
     <div class="p-6">
       <div class="mb-3">
@@ -43,7 +44,7 @@ defineProps<{
           {{ item.host }}
         </span>
       </div>
-      
+
       <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors line-clamp-2">
         <NuxtLink
           :to="item.url || item.path"
@@ -53,11 +54,11 @@ defineProps<{
           {{ item.title }}
         </NuxtLink>
       </h2>
-      
+
       <p class="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-3">
         {{ item.description }}
       </p>
-      
+
       <div class="flex items-center justify-between">
         <Date :date="item.date" class="text-xs text-gray-500" />
         <TagsList :tags="item.tags.slice(0, 2)" section="podcasts" class="flex-1 ml-3" />

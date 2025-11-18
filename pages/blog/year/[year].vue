@@ -121,27 +121,6 @@ const postYears = computed(() => {
     .sort((a, b) => b.year.localeCompare(a.year))
 })
 
-// Debug year filtering - use watchEffect to run when data is available
-if (process.dev) {
-  watchEffect(() => {
-    console.log(`Articles for year ${year}:`, articles.value?.length)
-    if (articles.value && articles.value.length > 0) {
-      console.log('First few articles:', articles.value.slice(0, 3).map(a => ({ title: a.title, date: a.date })))
-    }
-    if (allArticles.value) {
-      console.log('Total articles:', allArticles.value.length)
-      const yearCounts: { [key: string]: number } = {}
-      allArticles.value.forEach((article: any) => {
-        if (article.date) {
-          const articleYear = new Date(article.date).getFullYear().toString()
-          yearCounts[articleYear] = (yearCounts[articleYear] || 0) + 1
-        }
-      })
-      console.log('Articles by year:', yearCounts)
-    }
-  })
-}
-
 const title: string = year
 const description: string = ''
 const section: Sections = 'blog'
@@ -169,14 +148,13 @@ useHead({
           v-for="({ tag, displayName }, index) in popularTags"
           :key="tag"
           :to="`/blog/tags/${tag}`"
-          :class="[
-            'text-xs px-2.5 py-1 rounded-full font-medium hover:opacity-80 transition-opacity whitespace-nowrap',
-            ['bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200', 
-             'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-200', 
-             'bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-200', 
-             'bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-200', 
-             'bg-pink-100 text-pink-700 dark:bg-pink-900 dark:text-pink-200', 
-             'bg-cyan-100 text-cyan-700 dark:bg-cyan-900 dark:text-cyan-200'][index % 6]
+          class="text-xs px-2.5 py-1 rounded-full font-medium hover:opacity-80 transition-opacity whitespace-nowrap" :class="[
+            ['bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200',
+             'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-200',
+             'bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-200',
+             'bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-200',
+             'bg-pink-100 text-pink-700 dark:bg-pink-900 dark:text-pink-200',
+             'bg-cyan-100 text-cyan-700 dark:bg-cyan-900 dark:text-cyan-200'][index % 6],
           ]"
         >
           #{{ displayName }}
@@ -189,14 +167,13 @@ useHead({
           v-for="({ year: blogYear }, index) in postYears"
           :key="blogYear"
           :to="`/blog/year/${blogYear}`"
-          :class="[
-            'text-xs px-2.5 py-1 rounded-full font-medium hover:opacity-80 transition-opacity whitespace-nowrap',
-            ['bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200', 
-             'bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-200', 
-             'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-200', 
-             'bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-200', 
-             'bg-pink-100 text-pink-700 dark:bg-pink-900 dark:text-pink-200', 
-             'bg-cyan-100 text-cyan-700 dark:bg-cyan-900 dark:text-cyan-200'][index % 6]
+          class="text-xs px-2.5 py-1 rounded-full font-medium hover:opacity-80 transition-opacity whitespace-nowrap" :class="[
+            ['bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200',
+             'bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-200',
+             'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-200',
+             'bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-200',
+             'bg-pink-100 text-pink-700 dark:bg-pink-900 dark:text-pink-200',
+             'bg-cyan-100 text-cyan-700 dark:bg-cyan-900 dark:text-cyan-200'][index % 6],
           ]"
         >
           {{ blogYear }}
