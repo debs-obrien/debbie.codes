@@ -21,7 +21,7 @@ export const preferredTagCasing: Record<string, string> = {
 /**
  * Get the display name for a tag using preferred casing.
  * Falls back to the original tag if no preferred casing is defined.
- * 
+ *
  * @param tag - The tag to get the display name for
  * @returns The display name with proper casing
  */
