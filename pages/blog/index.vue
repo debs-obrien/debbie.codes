@@ -123,8 +123,8 @@ useHead({
 
     <!-- Browse by Topic and Year - Compact Design -->
     <section v-if="postYears.length > 0 || popularTags.length > 0" class="mb-8 max-w-4xl mx-auto">
-      <div class="flex flex-wrap gap-3 justify-center items-center">
-        <!-- Tags -->
+      <!-- Tags Row -->
+      <div v-if="popularTags.length > 0" class="flex flex-wrap gap-3 justify-center items-center mb-4">
         <NuxtLink
           v-for="({ tag, displayName }, index) in popularTags"
           :key="tag"
@@ -141,8 +141,10 @@ useHead({
         >
           #{{ displayName }}
         </NuxtLink>
+      </div>
 
-        <!-- Years -->
+      <!-- Years Row -->
+      <div v-if="postYears.length > 0" class="flex flex-wrap gap-3 justify-center items-center">
         <NuxtLink
           v-for="({ year }, index) in postYears"
           :key="year"

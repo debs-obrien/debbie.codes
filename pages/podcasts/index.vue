@@ -43,15 +43,7 @@ useHead({
 </script>
 
 <template>
-  <main class="px-4 sm:px-6">
-    <header>
-      <div class="text-center py-8">
-        <h1 class="text-4xl font-bold text-gray-900 dark:text-white">
-          {{ title }}
-        </h1>
-      </div>
-    </header>
-
+  <PageLayout :title="title" :description="description" :section="section">
     <!-- Search Bar -->
     <BlogSearch
       :articles="allPodcasts || []"
@@ -115,5 +107,5 @@ useHead({
         Get in touch
       </a>
     </section>
-  </main>
+  </PageLayout>
 </template>
