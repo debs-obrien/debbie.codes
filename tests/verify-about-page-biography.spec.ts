@@ -6,7 +6,7 @@ import { test, expect } from '@playwright/test';
 test.describe('About Page Content', () => {
   test('Verify About Page Biography', async ({ page }) => {
     // 1. Navigate to `/about`
-    await page.goto('http://localhost:3020/about');
+    await page.goto('/about');
 
     // 2. Locate the main heading
     await expect(page.getByRole('heading', { name: 'I\'m Debbie O\'Brien' })).toBeVisible();

@@ -6,7 +6,7 @@ import { test, expect } from '@playwright/test';
 test.describe('Home Page Content Display', { tag: '@agent' }, () => {
   test('Verify Featured Podcast Section', async ({ page }) => {
     // 1. Navigate to the home page (`/`)
-    await page.goto('http://localhost:3020/');
+    await page.goto('/');
 
     // 2. Locate the "Featured Podcast" section
     // 3. Verify podcast details
