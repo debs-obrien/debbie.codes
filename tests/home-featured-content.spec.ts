@@ -35,9 +35,6 @@ test.describe('Home Page Featured Content', () => {
       hasNotText: 'Featured Podcast'
     });
     
-    // Take only the first 2 (which should be the featured posts)
-    const featuredPostsArticles = allArticlesWithParagraphs.first().and(allArticlesWithParagraphs.nth(1));
-    
     // Check that we have the featured posts
     await expect(allArticlesWithParagraphs.nth(0)).toBeVisible();
     await expect(allArticlesWithParagraphs.nth(1)).toBeVisible();

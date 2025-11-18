@@ -81,11 +81,14 @@ useHead({
     </section>
 
     <!-- Filtered Episodes Grid -->
-    <section v-if="podcasts && podcasts.length > 0" class="mb-16">
-      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 max-w-4xl mx-auto">
+    <section v-if="(isSearchActive ? filteredPodcasts : podcasts)?.length" class="mb-16">
+      <h2 v-if="!isSearchActive" class="text-2xl font-bold text-gray-900 dark:text-white mb-6 max-w-4xl mx-auto">
         {{ topic }} Episodes
       </h2>
-      <PodcastGrid :list="podcasts" />
+      <h2 v-else class="text-2xl font-bold text-gray-900 dark:text-white mb-6 max-w-4xl mx-auto">
+        Search Results ({{ filteredPodcasts.length }})
+      </h2>
+      <PodcastGrid :list="(isSearchActive ? filteredPodcasts : podcasts) || []" />
     </section>
 
     <!-- No results found -->

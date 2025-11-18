@@ -40,33 +40,13 @@ const popularTags = computed(() => {
 
   const tagCounts = new Map<string, { count: number, displayName: string }>()
 
-  // Define preferred casing for common tags
-  const preferredCasing: Record<string, string> = {
-    'mcp': 'MCP',
-    'ai': 'AI',
-    'playwright': 'Playwright',
-    'javascript': 'JavaScript',
-    'typescript': 'TypeScript',
-    'vue': 'Vue',
-    'nuxt': 'Nuxt',
-    'react': 'React',
-    'jamstack': 'JAMstack',
-    'devrel': 'Dev Rel',
-    'dev-rel': 'Dev Rel',
-    'github': 'GitHub',
-    'githubcopilot': 'GitHub Copilot',
-    'vscode': 'VS Code',
-    'vs-code': 'VS Code',
-    'webdev': 'WebDev',
-  }
-
   allPosts.value.forEach((post: any) => {
     if (post.tags) {
       post.tags.forEach((tag: string) => {
         // Normalize tag: trim, lowercase for comparison, remove extra spaces
         const normalizedTag = tag.trim().toLowerCase().replace(/\s+/g, '-')
         if (normalizedTag) {
-          const displayName = preferredCasing[normalizedTag] || tag.trim()
+          const displayName = getTagDisplayName(normalizedTag)
 
           if (tagCounts.has(normalizedTag)) {
             tagCounts.get(normalizedTag)!.count += 1
@@ -145,7 +125,6 @@ useHead({
     <BlogSearch
       :articles="allPosts || []"
       :default-articles="posts || []"
-      :filtered-articles="filteredArticles"
       @update:filtered-articles="filteredArticles = $event"
       @search-active="isSearchActive = $event"
     />

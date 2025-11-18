@@ -81,11 +81,14 @@ useHead({
     </section>
 
     <!-- Courses Grid Section -->
-    <section v-if="courses && courses.length > 0" class="mb-16">
-      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 max-w-4xl mx-auto">
+    <section v-if="(isSearchActive ? filteredCourses : courses)?.length" class="mb-16">
+      <h2 v-if="!isSearchActive" class="text-2xl font-bold text-gray-900 dark:text-white mb-6 max-w-4xl mx-auto">
         {{ topic }} Courses
       </h2>
-      <ItemList :list="courses" :section="section" />
+      <h2 v-else class="text-2xl font-bold text-gray-900 dark:text-white mb-6 max-w-4xl mx-auto">
+        Search Results ({{ filteredCourses.length }})
+      </h2>
+      <ItemList :list="(isSearchActive ? filteredCourses : courses) || []" :section="section" />
     </section>
 
     <TagsNotFound v-else />

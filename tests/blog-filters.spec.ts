@@ -19,26 +19,10 @@ for (const topic of topics) {
     if (!isMobile) {
       await page.goto('/blog');
 
-      // Wait for the page to be fully loaded
-      await page.waitForLoadState('networkidle');
-      
-      // Click the tag link in the filter section using a more direct approach
-      // Target the container that holds the filter tags and click the first occurrence of the tag
-      await page.evaluate((targetTopic) => {
-        // Find the main element and get the third child div which contains the tag filters
-        const main = document.querySelector('main');
-        if (main && main.children[2]) {
-          const tagContainer = main.children[2];
-          const tagLink = tagContainer.querySelector(`a[href="/blog/tags/${targetTopic}"]`);
-          if (tagLink) {
-            tagLink.click();
-          } else {
-            throw new Error(`Tag link for ${targetTopic} not found in filter section`);
-          }
-        } else {
-          throw new Error('Main element or tag container not found');
-        }
-      }, topic);
+      // Click the tag link using accessible locators
+      // Find the link with the tag name, ensuring we get the first one from the filter section
+      const tagLink = page.getByRole('link', { name: topicMappings[topic] }).first();
+      await tagLink.click();
       
       // Check that we navigated to the correct URL
       await expect(page).toHaveURL(new RegExp(`/blog/tags/${topic}`));

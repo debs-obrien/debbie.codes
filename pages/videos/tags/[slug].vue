@@ -81,11 +81,14 @@ useHead({
     </section>
 
     <!-- Videos Grid Section -->
-    <section v-if="videos && videos.length > 0" class="mb-16">
-      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 max-w-4xl mx-auto">
+    <section v-if="(isSearchActive ? filteredVideos : videos)?.length" class="mb-16">
+      <h2 v-if="!isSearchActive" class="text-2xl font-bold text-gray-900 dark:text-white mb-6 max-w-4xl mx-auto">
         {{ topic }} Videos
       </h2>
-      <VideoList :list="videos" />
+      <h2 v-else class="text-2xl font-bold text-gray-900 dark:text-white mb-6 max-w-4xl mx-auto">
+        Search Results ({{ filteredVideos.length }})
+      </h2>
+      <VideoList :list="(isSearchActive ? filteredVideos : videos) || []" />
     </section>
 
     <TagsNotFound v-else />

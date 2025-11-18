@@ -80,7 +80,7 @@ useHead({
       <h2 v-else class="text-2xl font-bold text-gray-900 dark:text-white mb-6 max-w-4xl mx-auto">
         Search Results ({{ filteredVideos.length }})
       </h2>
-      <VideoList :list="filteredVideos" />
+      <VideoList :list="filteredVideos.length ? filteredVideos : (allVideos || [])" />
     </section>
   </PageLayout>
 </template>

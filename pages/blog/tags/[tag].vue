@@ -33,33 +33,13 @@ const popularTags = computed(() => {
 
   const tagCounts = new Map<string, { count: number, displayName: string }>()
 
-  // Define preferred casing for common tags
-  const preferredCasing: Record<string, string> = {
-    'mcp': 'MCP',
-    'ai': 'AI',
-    'playwright': 'Playwright',
-    'javascript': 'JavaScript',
-    'typescript': 'TypeScript',
-    'vue': 'Vue',
-    'nuxt': 'Nuxt',
-    'react': 'React',
-    'jamstack': 'JAMstack',
-    'devrel': 'Dev Rel',
-    'dev-rel': 'Dev Rel',
-    'github': 'GitHub',
-    'githubcopilot': 'GitHub Copilot',
-    'vscode': 'VS Code',
-    'vs-code': 'VS Code',
-    'webdev': 'WebDev',
-  }
-
   articles.value.forEach((post: any) => {
     if (post.tags) {
       post.tags.forEach((tag: string) => {
         // Normalize tag: trim, lowercase for comparison, remove extra spaces
         const normalizedTag = tag.trim().toLowerCase().replace(/\s+/g, '-')
         if (normalizedTag) {
-          const displayName = preferredCasing[normalizedTag] || tag.trim()
+          const displayName = getTagDisplayName(normalizedTag)
 
           if (tagCounts.has(normalizedTag)) {
             tagCounts.get(normalizedTag)!.count += 1
@@ -120,30 +100,8 @@ const postYears = computed(() => {
 const filteredArticles = ref<any[]>([])
 const isSearchActive = ref(false)
 
-// Get proper display name for the tag using preferredCasing
-const preferredCasing: Record<string, string> = {
-  'mcp': 'MCP',
-  'ai': 'AI',
-  'playwright': 'Playwright',
-  'javascript': 'JavaScript',
-  'typescript': 'TypeScript',
-  'vue': 'Vue',
-  'nuxt': 'Nuxt',
-  'react': 'React',
-  'jamstack': 'JAMstack',
-  'devrel': 'Dev Rel',
-  'dev-rel': 'Dev Rel',
-  'github': 'GitHub',
-  'githubcopilot': 'GitHub Copilot',
-  'vscode': 'VS Code',
-  'vs-code': 'VS Code',
-  'webdev': 'WebDev',
-  'testing': 'Testing',
-  'performance': 'Performance',
-  'personal': 'Personal',
-}
-
-const displayTag = preferredCasing[normalizedUrlTag] || (tag as string).replace(/-/g, ' ')
+// Get proper display name for the tag using shared utility
+const displayTag = getTagDisplayName(normalizedUrlTag)
 
 const title: string = `${displayTag} Blog Posts`
 const description: string = ''

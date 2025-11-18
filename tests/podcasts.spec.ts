@@ -115,7 +115,7 @@ test.describe('Podcasts Page', () => {
         // Check for tag links (they are displayed as simple links, not in a list)
         const tagLinks = page.getByRole('link').filter({ hasText: '#' });
         const count = await tagLinks.count();
-        console.log('Tag links found:', count);
+        expect(count).toBeGreaterThan(0);
         
         // Check if we have podcast articles
         const articles = page.getByRole('article');
@@ -231,7 +231,7 @@ test.describe('Podcasts Page', () => {
             const articles = page.getByRole('article');
             await expect.poll(() => articles.count()).toBeGreaterThan(0);
           } else {
-            console.log(`Tag ${topic} not found, skipping test`);
+            test.skip();
           }
         });
       }
