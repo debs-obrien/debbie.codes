@@ -1,28 +1,27 @@
 import { expect, test } from '@playwright/test';
 
-// All video filter topics are problematic due to timing issues with dynamic content loading
-// and inconsistent link accessibility in the new blog design
-const problematicTopics = ['conference talk', 'css', 'live streams', 'architecture', 'cms', 'dev rel', 'hasura', 'imposter syndrome', 'interviews', 'jamstack', 'learning to code', 'nuxt', 'performance', 'playwright', 'react', 'testing', 'vue', 'javascript', 'accessibility'];
+// All available topics on the videos page - both in top section and individual articles
+const availableTopics = ['conference talk', 'playwright', 'nuxt', 'testing', 'interviews', 'ai', 'mcp', 'architecture', 'live streams', 'jamstack', 'performance', 'react', 'vue', 'css', 'typescript', 'dev rel', 'cms', 'hasura', 'imposter syndrome', 'learning to code'];
 
-for (const topic of problematicTopics) {
-  test.fixme(`tag links to page with videos on ${topic}`, async ({ page, isMobile }) => {
-    // This test is marked as fixme because:
-    // 1. The "Browse by Topic" section links don't have consistent role/name structure for automation
-    // 2. Tag links from articles work but the filtered pages have timing issues with content loading
-    // 3. The navigation works but article count check fails due to race conditions
+for (const topic of availableTopics) {
+  test(`tag links to page with videos on ${topic}`, async ({ page, isMobile }) => {
     if(!isMobile){
       await page.goto('/videos');
       
-      // Try clicking the tag link - this works for navigation
-      const topicLink = page.getByRole('link', { name: `#${topic}` }).first();
-      await topicLink.click();
+      await test.step('Click tag link and verify navigation', async () => {
+        const topicLink = page.getByRole('link', { name: `#${topic}` }).first();
+        await topicLink.click();
+        await expect(page).toHaveURL(new RegExp(`/videos/tags/${topic.replace(/\s+/g, '-')}`));
+      });
       
-      // Navigation works fine
-      await expect(page).toHaveURL(new RegExp(`/videos/tags/${topic.replace(/\s+/g, '-')}`));
-      
-      // This fails due to timing issues with dynamic content loading
-      const articleCount = await page.getByRole('article').count();
-      expect(articleCount).toBeGreaterThan(0);
+      await test.step('Wait for content to load and verify videos exist', async () => {
+        // Wait for the page to stabilize after navigation
+        await page.waitForLoadState('networkidle');
+        
+        // Check if there are any articles/videos on this page
+        const articleCount = await page.getByRole('article').count();
+        expect(articleCount).toBeGreaterThan(0);
+      });
     }
   });
 }
