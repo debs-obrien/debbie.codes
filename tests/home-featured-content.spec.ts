@@ -115,9 +115,12 @@ test.describe('Home Page Featured Content', () => {
     // The page now shows Recent Blog Posts instead
   });
 
-  // External credential links no longer exist after redesign
-  test.fixme('external credential links work correctly', async ({ page }) => {
-    // Award badges have been removed from the home page in the redesign
+  test('external credential links work correctly', async ({ page }) => {
+    // Verify all credential badge links are present and clickable
+    await expect(page.getByRole('link', { name: 'Google GDE' })).toBeVisible();
+    await expect(page.getByRole('link', { name: 'Former Microsoft MVP' })).toBeVisible();
+    await expect(page.getByRole('link', { name: 'GitHub Star Alumni' })).toBeVisible();
+    await expect(page.getByRole('link', { name: 'Nuxt Ambassador' })).toBeVisible();
   });
 
   test('home page content is accessible', async ({ page }) => {
