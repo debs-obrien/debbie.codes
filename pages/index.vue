@@ -31,9 +31,9 @@ onMounted(() => {
 <template>
   <div>
     <CreativeHero />
-    <div class="pt-8 pb-12 px-6 sm:px-8 lg:px-12 bg-white dark:bg-gray-800">
+    <div class="pt-4 pb-12 px-6 sm:px-8 lg:px-12 bg-white dark:bg-gray-800">
       <div class="max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-20">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-12">
           <section
             aria-labelledby="recent-videos"
             class="animated-section lg:col-span-2"
@@ -65,7 +65,7 @@ onMounted(() => {
                 Recent Podcasts
               </AppSubtitle>
             </NuxtLink>
-            <CardList v-if="podcasts" :list="podcasts" section="podcasts" />
+            <CardList v-if="podcasts" :list="podcasts" section="podcasts" :stacked="true" />
           </section>
 
           <section
