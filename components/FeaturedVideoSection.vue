@@ -5,8 +5,8 @@ const props = defineProps<{
   list: Array<VideoPreview>
 }>()
 
-const getYouTubeThumbnail = (videoId: string) => `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
-const getYouTubeUrl = (videoId: string) => `https://www.youtube.com/watch?v=${videoId}`;
+const getYouTubeThumbnail = (videoId: string) => `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`
+const getYouTubeUrl = (videoId: string) => `https://www.youtube.com/watch?v=${videoId}`
 
 const mainVideo = computed(() => props.list[0])
 const otherVideos = computed(() => props.list.slice(1))
@@ -22,7 +22,7 @@ const otherVideos = computed(() => props.list.slice(1))
             :src="getYouTubeThumbnail(mainVideo.video)"
             :alt="mainVideo.title"
             class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-          />
+          >
         </div>
         <h3 class="mt-4 text-xl font-bold text-gray-800 dark:text-white group-hover:text-primary">
           {{ mainVideo.title }}
@@ -48,7 +48,7 @@ const otherVideos = computed(() => props.list.slice(1))
               width="128"
               height="72"
               class="rounded-lg object-cover"
-            />
+            >
           </div>
           <div>
             <h4 class="font-semibold text-gray-800 dark:text-white group-hover:text-primary">

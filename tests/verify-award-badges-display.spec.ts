@@ -4,11 +4,13 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('Home Page Content Display', { tag: '@agent' }, () => {
-  test('Verify Award Badges Display', async ({ page }) => {
+  // Award badges are no longer displayed on the home page after the redesign
+  test.fixme('Verify Award Badges Display', async ({ page }) => {
     // 1. Navigate to the home page (`/`)
     await page.goto('/');
 
     // 2. Locate the awards/badges section below the introduction
+    // Note: These badges have been removed in the redesign
     // Verify Google GDE badge link is present
     await expect(page.getByRole('link', { name: 'Google GDE' })).toBeVisible();
 

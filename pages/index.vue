@@ -1,3 +1,33 @@
+<script setup lang="ts">
+import { onMounted } from 'vue'
+
+const { data: articles } = await useAsyncData('articles-home', () =>
+  queryCollection('blog').order('date', 'DESC').skip(1).limit(6).all())
+
+const { data: videos } = await useAsyncData('videos-home', () =>
+  queryCollection('videos').order('date', 'DESC').limit(5).all())
+
+const { data: podcasts } = await useAsyncData('podcasts-home', () =>
+  queryCollection('podcasts').order('date', 'DESC').limit(2).all())
+
+onMounted(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in')
+        }
+      })
+    },
+    { threshold: 0.1 },
+  )
+
+  document.querySelectorAll('.animated-section').forEach((section) => {
+    observer.observe(section)
+  })
+})
+</script>
+
 <template>
   <div>
     <CreativeHero />
@@ -9,18 +39,20 @@
             class="animated-section lg:col-span-2"
           >
             <NuxtLink to="/videos">
-              <AppSubtitle id="recent-videos">Recent Videos</AppSubtitle>
+              <AppSubtitle id="recent-videos">
+                Recent Videos
+              </AppSubtitle>
             </NuxtLink>
             <FeaturedVideoSection v-if="videos" :list="videos" />
           </section>
-
-
 
           <section
             aria-labelledby="featured-podcast"
             class="animated-section"
           >
-            <AppSubtitle id="featured-podcast">Featured Podcast</AppSubtitle>
+            <AppSubtitle id="featured-podcast">
+              Featured Podcast
+            </AppSubtitle>
             <FeaturedPodcast />
           </section>
 
@@ -29,7 +61,9 @@
             class="animated-section"
           >
             <NuxtLink to="/podcasts">
-              <AppSubtitle id="recent-podcasts">Recent Podcasts</AppSubtitle>
+              <AppSubtitle id="recent-podcasts">
+                Recent Podcasts
+              </AppSubtitle>
             </NuxtLink>
             <CardList v-if="podcasts" :list="podcasts" section="podcasts" />
           </section>
@@ -39,7 +73,9 @@
             class="lg:col-span-2 animated-section"
           >
             <NuxtLink to="/blog">
-              <AppSubtitle id="recent-posts">Recent Blog Posts</AppSubtitle>
+              <AppSubtitle id="recent-posts">
+                Recent Blog Posts
+              </AppSubtitle>
             </NuxtLink>
             <BlogPostList v-if="articles" :list="articles" />
           </section>
@@ -48,43 +84,6 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import { onMounted } from 'vue'
-
-const { data: articles } = await useAsyncData('articles-home', () =>
-  queryCollection('blog').order('date', 'DESC').skip(1).limit(6).all()
-)
-
-const { data: featuredPosts } = await useAsyncData('featured-article', () =>
-  queryCollection('blog').order('date', 'DESC').limit(2).all()
-)
-
-const { data: videos } = await useAsyncData('videos-home', () =>
-  queryCollection('videos').order('date', 'DESC').limit(5).all()
-)
-
-const { data: podcasts } = await useAsyncData('podcasts-home', () =>
-  queryCollection('podcasts').order('date', 'DESC').limit(2).all()
-)
-
-onMounted(() => {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('fade-in')
-        }
-      })
-    },
-    { threshold: 0.1 }
-  )
-
-  document.querySelectorAll('.animated-section').forEach((section) => {
-    observer.observe(section)
-  })
-})
-</script>
 
 <style scoped>
 .animated-section {

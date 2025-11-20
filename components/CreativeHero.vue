@@ -1,16 +1,236 @@
+<script setup>
+import { nextTick, onBeforeUnmount, onMounted, ref } from 'vue'
+
+const heroType = ref(0)
+const canvasRef = ref(null)
+const asciiRef = ref(null)
+const typedText = ref('')
+const fullText = 'Principal Technical Program Manager at Microsoft'
+let animationFrameId
+let resizeListener
+let mouseMoveListener
+const intervals = []
+
+// --- Animation Logic ---
+const heroDesigns = {
+  1: () => {}, // CSS only
+  2: () => { // Code Stream
+    const canvas = canvasRef.value
+    const ctx = canvas.getContext('2d')
+    canvas.width = window.innerWidth
+    canvas.height = window.innerHeight
+    const characters = '01'
+    const fontSize = 14
+    const columns = canvas.width / fontSize
+    const drops = Array.from({ length: columns }).fill(1)
+
+    function draw() {
+      ctx.fillStyle = 'rgba(13, 17, 23, 0.05)'
+      ctx.fillRect(0, 0, canvas.width, canvas.height)
+      ctx.fillStyle = '#4ECCA3'
+      ctx.font = `${fontSize}px monospace`
+      for (let i = 0; i < drops.length; i++) {
+        const text = characters[Math.floor(Math.random() * characters.length)]
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize)
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975)
+          drops[i] = 0
+        drops[i]++
+      }
+    }
+    const animate = () => {
+      animationFrameId = requestAnimationFrame(animate)
+      draw()
+    }
+    animate()
+  },
+  3: () => { // Typing Effect
+    let i = 0
+    const typingInterval = setInterval(() => {
+      if (i < fullText.length) {
+        typedText.value += fullText.charAt(i)
+        i++
+      }
+      else {
+        clearInterval(typingInterval)
+      }
+    }, 50)
+    intervals.push(typingInterval)
+  },
+  4: () => {}, // CSS only
+  5: () => { // Particle Plexus
+    const canvas = canvasRef.value
+    const ctx = canvas.getContext('2d')
+    const mouse = { x: null, y: null }
+    let particlesArray = []
+    canvas.width = window.innerWidth
+    canvas.height = window.innerHeight
+
+    mouseMoveListener = (event) => {
+      mouse.x = event.x
+      mouse.y = event.y
+    }
+    window.addEventListener('mousemove', mouseMoveListener)
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width
+        this.y = Math.random() * canvas.height
+        this.size = 2
+        this.speedX = Math.random() * 2 - 1
+        this.speedY = Math.random() * 2 - 1
+      }
+
+      update() {
+        if (this.x > canvas.width || this.x < 0)
+          this.speedX *= -1
+        if (this.y > canvas.height || this.y < 0)
+          this.speedY *= -1
+        this.x += this.speedX
+        this.y += this.speedY
+      }
+
+      draw() {
+        ctx.fillStyle = '#4ECCA3'
+        ctx.beginPath()
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2)
+        ctx.fill()
+      }
+    }
+    const init = () => {
+      particlesArray = []
+      const num = (canvas.height * canvas.width) / 9000
+      for (let i = 0; i < num; i++)
+        particlesArray.push(new Particle())
+    }
+    const connect = () => {
+      for (let a = 0; a < particlesArray.length; a++) {
+        for (let b = a; b < particlesArray.length; b++) {
+          const dist = ((particlesArray[a].x - particlesArray[b].x) ** 2) + ((particlesArray[a].y - particlesArray[b].y) ** 2)
+          if (dist < 20000) {
+            ctx.strokeStyle = `rgba(78, 204, 163, ${1 - (dist / 20000)})`
+            ctx.lineWidth = 1
+            ctx.beginPath()
+            ctx.moveTo(particlesArray[a].x, particlesArray[a].y)
+            ctx.lineTo(particlesArray[b].x, particlesArray[b].y)
+            ctx.stroke()
+          }
+        }
+      }
+    }
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      particlesArray.forEach((p) => {
+        p.update()
+        p.draw()
+      })
+      connect()
+      animationFrameId = requestAnimationFrame(animate)
+    }
+    init()
+    animate()
+    resizeListener = () => {
+      canvas.width = window.innerWidth
+      canvas.height = window.innerHeight
+      init()
+    }
+    window.addEventListener('resize', resizeListener)
+  },
+  6: () => { // Geometric Constellation
+    const canvas = canvasRef.value
+    const ctx = canvas.getContext('2d')
+    canvas.width = window.innerWidth
+    canvas.height = window.innerHeight
+    const points = []
+    const numPoints = 60
+    for (let i = 0; i < numPoints; i++) {
+      points.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: Math.random() * 0.4 - 0.2,
+        vy: Math.random() * 0.4 - 0.2,
+      })
+    }
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      ctx.strokeStyle = 'rgba(78, 204, 163, 0.3)'
+      for (let i = 0; i < numPoints; i++) {
+        for (let j = i + 1; j < numPoints; j++) {
+          const dist = Math.sqrt((points[i].x - points[j].x) ** 2 + (points[i].y - points[j].y) ** 2)
+          if (dist < 200)
+            ctx.stroke(new Path2D(`M${points[i].x} ${points[i].y} L${points[j].x} ${points[j].y}`))
+        }
+        points[i].x += points[i].vx
+        points[i].y += points[i].vy
+        if (points[i].x < 0 || points[i].x > canvas.width)
+          points[i].vx *= -1
+        if (points[i].y < 0 || points[i].y > canvas.height)
+          points[i].vy *= -1
+      }
+    }
+    const animate = () => {
+      draw()
+      animationFrameId = requestAnimationFrame(animate)
+    }
+    animate()
+  },
+  7: () => { // ASCII Art Reveal
+    const targetText = `DEBBIE O'BRIEN`
+    const chars = '!<>-_\\/[]{}—=+*^?#________'
+    const el = asciiRef.value
+    let frame = 0
+    const animate = () => {
+      const textArray = targetText.split('')
+      const newText = textArray.map((char, i) => {
+        if (i < frame)
+          return targetText[i]
+        return chars[Math.floor(Math.random() * chars.length)]
+      }).join('')
+      el.textContent = newText
+      if (frame < targetText.length) {
+        frame++
+        animationFrameId = requestAnimationFrame(animate)
+      }
+    }
+    animate()
+  },
+}
+
+onMounted(() => {
+  const availableDesigns = [1, 2, 3, 4, 5, 6, 7]
+  heroType.value = availableDesigns[Math.floor(Math.random() * availableDesigns.length)]
+
+  nextTick(() => {
+    const initFunction = heroDesigns[heroType.value]
+    if (initFunction) {
+      initFunction()
+    }
+  })
+})
+
+onBeforeUnmount(() => {
+  if (animationFrameId)
+    cancelAnimationFrame(animationFrameId)
+  intervals.forEach(clearInterval)
+  if (resizeListener)
+    window.removeEventListener('resize', resizeListener)
+  if (mouseMoveListener)
+    window.removeEventListener('mousemove', mouseMoveListener)
+})
+</script>
+
 <template>
   <div class="hero-container bg-gray-900 text-white relative overflow-hidden">
     <!-- Canvas for Designs 2, 5, 6 -->
-    <canvas 
-      v-if="[2, 5, 6].includes(heroType)" 
-      ref="canvasRef" 
+    <canvas
+      v-if="[2, 5, 6].includes(heroType)"
+      ref="canvasRef"
       class="absolute top-0 left-0 w-full h-full z-0"
-    ></canvas>
-    
+    />
+
     <!-- Design 4: SVG Draw -->
     <div v-if="heroType === 4" class="svg-draw-container" aria-hidden="true">
       <svg viewBox="0 0 800 200">
-        <path class="svg-path" d="M50 100 C 150 20, 250 180, 350 100 S 550 20, 650 100" stroke="white" stroke-width="2" fill="none"/>
+        <path class="svg-path" d="M50 100 C 150 20, 250 180, 350 100 S 550 20, 650 100" stroke="white" stroke-width="2" fill="none" />
       </svg>
     </div>
 
@@ -18,11 +238,13 @@
     <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
       <!-- Design 1: Glitching Text -->
       <div v-if="heroType === 1" class="glitch-wrapper" aria-hidden="true">
-        <h1 class="glitch-text text-5xl md:text-7xl" data-text="Debbie O'Brien">Debbie O'Brien</h1>
+        <h1 class="glitch-text text-5xl md:text-7xl" data-text="Debbie O'Brien">
+          Debbie O'Brien
+        </h1>
       </div>
-      
+
       <!-- Design 7: ASCII Art (replaces h1) -->
-      <pre v-else-if="heroType === 7" class="ascii-art-container" ref="asciiRef"></pre>
+      <pre v-else-if="heroType === 7" ref="asciiRef" class="ascii-art-container" />
 
       <!-- Default Heading -->
       <h1 v-else class="text-5xl md:text-7xl font-bold text-white uppercase tracking-wider">
@@ -37,148 +259,6 @@
     </div>
   </div>
 </template>
-
-<script setup>
-import { ref, onMounted, onBeforeUnmount, nextTick } from 'vue';
-
-const heroType = ref(0);
-const canvasRef = ref(null);
-const asciiRef = ref(null);
-const typedText = ref('');
-const fullText = "Principal Technical Program Manager at Microsoft";
-let animationFrameId;
-let resizeListener;
-let mouseMoveListener;
-let intervals = [];
-
-// --- Animation Logic ---
-const heroDesigns = {
-  1: () => {}, // CSS only
-  2: () => { // Code Stream
-    const canvas = canvasRef.value;
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    const characters = '01';
-    const fontSize = 14;
-    const columns = canvas.width / fontSize;
-    const drops = Array.from({ length: columns }).fill(1);
-
-    function draw() {
-      ctx.fillStyle = 'rgba(13, 17, 23, 0.05)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = '#4ECCA3';
-      ctx.font = `${fontSize}px monospace`;
-      for (let i = 0; i < drops.length; i++) {
-        const text = characters[Math.floor(Math.random() * characters.length)];
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
-        drops[i]++;
-      }
-    }
-    const animate = () => { animationFrameId = requestAnimationFrame(animate); draw(); };
-    animate();
-  },
-  3: () => { // Typing Effect
-    let i = 0;
-    const typingInterval = setInterval(() => {
-      if (i < fullText.length) {
-        typedText.value += fullText.charAt(i);
-        i++;
-      } else {
-        clearInterval(typingInterval);
-      }
-    }, 50);
-    intervals.push(typingInterval);
-  },
-  4: () => {}, // CSS only
-  5: () => { // Particle Plexus
-      const canvas = canvasRef.value;
-      const ctx = canvas.getContext('2d');
-      const mouse = { x: null, y: null };
-      let particlesArray = [];
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-
-      mouseMoveListener = (event) => { mouse.x = event.x; mouse.y = event.y; };
-      window.addEventListener('mousemove', mouseMoveListener);
-      
-      class Particle {
-        constructor() { this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height; this.size = 2; this.speedX = Math.random() * 2 - 1; this.speedY = Math.random() * 2 - 1; }
-        update() { if (this.x > canvas.width || this.x < 0) this.speedX *= -1; if (this.y > canvas.height || this.y < 0) this.speedY *= -1; this.x += this.speedX; this.y += this.speedY; }
-        draw() { ctx.fillStyle = '#4ECCA3'; ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill(); }
-      }
-      const init = () => { particlesArray = []; const num = (canvas.height * canvas.width) / 9000; for (let i = 0; i < num; i++) particlesArray.push(new Particle()); };
-      const connect = () => { for (let a = 0; a < particlesArray.length; a++) for (let b = a; b < particlesArray.length; b++) { const dist = ((particlesArray[a].x - particlesArray[b].x) ** 2) + ((particlesArray[a].y - particlesArray[b].y) ** 2); if (dist < 20000) { ctx.strokeStyle = `rgba(78, 204, 163, ${1 - (dist / 20000)})`; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(particlesArray[a].x, particlesArray[a].y); ctx.lineTo(particlesArray[b].x, particlesArray[b].y); ctx.stroke(); } } };
-      const animate = () => { ctx.clearRect(0, 0, canvas.width, canvas.height); particlesArray.forEach(p => { p.update(); p.draw(); }); connect(); animationFrameId = requestAnimationFrame(animate); };
-      init(); animate();
-      resizeListener = () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; init(); };
-      window.addEventListener('resize', resizeListener);
-  },
-  6: () => { // Geometric Constellation
-    const canvas = canvasRef.value;
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    const points = [];
-    const numPoints = 60;
-    for(let i=0; i<numPoints; i++) points.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, vx: Math.random() * 0.4 - 0.2, vy: Math.random() * 0.4 - 0.2 });
-    function draw() {
-      ctx.clearRect(0,0,canvas.width, canvas.height);
-      ctx.strokeStyle = "rgba(78, 204, 163, 0.3)";
-      for(let i=0; i<numPoints; i++){
-        for(let j=i+1; j<numPoints; j++){
-          const dist = Math.sqrt(Math.pow(points[i].x - points[j].x, 2) + Math.pow(points[i].y - points[j].y, 2));
-          if(dist < 200) ctx.stroke(new Path2D(`M${points[i].x} ${points[i].y} L${points[j].x} ${points[j].y}`));
-        }
-        points[i].x += points[i].vx; points[i].y += points[i].vy;
-        if(points[i].x < 0 || points[i].x > canvas.width) points[i].vx *= -1;
-        if(points[i].y < 0 || points[i].y > canvas.height) points[i].vy *= -1;
-      }
-    }
-    const animate = () => { draw(); animationFrameId = requestAnimationFrame(animate); };
-    animate();
-  },
-  7: () => { // ASCII Art Reveal
-    const targetText = `DEBBIE O'BRIEN`;
-    const chars = '!<>-_\\/[]{}—=+*^?#________';
-    const el = asciiRef.value;
-    let frame = 0;
-    const animate = () => {
-      const textArray = targetText.split('');
-      const newText = textArray.map((char, i) => {
-        if(i < frame) return targetText[i];
-        return chars[Math.floor(Math.random() * chars.length)];
-      }).join('');
-      el.textContent = newText;
-      if(frame < targetText.length) {
-        frame++;
-        animationFrameId = requestAnimationFrame(animate);
-      }
-    };
-    animate();
-  },
-};
-
-onMounted(() => {
-  const availableDesigns = [1, 2, 3, 4, 5, 6, 7];
-  heroType.value = availableDesigns[Math.floor(Math.random() * availableDesigns.length)];
-  
-  nextTick(() => {
-    const initFunction = heroDesigns[heroType.value];
-    if (initFunction) {
-      initFunction();
-    }
-  });
-});
-
-onBeforeUnmount(() => {
-  if (animationFrameId) cancelAnimationFrame(animationFrameId);
-  intervals.forEach(clearInterval);
-  if (resizeListener) window.removeEventListener('resize', resizeListener);
-  if (mouseMoveListener) window.removeEventListener('mousemove', mouseMoveListener);
-});
-</script>
 
 <style scoped>
 .hero-container { height: 50vh; min-height: 300px; display: flex; align-items: center; justify-content: center; }
