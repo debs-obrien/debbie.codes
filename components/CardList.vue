@@ -9,7 +9,7 @@ defineProps<{
 
 <template>
   <ul
-    class="mt-12 grid gap-6 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
+    class="mt-12 grid gap-6 mx-auto md:grid-cols-2"
   >
     <li
       v-for="item of list"
