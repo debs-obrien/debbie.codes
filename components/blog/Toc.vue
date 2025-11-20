@@ -1,7 +1,7 @@
 <script setup lang="ts">
 defineProps(['links'])
 
-const flattenLinks = (links: Array<any>) => {
+function flattenLinks(links: Array<any>) {
   const _links = links
     .map((link) => {
       let _link = [link]

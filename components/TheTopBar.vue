@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const isOpen = ref(false)
 
-const toggle = () => {
+function toggle() {
   isOpen.value = !isOpen.value
 }
 </script>

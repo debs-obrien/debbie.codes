@@ -6,7 +6,7 @@ import { test, expect } from '@playwright/test';
 test.describe('Home Page Content Display', { tag: '@agent' }, () => {
   test('Verify Recent Podcasts Section', async ({ page }) => {
     // 1. Navigate to the home page (`/`)
-    await page.goto('http://localhost:3020/');
+    await page.goto('/');
 
     // 2. Locate the "Recent Podcasts" region
     // 3. Count the podcast articles

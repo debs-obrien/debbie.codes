@@ -7,7 +7,7 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const flatten = (tags: Array<any>, key = 'tags') => {
+function flatten(tags: Array<any>, key = 'tags') {
   const _tags = tags
     .map((tag) => {
       let _tag = tag
@@ -24,9 +24,9 @@ const flatten = (tags: Array<any>, key = 'tags') => {
 
 const { data } = await useAsyncData(`tags-${props.section}`, () => queryCollection(props.section)
   .select('tags')
-  .all());
-  
-const articleTags = Array.isArray(data.value) ? [...new Set(flatten(data.value, 'tags'))] : [];
+  .all())
+
+const articleTags = Array.isArray(data.value) ? [...new Set(flatten(data.value, 'tags'))] : []
 const sortedArticleTags = articleTags.sort()
 </script>
 
@@ -44,7 +44,7 @@ const sortedArticleTags = articleTags.sort()
     </li>
     <li
       v-for="(tag, i) in sortedArticleTags"
-      :key="tag+i" class="flex gap-2 justify-center flex-nowrap "
+      :key="tag + i" class="flex gap-2 justify-center flex-nowrap "
     >
       <NuxtLink
         :to="`/${section}/tags/${tag}`"
@@ -60,4 +60,4 @@ const sortedArticleTags = articleTags.sort()
 .router-link-exact-active {
   background-color: #3b82f6; /* Tailwind's bg-blue-500 */
 }
-</style> 
+</style>

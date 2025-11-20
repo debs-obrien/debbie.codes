@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { BlogPostPreview, PodcastPreview, VideoPreview } from '~/types'
-
 const { data: articles } = await useAsyncData('articles-home', () => queryCollection('blog')
   .order('date', 'DESC')
   .skip(1)

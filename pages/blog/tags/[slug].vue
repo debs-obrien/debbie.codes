@@ -1,16 +1,14 @@
 <script setup lang="ts">
-import type { BlogPost, Sections } from '~/types'
+import type { Sections } from '~/types'
 
 const {
   params: { slug },
 } = useRoute()
 
-const { data: articles } = await useAsyncData(`articles-${slug}`,
-  () => queryCollection('blog')
-    .where('tags', 'LIKE', `%${slug}%`)
-    .order('date', 'DESC')
-    .all(),
-)
+const { data: articles } = await useAsyncData(`articles-${slug}`, () => queryCollection('blog')
+  .where('tags', 'LIKE', `%${slug}%`)
+  .order('date', 'DESC')
+  .all())
 
 const topic: string = replaceHyphen(slug as string)
 const title: string = `Blog Posts on ${topic}`

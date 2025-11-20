@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import type { BlogPostPreview, PodcastPreview, Sections } from '~/types'
+import type { Sections } from '~/types'
+
 defineProps<{
   list: any[]
   section: Sections
@@ -19,4 +20,3 @@ defineProps<{
     </li>
   </ul>
 </template>
-

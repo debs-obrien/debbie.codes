@@ -1,3 +1,9 @@
+<script setup lang="ts">
+import IconLinkedInWhite from '~/components/icon/IconLinkedInWhite.vue'
+import IconXWhite from '~/components/icon/IconXWhite.vue'
+import IconYouTubeWhite from '~/components/icon/IconYouTubeWhite.vue'
+</script>
+
 <template>
   <ul class="flex gap-6 lg:gap-4 justify-center text-white mr-5 items-center">
     <li>
@@ -36,12 +42,3 @@
     <li><ColorMode /></li>
   </ul>
 </template>
-
-<script setup lang="ts">
-import IconDevto from '~/components/icon/IconDevto.vue';
-import IconTwitch from '~/components/icon/IconTwitch.vue';
-import IconXWhite from '~/components/icon/IconXWhite.vue';
-import IconYouTubeWhite from '~/components/icon/IconYouTubeWhite.vue';
-import IconLinkedInWhite from '~/components/icon/IconLinkedInWhite.vue';
-</script>
-

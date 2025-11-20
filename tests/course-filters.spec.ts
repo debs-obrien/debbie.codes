@@ -7,13 +7,14 @@ for (const topic of topics) {
     if (!isMobile) {
       await page.goto('/courses');
 
-      await page.getByRole('list', { name: 'topics' }).getByRole('link', { name: topic }).click();
+      // Click on the topic tag link directly (they appear within course articles)
+      await page.getByRole('link', { name: `#${topic}` }).first().click();
       
       // Check that we navigated to the correct URL instead of checking heading text
       await expect(page).toHaveURL(new RegExp(`/courses/tags/${topic}`));
 
       await expect.poll(() =>
-        page.getByRole('article').getByRole('link', { name: topic }).count())
+        page.getByRole('article').getByRole('link', { name: `#${topic}` }).count())
         .toBeGreaterThan(0);
     }
   });

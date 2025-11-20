@@ -6,7 +6,7 @@ import { test, expect } from '@playwright/test';
 test.describe('Home Page Content Display', { tag: '@agent' }, () => {
   test('Verify Featured Podcast Section', async ({ page }) => {
     // 1. Navigate to the home page (`/`)
-    await page.goto('http://localhost:3020/');
+    await page.goto('/');
 
     // 2. Locate the "Featured Podcast" section
     // 3. Verify podcast details
@@ -19,14 +19,18 @@ test.describe('Home Page Content Display', { tag: '@agent' }, () => {
     await expect(featuredPodcastArticle).toBeVisible();
 
     // Verify podcast title is displayed
-    await expect(featuredPodcastArticle.locator('p').getByText('Changing Testing using Playwright MCP with Debbie O\'Brien')).toBeVisible();
+    await expect(featuredPodcastArticle.getByRole('heading', { name: 'Changing Testing using Playwright MCP', level: 3 })).toBeVisible();
+    
+    // Verify podcast source
+    await expect(featuredPodcastArticle.getByText('.NET Rocks! Podcast')).toBeVisible();
 
-    // Verify 'Listen Now' link with external URL
-    const listenNowLink = page.getByRole('link', { name: 'Listen Now' });
-    await expect(listenNowLink).toBeVisible();
-    await expect(listenNowLink).toHaveAttribute('href', 'https://www.dotnetrocks.com/details/1954');
+    // Verify the podcast link with external URL
+    const podcastLink = page.getByRole('link', { name: /Listen to featured podcast episode.*Changing Testing using Playwright MCP.*\.NET Rocks! Podcast/ });
+    await expect(podcastLink).toBeVisible();
+    await expect(podcastLink).toHaveAttribute('href', 'https://www.dotnetrocks.com/details/1954');
 
-    // Verify podcast image is present in the Listen Now link
-    await expect(listenNowLink.getByRole('img')).toBeVisible();
+    // Verify visual indicator (play button or image) is present
+    const visualElement = featuredPodcastArticle.locator('svg, img').first();
+    await expect(visualElement).toBeAttached();
   });
 });

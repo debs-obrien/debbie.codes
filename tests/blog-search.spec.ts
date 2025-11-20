@@ -7,15 +7,15 @@ test.describe('Blog Search Functionality', () => {
 
   test('search field is present and functional', async ({ page, isMobile }) => {
     if (!isMobile) {
-      const searchInput = page.getByPlaceholder('Search articles...');
+      const searchInput = page.getByPlaceholder('Search...');
       await expect(searchInput).toBeVisible();
-      await expect(searchInput).toHaveAttribute('placeholder', 'Search articles...');
+      await expect(searchInput).toHaveAttribute('placeholder', 'Search...');
     }
   });
 
   test('search filters blog posts correctly', async ({ page, isMobile }) => {
     if (!isMobile) {
-      const searchInput = page.getByPlaceholder('Search articles...');
+      const searchInput = page.getByPlaceholder('Search...');
 
       await expect(page.getByRole('article').first()).toBeVisible();
 
@@ -40,7 +40,7 @@ test.describe('Blog Search Functionality', () => {
 
   test('search works with different search terms', async ({ page, isMobile }) => {
     if (!isMobile) {
-      const searchInput = page.getByPlaceholder('Search articles...');
+      const searchInput = page.getByPlaceholder('Search...');
 
       await searchInput.fill('nuxt');
 
@@ -58,7 +58,7 @@ test.describe('Blog Search Functionality', () => {
 
   test('clearing search shows all posts', async ({ page, isMobile }) => {
     if (!isMobile) {
-      const searchInput = page.getByPlaceholder('Search articles...');
+      const searchInput = page.getByPlaceholder('Search...');
 
       await expect(page.getByRole('article').first()).toBeVisible();
 
@@ -77,7 +77,7 @@ test.describe('Blog Search Functionality', () => {
     if (!isMobile) {
       await expect(page.getByRole('article').first()).toBeVisible();
 
-      const searchInput = page.getByPlaceholder('Search articles...');
+      const searchInput = page.getByPlaceholder('Search...');
 
       await expect(searchInput).toBeVisible();
       await expect(searchInput).toBeEnabled();

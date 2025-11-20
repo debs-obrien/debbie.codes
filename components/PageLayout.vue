@@ -11,10 +11,13 @@ defineProps<{
 <template>
   <main class="px-4 sm:px-6">
     <header v-if="title || description">
-      <AppTitle v-if="title">{{ title }}</AppTitle>
-      <AppIntro v-if="description">{{ description }}</AppIntro>
-      <TagsFiltered v-if="section" :section="section" />
+      <AppTitle v-if="title">
+        {{ title }}
+      </AppTitle>
+      <AppIntro v-if="description">
+        {{ description }}
+      </AppIntro>
     </header>
     <slot />
   </main>
-</template> 
+</template>

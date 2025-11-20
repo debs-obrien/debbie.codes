@@ -17,11 +17,11 @@ const pageNumbers = computed(() => {
   const pages = []
   const start = Math.max(1, props.currentPage - 2)
   const end = Math.min(props.totalPages, props.currentPage + 2)
-  
+
   for (let i = start; i <= end; i++) {
     pages.push(i)
   }
-  
+
   return pages
 })
 </script>
@@ -40,7 +40,7 @@ const pageNumbers = computed(() => {
         <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
       </svg>
     </NuxtLink>
-    
+
     <!-- First page if not in range -->
     <NuxtLink
       v-if="pageNumbers[0] > 1"
@@ -49,33 +49,32 @@ const pageNumbers = computed(() => {
     >
       1
     </NuxtLink>
-    
+
     <!-- Ellipsis if gap between first page and current range -->
     <span v-if="pageNumbers[0] > 2" class="px-3 py-2 text-sm font-medium text-gray-500">
       ...
     </span>
-    
+
     <!-- Page numbers -->
     <NuxtLink
       v-for="page in pageNumbers"
       :key="page"
       :to="page === 1 ? baseUrl : `${baseUrl}/page/${page}`"
-      :class="[
-        'px-3 py-2 text-sm font-medium rounded-md',
+      class="px-3 py-2 text-sm font-medium rounded-md" :class="[
         page === currentPage
           ? 'text-white bg-blue-600 border border-blue-600'
-          : 'text-gray-700 bg-white border border-gray-300 hover:bg-gray-50'
+          : 'text-gray-700 bg-white border border-gray-300 hover:bg-gray-50',
       ]"
       :aria-current="page === currentPage ? 'page' : undefined"
     >
       {{ page }}
     </NuxtLink>
-    
+
     <!-- Ellipsis if gap between current range and last page -->
     <span v-if="pageNumbers[pageNumbers.length - 1] < totalPages - 1" class="px-3 py-2 text-sm font-medium text-gray-500">
       ...
     </span>
-    
+
     <!-- Last page if not in range -->
     <NuxtLink
       v-if="pageNumbers[pageNumbers.length - 1] < totalPages"
@@ -84,7 +83,7 @@ const pageNumbers = computed(() => {
     >
       {{ totalPages }}
     </NuxtLink>
-    
+
     <!-- Next Page -->
     <NuxtLink
       v-if="hasNext"

@@ -8,7 +8,7 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const flatten = (tags: Array<any>, key = 'tags') => {
+function flatten(tags: Array<any>, key = 'tags') {
   const _tags = tags
     .map((tag) => {
       let _tag = tag
@@ -25,22 +25,22 @@ const flatten = (tags: Array<any>, key = 'tags') => {
 
 const { data } = await useAsyncData(`tags-${props.section}`, () => queryCollection(props.section)
   .select('tags')
-  .all());
+  .all())
 
 // Count occurrences of each tag
-const tagCounts = new Map<string, number>();
+const tagCounts = new Map<string, number>()
 if (Array.isArray(data.value)) {
-  const allTags = flatten(data.value, 'tags');
-  allTags.forEach(tag => {
-    tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1);
-  });
+  const allTags = flatten(data.value, 'tags')
+  allTags.forEach((tag) => {
+    tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1)
+  })
 }
 
 // Filter tags that have 4 or more items and sort them
 const articleTags = Array.from(tagCounts.entries())
   .filter(([_, count]) => props.section === 'courses' || 'videos' || 'podcasts' || count >= 4)
-  .map(([tag]) => tag);
-const sortedArticleTags = articleTags.sort();
+  .map(([tag]) => tag)
+const sortedArticleTags = articleTags.sort()
 </script>
 
 <template>
@@ -57,7 +57,7 @@ const sortedArticleTags = articleTags.sort();
     </li>
     <li
       v-for="(tag, i) in sortedArticleTags"
-      :key="tag+i" class="flex gap-2 justify-center flex-nowrap "
+      :key="tag + i" class="flex gap-2 justify-center flex-nowrap "
     >
       <NuxtLink
         :to="`/${section}/tags/${tag}`"

@@ -27,15 +27,23 @@ test.describe('Home Page Featured Content', () => {
     // Check for section heading
     await expect(page.getByRole('heading', { name: 'Featured Posts' })).toBeVisible();
 
-    // Check for featured post article
-    const featuredArticles = page.getByRole('article').filter({ hasText: 'Read more' });
-    await expect(featuredArticles).toHaveCount(2);
+    // Featured posts should be the first two articles with paragraphs on the page
+    // (excluding podcast which has different structure)
+    const allArticlesWithParagraphs = page.getByRole('article').filter({
+      has: page.locator('p')
+    }).filter({
+      hasNotText: 'Featured Podcast'
+    });
+    
+    // Check that we have the featured posts
+    await expect(allArticlesWithParagraphs.nth(0)).toBeVisible();
+    await expect(allArticlesWithParagraphs.nth(1)).toBeVisible();
 
     // Get the first article for dynamic checks
-    const firstArticle = featuredArticles.first();
+    const firstArticle = allArticlesWithParagraphs.first();
 
     // Check for post title link on first article
-    const titleLink = firstArticle.getByRole('link').filter({ hasNotText: 'Read more' }).filter({ hasNotText: /^[A-Z][a-z]+$/ }).first();
+    const titleLink = firstArticle.getByRole('link').first();
     await expect(titleLink).toBeVisible();
     await expect(titleLink).toHaveAttribute('href', /.+/);
 
@@ -43,11 +51,6 @@ test.describe('Home Page Featured Content', () => {
     const excerpt = firstArticle.locator('p');
     await expect(excerpt).toBeVisible();
     await expect(excerpt).not.toBeEmpty();
-
-    // Check for "Read more" link on first article
-    const readMoreLink = firstArticle.getByRole('link', { name: /read more/ });
-    await expect(readMoreLink).toBeVisible();
-    await expect(readMoreLink).toHaveAttribute('href', /.+/);
 
     // Check for post tags on first article
     const tags = firstArticle.getByRole('list').getByRole('link');
@@ -147,12 +150,16 @@ test.describe('Home Page Featured Content', () => {
   });
 
   test('featured post links work correctly', async ({ page }) => {
-    // Get the first featured article dynamically
-    const featuredArticles = page.getByRole('article').filter({ hasText: 'Read more' });
-    const firstArticle = featuredArticles.first();
+    // Get the first featured article - articles with paragraphs and not podcasts
+    const featuredPostsArticles = page.getByRole('article').filter({
+      has: page.locator('p')
+    }).filter({
+      hasNotText: 'Featured Podcast'
+    });
+    const firstArticle = featuredPostsArticles.first();
     
-    // Get the main title link (exclude "Read more" links and tag links)
-    const titleLink = firstArticle.getByRole('link').filter({ hasNotText: 'Read more' }).filter({ hasNotText: /^[A-Z][a-z]+$/ }).first();
+    // Get the main title link 
+    const titleLink = firstArticle.getByRole('link').first();
     
     // Get the href to check navigation
     const href = await titleLink.getAttribute('href');
@@ -161,14 +168,6 @@ test.describe('Home Page Featured Content', () => {
     // Click the title link
     await titleLink.click();
     await expect(page).toHaveURL(href as string);
-    
-    await page.goBack();
-    
-    // Test "Read more" link dynamically
-    const readMoreLink = firstArticle.getByRole('link', { name: /read more/ });
-    const readMoreHref = await readMoreLink.getAttribute('href');
-    await readMoreLink.click();
-    await expect(page).toHaveURL(readMoreHref as string);
     
     await page.goBack();
     

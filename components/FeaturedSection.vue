@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BlogPostPreview, Sections } from '~/types'
+import type { Sections } from '~/types'
 
 defineProps<{
   items: any[]
@@ -8,34 +8,28 @@ defineProps<{
 </script>
 
 <template>
-  <div class="grid md:grid-cols-2 gap-6">
+  <div class="space-y-6 max-w-4xl mx-auto">
     <article
       v-for="item in items"
       :key="item.path"
-      class="bg-white dark:bg-gray-900 container mx-auto my-5 p-5 rounded-2xl shadow-2xl"
+      class="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-2xl"
     >
-      <div class="lg:mx-6">
-        <TagsList :tags="item.tags" section="blog" />
+      <NuxtLink
+        :to="item.path"
+        class="block text-2xl font-semibold text-gray-800 hover:underline dark:text-white"
+      >
+        {{ item.title }}
+      </NuxtLink>
 
-        <NuxtLink
-          :to="item.path"
-          class="block mt-4 text-2xl font-semibold text-gray-800 hover:underline dark:text-white md:text-3xl"
-        >
-          {{ item.title }}
-        </NuxtLink>
+      <time v-if="item.date" class="text-sm text-gray-400 dark:text-gray-500 mt-1 block">
+        {{ new Date(item.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}
+      </time>
 
-        <p class="mt-3 text-sm text-gray-500 dark:text-gray-300 md:text-sm">
-          {{ item.description }}
-        </p>
+      <p class="mt-3 text-gray-500 dark:text-gray-300">
+        {{ item.description }}
+      </p>
 
-        <NuxtLink
-          :to="item.path"
-          :aria-label="`read more about ${item.title}`"
-          class="inline-block mt-2 text-blue-600 dark:text-blue-500 underline hover:text-blue-400"
-        >
-          Read more
-        </NuxtLink>
-      </div>
+      <TagsList :tags="item.tags" section="blog" class="mt-4" />
     </article>
   </div>
 </template>

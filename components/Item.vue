@@ -44,7 +44,7 @@ defineProps<{
         >
           {{ item.description }}
         </p>
-        
+
         <div v-if="section === 'blog' && ((item as any).body || (item as any).content)" class="text-sm text-gray-500 dark:text-gray-400 mb-2">
           {{ formatReadingTime(calculateReadingTime(String((item as any).body || (item as any).content || ''))) }}
         </div>

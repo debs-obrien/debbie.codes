@@ -1,35 +1,38 @@
 <script setup lang="ts">
 import type { Sections } from '~/types'
 
-// Fetch featured videos (conditional)
-const { data: featuredVideos } = await useAsyncData('featured-videos', () => queryCollection('videos')
-  .where('featured', '=', 'true')
+const filteredVideos = ref<any[]>([])
+const isSearchActive = ref(false)
+
+// Fetch all videos
+const { data: allVideos } = await useAsyncData('all-videos-for-pages', () => queryCollection('videos')
   .order('date', 'DESC')
-  .limit(8)
   .all())
 
-// Fetch recent videos
-const { data: recentVideos } = await useAsyncData('recent-videos', () => queryCollection('videos')
-  .order('date', 'DESC')
-  .limit(8)
-  .all())
+// Get unique tags with counts
+const videoTags = computed(() => {
+  if (!allVideos.value)
+    return []
 
-// Fetch conference videos (conditional)
-const { data: conferenceVideos } = await useAsyncData('conference-videos', () => queryCollection('videos')
-  .where('tags', 'LIKE', '%conference%')
-  .order('date', 'DESC')
-  .limit(8)
-  .all())
+  const tagCounts = new Map<string, number>()
 
-// Fetch live stream videos (conditional)
-const { data: liveStreamVideos } = await useAsyncData('livestream-videos', () => queryCollection('videos')
-  .where('tags', 'LIKE', '%live-streams%')
-  .order('date', 'DESC')
-  .limit(8)
-  .all())
+  allVideos.value.forEach((video: any) => {
+    if (video.tags) {
+      video.tags.forEach((tag: string) => {
+        tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1)
+      })
+    }
+  })
+
+  // Sort by count and return top tags
+  return Array.from(tagCounts.entries())
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 12)
+    .map(([tag]) => tag)
+})
 
 const title: string = 'Videos'
-const description: string = 'Videos from conference talks, interviews and live streams'
+const description: string = ''
 const section: Sections = 'videos'
 
 useHead({
@@ -40,77 +43,44 @@ useHead({
 
 <template>
   <PageLayout :title="title" :description="description" :section="section">
-    <!-- Featured Videos Section -->
-    <section v-if="featuredVideos && featuredVideos.length > 0" class="mb-16">
-      <h2 class="text-2xl font-bold text-gray-900 mb-6">
-        Featured Videos
-      </h2>
-      <VideoList :list="featuredVideos" />
-    </section>
+    <!-- Search Bar -->
+    <BlogSearch
+      :articles="allVideos || []"
+      :default-articles="allVideos || []"
+      @update:filtered-articles="filteredVideos = $event"
+      @search-active="isSearchActive = $event"
+    />
 
-    <!-- Recent Videos Section -->
-    <section class="mb-16">
-      <h2 class="text-2xl font-bold text-gray-900 mb-6">
-        Recent Videos
-      </h2>
-      <VideoList v-if="recentVideos" :list="recentVideos" />
-      <div class="text-center mt-6">
+    <!-- Browse by Topic and Tag Section -->
+    <section v-if="videoTags.length > 0" class="mb-8 max-w-4xl mx-auto">
+      <div class="flex flex-wrap gap-3 justify-center items-center">
         <NuxtLink
-          to="/videos/all"
-          class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
-        >
-          View All Videos
-        </NuxtLink>
-      </div>
-    </section>
-
-    <!-- Conference Talks Section -->
-    <section v-if="conferenceVideos && conferenceVideos.length > 0" class="mb-16">
-      <div class="flex justify-between items-center mb-6">
-        <h2 class="text-2xl font-bold text-gray-900">
-          Conference Talks
-        </h2>
-        <NuxtLink
-          to="/videos/tags/conference-talk"
-          class="text-blue-600 hover:text-blue-800 font-medium"
-        >
-          View all →
-        </NuxtLink>
-      </div>
-      <VideoList :list="conferenceVideos" />
-    </section>
-
-    <!-- Live Streams Section -->
-    <section v-if="liveStreamVideos && liveStreamVideos.length > 0" class="mb-16">
-      <div class="flex justify-between items-center mb-6">
-        <h2 class="text-2xl font-bold text-gray-900">
-          Live Streams
-        </h2>
-        <NuxtLink
-          to="/videos/tags/live-streams"
-          class="text-blue-600 hover:text-blue-800 font-medium"
-        >
-          View all →
-        </NuxtLink>
-      </div>
-      <VideoList :list="liveStreamVideos" />
-    </section>
-
-    <!-- Browse by Topic Section -->
-    <section>
-      <h2 class="text-2xl font-bold text-gray-900 mb-6">
-        Browse by Topic
-      </h2>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <NuxtLink
-          v-for="tag in ['nuxt', 'playwright', 'testing', 'vue', 'javascript', 'react', 'performance', 'accessibility']"
+          v-for="(tag, index) in videoTags"
           :key="tag"
           :to="`/videos/tags/${tag}`"
-          class="bg-gray-100 hover:bg-gray-200 rounded-lg p-4 text-center font-medium text-gray-700 capitalize transition-colors"
+          class="text-xs px-2.5 py-1 rounded-full font-medium hover:opacity-80 transition-opacity whitespace-nowrap" :class="[
+            ['bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200',
+             'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-200',
+             'bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-200',
+             'bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-200',
+             'bg-pink-100 text-pink-700 dark:bg-pink-900 dark:text-pink-200',
+             'bg-cyan-100 text-cyan-700 dark:bg-cyan-900 dark:text-cyan-200'][index % 6],
+          ]"
         >
-          {{ tag.replace('-', ' ') }}
+          #{{ tag.replace('-', ' ') }}
         </NuxtLink>
       </div>
+    </section>
+
+    <!-- Videos Grid Section -->
+    <section class="mb-16">
+      <h2 v-if="!isSearchActive" class="text-2xl font-bold text-gray-900 dark:text-white mb-6 max-w-4xl mx-auto">
+        All Videos
+      </h2>
+      <h2 v-else class="text-2xl font-bold text-gray-900 dark:text-white mb-6 max-w-4xl mx-auto">
+        Search Results ({{ filteredVideos.length }})
+      </h2>
+      <VideoList :list="filteredVideos.length ? filteredVideos : (allVideos || [])" />
     </section>
   </PageLayout>
 </template>
