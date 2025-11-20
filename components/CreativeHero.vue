@@ -256,6 +256,57 @@ onBeforeUnmount(() => {
         <span v-if="heroType === 3" class="typing-text">{{ typedText }}</span>
         <span v-else>Principal Technical Program Manager at Microsoft</span>
       </p>
+
+      <!-- Credentials/Badges -->
+      <div class="mt-8 flex flex-wrap justify-center items-center gap-3 sm:gap-4">
+        <a
+          href="https://developers.google.com/community/experts/directory/profile/profile-debbie-o-brien"
+          target="_blank"
+          rel="nofollow noopener noreferrer"
+          class="group inline-flex items-center gap-2 px-4 py-2 bg-gray-800/80 backdrop-blur-sm rounded-full border border-gray-700 hover:border-primary transition-all duration-300 hover:shadow-lg hover:scale-105"
+        >
+          <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 0C5.372 0 0 5.373 0 12s5.372 12 12 12 12-5.373 12-12S18.628 0 12 0zm0 19.5c-4.142 0-7.5-3.358-7.5-7.5S7.858 4.5 12 4.5s7.5 3.358 7.5 7.5-3.358 7.5-7.5 7.5z" />
+          </svg>
+          <span class="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">Google GDE</span>
+        </a>
+
+        <a
+          href="https://mvp.microsoft.com/en-us"
+          target="_blank"
+          rel="nofollow noopener noreferrer"
+          class="group inline-flex items-center gap-2 px-4 py-2 bg-gray-800/80 backdrop-blur-sm rounded-full border border-gray-700 hover:border-primary transition-all duration-300 hover:shadow-lg hover:scale-105"
+        >
+          <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2L9.5 8.5L3 9.5L7.5 14L6.5 20.5L12 17.5L17.5 20.5L16.5 14L21 9.5L14.5 8.5L12 2Z" />
+          </svg>
+          <span class="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">Former Microsoft MVP</span>
+        </a>
+
+        <a
+          href="https://stars.github.com/alumni/"
+          target="_blank"
+          rel="nofollow noopener noreferrer"
+          class="group inline-flex items-center gap-2 px-4 py-2 bg-gray-800/80 backdrop-blur-sm rounded-full border border-gray-700 hover:border-primary transition-all duration-300 hover:shadow-lg hover:scale-105"
+        >
+          <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2L9.5 8.5L3 9.5L7.5 14L6.5 20.5L12 17.5L17.5 20.5L16.5 14L21 9.5L14.5 8.5L12 2Z" />
+          </svg>
+          <span class="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">GitHub Star Alumni</span>
+        </a>
+
+        <a
+          href="https://nuxtjs.org/teams/"
+          target="_blank"
+          rel="nofollow noopener noreferrer"
+          class="group inline-flex items-center gap-2 px-4 py-2 bg-gray-800/80 backdrop-blur-sm rounded-full border border-gray-700 hover:border-primary transition-all duration-300 hover:shadow-lg hover:scale-105"
+        >
+          <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2L9.5 8.5L3 9.5L7.5 14L6.5 20.5L12 17.5L17.5 20.5L16.5 14L21 9.5L14.5 8.5L12 2Z" />
+          </svg>
+          <span class="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">Nuxt Ambassador</span>
+        </a>
+      </div>
     </div>
   </div>
 </template>
