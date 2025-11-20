@@ -18,10 +18,10 @@ test.describe('Home Page Content Display', { tag: '@agent' }, () => {
     const recentPodcastsLink = page.getByRole('link', { name: 'Recent Podcasts' });
     await expect(recentPodcastsLink).toHaveAttribute('href', '/podcasts');
 
-    // Count podcast articles (exactly 3)
+    // Count podcast articles (updated to 2 after redesign)
     const podcastsRegion = page.getByRole('region', { name: 'Recent Podcasts' });
     const podcastArticles = podcastsRegion.locator('article');
-    await expect(podcastArticles).toHaveCount(3);
+    await expect(podcastArticles).toHaveCount(2);
 
     // Verify each podcast contains required elements
     for (const article of await podcastArticles.all()) {

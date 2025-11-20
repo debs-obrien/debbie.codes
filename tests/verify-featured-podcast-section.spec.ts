@@ -14,23 +14,23 @@ test.describe('Home Page Content Display', { tag: '@agent' }, () => {
     // Verify 'Featured Podcast' heading (level 2) is visible
     await expect(page.getByRole('heading', { name: 'Featured Podcast', level: 2 })).toBeVisible();
 
-    // Locate the Featured Podcast article
-    const featuredPodcastArticle = page.getByRole('article', { name: 'Featured Podcast' });
-    await expect(featuredPodcastArticle).toBeVisible();
+    // Locate the Featured Podcast region
+    const featuredPodcastRegion = page.getByRole('region', { name: 'Featured Podcast' });
+    await expect(featuredPodcastRegion).toBeVisible();
 
-    // Verify podcast title is displayed
-    await expect(featuredPodcastArticle.getByRole('heading', { name: 'Changing Testing using Playwright MCP', level: 3 })).toBeVisible();
+    // Verify podcast title is displayed (updated after redesign)
+    await expect(featuredPodcastRegion.getByRole('heading', { name: /Testing Made Easy/i, level: 3 })).toBeVisible();
     
-    // Verify podcast source
-    await expect(featuredPodcastArticle.getByText('.NET Rocks! Podcast')).toBeVisible();
+    // Verify podcast source (updated after redesign)
+    await expect(featuredPodcastRegion.getByText(/The Modern \.NET Show/)).toBeVisible();
 
-    // Verify the podcast link with external URL
-    const podcastLink = page.getByRole('link', { name: /Listen to featured podcast episode.*Changing Testing using Playwright MCP.*\.NET Rocks! Podcast/ });
+    // Verify the podcast link with external URL (updated URL)
+    const podcastLink = featuredPodcastRegion.getByRole('link', { name: /Listen to featured podcast episode/i });
     await expect(podcastLink).toBeVisible();
-    await expect(podcastLink).toHaveAttribute('href', 'https://www.dotnetrocks.com/details/1954');
+    await expect(podcastLink).toHaveAttribute('href', /dotnetcore\.show/);
 
     // Verify visual indicator (play button or image) is present
-    const visualElement = featuredPodcastArticle.locator('svg, img').first();
-    await expect(visualElement).toBeAttached();
+    const visualElement = featuredPodcastRegion.locator('img').first();
+    await expect(visualElement).toBeVisible();
   });
 });

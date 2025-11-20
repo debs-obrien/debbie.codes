@@ -1,15 +1,17 @@
 <script setup lang="ts">
 import type { Sections } from '~/types'
 
-defineProps<{
+const props = defineProps<{
   list: any[]
   section: Sections
+  stacked?: boolean
 }>()
 </script>
 
 <template>
   <ul
-    class="mt-12 grid gap-6 mx-auto md:grid-cols-2 lg:grid-cols-3 md:max-w-none"
+    class="mt-12 grid gap-6 mx-auto"
+    :class="props.stacked ? 'grid-cols-1' : 'md:grid-cols-2'"
   >
     <li
       v-for="item of list"

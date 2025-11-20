@@ -8,17 +8,16 @@ test.describe('Home Page Content Display', { tag: '@agent' }, () => {
     // 1. Navigate to the home page (`/`)
     await page.goto('/');
 
-    // 2. Locate the awards/badges section below the introduction
-    // Verify Google GDE badge link is present
+    // 2. Verify Google GDE badge link is present
     await expect(page.getByRole('link', { name: 'Google GDE' })).toBeVisible();
 
-    // Verify Former Microsoft MVP badge link is present
+    // 3. Verify Former Microsoft MVP badge link is present
     await expect(page.getByRole('link', { name: 'Former Microsoft MVP' })).toBeVisible();
 
-    // Verify GitHub Star Alumni badge link is present
+    // 4. Verify GitHub Star Alumni badge link is present
     await expect(page.getByRole('link', { name: 'GitHub Star Alumni' })).toBeVisible();
 
-    // Verify Nuxt Ambassador badge link is present
+    // 5. Verify Nuxt Ambassador badge link is present
     await expect(page.getByRole('link', { name: 'Nuxt Ambassador' })).toBeVisible();
   });
 });

@@ -4,14 +4,16 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('Home Page Content Display', { tag: '@agent' }, () => {
-  test('Verify Featured Posts Section', async ({ page }) => {
-    // 1. Navigate to the home page (`/`)
+  // Featured Posts section no longer exists after redesign
+  test.fixme('Verify Featured Posts Section', async ({ page }) => {
+    // The Featured Posts section has been removed in the redesign
+    // The home page now shows Recent Blog Posts instead
     await page.goto('/');
 
     // 2. Scroll to the "Featured Posts" section
     // 3. Count the number of featured articles displayed
     
-        // Verify we have exactly 2 articles and validate structure
+    // Verify we have exactly 2 articles and validate structure
     const featuredSection = page.getByRole('heading', { name: 'Featured Posts' }).locator('+ *');
     const articles = featuredSection.locator('article');
     await expect(articles).toHaveCount(2);

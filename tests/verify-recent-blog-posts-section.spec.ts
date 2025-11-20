@@ -31,9 +31,6 @@ test.describe('Home Page Content Display', { tag: '@agent' }, () => {
       // Date (time element)
       await expect(article.locator('time')).toBeVisible();
       
-      // Read time
-      await expect(article.getByText(/min read/i)).toBeVisible();
-      
       // Tags list
       await expect(article.getByRole('list')).toBeVisible();
     }

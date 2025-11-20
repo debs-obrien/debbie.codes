@@ -44,7 +44,6 @@ test('GitHub Star link in home page works', async ({ page }) => {
   await expect(page1).toHaveURL('https://stars.github.com/alumni/');
 });
 
-
 test('Nuxt Ambassador link in home page works', async ({ page }) => {
   await page.context().route('https://nuxtjs.org/**', route => route.fulfill({
     body: '<html><body><h1>Nuxt Ambassador</h1></body></html>'
