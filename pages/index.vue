@@ -2,7 +2,7 @@
 import { onMounted } from 'vue'
 
 const { data: articles } = await useAsyncData('articles-home', () =>
-  queryCollection('blog').order('date', 'DESC').skip(1).limit(6).all())
+  queryCollection('blog').order('date', 'DESC').limit(6).all())
 
 const { data: videos } = await useAsyncData('videos-home', () =>
   queryCollection('videos').order('date', 'DESC').limit(5).all())
