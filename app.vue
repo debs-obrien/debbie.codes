@@ -80,6 +80,12 @@ useHead({
       rel: 'canonical',
       href: canonical.value,
     },
+    {
+      rel: 'alternate',
+      type: 'application/rss+xml',
+      title: 'Debbie Codes RSS Feed',
+      href: `${mySite}/feed.xml`,
+    },
   ],
 })
 </script>
