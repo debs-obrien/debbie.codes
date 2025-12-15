@@ -84,4 +84,10 @@ export default defineNuxtConfig({
   },
 
   compatibilityDate: '2025-03-13',
+
+  nitro: {
+    prerender: {
+      routes: ['/feed.xml'],
+    },
+  },
 })
