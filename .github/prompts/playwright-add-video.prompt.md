@@ -1,7 +1,7 @@
 ---
-mode: agent
+agent: agent
 description: 'Add a new video to the content/videos directory'
-tools: ['changes', 'search/codebase', 'edit/editFiles', 'fetch', 'problems', 'runCommands', 'runTasks', 'runTests', 'search', 'search/searchResults', 'runCommands/terminalLastCommand', 'runCommands/terminalSelection', 'testFailure', 'microsoft/playwright-mcp/*']
+tools: ['search/changes', 'search/codebase', 'edit/editFiles', 'web/fetch', 'read/problems', 'execute/getTerminalOutput', 'execute/runInTerminal', 'read/terminalLastCommand', 'read/terminalSelection', 'execute/createAndRunTask', 'execute/getTaskOutput', 'execute/runTask', 'execute/runTests', 'azure-mcp/search', 'search/searchResults', 'read/terminalLastCommand', 'read/terminalSelection', 'execute/testFailure', 'playwright/*']
 model: 'Claude Sonnet 4'
 ---
 
