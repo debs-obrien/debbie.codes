@@ -125,6 +125,36 @@ test.describe('Mobile Navigation', () => {
     });
   });
 
+  test('Mobile Navigation - Menu closes when navigation link is clicked', async ({ page }) => {
+    const hamburgerButton = getHamburgerButton(page);
+    // The mobile menu is teleported to body, use exact match to find nav links
+    const videosLink = page.getByRole('link', { name: 'Videos', exact: true });
+    const aboutLink = page.getByRole('link', { name: 'About', exact: true });
+    
+    await test.step('Open mobile menu and click Videos', async () => {
+      await hamburgerButton.click();
+      await expect(videosLink).toBeVisible();
+      await videosLink.click();
+    });
+
+    await test.step('Verify menu closed after navigation', async () => {
+      await expect(page).toHaveURL(/.*\/videos/);
+      // Menu is closed when hamburger button shows 3 bars (not X)
+      await expect(hamburgerButton).toHaveAccessibleName('open menu');
+    });
+
+    await test.step('Open menu again and navigate to About', async () => {
+      await hamburgerButton.click();
+      await expect(aboutLink).toBeVisible();
+      await aboutLink.click();
+    });
+
+    await test.step('Verify menu closed after second navigation', async () => {
+      await expect(page).toHaveURL(/.*\/about/);
+      await expect(hamburgerButton).toHaveAccessibleName('open menu');
+    });
+  });
+
   test('Mobile Navigation - Hamburger icon accessibility', async ({ page }) => {
     const hamburgerButton = getHamburgerButton(page);
     await test.step('Verify hamburger button has proper accessibility attributes', async () => {

@@ -72,7 +72,7 @@ function toggle() {
           ✕
         </button>
         <div class="mt-16">
-          <TheNavigation />
+          <TheNavigation @navigate="isOpen = false" />
           <TopBarSocial />
         </div>
       </div>
