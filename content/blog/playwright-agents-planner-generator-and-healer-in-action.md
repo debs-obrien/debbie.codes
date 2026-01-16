@@ -1,7 +1,7 @@
 ---
 title: Playwright Agents Planner, Generator, and Healer in Action
-date: 2024-10-06
-description: Playwright has introduced a powerful new feature: Playwright Agents. These agents can generate test plans, create tests based on those plans, and even debug and fix failing tests automatically.
+date: 2025-10-06
+description: Playwright has introduced a powerful new feature, Playwright Agents. These agents can generate test plans, create tests based on those plans, and even debug and fix failing tests automatically.
 tags: [playwright, testing, ai]
 canonical: https://dev.to/playwright/playwright-agents-planner-generator-and-healer-in-action-5ajh
 published: true

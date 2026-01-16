@@ -1,6 +1,6 @@
 ---
 title: Playwright MCP Servers Explained Automation and Testing
-date: 2024-11-17
+date: 2025-11-17
 description: Did you know Playwright has two MCP servers? Learn about the Playwright MCP server for browser automation and the Playwright Test MCP server for testing, both designed to work with AI agents and GitHub Copilot.
 tags: [playwright, mcp, ai, testing]
 canonical: https://dev.to/debs_obrien/playwright-mcp-servers-explained-automation-and-testing-4mo0

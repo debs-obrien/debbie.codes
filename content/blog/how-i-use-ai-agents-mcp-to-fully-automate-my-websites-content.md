@@ -1,6 +1,6 @@
 ---
 title: How I Use AI Agents + MCP to Fully Automate My Website's Content
-date: 2025-01-14
+date: 2026-01-14
 description: Recently I have been playing with a lot of tools to help automate simple tasks just so I can keep my website up to date. As I create a lot of content from videos to blog posts and appear as guests on many podcasts I want to have this reflected on my site as it's good to have all this info in one place to easily share with others and it's also great to look back on.
 tags: [mcp, ai]
 canonical: https://dev.to/debs_obrien/how-i-use-ai-agents-mcp-to-fully-automate-my-websites-content-3ekj
