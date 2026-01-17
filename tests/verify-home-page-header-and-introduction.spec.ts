@@ -12,7 +12,7 @@ test.describe('Home Page Content Display', { tag: '@agent' }, () => {
     await expect(page.getByRole('heading', { name: 'Debbie O\'Brien', level: 1 })).toBeVisible();
 
     // 3. Locate the subtitle describing Debbie's role
-    await expect(page.getByText('Principal Technical Program Manager at Microsoft')).toBeVisible();
+    await expect(page.getByText('Senior Staff Developer Relations Engineer, Applied AI @Block')).toBeVisible();
 
     // Verify page title includes expected text
     await expect(page).toHaveTitle(/Debbie codes and helps others learn Playwright, testing, React, Nuxt and more/);

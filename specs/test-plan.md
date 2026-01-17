@@ -2,7 +2,7 @@
 
 ## Application Overview
 
-**Debbie.Codes** is a Nuxt 3-based personal portfolio and content website for Debbie O'Brien, a Principal Technical Program Manager at Microsoft. The site serves as a central hub for her professional content, including blog posts, videos, podcasts, courses, and biographical information.
+**Debbie.Codes** is a Nuxt 3-based personal portfolio and content website for Debbie O'Brien, a Senior Staff Developer Relations Engineer, Applied AI @Block. The site serves as a central hub for her professional content, including blog posts, videos, podcasts, courses, and biographical information.
 
 ### Key Features
 - **Content Management**: Markdown-driven content using Nuxt Content v2
@@ -31,7 +31,7 @@
 
 **Expected Results:**
 - Heading "Debbie O'Brien" is displayed with level 1
-- Subtitle "Principal Technical Program Manager at Microsoft" is visible
+- Subtitle "Senior Staff Developer Relations Engineer, Applied AI @Block" is visible
 - Page title includes "Debbie codes and helps others learn Playwright, testing, React, Nuxt and more"
 
 #### 1.2 Verify Award Badges Display

@@ -9,7 +9,7 @@ test('home contains name and title', async ({ page }) => {
   const heading = page.getByRole('heading', { level: 1 }).first();
   await expect(heading).toBeVisible();
   await expect(heading).toContainText('Debbie');
-  await expect(page.getByText('Principal Technical Program Manager at Microsoft')).toBeVisible();
+  await expect(page.getByText('Senior Staff Developer Relations Engineer, Applied AI @Block')).toBeVisible();
 });
 
 // Featured Posts section no longer exists after redesign
