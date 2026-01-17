@@ -1,5 +1,5 @@
 <script setup>
-const description = 'Debbie O\'Brien, Program Manager at Microsoft working on Playwright, with over 10 years experience in Frontend development. Google Developer Expert in web technologies, Previous Microsoft Most Valuable Professional in developer technologies, GitHub Start Alumni, NuxtJS Ambassador and Cloudinary Media Developer Expert.'
+const description = 'Debbie O\'Brien, Senior Staff Developer Relations Engineer, Applied AI @Block, with over 10 years experience in Frontend development. Google Developer Expert in web technologies, Previous Microsoft Most Valuable Professional in developer technologies, GitHub Star Alumni, NuxtJS Ambassador and Cloudinary Media Developer Expert.'
 const ogTitle = 'Debbie codes and helps others learn Playwright, testing, React, Nuxt and more'
 const twitterDescription = 'My website of where I play around with Nuxt, Playwright and more and showcase my blog, resources etc'
 const twitterCard = 'https://debbie.codes/twitter-card.png'

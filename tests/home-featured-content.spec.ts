@@ -13,7 +13,7 @@ test.describe('Home Page Featured Content', () => {
     await expect(heading).toContainText('Debbie');
     
     // Check for subtitle/role
-    await expect(page.getByText('Principal Technical Program Manager at Microsoft')).toBeVisible();
+    await expect(page.getByText('Senior Staff Developer Relations Engineer, Applied AI @Block')).toBeVisible();
     
     // Check for profile image in header
     const profileImage = page.getByRole('img', { name: 'Debbie O\'Brien' }).first();
