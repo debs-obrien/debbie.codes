@@ -1,17 +1,17 @@
 <template>
   <article class="mt-12">
     <a
-      href="https://dotnetcore.show/season-8/testing-made-easy-debbie-obrien-explains-playwright-and-its-game-changing-mcp-server/"
+      href="https://www.youtube.com/watch?v=j2n58sSZheo"
       target="_blank"
       rel="noopener noreferrer"
       class="group block"
-      aria-label="Listen to featured podcast episode: Testing Made Easy on The Modern .NET Show (opens in new tab)"
+      aria-label="Listen to featured podcast episode: Future of Testing with alexusadays (opens in new tab)"
     >
       <div class="bg-gray-100 dark:bg-slate-800 rounded-xl overflow-hidden transition-all duration-300 group-hover:shadow-2xl group-hover:scale-[1.02]">
         <div class="flex flex-col md:flex-row">
           <!-- Image -->
           <div class="md:w-1/3">
-            <img class="h-48 w-full object-cover md:h-full" src="/modern-net-show.webp" alt="The Modern .NET Show cover art">
+            <img class="h-48 w-full object-cover md:h-full" src="https://res.cloudinary.com/debsobrien/image/upload/c_thumb,w_400/v1768895680/debbie.codes/podcasts/alexusadays-future-of-testing" alt="alexusadays podcast cover art">
           </div>
 
           <!-- Content -->
@@ -24,10 +24,10 @@
                 </span>
               </div>
               <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2 leading-tight">
-                Testing Made Easy: Explaining Playwright
+                Future of Testing | Playwright, MCP, and AI-Driven Testing
               </h3>
               <p class="text-md text-gray-600 dark:text-gray-300">
-                The Modern .NET Show
+                alexusadays
               </p>
             </div>
 
