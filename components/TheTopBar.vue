@@ -8,7 +8,7 @@ function toggle() {
 
 <template>
   <div>
-    <header class="w-full fixed top-0 left-0 z-10 bg-dark py-4 shadow-lg">
+    <header class="w-full fixed top-0 left-0 z-50 bg-dark py-4 shadow-lg">
       <div class="container mx-auto">
         <div class="w-100 h-auto items-center flex justify-between px-4 sm:px-6 lg:px-3">
           <div class="w-auto text-white">
