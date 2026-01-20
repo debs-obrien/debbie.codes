@@ -6,4 +6,5 @@ url: https://www.youtube.com/watch?v=j2n58sSZheo
 image: https://res.cloudinary.com/debsobrien/image/upload/c_thumb,w_200/v1768895680/debbie.codes/podcasts/alexusadays-future-of-testing
 tags: [playwright, testing]
 host: alexusadays
+featured: true
 ---
