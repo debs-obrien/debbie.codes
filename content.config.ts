@@ -56,7 +56,8 @@ export default defineContentConfig({
         image: z.string(),
         tags: z.array(z.string()),
         host: z.string(),
-        provider: z.string().default('cloudinary')
+        provider: z.string().default('cloudinary'),
+        featured: z.boolean().optional()
       })
     }),
     tips: defineCollection({

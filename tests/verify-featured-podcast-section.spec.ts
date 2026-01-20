@@ -18,19 +18,22 @@ test.describe('Home Page Content Display', { tag: '@agent' }, () => {
     const featuredPodcastRegion = page.getByRole('region', { name: 'Featured Podcast' });
     await expect(featuredPodcastRegion).toBeVisible();
 
-    // Verify podcast title is displayed (updated after redesign)
-    await expect(featuredPodcastRegion.getByRole('heading', { name: /Testing Made Easy/i, level: 3 })).toBeVisible();
+    // Verify podcast title is displayed (dynamically loaded from content with featured: true)
+    await expect(featuredPodcastRegion.getByRole('heading', { level: 3 })).toBeVisible();
     
-    // Verify podcast source (updated after redesign)
-    await expect(featuredPodcastRegion.getByText(/The Modern \.NET Show/)).toBeVisible();
+    // Verify podcast host is displayed
+    await expect(featuredPodcastRegion.locator('p').first()).toBeVisible();
 
-    // Verify the podcast link with external URL (updated URL)
+    // Verify the podcast link with external URL
     const podcastLink = featuredPodcastRegion.getByRole('link', { name: /Listen to featured podcast episode/i });
     await expect(podcastLink).toBeVisible();
-    await expect(podcastLink).toHaveAttribute('href', /dotnetcore\.show/);
+    await expect(podcastLink).toHaveAttribute('href', /.+/); // Has some URL
 
     // Verify visual indicator (play button or image) is present
     const visualElement = featuredPodcastRegion.locator('img').first();
     await expect(visualElement).toBeVisible();
+    
+    // Verify "Listen Now" button is present
+    await expect(featuredPodcastRegion.getByText('Listen Now')).toBeVisible();
   });
 });

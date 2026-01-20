@@ -1,17 +1,32 @@
+<script setup lang="ts">
+// Fetch the featured podcast dynamically
+const { data: featuredPodcast } = await useAsyncData('featured-podcast', () => 
+  queryCollection('podcasts')
+    .where('featured', '=', true)
+    .order('date', 'DESC')
+    .first()
+)
+</script>
+
 <template>
-  <article class="mt-12">
+  <article v-if="featuredPodcast" class="mt-12">
     <a
-      href="https://www.youtube.com/watch?v=j2n58sSZheo"
+      :href="featuredPodcast.url"
       target="_blank"
       rel="noopener noreferrer"
       class="group block"
-      aria-label="Listen to featured podcast episode: Future of Testing with alexusadays (opens in new tab)"
+      :aria-label="`Listen to featured podcast episode: ${featuredPodcast.title} on ${featuredPodcast.host} (opens in new tab)`"
     >
       <div class="bg-gray-100 dark:bg-slate-800 rounded-xl overflow-hidden transition-all duration-300 group-hover:shadow-2xl group-hover:scale-[1.02]">
         <div class="flex flex-col md:flex-row">
           <!-- Image -->
           <div class="md:w-1/3">
-            <img class="h-48 w-full object-cover md:h-full" src="https://res.cloudinary.com/debsobrien/image/upload/c_thumb,w_400/v1768895680/debbie.codes/podcasts/alexusadays-future-of-testing" alt="alexusadays podcast cover art">
+            <NuxtImg 
+              class="h-48 w-full object-cover md:h-full" 
+              provider="cloudinary"
+              :src="featuredPodcast.image" 
+              :alt="`${featuredPodcast.host} cover art`"
+            />
           </div>
 
           <!-- Content -->
@@ -24,10 +39,10 @@
                 </span>
               </div>
               <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2 leading-tight">
-                Future of Testing | Playwright, MCP, and AI-Driven Testing
+                {{ featuredPodcast.title }}
               </h3>
               <p class="text-md text-gray-600 dark:text-gray-300">
-                alexusadays
+                {{ featuredPodcast.host }}
               </p>
             </div>
 

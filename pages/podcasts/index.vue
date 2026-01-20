@@ -6,9 +6,11 @@ const isSearchActive = ref(false)
 
 const { data: allPodcasts } = await useAsyncData('podcasts', () => queryCollection('podcasts').order('date', 'DESC').all())
 
-// Filter out the featured podcast from the main list
-const featuredPodcastTitle = 'Changing Testing using Playwright MCP with Debbie O\'Brien'
-const podcasts = allPodcasts?.value?.filter(podcast => podcast.title !== featuredPodcastTitle) || []
+// Filter out featured podcasts from the main list (podcasts with featured: true)
+const podcasts = computed(() => {
+  if (!allPodcasts.value) return []
+  return allPodcasts.value.filter(podcast => !podcast.featured)
+})
 
 // Get all podcasts to extract real tags
 const podcastTags = computed(() => {
@@ -86,7 +88,7 @@ useHead({
       <h2 v-else class="text-2xl font-bold text-gray-900 dark:text-white mb-6 max-w-4xl mx-auto">
         Search Results ({{ filteredPodcasts.length }})
       </h2>
-      <PodcastGrid :list="filteredPodcasts || podcasts" />
+      <PodcastGrid :list="isSearchActive ? filteredPodcasts : podcasts" />
     </section>
 
     <!-- Call to Action -->
