@@ -1,0 +1,12 @@
+# Goose Hints for debbie.codes
+
+## Verification Workflow
+- Always use Playwright MCP to verify any work done on this repository
+- Take a screenshot of the relevant page/changes after completing work
+- Upload the screenshot to the PR to ensure easier verification for reviewers
+
+## Content Guidelines
+- Podcasts are stored in `content/podcasts/` directory
+- Use only existing tags found in other content files
+- Always include: title, date, description, url, image, tags, and host for podcasts
+- Upload images to Cloudinary under `debbie.codes/` folder structure
