@@ -17,7 +17,7 @@ First of all let me tell you what it is like to add a new podcast episode to my 
 
 I started to automate some of the process by using reusable prompts in VSCode. I created instructions for Copilot of what it needed to do and then all I had to do was press the play button to run the prompt in a new chat and then give it the URL for the podcast. I had the Playwright MCP installed so Copilot would use it to navigate to the URL of where the podcast was hosted and find the relevant information it needed to complete the metadata. It was pretty good and saved a lot of time and I could even bulk update new episodes by giving it more than one URL.
 
-However the images where still an issue and I was tempted to actually just stop using Cloudinary just cause it was quicker and easier to use images stored in the public folder of my site. But then I would loose out on the benefits of Cloudinary and it's image optimization.
+However the images were still an issue and I was tempted to actually just stop using Cloudinary just cause it was quicker and easier to use images stored in the public folder of my site. But then I would lose out on the benefits of Cloudinary and its image optimization.
 
 ## Automating with Goose, Playwright MCP, Cloudinary MCP & GitHub MCP
 
