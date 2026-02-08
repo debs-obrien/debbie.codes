@@ -7,7 +7,7 @@ canonical: https://dev.to/debs_obrien/how-i-use-ai-agents-mcp-to-fully-automate-
 published: true
 ---
 
-Recently I have been playing with a lot of tools to help automate simple tasks just so I can keep my website up to date. As I create a lot of content from videos to blog posts and appear as guests on many podcasts I want to have this reflected on my site as it's good to have all this info in one place to easily share with others and it's also great to look back on. But it is tedious and it takes time, time that I have very little of. So this is a perfect use case for AI to take over this task. So where do I start.
+Recently I have been playing with a lot of tools to help automate simple tasks just so I can keep my website up to date. As I create a lot of content from videos to blog posts and appear as guests on many podcasts I want to have this reflected on my site as it's good to have all this info in one place to easily share with others and it's also great to look back on. But it is tedious and it takes time, time that I have very little of. So this is a perfect use case for AI to take over this task. So where do I start?
 
 ## Before AI
 
@@ -29,7 +29,7 @@ So I thought what if Cloudinary had an MCP and then Goose could just use that MC
 
 And that was it. It all just worked. I checked my Cloudinary account and the images were there. I then asked Goose to run the dev server and verify its work using the Playwright MCP by navigating to the podcasts page to ensure everything looked as it should. Not only could I see the browser being opened and see the new podcast episodes with images but I could also ask for a screenshot of the page.
 
-Then one more thing of course. We had come so far so may as well finish it all off. I then asked Goose to create a pull request which it did using the GitHub MCP which I previously configured. I then reviewed the code just in case anything looked wrong, especially with regards to the Cloudinary URL, even though I had visually reviewed it and as you can imagine, it was good to go. I merged it and new podcast episodes were added to my site.
+Then one more thing of course. We had come so far so may as well finish it all off. I then asked Goose to create a pull request which it did using the GitHub MCP which I previously configured. I then reviewed the code just in case anything looked wrong, especially with regard to the Cloudinary URL, even though I had visually reviewed it and as you can imagine, it was good to go. I merged it and new podcast episodes were added to my site.
 
 ## Conclusion
 
