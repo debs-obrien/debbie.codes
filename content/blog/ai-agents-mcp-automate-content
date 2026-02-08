@@ -33,10 +33,10 @@ Then one more thing of course. We had come so far so may as well finish it all o
 
 ## Conclusion
 
-So heres the thing. It took me time to figure all this out and set up the process and ensure it was all working. Yes it would have been quicker to copy and paste myself. But now it's done and the next time I want to add a podcast episode I just have to run my recipe in Goose and pass in the podcast URL. I am a guest on one tonight so when that is out I will be able to add it easily to the site. In fact if I had a team of people working on my site I could even share the recipe with them and they could simply run it.
+So here's the thing. It took me time to figure all this out and set up the process and ensure it was all working. Yes it would have been quicker to copy and paste myself. But now it's done and the next time I want to add a podcast episode I just have to run my recipe in Goose and pass in the podcast URL. I am a guest on one tonight so when that is out I will be able to add it easily to the site. In fact if I had a team of people working on my site I could even share the recipe with them and they could simply run it.
 
 I am using Nuxt content for my site which means I have no CMS. My content lives in markdown files and it makes it very easy as a developer to add content but perhaps not so easy for non developers. But now, now even my mother could add a new podcast episode to my site. That is just amazing. This is just my personal site but think about the possibilities of this use case for many other businesses.
 
-I am very impressed with what Goose can do. The more I am using it the more it is blowing my mind. I am now going to go ahead and add other receipes for the rest of the content I add or perhaps just modify this recipe with parameters so I can have one recipe. I shall keep playing around. This is fun.
+I am very impressed with what Goose can do. The more I am using it the more it is blowing my mind. I am now going to go ahead and add other recipes for the rest of the content I add or perhaps just modify this recipe with parameters so I can have one recipe. I shall keep playing around. This is fun.
 
 Let me know if you found this interesting or are doing something similar or have used any of the MCPs mentioned above. We are living in exciting times so if you haven't started to experiment yet then what are you waiting for. Just play around and have fun.
