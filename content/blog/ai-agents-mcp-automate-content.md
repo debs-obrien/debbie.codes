@@ -7,7 +7,7 @@ canonical: https://dev.to/debs_obrien/how-i-use-ai-agents-mcp-to-fully-automate-
 published: true
 ---
 
-Recently I have been playing with a lot of tools to help automate simple tasks just so I can keep my website uptodate. As I create a lot of content from videos to blog posts and appear as guests on many podcasts I want to have this reflected on my site as it's good to have all this info in one place to easily share with others and it's also great to look back on. But it is tedious and it takes time, time that I have very little of. So this is a perfect use case for AI to take over this task. So where do I start.
+Recently I have been playing with a lot of tools to help automate simple tasks just so I can keep my website up to date. As I create a lot of content from videos to blog posts and appear as guests on many podcasts I want to have this reflected on my site as it's good to have all this info in one place to easily share with others and it's also great to look back on. But it is tedious and it takes time, time that I have very little of. So this is a perfect use case for AI to take over this task. So where do I start.
 
 ## Before AI
 
@@ -17,7 +17,7 @@ First of all let me tell you what it is like to add a new podcast episode to my 
 
 I started to automate some of the process by using reusable prompts in VSCode. I created instructions for Copilot of what it needed to do and then all I had to do was press the play button to run the prompt in a new chat and then give it the URL for the podcast. I had the Playwright MCP installed so Copilot would use it to navigate to the URL of where the podcast was hosted and find the relevant information it needed to complete the metadata. It was pretty good and saved a lot of time and I could even bulk update new episodes by giving it more than one URL.
 
-However the images where still an issue and I was tempted to actually just stop using Cloudinary just cause it was quicker and easier to use images stored in the public folder of my site. But then I would loose out on the benefits of Cloudinary and it's image optimization.
+However the images were still an issue and I was tempted to actually just stop using Cloudinary just cause it was quicker and easier to use images stored in the public folder of my site. But then I would lose out on the benefits of Cloudinary and it's image optimization.
 
 ## Automating with Goose, Playwright MCP, Cloudinary MCP & GitHub MCP
 
@@ -25,7 +25,7 @@ I then started playing around with Goose, a coding agent from Block. Goose is a 
 
 So I copied my prompt into Goose and saved it as a recipe. Recipes seem pretty similar to prompts but you can use parameters so I could add the podcast url as a parameter and it will automatically get detected. There are also a lot of other options which I haven't got round to properly checking out but this seemed enough for my use case. Now I have the Playwright MCP navigating to the site and getting all the info I need for the podcast page. I then just asked Goose to download the image for me and add it locally and it did. This was great but did I really want to just stop using Cloudinary just cause I was lazy!
 
-So I thought what if Cloudinary had an MCP and then Goose could just use that MCP server to upload the image and then update the image metadata with the correct image id. Now if it could do that then all my problems would be solved. And so I looked in Goose's extensions and searched for Cloudinary and would you beleive it there was an MCP server for Cloudinary. Not only that but it actually worked. Goose used the Playwright MCP to navigate to the site and get all the content it needed including the image and then the Cloudinary MCP was used to add the image to my Cloudinary account using my API key stored in the extension's settings. It even figured out which folder to save it to without me asking.
+So I thought what if Cloudinary had an MCP and then Goose could just use that MCP server to upload the image and then update the image metadata with the correct image id. Now if it could do that then all my problems would be solved. And so I looked in Goose's extensions and searched for Cloudinary and would you believe it there was an MCP server for Cloudinary. Not only that but it actually worked. Goose used the Playwright MCP to navigate to the site and get all the content it needed including the image and then the Cloudinary MCP was used to add the image to my Cloudinary account using my API key stored in the extension's settings. It even figured out which folder to save it to without me asking.
 
 And that was it. It all just worked. I checked my Cloudinary account and the images were there. I then asked Goose to run the dev server and verify it's work using the Playwright MCP by navigating to the podcasts page to ensure everything looked as it should. Not only could I see the browser being opened and see the new podcast episodes with images but I could also ask for a screenshot of the page.
 
