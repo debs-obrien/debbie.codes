@@ -11,7 +11,7 @@ Recently I have been playing with a lot of tools to help automate simple tasks j
 
 ## Before AI
 
-First of all let me tell you what it is like to add a new podcast episode to my site. I use Nuxt content so basically each podcast is just a markdown file with some yaml. This yaml contains things like the date, the name of the podcast the image url and the host for example. Last year I was simply getting an old podcast episode and clicking duplicate in VSCode and then renaming everything with the new podcast information. So basically manually clicking the link to new episode and copying and pasting the information from that site where it hosted into my markdown file. Then I had to download the image and upload it to cloudinary, get the image name from there and paste that into my file. Cloudinary is great for managing images and keeping my site performant but the extra work of downloading and uploading the images was tedious and meant that sometimes it took me ages to add new episodes to my site cause I simply couldn't be bothered doing it.
+First of all let me tell you what it is like to add a new podcast episode to my site. I use Nuxt content so basically each podcast is just a markdown file with some YAML. This YAML contains things like the date, the name of the podcast the image url and the host for example. Last year I was simply getting an old podcast episode and clicking duplicate in VSCode and then renaming everything with the new podcast information. So basically manually clicking the link to new episode and copying and pasting the information from that site where it hosted into my markdown file. Then I had to download the image and upload it to Cloudinary, get the image name from there and paste that into my file. Cloudinary is great for managing images and keeping my site performant but the extra work of downloading and uploading the images was tedious and meant that sometimes it took me ages to add new episodes to my site cause I simply couldn't be bothered doing it.
 
 ## Automating with Prompts and the Playwright MCP
 
@@ -29,7 +29,7 @@ So I thought what if Cloudinary had an MCP and then Goose could just use that MC
 
 And that was it. It all just worked. I checked my Cloudinary account and the images were there. I then asked Goose to run the dev server and verify it's work using the Playwright MCP by navigating to the podcasts page to ensure everything looked as it should. Not only could I see the browser being opened and see the new podcast episodes with images but I could also ask for a screenshot of the page.
 
-Then one more thing of course. We had come so far so may as well finish it all off. I then asked Goose to create a pull request which it did using the GitHub MCP which I previously configured. I then reviewed the code just in case anything looked wrong, especially with regards to the cloudinary URL, even though I had visually reviewed it and as you can imagine, it was good to go. I merged it and new podcast episodes were added to my site.
+Then one more thing of course. We had come so far so may as well finish it all off. I then asked Goose to create a pull request which it did using the GitHub MCP which I previously configured. I then reviewed the code just in case anything looked wrong, especially with regards to the Cloudinary URL, even though I had visually reviewed it and as you can imagine, it was good to go. I merged it and new podcast episodes were added to my site.
 
 ## Conclusion
 
