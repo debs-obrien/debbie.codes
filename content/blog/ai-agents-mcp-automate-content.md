@@ -29,7 +29,7 @@ So I thought what if Cloudinary had an MCP and then Goose could just use that MC
 
 And that was it. It all just worked. I checked my Cloudinary account and the images were there. I then asked Goose to run the dev server and verify it's work using the Playwright MCP by navigating to the podcasts page to ensure everything looked as it should. Not only could I see the browser being opened and see the new podcast episodes with images but I could also ask for a screenshot of the page.
 
-Then one more thing of course. We had come so far so may as well finish it all off. I then asked Goose to create a pull request which it did using the used the GitHub MCP which I previously configured. I then reviewed the code just incase anything looked wrong, especially with regards to the cloudinary URL, even though I had visually reviewed it and as you can imagine, it was good to go. I merged it and new podcast episodes were added to my site.
+Then one more thing of course. We had come so far so may as well finish it all off. I then asked Goose to create a pull request which it did using the GitHub MCP which I previously configured. I then reviewed the code just in case anything looked wrong, especially with regards to the cloudinary URL, even though I had visually reviewed it and as you can imagine, it was good to go. I merged it and new podcast episodes were added to my site.
 
 ## Conclusion
 
