@@ -1,0 +1,42 @@
+---
+title: How I Use AI Agents + MCP to Fully Automate My Website's Content
+date: 2026-01-14
+description: How I use AI agents and MCP tools to automate publishing and updating podcasts, videos, and other content on my website.
+tags: [mcp, ai]
+canonical: https://dev.to/debs_obrien/how-i-use-ai-agents-mcp-to-fully-automate-my-websites-content-3ekj
+published: true
+---
+
+Recently I have been playing with a lot of tools to help automate simple tasks just so I can keep my website up to date. As I create a lot of content from videos to blog posts and appear as guests on many podcasts I want to have this reflected on my site as it's good to have all this info in one place to easily share with others and it's also great to look back on. But it is tedious and it takes time, time that I have very little of. So this is a perfect use case for AI to take over this task. So where do I start?
+
+## Before AI
+
+First of all let me tell you what it is like to add a new podcast episode to my site. I use Nuxt content so basically each podcast is just a markdown file with some yaml. This yaml contains things like the date, the name of the podcast the image url and the host for example. Last year I was simply getting an old podcast episode and clicking duplicate in VSCode and then renaming everything with the new podcast information. So basically manually clicking the link to new episode and copying and pasting the information from that site where it hosted into my markdown file. Then I had to download the image and upload it to cloudinary, get the image name from there and paste that into my file. Cloudinary is great for managing images and keeping my site performant but the extra work of downloading and uploading the images was tedious and meant that sometimes it took me ages to add new episodes to my site cause I simply couldn't be bothered doing it.
+
+## Automating with Prompts and the Playwright MCP
+
+I started to automate some of the process by using reusable prompts in VSCode. I created instructions for Copilot of what it needed to do and then all I had to do was press the play button to run the prompt in a new chat and then give it the URL for the podcast. I had the Playwright MCP installed so Copilot would use it to navigate to the URL of where the podcast was hosted and find the relevant information it needed to complete the metadata. It was pretty good and saved a lot of time and I could even bulk update new episodes by giving it more than one URL.
+
+However the images were still an issue and I was tempted to actually just stop using Cloudinary just cause it was quicker and easier to use images stored in the public folder of my site. But then I would lose out on the benefits of Cloudinary and its image optimization.
+
+## Automating with Goose, Playwright MCP, Cloudinary MCP & GitHub MCP
+
+I then started playing around with Goose, a coding agent from Block. Goose is a desktop app although there is also a CLI available. I decided to give it a go and see if I could improve the way I automated this process. I probably could have continued playing around in VSCode and achieved similar but lately I have been trying to code, or should I say, get tasks done, without using an editor. As in just review the pull request later on CI and let the agent do it's thing cause I really believe this is the way we are heading so I want to keep experimenting on how it feels to code this way.
+
+So I copied my prompt into Goose and saved it as a recipe. Recipes seem pretty similar to prompts but you can use parameters so I could add the podcast url as a parameter and it will automatically get detected. There are also a lot of other options which I haven't got round to properly checking out but this seemed enough for my use case. Now I have the Playwright MCP navigating to the site and getting all the info I need for the podcast page. I then just asked Goose to download the image for me and add it locally and it did. This was great but did I really want to just stop using Cloudinary just cause I was lazy!
+
+So I thought what if Cloudinary had an MCP and then Goose could just use that MCP server to upload the image and then update the image metadata with the correct image id. Now if it could do that then all my problems would be solved. And so I looked in Goose's extensions and searched for Cloudinary and would you believe it there was an MCP server for Cloudinary. Not only that but it actually worked. Goose used the Playwright MCP to navigate to the site and get all the content it needed including the image and then the Cloudinary MCP was used to add the image to my Cloudinary account using my API key stored in the extension's settings. It even figured out which folder to save it to without me asking.
+
+And that was it. It all just worked. I checked my Cloudinary account and the images were there. I then asked Goose to run the dev server and verify its work using the Playwright MCP by navigating to the podcasts page to ensure everything looked as it should. Not only could I see the browser being opened and see the new podcast episodes with images but I could also ask for a screenshot of the page.
+
+Then one more thing of course. We had come so far so may as well finish it all off. I then asked Goose to create a pull request which it did using the GitHub MCP which I previously configured. I then reviewed the code just in case anything looked wrong, especially with regards to the cloudinary URL, even though I had visually reviewed it and as you can imagine, it was good to go. I merged it and new podcast episodes were added to my site.
+
+## Conclusion
+
+So here's the thing. It took me time to figure all this out and set up the process and ensure it was all working. Yes it would have been quicker to copy and paste myself. But now it's done and the next time I want to add a podcast episode I just have to run my recipe in Goose and pass in the podcast URL. I am a guest on one tonight so when that is out I will be able to add it easily to the site. In fact if I had a team of people working on my site I could even share the recipe with them and they could simply run it.
+
+I am using Nuxt content for my site which means I have no CMS. My content lives in markdown files and it makes it very easy as a developer to add content but perhaps not so easy for non developers. But now, now even my mother could add a new podcast episode to my site. That is just amazing. This is just my personal site but think about the possibilities of this use case for many other businesses.
+
+I am very impressed with what Goose can do. The more I am using it the more it is blowing my mind. I am now going to go ahead and add other recipes for the rest of the content I add or perhaps just modify this recipe with parameters so I can have one recipe. I shall keep playing around. This is fun.
+
+Let me know if you found this interesting or are doing something similar or have used any of the MCPs mentioned above. We are living in exciting times so if you haven't started to experiment yet then what are you waiting for. Just play around and have fun.
