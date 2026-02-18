@@ -9,68 +9,119 @@ Use this skill to add a new YouTube video entry to the `content/videos/` directo
 
 ## Prerequisites
 
-- The `playwright-cli` tool must be available (it is installed globally)
+- The `playwright-cli` tool must be available (installed globally via nvm)
 - The user must provide a YouTube video URL
+- The GitHub CLI (`gh`) must be authenticated
+
+## Important: Shell Environment
+
+Many tools (`playwright-cli`, `npm`, `npx`, `node`) are installed via nvm and are NOT on the default shell PATH. You **must** source nvm before every shell command that uses them:
+
+```bash
+export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && <your-command>
+```
+
+The GitHub CLI (`gh`) is installed via Homebrew at `/opt/homebrew/bin/gh`. Use the full path.
 
 ## Steps
 
 ### 1. Get the YouTube URL
 
 - Ask the user for the YouTube video URL if not provided.
+- Extract the video ID from the URL:
+  - `https://www.youtube.com/watch?v=VIDEO_ID` → `VIDEO_ID`
+  - `https://youtu.be/VIDEO_ID` → `VIDEO_ID`
+  - Strip any query parameters like `?si=...` or `&feature=...`
 
 ### 2. Open the browser and navigate to the video
 
-```bash
-playwright-cli open "<youtube-url>"
-```
-
-### 3. Extract video metadata from the page
-
-Take a snapshot to read the page content. If there is a cookie consent dialog, accept it first.
+Always quote the URL to prevent shell glob expansion (YouTube URLs often contain `?` and `&`):
 
 ```bash
-playwright-cli snapshot
+export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && playwright-cli open "https://www.youtube.com/watch?v=VIDEO_ID"
 ```
 
-Click "...more" to expand the full description if needed.
+### 3. Handle cookie consent
 
-Extract the following information from the YouTube page:
-
-- **Title**: The video title as shown on YouTube
-- **Description**: The video description (use a concise summary, not the full description)
-- **Date**: The publish date of the video (look for the date below the video or in the description)
-- **Video ID**: Extract from the URL (the part after `v=` or after `youtu.be/`)
-- **Host/Channel**: The channel name that published the video
-
-> **Important**: Do NOT invent or fabricate any metadata. All information must come directly from the YouTube page. If the date is not visible, ask the user for it.
-
-### 4. Close the browser
+YouTube often shows a cookie consent dialog (especially in EU regions). After the first snapshot, check for a dialog with "Accept all" or "Reject all" buttons. If present, accept it:
 
 ```bash
-playwright-cli close
+export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && playwright-cli snapshot
 ```
 
-### 5. Determine appropriate tags
+Look for a button like `Accept the use of cookies and other data for the purposes described` and click it by its ref:
 
-Only use tags that already exist in other video files. The current valid tags are:
+```bash
+export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && playwright-cli click <ref>
+```
 
-- ai, architecture, cms, conference-talk, css, dev-rel, hasura, imposter-syndrome
-- interview, interviews, jamstack, learning-to-code, live-streams, mcp, nuxt
-- performance, playwright, react, testing, typescript, vue
+### 4. Extract video metadata from the page
+
+Take a fresh snapshot after cookie consent is handled:
+
+```bash
+export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && playwright-cli snapshot
+```
+
+The snapshot output tells you the path to the snapshot YAML file. **Read the YAML file** to extract metadata — the snapshot command output alone doesn't contain all the details:
+
+```bash
+cat .playwright-cli/page-<timestamp>.yml
+```
+
+If the output is truncated, use `head`, `tail`, `sed`, or `grep` to find specific sections:
+
+```bash
+grep -i -E "(date|views|ago|description)" .playwright-cli/page-<timestamp>.yml | head -20
+```
+
+Click the "...more" button to expand the full description, then take another snapshot and read the updated YAML:
+
+```bash
+export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && playwright-cli click <more-button-ref>
+```
+
+After expanding, the description area will show the exact publish date (e.g., "3,032 views 11 Feb 2026") instead of relative dates like "7 days ago".
+
+Extract the following information:
+
+- **Title**: The video title from the `<h1>` heading
+- **Description**: A concise summary of the video description text
+- **Date**: The exact publish date (visible after expanding the description)
+- **Video ID**: Already extracted from the URL in step 1
+- **Host/Channel**: The channel name shown below the title
+
+> **Important**: Do NOT invent or fabricate any metadata. All information must come directly from the YouTube page. If the date is not visible even after expanding, ask the user for it.
+
+### 5. Close the browser
+
+```bash
+export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && playwright-cli close
+```
+
+### 6. Determine appropriate tags
+
+Only use tags that already exist in other video files. Check the current tags:
+
+```bash
+grep -h "^tags:" content/videos/*.md | sed 's/tags: \[//;s/\]//;s/, /\n/g' | sed 's/^ *//' | sort -u
+```
 
 Choose tags based on the video content. Do NOT create new tags.
 
-### 6. Create a new git branch
+### 7. Create a new git branch
 
-Create a branch from main for this video addition:
+Stash any uncommitted changes first, then create a branch from main:
 
 ```bash
+git stash
 git checkout main
 git pull origin main
 git checkout -b add-video/<kebab-case-short-title>
+git stash pop
 ```
 
-### 7. Create the markdown file
+### 8. Create the markdown file
 
 Create a new file in `content/videos/` with a kebab-case filename derived from the video title.
 
@@ -103,65 +154,112 @@ image: https://img.youtube.com/vi/VIDEO_ID/sddefault.jpg
 - `host`: The YouTube channel name or event name.
 - `image`: The YouTube thumbnail URL using the video ID.
 
-### 8. Verify on the dev server
+### 9. Install dependencies and start the dev server
 
-Start the dev server and use playwright-cli to verify the video appears correctly:
-
-```bash
-npm run dev &
-```
-
-Wait for the server to be ready, then open the videos page and take a screenshot:
+Dependencies may not be installed. Install them first, then start the dev server:
 
 ```bash
-playwright-cli open "http://localhost:3001/videos"
-playwright-cli screenshot --filename=video-verification.png
-playwright-cli close
+export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && cd /Users/debbieobrien/workspace/debbie.codes && npm install 2>&1 | tail -5
 ```
 
-Confirm the new video card is visible on the page.
+```bash
+export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && cd /Users/debbieobrien/workspace/debbie.codes && npm run dev > /tmp/nuxt-dev.log 2>&1 &
+```
 
-### 9. Stop the dev server
+Wait for the server to be ready (check the log):
+
+```bash
+sleep 10 && tail -10 /tmp/nuxt-dev.log
+```
+
+Look for `Vite client built` or `Nitro server built` to confirm it's ready. The dev server runs on port 3001.
+
+### 10. Verify with playwright-cli and take a screenshot
+
+Open the videos page and take a screenshot:
+
+```bash
+export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && playwright-cli open "http://localhost:3001/videos"
+```
+
+Verify the new video appears in the snapshot:
+
+```bash
+export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && playwright-cli snapshot
+```
+
+Take a screenshot for the PR:
+
+```bash
+export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && playwright-cli screenshot --filename=video-verification.png
+export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && playwright-cli close
+```
+
+### 11. Stop the dev server
 
 ```bash
 kill $(lsof -ti:3001) 2>/dev/null
 ```
 
-### 10. Commit and push
+### 12. Commit and push
+
+First, commit the video file:
 
 ```bash
 git add content/videos/<filename>.md
 git commit -m "Add video: <video title>"
+```
+
+Then commit the screenshot to `.github/screenshots/` so it can be referenced in the PR body:
+
+```bash
+mkdir -p .github/screenshots
+cp video-verification.png .github/screenshots/video-verification.png
+git add .github/screenshots/video-verification.png
+git commit -m "Add verification screenshot"
+```
+
+Set up git credentials and push:
+
+```bash
+/opt/homebrew/bin/gh auth setup-git
 git push origin add-video/<kebab-case-short-title>
 ```
 
-Only commit the new video markdown file — do not include screenshots or other unrelated changes.
+### 13. Create a Pull Request with screenshot
 
-### 11. Create a Pull Request with screenshot
-
-Create a PR using the GitHub CLI, including the verification screenshot in the PR body:
+Create a PR using the GitHub CLI. Reference the screenshot via `raw.githubusercontent.com` so it renders in the PR body:
 
 ```bash
-gh pr create \
+/opt/homebrew/bin/gh pr create \
   --title "Add video: <video title>" \
-  --body "## New Video\n\n**Title:** <title>\n**Date:** <date>\n**Host:** <host>\n**Tags:** <tags>\n\n## Verification Screenshot\n\n![Video on site](video-verification.png)" \
+  --body "## New Video
+
+**Title:** <title>
+**Date:** <date>
+**Host:** <host>
+**Tags:** <tags>
+**Video:** https://youtu.be/<VIDEO_ID>
+
+## Verification Screenshot
+
+![Video on site](https://raw.githubusercontent.com/debs-obrien/debbie.codes/add-video/<branch-name>/.github/screenshots/video-verification.png)" \
   --base main
 ```
 
-Upload the screenshot to the PR by attaching it. If `gh` doesn't support inline image upload, upload the screenshot as a PR comment or reference it from the repo.
+### 14. Clean up
 
-### 12. Clean up
-
-Remove the screenshot file from the working directory:
+Remove the local screenshot file:
 
 ```bash
-rm video-verification.png
+rm -f video-verification.png
 ```
 
 ## Example
 
 For a video at `https://www.youtube.com/watch?v=psdu0BVal6w`:
 
+**Branch**: `add-video/agent-mode-complete-pr`
 **File**: `content/videos/agent-mode-complete-pr.md`
 
 ```markdown
