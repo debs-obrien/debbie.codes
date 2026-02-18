@@ -1,0 +1,75 @@
+---
+name: add-content
+description: >
+  Add new content (videos, podcasts, or blog posts) to the debbie.codes website.
+  Use when the user wants to: (1) Add a YouTube video to content/videos/,
+  (2) Add a podcast episode to content/podcasts/, (3) Add a blog post to content/blog/.
+  Handles browser-based metadata extraction via playwright-cli, file creation with
+  correct frontmatter, dev server verification with screenshot, and PR creation.
+---
+
+# Add Content to debbie.codes
+
+Fully automated workflow: URL → metadata extraction → file creation → dev server verification → PR with screenshot.
+
+## Determine content type
+
+Identify from the user's request or URL:
+
+- **YouTube URL** (`youtube.com/watch`, `youtu.be/`) → Video. Read [references/video.md](references/video.md)
+- **Podcast platform URL** (e.g., Spotify, Apple Podcasts, podcast website) → Podcast. Read [references/podcast.md](references/podcast.md)
+- **Blog platform URL** (e.g., dev.to, hashnode, medium, or any article) → Blog. Read [references/blog.md](references/blog.md)
+
+If ambiguous, ask the user which content type to create.
+
+## Core workflow
+
+Read [references/environment.md](references/environment.md) for shell setup, git, dev server, and PR creation details.
+
+### 1. Get the URL
+
+Ask the user for the content URL if not provided.
+
+### 2. Extract metadata via browser
+
+- Open the URL with `playwright-cli`
+- Handle any cookie consent dialogs
+- Take snapshots and read the snapshot YAML files to extract metadata
+- Do NOT invent or fabricate any metadata — all info must come from the page
+- If the publish date is not visible, ask the user
+- Close the browser when done
+
+### 3. Validate tags
+
+Only use tags that already exist in the corresponding content directory. Check with:
+
+```bash
+grep -h "^tags:" content/<type>/*.md | sed 's/tags: \[//;s/\]//;s/, /\n/g' | sed 's/^ *//' | sort -u
+```
+
+Do NOT create new tags.
+
+### 4. Create git branch
+
+```bash
+git stash
+git checkout main && git pull origin main
+git checkout -b add-<type>/<kebab-case-short-title>
+git stash pop
+```
+
+### 5. Create the markdown file
+
+Create in the appropriate `content/<type>/` directory with a kebab-case filename. Follow the exact frontmatter schema from the content-type reference file.
+
+### 6. Verify on dev server
+
+Start the dev server, open the relevant page with `playwright-cli`, confirm the new content appears, and take a screenshot. See [references/environment.md](references/environment.md) for details.
+
+### 7. Create PR with screenshot
+
+Commit the content file, commit the screenshot to `.github/screenshots/`, push, and create a PR with the screenshot embedded. See [references/environment.md](references/environment.md) for details.
+
+### 8. Clean up
+
+Stop the dev server and remove local screenshot files.
