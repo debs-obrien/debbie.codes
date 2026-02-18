@@ -61,7 +61,8 @@ If neither method works, download the image with `curl` and ask the user to uplo
 If the podcast already has episodes on the site, check existing files for the image URL:
 
 ```bash
-grep "image:" content/podcasts/*.md | grep -i "<podcast-name>"
+podcast_name="<podcast-name>" # replace with the exact podcast name
+grep "image:" content/podcasts/*.md | grep -iF -- "$podcast_name"
 ```
 
 Reuse the same image URL if the podcast artwork hasn't changed.
