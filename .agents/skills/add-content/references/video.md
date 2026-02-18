@@ -24,7 +24,7 @@ Read the snapshot YAML to extract:
 - **Title**: From the `<h1>` heading
 - **Description**: Concise summary of the description text
 - **Date**: Exact date shown after expanding (format: "DD Mon YYYY")
-- **Host/Channel**: Channel name shown below the title (e.g., "NDC Conferences", "Debbie's youtube channel")
+- **Host/Channel**: Channel name shown below the title (e.g., "NDC Conferences", "Debbie's YouTube channel")
 
 Close the browser when done.
 
