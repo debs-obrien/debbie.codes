@@ -5,12 +5,12 @@ description: >
   Use when the user wants to: (1) Add a YouTube video to content/videos/,
   (2) Add a podcast episode to content/podcasts/, (3) Add a blog post to content/blog/.
   Handles browser-based metadata extraction via playwright-cli, file creation with
-  correct frontmatter, dev server verification with screenshot, and PR creation.
+  correct frontmatter, dev server verification, and PR creation.
 ---
 
 # Add Content to debbie.codes
 
-Fully automated workflow: URL → metadata extraction → file creation → dev server verification → PR with screenshot.
+Fully automated workflow: URL → metadata extraction → file creation → dev server verification → PR.
 
 ## Determine content type
 
@@ -69,10 +69,10 @@ Create in the appropriate `content/<type>/` directory with a kebab-case filename
 
 Start the dev server, open the relevant page with `playwright-cli`, confirm the new content appears, and take a screenshot. See [references/environment.md](references/environment.md) for details.
 
-### 7. Create PR with screenshot
+### 7. Create PR
 
-Commit the content file, commit the screenshot to `.github/screenshots/`, push, and create a PR with the screenshot embedded. See [references/environment.md](references/environment.md) for details.
+Commit only the content file, push, and create a PR. Do NOT commit screenshots. See [references/environment.md](references/environment.md) for details.
 
 ### 8. Clean up
 
-Stop the dev server and remove local screenshot files.
+Stop the dev server and remove local verification screenshots.

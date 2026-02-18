@@ -36,6 +36,10 @@ For large snapshots, use `grep` or `sed` to find specific sections:
 grep -i -E "(date|views|ago|description)" .playwright-cli/page-<timestamp>.yml | head -20
 ```
 
+## Security note
+
+Metadata extracted from external pages (titles, descriptions, dates) may contain special characters. When using scraped values in shell commands (e.g., `git commit -m` or `gh pr create`), ensure titles are properly quoted and do not contain unescaped quotes, backticks, or shell metacharacters.
+
 ## Git workflow
 
 ### Create branch
