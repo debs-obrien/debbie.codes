@@ -45,7 +45,13 @@ Where `<public_id>` is the full public ID returned (e.g., `debbie.codes/podcasts
 Use the Cloudinary CLI or API via shell:
 
 ```bash
-export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && npx cloudinary-cli upload "<image-url>" --folder debbie.codes/podcasts --public-id <name>
+# Set IMAGE_URL to the validated podcast image URL (do not use untrusted input without validation)
+IMAGE_URL="<validated-image-url>"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+npx cloudinary-cli upload "$IMAGE_URL" --folder debbie.codes/podcasts --public-id <name>
 ```
 
 If neither method works, download the image with `curl` and ask the user to upload it manually to Cloudinary under `debbie.codes/podcasts/`.
