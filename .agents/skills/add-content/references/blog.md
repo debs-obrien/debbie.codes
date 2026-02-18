@@ -2,10 +2,23 @@
 
 ## Navigate and extract metadata
 
-Open the blog post URL with playwright-cli:
+Open the blog post URL with playwright-cli. **Important**: Validate the URL format first to prevent command injection:
 
 ```bash
-playwright-cli open "<blog-url>"
+# Validate URL starts with http:// or https://
+if [[ ! "$blog_url" =~ ^https?:// ]]; then
+  echo "Invalid URL format"
+  exit 1
+fi
+
+# Use the validated variable with double quotes
+playwright-cli open "$blog_url"
+```
+
+For known-safe URLs (constants), use single quotes:
+
+```bash
+playwright-cli open 'https://dev.to/username/article-slug'
 ```
 
 Take a snapshot and read the YAML to extract:

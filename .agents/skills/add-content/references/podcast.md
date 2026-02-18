@@ -2,10 +2,24 @@
 
 ## Navigate and extract metadata
 
-Open the podcast episode URL with playwright-cli:
+Open the podcast episode URL with playwright-cli. **Important**: Validate the URL format first to prevent command injection:
 
 ```bash
-playwright-cli open "<podcast-url>"
+# Validate URL starts with http:// or https://
+if [[ ! "$podcast_url" =~ ^https?:// ]]; then
+  echo "Invalid URL format"
+  exit 1
+fi
+
+# Use single quotes to prevent shell expansion - but this won't work with variables
+# Instead, when using a variable, ensure it's validated first as shown above
+playwright-cli open "$podcast_url"
+```
+
+For known-safe URLs (constants), use single quotes:
+
+```bash
+playwright-cli open 'https://example.com/podcast/episode'
 ```
 
 Take a snapshot and read the YAML to extract:
@@ -42,10 +56,17 @@ Where `<public_id>` is the full public ID returned (e.g., `debbie.codes/podcasts
 
 ### If Cloudinary MCP is not available
 
-Use the Cloudinary CLI or API via shell:
+Use the Cloudinary CLI or API via shell. **Important**: Validate the image URL first:
 
 ```bash
-export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && npx cloudinary-cli upload "<image-url>" --folder debbie.codes/podcasts --public-id <name>
+# Validate URL format
+if [[ ! "$image_url" =~ ^https?:// ]]; then
+  echo "Invalid image URL format"
+  exit 1
+fi
+
+# Use validated variable with double quotes
+export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && npx cloudinary-cli upload "$image_url" --folder debbie.codes/podcasts --public-id <name>
 ```
 
 If neither method works, download the image with `curl` and ask the user to upload it manually to Cloudinary under `debbie.codes/podcasts/`.

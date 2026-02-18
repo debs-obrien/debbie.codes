@@ -12,10 +12,26 @@ The GitHub CLI is at `/opt/homebrew/bin/gh`. Always use the full path.
 
 ## Browser automation with playwright-cli
 
-Always quote URLs to prevent shell glob expansion:
+To safely open URLs and prevent command injection:
+
+1. **Validate URLs first**: Ensure URLs start with `http://` or `https://` and contain no shell metacharacters (quotes, backticks, dollar signs)
+2. **Use single quotes**: Single quotes prevent all shell expansion and interpolation
 
 ```bash
-playwright-cli open "<url>"
+# Validate URL format (basic check)
+if [[ ! "$url" =~ ^https?:// ]]; then
+  echo "Invalid URL: must start with http:// or https://"
+  exit 1
+fi
+
+# Open with single quotes to prevent shell injection
+playwright-cli open '$url'
+```
+
+For simple, known-safe URLs, you can use single quotes directly:
+
+```bash
+playwright-cli open 'https://www.youtube.com/watch?v=VIDEO_ID'
 ```
 
 ### Cookie consent
@@ -86,7 +102,7 @@ Look for `Nitro server built` to confirm. The dev server runs on port 3001.
 ### Take verification screenshot
 
 ```bash
-playwright-cli open "http://localhost:3001/<type-page>"
+playwright-cli open 'http://localhost:3001/<type-page>'
 playwright-cli snapshot
 playwright-cli screenshot --filename=verification.png
 playwright-cli close

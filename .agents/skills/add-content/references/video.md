@@ -9,7 +9,9 @@
 ## Navigate and extract metadata
 
 ```bash
-playwright-cli open "https://www.youtube.com/watch?v=<VIDEO_ID>"
+# Validate and open the YouTube URL safely
+# VIDEO_ID should be alphanumeric and hyphens/underscores only
+playwright-cli open 'https://www.youtube.com/watch?v=<VIDEO_ID>'
 ```
 
 After handling cookie consent (see environment.md), take a snapshot. The initial view shows relative dates ("7 days ago"). Click the "...more" button to expand the description — this reveals the exact publish date (e.g., "3,032 views 11 Feb 2026").
