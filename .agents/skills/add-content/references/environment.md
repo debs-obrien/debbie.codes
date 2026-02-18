@@ -49,20 +49,11 @@ git stash pop
 
 ### Commit and push
 
-Commit only the new content file first:
+Commit only the new content file — do NOT commit screenshots or other files:
 
 ```bash
 git add content/<type>/<filename>.md
 git commit -m "Add <type>: <title>"
-```
-
-Then commit the verification screenshot:
-
-```bash
-mkdir -p .github/screenshots
-cp <screenshot>.png .github/screenshots/verification.png
-git add .github/screenshots/verification.png
-git commit -m "Add verification screenshot"
 ```
 
 Set up git credentials and push:
@@ -103,6 +94,8 @@ playwright-cli close
 
 Page paths: `/videos` for videos, `/podcasts` for podcasts, `/blog` for blogs.
 
+Confirm the new content appears on the page. The screenshot is for local verification only — do NOT commit it.
+
 ### Stop dev server
 
 ```bash
@@ -111,7 +104,7 @@ kill $(lsof -ti:3001) 2>/dev/null
 
 ## PR creation
 
-Create a PR with the screenshot referenced via raw.githubusercontent.com:
+Create a PR using the GitHub CLI:
 
 ```bash
 /opt/homebrew/bin/gh pr create \
@@ -120,15 +113,13 @@ Create a PR with the screenshot referenced via raw.githubusercontent.com:
 
 **Title:** <title>
 **Date:** <date>
-**Tags:** <tags>
-
-## Verification Screenshot
-
-![Content on site](https://raw.githubusercontent.com/debs-obrien/debbie.codes/add-<type>/<branch-name>/.github/screenshots/verification.png)" \
+**Tags:** <tags>" \
   --base main
 ```
 
 ## Clean up
+
+Remove local screenshot and any temporary files:
 
 ```bash
 rm -f verification.png
