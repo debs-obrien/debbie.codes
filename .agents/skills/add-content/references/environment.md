@@ -68,11 +68,11 @@ git push origin add-<type>/<kebab-case-short-title>
 ### Install dependencies and start
 
 ```bash
-export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && cd /Users/debbieobrien/workspace/debbie.codes && npm install 2>&1 | tail -5
+export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && npm install 2>&1 | tail -5
 ```
 
 ```bash
-export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && cd /Users/debbieobrien/workspace/debbie.codes && npm run dev > /tmp/nuxt-dev.log 2>&1 &
+export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && npm run dev > /tmp/nuxt-dev.log 2>&1 &
 ```
 
 Wait for ready:
