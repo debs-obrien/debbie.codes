@@ -15,20 +15,20 @@ The GitHub CLI is at `/opt/homebrew/bin/gh`. Always use the full path.
 To safely open URLs and prevent command injection:
 
 1. **Validate URLs first**: Ensure URLs start with `http://` or `https://` and contain no shell metacharacters (quotes, backticks, dollar signs)
-2. **Use single quotes**: Single quotes prevent all shell expansion and interpolation
+2. **Use proper quoting**: Single quotes for static URLs, validated variables with double quotes
 
 ```bash
-# Validate URL format (basic check)
+# For dynamic URLs from variables, validate first then use double quotes
 if [[ ! "$url" =~ ^https?:// ]]; then
   echo "Invalid URL: must start with http:// or https://"
   exit 1
 fi
 
-# Open with single quotes to prevent shell injection
-playwright-cli open '$url'
+# After validation, use double quotes with the validated variable
+playwright-cli open "$url"
 ```
 
-For simple, known-safe URLs, you can use single quotes directly:
+For simple, known-safe static URLs, use single quotes directly:
 
 ```bash
 playwright-cli open 'https://www.youtube.com/watch?v=VIDEO_ID'

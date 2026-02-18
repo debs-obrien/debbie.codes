@@ -11,8 +11,7 @@ if [[ ! "$podcast_url" =~ ^https?:// ]]; then
   exit 1
 fi
 
-# Use single quotes to prevent shell expansion - but this won't work with variables
-# Instead, when using a variable, ensure it's validated first as shown above
+# After validation, use double quotes with the validated variable
 playwright-cli open "$podcast_url"
 ```
 
