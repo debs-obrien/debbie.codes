@@ -47,13 +47,30 @@ git checkout -b add-<type>/<kebab-case-short-title>
 git stash pop || { echo "git stash pop reported conflicts. Resolve them with your usual Git workflow (e.g. git status, fix files, commit) and run 'git stash drop' if needed."; }
 ```
 
+### Sanitize metadata for shell commands
+
+**CRITICAL SECURITY REQUIREMENT:** Scraped metadata (title, date, tags, etc.) from external pages MUST be sanitized before use in shell commands to prevent command injection.
+
+Store sanitized values in shell variables:
+
+```bash
+# Sanitize title: remove quotes, backticks, dollar signs, and shell metacharacters
+SAFE_TITLE=$(echo "<title>" | tr -d '"'\''`$;&|<>(){}[]\\')
+
+# Sanitize type (should be one of: video, podcast, blog)
+SAFE_TYPE="<type>"
+
+# Sanitize date
+SAFE_DATE=$(echo "<date>" | tr -d '"'\''`$;&|<>(){}[]\\')
+```
+
 ### Commit and push
 
 Commit only the new content file — do NOT commit screenshots or other files:
 
 ```bash
 git add content/<type>/<filename>.md
-git commit -m "Add <type>: <title>"
+git commit -m "Add ${SAFE_TYPE}: ${SAFE_TITLE}"
 ```
 
 Set up git credentials and push:
@@ -104,16 +121,22 @@ kill $(lsof -ti:3001) 2>/dev/null
 
 ## PR creation
 
-Create a PR using the GitHub CLI:
+Create a PR using the GitHub CLI. Use the sanitized variables from the commit step:
 
 ```bash
-/opt/homebrew/bin/gh pr create \
-  --title "Add <type>: <title>" \
-  --body "## New <Type>
+# Sanitize tags (if not already done)
+SAFE_TAGS=$(echo "<tags>" | tr -d '"'\''`$;&|<>(){}[]\\')
 
-**Title:** <title>
-**Date:** <date>
-**Tags:** <tags>" \
+# Capitalize type for display
+SAFE_TYPE_DISPLAY=$(echo "${SAFE_TYPE}" | sed 's/.*/\u&/')
+
+/opt/homebrew/bin/gh pr create \
+  --title "Add ${SAFE_TYPE}: ${SAFE_TITLE}" \
+  --body "## New ${SAFE_TYPE_DISPLAY}
+
+**Title:** ${SAFE_TITLE}
+**Date:** ${SAFE_DATE}
+**Tags:** ${SAFE_TAGS}" \
   --base main
 ```
 
