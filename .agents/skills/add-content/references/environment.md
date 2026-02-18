@@ -41,10 +41,10 @@ grep -i -E "(date|views|ago|description)" .playwright-cli/page-<timestamp>.yml |
 ### Create branch
 
 ```bash
-git stash
+git stash push -m "WIP before add-<type>/<kebab-case-short-title> branch" || { echo "git stash failed; please resolve any issues before continuing."; exit 1; }
 git checkout main && git pull origin main
 git checkout -b add-<type>/<kebab-case-short-title>
-git stash pop
+git stash pop || { echo "git stash pop reported conflicts. Resolve them with your usual Git workflow (e.g. git status, fix files, commit) and run 'git stash drop' if needed."; }
 ```
 
 ### Commit and push
