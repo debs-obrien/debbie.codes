@@ -45,14 +45,19 @@ date: YYYY-MM-DD
 description: "Concise description from YouTube."
 video: VIDEO_ID
 tags: [tag1, tag2]
-host: Channel Name
+host: Channel Name        # OR
+conference: Conference Name   # Use one or the other, not both
 image: https://img.youtube.com/vi/VIDEO_ID/sddefault.jpg
 ---
 ```
 
 - `title`: Exact title from YouTube. Quote if it contains colons or special characters.
 - `video`: Just the ID (e.g., `psdu0BVal6w`), NOT the full URL.
-- `host`: The YouTube channel name or conference/event name.
+- `host`: Use for YouTube channel names (e.g., "Debbie's youtube channel", "NDC Conferences", "Miguel Angel Duran"). This is the entity that uploaded/hosts the video.
+- `conference`: Use for conference talks or specific events (e.g., "NDC Oslo", "Vue Amsterdam Meetup", "BuildStuff Lithuania"). This is the event where the talk was given.
+- **Choose `host` OR `conference`**, not both:
+  - If the video is from a personal channel or uploaded by a hosting organization → use `host`
+  - If the video is a recording of a specific conference or event talk → use `conference`
 
 ## Existing tags
 
@@ -62,18 +67,35 @@ Check with: `grep -h "^tags:" content/videos/*.md | sed 's/tags: \[//;s/\]//;s/,
 
 `http://localhost:3001/videos`
 
-## Example
+## Examples
 
-**File**: `content/videos/supercharged-testing-playwright-mcp.md`
+**Example 1: Conference talk (use `conference`)**
+
+**File**: `content/videos/testing-web-applications-playwright-ndc-oslo.md`
 
 ```yaml
 ---
-title: "Supercharged Testing: AI-Powered Workflows with Playwright + MCP - Debbie O'Brien"
-date: 2026-02-11
-description: "Learn how to supercharge your end-to-end testing strategy by combining Playwright with the Playwright MCP Server for AI-assisted workflows."
-video: Numb52aJkJw
-tags: [playwright, testing, ai, mcp, conference-talk]
-host: NDC Conferences
-image: https://img.youtube.com/vi/Numb52aJkJw/sddefault.jpg
+title: Testing Web Applications with Playwright
+date: 2022-09-28
+description: Testing is hard, testing takes time to learn and to write, and time is money. As developers we want to test. We know we should but we don't have time. So how can we get more developers to do testing? We can create better tools.
+video: kbTohfkZAMA
+tags: [conference-talk, testing, playwright]
+conference: NDC Oslo
+---
+```
+
+**Example 2: YouTube channel video (use `host`)**
+
+**File**: `content/videos/manual-testing-playwright-mcp.md`
+
+```yaml
+---
+title: "Manual Testing with Playwright MCP – No Code, Just Prompts!"
+date: 2025-07-12
+description: "Discover how to perform manual testing using Playwright MCP without writing any code, using simple prompts instead."
+video: 2vnttb-YZrA
+tags: [playwright, mcp, testing, ai]
+host: Debbie's youtube channel
+image: https://img.youtube.com/vi/2vnttb-YZrA/sddefault.jpg
 ---
 ```
