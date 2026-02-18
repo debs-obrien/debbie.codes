@@ -47,7 +47,10 @@ Only use tags that already exist in the corresponding content directory. Check w
 grep -h "^tags:" content/<type>/*.md | sed 's/tags: \[//;s/\]//;s/, /\n/g' | sed 's/^ *//' | sort -u
 ```
 
-Do NOT create new tags.
+Do NOT create new tags. If no existing tags seem appropriate:
+- Prefer the closest matching existing tags that reasonably describe the content, or
+- Ask the user to choose from the existing tags you listed.
+If the user insists on new tags, explain that updating the tag taxonomy is outside this automated workflow and they should adjust it manually.
 
 ### 4. Create git branch
 
