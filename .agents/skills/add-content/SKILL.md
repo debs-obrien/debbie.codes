@@ -1,11 +1,13 @@
 ---
 name: add-content
 description: >
-  Add new content (videos, podcasts, or blog posts) to the debbie.codes website.
-  Use when the user wants to: (1) Add a YouTube video to content/videos/,
-  (2) Add a podcast episode to content/podcasts/, (3) Add a blog post to content/blog/.
-  Handles browser-based metadata extraction via playwright-cli, file creation with
-  correct frontmatter, dev server verification, and PR creation.
+  Use this skill whenever the user says "add video", "add blog post", "add podcast",
+  or provides a URL to add to the site. Adds videos, podcasts, or blog posts to the
+  debbie.codes website. Triggered by phrases like: "add video", "add blog", "add blog post",
+  "add podcast", "add this video", "add this to the site", or any request with a YouTube,
+  podcast, or blog URL to be added as content. Handles browser-based metadata extraction
+  via playwright-cli, file creation with correct frontmatter, dev server verification,
+  and PR creation.
 ---
 
 # Add Content to debbie.codes

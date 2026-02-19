@@ -5,8 +5,7 @@
 Open the blog post URL with playwright-cli:
 
 ```bash
-BLOG_URL='https://example.com/blog-post'  # replace with the target blog URL
-playwright-cli open -- "$BLOG_URL"
+playwright-cli open "<blog-url>"
 ```
 
 Take a snapshot and read the YAML to extract:

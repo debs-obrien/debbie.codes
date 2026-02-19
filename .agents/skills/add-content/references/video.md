@@ -64,16 +64,16 @@ Check with: `grep -h "^tags:" content/videos/*.md | sed 's/tags: \[//;s/\]//;s/,
 
 ## Example
 
-**File**: `content/videos/supercharged-testing-playwright-mcp.md`
+**File**: `content/videos/manual-testing-with-playwright-mcp-no-code-just-prompts.md`
 
 ```yaml
 ---
-title: "Supercharged Testing: AI-Powered Workflows with Playwright + MCP - Debbie O'Brien"
-date: 2026-02-11
-description: "Learn how to supercharge your end-to-end testing strategy by combining Playwright with the Playwright MCP Server for AI-assisted workflows."
-video: Numb52aJkJw
-tags: [playwright, testing, ai, mcp, conference-talk]
-host: NDC Conferences
-image: https://img.youtube.com/vi/Numb52aJkJw/sddefault.jpg
+title: Manual Testing with Playwright MCP – No Code, Just Prompts!
+date: 2025-07-12
+description: Discover how to perform manual testing using Playwright MCP without writing any code, using simple prompts instead. This revolutionary approach makes testing accessible to everyone, regardless of their coding experience.
+video: 2vnttb-YZrA
+tags: [playwright, mcp, testing, ai]
+host: Debbie's youtube channel
+image: https://img.youtube.com/vi/2vnttb-YZrA/sddefault.jpg
 ---
 ```
