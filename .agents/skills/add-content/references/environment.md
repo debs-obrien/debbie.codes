@@ -71,6 +71,14 @@ git push origin add-<type>/<kebab-case-short-title>
 
 ### Install dependencies and start
 
+First, kill any existing dev server on port 3001:
+
+```bash
+kill $(lsof -ti:3001) 2>/dev/null
+```
+
+Then install and start:
+
 ```bash
 export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && npm install 2>&1 | tail -5
 ```
