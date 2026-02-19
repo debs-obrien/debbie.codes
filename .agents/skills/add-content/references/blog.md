@@ -58,10 +58,6 @@ Full markdown content here...
 
 Check with: `grep -h "^tags:" content/blog/*.md | sed 's/tags: \[//;s/\]//;s/, /\n/g' | sed 's/^ *//' | sort -u`
 
-## Verification page
-
-`http://localhost:3001/blog`
-
 ## Example (externally hosted)
 
 **File**: `content/blog/ai-agents-mcp-automate-content.md`

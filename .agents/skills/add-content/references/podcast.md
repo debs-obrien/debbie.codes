@@ -90,10 +90,6 @@ host: Podcast Name
 
 Check with: `grep -h "^tags:" content/podcasts/*.md | sed 's/tags: \[//;s/\]//;s/, /\n/g' | sed 's/^ *//' | sort -u`
 
-## Verification page
-
-`http://localhost:3001/podcasts`
-
 ## Example
 
 **File**: `content/podcasts/dotnet-rocks-changing-testing.md`

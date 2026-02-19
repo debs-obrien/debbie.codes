@@ -6,13 +6,12 @@ description: >
   debbie.codes website. Triggered by phrases like: "add video", "add blog", "add blog post",
   "add podcast", "add this video", "add this to the site", or any request with a YouTube,
   podcast, or blog URL to be added as content. Handles browser-based metadata extraction
-  via playwright-cli, file creation with correct frontmatter, dev server verification,
-  and PR creation.
+  via playwright-cli, file creation with correct frontmatter, and PR creation with deploy preview.
 ---
 
 # Add Content to debbie.codes
 
-Fully automated workflow: URL → metadata extraction → file creation → dev server verification → PR.
+Fully automated workflow: URL → metadata extraction → file creation → PR (with deploy preview).
 
 ## Determine content type
 
@@ -26,7 +25,7 @@ If ambiguous, ask the user which content type to create.
 
 ## Core workflow
 
-Read [references/environment.md](references/environment.md) for shell setup, git, dev server, and PR creation details.
+Read [references/environment.md](references/environment.md) for shell setup, git, and PR creation details.
 
 ### 1. Get the URL
 
@@ -67,14 +66,6 @@ git stash pop
 
 Create in the appropriate `content/<type>/` directory with a kebab-case filename. Follow the exact frontmatter schema from the content-type reference file.
 
-### 6. Verify on dev server
+### 6. Create PR
 
-Start the dev server, open the relevant page with `playwright-cli`, confirm the new content appears, and take a screenshot. See [references/environment.md](references/environment.md) for details.
-
-### 7. Create PR
-
-Commit only the content file, push, and create a PR. Do NOT commit screenshots. See [references/environment.md](references/environment.md) for details.
-
-### 8. Clean up
-
-Stop the dev server and remove local verification screenshots.
+Commit only the content file, push, and create a PR. The PR will generate a deploy preview automatically — no need to run a local dev server. See [references/environment.md](references/environment.md) for details.
