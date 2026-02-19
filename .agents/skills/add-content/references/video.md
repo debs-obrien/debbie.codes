@@ -58,10 +58,6 @@ image: https://img.youtube.com/vi/VIDEO_ID/sddefault.jpg
 
 Check with: `grep -h "^tags:" content/videos/*.md | sed 's/tags: \[//;s/\]//;s/, /\n/g' | sed 's/^ *//' | sort -u`
 
-## Verification page
-
-`http://localhost:3001/videos`
-
 ## Example
 
 **File**: `content/videos/manual-testing-with-playwright-mcp-no-code-just-prompts.md`

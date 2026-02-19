@@ -1,4 +1,4 @@
-# Environment, Git, Dev Server & PR Creation
+# Environment, Git & PR Creation
 
 ## Shell environment
 
@@ -53,7 +53,7 @@ git stash pop || { echo "git stash pop reported conflicts. Resolve them with you
 
 ### Commit and push
 
-Commit only the new content file — do NOT commit screenshots or other files:
+Commit only the new content file:
 
 ```bash
 git add content/<type>/<filename>.md
@@ -67,56 +67,9 @@ Set up git credentials and push:
 git push origin add-<type>/<kebab-case-short-title>
 ```
 
-## Dev server verification
-
-### Install dependencies and start
-
-First, kill any existing dev server on port 3001:
-
-```bash
-kill $(lsof -ti:3001) 2>/dev/null
-```
-
-Then install and start:
-
-```bash
-export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && npm install 2>&1 | tail -5
-```
-
-```bash
-export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && npm run dev > /tmp/nuxt-dev.log 2>&1 &
-```
-
-Wait for ready:
-
-```bash
-sleep 10 && tail -10 /tmp/nuxt-dev.log
-```
-
-Look for `Nitro server built` to confirm. The dev server runs on port 3001.
-
-### Take verification screenshot
-
-```bash
-playwright-cli open "http://localhost:3001/<type-page>"
-playwright-cli snapshot
-playwright-cli screenshot --filename=verification.png
-playwright-cli close
-```
-
-Page paths: `/videos` for videos, `/podcasts` for podcasts, `/blog` for blogs.
-
-Confirm the new content appears on the page. The screenshot is for local verification only — do NOT commit it.
-
-### Stop dev server
-
-```bash
-kill $(lsof -ti:3001) 2>/dev/null
-```
-
 ## PR creation
 
-Create a PR using the GitHub CLI:
+Create a PR using the GitHub CLI. The PR will automatically generate a deploy preview for verification — no local dev server needed.
 
 ```bash
 /opt/homebrew/bin/gh pr create \
@@ -127,12 +80,4 @@ Create a PR using the GitHub CLI:
 **Date:** <date>
 **Tags:** <tags>" \
   --base main
-```
-
-## Clean up
-
-Remove local screenshot and any temporary files:
-
-```bash
-rm -f verification.png
 ```
