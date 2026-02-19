@@ -1,12 +1,6 @@
 ---
 name: add-content
-description: >
-  Use this skill whenever the user says "add video", "add blog post", "add podcast",
-  or provides a URL to add to the site. Adds videos, podcasts, or blog posts to the
-  debbie.codes website. Triggered by phrases like: "add video", "add blog", "add blog post",
-  "add podcast", "add this video", "add this to the site", or any request with a YouTube,
-  podcast, or blog URL to be added as content. Handles browser-based metadata extraction
-  via playwright-cli, file creation with correct frontmatter, and PR creation with deploy preview.
+description: "Adds videos, blog posts, or podcasts to the debbie.codes website by extracting metadata from a URL, creating a content file with frontmatter, and opening a PR. Use when the user says 'add video', 'add blog post', 'add podcast', 'add this to the site', or provides a YouTube, podcast, or blog URL to add as content."
 ---
 
 # Add Content to debbie.codes

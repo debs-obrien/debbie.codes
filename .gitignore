@@ -106,6 +106,7 @@ playwright-report/
 /test-results/
 /playwright-report/
 /playwright/.cache/
+.playwright-cli/
 
 # Build output
 .output/
