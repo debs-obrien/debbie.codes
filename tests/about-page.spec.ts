@@ -27,7 +27,7 @@ test.describe('About Page', () => {
     });
 
     await test.step('Verify current role and achievements', async () => {
-      await expect(page.getByText('Senior Staff Developer Relations Engineer')).toBeVisible();
+      await expect(page.getByText('Developer Relations Engineer, Applied AI')).toBeVisible();
       await expect(page.getByText('Google Developer Expert in web technologies')).toBeVisible();
       await expect(page.getByText('Nuxt Ambassador')).toBeVisible();
     });
