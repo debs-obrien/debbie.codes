@@ -5,7 +5,7 @@ const heroType = ref(0)
 const canvasRef = ref(null)
 const asciiRef = ref(null)
 const typedText = ref('')
-const fullText = 'Senior Staff Developer Relations Engineer, Applied AI @Block'
+const fullText = 'Senior Staff Developer Relations Engineer'
 let animationFrameId
 let resizeListener
 let mouseMoveListener
@@ -254,7 +254,7 @@ onBeforeUnmount(() => {
       <!-- Subtitle (Now visible on ASCII design) -->
       <p class="mt-4 text-lg md:text-xl text-gray-300 max-w-2xl">
         <span v-if="heroType === 3" class="typing-text">{{ typedText }}</span>
-        <span v-else>Senior Staff Developer Relations Engineer, Applied AI @Block</span>
+        <span v-else>Senior Staff Developer Relations Engineer</span>
       </p>
 
       <!-- Credentials/Badges -->
