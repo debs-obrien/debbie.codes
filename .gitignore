@@ -110,3 +110,4 @@ playwright-report/
 
 # Build output
 .output/
+blob-report/
