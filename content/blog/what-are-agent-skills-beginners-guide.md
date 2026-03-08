@@ -20,7 +20,7 @@ A skill is a reusable set of instructions that teaches an AI agent how to do a s
 
 At its simplest, a skill is just **one file**: a `SKILL.md` with a name, description, and instructions. That's it. You can add extras like scripts, references, assets, and evals — but you don't have to. All you need right now is the `SKILL.md` file.
 
-![anatonomy of a skill](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ys1th2hfjfp7d29oam26.png)
+<img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ys1th2hfjfp7d29oam26.png" alt="anatomy of a skill" />
 
 Let's build one.
 
@@ -114,7 +114,7 @@ That's a skill in action. Now imagine instead of "good morning", the instruction
 
 Skills are designed to be efficient with context windows. They use a three-level loading system. The agent only loads what it needs, when it needs it.
 
-![how skills get loaded](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/a1kun34lhdwapm8s56py.png)
+<img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/a1kun34lhdwapm8s56py.png" alt="how skills get loaded" />
 
 **Level 1** is always in the agent's context. It's just the name and description (~100 words). This is how the agent decides whether to use the skill. If someone says "improve my README", the agent scans its available skills and picks the one whose description matches.
 
