@@ -262,11 +262,10 @@ If you want to explore the full tutorial series or inspect the finished referenc
 
 [debs-obrien/learn-agent-skills](https://github.com/debs-obrien/learn-agent-skills)
 
-And if you just want to try the skill without building it yourself:
+And if you just want to try the skill without building it yourself (just make sure you chosse the readme-wizard although feel free to also install the good-morning one if you wish):
 
 ```bash
-npx skills add debs-obrien/readme-wizard
-```
+npx skills add debs-obrien/learn-agent-skills
 
 Then open any project and tell your agent:
 
