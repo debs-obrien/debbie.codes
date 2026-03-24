@@ -8,7 +8,7 @@ published: true
 
 If you're new to agent skills, start with my beginner guide first:
 
-[What Are Agent Skills? Beginners Guide](https://dev.to/debs_obrien/what-are-agent-skills-beginners-guide-e2n)
+[What Are Agent Skills? Beginners Guide](/blog/what-are-agent-skills-beginners-guide)
 
 That post covers what skills are, how they get loaded, and how to build a tiny one from scratch.
 
