@@ -1,7 +1,7 @@
 ---
 title: "How I vibe code: Improving my site design with Goose and Gemini 3"
 description: "Having fun with Google's Gemini 3 and Goose coding agent to redesign my home page, creating dynamic hero components that change on refresh."
-date: 2024-11-20
+date: 2025-11-20
 canonical: "https://dev.to/debs_obrien/how-i-vibe-code-improving-my-site-design-with-goose-and-gemini-3-2a3k"
 tags: [ai, webdev]
 ---
