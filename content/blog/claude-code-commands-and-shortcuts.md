@@ -173,6 +173,6 @@ Use wildcards to allow a range of commands—`Bash(pnpm *)` will permit any pnpm
 
 Permissions aren't limited to bash commands either, they also cover things like web search and other tools.
 
-By default, `settings.local.json` is gitignored so your permissions stay local to your machine. If you want to share them with your team, rename the file to `settings.json`.
+By default, `settings.local.json` is ignored via `.gitignore` so your permissions stay local to your machine. If you want to share them with your team, rename the file to `settings.json`.
 
 Hope this helps you move faster with Claude. Have fun.
