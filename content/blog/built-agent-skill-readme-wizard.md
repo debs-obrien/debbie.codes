@@ -266,6 +266,7 @@ And if you just want to try the skill without building it yourself (just make su
 
 ```bash
 npx skills add debs-obrien/learn-agent-skills
+```
 
 Then open any project and tell your agent:
 
