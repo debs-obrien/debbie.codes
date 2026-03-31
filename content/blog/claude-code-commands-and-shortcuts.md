@@ -38,7 +38,29 @@ This one I found particularly useful. `/context` gives you a breakdown of what's
 - **Messages**
 - **Free space**
 
-It also tells you when autocompaction will happen—that's when Claude automatically trims older context because the token limit is running low. If you've ever wondered why Claude seems to "forget" something from earlier in a long session, this command helps explain what's going on.
+```
+┌─────────────────────────────────────────────────────────────┐
+│  /context                                                   │
+│  └─ Context Usage                                           │
+│                                                             │
+│  claude-opus-4-6 · 15k/1000k tokens (1%)                   │
+│                                                             │
+│  Estimated usage by category                                │
+│  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━   │
+│  ● System prompt:      5.6k tokens  (0.6%)                  │
+│  ● System tools:       8.3k tokens  (0.8%)                  │
+│  ○ Skills:              715 tokens  (0.1%)                   │
+│  ○ Messages:             58 tokens  (0.0%)                   │
+│  □ Free space:         952k tokens  (95.2%)                  │
+│  ■ Autocompact buffer:  33k tokens  (3.3%)                   │
+│                                                             │
+│  [████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 1%  │
+│   ^^^^                                                      │
+│   used                              free space              │
+└─────────────────────────────────────────────────────────────┘
+```
+
+It also tells you when autocompaction will happen, that's when Claude automatically trims older context because the token limit is running low. If you've ever wondered why Claude seems to "forget" something from earlier in a long session, this command helps explain what's going on.
 
 ### `/clear` - Starting Fresh
 
@@ -46,7 +68,7 @@ It also tells you when autocompaction will happen—that's when Claude automatic
 
 ### `/ide` - Connect to Your IDE
 
-There's a Claude Code extension for VS Code, and you can connect to it by running `/ide`. Once connected, things like git diffs will open in VS Code instead of displaying in the terminal. If you're reviewing changes regularly this is a much better experience—you get proper syntax highlighting and the familiar side-by-side diff view rather than trying to read through diffs in the terminal.
+There's a Claude Code extension for VS Code, and you can connect to it by running `/ide`. Once connected, things like git diffs will open in VS Code instead of displaying in the terminal. If you're reviewing changes regularly this is a much better experience, you get proper syntax highlighting and the familiar side-by-side diff view rather than trying to read through diffs in the terminal.
 
 ### `/resume` - Browse Previous Sessions
 
@@ -110,15 +132,15 @@ Output:
 
 From the shell details view, you can press **X** to stop the background process, or press the **left arrow key** to go back to your conversation.
 
-This means you can keep your dev server running in the background while continuing to work with Claude in the foreground. Because the output is being captured, Claude can see what's happening with the process—so if something crashes or throws an error, it already has that context and can help you debug it.
+This means you can keep your dev server running in the background while continuing to work with Claude in the foreground. Because the output is being captured, Claude can see what's happening with the process so if something crashes or throws an error, it already has that context and can help you debug it.
 
 ### Suspend Claude with Ctrl + Z
 
-If you need to run a bash command outside of Claude—something you don't want in its context—press **Ctrl + Z** to suspend the process. Run whatever you need to in your terminal, then type `fg` to bring Claude back. Handy for things like checking credentials, running unrelated scripts, or anything you'd rather keep out of the conversation.
+If you need to run a bash command outside of Claude, something you don't want in its context, press **Ctrl + Z** to suspend the process. Run whatever you need to in your terminal, then type `fg` to bring Claude back. Handy for things like checking credentials, running unrelated scripts, or anything you'd rather keep out of the conversation.
 
 ### Ending and Resuming Sessions
 
-Press **Ctrl + C** twice to end your current session. Claude persists sessions locally, so when you exit it gives you a command to resume that session—something like `claude --resume <session-id>`. Just copy and paste it to pick up where you left off.
+Press **Ctrl + C** twice to end your current session. Claude persists sessions locally, so when you exit it gives you a command to resume that session, something like `claude --resume <session-id>`. Just copy and paste it to pick up where you left off.
 
 If you've already closed the session and didn't save the command, no problem. Open Claude Code and use the `/resume` slash command to browse your history.
 
@@ -149,8 +171,8 @@ These choices are saved to a file called `settings.local.json` inside the `.clau
 
 Use wildcards to allow a range of commands—`Bash(pnpm *)` will permit any pnpm command. Use `deny` to explicitly block things you never want Claude to run, like `Bash(git push *)`.
 
-Permissions aren't limited to bash commands either—they also cover things like web search and other tools.
+Permissions aren't limited to bash commands either, they also cover things like web search and other tools.
 
 By default, `settings.local.json` is gitignored so your permissions stay local to your machine. If you want to share them with your team, rename the file to `settings.json`.
 
-These are small things individually, but knowing they exist makes working with Claude Code feel a lot smoother. Have fun.
+Hope this helps you move faster with Claude. Have fun.
