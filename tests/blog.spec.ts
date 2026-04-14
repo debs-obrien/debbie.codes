@@ -38,5 +38,5 @@ test('blog prev and next links update when navigating from paginated blog pages'
 
   await expect(page.getByRole('heading', { name: 'Building Your First MCP Server - A Beginner\'s Tutorial' })).toBeVisible();
   await expect(page.getByRole('link', { name: /Previous post: Install Playwright MCP Server in VS Code/ })).toHaveAttribute('href', '/blog/install-playwright-mcp-server-in-vs-code');
-  await expect(page.getByRole('link', { name: /Next post: Breaking into the tech industry/ })).toHaveAttribute('href', '/blog/breaking-into-tech-industry');
+  await expect(page.getByRole('link', { name: /Next post: Delivering a Talk/ })).toHaveAttribute('href', '/blog/delivering-a-talk');
 });
