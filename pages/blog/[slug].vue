@@ -66,10 +66,10 @@ useHead({
     },
   ],
   link: [
-      {
-        rel: 'canonical',
-        href: article.value?.canonical || `https://debbie.codes${path}`,
-      },
+    {
+      rel: 'canonical',
+      href: article.value?.canonical || `https://debbie.codes${path}`,
+    },
   ],
 })
 </script>
