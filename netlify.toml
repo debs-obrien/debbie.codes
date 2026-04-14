@@ -10,7 +10,7 @@
     X-XSS-Protection = "1; mode=block"
 
 [images]
-  remote_images = ["res.cloudinary.com"]
+  remote_images = ["res.cloudinary.com", "dev-to-uploads.s3.amazonaws.com", "raw.githubusercontent.com"]
 
 [build.environment]
   NODE_VERSION = "22.12.0"
