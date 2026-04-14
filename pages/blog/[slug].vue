@@ -1,14 +1,15 @@
 <script setup lang="ts">
 import { formatDate } from '~/utils/date'
 
-const { path } = useRoute()
-const slug = path.split('/').pop()
+const route = useRoute()
+const path = route.path.replace(/\/$/, '')
+const slug = path.split('/').pop() || ''
 
-const { data: article } = await useAsyncData(path.replace(/\/$/, ''), () => queryCollection('blog')
-  .where('path', 'LIKE', path)
+const { data: article } = await useAsyncData(`blog-article-${path}`, () => queryCollection('blog')
+  .where('path', '=', path)
   .first())
 
-const { data } = await useAsyncData('surround', () => {
+const { data } = await useAsyncData(`blog-surround-${path}`, () => {
   return queryCollectionItemSurroundings('blog', path)
     .order('date', 'DESC')
 })
@@ -47,10 +48,10 @@ useHead({
     // Test on: https://cards-dev.twitter.com/validator or https://socialsharepreview.com/
     { name: 'twitter:site', content: '@debs_obrien' },
     { name: 'twitter:card', content: 'summary_large_image' },
-    {
-      name: 'twitter:url',
-      content: `https://debbie.codes/blog/${slug}`,
-    },
+      {
+        name: 'twitter:url',
+        content: `https://debbie.codes/blog/${slug}`,
+      },
     {
       name: 'twitter:title',
       content: title,
@@ -65,10 +66,10 @@ useHead({
     },
   ],
   link: [
-    {
-      rel: 'canonical',
-      href: article.value?.canonical || `https://debbie.codes${path}`,
-    },
+      {
+        rel: 'canonical',
+        href: article.value?.canonical || `https://debbie.codes${path}`,
+      },
   ],
 })
 </script>
