@@ -48,10 +48,10 @@ useHead({
     // Test on: https://cards-dev.twitter.com/validator or https://socialsharepreview.com/
     { name: 'twitter:site', content: '@debs_obrien' },
     { name: 'twitter:card', content: 'summary_large_image' },
-      {
-        name: 'twitter:url',
-        content: `https://debbie.codes/blog/${slug}`,
-      },
+    {
+      name: 'twitter:url',
+      content: `https://debbie.codes/blog/${slug}`,
+    },
     {
       name: 'twitter:title',
       content: title,
