@@ -16,25 +16,18 @@ test.describe('Blog Search Functionality', () => {
   test('search filters blog posts correctly', async ({ page, isMobile }) => {
     if (!isMobile) {
       const searchInput = page.getByPlaceholder('Search...');
+      const articles = page.getByRole('article');
+      const firstArticle = articles.first();
 
-      await expect(page.getByRole('article').first()).toBeVisible();
+      await expect(firstArticle).toBeVisible();
 
-      const initialArticles = page.getByRole('article');
-      const initialCount = await initialArticles.count();
+      const firstArticleTitle = await firstArticle.getByRole('link').first().innerText();
 
-      await searchInput.fill('playwright');
+      await searchInput.fill(firstArticleTitle);
 
-      const filteredArticles = page.getByRole('article');
-      const filteredCount = await filteredArticles.count();
-
-      // Search should either reduce the count or keep it the same, but results should contain the search term
-      expect(filteredCount).toBeGreaterThan(0);
-
-      if (filteredCount > 0) {
-        await expect.poll(() =>
-          page.getByRole('article').filter({ hasText: 'playwright' }).count()
-        ).toBeGreaterThan(0);
-      }
+      await expect.poll(async () =>
+        articles.filter({ hasText: firstArticleTitle }).count()
+      ).toBeGreaterThan(0);
     }
   });
 
