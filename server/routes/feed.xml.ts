@@ -11,7 +11,7 @@ export default defineEventHandler(async (event) => {
 
   const feed = new Feed({
     title: 'Debbie Codes',
-    description: 'Debbie O\'Brien - Developer Relations Engineer, Applied AI, with over 10 years experience in Frontend development. Writing about Playwright, testing, React, Nuxt and more.',
+    description: 'Debbie O\'Brien - Platform Engineer – Applied AI at Zephyr Cloud, with over 15 years experience in Frontend development. Writing about Playwright, testing, React, Nuxt and more.',
     id: siteUrl,
     link: siteUrl,
     language: 'en',
