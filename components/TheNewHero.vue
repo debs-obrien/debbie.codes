@@ -119,7 +119,7 @@ onMounted(() => {
         Debbie <span class="text-primary">O'Brien</span>
       </h1>
       <p class="mt-4 text-lg md:text-xl text-gray-300 max-w-2xl">
-        Developer Relations Engineer, Applied AI, Google Developer Expert, and a passion for helping others learn through my content.
+        Platform Engineer – Applied AI at Zephyr Cloud, Google Developer Expert, and a passion for helping others learn through my content.
       </p>
     </div>
   </div>

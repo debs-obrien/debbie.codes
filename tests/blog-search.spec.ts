@@ -1,8 +1,22 @@
 import { expect, test } from '@playwright/test';
 
+/**
+ * Helper: fill the search input and wait for Vue search to activate.
+ * Nuxt SSR hydration may not be complete when the input first appears,
+ * so we retry fill + verify until the "Search Results" heading is visible.
+ */
+async function searchFor(page: import('@playwright/test').Page, term: string) {
+  const searchInput = page.getByPlaceholder('Search...');
+  await expect(async () => {
+    await searchInput.fill(term);
+    await expect(page.getByRole('heading', { name: /Search Results/ })).toBeVisible();
+  }).toPass({ timeout: 10_000 });
+}
+
 test.describe('Blog Search Functionality', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/blog');
+    await expect(page.getByRole('article').first()).toBeVisible();
   });
 
   test('search field is present and functional', async ({ page, isMobile }) => {
@@ -15,81 +29,49 @@ test.describe('Blog Search Functionality', () => {
 
   test('search filters blog posts correctly', async ({ page, isMobile }) => {
     if (!isMobile) {
-      const searchInput = page.getByPlaceholder('Search...');
       const articles = page.getByRole('article');
       const firstArticle = articles.first();
-
-      await expect(firstArticle).toBeVisible();
-
       const firstArticleTitle = await firstArticle.getByRole('link').first().innerText();
 
-      await searchInput.fill(firstArticleTitle);
-
-      await expect.poll(async () =>
-        articles.filter({ hasText: firstArticleTitle }).count()
-      ).toBeGreaterThan(0);
+      await searchFor(page, firstArticleTitle);
+      await expect(articles.filter({ hasText: firstArticleTitle })).not.toHaveCount(0);
     }
   });
 
   test('search works with different search terms', async ({ page, isMobile }) => {
     if (!isMobile) {
-      const searchInput = page.getByPlaceholder('Search...');
+      await searchFor(page, 'nuxt');
+      await expect(page.getByRole('article').first()).toBeVisible();
 
-      await searchInput.fill('nuxt');
-
-      const nuxtResults = await page.getByRole('article').count();
-
-      await searchInput.clear();
-      await searchInput.fill('testing');
-
-      const testingResults = await page.getByRole('article').count();
-
-      expect(nuxtResults).toBeGreaterThan(0);
-      expect(testingResults).toBeGreaterThan(0);
+      await searchFor(page, 'testing');
+      await expect(page.getByRole('article').first()).toBeVisible();
     }
   });
 
   test('clearing search shows all posts', async ({ page, isMobile }) => {
     if (!isMobile) {
-      const searchInput = page.getByPlaceholder('Search...');
-
-      await expect(page.getByRole('article').first()).toBeVisible();
-
       const initialCount = await page.getByRole('article').count();
 
-      await searchInput.fill('playwright');
+      await searchFor(page, 'playwright');
 
+      const searchInput = page.getByPlaceholder('Search...');
       await searchInput.clear();
-
-      const finalCount = await page.getByRole('article').count();
-      expect(finalCount).toBe(initialCount);
+      await expect(page.getByRole('heading', { name: 'Recent Posts' })).toBeVisible();
+      await expect(page.getByRole('article')).toHaveCount(initialCount);
     }
   });
 
   test('search with no results shows appropriate state', async ({ page, isMobile }) => {
     if (!isMobile) {
-      await expect(page.getByRole('article').first()).toBeVisible();
-
       const searchInput = page.getByPlaceholder('Search...');
 
-      await expect(searchInput).toBeVisible();
-      await expect(searchInput).toBeEnabled();
+      // Use searchFor with a term that matches nothing — heading should show "Search Results (0)"
+      await expect(async () => {
+        await searchInput.fill('xyz123nonexistent');
+        await expect(page.getByRole('heading', { name: /Search Results \(0\)/ })).toBeVisible();
+      }).toPass({ timeout: 10_000 });
 
-      await searchInput.click();
-      await page.waitForTimeout(100);
-      await searchInput.fill('xyz123nonexistent');
-
-      await page.waitForTimeout(1000);
-
-      try {
-        await expect(page.getByRole('article')).toHaveCount(0);
-      }
-      catch (e) {
-        const articles = page.getByRole('article');
-        const count = await articles.count();
-        const matchingArticles = await page.getByRole('article').filter({ hasText: 'xyz123nonexistent' }).count();
-        expect(matchingArticles).toBe(0);
-      }
+      await expect(page.getByRole('article')).toHaveCount(0);
     }
   });
 });
