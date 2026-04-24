@@ -1,14 +1,15 @@
 <script setup lang="ts">
 import { formatDate } from '~/utils/date'
 
-const { path } = useRoute()
-const slug = path.split('/').pop()
+const route = useRoute()
+const path = route.path.replace(/\/$/, '')
+const slug = path.split('/').pop() || ''
 
-const { data: article } = await useAsyncData(path.replace(/\/$/, ''), () => queryCollection('blog')
-  .where('path', 'LIKE', path)
+const { data: article } = await useAsyncData(`blog-article-${path}`, () => queryCollection('blog')
+  .where('path', '=', path)
   .first())
 
-const { data } = await useAsyncData('surround', () => {
+const { data } = await useAsyncData(`blog-surround-${path}`, () => {
   return queryCollectionItemSurroundings('blog', path)
     .order('date', 'DESC')
 })

@@ -29,10 +29,12 @@ test.describe('Blog Search Functionality', () => {
 
   test('search filters blog posts correctly', async ({ page, isMobile }) => {
     if (!isMobile) {
-      await searchFor(page, 'playwright');
+      const articles = page.getByRole('article');
+      const firstArticle = articles.first();
+      const firstArticleTitle = await firstArticle.getByRole('link').first().innerText();
 
-      // Filtered results should contain the search term
-      await expect(page.getByRole('article').filter({ hasText: /playwright/i })).not.toHaveCount(0);
+      await searchFor(page, firstArticleTitle);
+      await expect(articles.filter({ hasText: firstArticleTitle })).not.toHaveCount(0);
     }
   });
 
