@@ -113,7 +113,7 @@ This wasn't "tell AI to fix it." It was a collaboration process:
 
 - **Challenge every suggestion** — "Are you sure? What about edge case X?" If the AI suggested a pattern, I'd ask it to explain why and if it was sure that was a good way of doing it.
 
-- **Use docs as ground truth** — I'd link to Playwright docs and ask "does this align with whats in the docs?" The AI's training data can be outdated; the docs are current.
+- **Use docs as ground truth** — I'd link to Playwright docs and ask "does this align with what's in the docs?" The AI's training data can be outdated; the docs are current.
 
 - **Validate with multiple tools** — I used Goose, Claude Code, and GitHub Copilot. Different tools catch different blind spots and have different opinions just like when you work with different team mates.
 
@@ -142,7 +142,7 @@ Never more than 4 at a time. I wanted to read and understand everything that was
 - 18 analysis documents
 - 5 implementation guides
 - 33 tasks with verification commands
-- 1 skills (test improvement)
+- 1 skill (test improvement)
 
 ## Lessons learned
 

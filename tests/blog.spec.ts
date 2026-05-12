@@ -30,19 +30,19 @@ test('blog prev and next links update when navigating from paginated blog pages'
   await test.step('Open a paginated blog article', async () => {
     await page.goto('/blog/page/2');
 
-    await page.getByRole('link', { name: 'Install Playwright MCP Server in VS Code' }).click();
+    await page.getByRole('link', { name: 'Playwright MCP Servers Explained Automation and Testing' }).click();
   });
 
   await test.step('Verify the first article navigation links', async () => {
-    await expect(page.getByRole('heading', { name: 'Install Playwright MCP Server in VS Code' })).toBeVisible();
-    await expect(page.getByRole('link', { name: /Next post: Building Your First MCP Server/ })).toHaveAttribute('href', '/blog/building-your-first-mcp-server');
+    await expect(page.getByRole('heading', { name: 'Playwright MCP Servers Explained Automation and Testing' })).toBeVisible();
+    await expect(page.getByRole('link', { name: /Next post: Fixing Failing Tests Automatically/ })).toHaveAttribute('href', '/blog/fixing-failing-tests-automatically-with-playwrights-new-healer-agent');
   });
 
   await test.step('Navigate to the next article and verify the links refresh', async () => {
-    await page.getByRole('link', { name: /Next post: Building Your First MCP Server/ }).click();
+    await page.getByRole('link', { name: /Next post: Fixing Failing Tests Automatically/ }).click();
 
-    await expect(page.getByRole('heading', { name: 'Building Your First MCP Server - A Beginner\'s Tutorial' })).toBeVisible();
-    await expect(page.getByRole('link', { name: /Previous post: Install Playwright MCP Server in VS Code/ })).toHaveAttribute('href', '/blog/install-playwright-mcp-server-in-vs-code');
-    await expect(page.getByRole('link', { name: /Next post: Delivering a Talk/ })).toHaveAttribute('href', '/blog/delivering-a-talk');
+    await expect(page.getByRole('heading', { name: /Fixing Failing Tests Automatically with Playwright/ })).toBeVisible();
+    await expect(page.getByRole('link', { name: /Previous post: Playwright MCP Servers Explained/ })).toHaveAttribute('href', '/blog/playwright-mcp-servers-explained-automation-and-testing');
+    await expect(page.getByRole('link', { name: /Next post: I Built My Own AI Agent/ })).toHaveAttribute('href', '/blog/i-built-my-own-ai-agent-and-you-can-too');
   });
 });
