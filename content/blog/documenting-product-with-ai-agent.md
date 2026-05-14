@@ -81,11 +81,11 @@ I needed something that works at the OS level: find the window, click things on 
 
 The pipeline works like this:
 
-- Peekaboo** finds the app window and focuses it. If you need to navigate somewhere first, it clicks UI elements by their visible text.
-- Peekaboo `--retina`** captures the window at 2x retina resolution without the drop shadow.
-- A Swift script using the Vision framework** runs OCR on the captured image. It finds every piece of text and returns pixel-accurate bounding boxes.
-- A Python script using Pillow** draws highlight overlays, borders, and spotlight effects on the image based on the OCR results.
-- pngquant and optipng** compress the final image. This typically reduces file size by 50 to 60 percent with no visible quality loss.
+- **Peekaboo** finds the app window and focuses it. If you need to navigate somewhere first, it clicks UI elements by their visible text.
+- **Peekaboo `--retina`** captures the window at 2x retina resolution without the drop shadow.
+- **A Swift script using the Vision framework** runs OCR on the captured image. It finds every piece of text and returns pixel-accurate bounding boxes.
+- **A Python script using Pillow** draws highlight overlays, borders, and spotlight effects on the image based on the OCR results.
+- **pngquant and optipng** compress the final image. This typically reduces file size by 50 to 60 percent with no visible quality loss.
 
 No hardcoded coordinates for content elements. No browser automation. No authentication tokens. The agent looks at the actual app window, reads the text on screen, and figures out where things are.
 
