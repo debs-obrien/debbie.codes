@@ -60,12 +60,12 @@ test.describe('About Page', () => {
               - img
               - heading "Learn more about Google Developer Expert (opens in new tab)" [level=3]:
                 - link "Learn more about Google Developer Expert (opens in new tab)":
-                  - /url: https://developers.google.com/community/experts/directory/profile/profile-debbie_o_brien
+                  - /url: https://me.developers.google.com/u/115790798136433531532
                   - text: Google Developer Expert
                   - img
               - paragraph
               - link "Learn more about Google Developer Expert (opens in new tab)":
-                - /url: https://developers.google.com/community/experts/directory/profile/profile-debbie_o_brien
+                - /url: https://me.developers.google.com/u/115790798136433531532
                 - text: Learn More
                 - img
             - article:
@@ -155,7 +155,7 @@ test.describe('About Page', () => {
       await expect(page.getByRole('link', { name: 'Learn more about GitHub Star Alumni (opens in new tab)' }).first()).toHaveAttribute('href', 'https://stars.github.com/alumni/');
       
       // Google Developer Expert
-      await expect(page.getByRole('link', { name: 'Learn more about Google Developer Expert (opens in new tab)' }).first()).toHaveAttribute('href', 'https://developers.google.com/community/experts/directory/profile/profile-debbie_o_brien');
+      await expect(page.getByRole('link', { name: 'Learn more about Google Developer Expert (opens in new tab)' }).first()).toHaveAttribute('href', 'https://me.developers.google.com/u/115790798136433531532');
       
       // Microsoft MVP
       await expect(page.getByRole('link', { name: 'Learn more about Former Microsoft Most Valuable Professional (opens in new tab)' }).first()).toHaveAttribute('href', 'https://mvp.microsoft.com/en-us/PublicProfile/5003613?fullName=Debbie%20O%27Brien');
