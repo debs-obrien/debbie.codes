@@ -14,7 +14,7 @@ const awards = ref([
   },
   {
     name: 'Google Developer Expert',
-    url: 'https://developers.google.com/community/experts/directory/profile/profile-debbie_o_brien',
+    url: 'https://me.developers.google.com/u/115790798136433531532',
     about:
       'The Google Developers Experts program is a global network of highly experienced technology experts, influencers and thought leaders who actively support developers, companies and tech communities by speaking at events, publishing content. Nearly 700 Experts represent 18+ Google technologies around the world!',
   },

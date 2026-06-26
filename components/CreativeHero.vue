@@ -260,7 +260,7 @@ onBeforeUnmount(() => {
       <!-- Credentials/Badges -->
       <div class="mt-8 flex flex-wrap justify-center items-center gap-3 sm:gap-4">
         <a
-          href="https://developers.google.com/community/experts/directory/profile/profile-debbie-o-brien"
+          href="https://me.developers.google.com/u/115790798136433531532"
           target="_blank"
           rel="nofollow noopener noreferrer"
           class="group inline-flex items-center gap-2 px-4 py-2 bg-gray-800/80 backdrop-blur-sm rounded-full border border-gray-700 hover:border-primary transition-all duration-300 hover:shadow-lg hover:scale-105"

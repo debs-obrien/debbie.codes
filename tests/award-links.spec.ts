@@ -9,7 +9,7 @@ test.beforeEach(async ({ page, isMobile }) => {
 });
 
 test('google gde link in home page works', async ({ page }) => {
-  await page.context().route('https://developers.google.com/**', route => route.fulfill({
+  await page.context().route('https://me.developers.google.com/**', route => route.fulfill({
     body: '<html><body><h1>Google GDE</h1></body></html>'
   }));
 
@@ -17,7 +17,7 @@ test('google gde link in home page works', async ({ page }) => {
     page.waitForEvent('popup'),
     await page.getByRole('link', { name: 'Google GDE' }).click()
   ]);
-  await expect(page1).toHaveURL('https://developers.google.com/community/experts/directory/profile/profile-debbie-o-brien');
+  await expect(page1).toHaveURL('https://me.developers.google.com/u/115790798136433531532');
 });
 
 test('microsoft mvp link in home page works', async ({ page }) => {
