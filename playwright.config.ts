@@ -2,6 +2,14 @@ import process from 'node:process'
 import { defineConfig, devices } from '@playwright/test'
 
 /**
+ * When PLAYWRIGHT_TEST_BASE_URL is set (e.g. a Netlify deploy-preview URL in
+ * CI), tests run against that already-deployed site and we must NOT boot a
+ * local `npm run dev` server. Only start the local webServer when no external
+ * base URL was provided (local development default).
+ */
+const externalBaseURL = process.env.PLAYWRIGHT_TEST_BASE_URL
+
+/**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
@@ -26,7 +34,7 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: process.env.PLAYWRIGHT_TEST_BASE_URL || 'http://localhost:3001',
+    baseURL: externalBaseURL || 'http://localhost:3001',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
@@ -72,10 +80,14 @@ export default defineConfig({
     // },
   ],
 
-  /* Run your local dev server before starting the tests */
-  webServer: {
-    command: 'npm run dev',
-    url: 'http://localhost:3001',
-    reuseExistingServer: !process.env.CI,
-  },
+  /* Run your local dev server before starting the tests.
+   * Skipped when PLAYWRIGHT_TEST_BASE_URL is set (e.g. testing a deployed
+   * Netlify preview in CI), so we don't boot or race a local dev server. */
+  webServer: externalBaseURL
+    ? undefined
+    : {
+        command: 'npm run dev',
+        url: 'http://localhost:3001',
+        reuseExistingServer: !process.env.CI,
+      },
 })

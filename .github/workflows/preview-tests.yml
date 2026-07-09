@@ -1,0 +1,161 @@
+name: Playwright on Netlify Preview
+
+# Runs the Playwright suite against the Netlify deploy preview for a PR.
+#
+# Why it's built this way (two important gotchas baked in):
+#
+#  1. Netlify publishes its preview as a GitHub *commit status* (context
+#     "netlify/debbiecodes/deploy-preview"), NOT a GitHub Deployment object.
+#     So `on: deployment_status` never fires for this repo. Instead we poll the
+#     commit-status API for that context and read the preview URL from its
+#     `target_url`.
+#
+#  2. We deliberately trigger on `pull_request` (not `status`). Non-PR events
+#     like `status` always run the workflow file from the DEFAULT branch, so a
+#     `status`-triggered workflow living only on a feature branch would never
+#     run — impossible to validate before merge. `pull_request` runs the PR
+#     branch's own workflow file, so this is self-testing on the PR that adds it.
+
+on:
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+    inputs:
+      base_url:
+        description: 'Preview URL to test (skips polling). e.g. https://deploy-preview-568--debbiecodes.netlify.app'
+        required: false
+        type: string
+
+permissions:
+  contents: read
+  statuses: read
+
+jobs:
+  # Poll the Netlify commit status until the preview is ready, then hand the
+  # resolved URL to the test matrix.
+  resolve-preview:
+    runs-on: ubuntu-latest
+    outputs:
+      base_url: ${{ steps.resolve.outputs.base_url }}
+    steps:
+      - name: Resolve Netlify preview URL
+        id: resolve
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MANUAL_URL: ${{ github.event.inputs.base_url }}
+          # For pull_request events, the head SHA Netlify reports status against.
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+
+          # Manual override wins (workflow_dispatch with an explicit URL).
+          if [ -n "${MANUAL_URL:-}" ]; then
+            echo "Using manually supplied URL: $MANUAL_URL"
+            echo "base_url=$MANUAL_URL" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          CONTEXT="netlify/debbiecodes/deploy-preview"
+          echo "Polling commit status '$CONTEXT' for $REPO@$HEAD_SHA (max ~10min)…"
+
+          for i in $(seq 1 60); do
+            # Pull the matching status's state + target_url in one call.
+            READ=$(gh api "repos/$REPO/commits/$HEAD_SHA/statuses" \
+              --jq "[.[] | select(.context == \"$CONTEXT\")][0] | \"\(.state)\t\(.target_url)\"" \
+              2>/dev/null || echo "")
+
+            STATE="${READ%%$'\t'*}"
+            URL="${READ#*$'\t'}"
+            echo "attempt $i: state='${STATE:-none}' url='${URL:-none}'"
+
+            case "$STATE" in
+              success)
+                if [ -n "$URL" ] && [ "$URL" != "null" ]; then
+                  echo "Preview ready: $URL"
+                  echo "base_url=$URL" >> "$GITHUB_OUTPUT"
+                  exit 0
+                fi
+                ;;
+              failure|error)
+                echo "::error::Netlify preview reported '$STATE'. Aborting."
+                exit 1
+                ;;
+            esac
+            sleep 10
+          done
+
+          echo "::error::Timed out waiting for Netlify preview status."
+          exit 1
+
+      - name: Verify preview responds with HTTP 200
+        run: |
+          set -euo pipefail
+          URL="${{ steps.resolve.outputs.base_url }}"
+          echo "Checking $URL is reachable…"
+          for i in $(seq 1 24); do
+            CODE=$(curl -s -o /dev/null -w "%{http_code}" -L "$URL" || echo "000")
+            echo "attempt $i: HTTP $CODE"
+            [ "$CODE" = "200" ] && { echo "Preview is live."; exit 0; }
+            sleep 5
+          done
+          echo "::error::Preview URL never returned HTTP 200."
+          exit 1
+
+  playwright-tests:
+    needs: resolve-preview
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        shardIndex: [1, 2, 3, 4]
+        shardTotal: [4]
+    env:
+      PLAYWRIGHT_TEST_BASE_URL: ${{ needs.resolve-preview.outputs.base_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+      - name: Install dependencies
+        run: npm ci
+      # The Playwright config uses `channel: 'chrome'` on CI, which needs a real
+      # Google Chrome (not the bundled chromium build). Install it + OS deps.
+      - name: Install Google Chrome for Playwright
+        run: npx playwright install --with-deps chrome
+      - name: Run Playwright tests against preview
+        run: npx playwright test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
+      - name: Upload blob report
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: preview-blob-report-${{ matrix.shardIndex }}
+          path: blob-report
+          retention-days: 1
+
+  merge-reports:
+    if: ${{ !cancelled() }}
+    needs: [playwright-tests]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+      - name: Install dependencies
+        run: npm ci
+      - name: Download blob reports
+        uses: actions/download-artifact@v4
+        with:
+          path: all-blob-reports
+          pattern: preview-blob-report-*
+          merge-multiple: true
+      - name: Merge into HTML report
+        run: npx playwright merge-reports --reporter html ./all-blob-reports
+      - name: Upload HTML report
+        uses: actions/upload-artifact@v4
+        with:
+          name: preview-html-report--attempt-${{ github.run_attempt }}
+          path: playwright-report
+          retention-days: 14
