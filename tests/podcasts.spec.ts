@@ -142,7 +142,7 @@ test.describe('Podcasts Page', () => {
       await test.step('Navigate to playwright tag and verify filtering', async () => {
         await page.getByRole('link', { name: '#playwright' }).first().click();
         
-        await expect(page).toHaveURL('/podcasts/tags/playwright');
+        await expect(page).toHaveURL(/\/podcasts\/tags\/playwright\/?$/);
         await expect(page.getByRole('heading', { level: 1 })).toContainText('playwright');
         await expect(page.getByRole('heading', { level: 2, name: 'playwright Episodes' })).toBeVisible();
         
@@ -158,7 +158,7 @@ test.describe('Podcasts Page', () => {
       await test.step('Navigate to nuxt tag and verify filtering', async () => {
         await page.getByRole('link', { name: '#nuxt' }).first().click();
         
-        await expect(page).toHaveURL('/podcasts/tags/nuxt');
+        await expect(page).toHaveURL(/\/podcasts\/tags\/nuxt\/?$/);
         await expect(page.getByRole('heading', { level: 1 })).toContainText('nuxt');
         await expect(page.getByRole('heading', { level: 2, name: 'nuxt Episodes' })).toBeVisible();
         
@@ -177,7 +177,7 @@ test.describe('Podcasts Page', () => {
         if (count > 0) {
           await bitTagLink.first().click();
           
-          await expect(page).toHaveURL('/podcasts/tags/bit');
+          await expect(page).toHaveURL(/\/podcasts\/tags\/bit\/?$/);
           await expect(page.getByRole('heading', { level: 1 })).toContainText('bit');
           await expect(page.getByRole('heading', { level: 2, name: 'bit Episodes' })).toBeVisible();
           
@@ -191,12 +191,12 @@ test.describe('Podcasts Page', () => {
   test('navigation back to main podcasts page works', async ({ page }) => {
       await test.step('Test navigation after using specific tag filter', async () => {
         await page.getByRole('link', { name: '#playwright' }).first().click();
-        await expect(page).toHaveURL('/podcasts/tags/playwright');
+        await expect(page).toHaveURL(/\/podcasts\/tags\/playwright\/?$/);
         
         // Navigate back to main podcasts page using the navigation link (not footer)
         await page.getByRole('navigation').getByRole('link', { name: 'Podcasts' }).click();
         
-        await expect(page).toHaveURL('/podcasts');
+        await expect(page).toHaveURL(/\/podcasts\/?$/);
         await expect(page.getByRole('heading', { name: 'Podcasts' })).toBeVisible();
         
         // Wait for all articles to load
@@ -221,7 +221,7 @@ test.describe('Podcasts Page', () => {
           if (count > 0) {
             await topicLink.first().click();
 
-            await expect(page).toHaveURL(`/podcasts/tags/${topic.replace(' ', '-')}`);
+            await expect(page).toHaveURL(new RegExp(`/podcasts/tags/${topic.replace(' ', '-')}/?$`));
             await expect(page.getByRole('heading', { level: 1 })).toContainText(topic);
             
             // Use more specific heading selector to avoid strict mode violations

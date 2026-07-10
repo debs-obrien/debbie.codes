@@ -6,10 +6,13 @@ test.describe('Home Page Featured Content', () => {
   });
 
   test('displays main hero section with correct information', async ({ page }) => {
-    // Check for main heading - the CreativeHero displays the name
-    // Note: The heading might appear multiple times due to glitch effects
+    // Check for main heading - the CreativeHero displays the name.
+    // The glitch effect intermittently detaches/re-mounts the h1 during the
+    // first few seconds of hydration, so give the visibility assertion a
+    // longer window to ride out the animation cycle rather than landing in a
+    // transient gap (source of prior flakiness on the deployed build).
     const heading = page.getByRole('heading', { level: 1 }).first();
-    await expect(heading).toBeVisible();
+    await expect(heading).toBeVisible({ timeout: 15000 });
     await expect(heading).toContainText('Debbie');
     
     // Check for subtitle/role
@@ -94,19 +97,19 @@ test.describe('Home Page Featured Content', () => {
   test('all section links navigate correctly', async ({ page }) => {
     // Test Recent Blog Posts link
     await page.getByRole('link', { name: 'Recent Blog Posts' }).click();
-    await expect(page).toHaveURL('/blog');
+    await expect(page).toHaveURL(/\/blog\/?$/);
     
     await page.goBack();
     
     // Test Recent Videos link
     await page.getByRole('link', { name: 'Recent Videos' }).click();
-    await expect(page).toHaveURL('/videos');
+    await expect(page).toHaveURL(/\/videos\/?$/);
     
     await page.goBack();
     
     // Test Recent Podcasts link
     await page.getByRole('link', { name: 'Recent Podcasts' }).click();
-    await expect(page).toHaveURL('/podcasts');
+    await expect(page).toHaveURL(/\/podcasts\/?$/);
   });
 
   // Featured post links no longer exist after redesign

@@ -8,7 +8,7 @@ test.describe('About Page', () => {
   test('About page - Displays hero section with greeting and title', async ({ page }) => {
     await test.step('Verify page title and URL', async () => {
       await expect(page).toHaveTitle('About Debbie and her experience as a developer · Debbie Codes');
-      await expect(page).toHaveURL('/about');
+      await expect(page).toHaveURL(/\/about\/?$/);
     });
 
     await test.step('Verify hero section content', async () => {

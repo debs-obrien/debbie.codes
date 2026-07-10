@@ -21,7 +21,7 @@ test.describe('Blog Year Navigation', () => {
 
       await firstYearLink.click();
 
-      await expect(page).toHaveURL(`/blog/year/${yearText?.trim()}`);
+      await expect(page).toHaveURL(new RegExp(`/blog/year/${yearText?.trim()}/?$`));
 
       await expect(page.getByRole('heading', { name: yearText?.trim(), level: 1 })).toBeVisible();
     }

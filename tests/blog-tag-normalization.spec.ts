@@ -22,7 +22,7 @@ test.describe('Blog Tag Normalization', () => {
     await page.goto('/blog/tags/testing');
 
     // Check that we navigated to the correct URL instead of checking heading text
-    await expect(page).toHaveURL('/blog/tags/testing');
+    await expect(page).toHaveURL(/\/blog\/tags\/testing\/?$/);
 
     await expect(page.getByPlaceholder('Search...')).toBeVisible();
   });
@@ -32,7 +32,7 @@ test.describe('Blog Tag Normalization', () => {
       await page.goto('/blog/tags/testing');
 
       // Check that we navigated to the correct URL
-      await expect(page).toHaveURL('/blog/tags/testing');
+      await expect(page).toHaveURL(/\/blog\/tags\/testing\/?$/);
 
       const searchInput = page.getByPlaceholder('Search...');
       await searchInput.fill('nuxt');

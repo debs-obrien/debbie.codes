@@ -25,8 +25,13 @@ test.describe('Mobile Navigation', () => {
       await expect(page.getByRole('banner')).toBeInViewport();
     });
 
-    await test.step('Close menu by clicking button again', async () => {
-      await hamburgerButton.click();
+    await test.step('Close menu using the close button', async () => {
+      // Opening the menu renders a separate close button ("close menu")
+      // overlaid on top of the hamburger; the hamburger itself stays in the
+      // DOM (covered) and keeps its "open menu" label, so we must click the
+      // dedicated close control rather than the hamburger again.
+      const closeButton = page.getByRole('button', { name: 'close menu' });
+      await closeButton.click();
       await expect(page.getByRole('navigation')).not.toBeVisible();
       await expect(hamburgerButton).toHaveAccessibleName('open menu');
     });
@@ -127,9 +132,12 @@ test.describe('Mobile Navigation', () => {
 
   test('Mobile Navigation - Menu closes when navigation link is clicked', async ({ page }) => {
     const hamburgerButton = getHamburgerButton(page);
-    // The mobile menu is teleported to body, use exact match to find nav links
-    const videosLink = page.getByRole('link', { name: 'Videos', exact: true });
-    const aboutLink = page.getByRole('link', { name: 'About', exact: true });
+    // Scope link lookups to the opened navigation: the page footer also has
+    // "Videos"/"About" links, so an unscoped exact-name match resolves to two
+    // elements (strict-mode violation) on the built site.
+    const nav = page.getByRole('navigation');
+    const videosLink = nav.getByRole('link', { name: 'Videos', exact: true });
+    const aboutLink = nav.getByRole('link', { name: 'About', exact: true });
     
     await test.step('Open mobile menu and click Videos', async () => {
       await hamburgerButton.click();
