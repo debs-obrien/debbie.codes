@@ -36,8 +36,9 @@ test.describe('Blog Year Navigation', () => {
 
     await expect(page.getByRole('heading', { name: '2024', level: 1 })).toBeVisible();
 
-    // Verify that articles are shown for the year (using a more flexible count check)
-    const articleCount = await page.getByRole('article').count();
-    expect(articleCount).toBeGreaterThan(0); // Just ensure some articles are shown
+    // Verify that articles are shown for the year. Poll rather than a one-shot
+    // count(): on a cold load articles hydrate progressively, so an immediate
+    // read can catch an empty list.
+    await expect.poll(() => page.getByRole('article').count(), { timeout: 15000 }).toBeGreaterThan(0);
   });
 });

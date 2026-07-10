@@ -30,14 +30,14 @@ test('blog prev and next links update when navigating from paginated blog pages'
   await test.step('Open a paginated blog article', async () => {
     await page.goto('/blog/page/2');
 
-    // Retry the click until the article actually opens. On a cold page load
-    // (fresh Endform runner) a click can fire before Nuxt hydration attaches
-    // the SPA router, silently leaving us on the listing page.
+    // Anchor navigation on the URL, not a heading. On a cold page load (fresh
+    // Endform runner) a click can fire before Nuxt hydration attaches the SPA
+    // router, silently leaving us on the listing page — so retry the click
+    // until the URL is the article. (A heading-based guard is unreliable here:
+    // the "Next post" preview on an article renders the *next* article's title
+    // as a heading too, so heading visibility doesn't prove where we are.)
     const articleLink = page.getByRole('link', { name: 'Playwright MCP Servers Explained Automation and Testing' });
-    await expect(async () => {
-      await articleLink.click();
-      await expect(page.getByRole('heading', { name: 'Playwright MCP Servers Explained Automation and Testing' })).toBeVisible({ timeout: 2000 });
-    }).toPass({ timeout: 15000 });
+    await clickUntilUrl(page, articleLink, /\/blog\/playwright-mcp-servers-explained-automation-and-testing\/?$/);
   });
 
   await test.step('Verify the first article navigation links', async () => {
@@ -47,12 +47,29 @@ test('blog prev and next links update when navigating from paginated blog pages'
 
   await test.step('Navigate to the next article and verify the links refresh', async () => {
     const nextLink = page.getByRole('link', { name: /Next post: Fixing Failing Tests Automatically/ });
-    await expect(async () => {
-      await nextLink.click();
-      await expect(page.getByRole('heading', { name: /Fixing Failing Tests Automatically with Playwright/ })).toBeVisible({ timeout: 2000 });
-    }).toPass({ timeout: 15000 });
+    await clickUntilUrl(page, nextLink, /\/blog\/fixing-failing-tests-automatically-with-playwrights-new-healer-agent\/?$/);
 
-    await expect(page.getByRole('link', { name: /Previous post: Playwright MCP Servers Explained/ })).toHaveAttribute('href', '/blog/playwright-mcp-servers-explained-automation-and-testing');
-    await expect(page.getByRole('link', { name: /Next post: I Built My Own AI Agent/ })).toHaveAttribute('href', '/blog/i-built-my-own-ai-agent-and-you-can-too');
+    // Assert the prev/next links reflect the new (second) article.
+    await expect(page.getByRole('link', { name: /Previous post: Playwright MCP Servers Explained/ })).toHaveAttribute('href', '/blog/playwright-mcp-servers-explained-automation-and-testing', { timeout: 15000 });
+    await expect(page.getByRole('link', { name: /Next post: I Built My Own AI Agent/ })).toHaveAttribute('href', '/blog/i-built-my-own-ai-agent-and-you-can-too', { timeout: 15000 });
   });
 });
+
+/**
+ * Click a link and wait for the SPA URL to match. Retries the click because a
+ * click fired before Nuxt hydration attaches the router silently no-ops,
+ * leaving the URL unchanged. Only re-clicks while the URL has not yet matched,
+ * so a successful navigation is never clicked again.
+ */
+async function clickUntilUrl(
+  page: import('@playwright/test').Page,
+  link: import('@playwright/test').Locator,
+  urlPattern: RegExp,
+) {
+  await expect(async () => {
+    if (!urlPattern.test(new URL(page.url()).pathname)) {
+      await link.click({ timeout: 3000 }).catch(() => {})
+    }
+    await expect(page).toHaveURL(urlPattern, { timeout: 2000 })
+  }).toPass({ timeout: 20000 })
+}

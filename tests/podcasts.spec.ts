@@ -24,9 +24,10 @@ test.describe('Podcasts Page', () => {
 
     test('displays correct number of podcast cards', async ({ page }) => {
         await test.step('Count podcast episodes', async () => {
-          const podcastCards = page.getByRole('article');
-          const count = await podcastCards.count();
-          expect(count).toBeGreaterThan(30);
+          // Poll rather than a one-shot count(): on a cold load the article
+          // cards hydrate progressively, so an immediate read can catch a
+          // partial list.
+          await expect.poll(() => page.getByRole('article').count(), { timeout: 15000 }).toBeGreaterThan(30);
         });
       });
 
@@ -112,24 +113,25 @@ test.describe('Podcasts Page', () => {
       await test.step('Verify default state', async () => {
         await expect(page.getByRole('heading', { name: 'Podcasts' })).toBeVisible();
         
-        // Check for tag links (they are displayed as simple links, not in a list)
+        // Check for tag links (they are displayed as simple links, not in a list).
+        // Poll rather than one-shot count(): on a cold load these hydrate
+        // progressively, so an immediate read can catch a partial/empty list.
         const tagLinks = page.getByRole('link').filter({ hasText: '#' });
-        const count = await tagLinks.count();
-        expect(count).toBeGreaterThan(0);
+        await expect.poll(() => tagLinks.count(), { timeout: 15000 }).toBeGreaterThan(0);
         
         // Check if we have podcast articles
         const articles = page.getByRole('article');
-        const articleCount = await articles.count();
-        expect(articleCount).toBeGreaterThan(25);
+        await expect.poll(() => articles.count(), { timeout: 15000 }).toBeGreaterThan(25);
       });
     });
 
   test('tag filter list contains expected tags', async ({ page }) => {
       await test.step('Verify all tag filters are present', async () => {
-        // Tags are displayed as NuxtLink components with # prefix, not in a list structure
+        // Tags are displayed as NuxtLink components with # prefix, not in a list structure.
+        // Poll rather than a one-shot count(): on a cold load the tag links
+        // hydrate progressively, so an immediate read can catch an empty list.
         const tagLinks = page.getByRole('link').filter({ hasText: '#' });
-        const count = await tagLinks.count();
-        expect(count).toBeGreaterThan(0);
+        await expect.poll(() => tagLinks.count(), { timeout: 15000 }).toBeGreaterThan(0);
         
         // Check for some common tags that should exist (using .first() for strict mode)
         await expect(page.getByRole('link', { name: '#playwright' }).first()).toBeVisible();

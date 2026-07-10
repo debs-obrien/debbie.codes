@@ -18,9 +18,9 @@ for (const topic of availableTopics) {
         // Wait for the page to stabilize after navigation
         await page.waitForLoadState('networkidle');
         
-        // Check if there are any articles/videos on this page
-        const articleCount = await page.getByRole('article').count();
-        expect(articleCount).toBeGreaterThan(0);
+        // Check if there are any articles/videos on this page. Poll rather than
+        // a one-shot count(): on a cold load articles hydrate progressively.
+        await expect.poll(() => page.getByRole('article').count(), { timeout: 15000 }).toBeGreaterThan(0);
       });
     }
   });
