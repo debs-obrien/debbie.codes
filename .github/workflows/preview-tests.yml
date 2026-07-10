@@ -56,6 +56,15 @@ jobs:
             exit 0
           fi
 
+          # Fail fast: without a manual URL we need a PR head SHA to poll the
+          # Netlify status against. Empty here means workflow_dispatch was run
+          # with no base_url and no PR context — polling would just hit the API
+          # with an empty SHA and time out opaquely.
+          if [ -z "${HEAD_SHA:-}" ]; then
+            echo "::error::No PR head SHA and no manual base_url. On workflow_dispatch, supply the 'base_url' input."
+            exit 1
+          fi
+
           CONTEXT="netlify/debbiecodes/deploy-preview"
           echo "Polling commit status '$CONTEXT' for $REPO@$HEAD_SHA (max ~10min)…"
 
@@ -120,10 +129,12 @@ jobs:
           node-version: lts/*
       - name: Install dependencies
         run: npm ci
-      # The Playwright config uses `channel: 'chrome'` on CI, which needs a real
-      # Google Chrome (not the bundled chromium build). Install it + OS deps.
-      - name: Install Google Chrome for Playwright
-        run: npx playwright install --with-deps chrome
+      # The Playwright config uses `channel: 'chrome'` on CI. ubuntu-latest
+      # ships Google Chrome preinstalled, so just verify it's present rather
+      # than reinstalling it in every shard (matches the existing playwright.yml
+      # workflow and keeps the preview run fast).
+      - name: Check Google Chrome
+        run: google-chrome --version
       - name: Run Playwright tests against preview
         run: npx playwright test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
       - name: Upload blob report

@@ -48,6 +48,13 @@ jobs:
             echo "base_url=$MANUAL_URL" >> "$GITHUB_OUTPUT"
             exit 0
           fi
+          # Fail fast when there's no PR head SHA and no manual URL (e.g.
+          # workflow_dispatch with no base_url) rather than polling with an
+          # empty SHA and timing out opaquely.
+          if [ -z "${HEAD_SHA:-}" ]; then
+            echo "::error::No PR head SHA and no manual base_url. On workflow_dispatch, supply the 'base_url' input."
+            exit 1
+          fi
           CONTEXT="netlify/debbiecodes/deploy-preview"
           echo "Polling commit status '$CONTEXT' for $REPO@$HEAD_SHA (max ~10min)…"
           for i in $(seq 1 60); do

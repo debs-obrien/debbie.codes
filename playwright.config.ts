@@ -13,7 +13,10 @@ import { defineConfig, devices } from '@playwright/test'
  * - ENDFORM=true: set automatically on Endform's remote runners; belt-and-
  *   braces so we never try to spawn a dev server there.
  */
-const externalBaseURL = process.env.PLAYWRIGHT_TEST_BASE_URL || process.env.BASE_URL
+// Trim: a base URL sourced from a file/CI step can carry a trailing newline or
+// surrounding whitespace, which would produce an invalid baseURL and break the
+// webServer-skip condition.
+const externalBaseURL = (process.env.PLAYWRIGHT_TEST_BASE_URL || process.env.BASE_URL)?.trim() || undefined
 const isEndform = process.env.ENDFORM === 'true'
 
 /**
