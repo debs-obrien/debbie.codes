@@ -7,7 +7,7 @@ published: true
 canonical: https://theaiplatform.app/blog/testing-an-ai-product-without-burning-credit/
 ---
 
-Most tests are cheap. You click a button, you assert something changed, you run it a thousand times and nobody notices. Testing an AI product is different, because the interesting behaviour comes from a model, and every time you trigger it you pay for it.
+Most tests are cheap. You click a button, you assert something changed, you run it a thousand times and nobody notices. Testing an AI product is different, because the interesting behavior comes from a model, and every time you trigger it you pay for it.
 
 We ran straight into this while building a course product on top of [The AI Platform](https://theaiplatform.app). I want to walk you through how we ended up testing the whole chat flow end to end with [Playwright](https://playwright.dev).
 
