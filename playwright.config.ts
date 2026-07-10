@@ -2,12 +2,19 @@ import process from 'node:process'
 import { defineConfig, devices } from '@playwright/test'
 
 /**
- * When PLAYWRIGHT_TEST_BASE_URL is set (e.g. a Netlify deploy-preview URL in
- * CI), tests run against that already-deployed site and we must NOT boot a
- * local `npm run dev` server. Only start the local webServer when no external
- * base URL was provided (local development default).
+ * Resolve the base URL for the run. When an external URL is provided (a
+ * Netlify deploy-preview in CI, or Endform's cloud runners), tests run against
+ * that already-deployed site and we must NOT boot a local `npm run dev` server.
+ * Only start the local webServer when no external base URL was provided
+ * (local development default).
+ *
+ * - PLAYWRIGHT_TEST_BASE_URL: what our GitHub Actions preview workflow sets.
+ * - BASE_URL: what the Endform docs/workflow use.
+ * - ENDFORM=true: set automatically on Endform's remote runners; belt-and-
+ *   braces so we never try to spawn a dev server there.
  */
-const externalBaseURL = process.env.PLAYWRIGHT_TEST_BASE_URL
+const externalBaseURL = process.env.PLAYWRIGHT_TEST_BASE_URL || process.env.BASE_URL
+const isEndform = process.env.ENDFORM === 'true'
 
 /**
  * Read environment variables from file.
@@ -81,9 +88,9 @@ export default defineConfig({
   ],
 
   /* Run your local dev server before starting the tests.
-   * Skipped when PLAYWRIGHT_TEST_BASE_URL is set (e.g. testing a deployed
-   * Netlify preview in CI), so we don't boot or race a local dev server. */
-  webServer: externalBaseURL
+   * Skipped when an external base URL is set (Netlify preview in CI, Endform
+   * cloud runners), so we don't boot or race a local dev server. */
+  webServer: (externalBaseURL || isEndform)
     ? undefined
     : {
         command: 'npm run dev',

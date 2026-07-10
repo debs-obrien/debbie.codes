@@ -11,7 +11,9 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "test": "playwright test",
+    "test:endform": "endform test"
   },
   "dependencies": {
     "better-sqlite3": "^12.4.1",
@@ -29,6 +31,7 @@
     "@tailwindcss/typography": "^0.5.19",
     "@types/node": "^24.7.1",
     "dotenv": "^17.2.3",
+    "endform": "^0.72.0",
     "eslint": "^9.22.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.3",
