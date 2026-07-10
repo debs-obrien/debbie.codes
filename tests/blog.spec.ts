@@ -30,7 +30,14 @@ test('blog prev and next links update when navigating from paginated blog pages'
   await test.step('Open a paginated blog article', async () => {
     await page.goto('/blog/page/2');
 
-    await page.getByRole('link', { name: 'Playwright MCP Servers Explained Automation and Testing' }).click();
+    // Retry the click until the article actually opens. On a cold page load
+    // (fresh Endform runner) a click can fire before Nuxt hydration attaches
+    // the SPA router, silently leaving us on the listing page.
+    const articleLink = page.getByRole('link', { name: 'Playwright MCP Servers Explained Automation and Testing' });
+    await expect(async () => {
+      await articleLink.click();
+      await expect(page.getByRole('heading', { name: 'Playwright MCP Servers Explained Automation and Testing' })).toBeVisible({ timeout: 2000 });
+    }).toPass({ timeout: 15000 });
   });
 
   await test.step('Verify the first article navigation links', async () => {
@@ -39,9 +46,12 @@ test('blog prev and next links update when navigating from paginated blog pages'
   });
 
   await test.step('Navigate to the next article and verify the links refresh', async () => {
-    await page.getByRole('link', { name: /Next post: Fixing Failing Tests Automatically/ }).click();
+    const nextLink = page.getByRole('link', { name: /Next post: Fixing Failing Tests Automatically/ });
+    await expect(async () => {
+      await nextLink.click();
+      await expect(page.getByRole('heading', { name: /Fixing Failing Tests Automatically with Playwright/ })).toBeVisible({ timeout: 2000 });
+    }).toPass({ timeout: 15000 });
 
-    await expect(page.getByRole('heading', { name: /Fixing Failing Tests Automatically with Playwright/ })).toBeVisible();
     await expect(page.getByRole('link', { name: /Previous post: Playwright MCP Servers Explained/ })).toHaveAttribute('href', '/blog/playwright-mcp-servers-explained-automation-and-testing');
     await expect(page.getByRole('link', { name: /Next post: I Built My Own AI Agent/ })).toHaveAttribute('href', '/blog/i-built-my-own-ai-agent-and-you-can-too');
   });

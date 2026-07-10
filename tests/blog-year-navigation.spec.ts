@@ -19,9 +19,13 @@ test.describe('Blog Year Navigation', () => {
       const firstYearLink = yearLinks.first();
       const yearText = await firstYearLink.textContent();
 
-      await firstYearLink.click();
-
-      await expect(page).toHaveURL(new RegExp(`/blog/year/${yearText?.trim()}/?$`));
+      // Retry the click until navigation happens. On a cold page load (fresh
+      // Endform runner) a click can fire before Nuxt hydration attaches the SPA
+      // router, silently leaving us on /blog.
+      await expect(async () => {
+        await firstYearLink.click();
+        await expect(page).toHaveURL(new RegExp(`/blog/year/${yearText?.trim()}/?$`), { timeout: 2000 });
+      }).toPass({ timeout: 15000 });
 
       await expect(page.getByRole('heading', { name: yearText?.trim(), level: 1 })).toBeVisible();
     }
