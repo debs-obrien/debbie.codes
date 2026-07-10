@@ -20,9 +20,15 @@ test.describe('Mobile Navigation', () => {
       await expect(hamburgerButton).toHaveAccessibleName('open menu');
     });
 
-    await test.step('Open menu and verify state change', async () => {
-      await hamburgerButton.click();
-      await expect(page.getByRole('banner')).toBeInViewport();
+    await test.step('Open menu and verify it actually opened', async () => {
+      // The hamburger handler is attached on hydration; a click fired before
+      // that no-ops silently. Retry the click until the menu is genuinely
+      // open (a "close menu" button appears), rather than asserting something
+      // that is true regardless of menu state (the banner is always in view).
+      await expect(async () => {
+        await hamburgerButton.click();
+        await expect(page.getByRole('button', { name: 'close menu' })).toBeVisible({ timeout: 2000 });
+      }).toPass({ timeout: 15000 });
     });
 
     await test.step('Close menu using the close button', async () => {
@@ -140,8 +146,12 @@ test.describe('Mobile Navigation', () => {
     const aboutLink = nav.getByRole('link', { name: 'About', exact: true });
     
     await test.step('Open mobile menu and click Videos', async () => {
-      await hamburgerButton.click();
-      await expect(videosLink).toBeVisible();
+      // Retry the open click until the menu is genuinely open (nav link
+      // visible): a click fired before hydration attaches the handler no-ops.
+      await expect(async () => {
+        await hamburgerButton.click();
+        await expect(videosLink).toBeVisible({ timeout: 2000 });
+      }).toPass({ timeout: 15000 });
       await videosLink.click();
     });
 
@@ -152,8 +162,10 @@ test.describe('Mobile Navigation', () => {
     });
 
     await test.step('Open menu again and navigate to About', async () => {
-      await hamburgerButton.click();
-      await expect(aboutLink).toBeVisible();
+      await expect(async () => {
+        await hamburgerButton.click();
+        await expect(aboutLink).toBeVisible({ timeout: 2000 });
+      }).toPass({ timeout: 15000 });
       await aboutLink.click();
     });
 
