@@ -46,8 +46,12 @@ export default defineConfig({
     /* Base URL to use in actions like `await page.goto('/')`. */
     baseURL: externalBaseURL || 'http://localhost:3001',
 
-    /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
+    /* Keep a Playwright trace for every failed test (not just retries) so
+     * failures are debuggable after the fact. On Endform this surfaces as a
+     * clickable trace link on the failed test attempt in the dashboard; with
+     * 'on-first-retry' a test that fails without retrying produces no trace.
+     * See https://playwright.dev/docs/trace-viewer */
+    trace: 'retain-on-failure',
   },
 
   /* Configure projects for major browsers */
