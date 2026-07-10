@@ -55,10 +55,32 @@ Results appear in the [Endform dashboard](https://endform.dev/app).
 
 ## The comparison
 
-| Runner | Where | Parallelism | Wall-clock (baseline) |
-| --- | --- | --- | --- |
-| GitHub Actions (`preview-tests.yml`) | GH-hosted | 4 shards | ~3m35s total (resolve ~1m18s + shards ~1m20–1m46s + merge ~26s) |
-| Endform (`endform-tests.yml`) | Endform cloud | 1 test / VM | _to be recorded_ |
+Measured on the **same commit** (`d1e838e`), both green, both against the
+**same Netlify preview URL** — so this compares the runner, not the app.
+
+| Runner | Where | Parallelism | Test execution | Total job wall-clock¹ |
+| --- | --- | --- | --- | --- |
+| GitHub Actions (`preview-tests.yml`) | GH-hosted | 4 shards, `workers:1` each | slowest shard **124s** (shards: 56 / 89 / 97 / 124s) + merge 28s | **~233s** |
+| Endform (`endform-tests.yml`) | Endform cloud | 1 test per VM (106 tests) | **31.4s** for all 106 tests | **62s** |
+
+¹ Both also spend ~67–76s in the shared `resolve-preview` step waiting for the
+Netlify deploy preview to go live; that's Netlify latency, identical for both,
+and excluded from the numbers above.
+
+### Takeaways
+
+- **Test execution: 31.4s (Endform) vs 124s slowest shard (GitHub Actions) — roughly 4x faster.**
+  With one test per isolated VM, the suite finishes at the speed of the single
+  slowest test rather than the slowest 1/4 of the suite.
+- **The Endform job (62s) beat even a single GH Actions shard**, despite Endform
+  uploading + orchestrating 106 VMs, because there's no sharding tax or
+  within-shard serialization.
+- **Endform surfaced 3 real cold-start flakes that GitHub Actions hid.** GH
+  runners reuse a warm browser/server; Endform's cold per-test VMs exposed
+  hydration races (blog year-link, paginated prev/next, CreativeHero h1) that
+  were latent bugs in the tests. Fixing them (`expect.toPass`, longer hydration
+  window) made the suite robust on both runners — arguably the most valuable
+  outcome of the POC.
 
 Both target the **same Netlify preview URL**, so it's an apples-to-apples
 comparison of the runner, not the app.
