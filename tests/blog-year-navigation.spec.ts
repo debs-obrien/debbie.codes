@@ -19,9 +19,13 @@ test.describe('Blog Year Navigation', () => {
       const firstYearLink = yearLinks.first();
       const yearText = await firstYearLink.textContent();
 
-      await firstYearLink.click();
-
-      await expect(page).toHaveURL(`/blog/year/${yearText?.trim()}`);
+      // Retry the click until navigation happens. On a cold page load (fresh
+      // Endform runner) a click can fire before Nuxt hydration attaches the SPA
+      // router, silently leaving us on /blog.
+      await expect(async () => {
+        await firstYearLink.click();
+        await expect(page).toHaveURL(new RegExp(`/blog/year/${yearText?.trim()}/?$`), { timeout: 2000 });
+      }).toPass({ timeout: 15000 });
 
       await expect(page.getByRole('heading', { name: yearText?.trim(), level: 1 })).toBeVisible();
     }
@@ -32,8 +36,9 @@ test.describe('Blog Year Navigation', () => {
 
     await expect(page.getByRole('heading', { name: '2024', level: 1 })).toBeVisible();
 
-    // Verify that articles are shown for the year (using a more flexible count check)
-    const articleCount = await page.getByRole('article').count();
-    expect(articleCount).toBeGreaterThan(0); // Just ensure some articles are shown
+    // Verify that articles are shown for the year. Poll rather than a one-shot
+    // count(): on a cold load articles hydrate progressively, so an immediate
+    // read can catch an empty list.
+    await expect.poll(() => page.getByRole('article').count(), { timeout: 15000 }).toBeGreaterThan(0);
   });
 });

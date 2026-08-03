@@ -2,6 +2,24 @@ import process from 'node:process'
 import { defineConfig, devices } from '@playwright/test'
 
 /**
+ * Resolve the base URL for the run. When an external URL is provided (a
+ * Netlify deploy-preview in CI, or Endform's cloud runners), tests run against
+ * that already-deployed site and we must NOT boot a local `npm run dev` server.
+ * Only start the local webServer when no external base URL was provided
+ * (local development default).
+ *
+ * - PLAYWRIGHT_TEST_BASE_URL: what our GitHub Actions preview workflow sets.
+ * - BASE_URL: what the Endform docs/workflow use.
+ * - ENDFORM=true: set automatically on Endform's remote runners; belt-and-
+ *   braces so we never try to spawn a dev server there.
+ */
+// Trim: a base URL sourced from a file/CI step can carry a trailing newline or
+// surrounding whitespace, which would produce an invalid baseURL and break the
+// webServer-skip condition.
+const externalBaseURL = (process.env.PLAYWRIGHT_TEST_BASE_URL || process.env.BASE_URL)?.trim() || undefined
+const isEndform = process.env.ENDFORM === 'true'
+
+/**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
@@ -26,10 +44,14 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: process.env.PLAYWRIGHT_TEST_BASE_URL || 'http://localhost:3001',
+    baseURL: externalBaseURL || 'http://localhost:3001',
 
-    /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
+    /* Keep a Playwright trace for every failed test (not just retries) so
+     * failures are debuggable after the fact. On Endform this surfaces as a
+     * clickable trace link on the failed test attempt in the dashboard; with
+     * 'on-first-retry' a test that fails without retrying produces no trace.
+     * See https://playwright.dev/docs/trace-viewer */
+    trace: 'retain-on-failure',
   },
 
   /* Configure projects for major browsers */
@@ -72,10 +94,14 @@ export default defineConfig({
     // },
   ],
 
-  /* Run your local dev server before starting the tests */
-  webServer: {
-    command: 'npm run dev',
-    url: 'http://localhost:3001',
-    reuseExistingServer: !process.env.CI,
-  },
+  /* Run your local dev server before starting the tests.
+   * Skipped when an external base URL is set (Netlify preview in CI, Endform
+   * cloud runners), so we don't boot or race a local dev server. */
+  webServer: (externalBaseURL || isEndform)
+    ? undefined
+    : {
+        command: 'npm run dev',
+        url: 'http://localhost:3001',
+        reuseExistingServer: !process.env.CI,
+      },
 })

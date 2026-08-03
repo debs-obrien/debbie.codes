@@ -6,11 +6,11 @@ test.describe('Blog Tag Normalization', () => {
   });
 
   test('tag section shows normalized tags', async ({ page }) => {
-    // Just check that tag links exist without expecting a specific heading
+    // Just check that tag links exist without expecting a specific heading.
+    // Poll rather than a one-shot count(): on a cold load links hydrate
+    // progressively, so an immediate read can catch an empty list.
     const tagLinks = page.locator('[href^="/blog/tags/"]');
-    const tagCount = await tagLinks.count();
-
-    expect(tagCount).toBeGreaterThan(0);
+    await expect.poll(() => tagLinks.count(), { timeout: 15000 }).toBeGreaterThan(0);
     
     // Verify that capitalized tags exist (which shows normalization is working)
     // Use first() to avoid strict mode violations since there are multiple instances
@@ -22,7 +22,7 @@ test.describe('Blog Tag Normalization', () => {
     await page.goto('/blog/tags/testing');
 
     // Check that we navigated to the correct URL instead of checking heading text
-    await expect(page).toHaveURL('/blog/tags/testing');
+    await expect(page).toHaveURL(/\/blog\/tags\/testing\/?$/);
 
     await expect(page.getByPlaceholder('Search...')).toBeVisible();
   });
@@ -32,7 +32,7 @@ test.describe('Blog Tag Normalization', () => {
       await page.goto('/blog/tags/testing');
 
       // Check that we navigated to the correct URL
-      await expect(page).toHaveURL('/blog/tags/testing');
+      await expect(page).toHaveURL(/\/blog\/tags\/testing\/?$/);
 
       const searchInput = page.getByPlaceholder('Search...');
       await searchInput.fill('nuxt');
