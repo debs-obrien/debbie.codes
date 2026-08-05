@@ -132,7 +132,7 @@ useHead({
     />
 
     <!-- Browse by Topic and Year - Compact Design -->
-    <section v-if="recentYears.length > 0 || popularTags.length > 0" class="animated-section mb-8 max-w-4xl mx-auto">
+    <section v-if="recentYears.length > 0 || popularTags.length > 0" class="mb-8 max-w-4xl mx-auto">
       <!-- Tags Row -->
       <div v-if="popularTags.length > 0" class="flex flex-wrap gap-3 justify-center items-center mb-4">
         <TagChip
@@ -156,27 +156,25 @@ useHead({
     </section>
 
     <!-- Posts List -->
-    <section class="animated-section">
-      <FeaturedSection
-        v-if="filteredArticles.length > 0"
-        :items="filteredArticles"
-        :section="section"
-      />
+    <FeaturedSection
+      v-if="filteredArticles.length > 0"
+      :items="filteredArticles"
+      :section="section"
+    />
 
-      <!-- No Results -->
-      <div v-else class="text-center py-8">
-        <p class="text-gray-600 dark:text-gray-400">
-          No articles found matching your search.
-        </p>
-      </div>
+    <!-- No Results -->
+    <div v-else class="text-center py-8">
+      <p class="text-gray-600 dark:text-gray-400">
+        No articles found matching your search.
+      </p>
+    </div>
 
-      <!-- Pagination -->
-      <Pagination
-        v-if="posts && posts.length > 0 && !isSearchActive"
-        :current-page="page"
-        :total-pages="totalPages"
-        base-url="/blog"
-      />
-    </section>
+    <!-- Pagination -->
+    <Pagination
+      v-if="posts && posts.length > 0 && !isSearchActive"
+      :current-page="page"
+      :total-pages="totalPages"
+      base-url="/blog"
+    />
   </PageLayout>
 </template>

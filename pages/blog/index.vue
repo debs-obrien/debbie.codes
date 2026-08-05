@@ -108,7 +108,7 @@ useHead({
     <!-- Browse by Topic and Year - Compact Design -->
     <section
       v-if="recentYears.length > 0 || popularTags.length > 0"
-      class="animated-section mb-8 max-w-4xl mx-auto"
+      class="mb-8 max-w-4xl mx-auto"
     >
       <!-- Tags Row -->
       <div v-if="popularTags.length > 0" class="flex flex-wrap gap-3 justify-center items-center mb-4">
@@ -139,7 +139,7 @@ useHead({
     </section>
 
     <!-- Recent Posts Section -->
-    <section class="animated-section mb-16">
+    <section class="mb-16">
       <h2 v-if="!isSearchActive" class="text-2xl font-bold text-gray-900 dark:text-white mb-6 max-w-4xl mx-auto">
         Recent Posts
       </h2>

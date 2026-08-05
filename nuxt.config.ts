@@ -7,10 +7,6 @@ export default defineNuxtConfig({
     host: '127.0.0.1',
   },
 
-  app: {
-    pageTransition: { name: 'page', mode: 'out-in' },
-  },
-
   modules: [
     '@nuxtjs/robots',
     '@nuxt/image',
