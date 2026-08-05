@@ -62,21 +62,13 @@ useHead({
     <!-- Browse by Topic and Tag Section -->
     <section v-if="podcastTags.length > 0" class="mb-8 max-w-4xl mx-auto">
       <div class="flex flex-wrap gap-3 justify-center items-center">
-        <NuxtLink
-          v-for="(tag, index) in podcastTags"
+        <TagChip
+          v-for="tag in podcastTags"
           :key="tag"
           :to="`/podcasts/tags/${tag}`"
-          class="text-xs px-2.5 py-1 rounded-full font-medium hover:opacity-80 transition-opacity whitespace-nowrap" :class="[
-            ['bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200',
-             'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-200',
-             'bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-200',
-             'bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-200',
-             'bg-pink-100 text-pink-700 dark:bg-pink-900 dark:text-pink-200',
-             'bg-cyan-100 text-cyan-700 dark:bg-cyan-900 dark:text-cyan-200'][index % 6],
-          ]"
-        >
-          #{{ tag.replace('-', ' ') }}
-        </NuxtLink>
+          :label="tag.replace('-', ' ')"
+          hash
+        />
       </div>
     </section>
 
@@ -97,7 +89,7 @@ useHead({
     </section>
 
     <!-- Call to Action -->
-    <section class="bg-blue-50 dark:bg-gray-800 rounded-2xl p-8 text-center max-w-4xl mx-auto">
+    <section class="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 text-center max-w-4xl mx-auto">
       <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
         Want to collaborate?
       </h3>
@@ -108,7 +100,7 @@ useHead({
         href="https://www.linkedin.com/in/debbie-o-brien-1a199975/"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
+        class="inline-flex items-center px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-primary/90 transition-colors"
       >
         Get in touch
       </a>

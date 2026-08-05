@@ -17,14 +17,14 @@ const otherVideos = computed(() => props.list.slice(1))
     <!-- Main Featured Video -->
     <div class="group">
       <NuxtLink :to="getYouTubeUrl(mainVideo.video)" target="_blank" rel="noopener noreferrer">
-        <div class="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden">
+        <div class="aspect-video rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700">
           <img
             :src="getYouTubeThumbnail(mainVideo.video)"
             :alt="mainVideo.title"
             class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
           >
         </div>
-        <h3 class="mt-4 text-xl font-bold text-gray-800 dark:text-white group-hover:text-primary">
+        <h3 class="mt-4 text-xl font-bold text-gray-800 dark:text-white group-hover:text-primary transition-colors">
           {{ mainVideo.title }}
         </h3>
         <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
@@ -47,11 +47,11 @@ const otherVideos = computed(() => props.list.slice(1))
               :alt="video.title"
               width="128"
               height="72"
-              class="rounded-lg object-cover"
+              class="rounded-lg object-cover border border-gray-200 dark:border-gray-700"
             >
           </div>
           <div>
-            <h4 class="font-semibold text-gray-800 dark:text-white group-hover:text-primary">
+            <h4 class="font-semibold text-gray-800 dark:text-white group-hover:text-primary transition-colors">
               {{ video.title }}
             </h4>
             <p class="text-xs text-gray-500 dark:text-gray-400">

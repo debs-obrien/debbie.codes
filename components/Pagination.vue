@@ -62,7 +62,7 @@ const pageNumbers = computed(() => {
       :to="page === 1 ? baseUrl : `${baseUrl}/page/${page}`"
       class="px-3 py-2 text-sm font-medium rounded-md" :class="[
         page === currentPage
-          ? 'text-white bg-blue-600 border border-blue-600'
+          ? 'text-white bg-primary border border-primary'
           : 'text-gray-700 bg-white border border-gray-300 hover:bg-gray-50',
       ]"
       :aria-current="page === currentPage ? 'page' : undefined"

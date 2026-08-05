@@ -1,26 +1,21 @@
 :root {
   --color: #243746;
   --color-primary: #d8002d;
-  --color-secondary: #0e2233;
+  --color-secondary: #333333;
+  --color-dark: #091a28;
   --bg: #f3f5f4;
-  --bg-secondary: #fff;
+  --bg-secondary: #ffffff;
   --border-color: #ddd;
 }
 
 .dark {
   --color: #ebf4f1;
   --color-primary: #d8002d;
-  --color-secondary: #fdf9f3;
+  --color-secondary: #d1d5db;
+  --color-dark: #091a28;
   --bg: #091a28;
   --bg-secondary: #071521;
   --border-color: #0d2538;
-}
-.sepia-mode {
-  --color: #433422;
-  --color-secondary: #504231;
-  --bg: #f1e7d0;
-  --bg-secondary: #eae0c9;
-  --border-color: #ded0bf;
 }
 body {
   background-color: var(--bg);

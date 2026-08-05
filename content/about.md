@@ -2,12 +2,12 @@
 title: About
 ---
 
-With over 15 years experience in Frontend development I have worked as a Tech Lead and consultant for many important clients with various technologies and often with a strong focus on performance. I have lead teams both in house and remotely as well as giving workshops and training. I have many years of experience as a mentor for online learning platforms, Treehouse and OpenClassrooms and am a teacher at [Vue School](https://vueschool.io/courses/internationalization-with-vue-i18n) as well as [Jamstack Explorers](https://explorers.netlify.com/learn/get-started-with-nuxt), and I am a writer for [Ultimate Courses](https://ultimatecourses.com/author/debbieobrien).
+With over 15 years experience in Frontend development, I have worked as a Tech Lead and consultant for many clients across a range of technologies, often with a strong focus on performance. I have led teams both in house and remotely, and delivered workshops and training along the way. I have mentored learners on Treehouse and OpenClassrooms, teach at [Vue School](https://vueschool.io/courses/internationalization-with-vue-i18n) and [Jamstack Explorers](https://explorers.netlify.com/learn/get-started-with-nuxt), and write for [Ultimate Courses](https://ultimatecourses.com/author/debbieobrien).
 
-I am a Platform Engineer – Applied AI at Zephyr Cloud, Google Developer Expert in web technologies, Nuxt Ambassador, and am a former Microsoft Most Valuable Professional in developer technologies, Media Developer Expert and GitHub Star Alumni.
+I am a Platform Engineer – Applied AI at Zephyr Cloud, a Google Developer Expert in web technologies, and a Nuxt Ambassador — previously Developer Relations at Nuxt. I am also a former Microsoft Most Valuable Professional in developer technologies, Cloudinary Media Developer Expert, and GitHub Star Alumni.
 
-I have a special love for JavaScript frameworks especially Vue.js and Nuxt.js and am now focused on testing especially end to end testing with Playwright. I have a Frontend and FullStack Tech Degree and am Microsoft certified. I am an international speaker, and have spoken at many meet-ups and conferences worldwide on many continents including Antarctica.
+I have a special love for JavaScript frameworks, especially Vue.js and Nuxt.js, and spend a lot of my time on testing — particularly end-to-end testing with Playwright and how AI fits into modern developer workflows. I hold Frontend and Full Stack tech degrees and am Microsoft certified. I speak internationally at meetups and conferences around the world, including Antarctica.
 
-I am Irish but live in Mallorca, Spain and when I am not writing code and studying new technologies you can find me doing all sorts of sports from running, cycling and skiing, body combat and of course Taekwondo as I am a 4th degree black belt.
+I am Irish and live in Mallorca, Spain. When I am not writing code or exploring new technologies, you will find me running, cycling, skiing, doing body combat, or training Taekwondo — I am a 4th degree black belt.
 
-Checkout my [YouTube Channel](https://www.youtube.com/c/DebbieOBrien) for all the latest videos.
+Check out my [YouTube Channel](https://www.youtube.com/c/DebbieOBrien) for the latest videos.

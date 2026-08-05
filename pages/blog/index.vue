@@ -107,40 +107,23 @@ useHead({
     <section v-if="postYears.length > 0 || popularTags.length > 0" class="mb-8 max-w-4xl mx-auto">
       <!-- Tags Row -->
       <div v-if="popularTags.length > 0" class="flex flex-wrap gap-3 justify-center items-center mb-4">
-        <NuxtLink
-          v-for="({ tag, displayName }, index) in popularTags"
+        <TagChip
+          v-for="{ tag, displayName } in popularTags"
           :key="tag"
           :to="`/blog/tags/${tag}`"
-          class="text-xs px-2.5 py-1 rounded-full font-medium hover:opacity-80 transition-opacity whitespace-nowrap" :class="[
-            ['bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200',
-             'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-200',
-             'bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-200',
-             'bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-200',
-             'bg-pink-100 text-pink-700 dark:bg-pink-900 dark:text-pink-200',
-             'bg-cyan-100 text-cyan-700 dark:bg-cyan-900 dark:text-cyan-200'][index % 6],
-          ]"
-        >
-          #{{ displayName }}
-        </NuxtLink>
+          :label="displayName"
+          hash
+        />
       </div>
 
       <!-- Years Row -->
       <div v-if="postYears.length > 0" class="flex flex-wrap gap-3 justify-center items-center">
-        <NuxtLink
-          v-for="({ year }, index) in postYears"
+        <TagChip
+          v-for="{ year } in postYears"
           :key="year"
           :to="`/blog/year/${year}`"
-          class="text-xs px-2.5 py-1 rounded-full font-medium hover:opacity-80 transition-opacity whitespace-nowrap" :class="[
-            ['bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200',
-             'bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-200',
-             'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-200',
-             'bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-200',
-             'bg-pink-100 text-pink-700 dark:bg-pink-900 dark:text-pink-200',
-             'bg-cyan-100 text-cyan-700 dark:bg-cyan-900 dark:text-cyan-200'][index % 6],
-          ]"
-        >
-          {{ year }}
-        </NuxtLink>
+          :label="year"
+        />
       </div>
     </section>
 
@@ -157,7 +140,7 @@ useHead({
       <div v-if="!isSearchActive" class="text-center mt-8">
         <NuxtLink
           to="/blog/page/1"
-          class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
+          class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-primary/90 transition-colors"
         >
           View All Posts
         </NuxtLink>
