@@ -23,8 +23,11 @@ function readingTimeForItem(item: BlogPostPreview): string | null {
 /** Precompute once per list so template lookups are O(1). */
 const readingTimeByPath = computed(() => {
   const labels = new Map<string, string | null>()
-  for (const item of props.list)
+  for (const item of props.list) {
+    if (!item.path)
+      continue
     labels.set(item.path, readingTimeForItem(item))
+  }
   return labels
 })
 
