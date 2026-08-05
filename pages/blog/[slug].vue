@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { formatDate } from '~/utils/date'
+import { calculateReadingTime, extractTextFromContent, formatReadingTime } from '~/utils/reading-time'
 
 const route = useRoute()
 const path = route.path.replace(/\/$/, '')
@@ -21,6 +22,13 @@ const image: string = article.value?.image || ''
 const ogImage: string = article.value?.ogimage || ''
 
 const formattedDate = formatDate(article.value?.date || '')
+
+const readingTimeLabel = computed(() => {
+  if (!article.value) return ''
+  const text = extractTextFromContent(article.value.body) || article.value.description || ''
+  if (!text) return ''
+  return formatReadingTime(calculateReadingTime(text))
+})
 
 useHead({
   title: article.value?.title || '',
@@ -77,12 +85,33 @@ useHead({
 <template>
   <main class="container mx-auto px-4 sm:px-6 max-w-5xl">
     <article v-if="article !== null">
+      <div class="max-w-4xl mx-auto pt-4 sm:pt-6">
+        <NuxtLink
+          to="/blog"
+          class="inline-flex items-center text-sm text-gray-500 dark:text-gray-400 hover:text-primary transition-colors"
+        >
+          ← Back to blog
+        </NuxtLink>
+      </div>
+
       <header v-if="article" class="py-4 sm:py-6 text-center">
         <h1 class="font-extrabold text-2xl sm:text-3xl lg:text-5xl mb-2 sm:mb-3">
           {{ article.title }}
         </h1>
 
-        <Date :date="formattedDate" />
+        <div class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 mb-3">
+          <Date :date="formattedDate" />
+          <span
+            v-if="readingTimeLabel"
+            class="tracking-widest text-xs title-font font-medium text-gray-400"
+          >
+            {{ readingTimeLabel }}
+          </span>
+        </div>
+
+        <div v-if="article.tags?.length" class="flex justify-center">
+          <TagsList :tags="article.tags" section="blog" />
+        </div>
       </header>
       <div v-if="article.image" class="rounded mb-4 sm:mb-6 overflow-hidden object-cover object-center max-w-xl mx-auto">
         <NuxtImg

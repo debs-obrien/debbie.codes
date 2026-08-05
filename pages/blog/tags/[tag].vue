@@ -97,6 +97,8 @@ const postYears = computed(() => {
     .sort((a, b) => b.year.localeCompare(a.year))
 })
 
+const recentYears = computed(() => postYears.value.slice(0, 4))
+
 const filteredArticles = ref<any[]>([])
 const isSearchActive = ref(false)
 
@@ -104,7 +106,7 @@ const isSearchActive = ref(false)
 const displayTag = getTagDisplayName(normalizedUrlTag)
 
 const title: string = `${displayTag} Blog Posts`
-const description: string = ''
+const description: string = `Posts tagged ${displayTag} — testing, AI, Playwright, and the web.`
 const section: Sections = 'blog'
 
 useHead({
@@ -123,42 +125,32 @@ useHead({
     />
 
     <!-- Browse by Topic and Year - Compact Design -->
-    <section v-if="postYears.length > 0 || popularTags.length > 0" class="mb-8 max-w-4xl mx-auto">
+    <section v-if="recentYears.length > 0 || popularTags.length > 0" class="mb-8 max-w-4xl mx-auto">
       <!-- Tags Row -->
       <div v-if="popularTags.length > 0" class="flex flex-wrap gap-3 justify-center items-center mb-4">
-        <NuxtLink
-          v-for="({ tag: tagSlug, displayName }, index) in popularTags"
+        <TagChip
+          v-for="{ tag: tagSlug, displayName } in popularTags"
           :key="tagSlug"
           :to="`/blog/tags/${tagSlug}`"
-          class="text-xs px-2.5 py-1 rounded-full font-medium hover:opacity-80 transition-opacity whitespace-nowrap" :class="[
-            ['bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200',
-             'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-200',
-             'bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-200',
-             'bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-200',
-             'bg-pink-100 text-pink-700 dark:bg-pink-900 dark:text-pink-200',
-             'bg-cyan-100 text-cyan-700 dark:bg-cyan-900 dark:text-cyan-200'][index % 6],
-          ]"
-        >
-          #{{ displayName }}
-        </NuxtLink>
+          :label="displayName"
+          hash
+          :active="tagSlug === normalizedUrlTag"
+        />
       </div>
 
-      <!-- Years Row -->
-      <div v-if="postYears.length > 0" class="flex flex-wrap gap-3 justify-center items-center">
-        <NuxtLink
-          v-for="({ year }, index) in postYears"
+      <!-- Years Row — recent years only -->
+      <div v-if="recentYears.length > 0" class="flex flex-wrap gap-3 justify-center items-center">
+        <TagChip
+          v-for="{ year } in recentYears"
           :key="year"
           :to="`/blog/year/${year}`"
-          class="text-xs px-2.5 py-1 rounded-full font-medium hover:opacity-80 transition-opacity whitespace-nowrap" :class="[
-            ['bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200',
-             'bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-200',
-             'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-200',
-             'bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-200',
-             'bg-pink-100 text-pink-700 dark:bg-pink-900 dark:text-pink-200',
-             'bg-cyan-100 text-cyan-700 dark:bg-cyan-900 dark:text-cyan-200'][index % 6],
-          ]"
+          :label="year"
+        />
+        <NuxtLink
+          to="/blog/page/1"
+          class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary transition-colors"
         >
-          {{ year }}
+          Archive
         </NuxtLink>
       </div>
     </section>

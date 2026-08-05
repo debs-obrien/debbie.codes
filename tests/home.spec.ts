@@ -5,14 +5,8 @@ test.beforeEach(async ({ page }) => {
 });
 
 test('home contains name and title', async ({ page }) => {
-  // The CreativeHero glitch effect momentarily swaps the hero name between an
-  // <h1> and a plain element during hydration, so `getByRole('heading')` can
-  // transiently match nothing — don't anchor on the heading role. The subtitle
-  // paragraph is stable once hydrated, so assert on that, then confirm the name
-  // text is present anywhere in the hero (case-insensitive: it renders
-  // uppercased via CSS, but that's presentational).
-  await expect(page.getByText('Platform Engineer – Applied AI at Zephyr Cloud')).toBeVisible({ timeout: 15000 });
-  await expect(page.getByText(/Debbie O'Brien/i).first()).toBeVisible();
+  await expect(page.getByRole('heading', { level: 1, name: /Debbie O'Brien/i })).toBeVisible();
+  await expect(page.getByText('Platform Engineer – Applied AI at Zephyr Cloud')).toBeVisible();
 });
 
 // Featured Posts section no longer exists after redesign

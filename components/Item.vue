@@ -35,7 +35,7 @@ defineProps<{
         :target="item.url ? '_blank' : '_self'"
       >
         <h2
-          class="mb-0 lg:mb-4 text-lg md:text-3xl font-semibold text-gray-800 hover:underline dark:text-white"
+          class="mb-0 lg:mb-4 text-lg md:text-2xl font-semibold text-gray-800 dark:text-white hover:text-primary transition-colors"
         >
           {{ item.title }}
         </h2>

@@ -40,12 +40,12 @@ defineProps<{
     <!-- Content -->
     <div class="p-6">
       <div class="mb-3">
-        <span class="text-sm font-medium text-blue-600 dark:text-blue-400">
+        <span class="text-sm font-medium text-primary">
           {{ item.host }}
         </span>
       </div>
 
-      <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors line-clamp-2">
+      <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 hover:text-primary transition-colors line-clamp-2">
         <NuxtLink
           :to="item.url || item.path"
           :target="item.url ? '_blank' : '_self'"
@@ -53,7 +53,7 @@ defineProps<{
         >
           {{ item.title }}
         </NuxtLink>
-      </h2>
+      </h3>
 
       <p class="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-3">
         {{ item.description }}

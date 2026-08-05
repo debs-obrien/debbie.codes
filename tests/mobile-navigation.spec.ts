@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import type { Page } from '@playwright/test';
 
 test.describe('Mobile Navigation', () => {
-  const getHamburgerButton = (page: Page) => page.getByRole('button', { name: 'open menu' });
+  const getHamburgerButton = (page: Page) => page.getByRole('button', { name: 'Open menu' });
 
   test.beforeEach(async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 });
@@ -17,29 +17,25 @@ test.describe('Mobile Navigation', () => {
 
     await test.step('Verify mobile menu is initially closed', async () => {
       await expect(page.getByRole('navigation')).not.toBeVisible();
-      await expect(hamburgerButton).toHaveAccessibleName('open menu');
+      await expect(hamburgerButton).toHaveAccessibleName('Open menu');
     });
 
     await test.step('Open menu and verify it actually opened', async () => {
       // The hamburger handler is attached on hydration; a click fired before
-      // that no-ops silently. Retry the click until the menu is genuinely
-      // open (a "close menu" button appears), rather than asserting something
-      // that is true regardless of menu state (the banner is always in view).
+      // that no-ops silently. Retry until the overlay close control appears.
+      // (Hamburger also switches to "Close menu" when open, so scope to the ✕.)
+      const overlayClose = page.getByRole('button', { name: 'Close menu' }).filter({ hasText: '✕' });
       await expect(async () => {
         await hamburgerButton.click();
-        await expect(page.getByRole('button', { name: 'close menu' })).toBeVisible({ timeout: 2000 });
+        await expect(overlayClose).toBeVisible({ timeout: 2000 });
       }).toPass({ timeout: 15000 });
     });
 
     await test.step('Close menu using the close button', async () => {
-      // Opening the menu renders a separate close button ("close menu")
-      // overlaid on top of the hamburger; the hamburger itself stays in the
-      // DOM (covered) and keeps its "open menu" label, so we must click the
-      // dedicated close control rather than the hamburger again.
-      const closeButton = page.getByRole('button', { name: 'close menu' });
+      const closeButton = page.getByRole('button', { name: 'Close menu' }).filter({ hasText: '✕' });
       await closeButton.click();
       await expect(page.getByRole('navigation')).not.toBeVisible();
-      await expect(hamburgerButton).toHaveAccessibleName('open menu');
+      await expect(hamburgerButton).toHaveAccessibleName('Open menu');
     });
   });
 
@@ -78,8 +74,7 @@ test.describe('Mobile Navigation', () => {
     });
 
     await test.step('Click Blog link and verify navigation', async () => {
-      // Use force click to bypass any overlaying elements from CreativeHero animations
-      await page.getByRole('banner').getByRole('navigation').getByRole('link', { name: 'Blog' }).click({ force: true });
+      await page.getByRole('banner').getByRole('navigation').getByRole('link', { name: 'Blog' }).click();
       await expect(page).toHaveURL(/.*\/blog/);
       await expect(page).toHaveTitle(/.*Blog.*Debbie Codes/);
     });
@@ -122,8 +117,7 @@ test.describe('Mobile Navigation', () => {
       // Wait for the navigation to become visible
       await expect(page.getByRole('banner').getByRole('navigation')).toBeVisible();
       
-      // Use force click to bypass any overlaying elements from CreativeHero animations
-      await page.getByRole('banner').getByRole('navigation').getByRole('link', { name: 'About' }).click({ force: true });
+      await page.getByRole('banner').getByRole('navigation').getByRole('link', { name: 'About' }).click();
       await expect(page).toHaveURL(/.*\/about/);
     });
 
@@ -158,7 +152,7 @@ test.describe('Mobile Navigation', () => {
     await test.step('Verify menu closed after navigation', async () => {
       await expect(page).toHaveURL(/.*\/videos/);
       // Menu is closed when hamburger button shows 3 bars (not X)
-      await expect(hamburgerButton).toHaveAccessibleName('open menu');
+      await expect(hamburgerButton).toHaveAccessibleName('Open menu');
     });
 
     await test.step('Open menu again and navigate to About', async () => {
@@ -171,7 +165,7 @@ test.describe('Mobile Navigation', () => {
 
     await test.step('Verify menu closed after second navigation', async () => {
       await expect(page).toHaveURL(/.*\/about/);
-      await expect(hamburgerButton).toHaveAccessibleName('open menu');
+      await expect(hamburgerButton).toHaveAccessibleName('Open menu');
     });
   });
 
@@ -179,7 +173,7 @@ test.describe('Mobile Navigation', () => {
     const hamburgerButton = getHamburgerButton(page);
     await test.step('Verify hamburger button has proper accessibility attributes', async () => {
       await expect(hamburgerButton).toBeVisible();
-      await expect(hamburgerButton).toHaveAccessibleName('open menu');
+      await expect(hamburgerButton).toHaveAccessibleName('Open menu');
     });
 
     await test.step('Verify button is keyboard accessible', async () => {

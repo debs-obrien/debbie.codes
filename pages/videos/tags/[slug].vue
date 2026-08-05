@@ -60,28 +60,20 @@ useHead({
     />
 
     <!-- Browse by Topic and Tag Section -->
-    <section v-if="videoTags.length > 0" class="mb-8 max-w-4xl mx-auto">
+    <section v-if="videoTags.length > 0" class="animated-section mb-8 max-w-4xl mx-auto">
       <div class="flex flex-wrap gap-3 justify-center items-center">
-        <NuxtLink
-          v-for="(tag, index) in videoTags"
+        <TagChip
+          v-for="tag in videoTags"
           :key="tag"
           :to="`/videos/tags/${tag}`"
-          class="text-xs px-2.5 py-1 rounded-full font-medium hover:opacity-80 transition-opacity whitespace-nowrap" :class="[
-            ['bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200',
-             'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-200',
-             'bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-200',
-             'bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-200',
-             'bg-pink-100 text-pink-700 dark:bg-pink-900 dark:text-pink-200',
-             'bg-cyan-100 text-cyan-700 dark:bg-cyan-900 dark:text-cyan-200'][index % 6],
-          ]"
-        >
-          #{{ tag.replace('-', ' ') }}
-        </NuxtLink>
+          :label="tag.replace('-', ' ')"
+          hash
+        />
       </div>
     </section>
 
     <!-- Videos Grid Section -->
-    <section v-if="(isSearchActive ? filteredVideos : videos)?.length" class="mb-16">
+    <section v-if="(isSearchActive ? filteredVideos : videos)?.length" class="animated-section mb-16">
       <h2 v-if="!isSearchActive" class="text-2xl font-bold text-gray-900 dark:text-white mb-6 max-w-4xl mx-auto">
         {{ topic }} Videos
       </h2>

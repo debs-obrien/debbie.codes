@@ -31,7 +31,8 @@ test.describe('Blog Search Functionality', () => {
     if (!isMobile) {
       const articles = page.getByRole('article');
       const firstArticle = articles.first();
-      const firstArticleTitle = await firstArticle.getByRole('link').first().innerText();
+      // Use the heading only — the card link wraps title + description
+      const firstArticleTitle = (await firstArticle.getByRole('heading').innerText()).trim();
 
       await searchFor(page, firstArticleTitle);
       await expect(articles.filter({ hasText: firstArticleTitle })).not.toHaveCount(0);

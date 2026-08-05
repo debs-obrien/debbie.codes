@@ -12,9 +12,9 @@ test.describe('About Page Content', () => {
     await expect(page.getByRole('heading', { name: 'Awards & Achievements' })).toBeVisible();
     await expect(page.getByText('Recognition and certifications that reflect my journey in technology and community contribution.')).toBeVisible();
 
-    // 3. Count the number of award cards displayed
+    // 3. Count the number of award cards displayed (includes Nuxt Ambassador)
     const awardCards = page.locator('main article');
-    await expect(awardCards).toHaveCount(8);
+    await expect(awardCards).toHaveCount(9);
 
     // Verify specific awards are displayed
     await expect(page.getByRole('heading', { name: 'Learn more about GitHub Star Alumni (opens in new tab)' })).toBeVisible();

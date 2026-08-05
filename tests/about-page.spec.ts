@@ -12,8 +12,8 @@ test.describe('About Page', () => {
     });
 
     await test.step('Verify hero section content', async () => {
-      await expect(page.getByText('👋 Hello There!')).toBeVisible();
-      await expect(page.getByRole('heading', { name: "I'm Debbie O'Brien", level: 1 })).toBeVisible();
+      await expect(page.getByText('About', { exact: true }).first()).toBeVisible();
+      await expect(page.getByRole('heading', { name: /I'm Debbie O'Brien/i, level: 1 })).toBeVisible();
     });
   });
 
@@ -28,8 +28,10 @@ test.describe('About Page', () => {
 
     await test.step('Verify current role and achievements', async () => {
       await expect(page.getByText('Platform Engineer – Applied AI at Zephyr Cloud')).toBeVisible();
-      await expect(page.getByText('Google Developer Expert in web technologies')).toBeVisible();
-      await expect(page.getByText('Nuxt Ambassador')).toBeVisible();
+      // Bio + awards section both mention GDE — scope to the bio content renderer
+      await expect(page.locator('.prose').getByText(/Google Developer Expert in web technologies/)).toBeVisible();
+      await expect(page.locator('.prose').getByText(/Nuxt Ambassador/)).toBeVisible();
+      await expect(page.locator('.prose').getByText(/previously Developer Relations at Nuxt/)).toBeVisible();
     });
 
   });
@@ -45,101 +47,86 @@ test.describe('About Page', () => {
         - region:
           - list:
             - article:
-              - img
               - heading "Learn more about GitHub Star Alumni (opens in new tab)" [level=3]:
                 - link "Learn more about GitHub Star Alumni (opens in new tab)":
                   - /url: https://stars.github.com/alumni/
                   - text: GitHub Star Alumni
-                  - img
               - paragraph
               - link "Learn more about GitHub Star Alumni (opens in new tab)":
                 - /url: https://stars.github.com/alumni/
                 - text: Learn More
-                - img
             - article:
-              - img
               - heading "Learn more about Google Developer Expert (opens in new tab)" [level=3]:
                 - link "Learn more about Google Developer Expert (opens in new tab)":
                   - /url: https://me.developers.google.com/u/115790798136433531532
                   - text: Google Developer Expert
-                  - img
               - paragraph
               - link "Learn more about Google Developer Expert (opens in new tab)":
                 - /url: https://me.developers.google.com/u/115790798136433531532
                 - text: Learn More
-                - img
             - article:
-              - img
               - heading "Learn more about Former Microsoft Most Valuable Professional (opens in new tab)" [level=3]:
                 - link "Learn more about Former Microsoft Most Valuable Professional (opens in new tab)":
                   - /url: https://mvp.microsoft.com/en-us/PublicProfile/5003613?fullName=Debbie%20O%27Brien
                   - text: Former Microsoft Most Valuable Professional
-                  - img
               - paragraph
               - link "Learn more about Former Microsoft Most Valuable Professional (opens in new tab)":
                 - /url: https://mvp.microsoft.com/en-us/PublicProfile/5003613?fullName=Debbie%20O%27Brien
                 - text: Learn More
-                - img
             - article:
-              - img
+              - heading "Learn more about Nuxt Ambassador (opens in new tab)" [level=3]:
+                - link "Learn more about Nuxt Ambassador (opens in new tab)":
+                  - /url: https://nuxtjs.org/teams/
+                  - text: Nuxt Ambassador
+              - paragraph
+              - link "Learn more about Nuxt Ambassador (opens in new tab)":
+                - /url: https://nuxtjs.org/teams/
+                - text: Learn More
+            - article:
               - heading "Learn more about Media Developer Expert (opens in new tab)" [level=3]:
                 - link "Learn more about Media Developer Expert (opens in new tab)":
                   - /url: https://cloudinary.com/mde
                   - text: Media Developer Expert
-                  - img
               - paragraph
               - link "Learn more about Media Developer Expert (opens in new tab)":
                 - /url: https://cloudinary.com/mde
                 - text: Learn More
-                - img
             - article:
-              - img
               - heading "Learn more about Auth0 Ambassador (opens in new tab)" [level=3]:
                 - link "Learn more about Auth0 Ambassador (opens in new tab)":
                   - /url: https://auth0.com/ambassador-program/
                   - text: Auth0 Ambassador
-                  - img
               - paragraph
               - link "Learn more about Auth0 Ambassador (opens in new tab)":
                 - /url: https://auth0.com/ambassador-program/
                 - text: Learn More
-                - img
             - article:
-              - img
               - heading "Learn more about Microsoft Certified (opens in new tab)" [level=3]:
                 - link "Learn more about Microsoft Certified (opens in new tab)":
                   - /url: https://www.youracclaim.com/badges/2bb11106-cef6-4a1c-9618-1ba63b413377
                   - text: Microsoft Certified
-                  - img
               - paragraph
               - link "Learn more about Microsoft Certified (opens in new tab)":
                 - /url: https://www.youracclaim.com/badges/2bb11106-cef6-4a1c-9618-1ba63b413377
                 - text: Learn More
-                - img
             - article:
-              - img
               - heading "Learn more about Bachelor's Level Diploma (opens in new tab)" [level=3]:
                 - link "Learn more about Bachelor's Level Diploma (opens in new tab)":
                   - /url: https://openclassrooms.com/en/paths/315-front-end-developer
                   - text: Bachelor's Level Diploma
-                  - img
               - paragraph
               - link "Learn more about Bachelor's Level Diploma (opens in new tab)":
                 - /url: https://openclassrooms.com/en/paths/315-front-end-developer
                 - text: Learn More
-                - img
             - article:
-              - img
               - heading "Learn more about Full Stack JavaScript Tech Degree (opens in new tab)" [level=3]:
                 - link "Learn more about Full Stack JavaScript Tech Degree (opens in new tab)":
                   - /url: https://teamtreehouse.com/techdegree
                   - text: Full Stack JavaScript Tech Degree
-                  - img
               - paragraph
               - link "Learn more about Full Stack JavaScript Tech Degree (opens in new tab)":
                 - /url: https://teamtreehouse.com/techdegree
                 - text: Learn More
-                - img
       `);
     });
   });
@@ -147,7 +134,7 @@ test.describe('About Page', () => {
   test('About page - Validates award article count and links', async ({ page }) => {
     await test.step('Count award articles', async () => {
       const articles = page.getByRole('region').getByRole('article');
-      await expect(articles).toHaveCount(8);
+      await expect(articles).toHaveCount(9);
     });
 
     await test.step('Verify external award links', async () => {

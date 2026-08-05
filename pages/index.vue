@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
-
 const { data: articles } = await useAsyncData('articles-home', () =>
   queryCollection('blog').order('date', 'DESC').limit(6).all())
 
@@ -10,30 +8,17 @@ const { data: videos } = await useAsyncData('videos-home', () =>
 const { data: podcasts } = await useAsyncData('podcasts-home', () =>
   queryCollection('podcasts').order('date', 'DESC').limit(2).all())
 
-onMounted(() => {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('fade-in')
-        }
-      })
-    },
-    { threshold: 0.1 },
-  )
-
-  document.querySelectorAll('.animated-section').forEach((section) => {
-    observer.observe(section)
-  })
-})
+const homeBody = ref<HTMLElement | null>(null)
+useScrollReveal(homeBody)
 </script>
 
 <template>
   <div>
     <CreativeHero />
-    <div class="pt-4 pb-12 px-6 sm:px-8 lg:px-12 bg-white dark:bg-gray-800">
-      <div class="max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-12">
+    <div ref="homeBody" class="home-body relative pb-12 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900">
+      <div class="home-fade absolute inset-x-0 top-0 h-16 pointer-events-none" aria-hidden="true" />
+      <div class="relative max-w-6xl mx-auto pt-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-14">
           <section
             aria-labelledby="recent-videos"
             class="animated-section lg:col-span-2"
@@ -65,7 +50,9 @@ onMounted(() => {
                 Recent Podcasts
               </AppSubtitle>
             </NuxtLink>
-            <CardList v-if="podcasts" :list="podcasts" section="podcasts" :stacked="true" />
+            <div class="mt-8">
+              <PodcastGrid v-if="podcasts" :list="podcasts" />
+            </div>
           </section>
 
           <section
@@ -86,14 +73,19 @@ onMounted(() => {
 </template>
 
 <style scoped>
-.animated-section {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+.home-fade {
+  background: linear-gradient(
+    to bottom,
+    rgba(9, 26, 40, 0.08),
+    transparent
+  );
 }
 
-.animated-section.fade-in {
-  opacity: 1;
-  transform: translateY(0);
+:global(.dark) .home-fade {
+  background: linear-gradient(
+    to bottom,
+    rgba(9, 26, 40, 0.45),
+    transparent
+  );
 }
 </style>

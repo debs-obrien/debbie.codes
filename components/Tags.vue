@@ -32,32 +32,25 @@ const sortedArticleTags = articleTags.sort()
 
 <template>
   <ul
-    aria-label="topics" class="max-w-4xl flex justify-left md:justify-center items-center gap-2 my-4 mx-0 md:mx-auto border border-transparent rounded-lg overflow-x-scroll md:overflow-visible flex-nowrap md:flex-wrap font-normal md:text-sm sm:text-xl text-white uppercase"
+    aria-label="topics"
+    class="max-w-4xl flex justify-left md:justify-center items-center gap-2 my-4 mx-0 md:mx-auto overflow-x-scroll md:overflow-visible flex-nowrap md:flex-wrap"
   >
-    <li class="flex gap-2 justify-center flex-nowrap">
-      <NuxtLink
+    <li>
+      <TagChip
         :to="`/${section}`"
-        class="px-2 py-0.5 bg-slate-600 rounded-md transition-all hover:-translate-y-0.5 hover:bg-blue-500 whitespace-nowrap"
-      >
-        All
-      </NuxtLink>
+        label="All"
+        variant="pill"
+      />
     </li>
     <li
       v-for="(tag, i) in sortedArticleTags"
-      :key="tag + i" class="flex gap-2 justify-center flex-nowrap "
+      :key="tag + i"
     >
-      <NuxtLink
+      <TagChip
         :to="`/${section}/tags/${tag}`"
-        class="px-2 py-0.5 bg-slate-600 rounded-md transition-all hover:-translate-y-0.5 hover:bg-blue-500 whitespace-nowrap"
-      >
-        {{ replaceHyphen(tag) }}
-      </NuxtLink>
+        :label="replaceHyphen(tag)"
+        variant="pill"
+      />
     </li>
   </ul>
 </template>
-
-<style scoped>
-.router-link-exact-active {
-  background-color: #3b82f6; /* Tailwind's bg-blue-500 */
-}
-</style>

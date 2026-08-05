@@ -1,26 +1,21 @@
 :root {
   --color: #243746;
   --color-primary: #d8002d;
-  --color-secondary: #0e2233;
+  --color-secondary: #333333;
+  --color-dark: #091a28;
   --bg: #f3f5f4;
-  --bg-secondary: #fff;
+  --bg-secondary: #ffffff;
   --border-color: #ddd;
 }
 
 .dark {
   --color: #ebf4f1;
   --color-primary: #d8002d;
-  --color-secondary: #fdf9f3;
+  --color-secondary: #d1d5db;
+  --color-dark: #091a28;
   --bg: #091a28;
   --bg-secondary: #071521;
   --border-color: #0d2538;
-}
-.sepia-mode {
-  --color: #433422;
-  --color-secondary: #504231;
-  --bg: #f1e7d0;
-  --bg-secondary: #eae0c9;
-  --border-color: #ded0bf;
 }
 body {
   background-color: var(--bg);
@@ -161,4 +156,69 @@ body {
 
 .dark .prose pre::-webkit-scrollbar-thumb:hover {
   background: #6b7280;
+}
+
+/* Scroll reveal — used with useScrollReveal()
+   Visible by default; `.reveal-pending` is added client-side only. */
+.animated-section {
+  transition: opacity 0.35s ease-out, transform 0.35s ease-out;
+}
+
+.animated-section.reveal-pending {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.animated-section.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered grids: keep the container visible; animate children only */
+.animated-section.stagger-children.reveal-pending {
+  opacity: 1;
+  transform: none;
+}
+
+.animated-section.stagger-children.reveal-pending > * {
+  opacity: 0;
+}
+
+.animated-section.stagger-children.fade-in > * {
+  animation: reveal-rise 0.35s ease-out both;
+}
+
+.animated-section.stagger-children.fade-in > *:nth-child(1) { animation-delay: 0.02s; }
+.animated-section.stagger-children.fade-in > *:nth-child(2) { animation-delay: 0.05s; }
+.animated-section.stagger-children.fade-in > *:nth-child(3) { animation-delay: 0.08s; }
+.animated-section.stagger-children.fade-in > *:nth-child(4) { animation-delay: 0.11s; }
+.animated-section.stagger-children.fade-in > *:nth-child(5) { animation-delay: 0.14s; }
+.animated-section.stagger-children.fade-in > *:nth-child(6) { animation-delay: 0.17s; }
+.animated-section.stagger-children.fade-in > *:nth-child(7) { animation-delay: 0.2s; }
+.animated-section.stagger-children.fade-in > *:nth-child(8) { animation-delay: 0.23s; }
+.animated-section.stagger-children.fade-in > *:nth-child(9) { animation-delay: 0.26s; }
+
+@keyframes reveal-rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animated-section,
+  .animated-section.stagger-children.fade-in > * {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .animated-section.reveal-pending,
+  .animated-section.stagger-children.reveal-pending > * {
+    opacity: 1;
+    transform: none;
+  }
 }

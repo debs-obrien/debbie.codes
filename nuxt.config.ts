@@ -1,8 +1,10 @@
 export default defineNuxtConfig({
   srcDir: '.',
 
-  app: {
-    pageTransition: { name: 'page', mode: 'out-in' },
+  // Dedicated local port for this Nuxt app (avoid 3000/3001 conflicts)
+  devServer: {
+    port: 8000,
+    host: '127.0.0.1',
   },
 
   modules: [

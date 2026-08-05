@@ -9,7 +9,7 @@ defineProps<{
 <template>
   <article class="flex flex-col overflow-hidden flex-1 max-width h-full">
     <div
-      class="h-full rounded-xl shadow-cla-blue bg-gradient-to-r from-indigo-50 to-blue-50 overflow-hidden"
+      class="h-full rounded-xl bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 overflow-hidden"
     >
       <lite-youtube
         :videoid="item.video"
@@ -20,11 +20,11 @@ defineProps<{
       <div class="p-6">
         <Date :date="item.date" />
 
-        <p class="text-base font-medium text-gray-600 mb-3">
+        <p class="text-base font-medium text-gray-600 dark:text-gray-300 mb-3">
           {{ item.conference }}{{ item.host }}
         </p>
 
-        <h3 class="my-3 text-base leading-6 text-gray-500">
+        <h3 class="my-3 text-base leading-6 text-gray-800 dark:text-gray-100 group-hover:text-primary">
           {{ item.title }}
         </h3>
 

@@ -6,16 +6,10 @@ test.describe('Home Page Featured Content', () => {
   });
 
   test('displays main hero section with correct information', async ({ page }) => {
-    // The CreativeHero effect continuously glitches the hero — toggling it
-    // between an <h1> and a plain element and scrambling its text — so on a
-    // cold load the hero is sometimes never an <h1> within a 15s window. Anchor
-    // on the stable subtitle (proves hydration finished) and assert the hero
-    // name text is present (case-insensitive: rendered uppercased via CSS)
-    // rather than depending on the flaky heading role.
-    await expect(page.getByText('Platform Engineer – Applied AI at Zephyr Cloud')).toBeVisible({ timeout: 15000 });
-    await expect(page.getByText(/Debbie O'Brien/i).first()).toBeVisible();
-    
-    // Check for profile image in header
+    await expect(page.getByRole('heading', { level: 1, name: /Debbie O'Brien/i })).toBeVisible();
+    await expect(page.getByText('Platform Engineer – Applied AI at Zephyr Cloud')).toBeVisible();
+
+    // Profile image in the top bar
     const profileImage = page.getByRole('img', { name: 'Debbie O\'Brien' }).first();
     await expect(profileImage).toBeVisible();
   });
@@ -79,9 +73,9 @@ test.describe('Home Page Featured Content', () => {
     const podcastCount = await podcasts.count();
     expect(podcastCount).toBe(2);
     
-    // Check first podcast structure
+    // Check first podcast structure (use <img> — play SVG can also match role=img)
     const firstPodcast = podcasts.first();
-    await expect(firstPodcast.getByRole('img')).toBeVisible();
+    await expect(firstPodcast.locator('img').first()).toBeVisible();
     await expect(firstPodcast.getByRole('heading', { level: 3 })).toBeVisible();
     await expect(firstPodcast.locator('time')).toBeVisible();
     
@@ -124,17 +118,8 @@ test.describe('Home Page Featured Content', () => {
   });
 
   test('home page content is accessible', async ({ page }) => {
-    // Gate on the stable subtitle first (proves hydration finished), then
-    // confirm the hero name text is present. NOTE: the CreativeHero effect
-    // continuously glitches the hero — toggling it between an <h1> and a plain
-    // <generic> element and scrambling its text (e.g. "DEBBIE O'B!_+_") — so on
-    // a cold load the hero is sometimes never an <h1> within a 15s window.
-    // Asserting the hero's *heading role* is therefore inherently flaky (and
-    // arguably surfaces a real a11y concern: the main heading isn't reliably an
-    // h1). We assert the name text instead and rely on the h2 hierarchy check
-    // below for structural coverage.
-    await expect(page.getByText('Platform Engineer – Applied AI at Zephyr Cloud')).toBeVisible({ timeout: 15000 });
-    await expect(page.getByText(/Debbie O'Brien/i).first()).toBeVisible();
+    await expect(page.getByRole('heading', { level: 1, name: /Debbie O'Brien/i })).toBeVisible();
+    await expect(page.getByText('Platform Engineer – Applied AI at Zephyr Cloud')).toBeVisible();
 
     const h2s = page.getByRole('heading', { level: 2 });
     const h2Count = await h2s.count();
