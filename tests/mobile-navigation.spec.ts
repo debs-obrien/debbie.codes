@@ -78,8 +78,7 @@ test.describe('Mobile Navigation', () => {
     });
 
     await test.step('Click Blog link and verify navigation', async () => {
-      // Use force click to bypass any overlaying elements from CreativeHero animations
-      await page.getByRole('banner').getByRole('navigation').getByRole('link', { name: 'Blog' }).click({ force: true });
+      await page.getByRole('banner').getByRole('navigation').getByRole('link', { name: 'Blog' }).click();
       await expect(page).toHaveURL(/.*\/blog/);
       await expect(page).toHaveTitle(/.*Blog.*Debbie Codes/);
     });
@@ -122,8 +121,7 @@ test.describe('Mobile Navigation', () => {
       // Wait for the navigation to become visible
       await expect(page.getByRole('banner').getByRole('navigation')).toBeVisible();
       
-      // Use force click to bypass any overlaying elements from CreativeHero animations
-      await page.getByRole('banner').getByRole('navigation').getByRole('link', { name: 'About' }).click({ force: true });
+      await page.getByRole('banner').getByRole('navigation').getByRole('link', { name: 'About' }).click();
       await expect(page).toHaveURL(/.*\/about/);
     });
 
