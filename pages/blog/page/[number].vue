@@ -109,8 +109,10 @@ if (page < 1 || (totalCount.value && page > Math.ceil(totalCount.value / postsPe
   throw createError({ statusCode: 404, statusMessage: 'Page Not Found' })
 }
 
+const recentYears = computed(() => postYears.value.slice(0, 4))
+
 const title: string = page === 1 ? 'Blog' : `Blog - Page ${page}`
-const description: string = ''
+const description: string = 'Writing on testing, AI, Playwright, and the web.'
 const section: Sections = 'blog'
 
 useHead({
@@ -130,7 +132,7 @@ useHead({
     />
 
     <!-- Browse by Topic and Year - Compact Design -->
-    <section v-if="postYears.length > 0 || popularTags.length > 0" class="mb-8 max-w-4xl mx-auto">
+    <section v-if="recentYears.length > 0 || popularTags.length > 0" class="mb-8 max-w-4xl mx-auto">
       <!-- Tags Row -->
       <div v-if="popularTags.length > 0" class="flex flex-wrap gap-3 justify-center items-center mb-4">
         <TagChip
@@ -142,10 +144,10 @@ useHead({
         />
       </div>
 
-      <!-- Years Row -->
-      <div v-if="postYears.length > 0" class="flex flex-wrap gap-3 justify-center items-center">
+      <!-- Years Row — recent years only -->
+      <div v-if="recentYears.length > 0" class="flex flex-wrap gap-3 justify-center items-center">
         <TagChip
-          v-for="{ year } in postYears"
+          v-for="{ year } in recentYears"
           :key="year"
           :to="`/blog/year/${year}`"
           :label="year"

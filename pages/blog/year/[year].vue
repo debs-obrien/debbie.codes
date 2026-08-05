@@ -101,8 +101,19 @@ const postYears = computed(() => {
     .sort((a, b) => b.year.localeCompare(a.year))
 })
 
+const recentYears = computed(() => {
+  const years = postYears.value.slice(0, 4)
+  // Keep the active year visible even if it falls outside the recent window
+  if (!years.some(y => y.year === year)) {
+    const active = postYears.value.find(y => y.year === year)
+    if (active)
+      return [...years.slice(0, 3), active].sort((a, b) => b.year.localeCompare(a.year))
+  }
+  return years
+})
+
 const title: string = year
-const description: string = ''
+const description: string = `Blog posts from ${year} — testing, AI, Playwright, and the web.`
 const section: Sections = 'blog'
 
 useHead({
@@ -121,7 +132,7 @@ useHead({
     />
 
     <!-- Browse by Topic and Year - Compact Design -->
-    <section v-if="postYears.length > 0 || popularTags.length > 0" class="mb-8 max-w-4xl mx-auto">
+    <section v-if="recentYears.length > 0 || popularTags.length > 0" class="mb-8 max-w-4xl mx-auto">
       <!-- Tags Row -->
       <div v-if="popularTags.length > 0" class="flex flex-wrap gap-3 justify-center items-center mb-4">
         <TagChip
@@ -133,14 +144,21 @@ useHead({
         />
       </div>
 
-      <!-- Years Row -->
-      <div v-if="postYears.length > 0" class="flex flex-wrap gap-3 justify-center items-center">
+      <!-- Years Row — recent years only -->
+      <div v-if="recentYears.length > 0" class="flex flex-wrap gap-3 justify-center items-center">
         <TagChip
-          v-for="{ year: blogYear } in postYears"
+          v-for="{ year: blogYear } in recentYears"
           :key="blogYear"
           :to="`/blog/year/${blogYear}`"
           :label="blogYear"
+          :active="blogYear === year"
         />
+        <NuxtLink
+          to="/blog/page/1"
+          class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary transition-colors"
+        >
+          Archive
+        </NuxtLink>
       </div>
     </section>
 

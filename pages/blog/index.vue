@@ -84,8 +84,10 @@ const postYears = computed(() => {
     .sort((a, b) => b.year.localeCompare(a.year))
 })
 
+const recentYears = computed(() => postYears.value.slice(0, 4))
+
 const title: string = 'Blog'
-const description: string = ''
+const description: string = 'Writing on testing, AI, Playwright, and the web.'
 const section: Sections = 'blog'
 
 useHead({
@@ -104,7 +106,7 @@ useHead({
     />
 
     <!-- Browse by Topic and Year - Compact Design -->
-    <section v-if="postYears.length > 0 || popularTags.length > 0" class="mb-8 max-w-4xl mx-auto">
+    <section v-if="recentYears.length > 0 || popularTags.length > 0" class="mb-8 max-w-4xl mx-auto">
       <!-- Tags Row -->
       <div v-if="popularTags.length > 0" class="flex flex-wrap gap-3 justify-center items-center mb-4">
         <TagChip
@@ -116,14 +118,20 @@ useHead({
         />
       </div>
 
-      <!-- Years Row -->
-      <div v-if="postYears.length > 0" class="flex flex-wrap gap-3 justify-center items-center">
+      <!-- Years Row — recent years only -->
+      <div v-if="recentYears.length > 0" class="flex flex-wrap gap-3 justify-center items-center">
         <TagChip
-          v-for="{ year } in postYears"
+          v-for="{ year } in recentYears"
           :key="year"
           :to="`/blog/year/${year}`"
           :label="year"
         />
+        <NuxtLink
+          to="/blog/page/1"
+          class="text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-primary transition-colors"
+        >
+          Archive
+        </NuxtLink>
       </div>
     </section>
 
@@ -135,14 +143,19 @@ useHead({
       <h2 v-else class="text-2xl font-bold text-gray-900 dark:text-white mb-6 max-w-4xl mx-auto">
         Search Results ({{ filteredBlogPosts.length }})
       </h2>
-      <FeaturedSection v-if="!isSearchActive" :items="recentPosts || []" :section="section" />
+      <FeaturedSection
+        v-if="!isSearchActive"
+        :items="recentPosts || []"
+        :section="section"
+        lead
+      />
       <FeaturedSection v-else :items="filteredBlogPosts" :section="section" />
       <div v-if="!isSearchActive" class="text-center mt-8">
         <NuxtLink
           to="/blog/page/1"
           class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-primary/90 transition-colors"
         >
-          View All Posts
+          Older posts
         </NuxtLink>
       </div>
     </section>

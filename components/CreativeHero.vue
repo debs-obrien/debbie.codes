@@ -1,6 +1,6 @@
 <template>
   <section
-    class="hero-spotlight relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen bg-dark text-white overflow-hidden"
+    class="hero-spotlight relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] -mt-top-bar w-screen bg-dark text-white overflow-hidden"
     aria-label="Introduction"
   >
     <div class="hero-atmosphere absolute inset-0 pointer-events-none" aria-hidden="true">
@@ -9,18 +9,18 @@
       <div class="hero-grid-lines" />
     </div>
 
-    <div class="relative z-10 flex flex-col items-center justify-center text-center px-6 sm:px-10 py-16 sm:py-20 lg:py-24 min-h-[min(56vh,520px)]">
-      <h1 class="hero-animate hero-animate-1 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold uppercase tracking-wider leading-none">
+    <div class="relative z-10 flex flex-col items-center justify-center text-center px-6 sm:px-10 pt-[7.5rem] pb-12 sm:pb-14">
+      <h1 class="hero-animate hero-animate-1 text-4xl sm:text-5xl md:text-6xl font-bold uppercase tracking-wider leading-none">
         Debbie <span class="text-primary">O'Brien</span>
       </h1>
 
-      <div class="hero-animate hero-animate-2 hero-rule mt-6" aria-hidden="true" />
+      <div class="hero-animate hero-animate-2 hero-rule mt-5" aria-hidden="true" />
 
-      <p class="hero-animate hero-animate-2 mt-5 text-lg md:text-xl text-gray-300 max-w-2xl">
+      <p class="hero-animate hero-animate-2 mt-4 text-lg md:text-xl text-gray-300 max-w-2xl">
         Platform Engineer – Applied AI at Zephyr Cloud
       </p>
 
-      <div class="hero-animate hero-animate-3 mt-8 flex flex-wrap justify-center items-center gap-3">
+      <div class="hero-animate hero-animate-3 mt-6 flex flex-wrap justify-center items-center gap-2.5">
         <a
           href="https://me.developers.google.com/u/115790798136433531532"
           target="_blank"
@@ -121,8 +121,8 @@
 .badge-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 0.9rem;
+  gap: 0.45rem;
+  padding: 0.4rem 0.85rem;
   font-size: 0.875rem;
   font-weight: 500;
   color: #d1d5db;

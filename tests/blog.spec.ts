@@ -9,7 +9,11 @@ test('blog has a heading, date, content and prev and next links', async ({ page 
     .getByRole('heading', { name: 'Testing a Sites Color Mode with Playwright' }))
     .toBeVisible();
 
+  await expect(page.getByRole('link', { name: /Back to blog/ })).toHaveAttribute('href', '/blog');
   await expect(page.getByText('September 3, 2022')).toBeVisible();
+  await expect(page.getByText(/\d+ min read/)).toBeVisible();
+  await expect(page.getByRole('link', { name: '#testing' })).toBeVisible();
+  await expect(page.getByRole('link', { name: '#playwright' })).toBeVisible();
 
   await expect(page.getByRole('img', { name: 'Testing a Sites Color Mode with Playwright' })).toBeVisible();
 

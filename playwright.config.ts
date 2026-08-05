@@ -44,7 +44,7 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: externalBaseURL || 'http://localhost:3001',
+    baseURL: externalBaseURL || 'http://127.0.0.1:8000',
 
     /* Keep a Playwright trace for every failed test (not just retries) so
      * failures are debuggable after the fact. On Endform this surfaces as a
@@ -101,7 +101,7 @@ export default defineConfig({
     ? undefined
     : {
         command: 'npm run dev',
-        url: 'http://localhost:3001',
+        url: 'http://127.0.0.1:8000',
         reuseExistingServer: !process.env.CI,
       },
 })

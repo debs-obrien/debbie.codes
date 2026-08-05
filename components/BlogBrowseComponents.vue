@@ -7,6 +7,8 @@ interface Props {
   postYears?: Array<{ year: string, count: number }>
   showTags?: boolean
   showYears?: boolean
+  activeTag?: string
+  activeYear?: string
 }
 
 withDefaults(defineProps<Props>(), {
@@ -25,6 +27,7 @@ withDefaults(defineProps<Props>(), {
         :label="displayName || tag.replace('-', ' ')"
         hash
         variant="pill"
+        :active="!!activeTag && tag === activeTag"
       />
     </div>
 
@@ -35,6 +38,7 @@ withDefaults(defineProps<Props>(), {
         :to="`/blog/year/${year}`"
         :label="year"
         variant="pill"
+        :active="!!activeYear && year === activeYear"
       />
     </div>
   </section>

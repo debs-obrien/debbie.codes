@@ -1,4 +1,39 @@
 /**
+ * Extract plain text from Nuxt Content body (minimark AST, classic AST, or string).
+ */
+export function extractTextFromContent(content: unknown): string {
+  if (!content) return ''
+  if (typeof content === 'string') return content
+  if (typeof content === 'number' || typeof content === 'boolean') return String(content)
+
+  if (Array.isArray(content)) {
+    // Minimark element: [tag, props, ...children]
+    if (
+      content.length >= 2
+      && typeof content[0] === 'string'
+      && content[1] !== null
+      && typeof content[1] === 'object'
+      && !Array.isArray(content[1])
+    ) {
+      return content.slice(2).map(extractTextFromContent).filter(Boolean).join(' ')
+    }
+    return content.map(extractTextFromContent).filter(Boolean).join(' ')
+  }
+
+  if (typeof content === 'object') {
+    const node = content as Record<string, unknown>
+    if (node.type === 'minimark' && node.value != null) {
+      return extractTextFromContent(node.value)
+    }
+    if (typeof node.value === 'string') return node.value
+    if (node.children != null) return extractTextFromContent(node.children)
+    if (node.value != null) return extractTextFromContent(node.value)
+  }
+
+  return ''
+}
+
+/**
  * Calculate estimated reading time for content
  * @param content - The text content to analyze
  * @param wordsPerMinute - Average reading speed (default: 200 wpm)
