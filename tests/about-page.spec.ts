@@ -28,9 +28,10 @@ test.describe('About Page', () => {
 
     await test.step('Verify current role and achievements', async () => {
       await expect(page.getByText('Platform Engineer – Applied AI at Zephyr Cloud')).toBeVisible();
-      await expect(page.getByText(/Google Developer Expert in web technologies/)).toBeVisible();
-      await expect(page.getByText(/Nuxt Ambassador/)).toBeVisible();
-      await expect(page.getByText(/previously Developer Relations at Nuxt/)).toBeVisible();
+      // Bio + awards section both mention GDE — scope to the bio content renderer
+      await expect(page.locator('.prose').getByText(/Google Developer Expert in web technologies/)).toBeVisible();
+      await expect(page.locator('.prose').getByText(/Nuxt Ambassador/)).toBeVisible();
+      await expect(page.locator('.prose').getByText(/previously Developer Relations at Nuxt/)).toBeVisible();
     });
 
   });

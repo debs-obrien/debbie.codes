@@ -60,7 +60,7 @@ useHead({
     />
 
     <!-- Browse by Topic and Tag Section -->
-    <section v-if="podcastTags.length > 0" class="mb-8 max-w-4xl mx-auto">
+    <section v-if="podcastTags.length > 0" class="animated-section mb-8 max-w-4xl mx-auto">
       <div class="flex flex-wrap gap-3 justify-center items-center">
         <TagChip
           v-for="tag in podcastTags"
@@ -73,7 +73,7 @@ useHead({
     </section>
 
     <!-- Filtered Episodes Grid -->
-    <section v-if="(isSearchActive ? filteredPodcasts : podcasts)?.length" class="mb-16">
+    <section v-if="(isSearchActive ? filteredPodcasts : podcasts)?.length" class="animated-section mb-16">
       <h2 v-if="!isSearchActive" class="text-2xl font-bold text-gray-900 dark:text-white mb-6 max-w-4xl mx-auto">
         {{ topic }} Episodes
       </h2>
@@ -89,7 +89,7 @@ useHead({
     </section>
 
     <!-- Call to Action -->
-    <section class="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 text-center max-w-4xl mx-auto">
+    <section class="animated-section bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 text-center max-w-4xl mx-auto">
       <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
         Want to collaborate?
       </h3>

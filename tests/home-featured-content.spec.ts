@@ -73,9 +73,9 @@ test.describe('Home Page Featured Content', () => {
     const podcastCount = await podcasts.count();
     expect(podcastCount).toBe(2);
     
-    // Check first podcast structure
+    // Check first podcast structure (use <img> — play SVG can also match role=img)
     const firstPodcast = podcasts.first();
-    await expect(firstPodcast.getByRole('img')).toBeVisible();
+    await expect(firstPodcast.locator('img').first()).toBeVisible();
     await expect(firstPodcast.getByRole('heading', { level: 3 })).toBeVisible();
     await expect(firstPodcast.locator('time')).toBeVisible();
     

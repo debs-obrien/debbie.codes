@@ -1,9 +1,14 @@
 <script setup lang="ts">
 const isOpen = ref(false)
+const route = useRoute()
 
 function toggle() {
   isOpen.value = !isOpen.value
 }
+
+watch(() => route.fullPath, () => {
+  isOpen.value = false
+})
 </script>
 
 <template>
@@ -35,7 +40,8 @@ function toggle() {
 
           <button
             class="block lg:hidden"
-            aria-label="open menu"
+            :aria-label="isOpen ? 'Close menu' : 'Open menu'"
+            :aria-expanded="isOpen"
             type="button"
             @click="toggle"
           >
@@ -45,9 +51,8 @@ function toggle() {
               <li class="bg-white" />
             </ul>
             <span
-              v-if="isOpen"
+              v-else
               class="text-white text-2xl"
-              aria-label="close menu"
             >
               X
             </span>
@@ -58,24 +63,25 @@ function toggle() {
 
     <!-- Mobile Menu Overlay - Outside header for proper z-index stacking -->
     <Teleport to="body">
-      <div
-        v-show="isOpen"
-        class="fixed inset-0 text-white w-full px-10 pt-6 text-center lg:hidden"
-        style="background-color: #091a28; z-index: 9999;"
-      >
-        <button
-          class="absolute top-4 right-4 text-white text-3xl font-bold p-2 hover:text-primary"
-          aria-label="close menu"
-          type="button"
-          @click="isOpen = false"
+      <Transition name="mobile-menu">
+        <div
+          v-if="isOpen"
+          class="mobile-menu fixed inset-0 text-white w-full px-10 pt-6 text-center lg:hidden"
         >
-          ✕
-        </button>
-        <div class="mt-16">
-          <TheNavigation @navigate="isOpen = false" />
-          <TopBarSocial />
+          <button
+            class="absolute top-4 right-4 text-white text-3xl font-bold p-2 hover:text-primary transition-colors"
+            aria-label="Close menu"
+            type="button"
+            @click="isOpen = false"
+          >
+            ✕
+          </button>
+          <div class="mobile-menu-panel mt-16">
+            <TheNavigation @navigate="isOpen = false" />
+            <TopBarSocial />
+          </div>
         </div>
-      </div>
+      </Transition>
     </Teleport>
   </div>
 </template>
@@ -89,5 +95,45 @@ function toggle() {
 .profile-pic {
   height: 50px;
   width: 50px;
+}
+
+.mobile-menu {
+  background-color: #091a28;
+  z-index: 9999;
+}
+
+.mobile-menu-enter-active,
+.mobile-menu-leave-active {
+  transition: opacity 0.25s ease;
+}
+
+.mobile-menu-enter-active .mobile-menu-panel,
+.mobile-menu-leave-active .mobile-menu-panel {
+  transition: opacity 0.28s ease, transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.mobile-menu-enter-from,
+.mobile-menu-leave-to {
+  opacity: 0;
+}
+
+.mobile-menu-enter-from .mobile-menu-panel,
+.mobile-menu-leave-to .mobile-menu-panel {
+  opacity: 0;
+  transform: translateY(-12px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-menu-enter-active,
+  .mobile-menu-leave-active,
+  .mobile-menu-enter-active .mobile-menu-panel,
+  .mobile-menu-leave-active .mobile-menu-panel {
+    transition: none;
+  }
+
+  .mobile-menu-enter-from .mobile-menu-panel,
+  .mobile-menu-leave-to .mobile-menu-panel {
+    transform: none;
+  }
 }
 </style>

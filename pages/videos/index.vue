@@ -52,7 +52,7 @@ useHead({
     />
 
     <!-- Browse by Topic and Tag Section -->
-    <section v-if="videoTags.length > 0" class="mb-8 max-w-4xl mx-auto">
+    <section v-if="videoTags.length > 0" class="animated-section mb-8 max-w-4xl mx-auto">
       <div class="flex flex-wrap gap-3 justify-center items-center">
         <TagChip
           v-for="tag in videoTags"
@@ -65,7 +65,7 @@ useHead({
     </section>
 
     <!-- Videos Grid Section -->
-    <section class="mb-16">
+    <section class="animated-section mb-16">
       <h2 v-if="!isSearchActive" class="text-2xl font-bold text-gray-900 dark:text-white mb-6 max-w-4xl mx-auto">
         All Videos
       </h2>

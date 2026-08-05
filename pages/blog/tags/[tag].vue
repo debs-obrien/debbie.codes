@@ -125,7 +125,7 @@ useHead({
     />
 
     <!-- Browse by Topic and Year - Compact Design -->
-    <section v-if="recentYears.length > 0 || popularTags.length > 0" class="mb-8 max-w-4xl mx-auto">
+    <section v-if="recentYears.length > 0 || popularTags.length > 0" class="animated-section mb-8 max-w-4xl mx-auto">
       <!-- Tags Row -->
       <div v-if="popularTags.length > 0" class="flex flex-wrap gap-3 justify-center items-center mb-4">
         <TagChip
@@ -156,17 +156,19 @@ useHead({
     </section>
 
     <!-- Posts List -->
-    <FeaturedSection
-      v-if="filteredArticles.length > 0"
-      :items="filteredArticles"
-      :section="section"
-    />
+    <section class="animated-section">
+      <FeaturedSection
+        v-if="filteredArticles.length > 0"
+        :items="filteredArticles"
+        :section="section"
+      />
 
-    <!-- No Results -->
-    <div v-else class="text-center py-8">
-      <p class="text-gray-600 dark:text-gray-400">
-        No articles found{{ isSearchActive ? ' matching your search' : ` tagged with ${displayTag}` }}.
-      </p>
-    </div>
+      <!-- No Results -->
+      <div v-else class="text-center py-8">
+        <p class="text-gray-600 dark:text-gray-400">
+          No articles found{{ isSearchActive ? ' matching your search' : ` tagged with ${displayTag}` }}.
+        </p>
+      </div>
+    </section>
   </PageLayout>
 </template>

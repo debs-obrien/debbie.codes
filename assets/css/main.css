@@ -157,3 +157,84 @@ body {
 .dark .prose pre::-webkit-scrollbar-thumb:hover {
   background: #6b7280;
 }
+
+/* Page transitions (Nuxt app.pageTransition) */
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* Scroll reveal — used with useScrollReveal() */
+.animated-section {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animated-section.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered grids: keep the container visible; animate children only */
+.animated-section.stagger-children {
+  opacity: 1;
+  transform: none;
+}
+
+.animated-section.stagger-children:not(.fade-in) > * {
+  opacity: 0;
+}
+
+.animated-section.stagger-children.fade-in > * {
+  animation: reveal-rise 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animated-section.stagger-children.fade-in > *:nth-child(1) { animation-delay: 0.04s; }
+.animated-section.stagger-children.fade-in > *:nth-child(2) { animation-delay: 0.1s; }
+.animated-section.stagger-children.fade-in > *:nth-child(3) { animation-delay: 0.16s; }
+.animated-section.stagger-children.fade-in > *:nth-child(4) { animation-delay: 0.22s; }
+.animated-section.stagger-children.fade-in > *:nth-child(5) { animation-delay: 0.28s; }
+.animated-section.stagger-children.fade-in > *:nth-child(6) { animation-delay: 0.34s; }
+.animated-section.stagger-children.fade-in > *:nth-child(7) { animation-delay: 0.4s; }
+.animated-section.stagger-children.fade-in > *:nth-child(8) { animation-delay: 0.46s; }
+.animated-section.stagger-children.fade-in > *:nth-child(9) { animation-delay: 0.52s; }
+
+@keyframes reveal-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-enter-active,
+  .page-leave-active,
+  .animated-section,
+  .animated-section.stagger-children.fade-in > * {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .page-enter-from,
+  .page-leave-to {
+    opacity: 1;
+    transform: none;
+  }
+
+  .animated-section,
+  .animated-section.stagger-children:not(.fade-in) > * {
+    opacity: 1;
+    transform: none;
+  }
+}

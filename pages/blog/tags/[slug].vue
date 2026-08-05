@@ -23,7 +23,9 @@ useHead({
 
 <template>
   <PageLayout :title="title" :description="description" :section="section">
-    <ItemList v-if="articles !== null" :list="articles" :section="section" />
-    <TagsNotFound v-else />
+    <section class="animated-section">
+      <ItemList v-if="articles !== null" :list="articles" :section="section" />
+      <TagsNotFound v-else />
+    </section>
   </PageLayout>
 </template>

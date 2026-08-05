@@ -40,7 +40,7 @@ test.describe('Podcasts Page', () => {
           const firstCard = page.getByRole('article').nth(1); // Skip featured podcast
           
           // Each card should have a heading (episode title)
-          await expect(firstCard.getByRole('heading', { level: 2 })).toBeVisible();
+          await expect(firstCard.getByRole('heading', { level: 3 })).toBeVisible();
           
           // Each card should have a date
           await expect(firstCard.locator('time')).toBeVisible();
@@ -52,7 +52,7 @@ test.describe('Podcasts Page', () => {
           // Get first non-featured podcast card
           const firstCard = page.getByRole('article').nth(1); // Skip featured podcast
           
-          const title = firstCard.getByRole('heading', { level: 2 });
+          const title = firstCard.getByRole('heading', { level: 3 });
           await expect(title).toBeVisible();
           const titleText = await title.textContent();
           expect(titleText?.length).toBeGreaterThan(0);

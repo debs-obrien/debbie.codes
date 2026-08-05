@@ -62,6 +62,9 @@ const awards = ref([
   },
 ])
 
+const aboutRoot = ref<HTMLElement | null>(null)
+useScrollReveal(aboutRoot)
+
 useHead({
   title: title.value,
   meta: [
@@ -80,7 +83,7 @@ useHead({
 </script>
 
 <template>
-  <main class="min-h-screen bg-white dark:bg-gray-900">
+  <main ref="aboutRoot" class="min-h-screen bg-white dark:bg-gray-900">
     <section class="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen bg-dark text-white overflow-hidden">
       <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div class="about-glow" />
@@ -88,15 +91,15 @@ useHead({
       </div>
 
       <div class="relative z-10 max-w-4xl mx-auto px-6 sm:px-10 py-16 sm:py-20 text-center">
-        <p class="mb-4 text-primary text-sm font-semibold uppercase tracking-widest">
+        <p class="about-animate about-animate-1 mb-4 text-primary text-sm font-semibold uppercase tracking-widest">
           About
         </p>
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-wider leading-none mb-6">
+        <h1 class="about-animate about-animate-2 text-4xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-wider leading-none mb-6">
           I'm <span class="text-primary">Debbie O'Brien</span>
         </h1>
-        <div class="w-14 h-0.5 bg-primary mx-auto mb-10 rounded-full" aria-hidden="true" />
+        <div class="about-animate about-animate-2 w-14 h-0.5 bg-primary mx-auto mb-10 rounded-full" aria-hidden="true" />
 
-        <div class="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-8 sm:p-10 text-left">
+        <div class="about-animate about-animate-3 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-8 sm:p-10 text-left">
           <div class="prose prose-invert max-w-none">
             <ContentRenderer v-if="about" :value="about" class="text-gray-200 leading-relaxed" />
           </div>
@@ -106,7 +109,7 @@ useHead({
 
     <section class="py-16 sm:py-20 px-4 sm:px-6">
       <div class="max-w-6xl mx-auto">
-        <div class="text-center mb-12">
+        <div class="animated-section text-center mb-12">
           <h2 id="awards-heading" class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Awards & Achievements
           </h2>
@@ -117,7 +120,7 @@ useHead({
         </div>
 
         <section aria-labelledby="awards-heading">
-          <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3" role="list">
+          <div class="animated-section stagger-children grid gap-6 md:grid-cols-2 lg:grid-cols-3" role="list">
             <article
               v-for="award in awards"
               :key="award.name"
@@ -168,6 +171,7 @@ useHead({
     rgba(216, 0, 45, 0.2),
     transparent 68%
   );
+  animation: about-breathe 8s ease-in-out infinite;
 }
 
 .about-grid {
@@ -179,5 +183,36 @@ useHead({
     linear-gradient(90deg, rgba(255, 255, 255, 0.55) 1px, transparent 1px);
   background-size: 48px 48px;
   mask-image: radial-gradient(ellipse 65% 55% at 50% 35%, black, transparent 75%);
+}
+
+.about-animate {
+  animation: about-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.about-animate-1 { animation-delay: 0.08s; }
+.about-animate-2 { animation-delay: 0.24s; }
+.about-animate-3 { animation-delay: 0.4s; }
+
+@keyframes about-rise {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes about-breathe {
+  0%, 100% { opacity: 0.85; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.04); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-animate,
+  .about-glow {
+    animation: none;
+  }
 }
 </style>

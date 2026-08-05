@@ -6,10 +6,13 @@ defineProps<{
   description?: string
   section?: Sections
 }>()
+
+const root = ref<HTMLElement | null>(null)
+useScrollReveal(root)
 </script>
 
 <template>
-  <main class="px-4 sm:px-6">
+  <main ref="root" class="px-4 sm:px-6">
     <header v-if="title || description">
       <AppTitle v-if="title">
         {{ title }}

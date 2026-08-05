@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
-
 const { data: articles } = await useAsyncData('articles-home', () =>
   queryCollection('blog').order('date', 'DESC').limit(6).all())
 
@@ -10,28 +8,14 @@ const { data: videos } = await useAsyncData('videos-home', () =>
 const { data: podcasts } = await useAsyncData('podcasts-home', () =>
   queryCollection('podcasts').order('date', 'DESC').limit(2).all())
 
-onMounted(() => {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('fade-in')
-        }
-      })
-    },
-    { threshold: 0.1 },
-  )
-
-  document.querySelectorAll('.animated-section').forEach((section) => {
-    observer.observe(section)
-  })
-})
+const homeBody = ref<HTMLElement | null>(null)
+useScrollReveal(homeBody)
 </script>
 
 <template>
   <div>
     <CreativeHero />
-    <div class="home-body relative pb-12 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900">
+    <div ref="homeBody" class="home-body relative pb-12 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900">
       <div class="home-fade absolute inset-x-0 top-0 h-16 pointer-events-none" aria-hidden="true" />
       <div class="relative max-w-6xl mx-auto pt-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-14">
@@ -103,24 +87,5 @@ onMounted(() => {
     rgba(9, 26, 40, 0.45),
     transparent
   );
-}
-
-.animated-section {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.animated-section.fade-in {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .animated-section {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
 }
 </style>
