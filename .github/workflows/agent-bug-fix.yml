@@ -1,0 +1,111 @@
+name: Agent bug fix
+
+# Daily fix loop: pick one agent-hunt issue, prefer assigning Copilot coding
+# agent; fall back to Copilot CLI running site-bugfix. Opens a draft PR.
+# Same skill works locally in Cursor — see qa/README.md.
+
+on:
+  schedule:
+    # Daily 07:00 UTC
+    - cron: '0 7 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+concurrency:
+  group: agent-bug-fix
+  cancel-in-progress: false
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright Chromium + CLI
+        run: |
+          npm install -g @playwright/cli
+          npx playwright install chromium --with-deps
+
+      - name: Select eligible issue
+        id: pick
+        env:
+          GH_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          chmod +x qa/scripts/select-fix-issue.sh
+          NUMBER="$(qa/scripts/select-fix-issue.sh || true)"
+          echo "number=${NUMBER}" >> "$GITHUB_OUTPUT"
+          if [[ -z "${NUMBER}" ]]; then
+            echo "No eligible agent-hunt issues." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "Selected issue #${NUMBER}" >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Assign Copilot coding agent (preferred)
+        id: assign
+        if: steps.pick.outputs.number != ''
+        env:
+          GH_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
+          ISSUE: ${{ steps.pick.outputs.number }}
+        run: |
+          set -euo pipefail
+          jq -n \
+            --arg repo "${{ github.repository }}" \
+            --rawfile instructions qa/prompts/fix.md \
+            '{
+              assignees: ["copilot-swe-agent[bot]"],
+              agent_assignment: {
+                target_repo: $repo,
+                base_branch: "main",
+                custom_instructions: $instructions
+              }
+            }' > /tmp/copilot-assign.json
+
+          if gh api \
+            --method POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "/repos/${{ github.repository }}/issues/${ISSUE}/assignees" \
+            --input /tmp/copilot-assign.json; then
+            echo "assigned=true" >> "$GITHUB_OUTPUT"
+            echo "Assigned Copilot coding agent to #${ISSUE}" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "assigned=false" >> "$GITHUB_OUTPUT"
+            echo "Copilot assign API failed; will fall back to Copilot CLI." >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Install GitHub Copilot CLI
+        if: steps.pick.outputs.number != '' && steps.assign.outputs.assigned != 'true'
+        run: npm install -g @github/copilot
+
+      - name: Fix via Copilot CLI (fallback)
+        if: steps.pick.outputs.number != '' && steps.assign.outputs.assigned != 'true'
+        env:
+          COPILOT_GITHUB_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
+          SITE_BUG_FIX_MODE: ci
+          ISSUE_NUMBER: ${{ steps.pick.outputs.number }}
+        run: |
+          set -euo pipefail
+          PROMPT="$(cat qa/prompts/fix.md)"
+          PROMPT="${PROMPT}"$'\n\n'"Work specifically on issue #${ISSUE_NUMBER}. Follow .agents/skills/site-bugfix/SKILL.md."
+          copilot -p "$PROMPT" \
+            --allow-tool='shell' \
+            --allow-tool='write' \
+            --allow-tool='read' \
+            --no-ask-user
