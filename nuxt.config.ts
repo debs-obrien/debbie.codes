@@ -46,7 +46,7 @@ export default defineNuxtConfig({
         },
       },
     },
-    domains: ['res.cloudinary.com', 'images.unsplash.com', 'dev-to-uploads.s3.amazonaws.com', 'raw.githubusercontent.com'],
+    domains: ['res.cloudinary.com', 'images.unsplash.com', 'dev-to-uploads.s3.amazonaws.com', 'raw.githubusercontent.com', 'theaiplatform.app'],
     format: ['webp'],
     quality: 80,
     screens: {
