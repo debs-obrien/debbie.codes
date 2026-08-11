@@ -12,7 +12,10 @@ In this video I spin up a coding bot on my Playwright movies repo, create a Link
 
 If you've been drowning in context switching between apps, this is worth a look.
 
-::youtube{id="kiDvQnoCveU"}
+<lite-youtube
+        videoid="kiDvQnoCveU"
+        playlabel="Grok Bot Just Dropped and I Had to Try It">
+</lite-youtube>
 
 Since the video I have read some emails and sent replies. I hate emails so this feels great for me. I also set up a content creating workflow so writing this blog post here — which uses my add-content skill — goes ahead and produces a post on my site, then adds it to Dev.to with a canonical URL, then creates a LinkedIn post and an X post. At least it should do. This is the start of it. See you at the end of the workflow....
 
