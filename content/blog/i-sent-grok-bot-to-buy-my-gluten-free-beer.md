@@ -10,10 +10,7 @@ I ran out of gluten-free beer and asked my Grok Bot chief of staff to handle it.
 
 This video is that walkthrough. Also in this one: the home bot school-bag list for the twins, an Amazon restock that already went through, a news patrol routine, and the weekday morning podcast.
 
-<lite-youtube
-        videoid="6v9txfFIwtw"
-        playlabel="I sent Grok Bot to buy my gluten-free beer">
-</lite-youtube>
+::youtube{id="6v9txfFIwtw"}
 
 ## Meet the chief of staff
 
@@ -59,4 +56,4 @@ This is not one bot doing everything. The chief of staff routes. Home bot for th
 
 I left the cart open so I can keep adding stuff over the next day. The slot is held. That is where this one ends.
 
-Video is here if you want to watch the clicks.
+Watch the video: [I sent Grok Bot to buy my gluten-free beer](https://youtu.be/6v9txfFIwtw)
