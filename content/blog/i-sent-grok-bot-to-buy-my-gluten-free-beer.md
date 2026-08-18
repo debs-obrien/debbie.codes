@@ -53,7 +53,7 @@ And then this was actually just a multiple choice, and I just kind of typed it i
 
 ## Opening the bot's computer
 
-What I noticed when I'm on mobile is sometimes things don't work. I was looking at it and it was going a bit slow, so I opened up the bot's computer. How you open up the bot's computer is you click on this icon here, and then you can see what is going on.
+What I noticed when I'm on mobile is sometimes things don't work. I was looking at it and it was going a bit slow, so I opened up the bot's computer. How you open up the bot's computer is you click the computer icon in the bot UI, and then you can see what is going on.
 
 So when I clicked on what's going on, there was this weird tab of an AI car something. Just totally weird. I was like, I don't know where that came from. So I was like, close the tab on AI agents for cars and then go back to the Alcampo tab. Some agent, I don't know what went on there, but that was weird. So I closed that tab and went back to Alcampo.
 
