@@ -6,7 +6,7 @@ tags: [ai, agents]
 published: true
 ---
 
-I literally have a couple of minutes just to talk you through what I've done over the last couple of days, or just today actually, to be honest, because it is pretty cool. I've wrote a couple of tweets about it, but I just thought I'd walk you through it.
+I literally have a couple of minutes just to talk you through what I've done over the last couple of days, or just today actually, to be honest, because it is pretty cool. I've written a couple of tweets about it, but I just thought I'd walk you through it.
 
 <lite-youtube
         videoid="6v9txfFIwtw"
