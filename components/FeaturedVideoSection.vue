@@ -5,7 +5,6 @@ const props = defineProps<{
   list: Array<VideoPreview>
 }>()
 
-const getYouTubeThumbnail = (videoId: string) => `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`
 const getYouTubeUrl = (videoId: string) => `https://www.youtube.com/watch?v=${videoId}`
 
 const mainVideo = computed(() => props.list[0])
@@ -19,7 +18,7 @@ const otherVideos = computed(() => props.list.slice(1))
       <NuxtLink :to="getYouTubeUrl(mainVideo.video)" target="_blank" rel="noopener noreferrer">
         <div class="aspect-video rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700">
           <img
-            :src="getYouTubeThumbnail(mainVideo.video)"
+            :src="youtubeThumbnail(mainVideo.video)"
             :alt="mainVideo.title"
             class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
           >
@@ -43,7 +42,7 @@ const otherVideos = computed(() => props.list.slice(1))
         <NuxtLink :to="getYouTubeUrl(video.video)" target="_blank" rel="noopener noreferrer" class="flex items-start gap-4">
           <div class="flex-shrink-0">
             <img
-              :src="getYouTubeThumbnail(video.video)"
+              :src="youtubeThumbnail(video.video)"
               :alt="video.title"
               width="128"
               height="72"
