@@ -4,7 +4,8 @@
  * See https://github.com/paulirish/lite-youtube-embed/blob/master/youtube-thumbnail-urls.md
  */
 export function youtubeThumbnail(videoId: string) {
-  return `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`
+  const safeId = encodeURIComponent(videoId.trim())
+  return `https://i.ytimg.com/vi/${safeId}/hqdefault.jpg`
 }
 
 /**
