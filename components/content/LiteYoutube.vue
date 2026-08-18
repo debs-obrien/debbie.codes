@@ -20,6 +20,7 @@ withDefaults(defineProps<{
       :videoid="videoid"
       :playlabel="playlabel"
       :start="start"
+      :style="youtubePosterStyle(videoid)"
     />
   </ClientOnly>
 </template>
