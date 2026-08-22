@@ -7,3 +7,5 @@ tags: [ai]
 host: Debbie O'Brien
 image: https://img.youtube.com/vi/f4ent80mR4w/sddefault.jpg
 ---
+
+Try Grok Bot: [x.ai/bot](https://x.ai/bot)
