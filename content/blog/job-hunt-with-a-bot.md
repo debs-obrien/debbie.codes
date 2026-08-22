@@ -60,6 +60,8 @@ It is going to pull the full JD and walk me through it. That is cool. JD is job 
 
 If you are out there today and you are looking for a job, I would highly recommend that you create a Job Hunt bot. Desktop or mobile. You can walk away. You can come back to it. You can leave it running in the background. You can have a workflow. It can do this every day and keep searching for you and come back with new ones.
 
+If you want to try Grok Bot yourself, start at [x.ai/bot](https://x.ai/bot). There is also a short [Getting started](https://cursor.com/help/grok-bot/getting-started) guide.
+
 I have no idea if this is going to be a good way for me to actually find a job. But it is definitely a really nice experience. And it is definitely able to help me discover what is out there in a much easier way.
 
 I will keep posting on X about how I am doing. Let's see if I get a job very soon.
