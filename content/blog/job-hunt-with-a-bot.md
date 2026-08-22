@@ -9,6 +9,7 @@ published: true
 Hi everyone. Unfortunately I am now in a position where I need to look for a job. I do not want to go into the whys. I want to show you how I am searching for a job in times like this.
 
 ::youtube{id="f4ent80mR4w"}
+::
 
 ## The Job Hunt bot
 
