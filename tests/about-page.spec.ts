@@ -26,12 +26,13 @@ test.describe('About Page', () => {
       await expect(bioParagraph).toContainText('Jamstack Explorers');
     });
 
-    await test.step('Verify current role and achievements', async () => {
-      await expect(page.getByText('Platform Engineer – Applied AI at Zephyr Cloud')).toBeVisible();
+    await test.step('Verify role and achievements', async () => {
+      await expect(page.locator('.prose').getByText(/Developer Educator focused on Playwright, testing and AI agents/)).toBeVisible();
+      await expect(page.locator('.prose').getByText(/previously worked in Developer Relations at Nuxt/)).toBeVisible();
+      await expect(page.locator('.prose').getByText(/Platform Engineer for Applied AI at Zephyr Cloud/)).toBeVisible();
       // Bio + awards section both mention GDE — scope to the bio content renderer
       await expect(page.locator('.prose').getByText(/Google Developer Expert in web technologies/)).toBeVisible();
       await expect(page.locator('.prose').getByText(/Nuxt Ambassador/)).toBeVisible();
-      await expect(page.locator('.prose').getByText(/previously Developer Relations at Nuxt/)).toBeVisible();
     });
 
   });

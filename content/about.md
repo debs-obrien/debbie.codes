@@ -4,7 +4,7 @@ title: About
 
 With over 15 years experience in Frontend development, I have worked as a Tech Lead and consultant for many clients across a range of technologies, often with a strong focus on performance. I have led teams both in house and remotely, and delivered workshops and training along the way. I have mentored learners on Treehouse and OpenClassrooms, teach at [Vue School](https://vueschool.io/courses/internationalization-with-vue-i18n) and [Jamstack Explorers](https://explorers.netlify.com/learn/get-started-with-nuxt), and write for [Ultimate Courses](https://ultimatecourses.com/author/debbieobrien).
 
-I am a Platform Engineer – Applied AI at Zephyr Cloud, a Google Developer Expert in web technologies, and a Nuxt Ambassador — previously Developer Relations at Nuxt. I am also a former Microsoft Most Valuable Professional in developer technologies, Cloudinary Media Developer Expert, and GitHub Star Alumni.
+I am a Developer Educator focused on Playwright, testing and AI agents, a Google Developer Expert in web technologies, and a Nuxt Ambassador. I previously worked in Developer Relations at Nuxt and as a Platform Engineer for Applied AI at Zephyr Cloud. I am also a former Microsoft Most Valuable Professional in developer technologies, Cloudinary Media Developer Expert, and GitHub Star Alumni.
 
 I have a special love for JavaScript frameworks, especially Vue.js and Nuxt.js, and spend a lot of my time on testing — particularly end-to-end testing with Playwright and how AI fits into modern developer workflows. I hold Frontend and Full Stack tech degrees and am Microsoft certified. I speak internationally at meetups and conferences around the world, including Antarctica.
 

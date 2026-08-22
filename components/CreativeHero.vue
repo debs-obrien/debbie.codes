@@ -17,7 +17,7 @@
       <div class="hero-animate hero-animate-2 hero-rule mt-5" aria-hidden="true" />
 
       <p class="hero-animate hero-animate-2 mt-4 text-lg md:text-xl text-gray-300 max-w-2xl">
-        Platform Engineer – Applied AI at Zephyr Cloud
+        Developer Educator focused on Playwright, testing & AI agents
       </p>
 
       <div class="hero-animate hero-animate-3 mt-6 flex flex-wrap justify-center items-center gap-2.5">
