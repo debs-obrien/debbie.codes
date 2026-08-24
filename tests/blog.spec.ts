@@ -32,7 +32,7 @@ test('blog has a heading, date, content and prev and next links', async ({ page 
 
 test('blog prev and next links update when navigating from paginated blog pages', async ({ page }) => {
   await test.step('Open a paginated blog article', async () => {
-    await page.goto('/blog/page/2');
+    await page.goto('/blog/page/3');
 
     // Anchor navigation on the URL, not a heading. On a cold page load (fresh
     // Endform runner) a click can fire before Nuxt hydration attaches the SPA
