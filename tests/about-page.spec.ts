@@ -28,8 +28,9 @@ test.describe('About Page', () => {
 
     await test.step('Verify role and achievements', async () => {
       // Bio + awards section both mention GDE — scope to the bio content renderer
-      await expect(page.locator('.prose').getByText(/I teach people how to test and ship with AI/)).toBeVisible();
-      await expect(page.locator('.prose').getByText(/Principal Technical Program Manager at Microsoft focused on Playwright/)).toBeVisible();
+      await expect(page.locator('.prose').getByText(/I help people work with AI agents/)).toBeVisible();
+      await expect(page.locator('.prose').getByText(/I build and use multi-agent workflows every day/)).toBeVisible();
+      await expect(page.locator('.prose').getByText(/Principal Technical Program Manager at Microsoft, focused on Playwright/)).toBeVisible();
       await expect(page.locator('.prose').getByText(/Google Developer Expert in web technologies/)).toBeVisible();
       await expect(page.locator('.prose').getByText(/former Microsoft MVP, Cloudinary Media Developer Expert, and GitHub Star/)).toBeVisible();
     });
