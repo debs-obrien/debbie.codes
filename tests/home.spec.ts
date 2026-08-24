@@ -6,7 +6,7 @@ test.beforeEach(async ({ page }) => {
 
 test('home contains name and title', async ({ page }) => {
   await expect(page.getByRole('heading', { level: 1, name: /Debbie O'Brien/i })).toBeVisible();
-  await expect(page.getByText('Platform Engineer – Applied AI at Zephyr Cloud')).toBeVisible();
+  await expect(page.getByText('Developer Educator focused on Playwright, testing & AI agents')).toBeVisible();
 });
 
 // Featured Posts section no longer exists after redesign

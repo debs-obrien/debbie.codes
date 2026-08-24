@@ -7,7 +7,7 @@ test.describe('Home Page Featured Content', () => {
 
   test('displays main hero section with correct information', async ({ page }) => {
     await expect(page.getByRole('heading', { level: 1, name: /Debbie O'Brien/i })).toBeVisible();
-    await expect(page.getByText('Platform Engineer – Applied AI at Zephyr Cloud')).toBeVisible();
+    await expect(page.getByText('Developer Educator focused on Playwright, testing & AI agents')).toBeVisible();
 
     // Profile image in the top bar
     const profileImage = page.getByRole('img', { name: 'Debbie O\'Brien' }).first();
@@ -119,7 +119,7 @@ test.describe('Home Page Featured Content', () => {
 
   test('home page content is accessible', async ({ page }) => {
     await expect(page.getByRole('heading', { level: 1, name: /Debbie O'Brien/i })).toBeVisible();
-    await expect(page.getByText('Platform Engineer – Applied AI at Zephyr Cloud')).toBeVisible();
+    await expect(page.getByText('Developer Educator focused on Playwright, testing & AI agents')).toBeVisible();
 
     const h2s = page.getByRole('heading', { level: 2 });
     const h2Count = await h2s.count();
