@@ -27,12 +27,11 @@ test.describe('About Page', () => {
     });
 
     await test.step('Verify role and achievements', async () => {
-      await expect(page.locator('.prose').getByText(/Developer Educator focused on Playwright, testing and AI agents/)).toBeVisible();
-      await expect(page.locator('.prose').getByText(/previously worked in Developer Relations at Nuxt/)).toBeVisible();
-      await expect(page.locator('.prose').getByText(/Platform Engineer for Applied AI at Zephyr Cloud/)).toBeVisible();
       // Bio + awards section both mention GDE — scope to the bio content renderer
+      await expect(page.locator('.prose').getByText(/I teach people how to test and ship with AI/)).toBeVisible();
+      await expect(page.locator('.prose').getByText(/Principal Technical Program Manager at Microsoft focused on Playwright/)).toBeVisible();
       await expect(page.locator('.prose').getByText(/Google Developer Expert in web technologies/)).toBeVisible();
-      await expect(page.locator('.prose').getByText(/Nuxt Ambassador/)).toBeVisible();
+      await expect(page.locator('.prose').getByText(/former Microsoft MVP, Cloudinary Media Developer Expert, and GitHub Star/)).toBeVisible();
     });
 
   });
