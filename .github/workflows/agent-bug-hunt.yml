@@ -50,9 +50,11 @@ jobs:
           npx playwright install chromium --with-deps
 
       - name: Install GitHub Copilot CLI
+        if: ${{ secrets.COPILOT_GITHUB_TOKEN != '' }}
         run: npm install -g @github/copilot
 
       - name: Run site-bug-hunt via Copilot CLI
+        if: ${{ secrets.COPILOT_GITHUB_TOKEN != '' }}
         env:
           COPILOT_GITHUB_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
           GH_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}

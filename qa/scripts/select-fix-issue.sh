@@ -14,9 +14,13 @@ if [[ -z "$json" || "$json" == "[]" ]]; then
   exit 0
 fi
 
-# Drop needs-human; prefer blocker > major > minor > other; oldest number within band
+# Drop needs-human and human-assigned issues (Copilot assignees OK).
+# Prefer blocker > major > minor > other; oldest number within band.
 number="$(echo "$json" | jq -r '
-  [.[] | select(([.labels[].name] | index("needs-human")) | not)]
+  [.[]
+    | select(([.labels[].name] | index("needs-human")) | not)
+    | select(all(.assignees[]; .login | test("(?i)copilot")))
+  ]
   | if length == 0 then empty else
       sort_by(
         (if any(.labels[].name; . == "severity:blocker") then 0
