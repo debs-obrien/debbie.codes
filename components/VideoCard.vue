@@ -15,6 +15,7 @@ defineProps<{
         :videoid="item.video"
         :playlabel="item.title"
         :start="item.start ? item.start : 0"
+        :style="youtubePosterStyle(item.video)"
       />
 
       <div class="p-6">
