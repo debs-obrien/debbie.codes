@@ -8,11 +8,11 @@ published: true
 
 It's totally insane. You have to see it to believe it.
 
-I created a new bot. I called it CoachBot. I seem to like putting bot in the name of my bots.
+I created a new bot in Grok Bot. I called it CoachBot. I seem to like putting bot in the name of my bots.
 
 What I wanted, and this is something I've been working on for quite a while, is just trying to keep up with health and fitness and weight. A lot of you out there probably have the same problem. It just gets out of control.
 
-Before I had twins I was doing three hours of sport a day. It didn't really matter, because I was burning off so many calories. Lately it's been very, very difficult to get back into that. Trying to get 20 minutes of sport in has been hard enough as it is.
+Before I had twins, I was doing three hours of sport a day. It didn't really matter, because I was burning off so many calories. Lately it's been very, very difficult to get back into that. Trying to get 20 minutes of sport in has been hard enough as it is.
 
 I know you need to walk 10k steps. Sometimes I manage it, sometimes I don't. I eat pretty healthy because I'm gluten-free and I cook a lot of my own food. I don't really eat a lot of fast food or takeout. But for some reason the weight just keeps piling on instead of coming off. That's very frustrating. My age is all against me. My body is literally just fighting against me.
 
@@ -32,7 +32,7 @@ A lot of what I've been reading lately is about protein. All of you who do a lot
 
 I thought I was eating enough, because I'm eating like twice the amount of things I think are protein. Today I learned it's just not at all. Everything I ate didn't even meet the minimum my body would need, not for weight loss, but for building. Building muscle, building strength. To do strength training we need protein, and oh my god, for me it seems so hard to eat protein. I'm just not a protein person. I thought I was. I'm so not.
 
-I ate breakfast thinking, yay, there's soy milk in there, there's protein in there. Damn, it's not good enough. I had fish for lunch. A whole fish. I was like, that's so much protein. It's so not. I had like two fish. Still not good enough. I had some bolognese and then a greek yogurt. No, that yogurt doesn't have enough protein. I'm like, what?
+I ate breakfast thinking, yay, there's soy milk in there, there's protein in there. Damn, it's not good enough. I had fish for lunch. A whole fish. I was like, that's so much protein. It's so not. I had like two fish. Still not good enough. I had some bolognese and then a Greek yogurt. No, that yogurt doesn't have enough protein. I'm like, what?
 
 I've been chatting to my coach the whole day. Just saying, this is what I've eaten. So it now has a whole idea of everything I've eaten. It told me to add a couple of spoonfuls of chia seeds into the yogurt. That would make it a little bit better. Tiny little things. Little improvements as I go along my day.
 
@@ -50,7 +50,7 @@ CoachBot watched the video. It listed out all the exercises, then told me it was
 
 I've been doing these exercises for like two months and now I'm stabbed in the heart. Very cool that I learned this now and I can improve it.
 
-It said you have a TRX, so go ahead and do these instead of the dumbbell, because my body weight with a TRX is more strength than the dumbbells. That's something I didn't even think about. I don't really use the TRX, so I'm not really sure how to do those exercises right.
+It said you have a TRX, so go ahead and do these instead of the dumbbells, because my body weight with a TRX is more strength than the dumbbells. That's something I didn't even think about. I don't really use the TRX, so I'm not really sure how to do those exercises right.
 
 I still can't follow a list of stuff. I asked, can you find me a video I could follow with all the things you've just told me to do? It went off and sent me a video. It told me to do that on Wednesday, and if it's too easy it will find another one. I'm just blown away.
 
