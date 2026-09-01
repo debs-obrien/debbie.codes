@@ -48,9 +48,9 @@ withDefaults(defineProps<{
 }
 
 .dark .tag-chip--pill {
-  border-color: rgb(55 65 81);
-  background: rgba(15, 23, 42, 0.6);
-  color: rgb(209 213 219);
+  border-color: rgb(75 85 99);
+  background: rgb(30 41 59);
+  color: rgb(243 244 246);
 }
 
 .dark .tag-chip--pill:hover {

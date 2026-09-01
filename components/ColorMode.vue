@@ -1,26 +1,27 @@
 <script setup lang="ts">
 type Theme = 'light' | 'dark' | 'system'
+
+const nextTheme = computed<Theme>(() => {
+  const current = useColorMode().preference
+  if (current === 'system')
+    return 'dark'
+  if (current === 'dark')
+    return 'light'
+  return 'system'
+})
+
 function setColorTheme(newTheme: Theme) {
   useColorMode().preference = newTheme
 }
 
 function cycleColorMode() {
-  const current = useColorMode().preference
-  if (current === 'system') {
-    setColorTheme('dark')
-  }
-  else if (current === 'dark') {
-    setColorTheme('light')
-  }
-  else {
-    setColorTheme('system')
-  }
+  setColorTheme(nextTheme.value)
 }
 </script>
 
 <template>
   <button
-    :aria-label="$colorMode.preference"
+    :aria-label="`${$colorMode.preference}. Switch to ${nextTheme}`"
     type="button"
     class="block"
     @click="cycleColorMode"

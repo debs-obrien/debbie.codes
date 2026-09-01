@@ -92,8 +92,14 @@ useHead({
 
 <template>
   <div>
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:rounded-md"
+    >
+      Skip to content
+    </a>
     <TheTopBar />
-    <div class="lg:container mx-auto mt-top-bar px-2 md:px-4">
+    <div id="main-content" class="lg:container mx-auto mt-top-bar px-2 md:px-4">
       <NuxtPage />
     </div>
     <TheFooter />

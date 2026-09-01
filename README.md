@@ -41,3 +41,13 @@ Locally preview production build:
 npm run preview
 ```
 
+## Agent review loop (pstack)
+
+Install [pstack](https://cursor.com/marketplace/cursor/pstack) in Cursor before asking an agent to babysit or merge Wave A PRs:
+
+1. In Cursor chat, run `/add-plugin pstack`
+2. Run `/setup-pstack` and pick models
+3. On a Wave A PR: `/poteto-mode babysit this PR, then ship it if CI is green`
+
+Wave A PRs are agent-mergeable. Wave B PRs are human-merge only.
+

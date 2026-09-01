@@ -32,7 +32,7 @@ const videoTags = computed(() => {
 })
 
 const title: string = 'Videos'
-const description: string = ''
+const description: string = 'Conference talks, interviews, and live streams on Playwright, testing, and AI agents.'
 const section: Sections = 'videos'
 
 useHead({

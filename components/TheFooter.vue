@@ -22,7 +22,7 @@
           class="
             text-white
             transition
-            hover:text-white
+            hover:text-primary
           "
         >
           <IconX class="h-10 w-10 mb-6" />
@@ -38,7 +38,7 @@
           class="
             text-white
             transition
-            hover:text-white
+            hover:text-primary
           "
         >
           <IconLinkedIn class="h-10 w-10" />
@@ -54,7 +54,7 @@
           class="
             text-white
             transition
-            hover:text-white
+            hover:text-primary
           "
         >
           <IconYouTube class="h-10 w-10" />
@@ -69,7 +69,7 @@
           class="
             text-white
             transition
-            hover:text-white
+            hover:text-primary
           "
         >
           <IconTwitch class="h-10 w-10" />
@@ -85,7 +85,7 @@
           class="
             text-white
             transition
-            hover:text-white
+            hover:text-primary
           "
         >
           <IconGitHub class="h-10 w-10" />
@@ -100,7 +100,7 @@
           class="
             text-white
             transition
-            hover:text-white
+            hover:text-primary
           "
         >
           <IconDevto class="h-10 w-10" />
@@ -113,6 +113,7 @@
           aria-label="buy me a coffee"
           target="_blank"
           rel="nofollow noopener noreferrer"
+          class="text-white transition hover:text-primary"
         >
           <IconCoffee class="h-10 w-10" />
         </a>
