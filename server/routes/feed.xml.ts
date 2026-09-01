@@ -26,6 +26,7 @@ export default defineEventHandler(async (event) => {
 
   // Query all published blog posts
   const posts = await queryCollection(event, 'blog')
+    .select('path', 'title', 'description', 'date', 'tags', 'canonical', 'published')
     .order('date', 'DESC')
     .all()
 

@@ -6,6 +6,7 @@ const {
 } = useRoute()
 
 const { data: podcasts } = await useAsyncData(`podcasts-${slug}`, () => queryCollection('podcasts')
+  .select(...podcastPreviewFields)
   .where('tags', 'LIKE', `%${slug}%`)
   .order('date', 'DESC')
   .all())
@@ -15,6 +16,7 @@ const isSearchActive = ref(false)
 
 // Get all podcasts to extract real tags
 const { data: allPodcasts } = await useAsyncData('all-podcasts-for-tags-page', () => queryCollection('podcasts')
+  .select(...podcastPreviewFields)
   .all())
 
 const podcastTags = computed(() => {

@@ -6,6 +6,7 @@ const {
 } = useRoute()
 
 const { data: articles } = await useAsyncData(`articles-${slug}`, () => queryCollection('blog')
+  .select(...blogPreviewFields)
   .where('tags', 'LIKE', `%${slug}%`)
   .order('date', 'DESC')
   .all())

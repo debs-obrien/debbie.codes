@@ -6,12 +6,14 @@ const isSearchActive = ref(false)
 
 // Fetch recent blog posts (latest 8)
 const { data: recentPosts } = await useAsyncData('recent-blog-posts', () => queryCollection('blog')
+  .select(...blogPreviewFields)
   .order('date', 'DESC')
   .limit(8)
   .all())
 
 // Get all unique tags with counts for "Browse by Topic" section and years
 const { data: allPosts } = await useAsyncData('all-blog-posts-for-tags', () => queryCollection('blog')
+  .select(...blogPreviewFields)
   .all())
 
 const popularTags = computed(() => {

@@ -1,12 +1,12 @@
 <script setup lang="ts">
 const { data: articles } = await useAsyncData('articles-home', () =>
-  queryCollection('blog').order('date', 'DESC').limit(6).all())
+  queryCollection('blog').select(...blogPreviewFields).order('date', 'DESC').limit(6).all())
 
 const { data: videos } = await useAsyncData('videos-home', () =>
-  queryCollection('videos').order('date', 'DESC').limit(5).all())
+  queryCollection('videos').select(...videoPreviewFields).order('date', 'DESC').limit(5).all())
 
 const { data: podcasts } = await useAsyncData('podcasts-home', () =>
-  queryCollection('podcasts').order('date', 'DESC').limit(2).all())
+  queryCollection('podcasts').select(...podcastPreviewFields).order('date', 'DESC').limit(2).all())
 
 const homeBody = ref<HTMLElement | null>(null)
 useScrollReveal(homeBody)

@@ -6,6 +6,7 @@ const {
 } = useRoute()
 
 const { data: videos } = await useAsyncData(`videos-${slug}`, () => queryCollection('videos')
+  .select(...videoPreviewFields)
   .where('tags', 'LIKE', `%${slug}%`)
   .order('date', 'DESC')
   .all())
@@ -15,6 +16,7 @@ const isSearchActive = ref(false)
 
 // Get all videos to extract real tags
 const { data: allVideos } = await useAsyncData('all-videos-for-tags-page', () => queryCollection('videos')
+  .select(...videoPreviewFields)
   .all())
 
 const videoTags = computed(() => {

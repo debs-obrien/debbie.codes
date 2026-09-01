@@ -6,6 +6,7 @@ const {
 } = useRoute()
 
 const { data: courses } = await useAsyncData(`courses-${slug}`, () => queryCollection('courses')
+  .select(...coursePreviewFields)
   .where('tags', 'LIKE', `%${slug}%`)
   .order('date', 'DESC')
   .all())
@@ -15,6 +16,7 @@ const isSearchActive = ref(false)
 
 // Get all courses to extract real tags
 const { data: allCourses } = await useAsyncData('all-courses-for-tags-page', () => queryCollection('courses')
+  .select(...coursePreviewFields)
   .all())
 
 const courseTags = computed(() => {
