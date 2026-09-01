@@ -30,7 +30,7 @@ const courseTags = computed(() => {
 })
 
 const title: string = 'Courses'
-const description: string = 'Workshops and courses on Playwright, Vue, Nuxt, and building with AI agents.'
+const description: string = 'Hands-on courses and workshops on Playwright, AI agents, MCP, Vue, and Nuxt.'
 const section: Sections = 'courses'
 
 useHead({

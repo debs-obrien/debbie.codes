@@ -10,6 +10,16 @@
     </div>
 
     <div class="relative z-10 flex flex-col items-center justify-center text-center px-6 sm:px-10 pt-[7.5rem] pb-12 sm:pb-14">
+      <NuxtImg
+        provider="cloudinary"
+        src="v1589118478/debbie.codes/debbie-thumb_clt00n"
+        alt="Debbie O'Brien"
+        width="160"
+        height="160"
+        sizes="112px"
+        class="hero-animate hero-animate-1 rounded-full mb-6 w-28 h-28 object-cover border-2 border-white/20"
+      />
+
       <h1 class="hero-animate hero-animate-1 text-4xl sm:text-5xl md:text-6xl font-bold uppercase tracking-wider leading-none">
         Debbie <span class="text-primary">O'Brien</span>
       </h1>
@@ -19,6 +29,23 @@
       <p class="hero-animate hero-animate-2 mt-4 text-lg md:text-xl text-gray-300 max-w-2xl">
         Developer Educator focused on Playwright, testing & AI agents
       </p>
+
+      <div class="hero-animate hero-animate-2 mt-6 flex flex-wrap justify-center gap-3">
+        <a
+          href="https://www.youtube.com/c/DebbieOBrien"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hero-cta hero-cta-primary"
+        >
+          Watch on YouTube
+        </a>
+        <NuxtLink to="/now" class="hero-cta">
+          See what I’m working on
+        </NuxtLink>
+        <a href="mailto:dobriendev@gmail.com" class="hero-cta">
+          Say hello
+        </a>
+      </div>
 
       <div class="hero-animate hero-animate-3 mt-6 flex flex-wrap justify-center items-center gap-2.5">
         <a
@@ -116,6 +143,32 @@
   height: 3px;
   border-radius: 9999px;
   background: linear-gradient(90deg, transparent, #d8002d, transparent);
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.55rem 1.1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+  background: rgba(9, 26, 40, 0.5);
+}
+
+.hero-cta:hover {
+  border-color: #d8002d;
+  background: rgba(216, 0, 45, 0.14);
+}
+
+.hero-cta-primary {
+  border-color: #d8002d;
+  background: #d8002d;
+}
+
+.hero-cta-primary:hover {
+  background: #b80026;
 }
 
 .badge-link {

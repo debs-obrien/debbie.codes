@@ -6,6 +6,10 @@ export const NavLinks: Navigation[] = [
     link: 'About',
   },
   {
+    url: '/speaking',
+    link: 'Speaking',
+  },
+  {
     url: '/videos',
     link: 'Videos',
   },
@@ -20,5 +24,9 @@ export const NavLinks: Navigation[] = [
   {
     url: '/blog',
     link: 'Blog',
+  },
+  {
+    url: '/now',
+    link: 'Now',
   },
 ]
