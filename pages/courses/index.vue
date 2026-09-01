@@ -6,6 +6,7 @@ const isSearchActive = ref(false)
 
 // Get all courses to extract real tags
 const { data: allCourses } = await useAsyncData('all-courses-for-tags', () => queryCollection('courses')
+  .order('date', 'DESC')
   .all())
 
 const courseTags = computed(() => {

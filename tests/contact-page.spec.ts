@@ -11,6 +11,6 @@ test.describe('Contact page', () => {
       'href',
       'mailto:dobriendev@gmail.com',
     )
-    await expect(page.getByRole('link', { name: 'speaking' })).toHaveAttribute('href', '/speaking')
+    await expect(page.getByRole('main').getByRole('link', { name: 'speaking', exact: true })).toHaveAttribute('href', '/speaking')
   })
 })

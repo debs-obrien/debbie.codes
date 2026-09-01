@@ -8,7 +8,7 @@ test.describe('Speaking page', () => {
   test('lists booked talks only', async ({ page }) => {
     await expect(page).toHaveTitle(/Speaking/)
     await expect(page.getByRole('heading', { name: 'Talks', level: 1 })).toBeVisible()
-    await expect(page.getByText(/not an open call/i)).toBeVisible()
+    await expect(page.getByText(/rather than an open call/i)).toBeVisible()
 
     await expect(page.getByRole('heading', { name: /Bug Report In, Pull Request Out/ })).toBeVisible()
     await expect(page.getByText('ZurichJS Conf')).toBeVisible()
