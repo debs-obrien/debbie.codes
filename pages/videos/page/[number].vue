@@ -1,21 +1,26 @@
 <script setup lang="ts">
 import type { Sections } from '~/types'
 
+const route = useRoute()
+const page = Number.parseInt(route.params.number as string) || 1
 const videosPerPage = 24
+const offset = (page - 1) * videosPerPage
+
 const filteredVideos = ref<any[]>([])
 const isSearchActive = ref(false)
 
-const { data: pageVideos } = await useAsyncData('videos-page-1', () => queryCollection('videos')
-  .select(...videoPreviewFields)
+const { data: pageVideos } = await useAsyncData(`videos-page-${page}`, () => queryCollection('videos')
+  .select('path', 'title', 'description', 'date', 'tags', 'video', 'host', 'conference', 'image', 'featured')
   .order('date', 'DESC')
   .limit(videosPerPage)
+  .skip(offset)
   .all())
 
 const { data: totalCount } = await useAsyncData('videos-total-count', () => queryCollection('videos')
   .count())
 
 const { data: allVideos } = await useAsyncData('all-videos-for-pages', () => queryCollection('videos')
-  .select(...videoPreviewFields)
+  .select('path', 'title', 'description', 'date', 'tags', 'video', 'host', 'conference', 'image', 'featured')
   .order('date', 'DESC')
   .all())
 
@@ -45,7 +50,11 @@ const totalPages = computed(() => {
   return Math.ceil(totalCount.value / videosPerPage)
 })
 
-const title: string = 'Videos'
+if (page < 1 || (totalCount.value && page > totalPages.value)) {
+  throw createError({ statusCode: 404, statusMessage: 'Page Not Found' })
+}
+
+const title: string = page === 1 ? 'Videos' : `Videos - Page ${page}`
 const description: string = 'Conference talks, interviews, and live streams on Playwright, testing, and AI agents.'
 const section: Sections = 'videos'
 
@@ -86,7 +95,7 @@ useHead({
       <VideoList :list="isSearchActive ? filteredVideos : (pageVideos || [])" />
       <Pagination
         v-if="!isSearchActive && totalPages > 1"
-        :current-page="1"
+        :current-page="page"
         :total-pages="totalPages"
         base-url="/videos"
       />
