@@ -7,6 +7,9 @@ test.beforeEach(async ({ page }) => {
 test('home contains name and title', async ({ page }) => {
   await expect(page.getByRole('heading', { level: 1, name: /Debbie O'Brien/i })).toBeVisible();
   await expect(page.getByText('Developer Educator focused on Playwright, testing & AI agents')).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Watch on YouTube' })).toBeVisible();
+  await expect(page.getByRole('link', { name: /See what I.m working on/ })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Say hello' })).toHaveAttribute('href', 'mailto:dobriendev@gmail.com');
 });
 
 // Featured Posts section no longer exists after redesign

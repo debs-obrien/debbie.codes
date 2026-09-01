@@ -23,6 +23,9 @@ test.describe('404 Error Page', () => {
             - link "About":
               - /url: /about
           - listitem:
+            - link "Speaking":
+              - /url: /speaking
+          - listitem:
             - link "Videos":
               - /url: /videos
           - listitem:
@@ -34,6 +37,9 @@ test.describe('404 Error Page', () => {
           - listitem:
             - link "Blog":
               - /url: /blog
+          - listitem:
+            - link "Now":
+              - /url: /now
     `);
     
     await expect(page.getByRole('contentinfo').getByRole('list').first()).toMatchAriaSnapshot(`
@@ -41,6 +47,9 @@ test.describe('404 Error Page', () => {
         - listitem:
           - link "About":
             - /url: /about
+        - listitem:
+          - link "Speaking":
+            - /url: /speaking
         - listitem:
           - link "Videos":
             - /url: /videos
@@ -53,6 +62,9 @@ test.describe('404 Error Page', () => {
         - listitem:
           - link "Blog":
             - /url: /blog
+        - listitem:
+          - link "Now":
+            - /url: /now
     `);
   });
 });

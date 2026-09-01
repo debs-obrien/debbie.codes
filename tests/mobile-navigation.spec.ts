@@ -54,6 +54,8 @@ test.describe('Mobile Navigation', () => {
             - listitem:
               - link "About"
             - listitem:
+              - link "Speaking"
+            - listitem:
               - link "Videos"
             - listitem:
               - link "Podcasts"
@@ -61,6 +63,8 @@ test.describe('Mobile Navigation', () => {
               - link "Courses"
             - listitem:
               - link "Blog"
+            - listitem:
+              - link "Now"
       `);
     });
   });

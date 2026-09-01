@@ -19,17 +19,18 @@ test.describe('About Page', () => {
 
   test('About page - Displays biographical content', async ({ page }) => {
     await test.step('Verify professional background paragraph', async () => {
-      const bioParagraph = page.getByText('With over 15 years experience in Frontend development');
+      const bioParagraph = page.getByText('With over 15 years in frontend development');
       await expect(bioParagraph).toBeVisible();
-      await expect(bioParagraph).toContainText('Tech Lead and consultant');
-      await expect(bioParagraph).toContainText('Vue School');
-      await expect(bioParagraph).toContainText('Jamstack Explorers');
+      await expect(bioParagraph).toContainText('performance and testing');
+      await expect(bioParagraph).toContainText('AI agents');
     });
 
     await test.step('Verify role and achievements', async () => {
       // Bio + awards section both mention GDE — scope to the bio content renderer
       await expect(page.locator('.prose').getByText(/I help people work with AI agents/)).toBeVisible();
       await expect(page.locator('.prose').getByText(/I build and use multi-agent workflows every day/)).toBeVisible();
+      await expect(page.locator('.prose').getByText(/Zephyr Cloud/)).toBeVisible();
+      await expect(page.locator('.prose').getByText(/Senior Staff Developer Relations Engineer, Applied AI at Block/)).toBeVisible();
       await expect(page.locator('.prose').getByText(/Principal Technical Program Manager at Microsoft, focused on Playwright/)).toBeVisible();
       await expect(page.locator('.prose').getByText(/Google Developer Expert in web technologies/)).toBeVisible();
       await expect(page.locator('.prose').getByText(/former Microsoft MVP, Cloudinary Media Developer Expert, and GitHub Star/)).toBeVisible();
@@ -160,10 +161,12 @@ test.describe('About Page', () => {
       await expect(youtubeLink).toHaveAttribute('href', 'https://www.youtube.com/c/DebbieOBrien');
     });
 
-    await test.step('Verify educational platform links', async () => {
-      await expect(page.getByRole('link', { name: 'Vue School' })).toHaveAttribute('href', 'https://vueschool.io/courses/internationalization-with-vue-i18n');
-      await expect(page.getByRole('link', { name: 'Jamstack Explorers' })).toHaveAttribute('href', 'https://explorers.netlify.com/learn/get-started-with-nuxt');
-      await expect(page.getByRole('link', { name: 'Ultimate Courses' })).toHaveAttribute('href', 'https://ultimatecourses.com/author/debbieobrien');
+    await test.step('Verify contact email', async () => {
+      await expect(page.getByRole('link', { name: 'email me' })).toHaveAttribute('href', 'mailto:dobriendev@gmail.com');
+    });
+
+    await test.step('Verify headshot is visible', async () => {
+      await expect(page.getByRole('main').getByRole('img', { name: 'Debbie O\'Brien' })).toBeVisible();
     });
   });
 });
