@@ -78,6 +78,7 @@ export default defineContentConfig({
         date: z.string(),
         description: z.string(),
         video: z.string(),
+        start: z.number().optional(),
         tags: z.array(z.string()),
         host: z.string().optional(),
         conference: z.string().optional(),
