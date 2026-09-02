@@ -1,0 +1,175 @@
+#!/usr/bin/env bash
+# Isolated launch / doctor / drive / cleanup for debbie.codes verification.
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "$0")/../../../.." && pwd)"
+PORT="${VERIFY_PORT:-8010}"
+RUN_ID="${VERIFY_RUN_ID:-default}"
+STATE_DIR="/tmp/verify-debbie-codes-${RUN_ID}"
+PID_FILE="${STATE_DIR}/nuxt.pid"
+LISTEN_PID_FILE="${STATE_DIR}/listen.pid"
+PORT_FILE="${STATE_DIR}/port"
+LOG_FILE="${STATE_DIR}/nuxt.log"
+ARTIFACT_DIR="${ROOT}/.cursor/skills/verify-debbie-codes/artifacts/${RUN_ID}"
+BASE_URL="${VERIFY_BASE_URL:-http://127.0.0.1:${PORT}}"
+
+usage() {
+  echo "Usage: VERIFY_PORT=8010 VERIFY_RUN_ID=<id> $0 launch|doctor|drive <feature>|cleanup" >&2
+  exit 2
+}
+
+ensure_state_dir() {
+  mkdir -p "${STATE_DIR}" "${ARTIFACT_DIR}"
+}
+
+is_ready() {
+  local code
+  code="$(curl -s -o /dev/null -w '%{http_code}' --max-time 3 "${BASE_URL}/" || true)"
+  [[ "${code}" == "200" ]]
+}
+
+# Minified Nuxt HTML is one huge line; GNU grep can miss matches on it.
+html_has_title() {
+  python3 - "${BASE_URL}/" <<'PY'
+import sys, urllib.request
+url = sys.argv[1]
+html = urllib.request.urlopen(url, timeout=5).read().decode("utf-8", "replace")
+sys.exit(0 if "<title>Debbie" in html else 1)
+PY
+}
+
+cmd_launch() {
+  if [[ -n "${VERIFY_BASE_URL:-}" ]]; then
+    echo "VERIFY_BASE_URL is set (${VERIFY_BASE_URL}); skip launch and doctor that URL instead."
+    exit 1
+  fi
+  ensure_state_dir
+  if [[ -f "${PID_FILE}" ]] && kill -0 "$(cat "${PID_FILE}")" 2>/dev/null; then
+    echo "Already running pid $(cat "${PID_FILE}") on $(cat "${PORT_FILE}")"
+    exit 0
+  fi
+  if curl -s -o /dev/null -w '%{http_code}' --max-time 1 "http://127.0.0.1:${PORT}/" | grep -qE '200|503'; then
+    echo "Port ${PORT} already answers. Pick another VERIFY_PORT; do not drive a shared instance."
+    exit 1
+  fi
+
+  cd "${ROOT}"
+  export NUXT_TELEMETRY_DISABLED=1
+  # nuxi --port overrides nuxt.config devServer.port (8000).
+  # New session so cleanup can kill the whole tree (npm + nuxi child) by pgid.
+  setsid npm run dev -- --port "${PORT}" --host 127.0.0.1 >"${LOG_FILE}" 2>&1 &
+  echo $! >"${PID_FILE}"
+  echo "${PORT}" >"${PORT_FILE}"
+
+  for _ in $(seq 1 90); do
+    if is_ready; then
+      lsof -iTCP:"${PORT}" -sTCP:LISTEN -t >"${LISTEN_PID_FILE}" || true
+      echo "Ready ${BASE_URL} pid $(cat "${PID_FILE}") listen $(tr '\n' ' ' <"${LISTEN_PID_FILE}")"
+      exit 0
+    fi
+    if ! kill -0 "$(cat "${PID_FILE}")" 2>/dev/null; then
+      echo "Dev server exited. Tail of ${LOG_FILE}:" >&2
+      tail -40 "${LOG_FILE}" >&2
+      exit 1
+    fi
+    sleep 1
+  done
+  echo "Timed out waiting for HTTP 200 on ${BASE_URL}" >&2
+  tail -40 "${LOG_FILE}" >&2
+  exit 1
+}
+
+cmd_doctor() {
+  if [[ -n "${VERIFY_BASE_URL:-}" ]]; then
+    if is_ready && html_has_title; then
+      echo "OK remote ${BASE_URL}"
+      exit 0
+    fi
+    echo "FAIL remote ${BASE_URL} not a ready debbie.codes instance" >&2
+    exit 1
+  fi
+  if [[ ! -f "${PID_FILE}" ]]; then
+    echo "FAIL no pid file ${PID_FILE}" >&2
+    exit 1
+  fi
+  local pid
+  pid="$(cat "${PID_FILE}")"
+  if ! kill -0 "${pid}" 2>/dev/null; then
+    echo "FAIL pid ${pid} is not running" >&2
+    exit 1
+  fi
+  local recorded_port
+  recorded_port="$(cat "${PORT_FILE}")"
+  if [[ "${recorded_port}" != "${PORT}" ]]; then
+    echo "FAIL VERIFY_PORT=${PORT} but this run recorded ${recorded_port}" >&2
+    exit 1
+  fi
+  if ! is_ready; then
+    echo "FAIL ${BASE_URL}/ is not HTTP 200" >&2
+    exit 1
+  fi
+  if ! html_has_title; then
+    echo "FAIL ${BASE_URL}/ HTML missing <title>Debbie" >&2
+    exit 1
+  fi
+  echo "OK pid ${pid} port ${PORT} ${BASE_URL}"
+}
+
+cmd_drive() {
+  local feature="${1:-}"
+  if [[ -z "${feature}" ]]; then
+    usage
+  fi
+  ensure_state_dir
+  cmd_doctor
+  export VERIFY_PORT="${PORT}"
+  export VERIFY_BASE_URL="${BASE_URL}"
+  export VERIFY_ARTIFACT_DIR="${ARTIFACT_DIR}"
+  export VERIFY_FEATURE="${feature}"
+  node "${ROOT}/.cursor/skills/verify-debbie-codes/bin/drive.mjs"
+}
+
+cmd_cleanup() {
+  if [[ -n "${VERIFY_BASE_URL:-}" ]]; then
+    echo "Remote URL set; nothing local to kill. Artifacts kept."
+    exit 0
+  fi
+  if [[ ! -f "${PID_FILE}" ]]; then
+    echo "No pid file; nothing to kill. Artifacts kept at ${ARTIFACT_DIR}"
+    exit 0
+  fi
+  local pid
+  pid="$(cat "${PID_FILE}")"
+  local pgid
+  pgid="$(ps -o pgid= -p "${pid}" 2>/dev/null | tr -d ' ' || true)"
+  if [[ -n "${pgid}" ]]; then
+    kill -- "-${pgid}" 2>/dev/null || true
+  elif kill -0 "${pid}" 2>/dev/null; then
+    kill "${pid}" 2>/dev/null || true
+  fi
+  if [[ -f "${LISTEN_PID_FILE}" ]]; then
+    while read -r listen_pid; do
+      [[ -n "${listen_pid}" ]] || continue
+      if kill -0 "${listen_pid}" 2>/dev/null; then
+        kill "${listen_pid}" 2>/dev/null || true
+      fi
+    done <"${LISTEN_PID_FILE}"
+  fi
+  for _ in $(seq 1 20); do
+    kill -0 "${pid}" 2>/dev/null || break
+    sleep 0.2
+  done
+  if [[ -n "${pgid}" ]] && kill -0 "${pid}" 2>/dev/null; then
+    kill -9 -- "-${pgid}" 2>/dev/null || true
+  fi
+  rm -f "${PID_FILE}" "${PORT_FILE}" "${LISTEN_PID_FILE}"
+  echo "Stopped pid ${pid}. Artifacts kept at ${ARTIFACT_DIR}"
+}
+
+case "${1:-}" in
+  launch) cmd_launch ;;
+  doctor) cmd_doctor ;;
+  drive) shift; cmd_drive "${1:-}" ;;
+  cleanup) cmd_cleanup ;;
+  *) usage ;;
+esac
