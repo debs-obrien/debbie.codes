@@ -30,6 +30,7 @@ test.describe('About Page', () => {
       await expect(page.locator('.prose').getByText(/I help people work with AI agents/)).toBeVisible();
       await expect(page.locator('.prose').getByText(/I build and use multi-agent workflows every day/)).toBeVisible();
       await expect(page.locator('.prose').getByText(/Zephyr Cloud/)).toBeVisible();
+      await expect(page.getByRole('link', { name: /Zephyr/i })).toHaveCount(0);
       await expect(page.locator('.prose').getByText(/Senior Staff Developer Relations Engineer, Applied AI at Block/)).toBeVisible();
       await expect(page.locator('.prose').getByText(/Principal Technical Program Manager at Microsoft, focused on Playwright/)).toBeVisible();
       await expect(page.locator('.prose').getByText(/Google Developer Expert in web technologies/)).toBeVisible();
