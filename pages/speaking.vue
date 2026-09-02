@@ -6,7 +6,6 @@ const upcoming = [
     place: 'Zurich, Switzerland',
     title: 'Bug Report In, Pull Request Out: Agentic CI with Playwright',
     url: 'https://conf.zurichjs.com/speakers/debbie-o-brien',
-    note: 'Also a workshop on 10 September.',
   },
   {
     event: 'Infobip Shift',
@@ -14,7 +13,6 @@ const upcoming = [
     place: 'Zadar, Croatia',
     title: 'The Agentic Developer: Orchestrating AI Workflows With Skills and MCPs',
     url: 'https://shift.infobip.com/agenda/',
-    note: '',
   },
 ]
 
@@ -38,7 +36,6 @@ useHead({
     </h1>
     <p class="text-lg text-gray-600 dark:text-gray-300 mb-10">
       I speak about Playwright, testing, and building with AI agents.
-      I already take fewer events than I am invited to, so this page lists what is booked rather than an open call.
     </p>
 
     <h2 class="text-2xl font-bold mb-6">
@@ -56,11 +53,8 @@ useHead({
         <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">
           {{ talk.title }}
         </h3>
-        <p class="text-gray-600 dark:text-gray-300 mb-1">
+        <p class="text-gray-600 dark:text-gray-300 mb-3">
           {{ talk.dates }} · {{ talk.place }}
-        </p>
-        <p v-if="talk.note" class="text-gray-600 dark:text-gray-300 mb-3">
-          {{ talk.note }}
         </p>
         <a
           :href="talk.url"
