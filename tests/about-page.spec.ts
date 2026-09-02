@@ -47,87 +47,87 @@ test.describe('About Page', () => {
       await expect(page.getByRole('region')).toMatchAriaSnapshot(`
         - region:
           - list:
-            - article:
-              - heading "Learn more about GitHub Star Alumni (opens in new tab)" [level=3]:
-                - link "Learn more about GitHub Star Alumni (opens in new tab)":
+            - listitem:
+              - article:
+                - heading "Learn more about GitHub Star Alumni (opens in new tab)" [level=3]:
+                  - link "Learn more about GitHub Star Alumni (opens in new tab)":
+                    - /url: https://stars.github.com/alumni/
+                    - text: GitHub Star Alumni
+                - paragraph
+                - link "About GitHub Star Alumni":
                   - /url: https://stars.github.com/alumni/
-                  - text: GitHub Star Alumni
-              - paragraph
-              - link "Learn more about GitHub Star Alumni (opens in new tab)":
-                - /url: https://stars.github.com/alumni/
-                - text: Learn More
-            - article:
-              - heading "Learn more about Google Developer Expert (opens in new tab)" [level=3]:
-                - link "Learn more about Google Developer Expert (opens in new tab)":
+            - listitem:
+              - article:
+                - heading "Learn more about Google Developer Expert (opens in new tab)" [level=3]:
+                  - link "Learn more about Google Developer Expert (opens in new tab)":
+                    - /url: https://me.developers.google.com/u/115790798136433531532
+                    - text: Google Developer Expert
+                - paragraph
+                - link "About Google Developer Expert":
                   - /url: https://me.developers.google.com/u/115790798136433531532
-                  - text: Google Developer Expert
-              - paragraph
-              - link "Learn more about Google Developer Expert (opens in new tab)":
-                - /url: https://me.developers.google.com/u/115790798136433531532
-                - text: Learn More
-            - article:
-              - heading "Learn more about Former Microsoft Most Valuable Professional (opens in new tab)" [level=3]:
-                - link "Learn more about Former Microsoft Most Valuable Professional (opens in new tab)":
+            - listitem:
+              - article:
+                - heading "Learn more about Former Microsoft Most Valuable Professional (opens in new tab)" [level=3]:
+                  - link "Learn more about Former Microsoft Most Valuable Professional (opens in new tab)":
+                    - /url: https://mvp.microsoft.com/en-us/PublicProfile/5003613?fullName=Debbie%20O%27Brien
+                    - text: Former Microsoft Most Valuable Professional
+                - paragraph
+                - link "About Former Microsoft Most Valuable Professional":
                   - /url: https://mvp.microsoft.com/en-us/PublicProfile/5003613?fullName=Debbie%20O%27Brien
-                  - text: Former Microsoft Most Valuable Professional
-              - paragraph
-              - link "Learn more about Former Microsoft Most Valuable Professional (opens in new tab)":
-                - /url: https://mvp.microsoft.com/en-us/PublicProfile/5003613?fullName=Debbie%20O%27Brien
-                - text: Learn More
-            - article:
-              - heading "Learn more about Nuxt Ambassador (opens in new tab)" [level=3]:
-                - link "Learn more about Nuxt Ambassador (opens in new tab)":
+            - listitem:
+              - article:
+                - heading "Learn more about Nuxt Ambassador (opens in new tab)" [level=3]:
+                  - link "Learn more about Nuxt Ambassador (opens in new tab)":
+                    - /url: https://nuxtjs.org/teams/
+                    - text: Nuxt Ambassador
+                - paragraph
+                - link "About Nuxt Ambassador":
                   - /url: https://nuxtjs.org/teams/
-                  - text: Nuxt Ambassador
-              - paragraph
-              - link "Learn more about Nuxt Ambassador (opens in new tab)":
-                - /url: https://nuxtjs.org/teams/
-                - text: Learn More
-            - article:
-              - heading "Learn more about Media Developer Expert (opens in new tab)" [level=3]:
-                - link "Learn more about Media Developer Expert (opens in new tab)":
+            - listitem:
+              - article:
+                - heading "Learn more about Media Developer Expert (opens in new tab)" [level=3]:
+                  - link "Learn more about Media Developer Expert (opens in new tab)":
+                    - /url: https://cloudinary.com/mde
+                    - text: Media Developer Expert
+                - paragraph
+                - link "About Media Developer Expert":
                   - /url: https://cloudinary.com/mde
-                  - text: Media Developer Expert
-              - paragraph
-              - link "Learn more about Media Developer Expert (opens in new tab)":
-                - /url: https://cloudinary.com/mde
-                - text: Learn More
-            - article:
-              - heading "Learn more about Auth0 Ambassador (opens in new tab)" [level=3]:
-                - link "Learn more about Auth0 Ambassador (opens in new tab)":
+            - listitem:
+              - article:
+                - heading "Learn more about Auth0 Ambassador (opens in new tab)" [level=3]:
+                  - link "Learn more about Auth0 Ambassador (opens in new tab)":
+                    - /url: https://auth0.com/ambassador-program/
+                    - text: Auth0 Ambassador
+                - paragraph
+                - link "About Auth0 Ambassador":
                   - /url: https://auth0.com/ambassador-program/
-                  - text: Auth0 Ambassador
-              - paragraph
-              - link "Learn more about Auth0 Ambassador (opens in new tab)":
-                - /url: https://auth0.com/ambassador-program/
-                - text: Learn More
-            - article:
-              - heading "Learn more about Microsoft Certified (opens in new tab)" [level=3]:
-                - link "Learn more about Microsoft Certified (opens in new tab)":
+            - listitem:
+              - article:
+                - heading "Learn more about Microsoft Certified (opens in new tab)" [level=3]:
+                  - link "Learn more about Microsoft Certified (opens in new tab)":
+                    - /url: https://www.youracclaim.com/badges/2bb11106-cef6-4a1c-9618-1ba63b413377
+                    - text: Microsoft Certified
+                - paragraph
+                - link "About Microsoft Certified":
                   - /url: https://www.youracclaim.com/badges/2bb11106-cef6-4a1c-9618-1ba63b413377
-                  - text: Microsoft Certified
-              - paragraph
-              - link "Learn more about Microsoft Certified (opens in new tab)":
-                - /url: https://www.youracclaim.com/badges/2bb11106-cef6-4a1c-9618-1ba63b413377
-                - text: Learn More
-            - article:
-              - heading "Learn more about Bachelor's Level Diploma (opens in new tab)" [level=3]:
-                - link "Learn more about Bachelor's Level Diploma (opens in new tab)":
+            - listitem:
+              - article:
+                - heading "Learn more about Bachelor's Level Diploma (opens in new tab)" [level=3]:
+                  - link "Learn more about Bachelor's Level Diploma (opens in new tab)":
+                    - /url: https://openclassrooms.com/en/paths/315-front-end-developer
+                    - text: Bachelor's Level Diploma
+                - paragraph
+                - link "About Bachelor's Level Diploma":
                   - /url: https://openclassrooms.com/en/paths/315-front-end-developer
-                  - text: Bachelor's Level Diploma
-              - paragraph
-              - link "Learn more about Bachelor's Level Diploma (opens in new tab)":
-                - /url: https://openclassrooms.com/en/paths/315-front-end-developer
-                - text: Learn More
-            - article:
-              - heading "Learn more about Full Stack JavaScript Tech Degree (opens in new tab)" [level=3]:
-                - link "Learn more about Full Stack JavaScript Tech Degree (opens in new tab)":
+            - listitem:
+              - article:
+                - heading "Learn more about Full Stack JavaScript Tech Degree (opens in new tab)" [level=3]:
+                  - link "Learn more about Full Stack JavaScript Tech Degree (opens in new tab)":
+                    - /url: https://teamtreehouse.com/techdegree
+                    - text: Full Stack JavaScript Tech Degree
+                - paragraph
+                - link "About Full Stack JavaScript Tech Degree":
                   - /url: https://teamtreehouse.com/techdegree
-                  - text: Full Stack JavaScript Tech Degree
-              - paragraph
-              - link "Learn more about Full Stack JavaScript Tech Degree (opens in new tab)":
-                - /url: https://teamtreehouse.com/techdegree
-                - text: Learn More
       `);
     });
   });

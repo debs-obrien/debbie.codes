@@ -39,7 +39,7 @@ useHead({
     { property: 'og:type', content: 'website' },
     {
       property: 'og:url',
-      content: 'https://debbie.codes',
+      content: `https://debbie.codes/blog/${slug}`,
     },
     {
       property: 'og:title',

@@ -120,10 +120,12 @@ useHead({
         </div>
 
         <section aria-labelledby="awards-heading">
-          <div class="animated-section stagger-children grid gap-6 md:grid-cols-2 lg:grid-cols-3" role="list">
-            <article
+          <ul class="animated-section stagger-children grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <li
               v-for="award in awards"
               :key="award.name"
+            >
+            <article
               class="group rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 p-6 transition-colors duration-200 hover:border-gray-400 dark:hover:border-gray-500"
             >
               <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-primary transition-colors">
@@ -147,15 +149,15 @@ useHead({
                 target="_blank"
                 rel="noopener noreferrer"
                 class="inline-flex items-center text-gray-600 dark:text-gray-300 hover:text-primary font-medium text-sm transition-colors"
-                :aria-label="`Learn more about ${award.name} (opens in new tab)`"
               >
-                Learn More
+                About {{ award.name }}
                 <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
                 </svg>
               </a>
             </article>
-          </div>
+            </li>
+          </ul>
         </section>
       </div>
     </section>

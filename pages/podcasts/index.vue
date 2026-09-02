@@ -35,7 +35,7 @@ const podcastTags = computed(() => {
 })
 
 const title: string = 'Podcasts'
-const description: string = ''
+const description: string = 'Podcast conversations on Playwright, testing, AI agents, and developer advocacy.'
 const section: Sections = 'podcasts'
 
 useHead({
