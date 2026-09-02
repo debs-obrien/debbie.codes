@@ -99,7 +99,10 @@ try {
     if (podcastCount !== 2)
       throw new Error(`home: expected 2 podcast articles, got ${podcastCount}`)
 
-    await aria('home.aria.yml', page.getByRole('main'))
+    // Home is a set of regions, not a <main>. Prefer main when a later
+    // branch adds one; otherwise keep the page body plus header nav.
+    const homeMain = page.getByRole('main')
+    await aria('home.aria.yml', (await homeMain.count()) > 0 ? homeMain : page.locator('body'))
     await aria('home-nav.aria.yml', page.getByRole('navigation').first())
     await shot('home-after.png')
     log(`url ${page.url()}`)
