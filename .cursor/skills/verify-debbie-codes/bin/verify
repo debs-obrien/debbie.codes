@@ -83,34 +83,34 @@ cmd_doctor() {
   if [[ -n "${VERIFY_BASE_URL:-}" ]]; then
     if is_ready && html_has_title; then
       echo "OK remote ${BASE_URL}"
-      exit 0
+      return 0
     fi
     echo "FAIL remote ${BASE_URL} not a ready debbie.codes instance" >&2
-    exit 1
+    return 1
   fi
   if [[ ! -f "${PID_FILE}" ]]; then
     echo "FAIL no pid file ${PID_FILE}" >&2
-    exit 1
+    return 1
   fi
   local pid
   pid="$(cat "${PID_FILE}")"
   if ! kill -0 "${pid}" 2>/dev/null; then
     echo "FAIL pid ${pid} is not running" >&2
-    exit 1
+    return 1
   fi
   local recorded_port
   recorded_port="$(cat "${PORT_FILE}")"
   if [[ "${recorded_port}" != "${PORT}" ]]; then
     echo "FAIL VERIFY_PORT=${PORT} but this run recorded ${recorded_port}" >&2
-    exit 1
+    return 1
   fi
   if ! is_ready; then
     echo "FAIL ${BASE_URL}/ is not HTTP 200" >&2
-    exit 1
+    return 1
   fi
   if ! html_has_title; then
     echo "FAIL ${BASE_URL}/ HTML missing <title>Debbie" >&2
-    exit 1
+    return 1
   fi
   echo "OK pid ${pid} port ${PORT} ${BASE_URL}"
 }
