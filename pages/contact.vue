@@ -3,7 +3,7 @@ useHead({
   title: 'Contact',
   meta: [{
     name: 'description',
-    content: 'Email Debbie O\'Brien at dobriendev@gmail.com.',
+    content: 'How to reach Debbie O\'Brien.',
   }],
   link: [{ rel: 'canonical', href: 'https://debbie.codes/contact' }],
 })
@@ -15,17 +15,14 @@ useHead({
       Contact
     </h1>
     <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
-      Email
+      I am not looking for a high volume of mail. If we already know each other,
+      or you have a specific collaboration in mind, you can
       <a href="mailto:dobriendev@gmail.com" class="text-primary font-medium hover:underline">
-        dobriendev@gmail.com
+        say hello
       </a>.
-      A bot helps me sort mail, so a clear subject line helps.
-    </p>
-    <p class="text-gray-600 dark:text-gray-300 mb-4">
-      Good reasons to write: work, collaboration, podcasts, or something you are building with Playwright or agents.
     </p>
     <p class="text-gray-600 dark:text-gray-300">
-      I list confirmed talks on the
+      Confirmed talks are on the
       <NuxtLink to="/speaking" class="text-primary hover:underline">speaking</NuxtLink>
       page. I cannot take most new speaking invites.
     </p>
