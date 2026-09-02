@@ -8,8 +8,11 @@ test.describe('Home Page Featured Content', () => {
   test('displays main hero section with correct information', async ({ page }) => {
     await expect(page.getByRole('heading', { level: 1, name: /Debbie O'Brien/i })).toBeVisible();
     await expect(page.getByText('Developer Educator focused on Playwright, testing & AI agents')).toBeVisible();
+    await expect(page.getByRole('link', { name: 'Watch on YouTube' })).toBeVisible();
+    await expect(page.getByRole('link', { name: /See what I.m working on/ })).toHaveAttribute('href', '/now');
+    await expect(page.getByRole('link', { name: 'Say hello' })).toHaveAttribute('href', 'mailto:dobriendev@gmail.com');
 
-    // Profile image in the top bar
+    // Profile image in the top bar (hero also has a headshot)
     const profileImage = page.getByRole('img', { name: 'Debbie O\'Brien' }).first();
     await expect(profileImage).toBeVisible();
   });

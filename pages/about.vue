@@ -99,6 +99,16 @@ useHead({
         </h1>
         <div class="w-14 h-0.5 bg-primary mx-auto mb-10 rounded-full" aria-hidden="true" />
 
+        <NuxtImg
+          provider="cloudinary"
+          src="v1589118478/debbie.codes/debbie-thumb_clt00n"
+          alt="Debbie O'Brien"
+          width="200"
+          height="200"
+          sizes="160px"
+          class="rounded-full mx-auto mb-10 border-2 border-white/20 w-40 h-40 object-cover"
+        />
+
         <div class="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-8 sm:p-10 text-left">
           <div class="prose prose-invert max-w-none">
             <ContentRenderer v-if="about" :value="about" class="text-gray-200 leading-relaxed" />

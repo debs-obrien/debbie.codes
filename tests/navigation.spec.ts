@@ -21,7 +21,13 @@ test.describe('navigation', () => {
     }
     await page.getByRole('navigation').getByRole('link', { name: 'about' }).click();
     await expect(page).toHaveURL(/\/about\/?$/);
-      
+
+    if (isMobile) {
+      await hamburgerMenu.click();
+    }
+    await page.getByRole('navigation').getByRole('link', { name: 'speaking' }).click();
+    await expect(page).toHaveURL(/\/speaking\/?$/);
+
     if (isMobile) {
       await hamburgerMenu.click();
     }
@@ -46,12 +52,21 @@ test.describe('navigation', () => {
     await page.getByRole('navigation').getByRole('link', { name: 'blog' }).click();
     await expect(page).toHaveURL(/\/blog\/?$/);
 
+    if (isMobile) {
+      await hamburgerMenu.click();
+    }
+    await page.getByRole('navigation').getByRole('link', { name: 'now' }).click();
+    await expect(page).toHaveURL(/\/now\/?$/);
+
   });
 
   test(`footer nav links to correct pages`, async ({ page, isMobile }) => {
     test.skip(isMobile, 'Still working on it');
       await page.getByRole('contentinfo').getByRole('link', { name: 'about' }).click();
       await expect(page).toHaveURL(/\/about\/?$/);
+
+      await page.getByRole('contentinfo').getByRole('link', { name: 'speaking' }).click();
+      await expect(page).toHaveURL(/\/speaking\/?$/);
 
       await page.getByRole('contentinfo').getByRole('link', { name: 'videos' }).click();
       await expect(page).toHaveURL(/\/videos\/?$/);
@@ -64,5 +79,8 @@ test.describe('navigation', () => {
         
       await page.getByRole('contentinfo').getByRole('link', { name: 'blog' }).click();
       await expect(page).toHaveURL(/\/blog\/?$/);
+
+      await page.getByRole('contentinfo').getByRole('link', { name: 'now' }).click();
+      await expect(page).toHaveURL(/\/now\/?$/);
     });
 });
