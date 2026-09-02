@@ -1,22 +1,27 @@
 <script setup lang="ts">
 import type { Sections } from '~/types'
 
-const {
-  params: { slug },
-} = useRoute()
-
-const { data: videos } = await useAsyncData(`videos-${slug}`, () => queryCollection('videos')
-  .select(...videoPreviewFields)
-  .where('tags', 'LIKE', `%${slug}%`)
-  .order('date', 'DESC')
-  .all())
+const route = useRoute()
+const page = Number.parseInt(route.params.number as string) || 1
+const videosPerPage = 24
+const offset = (page - 1) * videosPerPage
 
 const filteredVideos = ref<any[]>([])
 const isSearchActive = ref(false)
 
-// Get all videos to extract real tags
-const { data: allVideos } = await useAsyncData('all-videos-for-tags-page', () => queryCollection('videos')
+const { data: pageVideos } = await useAsyncData(`videos-page-${page}`, () => queryCollection('videos')
   .select(...videoPreviewFields)
+  .order('date', 'DESC')
+  .limit(videosPerPage)
+  .skip(offset)
+  .all())
+
+const { data: totalCount } = await useAsyncData('videos-total-count', () => queryCollection('videos')
+  .count())
+
+const { data: allVideos } = await useAsyncData('all-videos-for-pages', () => queryCollection('videos')
+  .select(...videoPreviewFields)
+  .order('date', 'DESC')
   .all())
 
 const videoTags = computed(() => {
@@ -38,9 +43,18 @@ const videoTags = computed(() => {
     .map(([tag]) => tag)
 })
 
-const topic: string = replaceHyphen(slug as string)
-const title: string = `Videos: ${topic}`
-const description: string = ''
+const totalPages = computed(() => {
+  if (!totalCount.value)
+    return 1
+  return Math.ceil(totalCount.value / videosPerPage)
+})
+
+if (page < 1 || (totalCount.value && page > totalPages.value)) {
+  throw createError({ statusCode: 404, statusMessage: 'Page Not Found' })
+}
+
+const title: string = page === 1 ? 'Videos' : `Videos - Page ${page}`
+const description: string = 'Conference talks, interviews, and live streams on Playwright, testing, and AI agents.'
 const section: Sections = 'videos'
 
 useHead({
@@ -51,15 +65,13 @@ useHead({
 
 <template>
   <PageLayout :title="title" :description="description" :section="section">
-    <!-- Search Bar -->
     <BlogSearch
       :articles="allVideos || []"
-      :default-articles="allVideos || []"
+      :default-articles="pageVideos || []"
       @update:filtered-articles="filteredVideos = $event"
       @search-active="isSearchActive = $event"
     />
 
-    <!-- Browse by Topic and Tag Section -->
     <section v-if="videoTags.length > 0" class="animated-section mb-8 max-w-4xl mx-auto">
       <div class="flex flex-wrap gap-3 justify-center items-center">
         <TagChip
@@ -72,17 +84,20 @@ useHead({
       </div>
     </section>
 
-    <!-- Videos Grid Section -->
-    <section v-if="(isSearchActive ? filteredVideos : videos)?.length" class="animated-section mb-16">
+    <section class="animated-section mb-16">
       <h2 v-if="!isSearchActive" class="text-2xl font-bold text-gray-900 dark:text-white mb-6 max-w-4xl mx-auto">
-        {{ topic }} Videos
+        Recent Videos
       </h2>
       <h2 v-else class="text-2xl font-bold text-gray-900 dark:text-white mb-6 max-w-4xl mx-auto">
         Search Results ({{ filteredVideos.length }})
       </h2>
-      <VideoList :list="(isSearchActive ? filteredVideos : videos) || []" />
+      <VideoList :list="isSearchActive ? filteredVideos : (pageVideos || [])" />
+      <Pagination
+        v-if="!isSearchActive && totalPages > 1"
+        :current-page="page"
+        :total-pages="totalPages"
+        base-url="/videos"
+      />
     </section>
-
-    <TagsNotFound v-else />
   </PageLayout>
 </template>

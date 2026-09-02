@@ -1,16 +1,24 @@
 <script setup lang="ts">
 import type { Sections } from '~/types'
 
+const videosPerPage = 24
 const filteredVideos = ref<any[]>([])
 const isSearchActive = ref(false)
 
-// Fetch all videos
+const { data: pageVideos } = await useAsyncData('videos-page-1', () => queryCollection('videos')
+  .select(...videoPreviewFields)
+  .order('date', 'DESC')
+  .limit(videosPerPage)
+  .all())
+
+const { data: totalCount } = await useAsyncData('videos-total-count', () => queryCollection('videos')
+  .count())
+
 const { data: allVideos } = await useAsyncData('all-videos-for-pages', () => queryCollection('videos')
   .select(...videoPreviewFields)
   .order('date', 'DESC')
   .all())
 
-// Get unique tags with counts
 const videoTags = computed(() => {
   if (!allVideos.value)
     return []
@@ -25,11 +33,16 @@ const videoTags = computed(() => {
     }
   })
 
-  // Sort by count and return top tags
+  // Keep every topic on the chip row so older tags stay reachable after pagination.
   return Array.from(tagCounts.entries())
     .sort((a, b) => b[1] - a[1])
-    .slice(0, 12)
     .map(([tag]) => tag)
+})
+
+const totalPages = computed(() => {
+  if (!totalCount.value)
+    return 1
+  return Math.ceil(totalCount.value / videosPerPage)
 })
 
 const title: string = 'Videos'
@@ -44,36 +57,39 @@ useHead({
 
 <template>
   <PageLayout :title="title" :description="description" :section="section">
-    <!-- Search Bar -->
     <BlogSearch
       :articles="allVideos || []"
-      :default-articles="allVideos || []"
+      :default-articles="pageVideos || []"
       @update:filtered-articles="filteredVideos = $event"
       @search-active="isSearchActive = $event"
     />
 
-    <!-- Browse by Topic and Tag Section -->
     <section v-if="videoTags.length > 0" class="animated-section mb-8 max-w-4xl mx-auto">
       <div class="flex flex-wrap gap-3 justify-center items-center">
         <TagChip
           v-for="tag in videoTags"
           :key="tag"
           :to="`/videos/tags/${tag}`"
-          :label="tag.replace('-', ' ')"
+          :label="replaceHyphen(tag)"
           hash
         />
       </div>
     </section>
 
-    <!-- Videos Grid Section -->
     <section class="animated-section mb-16">
       <h2 v-if="!isSearchActive" class="text-2xl font-bold text-gray-900 dark:text-white mb-6 max-w-4xl mx-auto">
-        All Videos
+        Recent Videos
       </h2>
       <h2 v-else class="text-2xl font-bold text-gray-900 dark:text-white mb-6 max-w-4xl mx-auto">
         Search Results ({{ filteredVideos.length }})
       </h2>
-      <VideoList :list="filteredVideos.length ? filteredVideos : (allVideos || [])" />
+      <VideoList :list="isSearchActive ? filteredVideos : (pageVideos || [])" />
+      <Pagination
+        v-if="!isSearchActive && totalPages > 1"
+        :current-page="1"
+        :total-pages="totalPages"
+        base-url="/videos"
+      />
     </section>
   </PageLayout>
 </template>
