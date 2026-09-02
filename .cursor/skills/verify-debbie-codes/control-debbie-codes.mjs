@@ -73,7 +73,7 @@ Commands:
 
   drive <feature> [--json]
       Run a mapped feature recipe end-to-end and capture evidence.
-      Features: home | blog | videos | tags-and-search
+      Features: home | navigation | blog | videos | about | tags-and-search
 
   evidence list|path [--json]
       List proof artifacts or print the evidence directory path.
@@ -624,8 +624,10 @@ async function screenshotCommand(flags) {
 async function driveFeature(feature, flags) {
   const recipes = {
     home: driveHome,
+    navigation: driveNavigation,
     blog: driveBlog,
     videos: driveVideos,
+    about: driveAbout,
     'tags-and-search': driveTagsAndSearch,
   }
   const fn = recipes[feature]
@@ -659,6 +661,79 @@ async function driveHome(page, state, flags) {
   return ok({
     message: `drove feature home; evidence in ${evidence}`,
     feature: 'home',
+    url: page.url(),
+    evidenceDir: evidence,
+    artifacts: [shot, snap],
+  }, { json: flags.json })
+}
+
+async function driveNavigation(page, state, flags) {
+  const { expect } = await import('@playwright/test')
+  const evidence = evidenceDirFor(state)
+  await page.goto(`${state.baseURL}/`, { waitUntil: 'domcontentloaded' })
+  const nav = page.getByRole('navigation')
+  const headerLinks = [
+    ['About', /\/about\/?$/],
+    ['Speaking', /\/speaking\/?$/],
+    ['Videos', /\/videos\/?$/],
+    ['Podcasts', /\/podcasts\/?$/],
+    ['Courses', /\/courses\/?$/],
+    ['Blog', /\/blog\/?$/],
+    ['Now', /\/now\/?$/],
+  ]
+  for (const [name, pattern] of headerLinks) {
+    await expect(async () => {
+      await nav.getByRole('link', { name, exact: true }).click()
+      await expect(page).toHaveURL(pattern, { timeout: 2000 })
+    }).toPass({ timeout: 15_000 })
+  }
+  await expect(async () => {
+    await page.getByRole('link', { name: /Debbie O'Brien/i }).first().click()
+    await expect(page).toHaveURL(url => new URL(url).pathname === '/', { timeout: 2000 })
+  }).toPass({ timeout: 15_000 })
+  const shot = join(evidence, 'navigation-proof.png')
+  const snap = join(evidence, 'navigation-proof.aria.txt')
+  await page.screenshot({ path: shot, fullPage: false })
+  writeFileSync(snap, `${await nav.first().ariaSnapshot()}\n`)
+  writeFileSync(join(evidence, 'navigation-proof.json'), `${JSON.stringify({
+    feature: 'navigation',
+    url: page.url(),
+    at: new Date().toISOString(),
+    artifacts: [shot, snap],
+  }, null, 2)}\n`)
+  return ok({
+    message: `drove feature navigation; evidence in ${evidence}`,
+    feature: 'navigation',
+    url: page.url(),
+    evidenceDir: evidence,
+    artifacts: [shot, snap],
+  }, { json: flags.json })
+}
+
+async function driveAbout(page, state, flags) {
+  const { expect } = await import('@playwright/test')
+  const evidence = evidenceDirFor(state)
+  await page.goto(`${state.baseURL}/about`, { waitUntil: 'domcontentloaded' })
+  await expect(page.getByRole('heading', { level: 1, name: /I'm Debbie O'Brien/i })).toBeVisible({ timeout: 20_000 })
+  await expect(page.getByRole('heading', { name: 'Awards & Achievements' })).toBeVisible()
+  await expect.poll(
+    () => page.getByRole('main').getByRole('article').count(),
+    { timeout: 15_000 },
+  ).toBe(9)
+  const shot = join(evidence, 'about-proof.png')
+  const snap = join(evidence, 'about-proof.aria.txt')
+  await page.screenshot({ path: shot })
+  writeFileSync(snap, `${await page.getByRole('main').ariaSnapshot()}\n`)
+  writeFileSync(join(evidence, 'about-proof.json'), `${JSON.stringify({
+    feature: 'about',
+    awardCount: await page.getByRole('main').getByRole('article').count(),
+    url: page.url(),
+    at: new Date().toISOString(),
+    artifacts: [shot, snap],
+  }, null, 2)}\n`)
+  return ok({
+    message: `drove feature about; evidence in ${evidence}`,
+    feature: 'about',
     url: page.url(),
     evidenceDir: evidence,
     artifacts: [shot, snap],
