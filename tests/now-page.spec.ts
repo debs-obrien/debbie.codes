@@ -13,5 +13,12 @@ test.describe('Now page', () => {
       'mailto:dobriendev@gmail.com',
     )
     await expect(page.getByRole('link', { name: 'ZurichJS and Infobip Shift' })).toHaveAttribute('href', '/speaking')
+    await expect(page.getByText(/applied AI, developer experience, and Playwright/)).toBeVisible()
+    await expect(page.getByText(/writing and recording about AI agents, MCP, and Playwright/)).toBeVisible()
+
+    const teaching = page.locator('section').filter({ has: page.getByRole('heading', { name: 'Teaching' }) })
+    await expect(teaching.getByRole('link').nth(0)).toHaveAttribute('href', 'https://github.com/debs-obrien/learn-agent-skills')
+    await expect(teaching.getByRole('link').nth(1)).toHaveAttribute('href', 'https://www.youtube.com/watch?v=AKjW94vQZkc')
+    await expect(teaching.getByRole('link').nth(2)).toHaveAttribute('href', 'https://github.com/debs-obrien/playwright-movies-app')
   })
 })

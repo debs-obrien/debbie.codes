@@ -3,7 +3,7 @@ useHead({
   title: 'Now',
   meta: [{
     name: 'description',
-    content: 'What Debbie O\'Brien is working on now: Playwright, AI agents, upcoming talks, and being open to connections.',
+    content: 'What Debbie O\'Brien is working on now: AI agents, applied AI, upcoming talks, Playwright, and being open to connections.',
   }],
   link: [{ rel: 'canonical', href: 'https://debbie.codes/now' }],
 })
@@ -26,7 +26,7 @@ useHead({
         <h2>Work</h2>
         <p>
           My Zephyr Cloud contract has ended. I am looking for what is next and
-          <strong>open to connections</strong> — roles, collaborations, and interesting problems in applied AI, Playwright, and developer experience.
+          <strong>open to connections</strong> — roles, collaborations, and interesting problems in applied AI, developer experience, and Playwright.
         </p>
         <p>
           Email
@@ -38,13 +38,13 @@ useHead({
       <section>
         <h2>Teaching</h2>
         <p>
-          I am writing and recording about Playwright, MCP, and agent skills.
-          The hands-on starting points are the
-          <a href="https://github.com/debs-obrien/playwright-movies-app">Playwright movies app</a>,
+          I am writing and recording about AI agents, MCP, and Playwright.
+          The hands-on starting points are
           <a href="https://github.com/debs-obrien/learn-agent-skills">Learn Agent Skills</a>,
-          and the
+          the
           <a href="https://www.youtube.com/watch?v=AKjW94vQZkc">Let’s Learn MCP</a>
-          session.
+          session, and the
+          <a href="https://github.com/debs-obrien/playwright-movies-app">Playwright movies app</a>.
         </p>
       </section>
 
