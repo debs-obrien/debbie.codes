@@ -33,10 +33,8 @@ const videoTags = computed(() => {
     }
   })
 
-  // Sort by count and return top tags
   return Array.from(tagCounts.entries())
     .sort((a, b) => b[1] - a[1])
-    .slice(0, 12)
     .map(([tag]) => tag)
 })
 

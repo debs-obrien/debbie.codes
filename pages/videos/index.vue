@@ -33,9 +33,9 @@ const videoTags = computed(() => {
     }
   })
 
+  // Keep every topic on the chip row so older tags stay reachable after pagination.
   return Array.from(tagCounts.entries())
     .sort((a, b) => b[1] - a[1])
-    .slice(0, 12)
     .map(([tag]) => tag)
 })
 
