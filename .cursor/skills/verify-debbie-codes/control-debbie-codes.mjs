@@ -8,16 +8,15 @@
 
 import { spawn } from 'node:child_process'
 import {
-  accessSync,
-  constants,
+  closeSync,
   existsSync,
   mkdirSync,
+  openSync,
   readFileSync,
   rmSync,
   writeFileSync,
 } from 'node:fs'
-import { createServer } from 'node:http'
-import { homedir, tmpdir } from 'node:os'
+import { tmpdir } from 'node:os'
 import { dirname, isAbsolute, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import process from 'node:process'
@@ -253,17 +252,6 @@ function pidAlive(pid) {
   }
 }
 
-function findFreePort() {
-  return new Promise((resolvePort, reject) => {
-    const server = createServer()
-    server.listen(0, DEFAULT_HOST, () => {
-      const { port } = server.address()
-      server.close(err => (err ? reject(err) : resolvePort(port)))
-    })
-    server.on('error', reject)
-  })
-}
-
 async function waitForReady(url, { timeoutMs = READY_TIMEOUT_MS } = {}) {
   const start = Date.now()
   let lastError = ''
@@ -351,28 +339,22 @@ async function launchCommand(flags) {
   const evidenceDir = join(ARTIFACTS_DIR, runId)
   mkdirSync(evidenceDir, { recursive: true })
   const logPath = join(STATE_DIR, `${runId}-nuxt.log`)
+  // Redirect child stdio to a file so this CLI can exit without keeping
+  // pipe listeners open (which would hang `launch` forever).
+  writeFileSync(logPath, '')
+  const logFd = openSync(logPath, 'a')
 
   const child = spawn('npm', ['run', 'dev', '--', '--host', DEFAULT_HOST, '--port', String(port)], {
     cwd: REPO_ROOT,
     env: { ...process.env, PORT: String(port) },
-    stdio: ['ignore', 'pipe', 'pipe'],
+    stdio: ['ignore', logFd, logFd],
     detached: true,
   })
 
-  const logFd = { stream: null }
   try {
-    writeFileSync(logPath, '')
+    closeSync(logFd)
   }
   catch { /* ignore */ }
-
-  const appendLog = (chunk) => {
-    try {
-      writeFileSync(logPath, chunk, { flag: 'a' })
-    }
-    catch { /* ignore */ }
-  }
-  child.stdout.on('data', appendLog)
-  child.stderr.on('data', appendLog)
 
   child.unref()
 
@@ -427,7 +409,6 @@ async function doctorCommand(flags) {
   const probe = await httpProbe(`${baseURL}/`)
   const titleMatch = /Debbie/i.test(probe.text || '')
   const ownedAlive = Boolean(state?.owned && state?.pid && pidAlive(state.pid))
-  const browserAlive = Boolean(state?.browser?.cdpPort && await cdpAlive(state.browser.cdpPort))
 
   const report = {
     healthy: Boolean(probe.ok && titleMatch),
@@ -439,8 +420,7 @@ async function doctorCommand(flags) {
     pid: state?.pid || null,
     pidAlive: state?.pid ? pidAlive(state.pid) : false,
     ownedAlive,
-    browserCdp: state?.browser?.cdpPort || null,
-    browserAlive,
+    browserMode: state?.browser?.mode || 'ephemeral-per-command',
     runId: state?.runId || null,
     evidenceDir: state ? evidenceDirFor(state) : ARTIFACTS_DIR,
     checkedAt: new Date().toISOString(),
@@ -461,7 +441,7 @@ async function doctorCommand(flags) {
   console.log(`  httpStatus:  ${report.httpStatus}`)
   console.log(`  identity:    Debbie present`)
   console.log(`  owned:       ${report.ownedProcess} (pid ${report.pid ?? 'n/a'}, alive=${report.pidAlive})`)
-  console.log(`  browserCdp:  ${report.browserCdp ?? 'not started'} (alive=${report.browserAlive})`)
+  console.log(`  browser:     ${report.browserMode} (launched per command)`)
   console.log(`  evidence:    ${report.evidenceDir}`)
   console.log(`  runId:       ${report.runId ?? 'n/a'}`)
 }
@@ -479,11 +459,6 @@ async function infoCommand(flags) {
   }, { json: flags.json })
 }
 
-async function cdpAlive(cdpPort) {
-  const probe = await httpProbe(`http://${DEFAULT_HOST}:${cdpPort}/json/version`, { timeoutMs: 1500 })
-  return probe.ok
-}
-
 async function loadPlaywright() {
   try {
     return await import('playwright')
@@ -496,38 +471,11 @@ async function loadPlaywright() {
   }
 }
 
-async function ensureBrowser(state, flags = {}) {
-  const { chromium } = await loadPlaywright()
-  if (state.browser?.cdpPort && await cdpAlive(state.browser.cdpPort)) {
-    const browser = await chromium.connectOverCDP(`http://${DEFAULT_HOST}:${state.browser.cdpPort}`)
-    const context = browser.contexts()[0] || await browser.newContext({ viewport: { width: 1280, height: 800 } })
-    const page = context.pages()[0] || await context.newPage()
-    return { browser, context, page, state, connected: true }
-  }
-
-  const cdpPort = await findFreePort()
-  const userDataDir = join(STATE_DIR, `browser-${state.runId || 'default'}`)
-  mkdirSync(userDataDir, { recursive: true })
-
-  const context = await chromium.launchPersistentContext(userDataDir, {
-    headless: true,
-    viewport: { width: 1280, height: 800 },
-    args: [`--remote-debugging-port=${cdpPort}`],
-  })
-  const page = context.pages()[0] || await context.newPage()
-  const browser = context.browser()
-
-  state.browser = {
-    cdpPort,
-    userDataDir,
-    startedAt: new Date().toISOString(),
-    owned: true,
-  }
-  writeState(state)
-
-  return { browser, context, page, state, connected: false }
-}
-
+/**
+ * Each CLI invocation gets a fresh headless Chromium and closes it before exit.
+ * That keeps commands agent-friendly (no hung Node process holding CDP) while
+ * the Nuxt server stays up across commands.
+ */
 async function withPage(flags, fn) {
   const state = readState()
   if (!state?.baseURL) {
@@ -538,12 +486,21 @@ async function withPage(flags, fn) {
     fail(`site not reachable at ${state.baseURL}; run doctor / launch`, { json: flags.json })
   }
 
-  const session = await ensureBrowser(state, flags)
+  const { chromium } = await loadPlaywright()
+  const browser = await chromium.launch({ headless: true })
+  const context = await browser.newContext({ viewport: { width: 1280, height: 800 } })
+  const page = await context.newPage()
+  state.browser = {
+    mode: 'ephemeral-per-command',
+    lastUsedAt: new Date().toISOString(),
+  }
+  writeState(state)
+
   try {
-    return await fn(session.page, session.state, session)
+    return await fn(page, state, { browser, context, page })
   }
   finally {
-    // Keep browser alive across commands; cleanup closes it.
+    await browser.close().catch(() => {})
   }
 }
 
@@ -858,8 +815,9 @@ async function cleanupCommand(flags) {
   }
 
   const actions = []
-  if (state.browser?.owned && state.browser?.cdpPort) {
-    actions.push({ type: 'browser', cdpPort: state.browser.cdpPort, userDataDir: state.browser.userDataDir })
+  // Browsers are ephemeral per command; only scratch profiles from older runs may remain.
+  if (state.browser?.userDataDir && state.browser.userDataDir.startsWith(STATE_DIR)) {
+    actions.push({ type: 'browser-profile', userDataDir: state.browser.userDataDir })
   }
   if (state.owned && state.pid) {
     actions.push({ type: 'nuxt', pid: state.pid, port: state.port })
@@ -878,22 +836,18 @@ async function cleanupCommand(flags) {
     }, { json: flags.json })
   }
 
-  // Close browser via CDP / playwright if possible
-  if (state.browser?.cdpPort) {
+  if (state.browser?.userDataDir && state.browser.userDataDir.startsWith(STATE_DIR)) {
     try {
-      const { chromium } = await loadPlaywright()
-      if (await cdpAlive(state.browser.cdpPort)) {
-        const browser = await chromium.connectOverCDP(`http://${DEFAULT_HOST}:${state.browser.cdpPort}`)
-        await browser.close()
-      }
+      rmSync(state.browser.userDataDir, { recursive: true, force: true })
     }
-    catch {
-      // fall through
-    }
-    if (state.browser.userDataDir && state.browser.userDataDir.startsWith(STATE_DIR)) {
-      try {
-        rmSync(state.browser.userDataDir, { recursive: true, force: true })
-      }
+    catch { /* ignore */ }
+  }
+
+  // Remove any leftover browser-* scratch dirs for this run id
+  if (state.runId) {
+    const legacyProfile = join(STATE_DIR, `browser-${state.runId}`)
+    if (existsSync(legacyProfile)) {
+      try { rmSync(legacyProfile, { recursive: true, force: true }) }
       catch { /* ignore */ }
     }
   }
@@ -994,10 +948,5 @@ async function main() {
     })
   }
 }
-
-// Silence unused import warning for accessSync/constants/homedir if tree-shaken oddly
-void accessSync
-void constants
-void homedir
 
 main()

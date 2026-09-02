@@ -5,7 +5,7 @@ description: "Drive the live debbie.codes Nuxt site (web UI) the way a user does
 
 # Verify debbie.codes
 
-Drive the **live** Nuxt 3 + Nuxt Content site at `http://127.0.0.1:8000` through the real browser path. Prefer this skill’s CLI (`control-debbie-codes.mjs`), which wraps the repo’s existing `@playwright/test` / Playwright stack. Do **not** invent a second browser automation stack. Leave `.agents/skills/playwright-cli` and `.agents/skills/add-content` alone; they are separate Debbie workflows.
+Drive the **live** Nuxt 3 + Nuxt Content site at `http://127.0.0.1:8000` through the real browser path. Prefer this skill’s CLI (`control-debbie-codes.mjs`), which wraps the repo’s existing `@playwright/test` / Playwright stack. Each drive command launches an ephemeral headless Chromium and closes it before exit (the Nuxt server stays up). Do **not** invent a second browser automation stack. Leave `.agents/skills/playwright-cli` and `.agents/skills/add-content` alone; they are separate Debbie workflows.
 
 `node .cursor/skills/verify-debbie-codes/control-debbie-codes.mjs --help` lists commands, flags, and examples.
 
