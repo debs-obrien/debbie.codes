@@ -108,6 +108,10 @@ playwright-report/
 /playwright/.cache/
 .playwright-cli/
 
+# Verification skill evidence (keep directory via .gitkeep)
+.cursor/skills/verify-debbie-codes/artifacts/**
+!.cursor/skills/verify-debbie-codes/artifacts/.gitkeep
+
 # Build output
 .output/
 blob-report/
