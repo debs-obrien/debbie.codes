@@ -10,7 +10,7 @@ const filteredVideos = ref<any[]>([])
 const isSearchActive = ref(false)
 
 const { data: pageVideos } = await useAsyncData(`videos-page-${page}`, () => queryCollection('videos')
-  .select('path', 'title', 'description', 'date', 'tags', 'video', 'host', 'conference', 'image', 'featured')
+  .select('path', 'title', 'description', 'date', 'tags', 'video', 'start', 'host', 'conference', 'image', 'featured')
   .order('date', 'DESC')
   .limit(videosPerPage)
   .skip(offset)
@@ -20,7 +20,7 @@ const { data: totalCount } = await useAsyncData('videos-total-count', () => quer
   .count())
 
 const { data: allVideos } = await useAsyncData('all-videos-for-pages', () => queryCollection('videos')
-  .select('path', 'title', 'description', 'date', 'tags', 'video', 'host', 'conference', 'image', 'featured')
+  .select('path', 'title', 'description', 'date', 'tags', 'video', 'start', 'host', 'conference', 'image', 'featured')
   .order('date', 'DESC')
   .all())
 
