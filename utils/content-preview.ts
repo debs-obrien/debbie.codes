@@ -22,6 +22,7 @@ export const videoPreviewFields = [
   'date',
   'tags',
   'video',
+  'start',
   'host',
   'conference',
   'image',
