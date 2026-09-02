@@ -13,18 +13,19 @@ About is the biography and the awards grid.
 - Choose `About` in the header or footer.
 - Open `/about`.
 
-## Driving it with verify-debbie-codes
+## Driving it with control-debbie-codes
 
 Preconditions:
 
-- Doctor reports `OK`.
+- `control-debbie-codes.mjs doctor` reports healthy.
 
-- **Open about.** Run `.cursor/skills/verify-debbie-codes/bin/verify drive about`. The h1 matches `/I'm Debbie O'Brien/i`.
-- **Awards.** The h2 `Awards & Achievements` is visible. `main article` count is 9 (on `main` each award is an article).
-- **Proof.** `about-after.png` and `about.aria.yml` show the heading and the awards heading.
+- **Open about.** Run `node .cursor/skills/verify-debbie-codes/control-debbie-codes.mjs goto /about`. The h1 matches `/I'm Debbie O'Brien/i`.
+- **Awards.** The h2 `Awards & Achievements` is visible. `main article` count is 9.
+- **One-shot recipe.** Run `node .cursor/skills/verify-debbie-codes/control-debbie-codes.mjs drive about --json`. Evidence: `about-proof.png`, `about-proof.aria.txt`, `about-proof.json`.
+- **Isolated driver.** `.cursor/skills/verify-debbie-codes/bin/verify drive about` is the same path on port 8010.
 
 ## Gotchas
 
-- A Wave B branch rewrites the bio (Zephyr / Block past tense) and may add a headshot. Assert structure and current copy on the branch you are proving, not a remembered sentence from another PR.
-- Wave A may change award cards from `article` + `Learn more about …` to a list with visible `About {name}` text. Count roles from the page you launched.
+- Bio copy is past-tense on employment (Zephyr / Block). Assert structure and current copy, not a remembered sentence from an older PR.
+- Award cards are `article` items with visible `About {name}` text. Count roles from the page you launched.
 - Bio and awards both mention Google Developer Expert. Scope GDE sentences to `.prose` when the text appears twice.

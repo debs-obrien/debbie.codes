@@ -115,10 +115,12 @@ try {
     const nav = page.getByRole('navigation')
     const headerLinks = [
       ['About', /\/about\/?$/],
+      ['Speaking', /\/speaking\/?$/],
       ['Videos', /\/videos\/?$/],
       ['Podcasts', /\/podcasts\/?$/],
       ['Courses', /\/courses\/?$/],
       ['Blog', /\/blog\/?$/],
+      ['Now', /\/now\/?$/],
     ]
     for (const [name, pattern] of headerLinks) {
       await clickUntilUrl(nav.getByRole('link', { name, exact: true }), pattern, `navigation ${name}`)

@@ -41,6 +41,8 @@ Keep implementation details out of the map. Name only user paths, stable handles
 ## Features (sweep order)
 
 1. [Home](./home.md) — hero identity and recent content regions.
-2. [Blog](./blog.md) — listing, open article, back/prev/next chrome.
-3. [Videos](./videos.md) — videos index and topic tags.
-4. [Tags and search](./tags-and-search.md) — blog search box and tag filter pages.
+2. [Navigation](./navigation.md) — header links, theme chrome, and logo home.
+3. [Blog](./blog.md) — listing, open article, back/prev/next chrome.
+4. [Videos](./videos.md) — videos index and topic tags.
+5. [About](./about.md) — biography and awards grid.
+6. [Tags and search](./tags-and-search.md) — blog search box and tag filter pages.

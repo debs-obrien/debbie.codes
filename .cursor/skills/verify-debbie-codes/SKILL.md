@@ -64,8 +64,10 @@ Mapped feature recipes (one command; captures evidence):
 
 ```bash
 node .cursor/skills/verify-debbie-codes/control-debbie-codes.mjs drive home --json
+node .cursor/skills/verify-debbie-codes/control-debbie-codes.mjs drive navigation --json
 node .cursor/skills/verify-debbie-codes/control-debbie-codes.mjs drive blog --json
 node .cursor/skills/verify-debbie-codes/control-debbie-codes.mjs drive videos --json
+node .cursor/skills/verify-debbie-codes/control-debbie-codes.mjs drive about --json
 node .cursor/skills/verify-debbie-codes/control-debbie-codes.mjs drive tags-and-search --json
 ```
 
@@ -114,6 +116,7 @@ If launch used `--reuse` on a server you did not start, cleanup will not kill th
 | Helper | Role |
 | --- | --- |
 | `control-debbie-codes.mjs` | Launch / doctor / drive / evidence / cleanup CLI (this skill). |
+| `bin/verify` | Isolated launch on port 8010 with its own process-group cleanup. Use when you must not share the default Playwright port. |
 | `npx playwright test` | Full regression suite already wired in CI. |
 | `.agents/skills/playwright-cli` | Interactive snapshot/click exploration when you need a human-style browser session — not a replacement for this skill’s proof loop. |
 
