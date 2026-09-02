@@ -149,7 +149,6 @@ useHead({
                 target="_blank"
                 rel="noopener noreferrer"
                 class="inline-flex items-center text-gray-600 dark:text-gray-300 hover:text-primary font-medium text-sm transition-colors"
-                :aria-label="`Learn more about ${award.name} (opens in new tab)`"
               >
                 About {{ award.name }}
                 <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">

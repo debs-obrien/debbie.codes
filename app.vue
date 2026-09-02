@@ -99,7 +99,7 @@ useHead({
       Skip to content
     </a>
     <TheTopBar />
-    <div id="main-content" class="lg:container mx-auto mt-top-bar px-2 md:px-4">
+    <div id="main-content" tabindex="-1" class="lg:container mx-auto mt-top-bar px-2 md:px-4">
       <NuxtPage />
     </div>
     <TheFooter />
