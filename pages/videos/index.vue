@@ -70,7 +70,7 @@ useHead({
           v-for="tag in videoTags"
           :key="tag"
           :to="`/videos/tags/${tag}`"
-          :label="tag.replace('-', ' ')"
+          :label="replaceHyphen(tag)"
           hash
         />
       </div>

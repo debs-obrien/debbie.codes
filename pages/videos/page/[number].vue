@@ -10,7 +10,7 @@ const filteredVideos = ref<any[]>([])
 const isSearchActive = ref(false)
 
 const { data: pageVideos } = await useAsyncData(`videos-page-${page}`, () => queryCollection('videos')
-  .select('path', 'title', 'description', 'date', 'tags', 'video', 'start', 'host', 'conference', 'image', 'featured')
+  .select(...videoPreviewFields)
   .order('date', 'DESC')
   .limit(videosPerPage)
   .skip(offset)
@@ -20,7 +20,7 @@ const { data: totalCount } = await useAsyncData('videos-total-count', () => quer
   .count())
 
 const { data: allVideos } = await useAsyncData('all-videos-for-pages', () => queryCollection('videos')
-  .select('path', 'title', 'description', 'date', 'tags', 'video', 'start', 'host', 'conference', 'image', 'featured')
+  .select(...videoPreviewFields)
   .order('date', 'DESC')
   .all())
 
@@ -78,7 +78,7 @@ useHead({
           v-for="tag in videoTags"
           :key="tag"
           :to="`/videos/tags/${tag}`"
-          :label="tag.replace('-', ' ')"
+          :label="replaceHyphen(tag)"
           hash
         />
       </div>
