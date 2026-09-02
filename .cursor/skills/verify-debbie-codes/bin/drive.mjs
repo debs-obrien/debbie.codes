@@ -37,7 +37,7 @@ async function aria(name, locator) {
 
 try {
   if (feature === 'home') {
-    await page.goto(`${baseURL}/`, { waitUntil: 'networkidle' })
+    await page.goto(`${baseURL}/`, { waitUntil: 'load' })
     await shot('home-before.png')
     const heading = page.getByRole('heading', { level: 1, name: /Debbie O'Brien/i })
     if (!(await heading.isVisible()))
@@ -53,16 +53,16 @@ try {
     log(`url ${page.url()}`)
   }
   else if (feature === 'navigation') {
-    await page.goto(`${baseURL}/`, { waitUntil: 'networkidle' })
+    await page.goto(`${baseURL}/`, { waitUntil: 'load' })
     await shot('navigation-before.png')
     const nav = page.getByRole('navigation')
-    await nav.getByRole('link', { name: 'about' }).click()
+    await nav.getByRole('link', { name: 'About', exact: true }).click()
     if (!/\/about\/?$/.test(page.url()))
       throw new Error(`navigation: expected /about, got ${page.url()}`)
-    await nav.getByRole('link', { name: 'videos' }).click()
+    await nav.getByRole('link', { name: 'Videos', exact: true }).click()
     if (!/\/videos\/?$/.test(page.url()))
       throw new Error(`navigation: expected /videos, got ${page.url()}`)
-    await nav.getByRole('link', { name: 'blog' }).click()
+    await nav.getByRole('link', { name: 'Blog', exact: true }).click()
     if (!/\/blog\/?$/.test(page.url()))
       throw new Error(`navigation: expected /blog, got ${page.url()}`)
     await aria('navigation.aria.yml', nav)
@@ -70,7 +70,7 @@ try {
     log(`url ${page.url()}`)
   }
   else if (feature === 'blog') {
-    await page.goto(`${baseURL}/blog`, { waitUntil: 'networkidle' })
+    await page.goto(`${baseURL}/blog`, { waitUntil: 'load' })
     await shot('blog-before.png')
     const search = page.getByRole('searchbox', { name: 'Search...' })
     await search.fill('playwright')
@@ -82,20 +82,19 @@ try {
     log(`search heading ${(await results.textContent())?.trim()}`)
   }
   else if (feature === 'videos') {
-    await page.goto(`${baseURL}/videos`, { waitUntil: 'networkidle' })
+    await page.goto(`${baseURL}/videos`, { waitUntil: 'load' })
     await shot('videos-before.png')
     const heading = page.getByRole('heading', { name: 'Videos', level: 1 })
     if (!(await heading.isVisible()))
       throw new Error('videos: h1 missing')
     const first = page.getByRole('article').first()
-    if (!(await first.isVisible()))
-      throw new Error('videos: no article')
+    await first.waitFor({ state: 'visible', timeout: 15000 })
     await aria('videos.aria.yml', page.getByRole('main'))
     await shot('videos-after.png')
     log(`url ${page.url()}`)
   }
   else if (feature === 'about') {
-    await page.goto(`${baseURL}/about`, { waitUntil: 'networkidle' })
+    await page.goto(`${baseURL}/about`, { waitUntil: 'load' })
     await shot('about-before.png')
     const heading = page.getByRole('heading', { name: /I'm Debbie O'Brien/i, level: 1 })
     if (!(await heading.isVisible()))
