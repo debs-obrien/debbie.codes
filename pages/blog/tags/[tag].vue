@@ -7,6 +7,7 @@ const { tag } = useRoute().params
 const normalizedUrlTag = (tag as string).toLowerCase().replace(/\s+/g, '-')
 
 const { data: articles } = await useAsyncData('articles', () => queryCollection('blog')
+  .select(...blogPreviewFields)
   .order('date', 'DESC')
   .all())
 

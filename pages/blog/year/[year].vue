@@ -11,6 +11,7 @@ if (!/^\d{4}$/.test(year)) {
 
 // Fetch all posts and filter by year on the client side
 const { data: allArticles } = await useAsyncData(`blog-year-${year}`, () => queryCollection('blog')
+  .select(...blogPreviewFields)
   .order('date', 'DESC')
   .all())
 

@@ -6,6 +6,7 @@ const isSearchActive = ref(false)
 
 // Fetch all videos
 const { data: allVideos } = await useAsyncData('all-videos-for-pages', () => queryCollection('videos')
+  .select(...videoPreviewFields)
   .order('date', 'DESC')
   .all())
 

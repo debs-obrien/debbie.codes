@@ -1,7 +1,8 @@
 <script setup lang="ts">
 // Fetch the featured podcast dynamically
-const { data: featuredPodcast } = await useAsyncData('featured-podcast', () => 
+const { data: featuredPodcast } = await useAsyncData('featured-podcast', () =>
   queryCollection('podcasts')
+    .select(...podcastPreviewFields)
     .where('featured', '=', true)
     .order('date', 'DESC')
     .first()

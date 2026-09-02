@@ -4,7 +4,7 @@ import type { Sections } from '~/types'
 const filteredPodcasts = ref<any[]>([])
 const isSearchActive = ref(false)
 
-const { data: allPodcasts } = await useAsyncData('podcasts', () => queryCollection('podcasts').order('date', 'DESC').all())
+const { data: allPodcasts } = await useAsyncData('podcasts', () => queryCollection('podcasts').select(...podcastPreviewFields).order('date', 'DESC').all())
 
 // Filter out featured podcasts from the main list (podcasts with featured: true)
 const podcasts = computed(() => {

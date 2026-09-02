@@ -6,6 +6,7 @@ const isSearchActive = ref(false)
 
 // Get all videos to extract real tags
 const { data: allVideos } = await useAsyncData('all-videos-for-tags-all-page', () => queryCollection('videos')
+  .select(...videoPreviewFields)
   .all())
 
 const videoTags = computed(() => {
