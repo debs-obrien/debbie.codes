@@ -25,7 +25,7 @@ watch(() => route.fullPath, () => {
                 alt="Debbie O'Brien"
                 width="96"
                 height="96"
-                sizes="48px"
+                sizes="50px"
                 quality="80"
                 format="webp"
               />
