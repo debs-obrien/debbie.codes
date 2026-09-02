@@ -1,0 +1,87 @@
+name: Agent bug hunt
+
+# Weekly exploratory QA on production. Copilot CLI follows site-bug-hunt and
+# files high-confidence GitHub issues. Local Cursor can run the same skill
+# without this workflow — see qa/README.md.
+
+on:
+  schedule:
+    # Sundays 06:00 UTC
+    - cron: '0 6 * * 0'
+  workflow_dispatch:
+    inputs:
+      base_url:
+        description: Site base URL to hunt
+        required: false
+        default: 'https://debbie.codes'
+      allow_minor:
+        description: Also file minor-severity bugs (true/false)
+        required: false
+        default: 'false'
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: agent-bug-hunt
+  cancel-in-progress: false
+
+jobs:
+  hunt:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright Chromium + CLI
+        run: |
+          npm install -g @playwright/cli
+          npx playwright install chromium --with-deps
+
+      - name: Install GitHub Copilot CLI
+        if: ${{ secrets.COPILOT_GITHUB_TOKEN != '' }}
+        run: npm install -g @github/copilot
+
+      - name: Run site-bug-hunt via Copilot CLI
+        if: ${{ secrets.COPILOT_GITHUB_TOKEN != '' }}
+        env:
+          COPILOT_GITHUB_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
+          SITE_BUG_HUNT_MODE: ci
+          SITE_BUG_HUNT_BASE_URL: ${{ inputs.base_url || 'https://debbie.codes' }}
+          SITE_BUG_HUNT_ALLOW_MINOR: ${{ inputs.allow_minor == 'true' && '1' || '0' }}
+          SITE_BUG_HUNT_MAX_ISSUES: '3'
+        run: |
+          set -euo pipefail
+          PROMPT="$(cat qa/prompts/hunt.md)"
+          PROMPT="${PROMPT}"$'\n\n'"Base URL: ${SITE_BUG_HUNT_BASE_URL}"
+          copilot -p "$PROMPT" \
+            --allow-tool='shell' \
+            --allow-tool='write' \
+            --allow-tool='read' \
+            --no-ask-user
+
+      - name: Job summary
+        if: always()
+        run: |
+          {
+            echo "## Agent bug hunt"
+            echo ""
+            echo "- Base URL: \`${{ inputs.base_url || 'https://debbie.codes' }}\`"
+            echo "- Mode: CI (file high-confidence major/blocker issues)"
+            echo "- Skill: \`.agents/skills/site-bug-hunt\`"
+            echo ""
+            echo "Candidates on disk (if any):"
+            ls -la qa/bug-candidates/ 2>/dev/null || echo "(none)"
+          } >> "$GITHUB_STEP_SUMMARY"
