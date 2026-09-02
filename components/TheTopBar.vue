@@ -21,10 +21,11 @@ watch(() => route.fullPath, () => {
               <NuxtImg
                 provider="cloudinary"
                 class="rounded-full mr-4 profile-pic border-white border"
-                src="w_100,c_fill,ar_1:1,q_auto,fl_lossy,f_auto/v1589118478/debbie.codes/debbie-thumb_clt00n"
+                src="v1589118478/debbie.codes/debbie-thumb_clt00n"
                 alt="Debbie O'Brien"
-                width="100"
-                height="auto"
+                width="96"
+                height="96"
+                sizes="50px"
                 quality="80"
                 format="webp"
               />

@@ -20,6 +20,9 @@ const otherVideos = computed(() => props.list.slice(1))
           <img
             :src="youtubeThumbnail(mainVideo.video)"
             :alt="mainVideo.title"
+            width="1280"
+            height="720"
+            fetchpriority="high"
             class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
           >
         </div>
@@ -46,6 +49,8 @@ const otherVideos = computed(() => props.list.slice(1))
               :alt="video.title"
               width="128"
               height="72"
+              loading="lazy"
+              decoding="async"
               class="rounded-lg object-cover border border-gray-200 dark:border-gray-700"
             >
           </div>
