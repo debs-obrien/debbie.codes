@@ -19,20 +19,18 @@ test.describe('About Page', () => {
 
   test('About page - Displays biographical content', async ({ page }) => {
     await test.step('Verify professional background paragraph', async () => {
-      const bioParagraph = page.getByText('With over 15 years in frontend development');
-      await expect(bioParagraph).toBeVisible();
-      await expect(bioParagraph).toContainText('performance and testing');
-      await expect(bioParagraph).toContainText('AI agents');
+      const bio = page.locator('.prose');
+      await expect(bio.getByText(/Independent Developer Educator/)).toBeVisible();
+      await expect(bio.getByText(/AI agents/)).toBeVisible();
+      await expect(bio.getByText(/Former Microsoft TPM on Playwright/)).toBeVisible();
+      await expect(bio.getByText(/\bGDE\b/)).toBeVisible();
     });
 
     await test.step('Verify role and achievements', async () => {
       // Bio + awards section both mention GDE — scope to the bio content renderer
-      await expect(page.locator('.prose').getByText(/I help people work with AI agents/)).toBeVisible();
-      await expect(page.locator('.prose').getByText(/I build and use multi-agent workflows every day/)).toBeVisible();
-      await expect(page.locator('.prose').getByText(/Zephyr Cloud/)).toBeVisible();
+      await expect(page.locator('.prose').getByText(/multi-agent workflows every day/)).toBeVisible();
+      await expect(page.locator('.prose').getByText(/Zephyr/i)).toHaveCount(0);
       await expect(page.getByRole('link', { name: /Zephyr/i })).toHaveCount(0);
-      await expect(page.locator('.prose').getByText(/Senior Staff Developer Relations Engineer, Applied AI at Block/)).toBeVisible();
-      await expect(page.locator('.prose').getByText(/Principal Technical Program Manager at Microsoft, focused on Playwright/)).toBeVisible();
       await expect(page.locator('.prose').getByText(/Google Developer Expert in web technologies/)).toBeVisible();
       await expect(page.locator('.prose').getByText(/former Microsoft MVP, Cloudinary Media Developer Expert, and GitHub Star/)).toBeVisible();
     });
