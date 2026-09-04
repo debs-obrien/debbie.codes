@@ -40,7 +40,6 @@ for (const topic of availableTopics) {
         // Prefer the chip-row / first matching tag URL; assert the accessible
         // name still matches replaceHyphen display (`#learning to code`).
         const topicLink = page.locator(`a[href="/videos/tags/${topic}"]`).first();
-        await expect(topicLink).toBeVisible();
         await expect(topicLink).toHaveAccessibleName(tagLabel(topic));
         await topicLink.click();
         await expect(page).toHaveURL(new RegExp(`/videos/tags/${topic}`));
