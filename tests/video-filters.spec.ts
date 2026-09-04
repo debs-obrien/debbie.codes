@@ -18,8 +18,10 @@ test.describe('Videos filter chips', () => {
 
       await page.goto('/videos');
 
+      const chipRow = page.getByRole('region', { name: 'Filter videos by topic' });
+
       await test.step('Click chip and verify navigation', async () => {
-        const chipLink = page.locator(`a[href="${chip.href}"]`).first();
+        const chipLink = chipRow.locator(`a[href="${chip.href}"]`);
         await expect(chipLink).toHaveAccessibleName(chip.label);
         await chipLink.click();
         await expect(page).toHaveURL(chip.expectUrl);
