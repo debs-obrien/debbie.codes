@@ -27,6 +27,7 @@ export const videoPreviewFields = [
   'conference',
   'image',
   'featured',
+  'featuredOrder',
 ] as const
 
 export const podcastPreviewFields = [
