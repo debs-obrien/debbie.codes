@@ -26,6 +26,6 @@ Preconditions:
 
 ## Gotchas
 
-- Bio copy is past-tense on employment (Zephyr / Block). Assert structure and current copy, not a remembered sentence from an older PR.
+- Bio leads with Independent Developer Educator + AI agents (Microsoft TPM / Playwright as track record). No Zephyr in the About bio. Assert structure and current copy, not a remembered sentence from an older PR.
 - Award cards are `article` items with visible `About {name}` text. Count roles from the page you launched.
 - Bio and awards both mention Google Developer Expert. Scope GDE sentences to `.prose` when the text appears twice.

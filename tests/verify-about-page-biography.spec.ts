@@ -12,7 +12,9 @@ test.describe('About Page Content', () => {
     await expect(page.getByRole('heading', { name: 'I\'m Debbie O\'Brien' })).toBeVisible();
 
     // 3. Read the biography sections
-    await expect(page.getByText('With over 15 years in frontend development')).toBeVisible();
+    await expect(page.locator('.prose').getByText(/Independent Developer Educator/)).toBeVisible();
+    await expect(page.locator('.prose').getByText(/AI agents/)).toBeVisible();
+    await expect(page.locator('.prose').getByText(/Former Microsoft TPM on Playwright/)).toBeVisible();
     await expect(page.getByRole('link', { name: 'YouTube Channel' })).toBeVisible();
   });
 });
