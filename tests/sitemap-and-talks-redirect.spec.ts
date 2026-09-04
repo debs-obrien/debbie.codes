@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test'
+import { test, expect } from '@playwright/test'
 
 test.describe('Sitemap and /talks redirect', () => {
   test('/sitemap.xml returns a real sitemap with key routes', async ({ request }) => {
