@@ -1,5 +1,10 @@
 /videos/all /videos 301
-/talks /speaking 301
+
+# More specific /talks/* before the general /talks rules.
+# Force (!) so nothing (pretty URLs / existing files) can soft-serve instead of 3xx.
+/talks/devsum-2026 https://github.com/debs-obrien/decks/tree/main/devsum-2026-agentic-developer-mcps 301!
+/talks /speaking 301!
+/talks/ /speaking 301!
 
 /tips /resources/tips 301
 
@@ -46,4 +51,3 @@
 /blog/all/5 /blog 301
 /blog/all/6 /blog 301
 /blog/all/7 /blog 301
-/talks/devsum-2026 https://github.com/debs-obrien/decks/tree/main/devsum-2026-agentic-developer-mcps 301

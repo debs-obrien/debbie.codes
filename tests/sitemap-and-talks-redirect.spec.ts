@@ -23,16 +23,22 @@ test.describe('Sitemap and /talks redirect', () => {
     expect(body).toMatch(/https:\/\/debbie\.codes\/blog\/[a-z0-9-]+/)
   })
 
-  test('_redirects declares permanent /talks → /speaking', () => {
+  test('_redirects declares forced permanent /talks → /speaking', () => {
     const redirects = readFileSync(resolve('public/_redirects'), 'utf8')
-    expect(redirects).toMatch(/^\/talks\s+\/speaking\s+301\s*$/m)
+    // Force (!) so Netlify cannot soft-serve / rewrite over the 301.
+    expect(redirects).toMatch(/^\/talks\s+\/speaking\s+301!\s*$/m)
+    expect(redirects).toMatch(/^\/talks\/\s+\/speaking\s+301!\s*$/m)
+    // More specific rule must appear before the general /talks rules.
+    expect(redirects.indexOf('/talks/devsum-2026')).toBeLessThan(redirects.indexOf('/talks /speaking'))
   })
 
-  test('deploy preview: /talks returns 3xx to /speaking', async ({ request }) => {
+  test('deploy preview: /talks and /talks/ return 3xx to /speaking', async ({ request }) => {
     test.skip(!externalBaseURL, 'Netlify _redirects only apply on static hosting (deploy preview)')
 
-    const res = await request.get('/talks', { maxRedirects: 0 })
-    expect([301, 302, 308]).toContain(res.status())
-    expect(res.headers().location).toMatch(/\/speaking\/?$/)
+    for (const path of ['/talks', '/talks/']) {
+      const res = await request.get(path, { maxRedirects: 0 })
+      expect([301, 302, 308], path).toContain(res.status())
+      expect(res.headers().location, path).toMatch(/\/speaking\/?$/)
+    }
   })
 })
