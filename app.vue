@@ -1,8 +1,8 @@
 <script setup>
-const description = 'Debbie O\'Brien, Developer Educator focused on Playwright, testing & AI agents, with over 15 years experience in Frontend development. Google Developer Expert in web technologies, Former Microsoft Most Valuable Professional in developer technologies, GitHub Star Alumni, Nuxt Ambassador and Cloudinary Media Developer Expert.'
-const ogTitle = 'Debbie codes and helps others learn Playwright, testing, React, Nuxt and more'
-const twitterDescription = 'My website of where I play around with Nuxt, Playwright and more and showcase my blog, resources etc'
-const twitterCard = 'https://debbie.codes/twitter-card.png'
+const description = 'Debbie O\'Brien, Developer Educator focused on AI agents, Playwright & testing, with over 15 years experience in Frontend development. Google Developer Expert in web technologies, Former Microsoft Most Valuable Professional in developer technologies, GitHub Star Alumni, Nuxt Ambassador and Cloudinary Media Developer Expert.'
+const ogTitle = 'Debbie codes and helps others learn AI agents, Playwright, testing, React, Nuxt and more'
+const twitterDescription = 'My website of where I play around with AI agents, Playwright, Nuxt and more and showcase my blog, resources etc'
+const twitterCard = 'https://debbie.codes/x-card.png'
 const mySite = 'https://debbie.codes'
 
 const { path } = useRoute()
