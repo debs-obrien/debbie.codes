@@ -46,8 +46,11 @@ test.describe('About Page', () => {
     });
 
     await test.step('Verify awards section structure', async () => {
-      await expect(page.getByRole('region')).toMatchAriaSnapshot(`
-        - region:
+      // Region is named via aria-labelledby="awards-heading". Snapshot the
+      // structure (named region, listitems, heading/link names) without full
+      // paragraph copy so award blurb edits do not break the test.
+      await expect(page.getByRole('region', { name: 'Awards & Achievements' })).toMatchAriaSnapshot(`
+        - region "Awards & Achievements":
           - list:
             - listitem:
               - article:
@@ -136,7 +139,7 @@ test.describe('About Page', () => {
 
   test('About page - Validates award article count and links', async ({ page }) => {
     await test.step('Count award articles', async () => {
-      const articles = page.getByRole('region').getByRole('article');
+      const articles = page.getByRole('region', { name: 'Awards & Achievements' }).getByRole('article');
       await expect(articles).toHaveCount(9);
     });
 
