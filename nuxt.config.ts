@@ -94,9 +94,10 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
-      // feed.xml stays a server route (same as before). sitemap.xml is a
-      // build-time static file in public/ — do not prerender via the server
-      // handler, which can 500 on Netlify when SQLite isn't available.
+      // Prefer completing the static publish (public/ assets, including
+      // sitemap.xml + _redirects) over failing the whole generate on
+      // unrelated IPX image fetch errors during crawl.
+      failOnError: false,
       routes: ['/feed.xml'],
     },
   },

@@ -8,7 +8,7 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "pregenerate": "node scripts/generate-sitemap.mjs",
-    "generate": "nuxt generate",
+    "generate": "nuxt generate; node scripts/ensure-static-publish.mjs",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
