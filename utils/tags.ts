@@ -16,6 +16,7 @@ export const preferredTagCasing: Record<string, string> = {
   'dev-rel': 'Dev Rel',
   'github': 'GitHub',
   'githubcopilot': 'GitHub Copilot',
+  'grok-bot': 'Grok Bot',
 }
 
 /**
