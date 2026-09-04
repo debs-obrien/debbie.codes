@@ -1,3 +1,8 @@
+import { generateSitemap } from './scripts/generate-sitemap.mjs'
+
+// Static public/sitemap.xml — avoids Netlify Function/SQLite 500s for /sitemap.xml.
+generateSitemap()
+
 export default defineNuxtConfig({
   srcDir: '.',
 
@@ -89,7 +94,10 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
-      routes: ['/feed.xml', '/sitemap.xml'],
+      // feed.xml stays a server route (same as before). sitemap.xml is a
+      // build-time static file in public/ — do not prerender via the server
+      // handler, which can 500 on Netlify when SQLite isn't available.
+      routes: ['/feed.xml'],
     },
   },
 })

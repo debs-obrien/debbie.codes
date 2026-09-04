@@ -115,3 +115,6 @@ playwright-report/
 # Build output
 .output/
 blob-report/
+
+# Generated at build/config load (see scripts/generate-sitemap.mjs)
+public/sitemap.xml
