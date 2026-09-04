@@ -1,5 +1,7 @@
-name: Endform on Netlify Preview
-
+# TEMPORARILY DISABLED: Endform removed due to free-tier limits; restore later.
+# To restore: re-enable the `on:` triggers below, remove `if: false` from jobs,
+# and re-add the `endform` devDependency + `test:endform` script (see ENDFORM.md).
+#
 # Runs the Playwright suite on Endform's cloud runners against the Netlify
 # deploy preview for a PR — the parallel counterpart to preview-tests.yml so we
 # can compare wall-clock time and flaky-test analytics against GitHub Actions.
@@ -14,8 +16,8 @@ name: Endform on Netlify Preview
 # pull_request (not status) means the PR branch's own workflow file runs.
 
 on:
-  pull_request:
-    branches: [main, master]
+  # pull_request:
+  #   branches: [main, master]
   workflow_dispatch:
     inputs:
       base_url:
@@ -30,6 +32,7 @@ permissions:
 
 jobs:
   resolve-preview:
+    if: false # TEMPORARILY DISABLED: Endform free-tier exhausted; restore later
     runs-on: ubuntu-latest
     outputs:
       base_url: ${{ steps.resolve.outputs.base_url }}
@@ -96,6 +99,7 @@ jobs:
           exit 1
 
   endform-tests:
+    if: false # TEMPORARILY DISABLED: Endform free-tier exhausted; restore later
     needs: resolve-preview
     timeout-minutes: 30
     runs-on: ubuntu-latest

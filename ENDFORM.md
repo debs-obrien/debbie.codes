@@ -1,5 +1,7 @@
 # Endform POC
 
+> **TEMPORARILY DISABLED:** Endform was removed due to free-tier limits; restore later (re-add `endform` dep + `test:endform` script, and re-enable `.github/workflows/endform-tests.yml`).
+
 Running the Playwright suite on [Endform](https://endform.dev) — a managed,
 distributed Playwright runner that fans every test out to its own isolated
 cloud VM — so we can compare wall-clock time and flaky-test analytics against
