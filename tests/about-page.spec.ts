@@ -46,8 +46,11 @@ test.describe('About Page', () => {
     });
 
     await test.step('Verify awards section structure', async () => {
-      await expect(page.getByRole('region')).toMatchAriaSnapshot(`
-        - region:
+      // Region is named via aria-labelledby="awards-heading". Keep the
+      // snapshot aligned with the live a11y tree (named region, listitems,
+      // heading aria-labels, and visible "About …" link text).
+      await expect(page.getByRole('region', { name: 'Awards & Achievements' })).toMatchAriaSnapshot(`
+        - region "Awards & Achievements":
           - list:
             - listitem:
               - article:
@@ -55,7 +58,7 @@ test.describe('About Page', () => {
                   - link "Learn more about GitHub Star Alumni (opens in new tab)":
                     - /url: https://stars.github.com/alumni/
                     - text: GitHub Star Alumni
-                - paragraph
+                - paragraph: Recognized as a GitHub Star for sharing knowledge with the community through talks, content, and open source. At the time, there were only 36 Stars worldwide.
                 - link "About GitHub Star Alumni":
                   - /url: https://stars.github.com/alumni/
             - listitem:
@@ -64,7 +67,7 @@ test.describe('About Page', () => {
                   - link "Learn more about Google Developer Expert (opens in new tab)":
                     - /url: https://me.developers.google.com/u/115790798136433531532
                     - text: Google Developer Expert
-                - paragraph
+                - paragraph: A Google Developer Expert in web technologies, supporting developers through speaking, teaching, and community work across the Google developer ecosystem.
                 - link "About Google Developer Expert":
                   - /url: https://me.developers.google.com/u/115790798136433531532
             - listitem:
@@ -73,7 +76,7 @@ test.describe('About Page', () => {
                   - link "Learn more about Former Microsoft Most Valuable Professional (opens in new tab)":
                     - /url: https://mvp.microsoft.com/en-us/PublicProfile/5003613?fullName=Debbie%20O%27Brien
                     - text: Former Microsoft Most Valuable Professional
-                - paragraph
+                - paragraph: Awarded as a Microsoft MVP for contributing technical expertise to developer communities connected with Microsoft technologies.
                 - link "About Former Microsoft Most Valuable Professional":
                   - /url: https://mvp.microsoft.com/en-us/PublicProfile/5003613?fullName=Debbie%20O%27Brien
             - listitem:
@@ -82,7 +85,7 @@ test.describe('About Page', () => {
                   - link "Learn more about Nuxt Ambassador (opens in new tab)":
                     - /url: https://nuxtjs.org/teams/
                     - text: Nuxt Ambassador
-                - paragraph
+                - paragraph: Formerly Developer Relations at Nuxt, now a Nuxt Ambassador supporting the community through talks, content, and advocacy for Nuxt and the Vue ecosystem.
                 - link "About Nuxt Ambassador":
                   - /url: https://nuxtjs.org/teams/
             - listitem:
@@ -91,7 +94,7 @@ test.describe('About Page', () => {
                   - link "Learn more about Media Developer Expert (opens in new tab)":
                     - /url: https://cloudinary.com/mde
                     - text: Media Developer Expert
-                - paragraph
+                - paragraph: A Cloudinary Media Developer Expert helping developers use media technology effectively in web and mobile apps.
                 - link "About Media Developer Expert":
                   - /url: https://cloudinary.com/mde
             - listitem:
@@ -100,7 +103,7 @@ test.describe('About Page', () => {
                   - link "Learn more about Auth0 Ambassador (opens in new tab)":
                     - /url: https://auth0.com/ambassador-program/
                     - text: Auth0 Ambassador
-                - paragraph
+                - paragraph: An Auth0 Ambassador focused on authentication, security, and identity — through meetups, conferences, and community education.
                 - link "About Auth0 Ambassador":
                   - /url: https://auth0.com/ambassador-program/
             - listitem:
@@ -109,7 +112,7 @@ test.describe('About Page', () => {
                   - link "Learn more about Microsoft Certified (opens in new tab)":
                     - /url: https://www.youracclaim.com/badges/2bb11106-cef6-4a1c-9618-1ba63b413377
                     - text: Microsoft Certified
-                - paragraph
+                - paragraph: Microsoft certified in Programming in HTML5 with JavaScript and CSS3, covering document structure, program flow, and working with data securely.
                 - link "About Microsoft Certified":
                   - /url: https://www.youracclaim.com/badges/2bb11106-cef6-4a1c-9618-1ba63b413377
             - listitem:
@@ -118,7 +121,7 @@ test.describe('About Page', () => {
                   - link "Learn more about Bachelor's Level Diploma (opens in new tab)":
                     - /url: https://openclassrooms.com/en/paths/315-front-end-developer
                     - text: Bachelor's Level Diploma
-                - paragraph
+                - paragraph: Completed a 12-month front-end program with one-to-one mentoring, building real-world projects and presenting solutions end to end.
                 - link "About Bachelor's Level Diploma":
                   - /url: https://openclassrooms.com/en/paths/315-front-end-developer
             - listitem:
@@ -127,7 +130,7 @@ test.describe('About Page', () => {
                   - link "Learn more about Full Stack JavaScript Tech Degree (opens in new tab)":
                     - /url: https://teamtreehouse.com/techdegree
                     - text: Full Stack JavaScript Tech Degree
-                - paragraph
+                - paragraph: Completed the Treehouse Full Stack JavaScript Techdegree, including a portfolio of projects, workshops, and guided curriculum.
                 - link "About Full Stack JavaScript Tech Degree":
                   - /url: https://teamtreehouse.com/techdegree
       `);
@@ -136,7 +139,7 @@ test.describe('About Page', () => {
 
   test('About page - Validates award article count and links', async ({ page }) => {
     await test.step('Count award articles', async () => {
-      const articles = page.getByRole('region').getByRole('article');
+      const articles = page.getByRole('region', { name: 'Awards & Achievements' }).getByRole('article');
       await expect(articles).toHaveCount(9);
     });
 
