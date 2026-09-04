@@ -1,3 +1,8 @@
+import { generateSitemap } from './scripts/generate-sitemap.mjs'
+
+// Static public/sitemap.xml — avoids Netlify Function/SQLite 500s for /sitemap.xml.
+generateSitemap()
+
 export default defineNuxtConfig({
   srcDir: '.',
 
@@ -89,6 +94,10 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
+      // Prefer completing the static publish (public/ assets, including
+      // sitemap.xml + _redirects) over failing the whole generate on
+      // unrelated IPX image fetch errors during crawl.
+      failOnError: false,
       routes: ['/feed.xml'],
     },
   },

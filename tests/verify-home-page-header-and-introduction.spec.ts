@@ -10,6 +10,6 @@ test.describe('Home Page Content Display', { tag: '@agent' }, () => {
     await expect(page.getByRole('heading', { level: 1, name: /Debbie O'Brien/i })).toBeVisible();
     await expect(page.getByText('Developer Educator focused on Playwright, testing & AI agents')).toBeVisible();
 
-    await expect(page).toHaveTitle(/Debbie codes and helps others learn Playwright, testing, React, Nuxt and more/);
+    await expect(page).toHaveTitle(/Debbie codes and helps others learn AI agents, Playwright, testing, React, Nuxt and more/);
   });
 });

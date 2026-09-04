@@ -3,6 +3,18 @@
   publish = "dist"
   ignore = "git log -1 --pretty=%B | grep dependabot"
 
+[[redirects]]
+  from = "/talks"
+  to = "/speaking"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/talks/"
+  to = "/speaking"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]
