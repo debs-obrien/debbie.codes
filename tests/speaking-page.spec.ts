@@ -20,7 +20,7 @@ test.describe('Speaking page', () => {
     )
 
     await expect(page.getByRole('heading', { name: /The Agentic Developer/ })).toBeVisible()
-    await expect(page.getByText('Infobip Shift')).toBeVisible()
+    await expect(page.getByText('Infobip Shift', { exact: true })).toBeVisible()
     await expect(page.getByRole('link', { name: 'Infobip Shift agenda' })).toHaveAttribute(
       'href',
       'https://shift.infobip.com/agenda/',
