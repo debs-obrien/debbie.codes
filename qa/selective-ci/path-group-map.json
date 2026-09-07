@@ -1,0 +1,99 @@
+{
+  "$schema_comment": "Selective CI path→group map. Phase 1 = report-only dry-run. Phase 2 can honor SELECTIVE_CI=1 using this same file.",
+  "version": 1,
+  "alwaysInclude": {
+    "grep": ["@smoke"],
+    "description": "Always include @smoke in the would-run set (home + nav + one content + one redirect)."
+  },
+  "fullSuitePathGlobs": [
+    "components/**",
+    "layouts/**",
+    "nuxt.config.*",
+    "assets/**",
+    "composables/**",
+    "server/**",
+    "public/**",
+    "content.config.*",
+    "utils/**",
+    "plugins/**",
+    "app.vue",
+    "tailwind.config.*",
+    "package.json",
+    "package-lock.json",
+    "playwright.config.*",
+    "playwright.service.config.*",
+    "tests/**",
+    ".github/workflows/**",
+    "endform.config.*",
+    "ENDFORM.md"
+  ],
+  "groups": {
+    "home": {
+      "description": "Home page and featured/recent strips driven by pages/index*",
+      "paths": ["pages/index.vue", "pages/index.*"],
+      "tests": [
+        "tests/home.spec.ts",
+        "tests/home-featured-content.spec.ts",
+        "tests/verify-home-page-header-and-introduction.spec.ts",
+        "tests/verify-recent-blog-posts-section.spec.ts",
+        "tests/verify-recent-podcasts-section.spec.ts",
+        "tests/verify-recent-videos-section.spec.ts",
+        "tests/verify-featured-posts-section.spec.ts",
+        "tests/verify-featured-podcast-section.spec.ts",
+        "tests/award-links.spec.ts",
+        "tests/verify-award-badges-display.spec.ts"
+      ]
+    },
+    "about": {
+      "description": "About page + award specs",
+      "paths": ["pages/about*", "content/about.md"],
+      "tests": [
+        "tests/about-page.spec.ts",
+        "tests/verify-about-page-biography.spec.ts",
+        "tests/verify-awards-and-achievements-section.spec.ts",
+        "tests/award-links.spec.ts",
+        "tests/verify-award-badges-display.spec.ts"
+      ]
+    },
+    "videos": {
+      "description": "Videos listing/filters/pagination (shared home strip lives under components/** → full suite)",
+      "paths": ["pages/videos/**", "pages/videos*", "content/videos/**"],
+      "tests": [
+        "tests/video-filters.spec.ts",
+        "tests/videos-pagination.spec.ts"
+      ]
+    },
+    "blog": {
+      "description": "Blog pages and content",
+      "paths": ["pages/blog/**", "pages/blog*", "content/blog/**"],
+      "tests": [
+        "tests/blog.spec.ts",
+        "tests/blog-filters.spec.ts",
+        "tests/blog-search.spec.ts",
+        "tests/blog-tag-normalization.spec.ts",
+        "tests/blog-year-navigation.spec.ts"
+      ]
+    },
+    "podcasts": {
+      "description": "Podcasts pages and content",
+      "paths": ["pages/podcasts/**", "pages/podcasts*", "content/podcasts/**"],
+      "tests": ["tests/podcasts.spec.ts"]
+    },
+    "speaking": {
+      "description": "Speaking page and content",
+      "paths": ["pages/speaking*", "content/speaking/**"],
+      "tests": [
+        "tests/speaking-page.spec.ts",
+        "tests/sitemap-and-talks-redirect.spec.ts"
+      ]
+    },
+    "courses": {
+      "description": "Courses pages and content",
+      "paths": ["pages/courses/**", "pages/courses*", "content/courses/**"],
+      "tests": [
+        "tests/courses-current.spec.ts",
+        "tests/course-filters.spec.ts"
+      ]
+    }
+  }
+}
