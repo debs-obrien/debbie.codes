@@ -85,7 +85,7 @@
         </a>
 
         <a
-          href="https://nuxtjs.org/teams/"
+          href="https://nuxt.com/team"
           target="_blank"
           rel="nofollow noopener noreferrer"
           class="badge-link"

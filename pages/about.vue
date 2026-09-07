@@ -26,7 +26,7 @@ const awards = ref([
   },
   {
     name: 'Nuxt Ambassador',
-    url: 'https://nuxtjs.org/teams/',
+    url: 'https://nuxt.com/team',
     about:
       'Formerly Developer Relations at Nuxt, now a Nuxt Ambassador supporting the community through talks, content, and advocacy for Nuxt and the Vue ecosystem.',
   },

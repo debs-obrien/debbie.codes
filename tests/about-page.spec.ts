@@ -81,11 +81,11 @@ test.describe('About Page', () => {
               - article:
                 - heading "Learn more about Nuxt Ambassador (opens in new tab)" [level=3]:
                   - link "Learn more about Nuxt Ambassador (opens in new tab)":
-                    - /url: https://nuxtjs.org/teams/
+                    - /url: https://nuxt.com/team
                     - text: Nuxt Ambassador
                 - paragraph
                 - link "About Nuxt Ambassador":
-                  - /url: https://nuxtjs.org/teams/
+                  - /url: https://nuxt.com/team
             - listitem:
               - article:
                 - heading "Learn more about Media Developer Expert (opens in new tab)" [level=3]:

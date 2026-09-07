@@ -6,6 +6,7 @@ const upcoming = [
     place: 'Zurich, Switzerland',
     title: 'Bug Report In, Pull Request Out: Agentic CI with Playwright',
     url: 'https://conf.zurichjs.com/speakers/debbie-o-brien',
+    linkLabel: 'ZurichJS speaker page',
   },
   {
     event: 'Infobip Shift',
@@ -13,6 +14,7 @@ const upcoming = [
     place: 'Zadar, Croatia',
     title: 'The Agentic Developer: Orchestrating AI Workflows With Skills and MCPs',
     url: 'https://shift.infobip.com/agenda/',
+    linkLabel: 'Infobip Shift agenda',
   },
 ]
 
@@ -62,7 +64,7 @@ useHead({
           rel="noopener noreferrer"
           class="text-primary font-medium hover:underline"
         >
-          Event site
+          {{ talk.linkLabel }}
         </a>
       </li>
     </ul>

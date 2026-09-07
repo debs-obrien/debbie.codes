@@ -785,7 +785,7 @@
 - Google GDE link navigates to me.developers.google.com
 - Microsoft MVP link navigates to mvp.microsoft.com
 - GitHub Star Alumni link navigates to stars.github.com/alumni/
-- Nuxt Ambassador link navigates to nuxtjs.org/teams/
+- Nuxt Ambassador link navigates to nuxt.com/team
 - All links open in new tab or current tab
 
 ---

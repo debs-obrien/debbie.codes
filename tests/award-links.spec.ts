@@ -45,7 +45,7 @@ test('GitHub Star link in home page works', async ({ page }) => {
 });
 
 test('Nuxt Ambassador link in home page works', async ({ page }) => {
-  await page.context().route('https://nuxtjs.org/**', route => route.fulfill({
+  await page.context().route('https://nuxt.com/**', route => route.fulfill({
     body: '<html><body><h1>Nuxt Ambassador</h1></body></html>'
   }));
 
@@ -53,6 +53,6 @@ test('Nuxt Ambassador link in home page works', async ({ page }) => {
     page.waitForEvent('popup'),
     page.getByRole('link', { name: 'Nuxt Ambassador' }).click()
   ]);
-  await expect(page1).toHaveURL('https://nuxtjs.org/teams/');
+  await expect(page1).toHaveURL('https://nuxt.com/team');
 });
 
