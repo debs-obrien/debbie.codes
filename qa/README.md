@@ -47,7 +47,7 @@ node qa/scripts/selective-ci-plan.mjs --files content/blog/example.md --summary 
 
 Map: [`qa/selective-ci/path-group-map.json`](./selective-ci/path-group-map.json). Unknown paths and shared surfaces (`components/**`, `layouts/**`, `nuxt.config.*`, CSS/assets, `composables/**`, `server/**`, `public/**`, content helpers, workflows, `tests/**`, …) always → **full suite**. Selective always unions mapped group files with specs that declare `@smoke`.
 
-CI: `playwright.yml` runs a `plan` job that writes the plan to `$GITHUB_STEP_SUMMARY` and emits `mode` / `test_files` / `shards`. Selective PRs use **1 shard**; full uses **4**.
+CI: `playwright.yml` runs a `plan` job that writes the plan to `$GITHUB_STEP_SUMMARY` and emits `mode` / `test_files` / `shard_total` / `shards`. Selective PRs use **1 shard**; full uses **4**.
 
 ### How to verify Phase 2
 
