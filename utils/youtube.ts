@@ -5,11 +5,11 @@
  * safe default for lite-youtube posters — see youtubePosterStyle below.
  * See https://github.com/paulirish/lite-youtube-embed/blob/master/youtube-thumbnail-urls.md
  */
-export type YoutubeThumbnailQuality = 'mqdefault' | 'sddefault' | 'hqdefault'
+export type YouTubeThumbnailQuality = 'mqdefault' | 'sddefault' | 'hqdefault'
 
 export function youtubeThumbnail(
   videoId: string,
-  quality: YoutubeThumbnailQuality = 'hqdefault',
+  quality: YouTubeThumbnailQuality = 'hqdefault',
 ) {
   const safeId = encodeURIComponent(videoId.trim())
   return `https://i.ytimg.com/vi/${safeId}/${quality}.jpg`

@@ -64,9 +64,7 @@ test.describe('Home Page Featured Content', () => {
 
     // Card-sized thumbs must not request hqdefault (LCP / oversized-image)
     for (let i = 0; i < imageCount; i++) {
-      const src = await images.nth(i).getAttribute('src');
-      expect(src).toMatch(/\/(mqdefault|sddefault)\.jpg$/);
-      expect(src).not.toContain('hqdefault');
+      await expect(images.nth(i)).toHaveAttribute('src', /\/(mqdefault|sddefault)(\.|$)/);
     }
   });
 

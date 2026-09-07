@@ -18,7 +18,7 @@ const otherVideos = computed(() => props.list.slice(1))
       <NuxtLink :to="getYouTubeUrl(mainVideo.video)" target="_blank" rel="noopener noreferrer">
         <div class="aspect-video rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700">
           <img
-            :src="youtubeThumbnail(mainVideo.video, 'sddefault')"
+            :src="youtubeThumbnail(mainVideo.video, 'mqdefault')"
             :srcset="youtubeThumbnailSrcSet(mainVideo.video)"
             sizes="(min-width: 1024px) 28rem, 100vw"
             :alt="mainVideo.title"
