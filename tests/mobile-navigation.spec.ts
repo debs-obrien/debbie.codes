@@ -23,8 +23,8 @@ test.describe('Mobile Navigation', () => {
     await test.step('Open menu and verify it actually opened', async () => {
       // The hamburger handler is attached on hydration; a click fired before
       // that no-ops silently. Retry until the overlay close control appears.
-      // (Hamburger also switches to "Close menu" when open, so scope to the ✕.)
-      const overlayClose = page.getByRole('button', { name: 'Close menu' }).filter({ hasText: '✕' });
+      // While open, only the overlay ✕ is labeled “Close menu” (header toggle is hidden).
+      const overlayClose = page.getByRole('button', { name: 'Close menu' });
       await expect(async () => {
         await hamburgerButton.click();
         await expect(overlayClose).toBeVisible({ timeout: 2000 });
@@ -32,10 +32,29 @@ test.describe('Mobile Navigation', () => {
     });
 
     await test.step('Close menu using the close button', async () => {
-      const closeButton = page.getByRole('button', { name: 'Close menu' }).filter({ hasText: '✕' });
+      const closeButton = page.getByRole('button', { name: 'Close menu' });
       await closeButton.click();
       await expect(page.getByRole('navigation')).not.toBeVisible();
       await expect(hamburgerButton).toHaveAccessibleName('Open menu');
+    });
+  });
+
+  test('Mobile Navigation - Only one Close menu control while open', async ({ page }) => {
+    const hamburgerButton = getHamburgerButton(page);
+    const closeButtons = page.getByRole('button', { name: 'Close menu' });
+
+    await test.step('Open menu', async () => {
+      await expect(async () => {
+        await hamburgerButton.click();
+        await expect(closeButtons).toBeVisible({ timeout: 2000 });
+      }).toPass({ timeout: 15000 });
+    });
+
+    await test.step('Exactly one Close menu button in the a11y tree', async () => {
+      await expect(closeButtons).toHaveCount(1);
+      await expect(closeButtons).toHaveText('✕');
+      // Header open toggle is hidden while the drawer is open
+      await expect(page.getByRole('button', { name: 'Open menu' })).toHaveCount(0);
     });
   });
 

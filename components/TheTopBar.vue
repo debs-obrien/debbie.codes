@@ -39,24 +39,21 @@ watch(() => route.fullPath, () => {
             <TopBarSocial />
           </div>
 
+          <!-- Hide the header toggle while open so only the overlay ✕ is
+               exposed as “Close menu” (avoids duplicate a11y dismiss controls). -->
           <button
+            v-show="!isOpen"
             class="block lg:hidden"
-            :aria-label="isOpen ? 'Close menu' : 'Open menu'"
+            aria-label="Open menu"
             :aria-expanded="isOpen"
             type="button"
             @click="toggle"
           >
-            <ul v-if="!isOpen" class="hamburger text-white">
+            <ul class="hamburger text-white">
               <li class="bg-white" />
               <li class="bg-white" />
               <li class="bg-white" />
             </ul>
-            <span
-              v-else
-              class="text-white text-2xl"
-            >
-              X
-            </span>
           </button>
         </div>
       </div>
