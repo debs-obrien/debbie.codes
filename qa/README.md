@@ -8,10 +8,19 @@ Inspired by [An Agent That Hunts Bugs While I Sleep](https://debbie.codes/blog/a
 | Phase | Status | What it does |
 |-------|--------|--------------|
 | **0** | Done | CI workers = 2; `@smoke` tags on home + nav + one content + one redirect |
-| **1** | Report-only (this) | Path→group mapper **prints** which tests would run; **does not skip** anything. Full suite remains the default CI command. |
-| **2** | Later | Flip `SELECTIVE_CI=1` to actually filter using the same map |
+| **1** | Done | Path→group mapper + job summary dry-run |
+| **2** | **This** | `playwright.yml` on **pull_request** runs only the planned set (`@smoke` files ∪ group specs), or full when fail-closed. Push to **main** stays full. |
 
-### Phase 1 dry-run (local)
+### What runs where
+
+| Workflow / event | Suite |
+|------------------|--------|
+| `playwright.yml` on **PR** | **Selective** when the map says so; **full** when fail-closed / unknown / shared globs |
+| `playwright.yml` on **push to main** | **Full** (no path filter) |
+| `preview-tests.yml` on PR | **Full** against Netlify preview (safety net — do not thin) |
+| `endform-tests.yml` on PR | **Full** (unchanged this phase; thinning is a later phase) |
+
+### Planner (local)
 
 ```bash
 # Against main (same idea as CI)
@@ -23,16 +32,28 @@ node qa/scripts/selective-ci-plan.mjs --base origin/main
 
 # Fake a content-only PR without committing:
 node qa/scripts/selective-ci-plan.mjs --files content/blog/example.md
-# → mode=selective, groups=blog, always grep=@smoke
+# → mode=selective, groups=blog, @smoke files ∪ blog specs, shard_total=1
 
 # Shared layout change → fail closed to full suite:
 node qa/scripts/selective-ci-plan.mjs --files layouts/default.vue
-# → mode=full
+# → mode=full, shard_total=4
+
+# Dry-run summary only (Phase 1 behavior; no GITHUB_OUTPUT writes):
+node qa/scripts/selective-ci-plan.mjs --files content/blog/example.md --summary
+
+# Enforce outputs (what CI uses):
+node qa/scripts/selective-ci-plan.mjs --files content/blog/example.md --summary --enforce
 ```
 
-Map data lives in [`qa/selective-ci/path-group-map.json`](./selective-ci/path-group-map.json) so Phase 2 can reuse it. Unknown paths and shared surfaces (`components/**`, `layouts/**`, `nuxt.config.*`, CSS/assets, `composables/**`, `server/**`, `public/**`, content helpers, workflows, `tests/**`, …) always report **full suite**.
+Map: [`qa/selective-ci/path-group-map.json`](./selective-ci/path-group-map.json). Unknown paths and shared surfaces (`components/**`, `layouts/**`, `nuxt.config.*`, CSS/assets, `composables/**`, `server/**`, `public/**`, content helpers, workflows, `tests/**`, …) always → **full suite**. Selective always unions mapped group files with specs that declare `@smoke`.
 
-CI: the Playwright workflow writes this plan to the GitHub Actions job summary on PRs (shard 1), then still runs `npx playwright test` for the full suite.
+CI: `playwright.yml` runs a `plan` job that writes the plan to `$GITHUB_STEP_SUMMARY` and emits `mode` / `test_files` / `shard_total` / `shards`. Selective PRs use **1 shard**; full uses **4**.
+
+### How to verify Phase 2
+
+1. **Blog-only PR** (e.g. only `content/blog/...`): local GHA Playwright job summary shows `mode=selective`, fewer files, 1 shard; preview + Endform still run the full suite.
+2. **Layout / shared change** (e.g. `layouts/default.vue`): local GHA shows `mode=full`, 4 shards; preview stays full.
+3. **Push to main**: local GHA always full (plan job summary says path-filter is PR-only).
 
 **Skills are the playbook** (work in Cursor locally).  
 **GitHub Actions + Copilot** is the scheduled adapter (optional).
@@ -144,8 +165,8 @@ qa/
 │   ├── hunt.md               ← CI hunt prompt
 │   └── fix.md                ← CI fix prompt
 ├── selective-ci/
-│   └── path-group-map.json   ← path→test-group map (Phase 1 report / Phase 2 filter)
+│   └── path-group-map.json   ← path→test-group map (Phase 2 enforce on playwright.yml PRs)
 └── scripts/
     ├── select-fix-issue.sh   ← pick one eligible issue
-    └── selective-ci-plan.mjs ← dry-run planner (CI job summary + local)
+    └── selective-ci-plan.mjs ← planner (--summary dry-run / --enforce for CI)
 ```
