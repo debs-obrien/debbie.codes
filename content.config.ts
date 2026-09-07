@@ -83,7 +83,8 @@ export default defineContentConfig({
         host: z.string().optional(),
         conference: z.string().optional(),
         image: z.string(),
-        featured: z.boolean().optional()
+        featured: z.boolean().optional(),
+        featuredOrder: z.number().optional()
       })
     }),
     about: defineCollection({

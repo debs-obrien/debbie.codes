@@ -1,55 +1,42 @@
 <script setup lang="ts">
-import type { Sections } from '~/types'
+import type { Sections, VideoPreview } from '~/types'
 
 const route = useRoute()
 const page = Number.parseInt(route.params.number as string) || 1
 const videosPerPage = 24
 const offset = (page - 1) * videosPerPage
 
-const filteredVideos = ref<any[]>([])
+const filteredVideos = ref<VideoPreview[]>([])
 const isSearchActive = ref(false)
 
-const { data: pageVideos } = await useAsyncData(`videos-page-${page}`, () => queryCollection('videos')
-  .select(...videoPreviewFields)
-  .order('date', 'DESC')
-  .limit(videosPerPage)
-  .skip(offset)
-  .all())
-
-const { data: totalCount } = await useAsyncData('videos-total-count', () => queryCollection('videos')
-  .count())
-
-const { data: allVideos } = await useAsyncData('all-videos-for-pages', () => queryCollection('videos')
+const { data: allVideosRaw } = await useAsyncData('all-videos-for-pages', () => queryCollection('videos')
   .select(...videoPreviewFields)
   .order('date', 'DESC')
   .all())
 
-const videoTags = computed(() => {
-  if (!allVideos.value)
-    return []
+const allVideos = computed(() => filterVisibleVideos(allVideosRaw.value))
 
-  const tagCounts = new Map<string, number>()
-
-  allVideos.value.forEach((video: any) => {
-    if (video.tags) {
-      video.tags.forEach((tag: string) => {
-        tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1)
-      })
-    }
-  })
-
-  return Array.from(tagCounts.entries())
-    .sort((a, b) => b[1] - a[1])
-    .map(([tag]) => tag)
+const featuredVideoIds = computed(() => {
+  return new Set(
+    allVideos.value
+      .filter(video => video.featured)
+      .map(video => video.video),
+  )
 })
+
+const latestPool = computed(() => {
+  return allVideos.value.filter(video => !featuredVideoIds.value.has(video.video))
+})
+
+const pageVideos = computed(() => latestPool.value.slice(offset, offset + videosPerPage))
 
 const totalPages = computed(() => {
-  if (!totalCount.value)
+  if (!latestPool.value.length)
     return 1
-  return Math.ceil(totalCount.value / videosPerPage)
+  return Math.ceil(latestPool.value.length / videosPerPage)
 })
 
-if (page < 1 || (totalCount.value && page > totalPages.value)) {
+if (page < 1 || (latestPool.value.length && page > totalPages.value)) {
   throw createError({ statusCode: 404, statusMessage: 'Page Not Found' })
 }
 
@@ -65,33 +52,27 @@ useHead({
 
 <template>
   <PageLayout :title="title" :description="description" :section="section">
-    <BlogSearch
-      :articles="allVideos || []"
-      :default-articles="pageVideos || []"
-      @update:filtered-articles="filteredVideos = $event"
-      @search-active="isSearchActive = $event"
-    />
+    <VideosFilterChips />
 
-    <section v-if="videoTags.length > 0" class="animated-section mb-8 max-w-4xl mx-auto">
-      <div class="flex flex-wrap gap-3 justify-center items-center">
-        <TagChip
-          v-for="tag in videoTags"
-          :key="tag"
-          :to="`/videos/tags/${tag}`"
-          :label="replaceHyphen(tag)"
-          hash
-        />
-      </div>
-    </section>
-
-    <section class="animated-section mb-16">
-      <h2 v-if="!isSearchActive" class="text-2xl font-bold text-gray-900 dark:text-white mb-6 max-w-4xl mx-auto">
-        Recent Videos
+    <section
+      class="animated-section mb-16"
+      aria-labelledby="latest-videos-heading"
+    >
+      <h2
+        v-if="!isSearchActive"
+        id="latest-videos-heading"
+        class="text-2xl font-bold text-gray-900 dark:text-white mb-6 max-w-4xl mx-auto"
+      >
+        Latest
       </h2>
-      <h2 v-else class="text-2xl font-bold text-gray-900 dark:text-white mb-6 max-w-4xl mx-auto">
+      <h2
+        v-else
+        id="latest-videos-heading"
+        class="text-2xl font-bold text-gray-900 dark:text-white mb-6 max-w-4xl mx-auto"
+      >
         Search Results ({{ filteredVideos.length }})
       </h2>
-      <VideoList :list="isSearchActive ? filteredVideos : (pageVideos || [])" />
+      <VideoList :list="isSearchActive ? filteredVideos : pageVideos" />
       <Pagination
         v-if="!isSearchActive && totalPages > 1"
         :current-page="page"
@@ -99,5 +80,14 @@ useHead({
         base-url="/videos"
       />
     </section>
+
+    <div class="animated-section mb-12 max-w-4xl mx-auto">
+      <BlogSearch
+        :articles="allVideos"
+        :default-articles="pageVideos"
+        @update:filtered-articles="filteredVideos = $event"
+        @search-active="isSearchActive = $event"
+      />
+    </div>
   </PageLayout>
 </template>

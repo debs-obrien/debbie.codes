@@ -16,6 +16,7 @@ export interface Video extends BaseContent {
   host?: string
   conference?: string
   featured?: boolean
+  featuredOrder?: number
 }
 
 export interface Podcast extends BaseContent {

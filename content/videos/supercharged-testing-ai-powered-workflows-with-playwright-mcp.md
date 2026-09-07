@@ -6,4 +6,6 @@ video: Numb52aJkJw
 tags: [playwright, testing, ai, mcp, conference-talk]
 host: NDC Conferences
 image: https://img.youtube.com/vi/Numb52aJkJw/sddefault.jpg
+featured: true
+featuredOrder: 1
 ---
