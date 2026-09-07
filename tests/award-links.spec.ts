@@ -44,15 +44,8 @@ test('GitHub Star link in home page works', async ({ page }) => {
   await expect(page1).toHaveURL('https://stars.github.com/alumni/');
 });
 
-test('Nuxt Ambassador link in home page works', async ({ page }) => {
-  await page.context().route('https://nuxtjs.org/**', route => route.fulfill({
-    body: '<html><body><h1>Nuxt Ambassador</h1></body></html>'
-  }));
-
-  const [page1] = await Promise.all([
-    page.waitForEvent('popup'),
-    page.getByRole('link', { name: 'Nuxt Ambassador' }).click()
-  ]);
-  await expect(page1).toHaveURL('https://nuxtjs.org/teams/');
+test('Nuxt Ambassador badge is shown without a link', async ({ page }) => {
+  await expect(page.getByText('Nuxt Ambassador', { exact: true })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Nuxt Ambassador' })).toHaveCount(0);
 });
 

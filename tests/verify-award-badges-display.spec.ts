@@ -17,7 +17,8 @@ test.describe('Home Page Content Display', { tag: '@agent' }, () => {
     // 4. Verify GitHub Star Alumni badge link is present
     await expect(page.getByRole('link', { name: 'GitHub Star Alumni' })).toBeVisible();
 
-    // 5. Verify Nuxt Ambassador badge link is present
-    await expect(page.getByRole('link', { name: 'Nuxt Ambassador' })).toBeVisible();
+    // 5. Verify Nuxt Ambassador badge is present without a link
+    await expect(page.getByText('Nuxt Ambassador', { exact: true })).toBeVisible();
+    await expect(page.getByRole('link', { name: 'Nuxt Ambassador' })).toHaveCount(0);
   });
 });

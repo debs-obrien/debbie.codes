@@ -43,8 +43,8 @@
 - Google GDE badge link is present
 - Former Microsoft MVP badge link is present
 - GitHub Star Alumni badge link is present
-- Nuxt Ambassador badge link is present
-- All badge links are clickable and navigate to external pages
+- Nuxt Ambassador badge text is present (not linked)
+- Linked badges are clickable and navigate to external pages
 
 #### 1.3 Verify Featured Posts Section
 **Steps:**
@@ -217,16 +217,15 @@
   1. GitHub Star Alumni
   2. Google Developer Expert
   3. Former Microsoft Most Valuable Professional
-  4. Media Developer Expert
-  5. Auth0 Ambassador
+  4. Nuxt Ambassador (text only; no external link)
+  5. Media Developer Expert
   6. Microsoft Certified
   7. Bachelor's Level Diploma
   8. Full Stack JavaScript Tech Degree
-- Each card contains:
-  - Image/logo
+- Linked cards contain:
   - Heading with "Learn more" text
   - Description paragraph
-  - "Learn More" link to external site
+  - "About {name}" link to external site
 
 ---
 
@@ -763,17 +762,17 @@
 3. Click on "Learn More" links
 
 **Expected Results:**
-- Each award card has a "Learn More" link
+- Linked award cards have an "About {name}" link
 - Links navigate to external pages:
   - GitHub Stars Alumni page
   - Google Developer Expert profile
   - Microsoft MVP profile
   - Cloudinary MDE page
-  - Auth0 Ambassador program
   - Microsoft certification page
   - OpenClassrooms
   - Team Treehouse
-- All links open correctly (new tab or current tab)
+- Nuxt Ambassador has no external link (no live page that names Debbie)
+- Linked awards open correctly (new tab or current tab)
 
 #### 9.4 Verify External Links on Home Page
 **Steps:**
@@ -785,8 +784,8 @@
 - Google GDE link navigates to me.developers.google.com
 - Microsoft MVP link navigates to mvp.microsoft.com
 - GitHub Star Alumni link navigates to stars.github.com/alumni/
-- Nuxt Ambassador link navigates to nuxtjs.org/teams/
-- All links open in new tab or current tab
+- Nuxt Ambassador badge is visible but not a link
+- Linked badges open in new tab or current tab
 
 ---
 

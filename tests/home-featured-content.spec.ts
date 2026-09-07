@@ -117,7 +117,8 @@ test.describe('Home Page Featured Content', () => {
     await expect(page.getByRole('link', { name: 'Google GDE' })).toBeVisible();
     await expect(page.getByRole('link', { name: 'Former Microsoft MVP' })).toBeVisible();
     await expect(page.getByRole('link', { name: 'GitHub Star Alumni' })).toBeVisible();
-    await expect(page.getByRole('link', { name: 'Nuxt Ambassador' })).toBeVisible();
+    await expect(page.getByText('Nuxt Ambassador', { exact: true })).toBeVisible();
+    await expect(page.getByRole('link', { name: 'Nuxt Ambassador' })).toHaveCount(0);
   });
 
   test('home page content is accessible', async ({ page }) => {
