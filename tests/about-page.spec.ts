@@ -99,11 +99,11 @@ test.describe('About Page', () => {
               - article:
                 - heading "Learn more about Auth0 Ambassador (opens in new tab)" [level=3]:
                   - link "Learn more about Auth0 Ambassador (opens in new tab)":
-                    - /url: https://auth0.com/ambassador-program/
+                    - /url: https://community.auth0.com/
                     - text: Auth0 Ambassador
                 - paragraph
                 - link "About Auth0 Ambassador":
-                  - /url: https://auth0.com/ambassador-program/
+                  - /url: https://community.auth0.com/
             - listitem:
               - article:
                 - heading "Learn more about Microsoft Certified (opens in new tab)" [level=3]:

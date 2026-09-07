@@ -38,7 +38,7 @@ const awards = ref([
   },
   {
     name: 'Auth0 Ambassador',
-    url: 'https://auth0.com/ambassador-program/',
+    url: 'https://community.auth0.com/',
     about:
       'An Auth0 Ambassador focused on authentication, security, and identity — through meetups, conferences, and community education.',
   },
