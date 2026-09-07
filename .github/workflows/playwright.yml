@@ -15,6 +15,9 @@ jobs:
         shardTotal: [4]
     steps:
     - uses: actions/checkout@v4
+      with:
+        # Need merge-base history so the selective-ci dry-run can diff against the PR base.
+        fetch-depth: 0
     - uses: actions/setup-node@v4
       with:
         node-version: lts/*
@@ -22,6 +25,12 @@ jobs:
       run: npm ci
     - name: Check Google Chrome
       run: google-chrome --version
+
+    # Phase 1 selective CI: report-only path→group plan. Does NOT skip tests.
+    # Run once (shard 1) so the job summary is not duplicated across the matrix.
+    - name: Selective CI plan (dry-run)
+      if: github.event_name == 'pull_request' && matrix.shardIndex == 1
+      run: node qa/scripts/selective-ci-plan.mjs --base "origin/${{ github.base_ref }}" --summary
 
     - name: Run Playwright tests
       run: npx playwright test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}

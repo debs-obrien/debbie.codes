@@ -3,7 +3,36 @@
 Hunt bugs on the live site → file high-confidence GitHub issues → fix with a draft PR.  
 Inspired by [An Agent That Hunts Bugs While I Sleep](https://debbie.codes/blog/an-agent-that-hunts-bugs-while-i-sleep).
 
-Selective CI Phase 0 raises Playwright CI workers to 2 and tags `@smoke` tests. Path-filter comes later. When path-filter lands, smoke remains always required.
+## Selective CI (Playwright)
+
+| Phase | Status | What it does |
+|-------|--------|--------------|
+| **0** | Done | CI workers = 2; `@smoke` tags on home + nav + one content + one redirect |
+| **1** | Report-only (this) | Path→group mapper **prints** which tests would run; **does not skip** anything. Full suite remains the default CI command. |
+| **2** | Later | Flip `SELECTIVE_CI=1` to actually filter using the same map |
+
+### Phase 1 dry-run (local)
+
+```bash
+# Against main (same idea as CI)
+node qa/scripts/selective-ci-plan.mjs --base main
+
+# Or origin/main after fetching
+git fetch origin main
+node qa/scripts/selective-ci-plan.mjs --base origin/main
+
+# Fake a content-only PR without committing:
+node qa/scripts/selective-ci-plan.mjs --files content/blog/example.md
+# → mode=selective, groups=blog, always grep=@smoke
+
+# Shared layout change → fail closed to full suite:
+node qa/scripts/selective-ci-plan.mjs --files layouts/default.vue
+# → mode=full
+```
+
+Map data lives in [`qa/selective-ci/path-group-map.json`](./selective-ci/path-group-map.json) so Phase 2 can reuse it. Unknown paths and shared surfaces (`components/**`, `layouts/**`, `nuxt.config.*`, CSS/assets, `composables/**`, `server/**`, `public/**`, content helpers, workflows, `tests/**`, …) always report **full suite**.
+
+CI: the Playwright workflow writes this plan to the GitHub Actions job summary on PRs (shard 1), then still runs `npx playwright test` for the full suite.
 
 **Skills are the playbook** (work in Cursor locally).  
 **GitHub Actions + Copilot** is the scheduled adapter (optional).
@@ -114,6 +143,9 @@ qa/
 ├── prompts/
 │   ├── hunt.md               ← CI hunt prompt
 │   └── fix.md                ← CI fix prompt
+├── selective-ci/
+│   └── path-group-map.json   ← path→test-group map (Phase 1 report / Phase 2 filter)
 └── scripts/
-    └── select-fix-issue.sh   ← pick one eligible issue
+    ├── select-fix-issue.sh   ← pick one eligible issue
+    └── selective-ci-plan.mjs ← dry-run planner (CI job summary + local)
 ```
