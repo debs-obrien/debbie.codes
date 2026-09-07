@@ -1,35 +1,45 @@
 #!/usr/bin/env node
 /**
- * Selective CI Phase 1 — path→group dry-run (report only).
+ * Selective CI path→group planner (Phase 1 dry-run + Phase 2 enforce).
  *
- * Resolves which Playwright files / @smoke grep would run for changed paths,
- * but does NOT skip tests. Full suite remains the CI default.
+ * Resolves which Playwright files / @smoke set would run for changed paths.
  *
  * Usage:
  *   node qa/scripts/selective-ci-plan.mjs --base origin/main
  *   node qa/scripts/selective-ci-plan.mjs --base main
  *   node qa/scripts/selective-ci-plan.mjs --files content/blog/foo.md,pages/blog/index.vue
  *   node qa/scripts/selective-ci-plan.mjs --base origin/main --summary
+ *   node qa/scripts/selective-ci-plan.mjs --base origin/main --summary --enforce
  *
  * Exit 0 always on successful planning (even when mode=full). Non-zero only on
- * script/IO errors so CI never fails the suite because of the dry-run itself.
+ * script/IO errors so CI never fails the suite because of the planner itself.
+ *
+ * --enforce writes machine-readable outputs for CI:
+ *   SELECTIVE_CI_MODE, SELECTIVE_CI_TEST_FILES, SELECTIVE_CI_SHARD_TOTAL,
+ *   and (when $GITHUB_OUTPUT is set) mode / test_files / shard_total / shards.
  */
 
 import { execFileSync } from 'node:child_process'
-import { readFileSync, appendFileSync } from 'node:fs'
+import { appendFileSync, readdirSync, readFileSync } from 'node:fs'
 import { dirname, join, relative, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const REPO_ROOT = resolve(__dirname, '../..')
 const MAP_PATH = join(REPO_ROOT, 'qa/selective-ci/path-group-map.json')
+const TESTS_DIR = join(REPO_ROOT, 'tests')
+
+/** Full suite keeps 4 shards; selective PRs use 1 (small file sets). */
+const FULL_SHARD_TOTAL = 4
+const SELECTIVE_SHARD_TOTAL = 1
 
 function parseArgs(argv) {
-  const out = { base: null, files: null, summary: false, help: false }
+  const out = { base: null, files: null, summary: false, enforce: false, help: false }
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i]
     if (a === '--help' || a === '-h') out.help = true
     else if (a === '--summary') out.summary = true
+    else if (a === '--enforce') out.enforce = true
     else if (a === '--base') out.base = argv[++i]
     else if (a.startsWith('--base=')) out.base = a.slice('--base='.length)
     else if (a === '--files') out.files = argv[++i]
@@ -40,20 +50,24 @@ function parseArgs(argv) {
 }
 
 function printHelp() {
-  console.log(`Selective CI plan (Phase 1 dry-run)
+  console.log(`Selective CI plan (Phase 1 dry-run / Phase 2 enforce)
 
 Usage:
   node qa/scripts/selective-ci-plan.mjs --base <ref>
   node qa/scripts/selective-ci-plan.mjs --files <path,path,...>
   node qa/scripts/selective-ci-plan.mjs --base <ref> --summary
+  node qa/scripts/selective-ci-plan.mjs --base <ref> --summary --enforce
 
 Options:
-  --base <ref>   Git ref to diff against (e.g. origin/main, main)
+  --base <ref>   Git ref to diff against (e.g. origin/main, main, or a SHA)
   --files <list> Comma-separated paths (skip git; for local examples)
   --summary      Also append markdown to $GITHUB_STEP_SUMMARY when set
+  --enforce      Write machine-readable outputs for CI (GITHUB_OUTPUT + env lines).
+                 Without --enforce, behavior stays Phase 1 report-only.
   -h, --help     Show this help
 
-Phase 1 is report-only: CI still runs the full Playwright suite.
+Fail closed → mode=full for unknown paths and shared/fullSuitePathGlobs.
+Selective mode always unions mapped group test files with @smoke-bearing specs.
 `)
 }
 
@@ -112,6 +126,26 @@ function normalizeFiles(files) {
     .filter(Boolean)
 }
 
+/** Spec files under tests/ that declare a @smoke tag (Phase 0 always-include). */
+function findSmokeTestFiles() {
+  let entries
+  try {
+    entries = readdirSync(TESTS_DIR)
+  }
+  catch {
+    return []
+  }
+  const smokeRe = /tag:\s*(?:\[[^\]]*['"]@smoke['"]|['"]@smoke['"])/
+  return entries
+    .filter(name => /\.spec\.(ts|js|mjs|cjs)$/.test(name))
+    .filter((name) => {
+      const body = readFileSync(join(TESTS_DIR, name), 'utf8')
+      return smokeRe.test(body)
+    })
+    .map(name => `tests/${name}`)
+    .sort()
+}
+
 /**
  * @returns {{
  *   mode: 'full' | 'selective',
@@ -121,17 +155,39 @@ function normalizeFiles(files) {
  *   fullTriggers: { path: string, glob: string }[],
  *   unknownPaths: string[],
  *   tests: string[],
+ *   smokeFiles: string[],
+ *   runFiles: string[],
  *   grep: string[],
- *   wouldRunCommand: string,
+ *   shardTotal: number,
+ *   shards: number[],
+ *   playwrightCommand: string,
  * }}
  */
 function resolvePlan(changedFiles, map) {
   const fullTriggers = []
   const unknownPaths = []
   const matchedGroupNames = new Set()
-  const groupPathMatched = new Set()
 
   const groupEntries = Object.entries(map.groups || {})
+  const smokeFiles = findSmokeTestFiles()
+  const grep = [...(map.alwaysInclude?.grep || ['@smoke'])]
+
+  const fullResult = (reason, extra = {}) => ({
+    mode: 'full',
+    reason,
+    changedFiles,
+    matchedGroups: [...matchedGroupNames].sort(),
+    fullTriggers,
+    unknownPaths,
+    tests: [],
+    smokeFiles,
+    runFiles: [],
+    grep,
+    shardTotal: FULL_SHARD_TOTAL,
+    shards: Array.from({ length: FULL_SHARD_TOTAL }, (_, i) => i + 1),
+    playwrightCommand: 'npx playwright test',
+    ...extra,
+  })
 
   for (const file of changedFiles) {
     let hitFull = false
@@ -149,7 +205,6 @@ function resolvePlan(changedFiles, map) {
       for (const glob of group.paths || []) {
         if (matchesGlob(file, glob)) {
           matchedGroupNames.add(name)
-          groupPathMatched.add(file)
           hitGroup = true
           break
         }
@@ -158,49 +213,17 @@ function resolvePlan(changedFiles, map) {
     if (!hitGroup) unknownPaths.push(file)
   }
 
-  const grep = [...(map.alwaysInclude?.grep || ['@smoke'])]
-
   if (changedFiles.length === 0) {
-    return {
-      mode: 'full',
-      reason: 'No changed files detected against base — fail closed to full suite.',
-      changedFiles,
-      matchedGroups: [],
-      fullTriggers,
-      unknownPaths,
-      tests: [],
-      grep,
-      wouldRunCommand: 'npx playwright test   # full suite (default)',
-    }
+    return fullResult('No changed files detected against base — fail closed to full suite.')
   }
 
   if (fullTriggers.length > 0) {
     const samples = fullTriggers.slice(0, 8).map(t => `${t.path} (← ${t.glob})`).join(', ')
-    return {
-      mode: 'full',
-      reason: `Fail closed: shared/infrastructure path(s) matched full-suite globs — e.g. ${samples}`,
-      changedFiles,
-      matchedGroups: [...matchedGroupNames].sort(),
-      fullTriggers,
-      unknownPaths,
-      tests: [],
-      grep,
-      wouldRunCommand: 'npx playwright test   # full suite (default)',
-    }
+    return fullResult(`Fail closed: shared/infrastructure path(s) matched full-suite globs — e.g. ${samples}`)
   }
 
   if (unknownPaths.length > 0) {
-    return {
-      mode: 'full',
-      reason: `Fail closed: unknown/unmapped path(s): ${unknownPaths.join(', ')}`,
-      changedFiles,
-      matchedGroups: [...matchedGroupNames].sort(),
-      fullTriggers,
-      unknownPaths,
-      tests: [],
-      grep,
-      wouldRunCommand: 'npx playwright test   # full suite (default)',
-    }
+    return fullResult(`Fail closed: unknown/unmapped path(s): ${unknownPaths.join(', ')}`)
   }
 
   const tests = new Set()
@@ -210,37 +233,45 @@ function resolvePlan(changedFiles, map) {
   const testList = [...tests].sort()
   const groups = [...matchedGroupNames].sort()
 
-  // Phase 2 sketch: run listed files OR anything tagged @smoke.
-  // Playwright: `npx playwright test <files...> --grep-invert` is wrong;
-  // better: run `npx playwright test --grep @smoke` union file list.
-  const wouldRunCommand = [
-    '# Phase 2 sketch only — Phase 1 does not execute this:',
-    `npx playwright test ${testList.join(' ')}`,
-    `npx playwright test --grep '${grep.join('|')}'   # always-on smoke (may overlap files above)`,
-  ].join('\n')
+  // Union group files with @smoke-bearing specs so one Playwright invocation
+  // covers mapped groups + always-on smoke (avoids --grep filtering group tests).
+  const runFiles = [...new Set([...testList, ...smokeFiles])].sort()
+  const shards = Array.from({ length: SELECTIVE_SHARD_TOTAL }, (_, i) => i + 1)
+  const playwrightCommand = `npx playwright test ${runFiles.join(' ')}`
 
   return {
     mode: 'selective',
-    reason: `All changed paths mapped to group(s): ${groups.join(', ')}. @smoke always included.`,
+    reason: `All changed paths mapped to group(s): ${groups.join(', ')}. @smoke files always included.`,
     changedFiles,
     matchedGroups: groups,
     fullTriggers,
     unknownPaths,
     tests: testList,
+    smokeFiles,
+    runFiles,
     grep,
-    wouldRunCommand,
+    shardTotal: SELECTIVE_SHARD_TOTAL,
+    shards,
+    playwrightCommand,
   }
 }
 
-function formatHuman(plan, { base, mapPath }) {
+function formatHuman(plan, { base, mapPath, enforce }) {
   const lines = []
-  lines.push('=== Selective CI plan (Phase 1 dry-run) ===')
-  lines.push('Report only — full Playwright suite still runs in CI.')
+  if (enforce) {
+    lines.push('=== Selective CI plan (Phase 2 enforce) ===')
+    lines.push('Local GHA Playwright will run this plan on pull_request.')
+  }
+  else {
+    lines.push('=== Selective CI plan (Phase 1 dry-run) ===')
+    lines.push('Report only — pass --enforce for CI machine outputs.')
+  }
   lines.push('')
   if (base) lines.push(`Base ref: ${base}`)
   lines.push(`Map: ${relative(REPO_ROOT, mapPath)}`)
   lines.push(`Mode: ${plan.mode.toUpperCase()}`)
   lines.push(`Reason: ${plan.reason}`)
+  lines.push(`Shards: ${plan.shardTotal} (${plan.shards.join(', ')})`)
   lines.push('')
   lines.push('Changed paths:')
   if (plan.changedFiles.length === 0) lines.push('  (none)')
@@ -262,36 +293,43 @@ function formatHuman(plan, { base, mapPath }) {
     lines.push('')
   }
 
-  lines.push('Would run (Phase 2):')
-  lines.push(`  Always grep: ${plan.grep.join(', ')}`)
+  lines.push('Will run:')
+  lines.push(`  Always grep tags: ${plan.grep.join(', ')}`)
+  lines.push(`  Smoke files: ${plan.smokeFiles.length ? plan.smokeFiles.join(', ') : '(none found)'}`)
   if (plan.mode === 'full') {
     lines.push('  Test files: (entire suite under tests/)')
   }
-  else if (plan.tests.length) {
-    plan.tests.forEach(t => lines.push(`  - ${t}`))
+  else if (plan.runFiles.length) {
+    plan.runFiles.forEach(t => lines.push(`  - ${t}`))
   }
   else {
-    lines.push('  Test files: (none beyond @smoke)')
+    lines.push('  Test files: (none)')
   }
   lines.push('')
-  lines.push('Would-run command sketch:')
-  plan.wouldRunCommand.split('\n').forEach(l => lines.push(`  ${l}`))
-  lines.push('')
-  lines.push('Phase 1: no tests skipped. CI command remains: npx playwright test')
+  lines.push('Playwright command:')
+  lines.push(`  ${plan.playwrightCommand}${plan.mode === 'full' ? '' : ` --shard=1/${plan.shardTotal}`}`)
   return lines.join('\n')
 }
 
-function formatMarkdown(plan, { base, mapPath }) {
+function formatMarkdown(plan, { base, mapPath, enforce }) {
   const lines = []
-  lines.push('## Selective CI plan (Phase 1 dry-run)')
+  lines.push(enforce
+    ? '## Selective CI plan (Phase 2 — enforced on local GHA)'
+    : '## Selective CI plan (Phase 1 dry-run)')
   lines.push('')
-  lines.push('_Report only — full Playwright suite still runs. Nothing is skipped._')
+  if (enforce) {
+    lines.push('_`playwright.yml` on this PR runs only the planned set (or full when fail-closed). `preview-tests.yml` stays full._')
+  }
+  else {
+    lines.push('_Report only — pass `--enforce` for CI outputs. Dry-run does not skip tests._')
+  }
   lines.push('')
   lines.push(`| | |`)
   lines.push(`|---|---|`)
   lines.push(`| **Mode** | \`${plan.mode}\` |`)
   if (base) lines.push(`| **Base** | \`${base}\` |`)
   lines.push(`| **Map** | \`${relative(REPO_ROOT, mapPath)}\` |`)
+  lines.push(`| **Shards** | \`${plan.shardTotal}\` |`)
   lines.push(`| **Reason** | ${plan.reason.replace(/\|/g, '\\|')} |`)
   lines.push('')
   lines.push('### Changed paths')
@@ -315,21 +353,43 @@ function formatMarkdown(plan, { base, mapPath }) {
     lines.push('')
   }
 
-  lines.push('### Would run (Phase 2 preview)')
+  lines.push('### Run set')
   lines.push(`- Always grep: ${plan.grep.map(g => `\`${g}\``).join(', ')}`)
+  lines.push(`- Smoke files: ${plan.smokeFiles.map(f => `\`${f}\``).join(', ') || '_none_'}`)
   if (plan.mode === 'full') {
     lines.push('- Test files: **full suite** (`tests/**`)')
   }
   else {
-    plan.tests.forEach(t => lines.push(`- \`${t}\``))
+    plan.runFiles.forEach(t => lines.push(`- \`${t}\``))
   }
   lines.push('')
   lines.push('```text')
-  lines.push(plan.wouldRunCommand)
+  lines.push(plan.playwrightCommand)
   lines.push('```')
-  lines.push('')
-  lines.push('Phase 1 keeps: `npx playwright test` (full suite).')
   return lines.join('\n')
+}
+
+function appendGithubOutput(plan) {
+  const outPath = process.env.GITHUB_OUTPUT
+  if (!outPath) {
+    console.log('(No GITHUB_OUTPUT env — skipping Actions outputs)')
+    return
+  }
+  const lines = [
+    `mode=${plan.mode}`,
+    `test_files=${plan.mode === 'selective' ? plan.runFiles.join(' ') : ''}`,
+    `shard_total=${plan.shardTotal}`,
+    `shards=${JSON.stringify(plan.shards)}`,
+  ]
+  appendFileSync(outPath, `${lines.join('\n')}\n`)
+  console.log(`Wrote plan outputs to GITHUB_OUTPUT (${outPath})`)
+}
+
+function printMachineReadable(plan) {
+  console.log(`SELECTIVE_CI_MODE=${plan.mode}`)
+  console.log(`SELECTIVE_CI_TEST_FILES=${plan.mode === 'selective' ? plan.runFiles.join(' ') : ''}`)
+  console.log(`SELECTIVE_CI_SHARD_TOTAL=${plan.shardTotal}`)
+  console.log(`SELECTIVE_CI_SHARDS=${JSON.stringify(plan.shards)}`)
 }
 
 function main() {
@@ -354,13 +414,13 @@ function main() {
   }
 
   const plan = resolvePlan(changedFiles, map)
-  const human = formatHuman(plan, { base: args.base, mapPath: MAP_PATH })
-  console.log(human)
+  const meta = { base: args.base, mapPath: MAP_PATH, enforce: args.enforce }
+  console.log(formatHuman(plan, meta))
 
   if (args.summary) {
     const summaryPath = process.env.GITHUB_STEP_SUMMARY
     if (summaryPath) {
-      appendFileSync(summaryPath, `${formatMarkdown(plan, { base: args.base, mapPath: MAP_PATH })}\n`)
+      appendFileSync(summaryPath, `${formatMarkdown(plan, meta)}\n`)
       console.log(`Wrote plan to GITHUB_STEP_SUMMARY (${summaryPath})`)
     }
     else {
@@ -368,8 +428,11 @@ function main() {
     }
   }
 
-  // Machine-readable trailing marker for local/CI assertions
-  console.log(`SELECTIVE_CI_MODE=${plan.mode}`)
+  printMachineReadable(plan)
+
+  if (args.enforce) {
+    appendGithubOutput(plan)
+  }
 }
 
 try {

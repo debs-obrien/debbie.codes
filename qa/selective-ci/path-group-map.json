@@ -1,5 +1,5 @@
 {
-  "$schema_comment": "Selective CI path→group map. Phase 1 = report-only dry-run. Phase 2 can honor SELECTIVE_CI=1 using this same file.",
+  "$schema_comment": "Selective CI path→group map. Phase 1 dry-run + Phase 2 enforce (playwright.yml on PR). preview-tests.yml / endform-tests.yml / main push stay full.",
   "version": 1,
   "alwaysInclude": {
     "grep": ["@smoke"],

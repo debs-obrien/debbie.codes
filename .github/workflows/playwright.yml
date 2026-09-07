@@ -4,20 +4,67 @@ on:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
+
+# Phase 2 selective CI (local GHA only):
+# - pull_request: plan job maps changed paths → selective file set (or full / fail-closed)
+# - push to main: always full suite (no path filter)
+# Safety nets unchanged: preview-tests.yml + endform-tests.yml still run the full suite on PRs.
+
 jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      mode: ${{ steps.plan.outputs.mode }}
+      test_files: ${{ steps.plan.outputs.test_files }}
+      shard_total: ${{ steps.plan.outputs.shard_total }}
+      shards: ${{ steps.plan.outputs.shards }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Need merge-base history so the planner can diff against the PR base.
+          fetch-depth: 0
+
+      - name: Ensure PR base ref is available
+        if: github.event_name == 'pull_request'
+        run: git fetch --no-tags origin "${{ github.base_ref }}:refs/remotes/origin/${{ github.base_ref }}"
+
+      - name: Selective CI plan (enforce on PR)
+        id: plan
+        run: |
+          set -euo pipefail
+          if [ "${{ github.event_name }}" != "pull_request" ]; then
+            echo "mode=full" >> "$GITHUB_OUTPUT"
+            echo "test_files=" >> "$GITHUB_OUTPUT"
+            echo "shard_total=4" >> "$GITHUB_OUTPUT"
+            echo "shards=[1,2,3,4]" >> "$GITHUB_OUTPUT"
+            {
+              echo "## Selective CI plan (push to main)"
+              echo ""
+              echo "_Push to main — full Playwright suite (no path filter)._"
+              echo ""
+              echo "| | |"
+              echo "|---|---|"
+              echo "| **Mode** | \`full\` |"
+              echo "| **Shards** | \`4\` |"
+              echo "| **Reason** | Path-filter is PR-only; main always runs the full suite. |"
+            } >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          node qa/scripts/selective-ci-plan.mjs \
+            --base "origin/${{ github.base_ref }}" \
+            --summary \
+            --enforce
+
   playwright-tests:
+    needs: plan
     timeout-minutes: 60
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        shardIndex: [1, 2, 3, 4]
-        shardTotal: [4]
+        shardIndex: ${{ fromJson(needs.plan.outputs.shards) }}
     steps:
     - uses: actions/checkout@v4
-      with:
-        # Need merge-base history so the selective-ci dry-run can diff against the PR base.
-        fetch-depth: 0
     - uses: actions/setup-node@v4
       with:
         node-version: lts/*
@@ -26,14 +73,20 @@ jobs:
     - name: Check Google Chrome
       run: google-chrome --version
 
-    # Phase 1 selective CI: report-only path→group plan. Does NOT skip tests.
-    # Run once (shard 1) so the job summary is not duplicated across the matrix.
-    - name: Selective CI plan (dry-run)
-      if: github.event_name == 'pull_request' && matrix.shardIndex == 1
-      run: node qa/scripts/selective-ci-plan.mjs --base "origin/${{ github.base_ref }}" --summary
-
     - name: Run Playwright tests
-      run: npx playwright test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
+      env:
+        SELECTIVE_CI_MODE: ${{ needs.plan.outputs.mode }}
+        SELECTIVE_CI_TEST_FILES: ${{ needs.plan.outputs.test_files }}
+        SELECTIVE_CI_SHARD_TOTAL: ${{ needs.plan.outputs.shard_total }}
+        SHARD_INDEX: ${{ matrix.shardIndex }}
+      run: |
+        set -euo pipefail
+        if [ "$SELECTIVE_CI_MODE" = "selective" ]; then
+          # shellcheck disable=SC2086 — file list is space-separated paths from our map
+          npx playwright test $SELECTIVE_CI_TEST_FILES --shard="${SHARD_INDEX}/${SELECTIVE_CI_SHARD_TOTAL}"
+        else
+          npx playwright test --shard="${SHARD_INDEX}/${SELECTIVE_CI_SHARD_TOTAL}"
+        fi
 
     - name: Upload blob report to GitHub Actions Artifacts
       if: ${{ !cancelled() }}
@@ -42,6 +95,7 @@ jobs:
         name: blob-report-${{ matrix.shardIndex }}
         path: blob-report
         retention-days: 1
+
   merge-reports:
     # Merge reports after playwright-tests, even if some shards have failed
     if: ${{ !cancelled() }}
