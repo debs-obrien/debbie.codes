@@ -25,7 +25,7 @@ test.describe('Sitemap and /talks redirect', () => {
     expect(body).toMatch(/https:\/\/debbie\.codes\/blog\/[a-z0-9-]+/)
   })
 
-  test('_redirects declares forced permanent /talks → /speaking', () => {
+  test('_redirects declares forced permanent /talks → /speaking', { tag: '@smoke' }, () => {
     // Endform runners execute from /tmp without the repo checkout, so
     // public/_redirects is not on disk (ENOENT). Skip the filesystem
     // assertion there; HTTP 3xx checks below still cover deploy previews.

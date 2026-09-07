@@ -3,6 +3,8 @@
 Hunt bugs on the live site → file high-confidence GitHub issues → fix with a draft PR.  
 Inspired by [An Agent That Hunts Bugs While I Sleep](https://debbie.codes/blog/an-agent-that-hunts-bugs-while-i-sleep).
 
+Selective CI Phase 0 raises Playwright CI workers to 2 and tags `@smoke` tests. Path-filter comes later. When path-filter lands, smoke remains always required.
+
 **Skills are the playbook** (work in Cursor locally).  
 **GitHub Actions + Copilot** is the scheduled adapter (optional).
 
