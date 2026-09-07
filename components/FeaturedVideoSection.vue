@@ -18,10 +18,12 @@ const otherVideos = computed(() => props.list.slice(1))
       <NuxtLink :to="getYouTubeUrl(mainVideo.video)" target="_blank" rel="noopener noreferrer">
         <div class="aspect-video rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700">
           <img
-            :src="youtubeThumbnail(mainVideo.video)"
+            :src="youtubeThumbnail(mainVideo.video, 'mqdefault')"
+            :srcset="youtubeThumbnailSrcSet(mainVideo.video)"
+            sizes="(min-width: 1024px) 28rem, 100vw"
             :alt="mainVideo.title"
-            width="1280"
-            height="720"
+            width="640"
+            height="360"
             fetchpriority="high"
             class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
           >
@@ -45,7 +47,7 @@ const otherVideos = computed(() => props.list.slice(1))
         <NuxtLink :to="getYouTubeUrl(video.video)" target="_blank" rel="noopener noreferrer" class="flex items-start gap-4">
           <div class="flex-shrink-0">
             <img
-              :src="youtubeThumbnail(video.video)"
+              :src="youtubeThumbnail(video.video, 'mqdefault')"
               :alt="video.title"
               width="128"
               height="72"

@@ -1,11 +1,26 @@
 /**
- * `hqdefault.jpg` is the only thumbnail variant YouTube generates for every upload,
- * so it is the safe choice for a poster image.
+ * YouTube thumbnail qualities used on this site.
+ * `mqdefault` is 320×180 (true 16:9). `sddefault` is 640×480.
+ * `hqdefault` (480×360) is generated for every upload, so it remains the
+ * safe default for lite-youtube posters — see youtubePosterStyle below.
  * See https://github.com/paulirish/lite-youtube-embed/blob/master/youtube-thumbnail-urls.md
  */
-export function youtubeThumbnail(videoId: string) {
+export type YouTubeThumbnailQuality = 'mqdefault' | 'sddefault' | 'hqdefault'
+
+export function youtubeThumbnail(
+  videoId: string,
+  quality: YouTubeThumbnailQuality = 'hqdefault',
+) {
   const safeId = encodeURIComponent(videoId.trim())
-  return `https://i.ytimg.com/vi/${safeId}/hqdefault.jpg`
+  return `https://i.ytimg.com/vi/${safeId}/${quality}.jpg`
+}
+
+/**
+ * Width-matched srcset for card-sized 16:9 thumbs (home featured strip).
+ * Avoids shipping `hqdefault` when the display width is well under 480px.
+ */
+export function youtubeThumbnailSrcSet(videoId: string) {
+  return `${youtubeThumbnail(videoId, 'mqdefault')} 320w, ${youtubeThumbnail(videoId, 'sddefault')} 640w`
 }
 
 /**

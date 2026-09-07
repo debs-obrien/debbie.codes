@@ -61,6 +61,11 @@ test.describe('Home Page Featured Content', () => {
     const imageCount = await images.count();
     expect(imageCount).toBeGreaterThan(0);
     expect(imageCount).toBeLessThanOrEqual(5);
+
+    // Card-sized thumbs must not request hqdefault (LCP / oversized-image)
+    for (let i = 0; i < imageCount; i++) {
+      await expect(images.nth(i)).toHaveAttribute('src', /\/(mqdefault|sddefault)(\.|$)/);
+    }
   });
 
   test('recent podcasts section displays correctly', async ({ page }) => {
