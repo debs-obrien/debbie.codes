@@ -79,13 +79,8 @@ test.describe('About Page', () => {
                   - /url: https://mvp.microsoft.com/en-us/PublicProfile/5003613?fullName=Debbie%20O%27Brien
             - listitem:
               - article:
-                - heading "Learn more about Nuxt Ambassador (opens in new tab)" [level=3]:
-                  - link "Learn more about Nuxt Ambassador (opens in new tab)":
-                    - /url: https://nuxt.com/team
-                    - text: Nuxt Ambassador
+                - heading "Nuxt Ambassador" [level=3]
                 - paragraph
-                - link "About Nuxt Ambassador":
-                  - /url: https://nuxt.com/team
             - listitem:
               - article:
                 - heading "Learn more about Media Developer Expert (opens in new tab)" [level=3]:
@@ -95,15 +90,6 @@ test.describe('About Page', () => {
                 - paragraph
                 - link "About Media Developer Expert":
                   - /url: https://cloudinary.com/mde
-            - listitem:
-              - article:
-                - heading "Learn more about Auth0 Ambassador (opens in new tab)" [level=3]:
-                  - link "Learn more about Auth0 Ambassador (opens in new tab)":
-                    - /url: https://community.auth0.com/
-                    - text: Auth0 Ambassador
-                - paragraph
-                - link "About Auth0 Ambassador":
-                  - /url: https://community.auth0.com/
             - listitem:
               - article:
                 - heading "Learn more about Microsoft Certified (opens in new tab)" [level=3]:
@@ -138,7 +124,10 @@ test.describe('About Page', () => {
   test('About page - Validates award article count and links', async ({ page }) => {
     await test.step('Count award articles', async () => {
       const articles = page.getByRole('region', { name: 'Awards & Achievements' }).getByRole('article');
-      await expect(articles).toHaveCount(9);
+      await expect(articles).toHaveCount(8);
+      await expect(page.getByRole('heading', { name: 'Nuxt Ambassador', level: 3 })).toBeVisible();
+      await expect(page.getByRole('link', { name: /Nuxt Ambassador/i })).toHaveCount(0);
+      await expect(page.getByRole('link', { name: /Auth0 Ambassador/i })).toHaveCount(0);
     });
 
     await test.step('Verify external award links', async () => {

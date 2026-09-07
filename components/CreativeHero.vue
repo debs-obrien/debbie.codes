@@ -84,17 +84,12 @@
           <span>GitHub Star Alumni</span>
         </a>
 
-        <a
-          href="https://nuxt.com/team"
-          target="_blank"
-          rel="nofollow noopener noreferrer"
-          class="badge-link"
-        >
+        <span class="badge-link">
           <svg class="w-4 h-4 text-primary shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M12 2L9.5 8.5L3 9.5L7.5 14L6.5 20.5L12 17.5L17.5 20.5L16.5 14L21 9.5L14.5 8.5L12 2Z" />
           </svg>
           <span>Nuxt Ambassador</span>
-        </a>
+        </span>
       </div>
     </div>
   </section>

@@ -3,7 +3,7 @@ const { data: about } = await useAsyncData('about', () => queryCollection('about
 
 const title = ref('About Debbie and her experience as a developer')
 const description = ref(
-  'Google Developer Expert, former Microsoft MVP, GitHub Star Alumni, Cloudinary MDE, Nuxt Ambassador, Auth0 Ambassador',
+  'Google Developer Expert, former Microsoft MVP, GitHub Star Alumni, Cloudinary MDE, Nuxt Ambassador',
 )
 const awards = ref([
   {
@@ -26,7 +26,6 @@ const awards = ref([
   },
   {
     name: 'Nuxt Ambassador',
-    url: 'https://nuxt.com/team',
     about:
       'Formerly Developer Relations at Nuxt, now a Nuxt Ambassador supporting the community through talks, content, and advocacy for Nuxt and the Vue ecosystem.',
   },
@@ -35,12 +34,6 @@ const awards = ref([
     url: 'https://cloudinary.com/mde',
     about:
       'A Cloudinary Media Developer Expert helping developers use media technology effectively in web and mobile apps.',
-  },
-  {
-    name: 'Auth0 Ambassador',
-    url: 'https://community.auth0.com/',
-    about:
-      'An Auth0 Ambassador focused on authentication, security, and identity — through meetups, conferences, and community education.',
   },
   {
     name: 'Microsoft Certified',
@@ -140,6 +133,7 @@ useHead({
             >
               <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-primary transition-colors">
                 <a
+                  v-if="award.url"
                   :href="award.url"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -148,6 +142,9 @@ useHead({
                 >
                   {{ award.name }}
                 </a>
+                <template v-else>
+                  {{ award.name }}
+                </template>
               </h3>
 
               <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-sm mb-5">
@@ -155,6 +152,7 @@ useHead({
               </p>
 
               <a
+                v-if="award.url"
                 :href="award.url"
                 target="_blank"
                 rel="noopener noreferrer"

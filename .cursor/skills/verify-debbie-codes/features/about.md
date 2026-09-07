@@ -6,7 +6,7 @@ About is the biography and the awards grid.
 
 - `about-hero` shows the About label and `I'm Debbie O'Brien` heading.
 - `about-bio` renders the markdown biography, including the YouTube Channel link.
-- `about-awards` lists nine award cards under Awards & Achievements.
+- `about-awards` lists eight award cards under Awards & Achievements (Nuxt Ambassador is text-only).
 
 ## How to get to it (user POV)
 
