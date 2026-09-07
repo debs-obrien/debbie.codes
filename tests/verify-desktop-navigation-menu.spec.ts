@@ -3,7 +3,7 @@
 
 import { test, expect } from '@playwright/test';
 
-test.describe('Navigation Functionality', { tag: '@agent' }, () => {
+test.describe('Navigation Functionality', { tag: ['@agent', '@smoke'] }, () => {
   test('Verify Desktop Navigation Menu', async ({ page }) => {
     // 1. Navigate to the home page (`/`)
     await page.goto('/');

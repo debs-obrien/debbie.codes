@@ -36,8 +36,8 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
-  /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
+  /* CI: 2 workers (safe step; shards already parallelize). Not 4 yet. */
+  workers: process.env.CI ? 2 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: process.env.CI ? [['blob'], ['line']] : [['html', { open: 'never' }], ['line']],
   captureGitInfo: { commit: true, diff: true },

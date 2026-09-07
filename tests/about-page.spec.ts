@@ -5,7 +5,7 @@ test.describe('About Page', () => {
     await page.goto('/about');
   });
 
-  test('About page - Displays hero section with greeting and title', async ({ page }) => {
+  test('About page - Displays hero section with greeting and title', { tag: '@smoke' }, async ({ page }) => {
     await test.step('Verify page title and URL', async () => {
       await expect(page).toHaveTitle('About Debbie and her experience as a developer · Debbie Codes');
       await expect(page).toHaveURL(/\/about\/?$/);

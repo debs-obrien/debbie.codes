@@ -4,7 +4,7 @@ test.beforeEach(async ({ page }) => {
   await page.goto('/');
 });
 
-test('home contains name and title', async ({ page }) => {
+test('home contains name and title', { tag: '@smoke' }, async ({ page }) => {
   await expect(page.getByRole('heading', { level: 1, name: /Debbie O'Brien/i })).toBeVisible();
   await expect(page.getByText('Developer Educator focused on Playwright, testing & AI agents')).toBeVisible();
   await expect(page.getByRole('link', { name: 'Watch on YouTube' })).toBeVisible();
