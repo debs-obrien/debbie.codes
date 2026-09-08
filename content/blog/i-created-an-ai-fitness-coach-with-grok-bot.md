@@ -6,7 +6,7 @@ tags: [ai, agents]
 published: true
 ---
 
-::youtube{id="L4SHDtetjwc"}
+::youtube{id="WKXZuPD7X2s"}
 ::
 
 It's totally insane. You have to see it to believe it.
