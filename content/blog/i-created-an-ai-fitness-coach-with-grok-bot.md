@@ -1,7 +1,7 @@
 ---
 title: "I Created an AI Fitness Coach with Grok Bot"
 date: 2026-09-08
-description: "I created a Grok Bot coach for gym, nutrition, and accountability after having twins. Home gym photos, protein targets, workout critiques, and follow-along videos."
+description: "I created a Grok Bot coach for gym, nutrition, and accountability after having twins. Home gym photos, 130g protein, workout critiques, and a garage playlist on my iPad."
 tags: [ai, agents]
 published: true
 ---
@@ -9,62 +9,54 @@ published: true
 ::youtube{id="WKXZuPD7X2s"}
 ::
 
-It's totally insane. You have to see it to believe it.
+Hey all. Today I wanted to show you what I'm doing with Grok Bot, which is CoachBot. Yes, I created a bot that's going to be my coach for gym and nutrition and all that kind of stuff.
 
-I created a new bot in Grok Bot. I called it CoachBot. I seem to like putting bot in the name of my bots.
+Since having twins, my body has not been how it should be. It's really hard to get it back. The boys are almost three and I'm like, okay, come on. This is not okay.
 
-What I wanted, and this is something I've been working on for quite a while, is just trying to keep up with health and fitness and weight. A lot of you out there probably have the same problem. It just gets out of control.
+I love sport. I just don't have a lot of time, because I work full-time and I'm a full-time mom. I've tried a lot of things. I have a home gym. I've used many different apps and ways of training. But whatever I do with sport and diet, I'm just not losing any weight. Every podcast says you've got to eat protein. I'm like, oh, I just don't get it. So maybe CoachBot can help me out.
 
-Before I had twins, I was doing three hours of sport a day. It didn't really matter, because I was burning off so many calories. Lately it's been very, very difficult to get back into that. Trying to get 20 minutes of sport in has been hard enough as it is.
+I created it and it said, hey Debbie, I'm your gym, food and weight coach. I'll keep it realistic around twins and travel. No crash diets. Before I write anything I need a few things: your actual goal, home or gym, any food limits, allergies.
 
-I know you need to walk 10k steps. Sometimes I manage it, sometimes I don't. I eat pretty healthy because I'm gluten-free and I cook a lot of my own food. I don't really eat a lot of fast food or takeout. But for some reason the weight just keeps piling on instead of coming off. That's very frustrating. My age is all against me. My body is literally just fighting against me.
-
-I've tried to research all this. I've listened to podcasts, watched videos, read blog posts, read tweets. Nothing seems to be working.
-
-So I decided to create a bot called CoachBot, in charge of my nutrition and what exercises I should be doing to get the most benefit. It's a hard one, because when you watch a video or read a post, nothing is particularly aimed at you, at what you have and at your lifestyle.
+So I told it I'm coeliac. I do have a home gym. What my goal is, how much I weigh now. I wanted accountability too, morning weigh-ins and an evening check, because sometimes I'm at the computer having so much fun that I forget to move, and then it's too late. I want someone at like 8pm going, hey, come on, there's still time.
 
 ## The garage gym
 
-First I showed it a picture of the gym equipment I have in my garage. So it now knows exactly what I have and what we're working with.
+I took a picture of my gym. It's pretty cool. I'm pretty happy with how it is. I also have a little bike there. CoachBot said, all right, I see what you've got, and it created a better program based on what I actually have, not what it thought I had.
 
-I told it my weight loss goals, how much time I can dedicate a day, and that sometimes I forget because I'm too busy on the computer. I asked it to nudge me and say, "Hey, get out there and do some sport." And a couple of other things, like what I'm eating.
+The first session was goblet squat, push-up or dumbbell press, hip hinge. I've done sport all my life, but if someone tells me a hip hinge or an RDL, I'm like, what? I'm just not that kind of person. I like follow along with a video, with a coach. That's what I need.
 
 ## Protein
 
-A lot of what I've been reading lately is about protein. All of you who do a lot of sport and weights will say, "You got to eat your protein, protein, protein." I hear ya. I do not understand what y'all mean when it comes to how many grams of protein. I have absolutely no clue.
+It said the protein I need is 130 grams a day. I'm like, oh my god, here we go again. What exactly is 130 grams of protein? How do I even measure that?
 
-I thought I was eating enough, because I'm eating like twice the amount of things I think are protein. Today I learned it's just not at all. Everything I ate didn't even meet the minimum my body would need, not for weight loss, but for building. Building muscle, building strength. To do strength training we need protein, and oh my god, for me it seems so hard to eat protein. I'm just not a protein person. I thought I was. I'm so not.
+A chicken breast that weighs 150 grams is about 35 grams of protein, not 150. That's so difficult.
 
-I ate breakfast thinking, yay, there's soy milk in there, there's protein in there. Damn, it's not good enough. I had fish for lunch. A whole fish. I was like, that's so much protein. It's so not. I had like two fish. Still not good enough. I had some bolognese and then a Greek yogurt. No, that yogurt doesn't have enough protein. I'm like, what?
+We had a chat about my normal yogurt. The natural Greek yogurt I was eating is three grams of protein. I thought I was doing really well with it. Three grams. It's not a protein source. Just swapping that yogurt has been super helpful.
 
-I've been chatting to my coach the whole day. Just saying, this is what I've eaten. So it now has a whole idea of everything I've eaten. It told me to add a couple of spoonfuls of chia seeds into the yogurt. That would make it a little bit better. Tiny little things. Little improvements as I go along my day.
+Then it gave an easy day example with three to four eggs. I'm like, what? I can't eat four eggs. Come on. I'm not an egg person. I'll have an odd omelette here and there, but I'm not eating four eggs a day. No way.
 
-It's also quite nice because coach told me it's only the first day. You didn't meet your protein target, but don't worry, there's always tomorrow. It's also told me which yogurts I need to buy that have more protein, so I can change my shopping. I can even ask if it should go and order it for me, which is quite cool.
+It said you don't need to eat eggs at all. That was just an example, not a rule. Chicken, turkey, or fish in the day, plus one more protein hit.
 
-That's the food thing. I learned a hell of a lot today, and I think I'm better prepared for tomorrow.
+I had a big omelette and a soya milk smoothie. The carton says protein. I thought this is going to be a really good one. It was like 60 to 80 grams of protein. Half the target. Everything I thought I was doing is just wrong.
+
+I came up with YoPro. It told me I could get the shopping bot in and buy them for me. I said no, I actually want to go to the supermarket, have a really good look myself, buy a couple, taste-test them, and see if I actually like them. I did. I've got some protein bars as well.
+
+I'm just having this constant conversation. I just had a salad. I'm not clicking buttons in an app. The coach is listening and telling me that was good or that wasn't good. 130 is four hits, not one giant plate. If I think like that, I can get there, rather than three meals a day. Throw in an extra thing, a protein bar, a little snack. Protein shakes really help. I'm not the type that feels like I need a shake just to eat, but I need to get this done.
 
 ## The exercises
 
-Then the exercises. It gave me a whole list of strength training stuff for the gym. Do these reps, and I'm like, oh my god, I can't follow a list of text. I need to follow along. I'm that type of person. I need a video.
+I basically said, I did this, give it a watch and tell me what you think. I can ask the bot to watch the YouTube video I just did.
 
-So I was doing a full body with dumbbells YouTube video and it was great, or so I thought. I really liked it. I did it for 20 minutes, then I said to the bot, okay, I've done this, and I sent it the link. I said, give it a watch and tell me what you think.
+It was a 20-minute full body dumbbell follow-along. I thought it was really good. It watched it, listed out the moves, and gave an honest take: good sweat, not heavy enough for your legs.
 
-CoachBot watched the video. It listed out all the exercises, then told me it wasn't good enough because I only have five kilo dumbbells, and that's just not enough for strength training for the weight that I am. There's me thinking I'd done 20 minutes of great exercise because I was sweating. It said yeah, you got your cardio up a little bit, you got your heart rate up, but you didn't actually build any strength.
+I'm like, what? So what exercises from that video would I do with TRX? It said do that with the TRX. I'm like, but do what? How?
 
-I've been doing these exercises for like two months and now I'm stabbed in the heart. Very cool that I learned this now and I can improve it.
+It listed TRX row, reverse lunge, chest press. I can't follow that in my head. Just show me. Is there a YouTube video I can follow along with?
 
-It said you have a TRX, so go ahead and do these instead of the dumbbells, because my body weight with a TRX is more strength than the dumbbells. That's something I didn't even think about. I don't really use the TRX, so I'm not really sure how to do those exercises right.
+It sent me one. I did it. It was really, really good. I got a bit bored after doing it a couple of times, so later I asked it to find another video. It found a couple more. I asked, can you add them to my workout playlist? I use my iPad in the garage gym to watch these, not my phone. It added them. I just go to the workout playlist, choose the right one. That's deadly. That's amazing.
 
-I still can't follow a list of stuff. I asked, can you find me a video I could follow with all the things you've just told me to do? It went off and sent me a video. It told me to do that on Wednesday, and if it's too easy it will find another one. I'm just blown away.
+It's only been about a week, so you can't expect to have lost a lot. I have lost a bit, but not a lot. It's telling me you're going to need two good months. I'm like, two months, oh my god, I want to see results now. But it's really letting me understand my body, what's a big win and what's not.
 
-I started looking through the video and I see what it means. Same exercises I was doing with the dumbbells, the same movements, just using the TRX instead. Oh my god, this is so cool.
+I totally encourage you to try it out. On that note, I really need to get the cycle in, because I've got my protein really on par this morning. If I get that cycle in, I can go about my day and keep my coach happy.
 
-It even adds new follow-along videos to my YouTube playlist so I can just press play next time.
-
-I used to always go to a gym. With kids, life has changed. I can't go to the gym. I've built myself a little home gym. I have no idea what I'm doing, and now I feel like I've got some help. Somebody who knows what I want, what I have, and can tailor a program for me.
-
-I have no idea if this will work. If I'm going to lose weight, build more strength, eat more protein. I don't know. But on the first day we've worked together, and I spent a lot of time with CoachBot today, I feel pretty confident I'm actually going to move in a better direction than I was.
-
-I'm pretty impressed. I think you should all try it. Build yourself a little CoachBot, a nutrition and fitness coach, to get a program tailored to you and learn the nutritional needs that you need. It is insane. It is amazing what can be done. I'm just so blown away by this.
-
-On that note, it's given out to me because I haven't done enough steps today. So I'm going to hit the treadmill and get those extra 2,000 steps in, because otherwise my bot's going to be angry with me.
+That's it. Have fun everyone. Get off your chairs and start moving. Get CoachBot to help you out.
