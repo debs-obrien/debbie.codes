@@ -74,7 +74,7 @@ useHead({
       <NuxtLink to="/videos/tags/conference-talk" class="text-primary hover:underline">
         conference videos
       </NuxtLink>
-      page;
+      page; you can find my
       <a
         href="https://github.com/debs-obrien/decks"
         target="_blank"
