@@ -27,5 +27,11 @@ test.describe('Speaking page', () => {
     )
 
     await expect(page.getByRole('link', { name: /invite me/i })).toHaveCount(0)
+
+    const decksLink = page.getByRole('link', { name: 'slide decks on GitHub' })
+    await expect(decksLink).toBeVisible()
+    await expect(decksLink).toHaveAttribute('href', 'https://github.com/debs-obrien/decks')
+    await expect(decksLink).toHaveAttribute('target', '_blank')
+    await expect(decksLink).toHaveAttribute('rel', 'noopener noreferrer')
   })
 })
