@@ -12,15 +12,11 @@ test.describe('Speaking page', () => {
     await expect(page.getByText(/workshop/i)).toHaveCount(0)
     await expect(page.getByText(/already take/i)).toHaveCount(0)
 
-    await expect(page.getByRole('heading', { name: /Bug Report In, Pull Request Out/ })).toBeVisible()
-    await expect(page.getByText('ZurichJS Conf')).toBeVisible()
-    await expect(page.getByRole('link', { name: 'ZurichJS speaker page' })).toHaveAttribute(
-      'href',
-      'https://conf.zurichjs.com/speakers/debbie-o-brien',
-    )
+    await expect(page.getByText('ZurichJS Conf')).toHaveCount(0)
 
     await expect(page.getByRole('heading', { name: /The Agentic Developer/ })).toBeVisible()
     await expect(page.getByText('Infobip Shift', { exact: true })).toBeVisible()
+    await expect(page.getByText('14–15 September 2026')).toBeVisible()
     await expect(page.getByRole('link', { name: 'Infobip Shift agenda' })).toHaveAttribute(
       'href',
       'https://shift.infobip.com/agenda/',

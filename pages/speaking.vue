@@ -1,16 +1,8 @@
 <script setup lang="ts">
 const upcoming = [
   {
-    event: 'ZurichJS Conf',
-    dates: '10–11 September 2026',
-    place: 'Zurich, Switzerland',
-    title: 'Bug Report In, Pull Request Out: Agentic CI with Playwright',
-    url: 'https://conf.zurichjs.com/speakers/debbie-o-brien',
-    linkLabel: 'ZurichJS speaker page',
-  },
-  {
     event: 'Infobip Shift',
-    dates: '13–15 September 2026',
+    dates: '14–15 September 2026',
     place: 'Zadar, Croatia',
     title: 'The Agentic Developer: Orchestrating AI Workflows With Skills and MCPs',
     url: 'https://shift.infobip.com/agenda/',
@@ -22,7 +14,7 @@ useHead({
   title: 'Speaking',
   meta: [{
     name: 'description',
-    content: 'Upcoming talks by Debbie O\'Brien on Playwright, MCP, and AI agents, including ZurichJS and Infobip Shift 2026.',
+    content: 'Upcoming talks by Debbie O\'Brien on Playwright, MCP, and AI agents, including Infobip Shift 2026.',
   }],
   link: [{ rel: 'canonical', href: 'https://debbie.codes/speaking' }],
 })

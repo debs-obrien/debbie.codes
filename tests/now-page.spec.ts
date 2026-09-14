@@ -12,7 +12,7 @@ test.describe('Now page', () => {
       'href',
       'mailto:dobriendev@gmail.com',
     )
-    await expect(page.getByRole('link', { name: 'ZurichJS and Infobip Shift' })).toHaveAttribute('href', '/speaking')
+    await expect(page.getByRole('link', { name: 'Infobip Shift' })).toHaveAttribute('href', '/speaking')
     await expect(page.getByText(/applied AI, developer experience, and Playwright/)).toBeVisible()
     await expect(page.getByText(/writing and recording about AI agents, MCP, and Playwright/)).toBeVisible()
 
