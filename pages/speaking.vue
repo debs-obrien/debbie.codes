@@ -1,20 +1,18 @@
 <script setup lang="ts">
-const upcoming = [
-  {
-    event: 'Infobip Shift',
-    dates: '14–15 September 2026',
-    place: 'Zadar, Croatia',
-    title: 'The Agentic Developer: Orchestrating AI Workflows With Skills and MCPs',
-    url: 'https://shift.infobip.com/agenda/',
-    linkLabel: 'Infobip Shift agenda',
-  },
-]
+const upcoming: {
+  event: string
+  dates: string
+  place: string
+  title: string
+  url: string
+  linkLabel: string
+}[] = []
 
 useHead({
   title: 'Speaking',
   meta: [{
     name: 'description',
-    content: 'Upcoming talks by Debbie O\'Brien on Playwright, MCP, and AI agents, including Infobip Shift 2026.',
+    content: 'Talks by Debbie O\'Brien on Playwright, MCP, and AI agents — conference videos and slide decks.',
   }],
   link: [{ rel: 'canonical', href: 'https://debbie.codes/speaking' }],
 })
@@ -35,7 +33,10 @@ useHead({
     <h2 class="text-2xl font-bold mb-6">
       Upcoming
     </h2>
-    <ul class="space-y-6 mb-12">
+    <ul
+      v-if="upcoming.length"
+      class="space-y-6 mb-12"
+    >
       <li
         v-for="talk in upcoming"
         :key="talk.event"
@@ -60,6 +61,12 @@ useHead({
         </a>
       </li>
     </ul>
+    <p
+      v-else
+      class="text-gray-600 dark:text-gray-300 mb-12"
+    >
+      No upcoming talks listed — see conference videos / decks below.
+    </p>
 
     <p class="text-gray-600 dark:text-gray-300">
       Past talks live on the

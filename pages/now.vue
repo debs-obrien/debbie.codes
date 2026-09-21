@@ -51,7 +51,9 @@ useHead({
       <section>
         <h2>Speaking</h2>
         <p>
-          Upcoming: <NuxtLink to="/speaking">Infobip Shift</NuxtLink> in September 2026.
+          September talks are done. See
+          <NuxtLink to="/speaking">Speaking</NuxtLink>
+          for conference videos and slide decks.
           I already say yes to fewer events than I am asked to, so this page is not an open booking form.
         </p>
       </section>

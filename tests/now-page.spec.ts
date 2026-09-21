@@ -12,7 +12,11 @@ test.describe('Now page', () => {
       'href',
       'mailto:dobriendev@gmail.com',
     )
-    await expect(page.getByRole('link', { name: 'Infobip Shift' })).toHaveAttribute('href', '/speaking')
+    await expect(page.getByText(/September talks are done/)).toBeVisible()
+    await expect(page.getByRole('link', { name: 'Speaking' })).toHaveAttribute('href', '/speaking')
+    await expect(page.getByText('ZurichJS')).toHaveCount(0)
+    await expect(page.getByText('Infobip')).toHaveCount(0)
+    await expect(page.getByText(/not an open booking form/)).toBeVisible()
     await expect(page.getByText(/applied AI, developer experience, and Playwright/)).toBeVisible()
     await expect(page.getByText(/writing and recording about AI agents, MCP, and Playwright/)).toBeVisible()
 
