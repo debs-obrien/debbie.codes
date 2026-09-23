@@ -22,6 +22,15 @@ function closeMenu() {
   dialog.close()
 }
 
+/**
+ * Close after the nav click finishes so NuxtLink can complete its
+ * client navigation. Closing a modal dialog synchronously in the
+ * same click handler can cancel the pending route change.
+ */
+function onNavigate() {
+  queueMicrotask(() => closeMenu())
+}
+
 function onDialogClose() {
   isOpen.value = false
   nextTick(() => {
@@ -98,7 +107,7 @@ watch(() => route.fullPath, () => {
           ✕
         </button>
         <div class="mobile-menu-panel mt-16">
-          <TheNavigation @navigate="closeMenu" />
+          <TheNavigation @navigate="onNavigate" />
           <TopBarSocial />
         </div>
       </dialog>
@@ -124,6 +133,10 @@ watch(() => route.fullPath, () => {
   margin: 0;
   max-width: none;
   max-height: none;
+  /* Fixed + inset so the dialog box covers the viewport. Absolute
+     positioning leaves backdrop clickable (light-dismiss) around it. */
+  position: fixed;
+  inset: 0;
   width: 100%;
   height: 100%;
   padding-left: 2.5rem;

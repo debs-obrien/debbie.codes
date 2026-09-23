@@ -8,11 +8,15 @@ test.describe('Mobile Navigation', () => {
 
   async function openMobileMenu(page: Page) {
     const openMenu = getOpenMenuButton(page);
+    const dialog = getMenuDialog(page);
     // The open handler is attached on hydration; a click fired before
-    // that no-ops silently. Retry until the dialog is open.
+    // that no-ops silently. Retry until the dialog is open. Skip clicking
+    // when already open — the Open menu control is inert under showModal().
     await expect(async () => {
-      await openMenu.click();
-      await expect(getMenuDialog(page)).toBeVisible({ timeout: 2000 });
+      if (!(await dialog.isVisible().catch(() => false))) {
+        await openMenu.click();
+      }
+      await expect(dialog).toBeVisible({ timeout: 2000 });
     }).toPass({ timeout: 15000 });
   }
 
@@ -189,12 +193,12 @@ test.describe('Mobile Navigation', () => {
 
   test('Mobile Navigation - Menu closes when navigation link is clicked', async ({ page }) => {
     const openMenu = getOpenMenuButton(page);
-    // Scope link lookups to the opened navigation: the page footer also has
+    // Scope link lookups to the dialog: the page footer also has
     // "Videos"/"About" links, so an unscoped exact-name match resolves to two
     // elements (strict-mode violation) on the built site.
-    const nav = page.getByRole('navigation');
-    const videosLink = nav.getByRole('link', { name: 'Videos', exact: true });
-    const aboutLink = nav.getByRole('link', { name: 'About', exact: true });
+    const dialog = getMenuDialog(page);
+    const videosLink = dialog.getByRole('link', { name: 'Videos', exact: true });
+    const aboutLink = dialog.getByRole('link', { name: 'About', exact: true });
     
     await test.step('Open mobile menu and click Videos', async () => {
       await openMobileMenu(page);
@@ -203,7 +207,7 @@ test.describe('Mobile Navigation', () => {
 
     await test.step('Verify menu closed after navigation', async () => {
       await expect(page).toHaveURL(/.*\/videos/);
-      await expect(getMenuDialog(page)).toBeHidden();
+      await expect(dialog).toBeHidden();
       await expect(openMenu).toHaveAccessibleName('Open menu');
     });
 
@@ -214,7 +218,7 @@ test.describe('Mobile Navigation', () => {
 
     await test.step('Verify menu closed after second navigation', async () => {
       await expect(page).toHaveURL(/.*\/about/);
-      await expect(getMenuDialog(page)).toBeHidden();
+      await expect(dialog).toBeHidden();
       await expect(openMenu).toHaveAccessibleName('Open menu');
     });
   });
@@ -228,12 +232,13 @@ test.describe('Mobile Navigation', () => {
     });
 
     await test.step('Verify button is keyboard accessible', async () => {
-      await openMenu.focus();
-      await expect(openMenu).toBeFocused();
-      
-      await page.keyboard.press('Enter');
-      
-      await expect(getMenuDialog(page)).toBeVisible();
+      // Retry Enter until hydration attaches the open handler (same race as click).
+      await expect(async () => {
+        await openMenu.focus();
+        await expect(openMenu).toBeFocused();
+        await page.keyboard.press('Enter');
+        await expect(getMenuDialog(page)).toBeVisible({ timeout: 2000 });
+      }).toPass({ timeout: 15000 });
       await expect(getCloseMenuButton(page)).toBeFocused();
     });
   });
