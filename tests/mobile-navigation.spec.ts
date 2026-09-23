@@ -2,7 +2,23 @@ import { test, expect } from '@playwright/test';
 import type { Page } from '@playwright/test';
 
 test.describe('Mobile Navigation', () => {
-  const getHamburgerButton = (page: Page) => page.getByRole('button', { name: 'Open menu' });
+  const getOpenMenuButton = (page: Page) => page.getByRole('button', { name: 'Open menu' });
+  const getCloseMenuButton = (page: Page) => page.getByRole('button', { name: 'Close menu' });
+  const getMenuDialog = (page: Page) => page.getByRole('dialog', { name: 'Menu' });
+
+  async function openMobileMenu(page: Page) {
+    const openMenu = getOpenMenuButton(page);
+    const dialog = getMenuDialog(page);
+    // The open handler is attached on hydration; a click fired before
+    // that no-ops silently. Retry until the dialog is open. Skip clicking
+    // when already open — the Open menu control is inert under showModal().
+    await expect(async () => {
+      if (!(await dialog.isVisible().catch(() => false))) {
+        await openMenu.click();
+      }
+      await expect(dialog).toBeVisible({ timeout: 2000 });
+    }).toPass({ timeout: 15000 });
+  }
 
   test.beforeEach(async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 });
@@ -10,39 +26,80 @@ test.describe('Mobile Navigation', () => {
   });
 
   test('Mobile Navigation - Hamburger menu button on mobile', async ({ page }) => {
-    const hamburgerButton = getHamburgerButton(page);
+    const openMenu = getOpenMenuButton(page);
     await test.step('Verify hamburger menu is visible on mobile', async () => {
-      await expect(hamburgerButton).toBeVisible();
+      await expect(openMenu).toBeVisible();
     });
 
     await test.step('Verify mobile menu is initially closed', async () => {
+      await expect(getMenuDialog(page)).toBeHidden();
       await expect(page.getByRole('navigation')).not.toBeVisible();
-      await expect(hamburgerButton).toHaveAccessibleName('Open menu');
+      await expect(openMenu).toHaveAccessibleName('Open menu');
     });
 
     await test.step('Open menu and verify it actually opened', async () => {
-      // The hamburger handler is attached on hydration; a click fired before
-      // that no-ops silently. Retry until the overlay close control appears.
-      // (Hamburger also switches to "Close menu" when open, so scope to the ✕.)
-      const overlayClose = page.getByRole('button', { name: 'Close menu' }).filter({ hasText: '✕' });
-      await expect(async () => {
-        await hamburgerButton.click();
-        await expect(overlayClose).toBeVisible({ timeout: 2000 });
-      }).toPass({ timeout: 15000 });
+      await openMobileMenu(page);
+      await expect(getCloseMenuButton(page)).toBeVisible();
     });
 
     await test.step('Close menu using the close button', async () => {
-      const closeButton = page.getByRole('button', { name: 'Close menu' }).filter({ hasText: '✕' });
-      await closeButton.click();
+      await getCloseMenuButton(page).click();
+      await expect(getMenuDialog(page)).toBeHidden();
       await expect(page.getByRole('navigation')).not.toBeVisible();
-      await expect(hamburgerButton).toHaveAccessibleName('Open menu');
+      await expect(openMenu).toHaveAccessibleName('Open menu');
     });
+  });
+
+  test('Mobile Navigation - Only one Close menu control while open', async ({ page }) => {
+    await openMobileMenu(page);
+
+    await test.step('Dialog is exposed and Open menu stays labeled Open', async () => {
+      await expect(getMenuDialog(page)).toBeVisible();
+      await expect(getOpenMenuButton(page)).toHaveAccessibleName('Open menu');
+      await expect(getOpenMenuButton(page)).toHaveAttribute('aria-expanded', 'true');
+    });
+
+    await test.step('Exactly one Close menu button', async () => {
+      await expect(getCloseMenuButton(page)).toHaveCount(1);
+      await expect(getCloseMenuButton(page)).toBeVisible();
+    });
+  });
+
+  test('Mobile Navigation - Escape closes menu and restores focus to Open menu', async ({ page }) => {
+    const openMenu = getOpenMenuButton(page);
+    await openMobileMenu(page);
+
+    await test.step('Focus is inside the dialog while open', async () => {
+      await expect(getMenuDialog(page)).toBeVisible();
+      // Native showModal() moves focus into the dialog (close button is first).
+      await expect(getCloseMenuButton(page)).toBeFocused();
+    });
+
+    await test.step('Escape closes the dialog', async () => {
+      await page.keyboard.press('Escape');
+      await expect(getMenuDialog(page)).toBeHidden();
+      await expect(getCloseMenuButton(page)).toHaveCount(0);
+    });
+
+    await test.step('Focus returns to Open menu', async () => {
+      await expect(openMenu).toBeFocused();
+      await expect(openMenu).toHaveAccessibleName('Open menu');
+      await expect(openMenu).toHaveAttribute('aria-expanded', 'false');
+    });
+  });
+
+  test('Mobile Navigation - Close button restores focus to Open menu', async ({ page }) => {
+    const openMenu = getOpenMenuButton(page);
+    await openMobileMenu(page);
+    await getCloseMenuButton(page).click();
+    await expect(getMenuDialog(page)).toBeHidden();
+    await expect(openMenu).toBeFocused();
   });
 
   // Mobile navigation menu is not rendering the navigation element properly after clicking hamburger
   test.fixme('Mobile Navigation - Menu reveals navigation links', async ({ page }) => {
     await test.step('Open mobile menu', async () => {
-      await getHamburgerButton(page).click();
+      await getOpenMenuButton(page).click();
       // Wait for the navigation to become visible
       await expect(page.getByRole('banner').getByRole('navigation')).toBeVisible();
     });
@@ -72,7 +129,7 @@ test.describe('Mobile Navigation', () => {
   // Mobile navigation menu is not rendering the navigation element properly after clicking hamburger
   test.fixme('Mobile Navigation - Navigation links work from mobile menu', async ({ page }) => {
     await test.step('Open mobile menu', async () => {
-      await getHamburgerButton(page).click();
+      await getOpenMenuButton(page).click();
       // Wait for the navigation to become visible
       await expect(page.getByRole('banner').getByRole('navigation')).toBeVisible();
     });
@@ -87,7 +144,7 @@ test.describe('Mobile Navigation', () => {
   // Mobile navigation menu is not rendering the navigation element properly after clicking hamburger  
   test.fixme('Mobile Navigation - Social media links work from mobile menu', async ({ page }) => {
     await test.step('Open mobile menu', async () => {
-      await getHamburgerButton(page).click();
+      await getOpenMenuButton(page).click();
     });
 
     await test.step('Verify social media links are present', async () => {
@@ -115,9 +172,9 @@ test.describe('Mobile Navigation', () => {
 
   // Mobile navigation menu is not rendering the navigation element properly after clicking hamburger
   test.fixme('Mobile Navigation - Works across different pages', async ({ page }) => {
-    const hamburgerButton = getHamburgerButton(page);
+    const openMenu = getOpenMenuButton(page);
     await test.step('Navigate to About page', async () => {
-      await hamburgerButton.click();
+      await openMenu.click();
       // Wait for the navigation to become visible
       await expect(page.getByRole('banner').getByRole('navigation')).toBeVisible();
       
@@ -127,66 +184,62 @@ test.describe('Mobile Navigation', () => {
 
     await test.step('Verify mobile menu still works on About page', async () => {
       // Wait for the page to settle after navigation
-      await expect(hamburgerButton).toBeVisible();
-      await hamburgerButton.click();
+      await expect(openMenu).toBeVisible();
+      await openMenu.click();
       // Wait for the navigation to become visible again
       await expect(page.getByRole('banner').getByRole('navigation')).toBeVisible({ timeout: 10000 });
     });
   });
 
   test('Mobile Navigation - Menu closes when navigation link is clicked', async ({ page }) => {
-    const hamburgerButton = getHamburgerButton(page);
-    // Scope link lookups to the opened navigation: the page footer also has
+    const openMenu = getOpenMenuButton(page);
+    // Scope link lookups to the dialog: the page footer also has
     // "Videos"/"About" links, so an unscoped exact-name match resolves to two
     // elements (strict-mode violation) on the built site.
-    const nav = page.getByRole('navigation');
-    const videosLink = nav.getByRole('link', { name: 'Videos', exact: true });
-    const aboutLink = nav.getByRole('link', { name: 'About', exact: true });
+    const dialog = getMenuDialog(page);
+    const videosLink = dialog.getByRole('link', { name: 'Videos', exact: true });
+    const aboutLink = dialog.getByRole('link', { name: 'About', exact: true });
     
     await test.step('Open mobile menu and click Videos', async () => {
-      // Retry the open click until the menu is genuinely open (nav link
-      // visible): a click fired before hydration attaches the handler no-ops.
-      await expect(async () => {
-        await hamburgerButton.click();
-        await expect(videosLink).toBeVisible({ timeout: 2000 });
-      }).toPass({ timeout: 15000 });
+      await openMobileMenu(page);
       await videosLink.click();
     });
 
     await test.step('Verify menu closed after navigation', async () => {
       await expect(page).toHaveURL(/.*\/videos/);
-      // Menu is closed when hamburger button shows 3 bars (not X)
-      await expect(hamburgerButton).toHaveAccessibleName('Open menu');
+      await expect(dialog).toBeHidden();
+      await expect(openMenu).toHaveAccessibleName('Open menu');
     });
 
     await test.step('Open menu again and navigate to About', async () => {
-      await expect(async () => {
-        await hamburgerButton.click();
-        await expect(aboutLink).toBeVisible({ timeout: 2000 });
-      }).toPass({ timeout: 15000 });
+      await openMobileMenu(page);
       await aboutLink.click();
     });
 
     await test.step('Verify menu closed after second navigation', async () => {
       await expect(page).toHaveURL(/.*\/about/);
-      await expect(hamburgerButton).toHaveAccessibleName('Open menu');
+      await expect(dialog).toBeHidden();
+      await expect(openMenu).toHaveAccessibleName('Open menu');
     });
   });
 
   test('Mobile Navigation - Hamburger icon accessibility', async ({ page }) => {
-    const hamburgerButton = getHamburgerButton(page);
+    const openMenu = getOpenMenuButton(page);
     await test.step('Verify hamburger button has proper accessibility attributes', async () => {
-      await expect(hamburgerButton).toBeVisible();
-      await expect(hamburgerButton).toHaveAccessibleName('Open menu');
+      await expect(openMenu).toBeVisible();
+      await expect(openMenu).toHaveAccessibleName('Open menu');
+      await expect(openMenu).toHaveAttribute('aria-haspopup', 'dialog');
     });
 
     await test.step('Verify button is keyboard accessible', async () => {
-      await hamburgerButton.focus();
-      await expect(hamburgerButton).toBeFocused();
-      
-      await page.keyboard.press('Enter');
-      
-      await expect(page.getByRole('banner')).toBeInViewport();
+      // Retry Enter until hydration attaches the open handler (same race as click).
+      await expect(async () => {
+        await openMenu.focus();
+        await expect(openMenu).toBeFocused();
+        await page.keyboard.press('Enter');
+        await expect(getMenuDialog(page)).toBeVisible({ timeout: 2000 });
+      }).toPass({ timeout: 15000 });
+      await expect(getCloseMenuButton(page)).toBeFocused();
     });
   });
 });

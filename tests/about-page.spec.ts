@@ -12,7 +12,9 @@ test.describe('About Page', () => {
     });
 
     await test.step('Verify hero section content', async () => {
-      await expect(page.getByText('About', { exact: true }).first()).toBeVisible();
+      // Scope to main — a closed mobile <dialog> used to leave a hidden
+      // "About" nav link that unscoped getByText(...).first() would hit.
+      await expect(page.getByRole('main').getByText('About', { exact: true })).toBeVisible();
       await expect(page.getByRole('heading', { name: /I'm Debbie O'Brien/i, level: 1 })).toBeVisible();
     });
   });
