@@ -3,6 +3,16 @@ const isOpen = ref(false)
 const route = useRoute()
 const dialogRef = ref<HTMLDialogElement | null>(null)
 const openMenuButtonRef = ref<HTMLButtonElement | null>(null)
+/** Path where the menu was opened (browser URL), so a late Vue route
+ *  catch-up after SPA navigation does not immediately re-close it. */
+const pathWhenOpened = ref<string | null>(null)
+
+function clientPath() {
+  if (import.meta.client) {
+    return `${window.location.pathname}${window.location.search}${window.location.hash}`
+  }
+  return route.fullPath
+}
 
 function openMenu() {
   const dialog = dialogRef.value
@@ -10,6 +20,7 @@ function openMenu() {
     return
   }
   isOpen.value = true
+  pathWhenOpened.value = clientPath()
   dialog.showModal()
 }
 
@@ -17,6 +28,7 @@ function closeMenu() {
   const dialog = dialogRef.value
   if (!dialog?.open) {
     isOpen.value = false
+    pathWhenOpened.value = null
     return
   }
   dialog.close()
@@ -33,13 +45,20 @@ function onNavigate() {
 
 function onDialogClose() {
   isOpen.value = false
+  pathWhenOpened.value = null
   nextTick(() => {
     openMenuButtonRef.value?.focus()
   })
 }
 
-watch(() => route.fullPath, () => {
-  closeMenu()
+watch(() => route.fullPath, (to) => {
+  // Close when the route leaves the page where the menu was opened.
+  // Comparing to the browser path recorded at open avoids a race where
+  // waitForURL/user already sees /videos but Vue's route watch still
+  // emits from:/ → to:/videos after the menu was reopened.
+  if (pathWhenOpened.value != null && to !== pathWhenOpened.value) {
+    closeMenu()
+  }
 })
 </script>
 
