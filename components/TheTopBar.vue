@@ -14,13 +14,16 @@ function clientPath() {
   return route.fullPath
 }
 
-function openMenu() {
+async function openMenu() {
   const dialog = dialogRef.value
   if (!dialog || dialog.open) {
     return
   }
   isOpen.value = true
   pathWhenOpened.value = clientPath()
+  // Panel contents are v-if'd on isOpen so a closed dialog does not leave
+  // a duplicate nav tree in the DOM for brittle getByText().first() tests.
+  await nextTick()
   dialog.showModal()
 }
 
@@ -117,18 +120,20 @@ watch(() => route.fullPath, (to) => {
         aria-label="Menu"
         @close="onDialogClose"
       >
-        <button
-          class="absolute top-4 right-4 text-white text-3xl font-bold p-2 hover:text-primary transition-colors"
-          aria-label="Close menu"
-          type="button"
-          @click="closeMenu"
-        >
-          ✕
-        </button>
-        <div class="mobile-menu-panel mt-16">
-          <TheNavigation @navigate="onNavigate" />
-          <TopBarSocial />
-        </div>
+        <template v-if="isOpen">
+          <button
+            class="absolute top-4 right-4 text-white text-3xl font-bold p-2 hover:text-primary transition-colors"
+            aria-label="Close menu"
+            type="button"
+            @click="closeMenu"
+          >
+            ✕
+          </button>
+          <div class="mobile-menu-panel mt-16">
+            <TheNavigation @navigate="onNavigate" />
+            <TopBarSocial />
+          </div>
+        </template>
       </dialog>
     </Teleport>
   </div>
