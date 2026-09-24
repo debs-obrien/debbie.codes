@@ -23,16 +23,17 @@ Badge links to a live Nuxt team/ambassador page.
 
 ## Actual
 
-- `https://nuxtjs.org/teams/` redirects; `https://nuxt.com/teams` returns 404
-- Hardcoded in `components/CreativeHero.vue` and `pages/about.vue`
+**2026-08-07:** `https://nuxtjs.org/teams/` redirected; `https://nuxt.com/teams` 404d. Hardcoded in `components/CreativeHero.vue` and `pages/about.vue`.
+
+**2026-09-07 recheck:** **appears fixed**. Home awards row shows **Nuxt Ambassador** as plain text (not a link). About page has no ambassador teams URL. Likely addressed in site scout hygiene (#616).
 
 ## Evidence
 
 - Viewport: 1280×800
-- Notes: hunt session 2026-08-07
+- Notes: hunt session 2026-08-07; recheck 2026-09-07
 
 ## Suggested next step
 
-- [x] Fix via site-bugfix — update URL or unlink badge
+- [x] Fix via site-bugfix — resolved on production as of 2026-09-07
 - [ ] Needs human
 - [ ] Defer
