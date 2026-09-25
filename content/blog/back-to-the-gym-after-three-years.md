@@ -1,0 +1,15 @@
+---
+title: Back to the gym after three years
+date: 2026-09-25
+description: First gym session in three years after twins started school in Spain — celebrating the milestone and choosing me time again.
+tags: [personal]
+published: true
+---
+
+Hey all, today was an interesting day. Today I went to the gym for the first time in three years, which is insane, especially for someone like me who has always done so much sport and always been involved in the gym. But the last three years of my life have been so intense with raising my twins, not sending them to any kind of daycare or childcare, and basically just working full time and, between me and my husband, looking after them as well. And I look back now and I think, how on earth did we do it? It’s absolutely insane. Plus getting promoted and doing so well in work and everything that went on. It’s just crazy. It’s crazy that we did it, and it’s so worth celebrating. And sometimes you have to look back and kind of go, wow, wow, wow, look at everything I did, and look at everything you did, and really just celebrate the things in life that you’ve accomplished. And today I’m celebrating.
+
+Today I’m celebrating because it’s a huge milestone, a huge milestone. The boys started school this week, which is crazy because they’re so young. The school systems here in Spain are crazy. They are very young but they have started, and what it means is that I have these newfound hours that I’ve never had for the last three years. And okay, the start of school is a little bit, they’re just adapting and stuff, so it’s a little bit less time, but that’s fine. But today, Friday, I was like, oh my god, I have time, and I went to the gym, and I walked into the gym, and I went, oh my god, I’ve forgotten how to use all this gym equipment. Oh my god, I’ve forgotten how to do everything. My body’s forgotten how to do everything. And I felt like such a newbie and I was like, oh my god. But it was also so nice to actually have time for me and to just do things that I wanted to do. The time disappeared so fast. It was gone so fast. But it was so nice and I’m thinking I need to look after me more often, and I need to do more things for myself.
+
+So obviously at the moment I’m not working, which makes things a lot easier because it means I can prioritize me time over other stuff because the other stuff doesn’t exist. As soon as I do start in a new job, which I’m really hoping soon, I’m doing a lot of interview processes at the moment, and it also takes up a lot of time, and it’s also intense, but once that’s out of the way, and I do start work, it’s just a matter of prioritizing and saying, right, these are work hours, and these are gym hours. And before I was able to work a full eight-hour day, plus have the kids full-time, and now they’re going to be in school for five hours a day, I reckon I can easily get two hours in the gym a day, easily, like definitely. So I’m really excited about that because it’s a big change for us.
+
+This is me choosing me again.
