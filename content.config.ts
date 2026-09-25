@@ -13,7 +13,7 @@ export default defineContentConfig({
         description: z.string(),
         provider: z.string().optional(),
         url: z.string().url().optional(),
-        ogimage: z.string().optional(),
+        ogImage: z.string().optional(),
         published: z.boolean(),
         canonical: z.string().url().optional(),
         featured: z.boolean().optional()

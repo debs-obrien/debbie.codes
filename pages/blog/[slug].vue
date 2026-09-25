@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { formatDate } from '~/utils/date'
+import { resolveOgImage } from '~/utils/og-image'
 import { calculateReadingTime, extractTextFromContent, formatReadingTime } from '~/utils/reading-time'
 
 const route = useRoute()
@@ -19,7 +20,12 @@ const [prev, next] = data.value || []
 const title: string = article.value?.title || ''
 const description: string = article.value?.description || ''
 const image: string = article.value?.image || ''
-const ogImage: string = article.value?.ogimage || ''
+// Prefer schema ogImage; also accept legacy meta.ogImage if content still nests it
+const ogImageField: string
+  = article.value?.ogImage
+    || (article.value as { meta?: { ogImage?: string } } | null)?.meta?.ogImage
+    || ''
+const socialImage = resolveOgImage(ogImageField, image)
 
 const formattedDate = formatDate(article.value?.date || '')
 
@@ -51,7 +57,7 @@ useHead({
     },
     {
       property: 'og:image',
-      content: ogImage || image,
+      content: socialImage,
     },
     // Test on: https://cards-dev.twitter.com/validator or https://socialsharepreview.com/
     { name: 'twitter:site', content: '@debs_obrien' },
@@ -70,7 +76,7 @@ useHead({
     },
     {
       name: 'twitter:image',
-      content: ogImage || image,
+      content: socialImage,
     },
   ],
   link: [
