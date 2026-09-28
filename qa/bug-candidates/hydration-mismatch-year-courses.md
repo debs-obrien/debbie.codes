@@ -28,7 +28,7 @@ Console: `Hydration completed but contains mismatches.` Pages still render. User
 ## Evidence
 
 - Viewport: 1280×800
-- Notes: hunt session 2026-08-07
+- Notes: hunt session 2026-08-07; **reconfirmed 2026-09-07** on `/blog/year/2026/`, `/blog/tags/playwright/`, and `/courses/`.
 
 ## Suggested next step
 
