@@ -31,7 +31,7 @@ const awards = ref([
   },
   {
     name: 'Media Developer Expert',
-    url: 'https://cloudinary.com/mde',
+    url: 'https://cloudinary.com/blog/announcing_cloudinary_s_media_developer_experts_program',
     about:
       'A Cloudinary Media Developer Expert helping developers use media technology effectively in web and mobile apps.',
   },
