@@ -87,11 +87,11 @@ test.describe('About Page', () => {
               - article:
                 - heading "Learn more about Media Developer Expert (opens in new tab)" [level=3]:
                   - link "Learn more about Media Developer Expert (opens in new tab)":
-                    - /url: https://cloudinary.com/mde
+                    - /url: https://cloudinary.com/blog/announcing_cloudinary_s_media_developer_experts_program
                     - text: Media Developer Expert
                 - paragraph
                 - link "About Media Developer Expert":
-                  - /url: https://cloudinary.com/mde
+                  - /url: https://cloudinary.com/blog/announcing_cloudinary_s_media_developer_experts_program
             - listitem:
               - article:
                 - heading "Learn more about Microsoft Certified (opens in new tab)" [level=3]:
@@ -143,7 +143,7 @@ test.describe('About Page', () => {
       await expect(page.getByRole('link', { name: 'Learn more about Former Microsoft Most Valuable Professional (opens in new tab)' }).first()).toHaveAttribute('href', 'https://mvp.microsoft.com/en-us/PublicProfile/5003613?fullName=Debbie%20O%27Brien');
       
       // Media Developer Expert
-      await expect(page.getByRole('link', { name: 'Learn more about Media Developer Expert (opens in new tab)' }).first()).toHaveAttribute('href', 'https://cloudinary.com/mde');
+      await expect(page.getByRole('link', { name: 'Learn more about Media Developer Expert (opens in new tab)' }).first()).toHaveAttribute('href', 'https://cloudinary.com/blog/announcing_cloudinary_s_media_developer_experts_program');
     });
   });
 
