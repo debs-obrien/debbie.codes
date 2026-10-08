@@ -26,19 +26,25 @@ if (!existsSync(dist)) {
   mkdirSync(dist, { recursive: true })
 }
 
+// Nuxt 4.6+ may leave `dist` as a symlink to `.output/public`. Node's
+// cpSync refuses to overwrite a symlink with a directory, so always copy
+// into the resolved directory path when dist is a link.
+const distStat = lstatSync(dist)
+const distTarget = distStat.isSymbolicLink() ? realpathSync(dist) : dist
+
 // Populate dist from Nitro output when dist is a separate directory.
-if (existsSync(outputPublic) && !samePath(outputPublic, dist)) {
-  cpSync(outputPublic, dist, { recursive: true })
+if (existsSync(outputPublic) && !samePath(outputPublic, distTarget)) {
+  cpSync(outputPublic, distTarget, { recursive: true })
 }
 
 // Always overlay committed public assets (sitemap.xml, _redirects, icons, …).
-if (!samePath(publicDir, dist)) {
-  cpSync(publicDir, dist, { recursive: true })
+if (!samePath(publicDir, distTarget)) {
+  cpSync(publicDir, distTarget, { recursive: true })
 }
 
 for (const required of ['sitemap.xml', '_redirects']) {
   const from = join(publicDir, required)
-  const to = join(dist, required)
+  const to = join(distTarget, required)
   if (!existsSync(from)) {
     console.error(`Missing required public/${required}`)
     process.exit(1)
@@ -50,7 +56,6 @@ for (const required of ['sitemap.xml', '_redirects']) {
   }
 }
 
-const distStat = lstatSync(dist)
 console.log(
   `Ensured dist/sitemap.xml and dist/_redirects for Netlify publish`
   + (distStat.isSymbolicLink() ? ' (dist is symlink to build output)' : ''),
