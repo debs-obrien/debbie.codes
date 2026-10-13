@@ -4,6 +4,8 @@ date: 2026-08-24
 description: "Quick walk-through of how I did my full shop with Grok Bot from my phone, while out with the twins."
 tags: [ai, agents, grok-bot]
 published: true
+image: /images/blog/covers/grok-bot-does-my-shopping.png
+ogImage: /images/blog/covers/grok-bot-does-my-shopping.png
 ---
 
 Hi everyone. I want to do a very quick walkthrough on how I did my shopping the other day using Grok Bot.

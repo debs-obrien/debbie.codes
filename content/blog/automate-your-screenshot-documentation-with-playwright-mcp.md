@@ -5,6 +5,8 @@ description: Creating visual documentation has always been a time-consuming proc
 tags: [playwright, mcp, ai]
 canonical: https://dev.to/debs_obrien/automate-your-screenshot-documentation-with-playwright-mcp-3gk4
 published: true
+image: /images/blog/covers/automate-your-screenshot-documentation-with-playwright-mcp.png
+ogImage: /images/blog/covers/automate-your-screenshot-documentation-with-playwright-mcp.png
 ---
 
 Creating visual documentation has always been a time-consuming process. As developers and technical writers, we've all experienced the tedious cycle of manually taking screenshots, adding highlights, organizing files, and updating documentation whenever our applications change.
