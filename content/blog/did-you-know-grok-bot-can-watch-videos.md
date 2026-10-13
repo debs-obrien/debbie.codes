@@ -2,7 +2,7 @@
 title: "Did you know Grok Bot can watch videos for you?"
 date: 2026-08-31
 description: "I created a CoachBot for nutrition and training. It watched my workout video and told me my five kilo dumbbells were not enough."
-tags: [ai, agents]
+tags: [ai, agents, grok-bot]
 published: true
 ---
 

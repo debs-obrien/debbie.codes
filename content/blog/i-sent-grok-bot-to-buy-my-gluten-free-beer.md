@@ -2,7 +2,7 @@
 title: "I Sent Grok Bot to Buy My Gluten-Free Beer"
 date: 2026-08-16
 description: "I ran out of gluten-free beer on a Sunday night and asked my Grok Bot chief of staff to buy more. Amazon rolls bought from my phone, an Alcampo login that would not click, a morning podcast, and a delivery slot I can keep adding to."
-tags: [ai, agents]
+tags: [ai, agents, grok-bot]
 published: true
 ---
 

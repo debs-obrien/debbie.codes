@@ -2,7 +2,7 @@
 title: "Job Hunt With a Bot?"
 date: 2026-08-22
 description: "I need to look for a job, so I made a Job Hunt bot on Grok Bot. It looked me up online, found roles, and can even do interview prep."
-tags: [ai, agents]
+tags: [ai, agents, grok-bot]
 published: true
 ---
 

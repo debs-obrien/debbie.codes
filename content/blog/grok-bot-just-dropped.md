@@ -2,7 +2,7 @@
 title: "Grok Bot Just Dropped and I Had to Try It"
 date: 2026-08-11
 description: "Grok Bot just dropped. A team of bots on your computer for LinkedIn, GitHub, email, and content publishing. Here is my raw first look."
-tags: [ai, agents]
+tags: [ai, agents, grok-bot]
 published: true
 ---
 

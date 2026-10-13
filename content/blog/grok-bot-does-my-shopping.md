@@ -2,7 +2,7 @@
 title: "Grok Bot does my shopping (while walking the twins)"
 date: 2026-08-24
 description: "Quick walk-through of how I did my full shop with Grok Bot from my phone, while out with the twins."
-tags: [ai, agents]
+tags: [ai, agents, grok-bot]
 published: true
 ---
 

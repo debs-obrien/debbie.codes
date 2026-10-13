@@ -2,7 +2,7 @@
 title: "I Tested If Grok Bot Could Book My Flights"
 date: 2026-08-13
 description: "I asked a Grok Bot to act as my travel agent and book flights. Close, but missing the last step. Here is the video of what worked and what didn't."
-tags: [ai, agents]
+tags: [ai, agents, grok-bot]
 published: true
 ---
 

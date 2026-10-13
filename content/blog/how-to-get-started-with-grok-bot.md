@@ -2,7 +2,7 @@
 title: "How to Get Started with Grok Bot"
 date: 2026-08-14
 description: "Grok Bot just dropped. I downloaded it on a Mac the same day and recorded myself setting it up. Not a feature list. What I actually clicked, what worked, and which bots I would create."
-tags: [ai, agents]
+tags: [ai, agents, grok-bot]
 published: true
 ---
 
