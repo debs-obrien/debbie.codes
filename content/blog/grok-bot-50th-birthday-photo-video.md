@@ -2,7 +2,6 @@
 title: "How Grok Bot turned 133 family photos into a 50th birthday video with zero editing"
 date: 2026-10-13
 description: "How I made a photo video for my brother Ken's 50th birthday with my Grok Bots: scanned prints, photos from my Mac and family, music, pacing, and an intro and outro."
-image: /images/blog/ken-50th-birthday-video/cover.png
 tags: [ai, personal]
 published: true
 ---
@@ -73,7 +72,7 @@ Each version went to Google Drive, so I could watch it straight away without dow
 You don't need to know how to edit video. You need your photos and a bit of patience for the back and forth. Here are some asks to start with:
 
 - "I have scanned pages with several photos on each one. Cut out each photo, turn it the right way up, and show me any you're not sure about."
-- "Search my photo library for photos of this person and show me a numbered contact sheet so I can pick."
+- "Search my photo library for photos of this person and show me one page of photos with a number on each so I can pick."
 - "Put all the photos in date order, remove duplicates, and make a slideshow video at about 4 seconds a photo with royalty-free music that fades out at the end."
 - "Make a matching intro and ending card for the video."
 
