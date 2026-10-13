@@ -62,7 +62,7 @@ const popularTags = computed(() => {
   })
 
   // Define custom sort order for featured tags
-  const customOrder = ['ai', 'grok-bot', 'mcp', 'playwright', 'testing', 'react', 'performance', 'personal']
+  const customOrder = ['ai', 'mcp', 'playwright', 'testing', 'react', 'performance', 'personal']
 
   // Convert to array
   const allTags = Array.from(tagCounts.entries())
