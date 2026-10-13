@@ -65,6 +65,7 @@ function isLead(index: number) {
             format="webp"
             loading="lazy"
             decoding="async"
+            :sizes="isLead(index) ? '(min-width: 896px) 896px, 100vw' : '(min-width: 640px) 224px, 100vw'"
             class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
           />
         </div>
