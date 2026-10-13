@@ -2,7 +2,7 @@
 title: "How Grok Bot turned 133 family photos into a 50th birthday video with zero editing"
 date: 2026-10-13
 description: "How I made a photo video for my brother Ken's 50th birthday with my Grok Bots: scanned prints, photos from my Mac and family, music, pacing, and an intro and outro."
-tags: [ai, personal]
+tags: [ai, personal, grok-bot]
 published: true
 ---
 

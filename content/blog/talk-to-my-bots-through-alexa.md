@@ -2,7 +2,7 @@
 title: "Talk to my bots through Alexa: building an Alexa skill for Grok Bot"
 date: 2026-10-13
 description: "How I connected Alexa to my Grok Bot chief of staff with a small Cloudflare Worker, and learned the Amazon developer console by calling my engineer bot in Grok Bot and having it talk me through each screen."
-tags: [ai, personal]
+tags: [ai, personal, grok-bot]
 published: true
 ---
 

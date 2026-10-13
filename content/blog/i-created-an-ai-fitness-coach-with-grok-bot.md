@@ -2,7 +2,7 @@
 title: "I Created an AI Fitness Coach with Grok Bot"
 date: 2026-09-08
 description: "I created a Grok Bot coach for gym, nutrition, and accountability after having twins. Home gym photos, 130g protein, workout critiques, and a garage playlist on my iPad."
-tags: [ai, agents]
+tags: [ai, agents, grok-bot]
 published: true
 ---
 
