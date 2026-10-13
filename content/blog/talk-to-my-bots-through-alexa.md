@@ -23,6 +23,8 @@ Because everything starts with chief of staff, that's the bot I wanted to reach 
 
 I posted that it works and a lot of you asked for the write-up. So here it is: why I built it, how I learned to do it, how you can get your own agent to build one for you, and what it can and can't do today.
 
+The code is on GitHub: [debs-obrien/alexa-grok-bot-skill](https://github.com/debs-obrien/alexa-grok-bot-skill). Clone it, add your skill ID and webhook, and deploy.
+
 ## What I did
 
 I had never used the Amazon developer tools. I could have handed the whole thing to an agent. This time I wanted to learn.
@@ -218,3 +220,5 @@ The answer arrives as a normal message in my chief of staff chat, for example a 
 ## Doing the clicks while the bot talks
 
 The skill is useful, but the bigger thing for me was how I learned it. I did every click, my engineer bot talked me through each screen, and I could stop and ask why at any point. I came out of it understanding the Alexa console instead of just having a skill that works. I'm going to call my bots for a lot more walkthroughs like this.
+
+Grab the code: [debs-obrien/alexa-grok-bot-skill](https://github.com/debs-obrien/alexa-grok-bot-skill).
