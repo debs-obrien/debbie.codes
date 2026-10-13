@@ -34,4 +34,10 @@ test.describe('Blog OG / Twitter images', () => {
     const imageResponse = await request.get(ogImage!)
     expect(imageResponse.status(), `${ogImage} should return 200`).toBe(200)
   })
+  test('Grok Bot 50th birthday post uses its local share image', async ({ page }) => {
+    await page.goto('/blog/grok-bot-50th-birthday-photo-video')
+    const expected = 'https://debbie.codes/images/blog/covers/grok-bot-50th-birthday-photo-video.png'
+    await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', expected)
+    await expect(page.locator('meta[name="twitter:image"]')).toHaveAttribute('content', expected)
+  })
 })
