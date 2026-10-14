@@ -5,6 +5,8 @@ description: Did you know Playwright has two MCP servers? Learn about the Playwr
 tags: [playwright, mcp, ai, testing]
 canonical: https://dev.to/debs_obrien/playwright-mcp-servers-explained-automation-and-testing-4mo0
 published: true
+image: /images/blog/covers/playwright-mcp-servers-explained-automation-and-testing.png
+ogImage: /images/blog/covers/playwright-mcp-servers-explained-automation-and-testing.png
 ---
 
 Did you know Playwright has two MCP servers? Yes, kinda confusing, let me explain it. The Playwright MCP server is great for Browser Automation, filling out forms for example or even using so LLMs can verify their work by opening the browser and taking a page snapshot to see it actually implemented what it said it did. It is built into GitHub Copilot Coding Agent so if you assign a PR to Copilot it will use Playwright which you can see in the session logs. It is very cool indeed.

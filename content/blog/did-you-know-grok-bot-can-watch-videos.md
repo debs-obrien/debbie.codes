@@ -4,6 +4,8 @@ date: 2026-08-31
 description: "I created a CoachBot for nutrition and training. It watched my workout video and told me my five kilo dumbbells were not enough."
 tags: [ai, agents, grok-bot]
 published: true
+image: /images/blog/covers/did-you-know-grok-bot-can-watch-videos.png
+ogImage: /images/blog/covers/did-you-know-grok-bot-can-watch-videos.png
 ---
 
 It's totally insane. You have to see it to believe it.

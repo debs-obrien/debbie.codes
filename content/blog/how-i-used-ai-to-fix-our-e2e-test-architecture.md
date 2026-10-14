@@ -5,6 +5,8 @@ description: AI-led analysis of a 6% local pass rate — from tracer bullet plan
 tags: [testing, playwright, ai]
 canonical: https://dev.to/debs_obrien/how-i-used-ai-to-fix-our-e2e-test-architecture-444a
 published: true
+image: /images/blog/covers/how-i-used-ai-to-fix-our-e2e-test-architecture.png
+ogImage: /images/blog/covers/how-i-used-ai-to-fix-our-e2e-test-architecture.png
 ---
 
 I joined a project with an existing Playwright E2E test suite, 38 spec files, ~165 tests, around 14,000 lines of test infrastructure. My first step was simple: run the tests locally.

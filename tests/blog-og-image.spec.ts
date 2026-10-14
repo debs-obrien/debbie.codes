@@ -3,7 +3,8 @@ import { DEFAULT_OG_IMAGE } from '../utils/og-image'
 
 test.describe('Blog OG / Twitter images', () => {
   test('posts without a cover image fall back to the site default card', async ({ page, request }) => {
-    await page.goto('/blog/back-to-the-gym-after-three-years')
+    // laid-off-what-now intentionally has no image/ogImage (excluded from cover batches)
+    await page.goto('/blog/laid-off-what-now')
 
     const ogImage = await page.locator('meta[property="og:image"]').getAttribute('content')
     const twitterImage = await page.locator('meta[name="twitter:image"]').getAttribute('content')
@@ -34,10 +35,14 @@ test.describe('Blog OG / Twitter images', () => {
     const imageResponse = await request.get(ogImage!)
     expect(imageResponse.status(), `${ogImage} should return 200`).toBe(200)
   })
-  test('Grok Bot 50th birthday post uses its local share image', async ({ page }) => {
+  test('Grok Bot 50th birthday post uses its local share image and shows a header cover', async ({ page }) => {
     await page.goto('/blog/grok-bot-50th-birthday-photo-video')
     const expected = 'https://debbie.codes/images/blog/covers/grok-bot-50th-birthday-photo-video.png'
     await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', expected)
     await expect(page.locator('meta[name="twitter:image"]')).toHaveAttribute('content', expected)
+    // image frontmatter also drives the in-article cover below the title (ogImage alone does not)
+    const headerCover = page.locator('article img[alt*="50th birthday"]').first()
+    await expect(headerCover).toBeVisible()
+    await expect(headerCover).toHaveAttribute('src', /grok-bot-50th-birthday-photo-video/)
   })
 })

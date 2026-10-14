@@ -5,6 +5,8 @@ description: Have you ever wished you could automate browser tasks — like fill
 tags: [playwright, mcp, ai]
 canonical: https://dev.to/debs_obrien/automating-form-submissions-with-playwright-mcp-and-a-prompt-file-43c3
 published: true
+image: /images/blog/covers/automating-form-submissions-with-playwright-mcp-and-a-prompt-file.png
+ogImage: /images/blog/covers/automating-form-submissions-with-playwright-mcp-and-a-prompt-file.png
 ---
 
 Have you ever wished you could automate browser tasks — like filling out a form or uploading a file — without writing a full-blown test script? What if all you needed was a plain-text prompt written in natural language?
