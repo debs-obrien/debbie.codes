@@ -3,7 +3,7 @@ title: Taking my babies to a conference
 date: 2024-09-02
 description: But this time it was different. I brought my babies to the conference. I was really worried about doing this as what would people think? And the voices start going off in my head. But why should I care. Cause you know, I just do.
 image: v1725569430/debbie.codes/blog/2024/GWQjxLBW0AEuweB_eulios.jpg
-ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1725569430/debbie.codes/blog/2024/
+ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1725569430/debbie.codes/blog/2024/GWQjxLBW0AEuweB_eulios.jpg
 provider: cloudinary
 tags: [personal]
 published: true
