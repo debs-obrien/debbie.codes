@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test'
 
-const COVER_POST = 'grok-bot-does-my-shopping'
+const COVER_POST = 'grok-bot-explained'
 const NO_COVER_POST = 'talk-to-my-bots-through-alexa'
 
 for (const path of ['/', '/blog']) {
