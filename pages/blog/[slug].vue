@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { formatDate } from '~/utils/date'
+import { buildArticleJsonLd } from '~/utils/article-json-ld'
 import { resolveOgImage } from '~/utils/og-image'
 import { calculateReadingTime, extractTextFromContent, formatReadingTime } from '~/utils/reading-time'
 
@@ -26,14 +26,33 @@ const ogImageField: string
     || (article.value as { meta?: { ogImage?: string } } | null)?.meta?.ogImage
     || ''
 const socialImage = resolveOgImage(ogImageField, image)
+const canonicalUrl = article.value?.canonical || `https://debbie.codes${path}`
+// Pass the raw frontmatter date so <time datetime> stays ISO (YYYY-MM-DD).
+const articleDate = String(article.value?.date || '')
 
-const formattedDate = formatDate(article.value?.date || '')
+const readingMinutes = computed(() => {
+  if (!article.value) return 0
+  const text = extractTextFromContent(article.value.body) || article.value.description || ''
+  if (!text) return 0
+  return calculateReadingTime(text)
+})
 
 const readingTimeLabel = computed(() => {
-  if (!article.value) return ''
-  const text = extractTextFromContent(article.value.body) || article.value.description || ''
-  if (!text) return ''
-  return formatReadingTime(calculateReadingTime(text))
+  if (!readingMinutes.value) return ''
+  return formatReadingTime(readingMinutes.value)
+})
+
+const articleJsonLd = computed(() => {
+  if (!article.value || !title) return null
+  return buildArticleJsonLd({
+    title,
+    description,
+    date: articleDate,
+    url: canonicalUrl,
+    image: socialImage,
+    readingTimeMinutes: readingMinutes.value || undefined,
+    tags: article.value.tags,
+  })
 })
 
 useHead({
@@ -42,7 +61,8 @@ useHead({
     { name: 'description', content: description },
     // Test on: https://developers.facebook.com/tools/debug/ or https://socialsharepreview.com/
     { property: 'og:site_name', content: 'Debbie Codes' },
-    { property: 'og:type', content: 'website' },
+    // Article (not website) — matches the JSON-LD @type and helps link previews.
+    { property: 'og:type', content: 'article' },
     {
       property: 'og:url',
       content: `https://debbie.codes/blog/${slug}`,
@@ -82,9 +102,20 @@ useHead({
   link: [
     {
       rel: 'canonical',
-      href: article.value?.canonical || `https://debbie.codes${path}`,
+      href: canonicalUrl,
     },
   ],
+  script: computed(() => {
+    if (!articleJsonLd.value) return []
+    return [
+      {
+        key: 'article-json-ld',
+        type: 'application/ld+json',
+        // children (not innerHTML) is the Nuxt/unhead-safe way to emit JSON-LD
+        children: JSON.stringify(articleJsonLd.value),
+      },
+    ]
+  }),
 })
 </script>
 
@@ -106,7 +137,7 @@ useHead({
         </h1>
 
         <div class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 mb-3">
-          <Date :date="formattedDate" />
+          <Date v-if="articleDate" :date="articleDate" />
           <span
             v-if="readingTimeLabel"
             class="tracking-widest text-xs title-font font-medium text-gray-400"

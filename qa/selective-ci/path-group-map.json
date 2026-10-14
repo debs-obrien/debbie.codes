@@ -68,6 +68,7 @@
       "paths": ["pages/blog/**", "pages/blog*", "content/blog/**"],
       "tests": [
         "tests/blog.spec.ts",
+        "tests/blog-article-json-ld.spec.ts",
         "tests/blog-filters.spec.ts",
         "tests/blog-search.spec.ts",
         "tests/blog-tag-normalization.spec.ts",
