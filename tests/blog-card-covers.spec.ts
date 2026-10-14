@@ -1,10 +1,11 @@
 import { expect, test } from '@playwright/test'
 
 const COVER_POST = 'grok-bot-does-my-shopping'
-const NO_COVER_POST = 'talk-to-my-bots-through-alexa'
+// Excluded from cover batches; appears on /blog/year/2025 (not on home /blog recent lists)
+const NO_COVER_POST = 'laid-off-what-now'
 
 for (const path of ['/', '/blog']) {
-  test(`blog cards on ${path} show a lazy 2:1 cover only for posts with an image`, async ({ page }) => {
+  test(`blog cards on ${path} show a lazy 2:1 cover for posts with an image`, async ({ page }) => {
     await page.goto(path)
 
     const withCoverCard = page.locator('article').filter({ has: page.locator(`a[href="/blog/${COVER_POST}"]`) }).first()
@@ -22,11 +23,14 @@ for (const path of ['/', '/blog']) {
     expect(naturalWidth).toBeGreaterThan(100)
     const box = await cover.boundingBox()
     expect(Math.abs(box!.width / box!.height - 2)).toBeLessThan(0.05)
-
-    // Cards for posts without an image have no cover and no placeholder.
-    const withoutCoverCard = page.locator('article').filter({ has: page.locator(`a[href="/blog/${NO_COVER_POST}"]`) }).first()
-    await expect(withoutCoverCard).toBeVisible()
-    await expect(withoutCoverCard.getByTestId('blog-card-cover')).toHaveCount(0)
-    await expect(withoutCoverCard.locator('img')).toHaveCount(0)
   })
 }
+
+test('blog cards without an image have no cover and no placeholder', async ({ page }) => {
+  await page.goto('/blog/year/2025')
+
+  const withoutCoverCard = page.locator('article').filter({ has: page.locator(`a[href="/blog/${NO_COVER_POST}"]`) }).first()
+  await expect(withoutCoverCard).toBeVisible()
+  await expect(withoutCoverCard.getByTestId('blog-card-cover')).toHaveCount(0)
+  await expect(withoutCoverCard.locator('img')).toHaveCount(0)
+})

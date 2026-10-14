@@ -5,6 +5,8 @@ description: "Discover how Google Gemini's Canvas lets anyone build websites, ga
 tags: [ai, webdev]
 published: true
 canonical: https://dev.to/debs_obrien/build-websites-games-and-teaching-resources-with-google-gemini-for-free-no-coding-required-3gld
+image: /images/blog/covers/build-websites-games-and-teaching-resources-with-google-gemini.png
+ogImage: /images/blog/covers/build-websites-games-and-teaching-resources-with-google-gemini.png
 ---
 
 I literally came home from a podcast interview and my husband said, "Debbie, I've built three websites." I said, "What?" And he said, "Yes, I've built three websites." And I said, "I heard you, but what?"

@@ -3,7 +3,8 @@ import { DEFAULT_OG_IMAGE } from '../utils/og-image'
 
 test.describe('Blog OG / Twitter images', () => {
   test('posts without a cover image fall back to the site default card', async ({ page, request }) => {
-    await page.goto('/blog/back-to-the-gym-after-three-years')
+    // laid-off-what-now intentionally has no image/ogImage (excluded from cover batches)
+    await page.goto('/blog/laid-off-what-now')
 
     const ogImage = await page.locator('meta[property="og:image"]').getAttribute('content')
     const twitterImage = await page.locator('meta[name="twitter:image"]').getAttribute('content')

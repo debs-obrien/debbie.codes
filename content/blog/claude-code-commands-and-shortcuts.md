@@ -4,6 +4,8 @@ date: 2026-03-31
 description: A guide to Claude Code's slash commands, keyboard shortcuts, and tips for a smoother workflow in the terminal.
 tags: [ai]
 published: true
+image: /images/blog/covers/claude-code-commands-and-shortcuts.png
+ogImage: /images/blog/covers/claude-code-commands-and-shortcuts.png
 ---
 
 When you first open Claude Code, it's not immediately obvious what commands are available to you. I spent some time today exploring the slash commands and keyboard shortcuts thanks to Matt Pocock's [_Claude Code for Real Engineers_](https://www.aihero.dev/cohorts/claude-code-for-real-engineers-2026-04) course, and found them genuinely useful for day-to-day work. Here's a quick rundown of what each one does and when you might reach for it.
