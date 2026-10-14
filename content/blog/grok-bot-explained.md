@@ -49,7 +49,7 @@ You can also copy a bot and share it with someone else in your family, so they c
 
 Now for the real thing. The bot comes with some ideas to try: find a restaurant table for tonight, compare flights from Palma to Madrid, find a product and add it to a cart, or look up an event on Luma. Be careful with the restaurant one, because it will actually find you a table, and I wasn't going to a restaurant that night.
 
-So I asked it to look up upcoming Grok Bot events on Luma. It said it was on it and opened Luma in the browser on the Grok Bot computer. At one point it switched over to Bing to search, because sometimes websites block bots. I clicked in to spy on it, just watching, not taking control.
+So I asked it to look up upcoming Grok Bot events on Luma. It said it was on it and opened Luma in the browser on the Grok Bot computer. I clicked in to spy on it, just watching, not taking control.
 
 I didn't have to find out where any of these events were. It just got it done. It found free online sessions where you can learn about Grok Bot, plus two in-person Grok Bot events in Austin, so if you're in Austin, go. There was one called SpaceXAI Catalysts: Grok Bot for Engineers that I really want to go to. It even gave me a screenshot in case I wanted to look into it more.
 
