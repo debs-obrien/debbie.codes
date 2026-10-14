@@ -5,6 +5,8 @@ description: "Playwright has introduced a powerful new feature: Playwright Agent
 tags: [playwright, testing, ai]
 canonical: https://dev.to/playwright/playwright-agents-planner-generator-and-healer-in-action-5ajh
 published: true
+image: /images/blog/covers/playwright-agents-planner-generator-and-healer-in-action.png
+ogImage: /images/blog/covers/playwright-agents-planner-generator-and-healer-in-action.png
 ---
 
 Playwright has introduced a powerful new feature: Playwright Agents, new in Version 1.56. These agents can generate test plans, create tests based on those plans, and even debug and fix failing tests automatically. This post demonstrates how Planner, Generator, and Healer agents work together using a movies application as an example.

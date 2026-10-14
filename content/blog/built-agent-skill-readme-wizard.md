@@ -4,6 +4,8 @@ date: 2026-03-24
 description: How I turned a single-file agent skill into a maintainable README workflow with scripts, references, and evals.
 tags: [ai, githubcopilot, webdev]
 published: true
+image: /images/blog/covers/built-agent-skill-readme-wizard.png
+ogImage: /images/blog/covers/built-agent-skill-readme-wizard.png
 ---
 
 If you're new to agent skills, start with my beginner guide first:

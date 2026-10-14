@@ -6,6 +6,8 @@ tags: [webdev, ai, githubcopilot, vscode]
 published: true
 loading: eager
 canonical: https://dev.to/debs_obrien/vibe-coding-with-copilot-and-gemini-25-pro-simplifying-my-blog-with-ai-assisted-refactoring-3033
+image: /images/blog/covers/vibe-coding-with-copilot-and-gemini.png
+ogImage: /images/blog/covers/vibe-coding-with-copilot-and-gemini.png
 ---
 
 I have been wanting to share more content on my blog, but ironically, the process of publishing has been slowing me down.

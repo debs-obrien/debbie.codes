@@ -5,6 +5,8 @@ description: "How I used Goose, an open-source AI agent, to write 55 pages of do
 tags: [ai, webdev]
 published: true
 canonical: https://theaiplatform.app/blog/documenting-product-with-ai-agent/
+image: /images/blog/covers/documenting-product-with-ai-agent.png
+ogImage: /images/blog/covers/documenting-product-with-ai-agent.png
 ---
 
 I had 55 pages of documentation to write, 59 screenshots to capture, and a product that was still shipping features and being rebranded weeks before release. I did it in four days with [Goose](https://github.com/aaif-goose/goose), an open-source AI agent by Block, part of the Linux Foundation, and I want to walk you through exactly how. Not the polished version. The real one: how I built it, how it works, everything that broke along the way, and what I learned from it.

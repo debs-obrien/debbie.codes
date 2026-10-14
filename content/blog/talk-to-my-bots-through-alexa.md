@@ -4,6 +4,8 @@ date: 2026-10-13
 description: "How I connected Alexa to my Grok Bot chief of staff with a small Cloudflare Worker, and learned the Amazon developer console by calling my engineer bot in Grok Bot and having it talk me through each screen."
 tags: [ai, personal, grok-bot]
 published: true
+image: /images/blog/covers/talk-to-my-bots-through-alexa.png
+ogImage: /images/blog/covers/talk-to-my-bots-through-alexa.png
 ---
 
 ## Why I wanted this
