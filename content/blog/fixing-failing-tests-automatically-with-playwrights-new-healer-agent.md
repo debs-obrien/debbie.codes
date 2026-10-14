@@ -5,6 +5,8 @@ description: If you've ever returned to your test suite to find a sea of red, yo
 tags: [playwright, ai, testing]
 canonical: https://dev.to/debs_obrien/fixing-failing-tests-automatically-with-playwrights-new-healer-agent-13ck
 published: true
+image: /images/blog/covers/fixing-failing-tests-automatically-with-playwrights-new-healer-agent.png
+ogImage: /images/blog/covers/fixing-failing-tests-automatically-with-playwrights-new-healer-agent.png
 ---
 
 If you've ever returned to your test suite to find a sea of red, you're going to love this one. The Playwright Healer Agent is here — and it's changing how we think about test maintenance.

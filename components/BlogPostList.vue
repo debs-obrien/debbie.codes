@@ -47,7 +47,29 @@ function isLead(index: number) {
       <NuxtLink
         :to="item.path"
         class="block"
+        :class="item.image && !isLead(index) ? 'sm:flex sm:items-start sm:gap-6' : ''"
       >
+        <div
+          v-if="item.image"
+          data-testid="blog-card-cover"
+          class="overflow-hidden rounded-lg aspect-[2/1] bg-gray-100 dark:bg-slate-700 mb-4"
+          :class="isLead(index) ? 'w-full' : 'w-full sm:w-56 sm:shrink-0 sm:mb-0'"
+        >
+          <NuxtImg
+            :provider="item.provider"
+            :src="item.image"
+            alt=""
+            width="600"
+            height="300"
+            fit="cover"
+            format="webp"
+            loading="lazy"
+            decoding="async"
+            :sizes="isLead(index) ? 'xs:640px md:896px' : 'xs:400px sm:224px'"
+            class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+          />
+        </div>
+        <div :class="item.image && !isLead(index) ? 'min-w-0 sm:flex-1' : ''">
         <h3
           class="inline-flex items-center gap-3 font-bold text-gray-800 dark:text-white leading-tight group-hover:text-primary transition-colors"
           :class="isLead(index) ? 'text-2xl sm:text-3xl mb-3' : 'text-xl mb-2'"
@@ -71,6 +93,7 @@ function isLead(index: number) {
         >
           {{ item.description }}
         </p>
+        </div>
       </NuxtLink>
       <div class="flex flex-wrap items-center justify-between gap-3">
         <div class="flex flex-wrap items-center gap-3 text-xs text-gray-500 dark:text-gray-400">
