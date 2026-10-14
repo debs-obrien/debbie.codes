@@ -1,8 +1,11 @@
 import { expect, test } from '@playwright/test'
 
-const COVER_POST = 'grok-bot-does-my-shopping'
+// Newest post: on home recent posts and /blog (as the lead card)
+const COVER_POST = 'grok-bot-explained'
 /** First/featured post on /blog (lead) and near the top of home recent posts. */
-const LEAD_COVER_POST = 'grok-bot-50th-birthday-photo-video'
+const LEAD_COVER_POST = 'grok-bot-explained'
+/** Also on home recent posts (second-newest batch). */
+const HOME_COVER_POST = 'grok-bot-50th-birthday-photo-video'
 // Excluded from cover batches; appears on /blog/year/2025 (not on home /blog recent lists)
 const NO_COVER_POST = 'laid-off-what-now'
 
@@ -43,7 +46,7 @@ test('featured lead card on /blog shows a full-width 2:1 cover', async ({ page }
 
 test('home recent posts include a 2:1 cover for the birthday post', async ({ page }) => {
   await page.goto('/')
-  await expectCardCover(page, LEAD_COVER_POST, /224px|400px/)
+  await expectCardCover(page, HOME_COVER_POST, /224px|400px/)
 })
 
 test('blog cards without an image have no cover and no placeholder', async ({ page }) => {
