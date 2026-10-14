@@ -4,6 +4,7 @@ date: 2026-10-13
 description: "How I made a photo video for my brother Ken's 50th birthday with my Grok Bots: scanned prints, photos from my Mac and family, music, pacing, and an intro and outro."
 tags: [ai, personal, grok-bot]
 published: true
+image: /images/blog/covers/grok-bot-50th-birthday-photo-video.png
 ogImage: /images/blog/covers/grok-bot-50th-birthday-photo-video.png
 ---
 
