@@ -12,8 +12,10 @@ At the weekend I showed Grok Bot to some family and friends. They were blown awa
 
 So why are people not hearing about this? I still use ChatGPT and it's great. I don't mean to say Grok Bot is better, but it's very, very different. So I made a short video to show what it is, and this is the written version.
 
-::youtube{id="-1gHB4hM1ic"}
-::
+<lite-youtube
+        videoid="-1gHB4hM1ic"
+        playlabel="Grok Bot Explained: Your Bots Get a Cloud Computer, Browser & Email">
+</lite-youtube>
 
 ## The big difference: your bots get a computer in the cloud
 

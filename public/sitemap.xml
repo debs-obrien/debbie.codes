@@ -49,6 +49,9 @@
     <loc>https://debbie.codes/blog/automating-form-submissions-with-playwright-mcp-and-a-prompt-file</loc>
   </url>
   <url>
+    <loc>https://debbie.codes/blog/back-to-the-gym-after-three-years</loc>
+  </url>
+  <url>
     <loc>https://debbie.codes/blog/being-an-imposter</loc>
   </url>
   <url>
@@ -163,7 +166,13 @@
     <loc>https://debbie.codes/blog/going-dark-nuxt-color-mode</loc>
   </url>
   <url>
+    <loc>https://debbie.codes/blog/grok-bot-50th-birthday-photo-video</loc>
+  </url>
+  <url>
     <loc>https://debbie.codes/blog/grok-bot-does-my-shopping</loc>
+  </url>
+  <url>
+    <loc>https://debbie.codes/blog/grok-bot-explained</loc>
   </url>
   <url>
     <loc>https://debbie.codes/blog/grok-bot-just-dropped</loc>
@@ -188,6 +197,9 @@
   </url>
   <url>
     <loc>https://debbie.codes/blog/i-built-my-own-ai-agent-and-you-can-too</loc>
+  </url>
+  <url>
+    <loc>https://debbie.codes/blog/i-created-an-ai-fitness-coach-with-grok-bot</loc>
   </url>
   <url>
     <loc>https://debbie.codes/blog/i-sent-grok-bot-to-buy-my-gluten-free-beer</loc>
@@ -352,6 +364,9 @@
     <loc>https://debbie.codes/blog/tags/githubcopilot</loc>
   </url>
   <url>
+    <loc>https://debbie.codes/blog/tags/grok-bot</loc>
+  </url>
+  <url>
     <loc>https://debbie.codes/blog/tags/jamstack</loc>
   </url>
   <url>
@@ -398,6 +413,9 @@
   </url>
   <url>
     <loc>https://debbie.codes/blog/tags/webdev</loc>
+  </url>
+  <url>
+    <loc>https://debbie.codes/blog/talk-to-my-bots-through-alexa</loc>
   </url>
   <url>
     <loc>https://debbie.codes/blog/testing-an-ai-product-without-burning-credit</loc>
