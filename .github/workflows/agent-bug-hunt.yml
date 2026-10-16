@@ -31,6 +31,9 @@ jobs:
   hunt:
     runs-on: ubuntu-latest
     timeout-minutes: 45
+    # secrets cannot be referenced in step `if:`; map to env first
+    env:
+      COPILOT_GITHUB_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -50,14 +53,13 @@ jobs:
           npx playwright install chromium --with-deps
 
       - name: Install GitHub Copilot CLI
-        if: ${{ secrets.COPILOT_GITHUB_TOKEN != '' }}
+        if: ${{ env.COPILOT_GITHUB_TOKEN != '' }}
         run: npm install -g @github/copilot
 
       - name: Run site-bug-hunt via Copilot CLI
-        if: ${{ secrets.COPILOT_GITHUB_TOKEN != '' }}
+        if: ${{ env.COPILOT_GITHUB_TOKEN != '' }}
         env:
-          COPILOT_GITHUB_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
-          GH_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
+          GH_TOKEN: ${{ env.COPILOT_GITHUB_TOKEN }}
           SITE_BUG_HUNT_MODE: ci
           SITE_BUG_HUNT_BASE_URL: ${{ inputs.base_url || 'https://debbie.codes' }}
           SITE_BUG_HUNT_ALLOW_MINOR: ${{ inputs.allow_minor == 'true' && '1' || '0' }}
