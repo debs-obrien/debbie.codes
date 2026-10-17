@@ -70,10 +70,11 @@ function isLead(index: number) {
             </NuxtLink>
           </div>
           <div :class="item.image ? 'min-w-0 sm:flex-1' : ''">
-            <NuxtLink :to="item.path" class="block">
-              <h3 class="flex items-center gap-3 text-lg sm:text-2xl font-semibold mb-2 text-gray-800 dark:text-white leading-tight group-hover:text-primary transition-colors">
+            <NuxtLink :to="item.path" class="block text-left">
+              <!-- Arrow is absolute so title shares the same left edge as excerpt/meta. -->
+              <h3 class="relative text-left text-lg sm:text-2xl font-semibold mb-2 text-gray-800 dark:text-white leading-tight group-hover:text-primary transition-colors">
                 <svg
-                  class="w-5 h-5 shrink-0 text-primary transition-all duration-300 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0"
+                  class="pointer-events-none absolute -left-6 top-1 w-5 h-5 text-primary transition-all duration-300 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -82,22 +83,17 @@ function isLead(index: number) {
                 >
                   <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
-                <span class="min-w-0 line-clamp-2">{{ item.title }}</span>
+                <span class="line-clamp-2">{{ item.title }}</span>
               </h3>
-              <p class="mb-3 text-base line-clamp-2 text-gray-600 dark:text-gray-400">
+              <p class="mb-3 text-left text-base line-clamp-2 text-gray-600 dark:text-gray-400">
                 {{ item.description }}
               </p>
             </NuxtLink>
-            <div class="flex flex-nowrap items-center justify-between gap-3 overflow-hidden">
-              <div class="flex flex-nowrap items-center gap-3 text-xs text-gray-500 dark:text-gray-400 shrink-0">
-                <Date :date="item.date" />
-                <span v-if="readingTimeByPath.get(item.path)">
-                  {{ readingTimeByPath.get(item.path) }}
-                </span>
-              </div>
-              <div class="min-w-0 overflow-hidden max-h-5">
-                <TagsList :tags="item.tags" section="blog" />
-              </div>
+            <div class="flex flex-nowrap items-center gap-3 text-xs text-gray-500 dark:text-gray-400">
+              <Date :date="item.date" />
+              <span v-if="readingTimeByPath.get(item.path)">
+                {{ readingTimeByPath.get(item.path) }}
+              </span>
             </div>
           </div>
         </div>

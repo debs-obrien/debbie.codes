@@ -49,6 +49,15 @@ test('featured lead card on /blog uses a compact side cover on desktop', async (
   await expect(shell).toHaveClass(/sm:items-center/)
   const titleBox = await withCoverCard.locator('h3').boundingBox()
   expect(titleBox!.x).toBeGreaterThan(box!.x + box!.width - 1)
+
+  // Title, excerpt, and meta share one left edge (no arrow indent).
+  const excerptBox = await withCoverCard.locator('p').first().boundingBox()
+  const metaBox = await withCoverCard.locator('.text-xs').first().boundingBox()
+  expect(Math.abs(titleBox!.x - excerptBox!.x)).toBeLessThan(2)
+  expect(Math.abs(titleBox!.x - metaBox!.x)).toBeLessThan(2)
+
+  // Lead meta is date + reading time only — no tags.
+  await expect(withCoverCard.locator('a[href*="/blog/tags/"]')).toHaveCount(0)
 })
 
 test('featured lead card on /blog caps cover height on mobile', async ({ page }) => {
@@ -59,8 +68,12 @@ test('featured lead card on /blog caps cover height on mobile', async ({ page })
   expect(Math.abs(box!.width / box!.height - 2)).toBeLessThan(0.05)
   // Stacked on mobile: cover sits above the title, full card width (not a 320px side thumb).
   expect(box!.width).toBeGreaterThan(250)
-  const titleBox = await withCoverCard.locator('h3').boundingBox()
+  const title = withCoverCard.locator('h3')
+  const titleBox = await title.boundingBox()
   expect(titleBox!.y).toBeGreaterThan(box!.y + box!.height - 1)
+  await expect(title).toHaveCSS('text-align', 'left')
+  const excerptBox = await withCoverCard.locator('p').first().boundingBox()
+  expect(Math.abs(titleBox!.x - excerptBox!.x)).toBeLessThan(2)
 })
 
 test('home recent posts include a 2:1 cover for the birthday post', async ({ page }) => {
