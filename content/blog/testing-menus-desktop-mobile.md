@@ -3,7 +3,7 @@ title: Testing Menus on Desktop and Mobile
 date: 2023-03-01
 description: We can write a simple test to make sure that when a user clicks on an item in the menu it takes them to the correct page. To test my website I use Playwright which I already have installed. Let's take a look at how to test the menu on desktop and mobile.
 image: photo-1510267413785-9d9e64460cde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&q=80
-ogImage: https://unsplash.com/photo-1510267413785-9d9e64460cde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&q=80
+ogImage: https://images.unsplash.com/photo-1510267413785-9d9e64460cde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&q=80
 provider: imgix
 tags: [playwright, testing]
 published: true

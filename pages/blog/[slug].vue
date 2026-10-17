@@ -125,7 +125,7 @@ useHead({
       <div class="max-w-4xl mx-auto pt-4 sm:pt-6">
         <NuxtLink
           to="/blog"
-          class="inline-flex items-center text-sm text-gray-500 dark:text-gray-400 hover:text-primary transition-colors"
+          class="inline-flex items-center text-sm text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
         >
           ← Back to blog
         </NuxtLink>
@@ -140,7 +140,7 @@ useHead({
           <Date v-if="articleDate" :date="articleDate" />
           <span
             v-if="readingTimeLabel"
-            class="tracking-widest text-xs title-font font-medium text-gray-400"
+            class="tracking-widest text-xs title-font font-medium text-gray-600 dark:text-gray-400"
           >
             {{ readingTimeLabel }}
           </span>

@@ -5,7 +5,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test('logo links to home page', async ({ page }) => {
-  await page.getByRole('link', { name: 'Debbie O\'Brien Debbie O\'Brien' }).click();
+  await page.getByRole('banner').getByRole('link', { name: 'Debbie O\'Brien', exact: true }).click();
   await expect(page).toHaveURL(/\/$/);
 });
 

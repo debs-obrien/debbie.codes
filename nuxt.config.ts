@@ -99,6 +99,10 @@ export default defineNuxtConfig({
       // unrelated IPX image fetch errors during crawl.
       failOnError: false,
       routes: ['/feed.xml'],
+      // Write /blog.html instead of /blog/index.html so Netlify serves the
+      // canonical no-slash URL (used by canonical tags, sitemap and links)
+      // directly instead of 301-redirecting /blog -> /blog/ first.
+      autoSubfolderIndex: false,
     },
   },
 })
