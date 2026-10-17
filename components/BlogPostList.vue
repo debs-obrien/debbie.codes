@@ -126,9 +126,10 @@ function isLead(index: number) {
             />
           </div>
           <div :class="item.image ? 'min-w-0 sm:flex-1' : ''">
-            <h3 class="inline-flex items-center gap-3 font-bold text-xl mb-2 text-gray-800 dark:text-white leading-tight group-hover:text-primary transition-colors">
+            <!-- Arrow is absolute so title shares the same left edge as excerpt. -->
+            <h3 class="relative font-bold text-xl mb-2 text-gray-800 dark:text-white leading-tight group-hover:text-primary transition-colors">
               <svg
-                class="w-5 h-5 text-primary transition-all duration-300 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0"
+                class="pointer-events-none absolute -left-6 top-1 w-5 h-5 text-primary transition-all duration-300 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"

@@ -76,6 +76,17 @@ test('featured lead card on /blog caps cover height on mobile', async ({ page })
   expect(Math.abs(titleBox!.x - excerptBox!.x)).toBeLessThan(2)
 })
 
+test('compact cards on /blog flush title with excerpt (no arrow indent)', async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 800 })
+  await page.goto('/blog')
+  // Second article is a compact (non-lead) card.
+  const compact = page.locator('article').nth(1)
+  await compact.scrollIntoViewIfNeeded()
+  const titleBox = await compact.locator('h3').boundingBox()
+  const excerptBox = await compact.locator('p').first().boundingBox()
+  expect(Math.abs(titleBox!.x - excerptBox!.x)).toBeLessThan(2)
+})
+
 test('home recent posts include a 2:1 cover for the birthday post', async ({ page }) => {
   await page.goto('/')
   await expectCardCover(page, HOME_COVER_POST, /224px|400px/)
