@@ -12,7 +12,7 @@ test.describe('Home Page Featured Content', () => {
     await expect(page.getByRole('link', { name: /See what I.m working on/ })).toHaveAttribute('href', '/now');
     await expect(page.getByRole('link', { name: 'Say hello' })).toHaveAttribute('href', 'mailto:dobriendev@gmail.com');
 
-    // Profile image in the top bar (hero also has a headshot)
+    // Hero headshot (the top-bar photo is decorative: its link already says the name)
     const profileImage = page.getByRole('img', { name: 'Debbie O\'Brien' }).first();
     await expect(profileImage).toBeVisible();
   });
