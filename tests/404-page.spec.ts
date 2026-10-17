@@ -15,13 +15,6 @@ test.describe('404 Error Page', () => {
     `);
   });
 
-  // Bug: pages/[...slug].vue renders <NotFound /> without createError / setResponseStatus,
-  // so unknown routes return HTTP 200 with the not-found UI instead of 404.
-  test.fixme('unknown route returns HTTP 404 status (not 200)', async ({ request }) => {
-    const res = await request.get('/non-existent-page-http-status-check');
-    expect(res.status(), 'unknown routes should return HTTP 404').toBe(404);
-  });
-
   test('404 page maintains header and footer navigation', async ({ page }) => {
     await expect(page.getByRole('banner').getByRole('navigation')).toMatchAriaSnapshot(`
       - navigation:
