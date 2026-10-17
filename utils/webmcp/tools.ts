@@ -1,4 +1,3 @@
-export const SITE = 'https://debbie.codes'
 export const MAX_OUTPUT_CHARS = 1500
 
 export const webmcpTools = {
