@@ -1,9 +1,9 @@
 import { expect, test } from '@playwright/test'
 
 // Newest post: on home recent posts and /blog (as the lead card)
-const COVER_POST = 'grok-bot-explained'
+const COVER_POST = 'grok-bot-uploads-my-youtube-videos'
 /** First/featured post on /blog (lead) and near the top of home recent posts. */
-const LEAD_COVER_POST = 'grok-bot-explained'
+const LEAD_COVER_POST = 'grok-bot-uploads-my-youtube-videos'
 /** Also on home recent posts (second-newest batch). */
 const HOME_COVER_POST = 'grok-bot-50th-birthday-photo-video'
 // Excluded from cover batches; appears on /blog/year/2025 (not on home /blog recent lists)
