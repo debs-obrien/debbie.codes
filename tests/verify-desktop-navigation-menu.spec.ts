@@ -38,6 +38,6 @@ test.describe('Navigation Functionality', { tag: ['@agent', '@smoke'] }, () => {
     `);
 
     // Logo/name link navigates back to home
-    await expect(page.getByRole('link', { name: 'Debbie O\'Brien Debbie O\'Brien' })).toBeVisible();
+    await expect(page.getByRole('banner').getByRole('link', { name: 'Debbie O\'Brien', exact: true })).toBeVisible();
   });
 });
