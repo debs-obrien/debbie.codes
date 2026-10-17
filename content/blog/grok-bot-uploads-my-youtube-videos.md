@@ -13,8 +13,6 @@ ogImage: /images/blog/covers/grok-bot-uploads-my-youtube-videos.png
         playlabel="Grok Bot Uploads My YouTube Videos For Me (Beginner Walkthrough)">
 </lite-youtube>
 
-[Watch it on YouTube](https://www.youtube.com/watch?v=1g6boZousFI)
-
 I previously wrote about how your Grok Bot account comes with a cloud computer that all your bots share. But did you know Grok Bot can also use your computer? It's kind of a hidden feature that people don't know exists, and it's really cool.
 
 So I recorded a video called "What the Hell is Grokbot?" and asked Grok Bot to upload it to YouTube for me. Here's how that went.
