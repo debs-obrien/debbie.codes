@@ -72,14 +72,15 @@ test.describe('RSS feed', () => {
     expect(body).toMatch(/<channel[\s\S]*?<title>[\s\S]*?<\/title>/i)
     expect(body).toMatch(/<item[\s>]/i)
 
-    const expectedTitle = newestPublishedBlogTitle()
-    test.skip(
-      expectedTitle === null || isEndform,
-      'content/blog is not available to derive the newest post title',
-    )
-
     const firstTitle = firstRssItemTitle(body)
     expect(firstTitle, 'feed should have a first <item><title>').toBeTruthy()
-    expect(firstTitle).toBe(expectedTitle)
+
+    const expectedTitles = newestPublishedBlogTitles()
+    if (!isEndform && expectedTitles.length > 0) {
+      expect(
+        expectedTitles,
+        `first feed item "${firstTitle}" should be a post with the newest content date`,
+      ).toContain(firstTitle)
+    }
   })
 })
