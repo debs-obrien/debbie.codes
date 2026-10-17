@@ -133,7 +133,7 @@ useHead({
         />
         <NuxtLink
           to="/blog/page/1"
-          class="text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-primary transition-colors"
+          class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
         >
           Archive
         </NuxtLink>

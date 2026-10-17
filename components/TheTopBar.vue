@@ -76,7 +76,7 @@ watch(() => route.fullPath, (to) => {
                 provider="cloudinary"
                 class="rounded-full mr-4 profile-pic border-white border"
                 src="v1589118478/debbie.codes/debbie-thumb_clt00n"
-                alt="Debbie O'Brien"
+                alt=""
                 width="96"
                 height="96"
                 sizes="50px"
