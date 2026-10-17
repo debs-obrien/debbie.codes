@@ -21,7 +21,13 @@ async function waitForWebmcpTools(page: import('@playwright/test').Page) {
 test.describe('WebMCP list-videos', () => {
   test.describe.configure({ mode: 'serial' })
 
+  // Endform's cloud runners do not expose Playwright's page.webmcp API yet
+  // (page.webmcp is undefined → TypeError on .tools()). GHA + Netlify preview
+  // still run these with --enable-features=WebMCP.
+  test.skip(() => process.env.ENDFORM === 'true', 'Endform runners do not expose page.webmcp')
+
   test.beforeEach(async ({ page }) => {
+    test.skip(!page.webmcp, 'page.webmcp unavailable in this browser')
     await page.goto('/', { waitUntil: 'domcontentloaded' })
     await waitForWebmcpTools(page)
   })
