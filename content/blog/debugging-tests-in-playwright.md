@@ -93,7 +93,7 @@ Being able to interact directly with your code and see the selectors highlighted
 ## Useful Links
 
 - [Playwright docs](https://playwright.dev/)
-- [Codegen](https://playwright.dev/docs/cli#generate-code)
+- [Codegen](https://playwright.dev/docs/codegen)
 - [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright)
 - [Debugging in Playwright](https://playwright.dev/docs/debug)
 - [Getting Started with Playwright](https://debbie.codes/blog/getting-started-with-playwright-testing)

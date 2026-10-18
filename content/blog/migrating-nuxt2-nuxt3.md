@@ -63,7 +63,7 @@ I decided to focus on adding all content to the index page as this page containe
 
 ## Nuxt Content Module
 
-I decided to work on getting content rendered first. All my content comes from markdown files which are located in a content folder. The Nuxt content module works like a git based CMS making it really easy to write blog posts in markdown or use yaml to create content for video or podcast cards and easily render them throughout the site. The module has a great feature for querying so you can get back only what you need just like if it were stored in a database. I started by copying the content folder from my nuxt 2 folder and pasted it at root level of. I then [installed the Nuxt Content Module](https://content.nuxtjs.org/get-started#add-to-a-project). 
+I decided to work on getting content rendered first. All my content comes from markdown files which are located in a content folder. The Nuxt content module works like a git based CMS making it really easy to write blog posts in markdown or use yaml to create content for video or podcast cards and easily render them throughout the site. The module has a great feature for querying so you can get back only what you need just like if it were stored in a database. I started by copying the content folder from my nuxt 2 folder and pasted it at root level of. I then [installed the Nuxt Content Module](https://content.nuxt.com/docs/getting-started/installation). 
 
 ```bash
 npm install -D @nuxt/content

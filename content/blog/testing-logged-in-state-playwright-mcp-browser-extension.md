@@ -32,7 +32,7 @@ This opens up more realistic testing workflows for QA engineers, especially when
 
 The extension is available for **Chrome, Edge, or any Chromium-based browser**.
 
-- Download the [Playwright MCP extension](https://github.com/microsoft/playwright-mcp/blob/main/extension/README.md).
+- Download the [Playwright MCP extension](https://github.com/microsoft/playwright/tree/main/packages/extension#readme).
 - Unzip the file.
 - Open `chrome://extensions` or `edge://extensions` in your browser.
 - Enable **Developer Mode**.
@@ -91,7 +91,7 @@ For testers, this means **faster setup, more realistic tests, and improved secur
 
 ## Get Started
 
-👉 Check out the [Playwright MCP Browser Extension docs](https://github.com/microsoft/playwright-mcp/blob/main/extension/README.md) and try it out for yourself.
+👉 Check out the [Playwright MCP Browser Extension docs](https://github.com/microsoft/playwright/tree/main/packages/extension#readme) and try it out for yourself.
 
 I'd love to hear how you use logged-in profiles in your testing workflows. Drop a comment and share your scenarios!
 

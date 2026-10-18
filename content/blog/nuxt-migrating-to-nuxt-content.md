@@ -7,7 +7,7 @@ provider: imgix
 tags: [nuxt]
 ---
 
-Nuxt content has released a [docs theme](https://content.nuxtjs.org/themes/docs) so that you can easily create and manage documentation for your module or project using markdown files. You also have the possibility of adding vue components into your markdown as well as modifying the color scheme with tailwind and so much more. If you already have documentation set up and would like to migrate to Nuxt Content then this guide should help you make migrate easily and take advantage of what the docs theme gives you.
+Nuxt content has released a docs theme so that you can easily create and manage documentation for your module or project using markdown files. You also have the possibility of adding vue components into your markdown as well as modifying the color scheme with tailwind and so much more. If you already have documentation set up and would like to migrate to Nuxt Content then this guide should help you make migrate easily and take advantage of what the docs theme gives you.
 
 ## Getting Started
 
@@ -115,11 +115,11 @@ If you are adding code blocks inside these alerts you may find that it doesn't w
 </alert>
 ```
 
-See the [docs](https://content.nuxtjs.org/themes/docs#components) for more available components
+See the docs for more available components
 
 ## Adding file Names
 
-You may already have some code in your markdown with the filename as a comment. This can be improved as the docs theme will show the filename in the top corner of the code which looks much tidier. You can do this by adding the filename inside square brackets after the type of code you want to show. The curly brackets are used for code highlighting. See the [docs](https://content.nuxtjs.org/writing#codeblocks) for more info regarding code highlighting.
+You may already have some code in your markdown with the filename as a comment. This can be improved as the docs theme will show the filename in the top corner of the code which looks much tidier. You can do this by adding the filename inside square brackets after the type of code you want to show. The curly brackets are used for code highlighting. See the [docs](https://content.nuxt.com/docs/files/markdown) for more info regarding code highlighting.
 
 ```js{}[nuxt.config.js]
 {
@@ -190,4 +190,4 @@ Add a netlify.toml or modify the existing one if your docs are being published t
 
 And that's it your new docs theme is now ready to go live. Don't forget to remove any previous unused packages and delete the old docs folder that you no longer need.
 
-There are more things you can add such as a codeSandbox or your own custom components. Check out the [docs](https://content.nuxtjs.org/themes/docs) for more things that can be done with the nuxt content docs theme.
+There are more things you can add such as a codeSandbox or your own custom components. Check out the docs for more things that can be done with the nuxt content docs theme.

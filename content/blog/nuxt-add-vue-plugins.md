@@ -65,4 +65,4 @@ if you do use a library that needs access to browser elements such as window or 
 
 - [Vue Tooltip Plugin](https://github.com/Akryum/v-tooltip)
 - [Nuxt Vue Plugin Docs](https://nuxtjs.org/docs/2.x/directory-structure/plugins#vue-plugins)
-- [Nuxt Vue Plugin Example](https://nuxtjs.org/examples/plugins-vue)
+- Nuxt Vue Plugin Example

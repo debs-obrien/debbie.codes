@@ -94,5 +94,5 @@ That's it. Have fun experimenting with AI.
 
 ### Useful Links:
 
-- [Goose](https://block.github.io/goose/docs/getting-started/installation/)
+- [Goose](https://goose-docs.ai/docs/getting-started/installation)
 - [Linux Foudation](https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation)

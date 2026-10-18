@@ -73,7 +73,7 @@ export const Theme = createTheme({
 
 You supply the design tokens directly to the createTheme function and it does the rest for you to convert the tokens to usable css (both in modules and directly in your css).
 
-6. Add [compositions](https://bit.dev/learn-bit-react/theming/themes/theme-provider/~code/theme-provider.composition.tsx), [tests](https://bit.dev/learn-bit-react/theming/themes/theme-provider/~code/theme-provider.spec.tsx) and [docs](https://bit.dev/learn-bit-react/theming/themes/theme-provider/~code/theme-provider.docs.mdx).
+6. Add compositions, tests and docs.
 
 ## Step 2: Use your Theme Provider
 
@@ -150,7 +150,7 @@ export { DarkTheme } from './dark-theme';
 export { darkTheme } from './dark-theme-tokens';
 ```
 
-5. Add [compositions](https://bit.dev/learn-bit-react/theming/themes/dark-theme/~code/dark-theme.composition.tsx), [tests](https://bit.dev/learn-bit-react/theming/themes/dark-theme/~code/dark-theme.spec.tsx) and [docs](https://bit.dev/learn-bit-react/theming/themes/dark-theme/~code/dark-theme.docs.mdx).
+5. Add compositions, tests and docs.
 
 ## Step 4: Use your Theme in a Component
 
@@ -211,8 +211,8 @@ export const MyApp = () => {
 
 And thats how you do theming in React. For more info on how the components work or to learn more on theming and React context check out:
 
-- [Theming in Bit](https://bit.dev/learn-bit-react/theming/readme)
-- [Example Button Component](https://bit.dev/learn-bit-react/theming/example/button)
-- [Theme Provider Component](https://bit.dev/learn-bit-react/theming/themes/theme-provider)
-- [Dark Theme](https://bit.dev/learn-bit-react/theming/themes/dark-theme).
-- [React Docs Theming](https://beta.reactjs.org/apis/usecontext)
+- Theming in Bit
+- Example Button Component
+- Theme Provider Component
+- Dark Theme.
+- [React Docs Theming](https://react.dev/reference/react/useContext)

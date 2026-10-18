@@ -78,7 +78,7 @@ The [Material Icon Theme extension](https://marketplace.visualstudio.com/items?i
 
 ## Bracket Pair Colorizer
 
-The [Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer) makes it so much easier to see where your brackets start and end by showing them in different colors so much easier to see when things are going wrong.
+The Bracket Pair Colorizer makes it so much easier to see where your brackets start and end by showing them in different colors so much easier to see when things are going wrong.
 
 ### Formatting Toggle
 

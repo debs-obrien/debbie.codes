@@ -8,7 +8,7 @@ tags: [react, testing]
 published: true
 ---
 
-I have created a component that is actually made up of 2 smaller components, a [Select](https://bit.dev/learn-bit-react/base-ui/ui/forms/select) element and a [Label](https://bit.dev/learn-bit-react/base-ui/ui/forms/label). Together these two components make up a component I have named [`select-size`](https://bit.dev/learn-bit-react/ecommerce/ui/product/select-size) and is the component used in the [demo e-commerce project](https://bit-shoe-store.netlify.app/) I have created in order for users to select the size of the product.
+I have created a component that is actually made up of 2 smaller components, a Select element and a Label. Together these two components make up a component I have named `select-size` and is the component used in the [demo e-commerce project](https://bit-shoe-store.netlify.app/) I have created in order for users to select the size of the product.
 
 ## Building the Select Component
 
@@ -70,7 +70,7 @@ export function SelectSize({
 
 ### Using the Select and Label Components
 
-We can now add the return statement to our component and return the Select and Label components that we have imported. The [Label component](https://bit.dev/learn-bit-react/base-ui/ui/forms/label) is pretty straight forward and just adds some styles and the `htmlFor` attribute with the value of `size`. For the [Select component](https://bit.dev/learn-bit-react/base-ui/ui/forms/select) we need to add the `id` of `size`, the className for the styles, and the options for the select component which is equal to the value of the `availableSizes` array.
+We can now add the return statement to our component and return the Select and Label components that we have imported. The Label component is pretty straight forward and just adds some styles and the `htmlFor` attribute with the value of `size`. For the Select component we need to add the `id` of `size`, the className for the styles, and the options for the select component which is equal to the value of the `availableSizes` array.
 
 The Select component takes in a prop of options and will map over the array to give us an `<option>` for each number in the array. We then need an `onChange` function to handle the change for every time the user changes the size. And of course we pass in the `...rest` of the props that a html select element can take.
 
@@ -321,7 +321,7 @@ We should also document our component so that it contains clear instructions and
 
 ## Using the Component
 
-The [select size component can be found here](https://bit.dev/learn-bit-react/ecommerce/ui/product/select-size) and is fully open source meaning you can install it in your own project using bit, npm or yarn so feel free to take it for a test drive.
+The select size component can be found here and is fully open source meaning you can install it in your own project using bit, npm or yarn so feel free to take it for a test drive.
 
 ```bash
 bit install @learn-bit-react/ecommerce.ui.product.select-size
@@ -333,9 +333,9 @@ yarn add @learn-bit-react/ecommerce.ui.product.select-size
 
 ## Useful Links
 
-- [Select Size Component](https://bit.dev/learn-bit-react/ecommerce/ui/product/select-size)
-- [Select Size Component Code](https://bit.dev/learn-bit-react/ecommerce/ui/product/select-size/~code/select-size.tsx)
-- [Select Size Component composition](https://bit.dev/learn-bit-react/ecommerce/ui/product/select-size/~code/select-size.composition.tsx)
-- [Select Size Test File](https://bit.dev/learn-bit-react/ecommerce/ui/product/select-size/~code/select-size.spec.tsx)
+- Select Size Component
+- Select Size Component Code
+- Select Size Component composition
+- Select Size Test File
 - [Testing Library Docs](https://testing-library.com/docs/ecosystem-user-event/#selectoptionselement-values-options)
-- [docs for useState()](https://beta.reactjs.org/reference/usestate)
+- [docs for useState()](https://react.dev/reference/react/useState)

@@ -60,4 +60,4 @@ pwa: {
 }
 ```
 
-For a full list of meta options for your pwa see [the Nuxt PWA docs](https://pwa.nuxtjs.org/modules/meta.html#mobileappios)
+For a full list of meta options for your pwa see [the Nuxt PWA docs](https://pwa.nuxtjs.org/meta/#mobileappios)

@@ -84,7 +84,6 @@ Check out the video to see it in action.
 
 <video width="auto" height="auto" controls>
   <source src="https://res.cloudinary.com/debsobrien/video/upload/f_auto,q_auto/v1648220640/debbie.codes/blog/2022/playwright-trace-viewer_kx8uws.mp4" type="video/mp4">
-  <source src="https://res.cloudinary.com/debsobrien/video/upload/f_auto,q_auto/v1648220640/debbie.codes/blog/2022/playwright-trace-viewer_kx8uws.ogg" type="video/ogg">
 Your browser does not support the video tag.
 </video>
 
@@ -96,7 +95,6 @@ The really cool thing about this is that the snapshot of your site in the middle
 
 <video width="auto" height="auto" controls>
   <source src="https://res.cloudinary.com/debsobrien/video/upload/f_auto,q_auto/v1648220649/debbie.codes/blog/2022/playwright-trace-inspect_wvfjb9.mp4" type="video/mp4">
-  <source src="https://res.cloudinary.com/debsobrien/video/upload/f_auto,q_auto/v1648220649/debbie.codes/blog/2022/playwright-trace-inspect_wvfjb9.ogg" type="video/ogg">
 Your browser does not support the video tag.
 </video>
 
@@ -109,7 +107,7 @@ There is so much more cool things you can do with Playwright and I highly encour
 ## Useful Links
 
 - [Playwright docs](https://playwright.dev/)
-- [Codegen](https://playwright.dev/docs/cli#generate-code)
+- [Codegen](https://playwright.dev/docs/codegen)
 - [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright)
 - [Trace Viewer](https://playwright.dev/docs/trace-viewer)
 - [Getting Started with Playwright](https://debbie.codes/blog/getting-started-with-playwright-testing)

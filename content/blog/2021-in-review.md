@@ -28,7 +28,7 @@ Although ill I still appeared on [Eddie Jaoude's series of GitHub Stars](https:/
 
 ## February:
 
-February is normally my ski month but there was no skiing this time. There was no Vue Amsterdam in person, only remote where I spoke on [Nuxt performances](https://noti.st/debbie/5DYjVv/nuxt-performances).
+February is normally my ski month but there was no skiing this time. There was no Vue Amsterdam in person, only remote where I spoke on Nuxt performances.
 
 I got interviewed by [OS Weeekends on Nuxt and my background to OpenSource](https://youtu.be/u7UzYB3PBD4).
 
@@ -52,9 +52,9 @@ I was interviewed by Tim Benniks on the DevRel Roundtable(https://youtu.be/lSxU_
 
 I did a [live stream trying to learn React from the React docs](https://youtu.be/LbUu3Z-ij5U) and myself and a friend, Tim Benniks failed so badly and had to be rescued. It was a fun stream. From that stream Rachael Nabors from the React team reached out to me and I became a beta tester for the new React docs.
 
-I also did a podcast Interview with Lyndsay and Steve from Views on Vue on [my move from Vue to React](https://viewsonvue.com/147) as well as another podcast interview with Tracey Lee on [Managing Component Architecture]()https://modernweb.podbean.com/e/s08e07-modern-web-podcast-managing-component-architecture-with-debbie-obrien/
+I also did a podcast Interview with Lyndsay and Steve from Views on Vue on my move from Vue to React as well as another podcast interview with Tracey Lee on [Managing Component Architecture]()https://modernweb.podbean.com/e/s08e07-modern-web-podcast-managing-component-architecture-with-debbie-obrien/
 
-CityJs Conf was in march and was lots of fun especially for a virtual conference and I got to give my first talk on Bit, [Building components in Harmony](https://noti.st/debbie/H1PyTj/building-components-in-harmony). Also the MVP Summit, again virtual.
+CityJs Conf was in march and was lots of fun especially for a virtual conference and I got to give my first talk on Bit, Building components in Harmony. Also the MVP Summit, again virtual.
 
 And I also spoke at the meetup series of Ask the Expert on [Going Static in a Dynamic World with Hasura and Nuxt.js](https://youtu.be/Spt4j_Xq79w).
 
@@ -74,7 +74,7 @@ I also spoke at the CodeMotion conference, again online and this time in Spanish
 
 I got interviewed by Marc Backes on [What is a Developer Advocate](https://youtu.be/WlpHiYQGG6k)
 
-I received my [GitHub Stars award](https://stars.github.com/profiles/debs-obrien/) which was amazing and made me feel like I had one the oscars. So proud to be part of this program.
+I received my GitHub Stars award which was amazing and made me feel like I had one the oscars. So proud to be part of this program.
 
 ![GitHub Stars award](https://res.cloudinary.com/debsobrien/image/upload/v1640966732/debbie.codes/blog/GitHub-stars-award_c_zymmvu.jpg)
 
@@ -110,7 +110,7 @@ I got to be part of the Hasura Con Topic table for GraphQL with the founder of H
 
 I was back with Eddie Jaoude being interviewed on [GitHub Stars Stories - are you the next GitHub Star?](https://youtu.be/9UHDTz5PCkw) which was so much fun and hopefully will help others who want to be the next GitHub Star.
 
-I got interviewed for FSJam podcast on [Bit and Nuxt](https://fsjam.org/episodes/episode-35-bit-with-debbie-obrien) as well as on [Developer Advocacy from Nuxt to React](https://enjoythevue.io/episodes/71/) with the cast of Enjoy the View.
+I got interviewed for FSJam podcast on Bit and Nuxt as well as on [Developer Advocacy from Nuxt to React](https://enjoythevue.io/episodes/71/) with the cast of Enjoy the View.
 
 I also stated to compete in Padel tournaments which was so much fun even though I wasn't very good at it.
 
@@ -126,7 +126,7 @@ But I also received my Microsoft Most Valuable Professional award for second yea
 
 ## September
 
-In September I got to speak at the Nuxt Nation conference on [Nuxtifying your Images](https://noti.st/debbie/FzAU44/nuxtify-your-images).
+In September I got to speak at the Nuxt Nation conference on Nuxtifying your Images.
 
 The most incredible swag arrived from GitHub to prepare us for the Nova conference in October. A conferences specifically for GitHub stars and staff. Love being a GitHub Star.
 
@@ -140,9 +140,9 @@ I had to travel to Ireland to get my second vaccine so that I could fly to Canad
 
 ## October
 
-In October I got to speak virtually at the JetBrains conf on [Scaling Team Delivery using Standardisation](https://noti.st/debbie/XZZu3p/scaling-team-delivery-using-standardisation) as well as React Advanced conf, my first time giving a talk at a React event on [Taking Component Driven One Step Further](https://noti.st/debbie/PedGcd/taking-component-driven-one-step-further).
+In October I got to speak virtually at the JetBrains conf on Scaling Team Delivery using Standardisation as well as React Advanced conf, my first time giving a talk at a React event on Taking Component Driven One Step Further.
 
-I also got to not just attend but speak at the GitHub Nova conference where I spoke on [Building a community with GitHub Discussions](https://noti.st/debbie/SUDdPd/building-a-community-with-github-discussions). I was terrified to speak in front of so many stars but I had great encouragement from Anisha of the GitHub Stars team who helped me overcome my imposter syndrome and just go for it. And I am so glad I did. I also got to virtually meet a real Astronaut and experience my first virtual DJ session which was so much fun. And the swag we received for the Nova conference was just incredible. Love being a GitHub Star.
+I also got to not just attend but speak at the GitHub Nova conference where I spoke on Building a community with GitHub Discussions. I was terrified to speak in front of so many stars but I had great encouragement from Anisha of the GitHub Stars team who helped me overcome my imposter syndrome and just go for it. And I am so glad I did. I also got to virtually meet a real Astronaut and experience my first virtual DJ session which was so much fun. And the swag we received for the Nova conference was just incredible. Love being a GitHub Star.
 
 ![zoom call with an astronaut](https://res.cloudinary.com/debsobrien/image/upload/v1640968883/debbie.codes/blog/github-nova-astronaut_c_snwb4g.jpg)
 
@@ -152,7 +152,7 @@ I became a mentor for the Google Women Developer academy and mentored the amazin
 
 [Podcast interview on Frontend Heros](https://frontendheroes.transistor.fm/episodes/ant-man-and-the-wasp-w-debbie-obrien) with Ant-man and the Wasp, Scott Francis and Evan Payne on Bit.
 
-Real life conferences are back. Oh yea. I got to fly to Nantes in France for my first in person conference with a massive room with lots of people to give a talk on [Component Driven Repo for Component Driven World](https://noti.st/debbie/wsznqq/component-driven-repo-for-component-driven-world). All with masks on but I could see their eyes and hear their claps and they asked questions in person and it was so nice to be back on the stage.
+Real life conferences are back. Oh yea. I got to fly to Nantes in France for my first in person conference with a massive room with lots of people to give a talk on Component Driven Repo for Component Driven World. All with masks on but I could see their eyes and hear their claps and they asked questions in person and it was so nice to be back on the stage.
 
 ![on stage at Dev Fest Nantes conf](https://res.cloudinary.com/debsobrien/image/upload/v1640969179/debbie.codes/blog/devfest-nantes_c_yqcsew.jpg)
 
@@ -166,13 +166,13 @@ And when I got home I was welcomed with a lovely gift from GitHub for the work I
 
 The US was still not fully open so I wasn't able to travel to Connect Tech conf in Atlanta which was an in person event. I spoke at the React India conference which was virtual and pre-recorded but with Q&A.
 
-I was interviewed [Composing Modern Applications with Bit with Alex Patterson, Brittney Postman](https://youtu.be/n5UpjCWVQAU) as well as my journey from [From Vue to React](https://youtu.be/70b-gtHkOZ8) with James Q Quick.
+I was interviewed Composing Modern Applications with Bit with Alex Patterson, Brittney Postman as well as my journey from [From Vue to React](https://youtu.be/70b-gtHkOZ8) with James Q Quick.
 
 I had a film crew follow me around while cycling the mountains of Mallorca so as to create a [promotional video for the Vue Toronto Conf](https://www.youtube.com/watch?v=jf8NbVt4yRg&feature=youtu.be). This was such an amazing experience.
 
 ![camera man and me while cycling](https://res.cloudinary.com/debsobrien/image/upload/v1640969579/debbie.codes/blog/cycling-film-crew_c_tiiubz.jpg)
 
-I did however travel to Lithuania for the Build Stuff Conf which was a hybrid conference with some speakers in person and some remote. Masks and limited attendees made it a smaller conference but to get to hang out with my amazing speaker friends after such a long time was just amazing. My talk [Component Driven Repo for a Component Driven World](https://noti.st/debbie/IfdQT6/component-driven-repo-for-a-component-driven-world) was about architecture in the Frontend world.
+I did however travel to Lithuania for the Build Stuff Conf which was a hybrid conference with some speakers in person and some remote. Masks and limited attendees made it a smaller conference but to get to hang out with my amazing speaker friends after such a long time was just amazing. My talk Component Driven Repo for a Component Driven World was about architecture in the Frontend world.
 
 ![speaking on stage at build stuff conf](https://res.cloudinary.com/debsobrien/image/upload/v1640970058/debbie.codes/blog/buildstuff-conf_c_bpgvzh.jpg)
 
@@ -182,7 +182,7 @@ I then flew to Toronto to MC the Vue Conf Toronto with Henri Helvetica. The conf
 
 I was asked to speak at the React Conf and had the pleasure of not only working with Rachael Nabors and Ricky Hanlon from the React team but I also got to virtually meet Dan Abramov on a feedback call for my talk where we discussed how I could change it to make it an even better talk. This did mean that while I was travelling I was also working on my talk for the React conf and constantly getting feedback from the team which was very cool and just a great experience.
 
-I then recorded my talk, [Things I learnt from the New React Docs](https://noti.st/debbie/DaH9ou/things-i-learnt-from-the-new-react-docs) between travelling from one Conference to another. This was by far my best experience for virtual conferences as the React team had sent out a suitcase of recording material and they had a professional team call me and help setup everything and then record the talk which we recorded about 4 times cause you know you always just want it to be better.
+I then recorded my talk, Things I learnt from the New React Docs between travelling from one Conference to another. This was by far my best experience for virtual conferences as the React team had sent out a suitcase of recording material and they had a professional team call me and help setup everything and then record the talk which we recorded about 4 times cause you know you always just want it to be better.
 
 ![speaking virtually at react conf](https://res.cloudinary.com/debsobrien/image/upload/v1640970262/debbie.codes/blog/react-conf_c_po1euk.jpg)
 
@@ -200,7 +200,7 @@ A few speaker friends had arranged a cabin in the mountains and for the weekend 
 
 The React conf was live and it was so nice to see my talk at the conf and answer the questions in the chat but most of all just receive the amazing feedback that I got. The fact that a few months ago I had just started learning React and now I was speaking at the React Conference and getting amazing feedback from Dan Abramov was just an amazing achievement for me.
 
-I finished my [ecommerce demo](https://bit.dev/learn-bit-react/shoe-store/apps/shoe-store/~compositions) complete with shopping cart that worked saving products in state and using context. My React skills had improved so much and I felt so much more comfortable writing React code although breaking the cart down to decoupled and reusable components was still a lot for me to take in and process. But with help I managed to achieve it and I was proud of ending the year with an amazing demo coded by me.
+I finished my ecommerce demo complete with shopping cart that worked saving products in state and using context. My React skills had improved so much and I felt so much more comfortable writing React code although breaking the cart down to decoupled and reusable components was still a lot for me to take in and process. But with help I managed to achieve it and I was proud of ending the year with an amazing demo coded by me.
 
 When I say finished, it is not finished of course and so much more to do but finished in that I got done what I wanted to get done and am so proud of that. Here it is [deployed on Netlify](https://bit-shoe-store.netlify.app/).
 
