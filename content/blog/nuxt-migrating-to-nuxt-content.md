@@ -3,6 +3,7 @@ title: Migrating to Nuxt content
 date: 2020-07-17
 description: If you already have documentation set up and would like to migrate to Nuxt Content then this guide should help you make migrate easily and take advantage of what the docs theme gives you.
 image: /images/blog/covers/nuxt-migrating-to-nuxt-content.png
+ogImage: /images/blog/covers/nuxt-migrating-to-nuxt-content.png
 tags: [nuxt]
 ---
 

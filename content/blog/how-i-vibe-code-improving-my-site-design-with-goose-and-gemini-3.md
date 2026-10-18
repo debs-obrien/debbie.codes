@@ -4,6 +4,7 @@ description: "Having fun with Google's Gemini 3 and Goose coding agent to redesi
 date: 2024-11-20
 canonical: "https://dev.to/debs_obrien/how-i-vibe-code-improving-my-site-design-with-goose-and-gemini-3-2a3k"
 image: /images/blog/covers/how-i-vibe-code-improving-my-site-design-with-goose-and-gemini-3.png
+ogImage: /images/blog/covers/how-i-vibe-code-improving-my-site-design-with-goose-and-gemini-3.png
 tags: [ai, webdev]
 ---
 
