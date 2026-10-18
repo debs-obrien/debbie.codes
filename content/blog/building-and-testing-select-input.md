@@ -321,7 +321,7 @@ We should also document our component so that it contains clear instructions and
 
 ## Using the Component
 
-The select size component can be found here and is fully open source meaning you can install it in your own project using bit, npm or yarn so feel free to take it for a test drive.
+The select size component is fully open source meaning you can install it in your own project using bit, npm or yarn so feel free to take it for a test drive.
 
 ```bash
 bit install @learn-bit-react/ecommerce.ui.product.select-size

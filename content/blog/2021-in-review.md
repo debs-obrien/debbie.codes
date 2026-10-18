@@ -52,7 +52,7 @@ I was interviewed by Tim Benniks on the DevRel Roundtable(https://youtu.be/lSxU_
 
 I did a [live stream trying to learn React from the React docs](https://youtu.be/LbUu3Z-ij5U) and myself and a friend, Tim Benniks failed so badly and had to be rescued. It was a fun stream. From that stream Rachael Nabors from the React team reached out to me and I became a beta tester for the new React docs.
 
-I also did a podcast Interview with Lyndsay and Steve from Views on Vue on my move from Vue to React as well as another podcast interview with Tracey Lee on [Managing Component Architecture]()https://modernweb.podbean.com/e/s08e07-modern-web-podcast-managing-component-architecture-with-debbie-obrien/
+I also did a podcast Interview with Lyndsay and Steve from Views on Vue on my move from Vue to React as well as another podcast interview with Tracey Lee on Managing Component Architecture
 
 CityJs Conf was in march and was lots of fun especially for a virtual conference and I got to give my first talk on Bit, Building components in Harmony. Also the MVP Summit, again virtual.
 
@@ -166,7 +166,7 @@ And when I got home I was welcomed with a lovely gift from GitHub for the work I
 
 The US was still not fully open so I wasn't able to travel to Connect Tech conf in Atlanta which was an in person event. I spoke at the React India conference which was virtual and pre-recorded but with Q&A.
 
-I was interviewed Composing Modern Applications with Bit with Alex Patterson, Brittney Postman as well as my journey from [From Vue to React](https://youtu.be/70b-gtHkOZ8) with James Q Quick.
+I was interviewed on Composing Modern Applications with Bit with Alex Patterson, Brittney Postman as well as my journey from [From Vue to React](https://youtu.be/70b-gtHkOZ8) with James Q Quick.
 
 I had a film crew follow me around while cycling the mountains of Mallorca so as to create a [promotional video for the Vue Toronto Conf](https://www.youtube.com/watch?v=jf8NbVt4yRg&feature=youtu.be). This was such an amazing experience.
 
