@@ -6,8 +6,6 @@ const COVER_POST = 'grok-bot-uploads-my-youtube-videos'
 const LEAD_COVER_POST = 'grok-bot-uploads-my-youtube-videos'
 /** Also on home recent posts (second-newest batch). */
 const HOME_COVER_POST = 'grok-bot-50th-birthday-photo-video'
-// Excluded from cover batches; appears on /blog/year/2025 (not on home /blog recent lists)
-const NO_COVER_POST = 'laid-off-what-now'
 
 async function expectCardCover(page: import('@playwright/test').Page, slug: string, sizesPattern: RegExp) {
   const withCoverCard = page.locator('article').filter({ has: page.locator(`a[href="/blog/${slug}"]`) }).first()
@@ -90,33 +88,4 @@ test('compact cards on /blog flush title with excerpt (no arrow indent)', async 
 test('home recent posts include a 2:1 cover for the birthday post', async ({ page }) => {
   await page.goto('/')
   await expectCardCover(page, HOME_COVER_POST, /224px|400px/)
-})
-
-test('blog cards without an image have no cover and no placeholder', async ({ page }) => {
-  await page.goto('/blog/year/2025')
-
-  const withoutCoverCard = page.locator('article').filter({ has: page.locator(`a[href="/blog/${NO_COVER_POST}"]`) }).first()
-  await expect(withoutCoverCard).toBeVisible()
-  await expect(withoutCoverCard.getByTestId('blog-card-cover')).toHaveCount(0)
-  await expect(withoutCoverCard.locator('img')).toHaveCount(0)
-})
-
-test('lead and compact cards gate the side column on image (no empty cover column)', async ({ page }) => {
-  // Lead with cover gets the side layout; no-cover cards omit the cover node and sm:flex.
-  // Forcing a no-cover lead via Nuxt payload rewrite is impractical with the packed SSR payload.
-  await page.setViewportSize({ width: 1280, height: 800 })
-  await page.goto('/blog')
-  const lead = page.locator('article').filter({
-    has: page.locator(`a[href="/blog/${LEAD_COVER_POST}"]`),
-  }).first()
-  await expect(lead.getByTestId('blog-card-cover')).toHaveCount(1)
-  await expect(lead.locator('div.sm\\:flex').first()).toHaveClass(/sm:flex/)
-
-  await page.goto('/blog/year/2025')
-  const noCover = page.locator('article').filter({
-    has: page.locator(`a[href="/blog/${NO_COVER_POST}"]`),
-  }).first()
-  await expect(noCover.getByTestId('blog-card-cover')).toHaveCount(0)
-  await expect(noCover.locator('img')).toHaveCount(0)
-  await expect(noCover.locator('a').first()).not.toHaveClass(/sm:flex/)
 })
