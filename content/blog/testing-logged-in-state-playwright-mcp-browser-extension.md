@@ -32,13 +32,9 @@ This opens up more realistic testing workflows for QA engineers, especially when
 
 The extension is available for **Chrome, Edge, or any Chromium-based browser**.
 
-- Download the [Playwright MCP extension](https://github.com/microsoft/playwright/tree/main/packages/extension#readme).
-- Unzip the file.
-- Open `chrome://extensions` or `edge://extensions` in your browser.
-- Enable **Developer Mode**.
-- Click **Load unpacked** and select the extension folder.
+- Install the [Playwright Extension](https://chromewebstore.google.com/detail/playwright-extension/mmlmfjhmonkocbjadbfplnigmagldckm) from the Chrome Web Store.
 
-You'll now see the **Playwright MCP Bridge** in your extensions list.
+You'll now see the **Playwright Extension** in your extensions list.
 
 ## Configuring the MCP Server
 
