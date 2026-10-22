@@ -55,7 +55,7 @@ We can now use the plugin in any of our layouts, pages or components by using th
 
 ![Vue plugin in use](https://res.cloudinary.com/debsobrien/image/upload/c_scale,fl_lossy,f_auto,q_auto,w_1200/v1612282619/debbie.codes/blog/vue-plugins_ubadyf.png)
 
-And that's it. The library itself allows you to do lots of cool things including dynamic messages, add components inside and so much more. Do check out the plugins docs and play around with the [library](<(https://github.com/Akryum/v-tooltip)>).
+And that's it. The library itself allows you to do lots of cool things including dynamic messages, add components inside and so much more. Do check out the plugins docs and play around with the [library](https://github.com/Akryum/v-tooltip).
 
 ## Adding Client Side Plugins
 
@@ -65,4 +65,4 @@ if you do use a library that needs access to browser elements such as window or 
 
 - [Vue Tooltip Plugin](https://github.com/Akryum/v-tooltip)
 - [Nuxt Vue Plugin Docs](https://nuxtjs.org/docs/2.x/directory-structure/plugins#vue-plugins)
-- [Nuxt Vue Plugin Example](https://nuxtjs.org/examples/plugins-vue)
+- Nuxt Vue Plugin Example

@@ -76,7 +76,7 @@ Once we are clear on how we are going to build the component it is then possible
 
 I also used [Bit.dev](http://Bit.dev) to build my components but this is not essential to architecting your site and if you don't want to have independent components you can still use this way of thinking to build no matter what framework or library you are using. However the reason I use Bit is so I can build these components independently and in isolation from the other components. This makes me be able to build, see and test the component in its own environment before using it in the more complex component. That way it can easily be re-used in other components as it is fully decoupled from any other component yet can have dependencies of other components if needed.
 
-We start by building the product-details component in the ecommerce scope. The next component we need is the [Image component](https://bit.dev/learn-bit-react/base-ui/ui/img) and we already have one created in the base-ui scope so we can just go to that and install it into our project using bit, npm or yarn.
+We start by building the product-details component in the ecommerce scope. The next component we need is the Image component and we already have one created in the base-ui scope so we can just go to that and install it into our project using bit, npm or yarn.
 
 <nuxt-img provider="cloudinary" src="debbie.codes/blog/Img-component_2x_uxxmep" format="auto" quality="100"  fit="cover" alt="Image Component in Bit" loading="lazy"> </nuxt-img>
 
@@ -194,7 +194,7 @@ Use whatever method works best when building the component depending on who you 
 
 ## Adding our Second Component
 
-The next component we need is the [heading component](https://bit.dev/learn-bit-react/base-ui/ui/heading) to show the name of the shoe. As we already have this component we can simply install it
+The next component we need is the heading component to show the name of the shoe. As we already have this component we can simply install it
 
 <nuxt-img provider="cloudinary" src="debbie.codes/blog/heading-component_2x_abv6ps" format="auto" quality="100"  fit="cover" alt="Heading Component in Bit" loading="lazy"> </nuxt-img>
 
@@ -228,7 +228,7 @@ As we see our component taking shape the next component according to our design 
 
 Personally I used a placeholder so I could more or less get the product details component to look almost finished and then come back and work on the missing components that needed building.
 
-To build the [rating component](https://bit.dev/learn-bit-react/ecommerce/ui/product/rating) I created the component in the ecommerce scope and started building it completely in isolation from the product details component. Once it was working how it should be, I then imported it into my product details component the same way I imported the Image and Heading component using the full package name and then used it in the product details component passing in the necessary values to the props to make it work.
+To build the rating component I created the component in the ecommerce scope and started building it completely in isolation from the product details component. Once it was working how it should be, I then imported it into my product details component the same way I imported the Image and Heading component using the full package name and then used it in the product details component passing in the necessary values to the props to make it work.
 
 <nuxt-img provider="cloudinary" src="debbie.codes/blog/rating-component_2x_unane9" format="auto" quality="100"  fit="cover" alt="Rating Component in Bit" loading="lazy"> </nuxt-img>
 
@@ -413,7 +413,7 @@ And of course tagging becomes easy with Bit as it auto tags any dependents. Here
 If you want to check out the demo project then here are some links:
 
 - [GitHub repo for ecommerce components](https://github.com/bit-demos/ecommerce)
-- [Product Details component on Bit](https://bit.dev/learn-bit-react/ecommerce/ui/product/product-details)
-- [Base ui components on Bit](https://bit.dev/learn-bit-react/base-ui)
-- [Shoe store app and components on Bit](https://bit.dev/learn-bit-react/shoe-store)
+- Product Details component on Bit
+- Base ui components on Bit
+- Shoe store app and components on Bit
 - [Shoe store app deployed on Netlify](https://bit-shoe-store.netlify.app)

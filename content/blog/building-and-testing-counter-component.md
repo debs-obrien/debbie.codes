@@ -7,7 +7,7 @@ provider: cloudinary
 tags: [react, testing]
 ---
 
-We want to build and test a [counter component](https://bit.dev/learn-bit-react/ecommerce/ui/product/counter/~code/counter.tsx) built with React and TypeScript. So where do we start? First of all looking at the component I can see it is made up of 2 [button components](https://bit.dev/learn-bit-react/base-ui/ui/button) that increase and decrease the count and an [input component](https://bit.dev/learn-bit-react/base-ui/ui/forms/input) that shows the value of the count.
+We want to build and test a counter component built with React and TypeScript. So where do we start? First of all looking at the component I can see it is made up of 2 button components that increase and decrease the count and an input component that shows the value of the count.
 
 ## Building a Counter Component
 
@@ -15,7 +15,7 @@ We want to build and test a [counter component](https://bit.dev/learn-bit-react/
 
 ### Importing our Components
 
-As we already have a [button component](https://bit.dev/learn-bit-react/base-ui/ui/button) and [input component](https://bit.dev/learn-bit-react/base-ui/ui/forms/input) already created I will just import them as well as import React and useState and the styles.
+As we already have a button component and input component already created I will just import them as well as import React and useState and the styles.
 
 ```js
 import React, { useState } from 'react'
@@ -387,8 +387,8 @@ We should also document our component so that it contains clear instructions and
 
 ## Useful Links
 
-- [Counter Component](https://bit.dev/learn-bit-react/ecommerce/ui/product/counter)
-- [Counter Component Code](https://bit.dev/learn-bit-react/ecommerce/ui/product/counter/~code/counter.tsx)
-- [Counter Component Composition](https://bit.dev/learn-bit-react/ecommerce/ui/product/counter/~code/counter.composition.tsx)
-- [Counter Component Tests](https://bit.dev/learn-bit-react/ecommerce/ui/product/counter/~code/counter.spec.tsx)
+- Counter Component
+- Counter Component Code
+- Counter Component Composition
+- Counter Component Tests
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)

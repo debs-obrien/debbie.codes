@@ -49,3 +49,7 @@
 /blog/all/5 /blog 301
 /blog/all/6 /blog 301
 /blog/all/7 /blog 301
+
+# Dev.to canonical URLs that point at older slugs
+/blog/nuxt-ignoring-files /blog/nuxt-ignoring-files-nuxt 301
+/blog/page-and-layout-transitions /blog/nuxt-page-and-layout-transitions 301

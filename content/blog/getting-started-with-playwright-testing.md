@@ -60,7 +60,7 @@ The example test file is a very complete example of how to write tests for a TOD
 
 ## Generating Tests with Codegen
 
-We will use [codegen](https://playwright.dev/docs/cli#generate-code) which generates tests by recording your actions. You can literally open any website and start browsing your application and interacting with it and as you do your tests will literally be written before you very own eyes. To open Codegen run the following command:
+We will use [codegen](https://playwright.dev/docs/codegen) which generates tests by recording your actions. You can literally open any website and start browsing your application and interacting with it and as you do your tests will literally be written before you very own eyes. To open Codegen run the following command:
 
 ```bash
 npm playwright codegen
@@ -72,7 +72,6 @@ This will open two windows for you. The first one is the browser window that you
 
 <video width="auto" height="auto" controls>
   <source src="https://res.cloudinary.com/debsobrien/video/upload/f_auto,q_auto/v1648066315/debbie.codes/blog/2022/playwright-codegen_drluzl.mp4" type="video/mp4">
-  <source src="https://res.cloudinary.com/debsobrien/video/upload/f_auto,q_auto/v1648066315/debbie.codes/blog/2022/playwright-codegen_drluzl.ogg" type="video/ogg">
 Your browser does not support the video tag.
 </video>
 
@@ -98,7 +97,7 @@ This will run the test and give you the output in the cli. If you want to run yo
 npx playwright test --headed
 ```
 
-Be wared though as the tests are super fast meaning it will open, run the tests and close in a matter of seconds. In a future post I will show you how to pause the tests, debug the tests or open a trace file or feel free to check out the [Playwright docs](https://playwright.dev/docs/inspector) for more information.
+Be wared though as the tests are super fast meaning it will open, run the tests and close in a matter of seconds. In a future post I will show you how to pause the tests, debug the tests or open a trace file or feel free to check out the [Playwright docs](https://playwright.dev/docs/debug) for more information.
 
 ## Conclusion
 
@@ -109,5 +108,5 @@ Of course automated code might not always be perfect and may need tweaking but i
 ## Useful Links
 
 - [Playwright docs](https://playwright.dev/)
-- [Codegen](https://playwright.dev/docs/cli#generate-code)
+- [Codegen](https://playwright.dev/docs/codegen)
 - [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright)

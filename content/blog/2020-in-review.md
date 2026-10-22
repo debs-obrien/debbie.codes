@@ -12,7 +12,7 @@ We all know that 2020 has been a hard year especially family wise and it has of 
 ## Achievements:
 
 - [Microsoft MVP](https://mvp.microsoft.com/en-us/PublicProfile/5003613?fullName=Debbie%20O%27Brien)
-- [Github Star](https://stars.github.com/profiles/debs-obrien/)
+- Github Star
 - 26 talks
 - 10 blog posts
 - 52 videos and podcasts
