@@ -44,7 +44,7 @@ What a disaster. In fact if you look at the numbers the [Largest Contentful pain
 
 ### What does my site Cost?
 
-By running my site though [What Does My Site Cost](https://whatdoesmysitecost.com/) I could see that it was ridiculously expensive for someone to ready my blog depending on what country they were from. My content is amazing of course but this was too much. I had to improve this.
+By running my site though What Does My Site Cost I could see that it was ridiculously expensive for someone to ready my blog depending on what country they were from. My content is amazing of course but this was too much. I had to improve this.
 
 ## Inspecting the Image
 

@@ -17,7 +17,7 @@ To start off with we need to think about what we are trying to create. We want t
 
 ## Creating the Context
 
-If we were to split these components by team ownership it would be the e-commerce team who would own and be responsible for building it. The first component we will build is the cart [context component](https://bit.dev/learn-bit-react/ecommerce/ui/cart/cart-context/~code/cart-context.tsx).
+If we were to split these components by team ownership it would be the e-commerce team who would own and be responsible for building it. The first component we will build is the cart context component.
 
 To build our context we start off with creating our types. We want to have an interface for the Cart base Item which will contain the id
 
@@ -81,7 +81,7 @@ export function CreateCartContext<TItemType extends CartItemBase>() {
 
 ## Provider Component
 
-We now need to create our [provider component](https://bit.dev/learn-bit-react/ecommerce/ui/cart/cart-context/~code/cart-context-provider.tsx). We start by creating our types for the Cart Context.
+We now need to create our provider component. We start by creating our types for the Cart Context.
 
 ```jsx
 export type CartContextProps<TItemType extends CartItemBase> = {
@@ -145,7 +145,7 @@ export function CartContextProvider<TItemType extends CartItemBase>({
 
 We can now use our provider component to wrap our cart components so that anything inside the provider has access to the products in the cart. This means we could have the shopping cart itself as well as component in the header that shows the cart icon with a number beside it so you know how many items are in the cart. Because you want both of these components to have access to the state of the cart we would wrap them in the provider component.
 
-We start of by creating the context with the type of Product which we have already created. Feel free to check out [the code for the product types](https://bit.dev/learn-bit-react/ecommerce/entity/product?version=1.0.7) yourself to see how it works but it is simply just types that every product should have such as an id, title, text, price, etc.
+We start of by creating the context with the type of Product which we have already created. Feel free to check out the code for the product types yourself to see how it works but it is simply just types that every product should have such as an id, title, text, price, etc.
 
 ```jsx
 const contextObject = CreateCartContext<Product>();
@@ -263,10 +263,10 @@ export MyCart(){
 
 ## Useful Links
 
-- [Context Component Code](https://bit.dev/learn-bit-react/ecommerce/ui/cart/cart-context/~code/cart-context.tsx)
-- [Context Provider Code](https://bit.dev/learn-bit-react/ecommerce/ui/cart/cart-context/~code/cart-context-provider.tsx)
-- [Cart Composition Code](https://bit.dev/learn-bit-react/ecommerce/ui/cart/cart-context/~code/cart-context.composition.tsx)
-- [Cart Docs](https://bit.dev/learn-bit-react/ecommerce/ui/cart/cart-context)
-- [Interactive Cart Composition](https://bit.dev/learn-bit-react/ecommerce/ui/cart/cart-context/~compositions)
+- Context Component Code
+- Context Provider Code
+- Cart Composition Code
+- Cart Docs
+- Interactive Cart Composition
 - [Shoe Store using the Cart component](https://bit-shoe-store.netlify.app/product/h-3)
 - [Simple example in React App](https://github.com/debs-obrien/react-cart-context/blob/main/src/App.js)

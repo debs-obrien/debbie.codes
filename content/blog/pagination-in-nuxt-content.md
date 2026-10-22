@@ -224,5 +224,5 @@ My code is fully open source so clone, copy, or use whatever you like. Have fun.
 
 - [Code on GitHub](https://github.com/debs-obrien/debbie.codes/tree/master/pages/blog)
 - [Blog Page](https://debbie.codes/blog)
-- [Nuxt Content API Endpoint](https://content.nuxtjs.org/advanced#api-endpoint)
+- Nuxt Content API Endpoint
 - [Crate a Blog with Nuxt Content](https://nuxtjs.org/tutorials/creating-blog-with-nuxt-content)

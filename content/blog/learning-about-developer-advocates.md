@@ -74,7 +74,7 @@ Promoting myself here but checkout our DevRel Round table discussion with myself
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/lSxU_q-8Rrc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Also I have another interview with [Marc Backes](https://twitter.com/themarcba), who has now become a Developer Advocate since hosting this interview.
+Also I have another interview with Marc Backes, who has now become a Developer Advocate since hosting this interview.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/WlpHiYQGG6k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

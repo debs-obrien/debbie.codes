@@ -150,7 +150,7 @@ The skill stamps that out. It pipes the build output to a log file and re-greps 
 
 There is an important distinction in this workflow. Peekaboo automates the desktop app to capture screenshots. But who verifies that the documentation pages themselves render correctly?
 
-That is where [Playwright CLI](https://github.com/nichochar/playwright-cli) comes in. It is a command-line tool that wraps Playwright's browser automation into simple terminal commands. The agent uses it to open the built documentation site in a real browser, take a DOM snapshot, and verify that headings and images rendered correctly.
+That is where Playwright CLI comes in. It is a command-line tool that wraps Playwright's browser automation into simple terminal commands. The agent uses it to open the built documentation site in a real browser, take a DOM snapshot, and verify that headings and images rendered correctly.
 
 The verification flow looks like this. After the agent writes a page, it runs `playwright-cli snapshot` to get the full DOM tree and checks that the H1 matches, all images loaded, the sidebar navigation includes the new page, and the table of contents lists the right H2 headings. If something is missing or broken, it fixes the page and rebuilds.
 

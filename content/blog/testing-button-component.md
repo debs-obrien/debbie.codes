@@ -26,7 +26,7 @@ npm install --save-dev @testing-library/react
 
 ## Testing different Button Compositions
 
-I have created a load of different [compositions for my button](https://bit.dev/learn-bit-react/base-ui/ui/button/~compositions) which I will need to test. Compositions allow me to see the button in different states such as primary, secondary, disabled etc.
+I have created a load of different compositions for my button which I will need to test. Compositions allow me to see the button in different states such as primary, secondary, disabled etc.
 
 ![buttons in different states](https://res.cloudinary.com/debsobrien/image/upload/v1641577214/debbie.codes/blog/button-testing_2x_oliu20.png)
 
@@ -152,9 +152,9 @@ And there we have it. All our tests are passing and we can safely use our compon
 
 Useful Links:
 
-- [Button Component Test files](https://bit.dev/learn-bit-react/base-ui/ui/button/~code/button.spec.tsx)
-- [Button Component overview](https://bit.dev/learn-bit-react/base-ui/ui/button)
-- [Button Component code](https://bit.dev/learn-bit-react/base-ui/ui/button/~code/button.tsx)
-- [Button Component Compositions code](https://bit.dev/learn-bit-react/base-ui/ui/button/~code/button.composition.tsx)
+- Button Component Test files
+- Button Component overview
+- Button Component code
+- Button Component Compositions code
 - [Testing Library docs](https://testing-library.com/docs/)
 - [Common mistakes with React Testing Library by Kent C. Dodds](https://kentcdodds.com/blog/common-mistakes-with-react-testing-library)
