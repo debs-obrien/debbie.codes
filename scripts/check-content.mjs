@@ -65,11 +65,12 @@ for (const file of files.filter(f => f.startsWith(join(contentDir, 'blog')) && f
         fence = null
       return ''
     }
-    if (marker) {
+    // A backtick opener can't have backticks in its info string (```x``` is inline code).
+    if (marker && !(marker[1][0] === '`' && line.slice(marker[0].length).includes('`'))) {
       fence = marker[1]
       return ''
     }
-    if (/^\s*::youtube\b/.test(line) && !YOUTUBE_MDC_ALLOWLIST.has(rel))
+    if (/^(?:\s*>)*\s*::youtube\b/.test(line) && !YOUTUBE_MDC_ALLOWLIST.has(rel))
       errors.push(`${rel}:${i + 1}: ::youtube does not render. Use <lite-youtube videoid="…"></lite-youtube> instead`)
     return line.replace(/`[^`]*`/g, '')
   }).join('\n')
