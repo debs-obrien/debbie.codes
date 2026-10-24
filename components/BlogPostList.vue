@@ -53,7 +53,8 @@ function isLead(index: number) {
             data-testid="blog-card-cover"
             class="overflow-hidden rounded-lg aspect-[2/1] bg-gray-100 dark:bg-slate-700 mb-4 w-full max-h-[180px] sm:w-80 sm:shrink-0 sm:grow-0 sm:mb-0 sm:max-h-none"
           >
-            <NuxtLink :to="item.path" class="block h-full w-full">
+            <!-- Duplicate of the title link; hidden from AT and tab order so it is not an unnamed link. -->
+            <NuxtLink :to="item.path" class="block h-full w-full" tabindex="-1" aria-hidden="true">
               <NuxtImg
                 :provider="item.provider"
                 :src="item.image"
@@ -62,9 +63,10 @@ function isLead(index: number) {
                 height="300"
                 fit="cover"
                 format="webp"
-                loading="lazy"
+                loading="eager"
+                fetchpriority="high"
                 decoding="async"
-                sizes="xs:640px sm:320px"
+                sizes="xs:100vw sm:320px"
                 class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
               />
             </NuxtLink>
