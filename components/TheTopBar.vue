@@ -3,8 +3,10 @@ const isOpen = ref(false)
 const route = useRoute()
 const dialogRef = ref<HTMLDialogElement | null>(null)
 const openMenuButtonRef = ref<HTMLButtonElement | null>(null)
-/** Path where the menu was opened (browser URL), so a late Vue route
- *  catch-up after SPA navigation does not immediately re-close it. */
+/**
+ * Path where the menu was opened (browser URL), so a late Vue route
+ *  catch-up after SPA navigation does not immediately re-close it.
+ */
 const pathWhenOpened = ref<string | null>(null)
 
 function clientPath() {

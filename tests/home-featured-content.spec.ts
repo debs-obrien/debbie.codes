@@ -18,7 +18,7 @@ test.describe('Home Page Featured Content', () => {
   });
 
   // Featured Posts section no longer exists after redesign
-  test.fixme('featured post section displays correctly', async ({ page }) => {
+  test.fixme('featured post section displays correctly', async () => {
     // This section has been removed in the redesign
     // The home page now shows Recent Blog Posts instead of Featured Posts
   });
@@ -46,16 +46,16 @@ test.describe('Home Page Featured Content', () => {
   test('recent videos section displays correctly', async ({ page }) => {
     const videosSection = page.getByRole('region', { name: 'Recent Videos' });
     await expect(videosSection).toBeVisible();
-    
+
     // Check for section heading with link
     await expect(videosSection.getByRole('heading', { name: 'Recent Videos' })).toBeVisible();
     await expect(videosSection.getByRole('link', { name: 'Recent Videos' })).toBeVisible();
-    
+
     // Check that videos are displayed (should show 5 videos after redesign)
     // First video is a main large video, then 4 smaller videos
     const firstVideo = videosSection.getByRole('link').first();
     await expect(firstVideo).toBeVisible();
-    
+
     // Check for video images
     const images = videosSection.getByRole('img');
     const imageCount = await images.count();
@@ -71,22 +71,22 @@ test.describe('Home Page Featured Content', () => {
   test('recent podcasts section displays correctly', async ({ page }) => {
     const podcastsSection = page.getByRole('region', { name: 'Recent Podcasts' });
     await expect(podcastsSection).toBeVisible();
-    
+
     // Check for section heading with link
     await expect(podcastsSection.getByRole('heading', { name: 'Recent Podcasts' })).toBeVisible();
     await expect(podcastsSection.getByRole('link', { name: 'Recent Podcasts' })).toBeVisible();
-    
+
     // Check that podcasts are displayed (should show 2 podcasts after redesign)
     const podcasts = podcastsSection.getByRole('article');
     const podcastCount = await podcasts.count();
     expect(podcastCount).toBe(2);
-    
+
     // Check first podcast structure (use <img> — play SVG can also match role=img)
     const firstPodcast = podcasts.first();
     await expect(firstPodcast.locator('img').first()).toBeVisible();
     await expect(firstPodcast.getByRole('heading', { level: 3 })).toBeVisible();
     await expect(firstPodcast.locator('time')).toBeVisible();
-    
+
     // Check for external podcast links
     const podcastLinks = firstPodcast.getByRole('link');
     const linkCount = await podcastLinks.count();
@@ -97,22 +97,22 @@ test.describe('Home Page Featured Content', () => {
     // Test Recent Blog Posts link
     await page.getByRole('link', { name: 'Recent Blog Posts' }).click();
     await expect(page).toHaveURL(/\/blog\/?$/);
-    
+
     await page.goBack();
-    
+
     // Test Recent Videos link
     await page.getByRole('link', { name: 'Recent Videos' }).click();
     await expect(page).toHaveURL(/\/videos\/?$/);
-    
+
     await page.goBack();
-    
+
     // Test Recent Podcasts link
     await page.getByRole('link', { name: 'Recent Podcasts' }).click();
     await expect(page).toHaveURL(/\/podcasts\/?$/);
   });
 
   // Featured post links no longer exist after redesign
-  test.fixme('featured post links work correctly', async ({ page }) => {
+  test.fixme('featured post links work correctly', async () => {
     // Featured Posts section has been removed in the redesign
     // The page now shows Recent Blog Posts instead
   });
@@ -133,11 +133,11 @@ test.describe('Home Page Featured Content', () => {
     const h2s = page.getByRole('heading', { level: 2 });
     const h2Count = await h2s.count();
     expect(h2Count).toBeGreaterThan(0);
-    
+
     // Check that all images have alt text
     const images = page.locator('img');
     const imageCount = await images.count();
-    
+
     for (let i = 0; i < imageCount; i++) {
       const img = images.nth(i);
       const alt = await img.getAttribute('alt');
@@ -151,7 +151,7 @@ test.describe('Home Page Featured Content', () => {
       // Check if alt attribute exists, but allow empty string as valid
       expect(alt !== null && alt !== undefined).toBeTruthy();
     }
-    
+
     // Simplified check - just verify some links exist and are accessible
     const links = page.getByRole('link');
     const linkCount = await links.count();

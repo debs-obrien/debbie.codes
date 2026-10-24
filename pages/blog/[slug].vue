@@ -31,19 +31,23 @@ const canonicalUrl = article.value?.canonical || `https://debbie.codes${path}`
 const articleDate = String(article.value?.date || '')
 
 const readingMinutes = computed(() => {
-  if (!article.value) return 0
+  if (!article.value)
+    return 0
   const text = extractTextFromContent(article.value.body) || article.value.description || ''
-  if (!text) return 0
+  if (!text)
+    return 0
   return calculateReadingTime(text)
 })
 
 const readingTimeLabel = computed(() => {
-  if (!readingMinutes.value) return ''
+  if (!readingMinutes.value)
+    return ''
   return formatReadingTime(readingMinutes.value)
 })
 
 const articleJsonLd = computed(() => {
-  if (!article.value || !title) return null
+  if (!article.value || !title)
+    return null
   return buildArticleJsonLd({
     title,
     description,
@@ -106,7 +110,8 @@ useHead({
     },
   ],
   script: computed(() => {
-    if (!articleJsonLd.value) return []
+    if (!articleJsonLd.value)
+      return []
     return [
       {
         key: 'article-json-ld',

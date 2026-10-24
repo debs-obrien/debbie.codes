@@ -1,7 +1,7 @@
 // spec: specs/test-plan.md
 // seed: tests/seed.spec.ts
 
-import { test, expect } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
 test.describe('Navigation Functionality', { tag: ['@agent', '@smoke'] }, () => {
   test('Verify Desktop Navigation Menu', async ({ page }) => {
