@@ -37,6 +37,8 @@ test.describe('_redirects targets', () => {
 
     const targets = internalTargets();
     expect(targets.length).toBeGreaterThan(0);
+    for (const known of KNOWN_BROKEN_TARGETS)
+      expect.soft(targets, `${known} is no longer a redirect target: remove it from KNOWN_BROKEN_TARGETS`).toContain(known);
 
     for (const target of targets) {
       const res = await request.get(target);
