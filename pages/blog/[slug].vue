@@ -31,19 +31,23 @@ const canonicalUrl = article.value?.canonical || `https://debbie.codes${path}`
 const articleDate = String(article.value?.date || '')
 
 const readingMinutes = computed(() => {
-  if (!article.value) return 0
+  if (!article.value)
+    return 0
   const text = extractTextFromContent(article.value.body) || article.value.description || ''
-  if (!text) return 0
+  if (!text)
+    return 0
   return calculateReadingTime(text)
 })
 
 const readingTimeLabel = computed(() => {
-  if (!readingMinutes.value) return ''
+  if (!readingMinutes.value)
+    return ''
   return formatReadingTime(readingMinutes.value)
 })
 
 const articleJsonLd = computed(() => {
-  if (!article.value || !title) return null
+  if (!article.value || !title)
+    return null
   return buildArticleJsonLd({
     title,
     description,
@@ -106,7 +110,8 @@ useHead({
     },
   ],
   script: computed(() => {
-    if (!articleJsonLd.value) return []
+    if (!articleJsonLd.value)
+      return []
     return [
       {
         key: 'article-json-ld',
@@ -125,7 +130,7 @@ useHead({
       <div class="max-w-4xl mx-auto pt-4 sm:pt-6">
         <NuxtLink
           to="/blog"
-          class="inline-flex items-center text-sm text-gray-500 dark:text-gray-400 hover:text-primary transition-colors"
+          class="inline-flex items-center text-sm text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
         >
           ← Back to blog
         </NuxtLink>
@@ -140,7 +145,7 @@ useHead({
           <Date v-if="articleDate" :date="articleDate" />
           <span
             v-if="readingTimeLabel"
-            class="tracking-widest text-xs title-font font-medium text-gray-400"
+            class="tracking-widest text-xs title-font font-medium text-gray-600 dark:text-gray-400"
           >
             {{ readingTimeLabel }}
           </span>
