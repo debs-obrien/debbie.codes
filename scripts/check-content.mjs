@@ -59,8 +59,8 @@ for (const file of files.filter(f => f.startsWith(join(contentDir, 'blog')) && f
   let fenceQuoted = false
   // Lines outside fences, inline code (`…`) blanked; fenced lines become '' so line numbers stay put.
   const live = lines.map((line, i) => {
-    // Fences can sit inside blockquotes (`> ```md`).
-    const marker = line.match(/^(?:\s*>)*\s*(`{3,}|~{3,})/)
+    // Fences can sit inside blockquotes (`> ```md`) and list items (`- ```md`, `1. ```md`).
+    const marker = line.match(/^(?:\s*>)*\s*(?:(?:[-*+]|\d+[.)])\s+)?(`{3,}|~{3,})/)
     const quoted = /^\s*>/.test(line)
     // A fence opened inside a blockquote ends when the blockquote does.
     if (fence && fenceQuoted && !quoted)
@@ -81,7 +81,7 @@ for (const file of files.filter(f => f.startsWith(join(contentDir, 'blog')) && f
     return line.replace(/`[^`]*`/g, '')
   }).join('\n')
   // Only real <lite-youtube> tags count (they may span lines); prose and inline code are examples.
-  for (const m of live.matchAll(/<lite-youtube\s[^>]*\bvideoid\s*=\s*(["'])([^"']+)\1/g)) {
+  for (const m of live.matchAll(/<lite-youtube\s[^>]*\bvideoid\s*=\s*(["'])([^"']*)\1/g)) {
     const id = m[2]
     const line = live.slice(0, m.index).split('\n').length
     if (!knownVideoIds.has(id) && !EXTERNAL_VIDEO_IDS.has(id))
