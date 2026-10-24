@@ -57,7 +57,8 @@ for (const file of files.filter(f => f.startsWith(join(contentDir, 'blog')) && f
   // CommonMark fences: close only on the same character, at least as long, with nothing after it.
   let fence = null
   lines.forEach((line, i) => {
-    const marker = line.match(/^\s*(`{3,}|~{3,})/)
+    // Fences can sit inside blockquotes (`> ```md`).
+    const marker = line.match(/^(?:\s*>)*\s*(`{3,}|~{3,})/)
     if (fence) {
       if (marker && marker[1][0] === fence[0] && marker[1].length >= fence.length && !line.slice(marker[0].length).trim())
         fence = null
@@ -69,7 +70,9 @@ for (const file of files.filter(f => f.startsWith(join(contentDir, 'blog')) && f
     }
     if (/^\s*::youtube\b/.test(line) && !YOUTUBE_MDC_ALLOWLIST.has(rel))
       errors.push(`${rel}:${i + 1}: ::youtube does not render. Use <lite-youtube videoid="…"></lite-youtube> instead`)
-    for (const [, , id] of line.matchAll(/videoid\s*=\s*(["'])([^"']+)\1/g)) {
+    // Only real <lite-youtube> tags count; prose and inline code (`…`) are examples.
+    const live = line.replace(/`[^`]*`/g, '')
+    for (const [, , id] of live.matchAll(/<lite-youtube\s[^>]*\bvideoid\s*=\s*(["'])([^"']+)\1/g)) {
       if (!knownVideoIds.has(id) && !EXTERNAL_VIDEO_IDS.has(id))
         errors.push(`${rel}:${i + 1}: videoid "${id}" has no entry in content/videos (wrong or stale ID?)`)
     }
