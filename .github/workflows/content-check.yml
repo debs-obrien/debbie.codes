@@ -1,0 +1,23 @@
+name: Content check
+
+# Fails on banned YouTube IDs in content/, `::youtube` embeds (they render
+# nothing) and blog videoids missing from content/videos.
+# See scripts/check-content.mjs.
+
+on:
+  pull_request:
+    branches: [main, master]
+
+permissions:
+  contents: read
+
+jobs:
+  check-content:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+      - name: Check content
+        run: node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/check-content.mjs

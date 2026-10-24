@@ -1,0 +1,96 @@
+/**
+ * Content guardrails, run in CI (.github/workflows/content-check.yml):
+ *   node scripts/check-content.mjs
+ *
+ * Fails when:
+ *  1. any file under content/ mentions a banned YouTube ID (HIDDEN_YOUTUBE_VIDEO_IDS)
+ *  2. a blog post uses `::youtube` (there is no Youtube component; it renders nothing)
+ *  3. a blog post embeds a `<lite-youtube videoid="…">` that has no entry in content/videos
+ */
+import { readdirSync, readFileSync } from 'node:fs'
+import { join, relative } from 'node:path'
+import process from 'node:process'
+import { fileURLToPath } from 'node:url'
+import { HIDDEN_YOUTUBE_VIDEO_IDS } from '../utils/videos.ts'
+
+const root = process.argv[2] ?? fileURLToPath(new URL('..', import.meta.url))
+const contentDir = join(root, 'content')
+
+// TODO(follow-up): convert these posts to <lite-youtube videoid="…"> and
+// remove them here. Their videos don't show on the live site today.
+const YOUTUBE_MDC_ALLOWLIST = new Set([
+  'content/blog/job-hunt-with-a-bot.md',
+  'content/blog/how-i-vibe-code-improving-my-site-design-with-goose-and-gemini-3.md',
+  'content/blog/grok-bot-does-my-shopping.md',
+])
+
+// Third-party videos embedded in older posts; not Debbie's, so not in content/videos.
+const EXTERNAL_VIDEO_IDS = new Set(['_EFk7nWoKw0', 'KyxXpweFck4'])
+
+function walk(dir) {
+  return readdirSync(dir, { withFileTypes: true }).flatMap(entry =>
+    entry.isDirectory() ? walk(join(dir, entry.name)) : [join(dir, entry.name)],
+  )
+}
+
+const errors = []
+const files = walk(contentDir)
+
+for (const file of files) {
+  const text = readFileSync(file, 'utf8')
+  for (const id of HIDDEN_YOUTUBE_VIDEO_IDS) {
+    if (text.includes(id))
+      errors.push(`${relative(root, file)}: banned YouTube ID ${id}`)
+  }
+}
+
+const knownVideoIds = new Set(
+  files
+    .filter(file => file.startsWith(join(contentDir, 'videos')))
+    .map(file => readFileSync(file, 'utf8').match(/^video:\s*["']?([\w-]+)/m)?.[1])
+    .filter(Boolean),
+)
+
+for (const file of files.filter(f => f.startsWith(join(contentDir, 'blog')) && f.endsWith('.md'))) {
+  const rel = relative(root, file)
+  const lines = readFileSync(file, 'utf8').split('\n')
+  // CommonMark fences: close only on the same character, at least as long, with nothing after it.
+  let fence = null
+  let fenceQuoted = false
+  // Lines outside fences, inline code (`…`) blanked; fenced lines become '' so line numbers stay put.
+  const live = lines.map((line, i) => {
+    // Fences can sit inside blockquotes (`> ```md`) and list items (`- ```md`, `1. ```md`).
+    const marker = line.match(/^(?:\s*>)*\s*(?:(?:[-*+]|\d+[.)])\s+)?(`{3,}|~{3,})/)
+    const quoted = /^\s*>/.test(line)
+    // A fence opened inside a blockquote ends when the blockquote does.
+    if (fence && fenceQuoted && !quoted)
+      fence = null
+    if (fence) {
+      if (marker && marker[1][0] === fence[0] && marker[1].length >= fence.length && !line.slice(marker[0].length).trim())
+        fence = null
+      return ''
+    }
+    // A backtick opener can't have backticks in its info string (```x``` is inline code).
+    if (marker && !(marker[1][0] === '`' && line.slice(marker[0].length).includes('`'))) {
+      fence = marker[1]
+      fenceQuoted = quoted
+      return ''
+    }
+    if (/^(?:\s*>)*\s*::youtube\b/.test(line) && !YOUTUBE_MDC_ALLOWLIST.has(rel))
+      errors.push(`${rel}:${i + 1}: ::youtube does not render. Use <lite-youtube videoid="…"></lite-youtube> instead`)
+    return line.replace(/`[^`]*`/g, '')
+  }).join('\n')
+  // Only real <lite-youtube> tags count (they may span lines); prose and inline code are examples.
+  for (const m of live.matchAll(/<lite-youtube\s[^>]*\bvideoid\s*=\s*(["'])([^"']*)\1/g)) {
+    const id = m[2]
+    const line = live.slice(0, m.index).split('\n').length
+    if (!knownVideoIds.has(id) && !EXTERNAL_VIDEO_IDS.has(id))
+      errors.push(`${rel}:${line}: videoid "${id}" has no entry in content/videos (wrong or stale ID?)`)
+  }
+}
+
+if (errors.length) {
+  console.error(`Content check failed:\n${errors.map(e => `  - ${e}`).join('\n')}`)
+  process.exit(1)
+}
+console.log(`Content check passed (${files.length} files, ${knownVideoIds.size} videos).`)
