@@ -22,4 +22,14 @@ test.describe('performance and accessibility guards', () => {
     await expect(prevNext.first()).not.toHaveAttribute('aria-label', /.*/)
     await expect(page.getByRole('link', { name: /^(Previous|Next) post: / }).first()).toBeVisible()
   })
+
+  test('blog lead cover loads eagerly with high priority, later covers stay lazy', async ({ page }) => {
+    await page.goto('/blog')
+    const covers = page.getByTestId('blog-card-cover').locator('img')
+    const lead = covers.first()
+    await expect(lead).not.toHaveAttribute('loading', 'lazy')
+    await expect(lead).toHaveAttribute('fetchpriority', 'high')
+    await expect(covers.nth(1)).toHaveAttribute('loading', 'lazy')
+    await expect(covers.nth(1)).not.toHaveAttribute('fetchpriority', 'high')
+  })
 })

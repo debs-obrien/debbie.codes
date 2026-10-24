@@ -7,12 +7,12 @@ const LEAD_COVER_POST = 'grok-bot-uploads-my-youtube-videos'
 /** Also on home recent posts (second-newest batch). */
 const HOME_COVER_POST = 'grok-bot-50th-birthday-photo-video'
 
-async function expectCardCover(page: import('@playwright/test').Page, slug: string, sizesPattern: RegExp) {
+async function expectCardCover(page: import('@playwright/test').Page, slug: string, sizesPattern: RegExp, loading: 'lazy' | 'eager' = 'lazy') {
   const withCoverCard = page.locator('article').filter({ has: page.locator(`a[href="/blog/${slug}"]`) }).first()
   await withCoverCard.scrollIntoViewIfNeeded()
   const cover = withCoverCard.getByTestId('blog-card-cover').locator('img')
   await expect(cover).toBeVisible()
-  await expect(cover).toHaveAttribute('loading', 'lazy')
+  await expect(cover).toHaveAttribute('loading', loading)
   await expect(cover).toHaveAttribute('alt', '')
   // Nuxt Image breakpoint sizes (not raw CSS media queries) so srcset is usable.
   await expect(cover).toHaveAttribute('sizes', sizesPattern)
@@ -26,17 +26,18 @@ async function expectCardCover(page: import('@playwright/test').Page, slug: stri
   return { withCoverCard, cover, box }
 }
 
-for (const path of ['/', '/blog']) {
-  test(`blog cards on ${path} show a lazy 2:1 cover for posts with an image`, async ({ page }) => {
+// On /blog this post is the lead card, whose cover is the LCP image and loads eagerly.
+for (const [path, loading] of [['/', 'lazy'], ['/blog', 'eager']] as const) {
+  test(`blog cards on ${path} show a ${loading} 2:1 cover for posts with an image`, async ({ page }) => {
     await page.goto(path)
-    await expectCardCover(page, COVER_POST, /224px|400px|640px|896px|320px/)
+    await expectCardCover(page, COVER_POST, /224px|400px|640px|896px|320px/, loading)
   })
 }
 
 test('featured lead card on /blog uses a compact side cover on desktop', async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 800 })
   await page.goto('/blog')
-  const { withCoverCard, box } = await expectCardCover(page, LEAD_COVER_POST, /320px|640px/)
+  const { withCoverCard, box } = await expectCardCover(page, LEAD_COVER_POST, /320px|640px/, 'eager')
   // Lead cover is a fixed-width side thumb (sm:w-80), same card family as compact.
   expect(box!.width).toBeGreaterThan(300)
   expect(box!.width).toBeLessThan(340)
@@ -61,7 +62,7 @@ test('featured lead card on /blog uses a compact side cover on desktop', async (
 test('featured lead card on /blog caps cover height on mobile', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
   await page.goto('/blog')
-  const { withCoverCard, box } = await expectCardCover(page, LEAD_COVER_POST, /320px|640px/)
+  const { withCoverCard, box } = await expectCardCover(page, LEAD_COVER_POST, /320px|640px/, 'eager')
   expect(box!.height).toBeLessThanOrEqual(180)
   expect(Math.abs(box!.width / box!.height - 2)).toBeLessThan(0.05)
   // Stacked on mobile: cover sits above the title, full card width (not a 320px side thumb).
