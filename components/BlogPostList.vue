@@ -53,7 +53,8 @@ function isLead(index: number) {
             data-testid="blog-card-cover"
             class="overflow-hidden rounded-lg aspect-[2/1] bg-gray-100 dark:bg-slate-700 mb-4 w-full max-h-[180px] sm:w-80 sm:shrink-0 sm:grow-0 sm:mb-0 sm:max-h-none"
           >
-            <NuxtLink :to="item.path" class="block h-full w-full">
+            <!-- Duplicate of the title link; hidden from AT and tab order so it is not an unnamed link. -->
+            <NuxtLink :to="item.path" class="block h-full w-full" tabindex="-1" aria-hidden="true">
               <NuxtImg
                 :provider="item.provider"
                 :src="item.image"

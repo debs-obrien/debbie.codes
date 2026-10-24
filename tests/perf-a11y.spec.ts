@@ -31,5 +31,9 @@ test.describe('performance and accessibility guards', () => {
     await expect(lead).toHaveAttribute('fetchpriority', 'high')
     await expect(covers.nth(1)).toHaveAttribute('loading', 'lazy')
     await expect(covers.nth(1)).not.toHaveAttribute('fetchpriority', 'high')
+    // The lead cover's link duplicates the title link, so it stays out of the a11y tree and tab order.
+    const leadCoverLink = page.getByTestId('blog-card-cover').first().locator('a')
+    await expect(leadCoverLink).toHaveAttribute('aria-hidden', 'true')
+    await expect(leadCoverLink).toHaveAttribute('tabindex', '-1')
   })
 })
