@@ -1,9 +1,84 @@
+<script setup lang="ts">
+// Decorative background loop. The poster <img> is the LCP; the video is only
+// added after window load, and never for reduced motion, Save-Data, slow
+// connections or small screens.
+const showVideo = ref(false)
+const playing = ref(false)
+let cleanup = () => {}
+
+onMounted(() => {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
+  const smallScreen = window.matchMedia('(max-width: 768px)')
+  const connection = (navigator as Navigator & { connection?: { saveData?: boolean, effectiveType?: string } }).connection
+  const slowNetwork = !!connection && (connection.saveData === true || ['slow-2g', '2g', '3g'].includes(connection.effectiveType ?? ''))
+
+  const update = () => {
+    showVideo.value = !slowNetwork && !reduceMotion.matches && !smallScreen.matches
+    if (!showVideo.value)
+      playing.value = false
+  }
+
+  const start = () => {
+    if ('requestIdleCallback' in window)
+      window.requestIdleCallback(update, { timeout: 2000 })
+    else
+      setTimeout(update, 200)
+    reduceMotion.addEventListener('change', update)
+    smallScreen.addEventListener('change', update)
+  }
+
+  if (document.readyState === 'complete')
+    start()
+  else
+    window.addEventListener('load', start, { once: true })
+
+  cleanup = () => {
+    window.removeEventListener('load', start)
+    reduceMotion.removeEventListener('change', update)
+    smallScreen.removeEventListener('change', update)
+  }
+})
+
+onBeforeUnmount(() => cleanup())
+</script>
+
 <template>
   <section
     class="hero-spotlight relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] -mt-top-bar w-screen bg-dark text-white overflow-hidden"
     aria-label="Introduction"
   >
     <div class="hero-atmosphere absolute inset-0 pointer-events-none" aria-hidden="true">
+      <picture>
+        <source srcset="/videos/hero/hero-v1-poster.webp" type="image/webp">
+        <img
+          src="/videos/hero/hero-v1-poster.jpg"
+          alt=""
+          width="1280"
+          height="720"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+          class="hero-media"
+          data-testid="hero-poster"
+        >
+      </picture>
+      <video
+        v-if="showVideo"
+        class="hero-media hero-video"
+        :class="{ 'is-playing': playing }"
+        muted
+        loop
+        playsinline
+        autoplay
+        preload="none"
+        disablepictureinpicture
+        data-testid="hero-video"
+        @playing="playing = true"
+      >
+        <source src="/videos/hero/hero-v1.webm" type="video/webm">
+        <source src="/videos/hero/hero-v1.mp4" type="video/mp4">
+      </video>
+      <div class="hero-scrim" />
       <div class="hero-glow hero-glow-main" />
       <div class="hero-glow hero-glow-soft" />
       <div class="hero-grid-lines" />
@@ -98,6 +173,29 @@
 <style scoped>
 .hero-atmosphere {
   background-color: #091a28;
+}
+
+.hero-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-video {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.hero-video.is-playing {
+  opacity: 1;
+}
+
+.hero-scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(9, 26, 40, 0.35);
 }
 
 .hero-glow {
