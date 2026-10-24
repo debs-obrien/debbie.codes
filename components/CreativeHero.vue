@@ -49,9 +49,9 @@ onBeforeUnmount(() => cleanup())
   >
     <div class="hero-atmosphere absolute inset-0 pointer-events-none" aria-hidden="true">
       <picture>
-        <source srcset="/videos/hero/hero-v1-poster.webp" type="image/webp">
+        <source srcset="/images/hero/hero-v1-poster.webp" type="image/webp">
         <img
-          src="/videos/hero/hero-v1-poster.jpg"
+          src="/images/hero/hero-v1-poster.jpg"
           alt=""
           width="1280"
           height="720"
@@ -75,8 +75,8 @@ onBeforeUnmount(() => cleanup())
         data-testid="hero-video"
         @playing="playing = true"
       >
-        <source src="/videos/hero/hero-v1.webm" type="video/webm">
-        <source src="/videos/hero/hero-v1.mp4" type="video/mp4">
+        <source src="/images/hero/hero-v1.webm" type="video/webm">
+        <source src="/images/hero/hero-v1.mp4" type="video/mp4">
       </video>
       <div class="hero-scrim" />
       <div class="hero-glow hero-glow-main" />

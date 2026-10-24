@@ -31,7 +31,7 @@ test.describe('reduced motion', () => {
     await page.emulateMedia({ reducedMotion: 'reduce' });
     const videoRequests: string[] = [];
     page.on('request', (req) => {
-      if (/\/videos\/hero\/.*\.(?:webm|mp4)/.test(req.url()))
+      if (/\/images\/hero\/.*\.(?:webm|mp4)/.test(req.url()))
         videoRequests.push(req.url());
     });
     await page.goto('/', { waitUntil: 'load' });
