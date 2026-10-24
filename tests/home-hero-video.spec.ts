@@ -22,6 +22,13 @@ test('desktop: background video is added after load, muted, looping and inline',
   await expect(video).toHaveAttribute('preload', 'none');
   expect(await video.evaluate((v: HTMLVideoElement) => v.muted)).toBe(true);
   await expect(video.locator('source')).toHaveCount(2);
+
+  // WCAG 2.2.2: the loop can be paused and resumed.
+  const pause = hero(page).getByRole('button', { name: 'Pause background video' });
+  await pause.click();
+  expect(await video.evaluate((v: HTMLVideoElement) => v.paused)).toBe(true);
+  await hero(page).getByRole('button', { name: 'Play background video' }).click();
+  await expect(hero(page).getByRole('button', { name: 'Pause background video' })).toHaveAttribute('aria-pressed', 'false');
 });
 
 test.describe('reduced motion', () => {
@@ -36,8 +43,8 @@ test.describe('reduced motion', () => {
     });
     await page.goto('/', { waitUntil: 'load' });
     await expect(hero(page).getByTestId('hero-poster')).toBeVisible();
-    // Give the idle callback time to run, then confirm nothing was added.
-    await page.waitForTimeout(2500);
+    // Wait for the hero's after-load gate to decide, then confirm nothing was added.
+    await expect(hero(page)).toHaveAttribute('data-hero-video', 'off', { timeout: 10_000 });
     await expect(hero(page).getByTestId('hero-video')).toHaveCount(0);
     expect(videoRequests).toEqual([]);
   });
@@ -49,7 +56,7 @@ test.describe('small screen', () => {
   test('poster only, no video', async ({ page }) => {
     await page.goto('/', { waitUntil: 'load' });
     await expect(hero(page).getByTestId('hero-poster')).toBeVisible();
-    await page.waitForTimeout(2500);
+    await expect(hero(page)).toHaveAttribute('data-hero-video', 'off', { timeout: 10_000 });
     await expect(hero(page).getByTestId('hero-video')).toHaveCount(0);
   });
 });

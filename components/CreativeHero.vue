@@ -4,6 +4,18 @@
 // connections or small screens.
 const showVideo = ref(false)
 const playing = ref(false)
+const paused = ref(false)
+// Set once the gate has run, so tests can wait for the decision.
+const videoState = ref<'on' | 'off'>()
+const video = ref<HTMLVideoElement | null>(null)
+
+function togglePause() {
+  paused.value = !paused.value
+  if (paused.value)
+    video.value?.pause()
+  else
+    video.value?.play()
+}
 let cleanup = () => {}
 
 onMounted(() => {
@@ -14,6 +26,7 @@ onMounted(() => {
 
   const update = () => {
     showVideo.value = !slowNetwork && !reduceMotion.matches && !smallScreen.matches
+    videoState.value = showVideo.value ? 'on' : 'off'
     if (!showVideo.value)
       playing.value = false
   }
@@ -46,6 +59,7 @@ onBeforeUnmount(() => cleanup())
   <section
     class="hero-spotlight relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] -mt-top-bar w-screen bg-dark text-white overflow-hidden"
     aria-label="Introduction"
+    :data-hero-video="videoState"
   >
     <div class="hero-atmosphere absolute inset-0 pointer-events-none" aria-hidden="true">
       <picture>
@@ -64,12 +78,13 @@ onBeforeUnmount(() => cleanup())
       </picture>
       <video
         v-if="showVideo"
+        ref="video"
         class="hero-media hero-video"
         :class="{ 'is-playing': playing }"
         muted
         loop
         playsinline
-        autoplay
+        :autoplay="!paused"
         preload="none"
         disablepictureinpicture
         data-testid="hero-video"
@@ -167,6 +182,15 @@ onBeforeUnmount(() => cleanup())
         </span>
       </div>
     </div>
+    <button
+      v-if="showVideo"
+      type="button"
+      class="hero-pause"
+      :aria-pressed="paused"
+      @click="togglePause"
+    >
+      {{ paused ? 'Play background video' : 'Pause background video' }}
+    </button>
   </section>
 </template>
 
@@ -190,6 +214,25 @@ onBeforeUnmount(() => cleanup())
 
 .hero-video.is-playing {
   opacity: 1;
+}
+
+.hero-pause {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 10;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 9999px;
+  background: rgba(9, 26, 40, 0.7);
+}
+
+.hero-pause:hover,
+.hero-pause:focus-visible {
+  border-color: #d8002d;
 }
 
 .hero-scrim {
