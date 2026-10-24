@@ -54,15 +54,22 @@ const knownVideoIds = new Set(
 for (const file of files.filter(f => f.startsWith(join(contentDir, 'blog')) && f.endsWith('.md'))) {
   const rel = relative(root, file)
   const lines = readFileSync(file, 'utf8').split('\n')
-  let inFence = false
+  // CommonMark fences: close only on the same character, at least as long, with nothing after it.
+  let fence = null
   lines.forEach((line, i) => {
-    if (/^\s*(?:```|~~~)/.test(line))
-      inFence = !inFence
-    if (inFence)
+    const marker = line.match(/^\s*(`{3,}|~{3,})(.*)$/)
+    if (fence) {
+      if (marker && marker[1][0] === fence[0] && marker[1].length >= fence.length && !marker[2].trim())
+        fence = null
       return
+    }
+    if (marker) {
+      fence = marker[1]
+      return
+    }
     if (/^\s*::youtube\b/.test(line) && !YOUTUBE_MDC_ALLOWLIST.has(rel))
       errors.push(`${rel}:${i + 1}: ::youtube does not render. Use <lite-youtube videoid="…"></lite-youtube> instead`)
-    for (const [, id] of line.matchAll(/videoid="([^"]+)"/g)) {
+    for (const [, , id] of line.matchAll(/videoid\s*=\s*(["'])([^"']+)\1/g)) {
       if (!knownVideoIds.has(id) && !EXTERNAL_VIDEO_IDS.has(id))
         errors.push(`${rel}:${i + 1}: videoid "${id}" has no entry in content/videos (wrong or stale ID?)`)
     }
