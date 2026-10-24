@@ -61,6 +61,7 @@ export default defineConfig({
       use: {
         ...devices['Desktop Chrome'],
         ...(process.env.CI ? { channel: 'chrome' } : {}),
+        launchOptions: { args: ['--enable-features=WebMCP'] },
       },
     },
     // {
