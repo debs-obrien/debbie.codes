@@ -11,13 +11,10 @@ applyTo: '**'
 - **Timeouts**: Rely on Playwright's built-in auto-waiting mechanisms. Avoid hard-coded waits or increased default timeouts.
 - **Clarity**: Use descriptive test and step titles that clearly state the intent. Add comments only to explain complex logic or non-obvious interactions.
 
-
 ## Test Structure
-- **Imports**: Start with `import { test, expect } from '@playwright/test';`.
 - **Organization**: Group related tests for a feature under a `test.describe()` block.
 - **Hooks**: Use `beforeEach` for setup actions common to all tests in a `describe` block (e.g., navigating to a page).
 - **Titles**: Follow a clear naming convention, such as `Feature - Specific action or scenario`.
-
 
 ## File Organization
 - **Location**: Store all test files in the `tests/` directory.
@@ -25,8 +22,8 @@ applyTo: '**'
 - **Scope**: Aim for one test file per major application feature or page.
 
 ## Assertion Best Practices
-- **UI Structure**: Use `toMatchAriaSnapshot` to verify the accessibility tree structure of a component. This provides a comprehensive and accessible snapshot. 
-  - Do not add text content or paragraph content to the yaml. Choose one of the following strategies:   
+- **UI Structure**: Use `toMatchAriaSnapshot` to verify the accessibility tree structure of a component. This provides a comprehensive and accessible snapshot.
+  - Do not add text content or paragraph content to the yaml. Choose one of the following strategies:
     - Omit the text content entirely - Just reference the element without its text:
     - Use partial text matching - Include just the beginning of the text:
     - Focus on structure over content - Test the presence and hierarchy of elements without their text content.
@@ -35,11 +32,10 @@ applyTo: '**'
 - **Text Content**: Use `toHaveText` for exact text matches and `toContainText` for partial matches.
 - **Navigation**: Use `toHaveURL` to verify the page URL after an action.
 
-
 ## Example Test Structure
 
 ```typescript
-import { test, expect } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
 test.describe('Movie Search Feature', () => {
   test.beforeEach(async ({ page }) => {

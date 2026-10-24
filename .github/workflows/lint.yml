@@ -1,0 +1,39 @@
+name: Lint
+
+# Lints only the files a PR adds or changes, so the existing backlog on main
+# doesn't block unrelated work. Touching a file means owning its lint errors;
+# most are auto-fixable with `npx eslint --fix <file>`.
+
+on:
+  pull_request:
+    branches: [main, master]
+
+permissions:
+  contents: read
+
+jobs:
+  eslint-changed-files:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Lint changed files
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          set -euo pipefail
+          git diff --name-only -z --diff-filter=ACMR "$BASE_SHA"...HEAD > /tmp/changed
+          if [ ! -s /tmp/changed ]; then
+            echo "No changed files to lint."
+            exit 0
+          fi
+          tr '\0' '\n' < /tmp/changed
+          # --no-warn-ignored: files eslint.config.js ignores (content/**, …) are skipped silently.
+          xargs -0 npx eslint --no-warn-ignored < /tmp/changed
