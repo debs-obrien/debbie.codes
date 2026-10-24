@@ -57,9 +57,9 @@ for (const file of files.filter(f => f.startsWith(join(contentDir, 'blog')) && f
   // CommonMark fences: close only on the same character, at least as long, with nothing after it.
   let fence = null
   lines.forEach((line, i) => {
-    const marker = line.match(/^\s*(`{3,}|~{3,})(.*)$/)
+    const marker = line.match(/^\s*(`{3,}|~{3,})/)
     if (fence) {
-      if (marker && marker[1][0] === fence[0] && marker[1].length >= fence.length && !marker[2].trim())
+      if (marker && marker[1][0] === fence[0] && marker[1].length >= fence.length && !line.slice(marker[0].length).trim())
         fence = null
       return
     }
