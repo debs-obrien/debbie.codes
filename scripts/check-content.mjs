@@ -56,10 +56,15 @@ for (const file of files.filter(f => f.startsWith(join(contentDir, 'blog')) && f
   const lines = readFileSync(file, 'utf8').split('\n')
   // CommonMark fences: close only on the same character, at least as long, with nothing after it.
   let fence = null
+  let fenceQuoted = false
   // Lines outside fences, inline code (`…`) blanked; fenced lines become '' so line numbers stay put.
   const live = lines.map((line, i) => {
     // Fences can sit inside blockquotes (`> ```md`).
     const marker = line.match(/^(?:\s*>)*\s*(`{3,}|~{3,})/)
+    const quoted = /^\s*>/.test(line)
+    // A fence opened inside a blockquote ends when the blockquote does.
+    if (fence && fenceQuoted && !quoted)
+      fence = null
     if (fence) {
       if (marker && marker[1][0] === fence[0] && marker[1].length >= fence.length && !line.slice(marker[0].length).trim())
         fence = null
@@ -68,6 +73,7 @@ for (const file of files.filter(f => f.startsWith(join(contentDir, 'blog')) && f
     // A backtick opener can't have backticks in its info string (```x``` is inline code).
     if (marker && !(marker[1][0] === '`' && line.slice(marker[0].length).includes('`'))) {
       fence = marker[1]
+      fenceQuoted = quoted
       return ''
     }
     if (/^(?:\s*>)*\s*::youtube\b/.test(line) && !YOUTUBE_MDC_ALLOWLIST.has(rel))
