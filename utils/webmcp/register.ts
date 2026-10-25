@@ -10,6 +10,10 @@ function clip<T>(items: T[]): T[] {
   return out
 }
 
+function text(value: unknown, max: number) {
+  return typeof value === 'string' ? value.trim().slice(0, max) || undefined : undefined
+}
+
 function noMatchError(input: { tag?: string, conference?: string, host?: string }) {
   const parts: string[] = []
   if (input.tag)
@@ -30,21 +34,24 @@ export async function registerWebMCPTools(mc: { registerTool: (tool: object, opt
   const t = webmcpTools.listVideos
   await mc.registerTool({
     ...t,
-    async execute(input: { tag?: string, conference?: string, host?: string, limit?: number } = {}) {
+    async execute(raw: Record<string, unknown> | null = {}) {
       try {
-        const limit = Math.min(Math.max(Number(input.limit ?? 5) || 5, 1), 10)
+        const input = {
+          tag: text(raw?.tag, 40)?.toLowerCase(),
+          conference: text(raw?.conference, 80),
+          host: text(raw?.host, 80),
+        }
+        const limit = Math.min(Math.max(Math.trunc(Number(raw?.limit ?? 5)) || 5, 1), 10)
         let q = queryCollection('videos')
           .select('title', 'date', 'conference', 'host', 'video', 'tags')
           .order('date', 'DESC')
-        if (input.conference?.trim())
-          q = q.where('conference', 'LIKE', `%${input.conference.trim()}%`)
-        if (input.host?.trim())
-          q = q.where('host', 'LIKE', `%${input.host.trim()}%`)
+        if (input.conference)
+          q = q.where('conference', 'LIKE', `%${input.conference}%`)
+        if (input.host)
+          q = q.where('host', 'LIKE', `%${input.host}%`)
         let rows = await q.all()
-        if (input.tag?.trim()) {
-          const tag = input.tag.trim().toLowerCase()
-          rows = rows.filter(r => r.tags?.map((x: string) => x.toLowerCase()).includes(tag))
-        }
+        if (input.tag)
+          rows = rows.filter(r => r.tags?.some((x: string) => x.toLowerCase() === input.tag))
         rows = filterVisibleVideos(rows)
         if (!rows.length)
           return noMatchError(input)

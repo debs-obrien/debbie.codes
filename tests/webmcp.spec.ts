@@ -74,6 +74,12 @@ test.describe('WebMCP list-videos', () => {
     expect(result.videos).toBeUndefined()
   })
 
+  test('wrongly typed input is ignored instead of breaking the tool', async ({ page }) => {
+    const result: any = await page.webmcp.callTool('list-videos', { tag: 42, host: { x: 1 }, limit: '2' } as any)
+    expect(result.error).toBeUndefined()
+    expect(result.videos.length).toBe(2)
+  })
+
   test('output stays under about 1,500 characters', async ({ page }) => {
     const result: any = await page.webmcp.callTool('list-videos', { limit: 10 })
     expect(result.error).toBeUndefined()
