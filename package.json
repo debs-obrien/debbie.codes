@@ -38,13 +38,5 @@
     "lint-staged": "^16.2.3",
     "lite-youtube-embed": "^0.3.3",
     "nuxt": "^4.6.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint"
-    },
-    "lint-staged": {
-      "*.{js,jsx,ts,tsx}": "npm run lint:fix"
-    }
   }
 }

@@ -42,13 +42,13 @@ module.exports = {
 }
 ```
 
-Next we need to install the [TailwindCSS webpack transformer component from Bit](https://bit.dev/bit-foundations/styling/tailwind/webpack-transformer) and once installed we can then add it to our custom env component.
+Next we need to install the TailwindCSS webpack transformer component from Bit and once installed we can then add it to our custom env component.
 
 ```bash
 bit install @bit-foundations/styling.tailwind.webpack-transformer
 ```
 
-In your environment component add the following to the [`main.runtime.ts`](https://bit.dev/learn-bit-react/base-ui/env/learn-bit-react/~code/learn-bit-react.main.runtime.ts) file
+In your environment component add the following to the `main.runtime.ts` file
 
 ```jsx
 import { UseTailwindTransformer } from '@bit-foundations/styling.tailwind.webpack-transformer'
@@ -77,7 +77,7 @@ const MyEnvEnv = envs.compose(react.reactEnv, [
       }),
 ```
 
-Next in the [`preview.runtime.ts`](https://bit.dev/learn-bit-react/base-ui/env/learn-bit-react/~code/learn-bit-react.preview.runtime.ts) file of your custom env import the css file we created earlier.
+Next in the `preview.runtime.ts` file of your custom env import the css file we created earlier.
 
 ```jsx
 import './tailwind/styles.css'
@@ -97,5 +97,5 @@ Note that this only works for Tailwind version 2. Due to the JIT compile used in
 
 Useful links:
 
-- [button component that uses TailwindCSS](https://bit.dev/learn-bit-react/base-ui/ui/button)
-- [custom env component that adds TailwindCSS](https://bit.dev/learn-bit-react/base-ui/env/learn-bit-react)
+- button component that uses TailwindCSS
+- custom env component that adds TailwindCSS

@@ -3,8 +3,10 @@ const isOpen = ref(false)
 const route = useRoute()
 const dialogRef = ref<HTMLDialogElement | null>(null)
 const openMenuButtonRef = ref<HTMLButtonElement | null>(null)
-/** Path where the menu was opened (browser URL), so a late Vue route
- *  catch-up after SPA navigation does not immediately re-close it. */
+/**
+ * Path where the menu was opened (browser URL), so a late Vue route
+ *  catch-up after SPA navigation does not immediately re-close it.
+ */
 const pathWhenOpened = ref<string | null>(null)
 
 function clientPath() {
@@ -76,7 +78,7 @@ watch(() => route.fullPath, (to) => {
                 provider="cloudinary"
                 class="rounded-full mr-4 profile-pic border-white border"
                 src="v1589118478/debbie.codes/debbie-thumb_clt00n"
-                alt="Debbie O'Brien"
+                alt=""
                 width="96"
                 height="96"
                 sizes="50px"

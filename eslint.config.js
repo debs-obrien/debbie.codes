@@ -6,15 +6,17 @@ export default antfu(
     vue: true,
   },
   {
-    ignores: ['/.github/workflows/playwright.yml'],
+    // Fenced code samples in blog posts are prose, not project code, and
+    // mostly fail to parse.
+    ignores: ['/.github/workflows/playwright.yml', 'content/**'],
   },
   {
-    files: ['**/*.spec.ts', '**/*.md'],
+    // Specs (and the spec examples in the Playwright instructions) use
+    // semicolons and no trailing commas.
+    files: ['**/*.spec.ts', '.github/instructions/playwright.instructions.md/**'],
     rules: {
-      'comma-dangle': ['error', 'never'],
-      'semi': ['error', 'always'],
-      '@typescript-eslint/semi': ['error', 'always'],
-      '@typescript-eslint/comma-dangle': 'off',
+      'style/semi': ['error', 'always'],
+      'style/comma-dangle': ['error', 'never'],
     },
   },
 )

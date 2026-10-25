@@ -88,12 +88,12 @@ You can use the buttons in VS Code to step through the test, replay the test etc
 
 ## Conclusion
 
-Being able to interact directly with your code and see the selectors highlighted is pretty cool and extremely useful for debugging. It also makes debugging fun. Check out the [debugging docs](<(https://playwright.dev/docs/debug)>) for more options of debugging including the `page.pause()` method.
+Being able to interact directly with your code and see the selectors highlighted is pretty cool and extremely useful for debugging. It also makes debugging fun. Check out the [debugging docs](https://playwright.dev/docs/debug) for more options of debugging including the `page.pause()` method.
 
 ## Useful Links
 
 - [Playwright docs](https://playwright.dev/)
-- [Codegen](https://playwright.dev/docs/cli#generate-code)
+- [Codegen](https://playwright.dev/docs/codegen)
 - [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright)
 - [Debugging in Playwright](https://playwright.dev/docs/debug)
 - [Getting Started with Playwright](https://debbie.codes/blog/getting-started-with-playwright-testing)

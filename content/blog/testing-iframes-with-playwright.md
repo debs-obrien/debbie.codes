@@ -101,7 +101,7 @@ And thats how you can use locators and frame locators to test iframes on a page.
 ## Useful Links
 
 - [Playwright docs](https://playwright.dev/)
-- [Codegen](https://playwright.dev/docs/cli#generate-code)
+- [Codegen](https://playwright.dev/docs/codegen)
 - [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright)
 - [FrameLocator](https://playwright.dev/docs/api/class-framelocator)
 - [Getting Started with Playwright](https://debbie.codes/blog/getting-started-with-playwright-testing)
