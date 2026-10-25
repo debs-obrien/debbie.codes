@@ -5,7 +5,7 @@ export const webmcpTools = {
     name: 'list-videos',
     title: 'List videos',
     description:
-      "List Debbie O'Brien's videos (conference recordings, interviews, live streams and tutorials) about Playwright, testing, MCP, AI agents and Nuxt, newest first. "
+      'List Debbie O\'Brien\'s videos (conference recordings, interviews, live streams and tutorials) about Playwright, testing, MCP, AI agents and Nuxt, newest first. '
       + 'Optionally filter by topic tag, conference or host. Returns title, date, conference, host, tags and links.',
     inputSchema: {
       type: 'object',
