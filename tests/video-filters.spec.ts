@@ -7,7 +7,7 @@ const curatedChips = [
   { label: 'MCP', href: '/videos/tags/mcp', expectUrl: /\/videos\/tags\/mcp/ },
   { label: 'Agents', href: '/videos/tags/ai', expectUrl: /\/videos\/tags\/ai/ },
   { label: 'Nuxt', href: '/videos/tags/nuxt', expectUrl: /\/videos\/tags\/nuxt/ },
-  { label: 'Grok Bot', href: '/videos/tags/grok-bot', expectUrl: /\/videos\/tags\/grok-bot/ },
+  { label: 'Grok Bot', href: '/videos/tags/grok-bot', expectUrl: /\/videos\/tags\/grok-bot/ }
 ];
 
 test.describe('Videos filter chips', () => {
