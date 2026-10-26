@@ -1,7 +1,13 @@
 import { test, expect } from '@playwright/test'
 
+// Demo-only ElevenLabs widget on /videos; keep tests offline from third-party.
+async function blockElevenLabs(page: import('@playwright/test').Page) {
+  await page.route(/unpkg\.com|elevenlabs\.io|api\.elevenlabs/, route => route.abort())
+}
+
 test.describe('Videos pagination', () => {
   test('lists featured, latest, and links to older pages', async ({ page }) => {
+    await blockElevenLabs(page)
     await page.goto('/videos')
 
     await expect(page.getByRole('heading', { name: 'Videos', level: 1 })).toHaveText('Videos')

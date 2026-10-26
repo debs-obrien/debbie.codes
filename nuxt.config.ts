@@ -86,7 +86,7 @@ export default defineNuxtConfig({
 
   vue: {
     compilerOptions: {
-      isCustomElement: tag => ['lite-youtube'].includes(tag),
+      isCustomElement: tag => ['lite-youtube', 'elevenlabs-convai'].includes(tag),
     },
   },
 

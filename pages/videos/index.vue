@@ -40,11 +40,20 @@ const section: Sections = 'videos'
 useHead({
   title,
   meta: [{ name: 'description', content: description }],
+  script: [{
+    src: 'https://unpkg.com/@elevenlabs/convai-widget-embed',
+    async: true,
+    type: 'text/javascript',
+  }],
 })
 </script>
 
 <template>
   <PageLayout :title="title" :description="description" :section="section">
+    <ClientOnly>
+      <elevenlabs-convai agent-id="agent_0101m5x1kfa6f3091b07bkh72w4n" />
+    </ClientOnly>
+
     <VideosFeaturedSection :list="featuredVideos" />
 
     <VideosFilterChips />

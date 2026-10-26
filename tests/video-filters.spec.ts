@@ -16,6 +16,8 @@ test.describe('Videos filter chips', () => {
       if (isMobile)
         return;
 
+      // Demo-only ElevenLabs widget on /videos; abort so networkidle stays reliable.
+      await page.route(/unpkg\.com|elevenlabs\.io|api\.elevenlabs/, route => route.abort());
       await page.goto('/videos');
 
       const chipRow = page.getByRole('region', { name: 'Filter videos by topic' });
