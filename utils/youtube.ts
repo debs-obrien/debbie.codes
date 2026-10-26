@@ -38,3 +38,13 @@ export function youtubeThumbnailSrcSet(videoId: string) {
 export function youtubePosterStyle(videoId: string) {
   return { backgroundImage: `url("${youtubeThumbnail(videoId)}")` }
 }
+
+/**
+ * Public watch link for a video. Keeps the same start offset VideoCard.vue
+ * passes to <lite-youtube> (`start`, in seconds; falsy means the beginning).
+ */
+export function youtubeWatchUrl(videoId: string, start?: number) {
+  const url = `https://www.youtube.com/watch?v=${encodeURIComponent(videoId.trim())}`
+  const seconds = Math.trunc(Number(start) || 0)
+  return seconds > 0 ? `${url}&t=${seconds}s` : url
+}

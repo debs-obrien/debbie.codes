@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
-import { webmcpTools } from '../utils/webmcp/tools';
+import { buildVideosResponse } from '../utils/webmcp/response';
+import { MAX_OUTPUT_CHARS, webmcpTools } from '../utils/webmcp/tools';
 
 const expected = Object.values(webmcpTools).map(t => t.name).sort();
 const listVideos = webmcpTools.listVideos;
@@ -85,6 +86,40 @@ test.describe('WebMCP list-videos', () => {
     expect(result.error).toBeUndefined();
     expect(result.videos.length).toBeGreaterThan(0);
     expect(JSON.stringify(result).length).toBeLessThanOrEqual(1500);
+  });
+
+  test('links keep a video\'s start offset', async ({ page }) => {
+    const result: any = await page.webmcp.callTool('list-videos', { conference: 'Vue Amsterdam Meetup', limit: 10 });
+    expect(result.error).toBeUndefined();
+    const talk = result.videos.find((v: any) => v.title.startsWith('Static generated sites'));
+    expect(talk?.link).toBe('https://www.youtube.com/watch?v=wTN6BPvs_6g&t=4530s');
+  });
+});
+
+test.describe('list-videos response size', () => {
+  const long = (n: number) => 'x'.repeat(n);
+  const bigVideo = (i: number) => ({
+    title: long(5000),
+    date: '2026-01-01',
+    video: `id${i}`,
+    tags: Array.from({ length: 50 }, () => long(500)),
+    conference: long(2000),
+    host: long(2000)
+  });
+
+  test('the whole response stays within the cap even with very long data', () => {
+    for (const count of [1, 2, 10]) {
+      const result: any = buildVideosResponse(Array.from({ length: count }, (_, i) => bigVideo(i)), 10);
+      expect(JSON.stringify(result).length).toBeLessThanOrEqual(MAX_OUTPUT_CHARS);
+      expect(result.videos.length).toBeGreaterThanOrEqual(1);
+    }
+  });
+
+  test('a response just under the cap counts the videos wrapper too', () => {
+    const rows = Array.from({ length: 10 }, (_, i) => ({ title: long(110), date: '2026-01-01', video: `id${i}`, tags: ['playwright'] }));
+    const result: any = buildVideosResponse(rows, 10);
+    expect(JSON.stringify(result).length).toBeLessThanOrEqual(MAX_OUTPUT_CHARS);
+    expect(result.videos.length).toBeLessThan(10);
   });
 });
 

@@ -1,14 +1,8 @@
 import { filterVisibleVideos } from '../videos'
-import { MAX_OUTPUT_CHARS, webmcpTools } from './tools'
+import { buildVideosResponse } from './response'
+import { webmcpTools } from './tools'
 
 let controller: AbortController | undefined
-
-function clip<T>(items: T[]): T[] {
-  const out = [...items]
-  while (out.length > 1 && JSON.stringify(out).length > MAX_OUTPUT_CHARS)
-    out.pop()
-  return out
-}
 
 function text(value: unknown, max: number) {
   return typeof value === 'string' ? value.trim().slice(0, max) || undefined : undefined
@@ -43,7 +37,7 @@ export async function registerWebMCPTools(mc: { registerTool: (tool: object, opt
         }
         const limit = Math.min(Math.max(Math.trunc(Number(raw?.limit ?? 5)) || 5, 1), 10)
         let q = queryCollection('videos')
-          .select('title', 'date', 'conference', 'host', 'video', 'tags')
+          .select('title', 'date', 'conference', 'host', 'video', 'start', 'tags')
           .order('date', 'DESC')
         if (input.conference)
           q = q.where('conference', 'LIKE', `%${input.conference}%`)
@@ -56,16 +50,7 @@ export async function registerWebMCPTools(mc: { registerTool: (tool: object, opt
         if (!rows.length)
           return noMatchError(input)
 
-        return {
-          videos: clip(rows.slice(0, limit).map(r => ({
-            title: r.title,
-            date: r.date,
-            link: `https://www.youtube.com/watch?v=${r.video}`,
-            tags: r.tags ?? [],
-            conference: r.conference ?? null,
-            host: r.host ?? null,
-          }))),
-        }
+        return buildVideosResponse(rows, limit)
       }
       catch (e) {
         return { error: `debbie.codes could not read videos right now (${(e as Error).message}). Try again.` }
