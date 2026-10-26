@@ -19,6 +19,7 @@
 /resources/guest-live-streams /videos/tags/live-streams 301
 /resources/conference-talks /videos/tags/conference-talk 301
 /resources/interviews /videos/tags/interviews 301
+/videos/tags/interview /videos/tags/interviews 301
 /resources/featured-posts /blog 301
 /resources/podcasts /podcasts 301
 /resources/courses /courses 301

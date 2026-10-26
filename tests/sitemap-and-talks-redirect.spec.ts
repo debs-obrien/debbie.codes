@@ -43,6 +43,25 @@ test.describe('Sitemap and /talks redirect', () => {
     expect(redirects.indexOf('/talks/devsum-2026')).toBeLessThan(redirects.indexOf('/talks /speaking'))
   })
 
+  test('_redirects merges singular interview tag into interviews', { tag: '@smoke' }, () => {
+    test.skip(
+      isEndform || !existsSync(redirectsPath),
+      'public/_redirects is not available on Endform runners (no repo checkout)',
+    )
+
+    const redirects = readFileSync(redirectsPath, 'utf8')
+    expect(redirects).toMatch(/^\/videos\/tags\/interview\s+\/videos\/tags\/interviews\s+301\s*$/m)
+  })
+
+  test('sitemap lists interviews tag, not singular interview', async ({ request }) => {
+    const res = await request.get('/sitemap.xml')
+    expect(res.status()).toBe(200)
+
+    const body = await res.text()
+    expect(body).toContain('https://debbie.codes/videos/tags/interviews')
+    expect(body).not.toMatch(/https:\/\/debbie\.codes\/videos\/tags\/interview<\/loc>/)
+  })
+
   test('deploy preview: /talks and /talks/ return 3xx to /speaking', async ({ request }) => {
     test.skip(!externalBaseURL, 'Netlify _redirects only apply on static hosting (deploy preview)')
 
