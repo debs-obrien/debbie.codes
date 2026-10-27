@@ -1,5 +1,5 @@
 /**
- * Fill optional chapters on MCP-tagged videos from YouTube description timestamps.
+ * Fill optional chapters on MCP-tagged videos from YouTube's own chapter markers.
  *
  * Rerun after adding an MCP-tagged video:
  *   node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/fill-video-chapters.mjs
@@ -7,15 +7,17 @@
  * Then regenerate the WebMCP index:
  *   node scripts/generate-content-index.mjs
  *
- * The script reads timestamps from the YouTube description. It skips a video
- * when that description has no timestamp list, and it never invents chapters.
- * A failed fetch leaves that file unchanged.
+ * Prefers youtubei/v1/next chapter markers (the same list the watch page shows,
+ * derived from the creator's description timestamps). Falls back to parsing the
+ * watch-page description text. Skips when YouTube lists no chapters. Never invents
+ * chapters. A failed fetch leaves that file unchanged.
  */
 import { readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import process from 'node:process'
 import { fileURLToPath } from 'node:url'
 import { parseDescriptionChapters } from '../utils/description-chapters.ts'
+import { fetchYouTubePlayerChapters } from '../utils/youtube-chapters-fetch.ts'
 import { normalizeTag, parseFrontmatter } from './generate-content-index.mjs'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
@@ -145,25 +147,43 @@ function mcpVideos() {
     .filter(video => video.tags.includes('mcp') && typeof video.fm.video === 'string')
 }
 
+async function chaptersForVideo(videoId) {
+  const fromPlayer = await fetchYouTubePlayerChapters(videoId)
+  if (fromPlayer.length)
+    return { chapters: fromPlayer, source: 'player' }
+  const description = await fetchYouTubeDescription(videoId)
+  const fromDescription = parseDescriptionChapters(description)
+  if (fromDescription.length)
+    return { chapters: fromDescription, source: 'description' }
+  return { chapters: [], source: 'none' }
+}
+
 export async function fillVideoChapters() {
   const videos = mcpVideos()
-  const summary = { mcp: videos.length, filled: 0, unchanged: 0, skipped: 0, failed: 0 }
+  const summary = {
+    mcp: videos.length,
+    filled: 0,
+    unchanged: 0,
+    skipped: 0,
+    failed: 0,
+    skippedNames: [],
+  }
   for (const video of videos) {
     try {
-      const description = await fetchYouTubeDescription(video.fm.video)
-      const chapters = parseDescriptionChapters(description)
+      const { chapters, source } = await chaptersForVideo(video.fm.video)
       if (chapters.length === 0) {
         summary.skipped++
-        console.log(`skip ${video.name}: description has no timestamp list`)
+        summary.skippedNames.push(video.name)
+        console.log(`skip ${video.name}: YouTube lists no chapter markers`)
       }
       else if (sameChapters(video.fm.chapters, chapters)) {
         summary.unchanged++
-        console.log(`keep ${video.name}: ${chapters.length} chapters`)
+        console.log(`keep ${video.name}: ${chapters.length} chapters (${source})`)
       }
       else {
         writeFileSync(video.file, withChapters(video.raw, chapters))
         summary.filled++
-        console.log(`fill ${video.name}: ${chapters.length} chapters`)
+        console.log(`fill ${video.name}: ${chapters.length} chapters (${source})`)
       }
     }
     catch (error) {

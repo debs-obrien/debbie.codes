@@ -5,4 +5,11 @@ description: Learn how to revolutionize your documentation workflow by automatic
 video: Jfi08dULAmw
 tags: [playwright, mcp, ai, testing]
 host: Debbie O'Brien
+chapters:
+  - time: 0
+    title: "Introduction to Playwright"
+  - time: 77
+    title: "Reviewing generated images"
+  - time: 116
+    title: "How to use the tool"
 ---

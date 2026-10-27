@@ -6,4 +6,15 @@ video: fk6S4yLxzYU
 tags: [ai, mcp]
 host: Debbie O'Brien
 image: https://img.youtube.com/vi/fk6S4yLxzYU/sddefault.jpg
+chapters:
+  - time: 0
+    title: "Introduction to Goose"
+  - time: 64
+    title: "Installing the Goose CLI"
+  - time: 107
+    title: "Troubleshooting Path Errors"
+  - time: 315
+    title: "Fixing Configuration Files"
+  - time: 372
+    title: "Using and Exploring Goose"
 ---

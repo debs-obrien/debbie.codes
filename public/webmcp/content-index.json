@@ -1894,7 +1894,85 @@
       "url": "https://www.youtube.com/watch?v=Numb52aJkJw",
       "video": "Numb52aJkJw",
       "description": "AI is changing how we build software and it's about to change how we test it. Learn how to supercharge your end-to-end testing strategy by combining Playwright's powerful test capabilities with the Playwright MCP Server to enable intelligent, AI-assisted workflows. Covers modern locators, resilient test patterns, parallelization, debugging features, and connecting the Playwright MCP Server to an LLM for automated test generation, coverage gap identification, and debugging failing tests.",
-      "conference": "NDC Conferences"
+      "conference": "NDC Conferences",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Introduction"
+        },
+        {
+          "time": 69,
+          "title": "AI Testing Overview"
+        },
+        {
+          "time": 317,
+          "title": "What is Playwright?"
+        },
+        {
+          "time": 440,
+          "title": "Key Concepts"
+        },
+        {
+          "time": 537,
+          "title": "The Swimming Lesson Story"
+        },
+        {
+          "time": 615,
+          "title": "AI Testing Approach"
+        },
+        {
+          "time": 747,
+          "title": "Debugging Tools"
+        },
+        {
+          "time": 866,
+          "title": "Playwright Agents"
+        },
+        {
+          "time": 1005,
+          "title": "MCP Test Server"
+        },
+        {
+          "time": 1205,
+          "title": "The Planner Agent"
+        },
+        {
+          "time": 1363,
+          "title": "Demo: Playwright Agents"
+        },
+        {
+          "time": 1494,
+          "title": "Security Best Practices"
+        },
+        {
+          "time": 1628,
+          "title": "The Generator Agent"
+        },
+        {
+          "time": 1748,
+          "title": "The Healer Agent"
+        },
+        {
+          "time": 1925,
+          "title": "Debugging Single Tests"
+        },
+        {
+          "time": 1979,
+          "title": "Best Practices"
+        },
+        {
+          "time": 2105,
+          "title": "The Future of Testing"
+        },
+        {
+          "time": 2193,
+          "title": "Testing Challenge"
+        },
+        {
+          "time": 2228,
+          "title": "Resources and Conclusion"
+        }
+      ]
     },
     {
       "type": "video",
@@ -1932,7 +2010,29 @@
       "url": "https://www.youtube.com/watch?v=fk6S4yLxzYU",
       "video": "fk6S4yLxzYU",
       "description": "A first look at Goose, a local-first, open-source AI agent framework released by Block. Watch as Goose detects a syntax error in the .zshrc file, finds that two PATH exports were accidentally merged into one line, safely edits the config file, and explains exactly why the terminal wasn't picking up the changes.",
-      "host": "Debbie O'Brien"
+      "host": "Debbie O'Brien",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Introduction to Goose"
+        },
+        {
+          "time": 64,
+          "title": "Installing the Goose CLI"
+        },
+        {
+          "time": 107,
+          "title": "Troubleshooting Path Errors"
+        },
+        {
+          "time": 315,
+          "title": "Fixing Configuration Files"
+        },
+        {
+          "time": 372,
+          "title": "Using and Exploring Goose"
+        }
+      ]
     },
     {
       "type": "video",
@@ -1961,7 +2061,53 @@
       "url": "https://www.youtube.com/watch?v=CR4mBQFVWUU",
       "video": "CR4mBQFVWUU",
       "description": "AI is changing how we build software—and it's about to change how we test it. In this session, you'll learn how to supercharge your end-to-end testing strategy by combining Playwright's powerful test capabilities with the Playwright MCP Server to enable intelligent, AI-assisted workflows.",
-      "conference": "Azure Dev Summit"
+      "conference": "Azure Dev Summit",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Introduction to AI testing"
+        },
+        {
+          "time": 234,
+          "title": "Playwright and MCP basics"
+        },
+        {
+          "time": 339,
+          "title": "Prompts and chat modes"
+        },
+        {
+          "time": 478,
+          "title": "Demo: Natural language testing"
+        },
+        {
+          "time": 731,
+          "title": "Debugging and fixing tests"
+        },
+        {
+          "time": 1015,
+          "title": "Introduction to Playwright agents"
+        },
+        {
+          "time": 1186,
+          "title": "Under the hood of agents"
+        },
+        {
+          "time": 1453,
+          "title": "Planning and generating tests"
+        },
+        {
+          "time": 2014,
+          "title": "Healer agent for test maintenance"
+        },
+        {
+          "time": 2281,
+          "title": "Tips for scaling tests"
+        },
+        {
+          "time": 2506,
+          "title": "Future of AI in testing"
+        }
+      ]
     },
     {
       "type": "video",
@@ -2115,7 +2261,45 @@
       "url": "https://www.youtube.com/watch?v=pGPWSILa0PM",
       "video": "pGPWSILa0PM",
       "description": "Looking to supercharge your web automation game? In this talk, from AI-Driven Development Day 2025, Debbie O'Brien reveals how Playwright + the Model Context Protocol (MCP) lets AI agents do more than just test - they can now browse, interact, and automate the web intelligently.",
-      "conference": "AI-Driven Development Day 2025"
+      "conference": "AI-Driven Development Day 2025",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Introduction and setup"
+        },
+        {
+          "time": 119,
+          "title": "Playwright and MCP overview"
+        },
+        {
+          "time": 172,
+          "title": "Prompts and instructions"
+        },
+        {
+          "time": 280,
+          "title": "Generating tests with AI"
+        },
+        {
+          "time": 681,
+          "title": "Self-healing and debugging"
+        },
+        {
+          "time": 795,
+          "title": "Advanced debugging techniques"
+        },
+        {
+          "time": 951,
+          "title": "Artifacts, traces, and config"
+        },
+        {
+          "time": 1175,
+          "title": "Agent guides and conclusion"
+        },
+        {
+          "time": 1394,
+          "title": "Q&A session"
+        }
+      ]
     },
     {
       "type": "video",
@@ -2130,7 +2314,21 @@
       "url": "https://www.youtube.com/watch?v=Jfi08dULAmw",
       "video": "Jfi08dULAmw",
       "description": "Learn how to revolutionize your documentation workflow by automatically creating interactive screenshots using the Playwright MCP server! This tutorial shows you how to generate step-by-step visual guides with minimal effort.",
-      "host": "Debbie O'Brien"
+      "host": "Debbie O'Brien",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Introduction to Playwright"
+        },
+        {
+          "time": 77,
+          "title": "Reviewing generated images"
+        },
+        {
+          "time": 116,
+          "title": "How to use the tool"
+        }
+      ]
     },
     {
       "type": "video",
@@ -2223,7 +2421,37 @@
       "url": "https://www.youtube.com/watch?v=n0CFmm38o4Y",
       "video": "n0CFmm38o4Y",
       "description": "Learn about the new Playwright MCP tool for evaluating JavaScript in your testing workflows. Discover how this powerful integration enhances your testing capabilities by allowing direct JavaScript evaluation within your Playwright tests.",
-      "host": "Debbie's youtube channel"
+      "host": "Debbie's youtube channel",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Intro"
+        },
+        {
+          "time": 16,
+          "title": "Install Playright"
+        },
+        {
+          "time": 40,
+          "title": "Configure Tools"
+        },
+        {
+          "time": 63,
+          "title": "Manual Tester"
+        },
+        {
+          "time": 83,
+          "title": "Testing"
+        },
+        {
+          "time": 159,
+          "title": "Result"
+        },
+        {
+          "time": 224,
+          "title": "Output"
+        }
+      ]
     },
     {
       "type": "video",
@@ -2286,7 +2514,33 @@
       "url": "https://www.youtube.com/watch?v=NSpCfRDS7vo",
       "video": "NSpCfRDS7vo",
       "description": "In this video, I'll show you how to use the Playwright MCP (Model Context Protocol) server to completely automate filling out a form — including uploading an image — just by writing a simple markdown prompt in VS Code.",
-      "host": "Debbie's youtube channel"
+      "host": "Debbie's youtube channel",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Setting up the prompt"
+        },
+        {
+          "time": 38,
+          "title": "Automated form filling"
+        },
+        {
+          "time": 103,
+          "title": "Completing form details"
+        },
+        {
+          "time": 168,
+          "title": "Uploading form images"
+        },
+        {
+          "time": 208,
+          "title": "Reviewing the submission"
+        },
+        {
+          "time": 260,
+          "title": "Submitting and concluding"
+        }
+      ]
     },
     {
       "type": "video",
@@ -2366,7 +2620,45 @@
       ],
       "url": "https://www.youtube.com/watch?v=0CDGPWjajcE",
       "video": "0CDGPWjajcE",
-      "description": "From real-world advice on overcoming resistance to testing in teams to the exciting possibilities MCP brings for generating and scaling tests with natural language and AI, this conversation is packed with both practical tips and future-looking insights."
+      "description": "From real-world advice on overcoming resistance to testing in teams to the exciting possibilities MCP brings for generating and scaling tests with natural language and AI, this conversation is packed with both practical tips and future-looking insights.",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Intro"
+        },
+        {
+          "time": 43,
+          "title": "Getting into Playwright"
+        },
+        {
+          "time": 375,
+          "title": "Playwright vs other frameworks"
+        },
+        {
+          "time": 503,
+          "title": "MCP"
+        },
+        {
+          "time": 978,
+          "title": "Open Browser"
+        },
+        {
+          "time": 1280,
+          "title": "Unrealistic expectations"
+        },
+        {
+          "time": 1531,
+          "title": "Barriers"
+        },
+        {
+          "time": 1664,
+          "title": "AI"
+        },
+        {
+          "time": 1923,
+          "title": "Outro"
+        }
+      ]
     },
     {
       "type": "video",
@@ -2440,7 +2732,49 @@
       "url": "https://www.youtube.com/watch?v=tdmgXAUfWFo",
       "video": "tdmgXAUfWFo",
       "description": "insights on what makes Playwright different, the latest features transforming the testing landscape, and how AI is being integrated to make testing more intelligent and efficient. You can expect to learn why Playwright is becoming the go-to choice for modern web testing and how to leverage its powerful features in your projects.",
-      "host": "Angular Show"
+      "host": "Angular Show",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Introduction and welcome"
+        },
+        {
+          "time": 107,
+          "title": "Meet the expert"
+        },
+        {
+          "time": 226,
+          "title": "What is Playwright"
+        },
+        {
+          "time": 444,
+          "title": "Why choose Playwright"
+        },
+        {
+          "time": 804,
+          "title": "Community and migration"
+        },
+        {
+          "time": 1151,
+          "title": "AI in testing and tooling"
+        },
+        {
+          "time": 1456,
+          "title": "Playwright MCP features"
+        },
+        {
+          "time": 2167,
+          "title": "Embracing change and AI"
+        },
+        {
+          "time": 2535,
+          "title": "Component testing"
+        },
+        {
+          "time": 2744,
+          "title": "Future outlook and wrap-up"
+        }
+      ]
     },
     {
       "type": "video",
@@ -2495,7 +2829,41 @@
       "url": "https://www.youtube.com/watch?v=pwbgvbJP8KM",
       "video": "pwbgvbJP8KM",
       "description": "using agent mode to generate tests with Playwright and GitHub Copilot.",
-      "host": "Debbie's youtube channel"
+      "host": "Debbie's youtube channel",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Setting up the test project"
+        },
+        {
+          "time": 72,
+          "title": "Exploring site functionality"
+        },
+        {
+          "time": 164,
+          "title": "Identifying testing gaps"
+        },
+        {
+          "time": 261,
+          "title": "Generating new test suites"
+        },
+        {
+          "time": 337,
+          "title": "Implementing complex tests"
+        },
+        {
+          "time": 453,
+          "title": "Testing dynamic content"
+        },
+        {
+          "time": 494,
+          "title": "Cleaning up test duplication"
+        },
+        {
+          "time": 661,
+          "title": "Final validation and fixes"
+        }
+      ]
     },
     {
       "type": "video",
@@ -2509,7 +2877,25 @@
       "url": "https://www.youtube.com/watch?v=psdu0BVal6w",
       "video": "psdu0BVal6w",
       "description": "Getting agent mode to complete a PR with Playwright and GitHub Copilot.",
-      "host": "Debbie's youtube channel"
+      "host": "Debbie's youtube channel",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Intro"
+        },
+        {
+          "time": 45,
+          "title": "Demo"
+        },
+        {
+          "time": 167,
+          "title": "Testing"
+        },
+        {
+          "time": 380,
+          "title": "Pull Request"
+        }
+      ]
     },
     {
       "type": "video",
