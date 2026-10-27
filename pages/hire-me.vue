@@ -188,7 +188,7 @@ const moreQuestions: Array<{ question: string, answer: Array<string | HireMePart
   {
     question: 'How fast can you get feedback to the engineering team?',
     answer: [
-      'The week I got back from a conference, I took one developer\'s feedback to the engineers. Accessible locators shipped in v1.27 less than three weeks later. A visual UI Mode followed six months later.',
+      'The week I got back from a conference, I took one developer\'s feedback to the engineers. Accessible locators shipped in v1.27 less than three weeks later. A visual UI Mode followed later.',
     ],
   },
 ]
