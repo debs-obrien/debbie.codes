@@ -16,13 +16,16 @@ async function blockElevenLabs(page: import('@playwright/test').Page) {
   await page.route(/unpkg\.com|elevenlabs\.io|api\.elevenlabs/, route => route.abort());
 }
 
-const forbiddenTerms = [
+const companyNamesInQuestions = [
   'Amazon',
   'AWS',
   'Microsoft',
   'Block',
   'Zephyr',
-  'goose',
+  'goose'
+];
+
+const pageWideBanned = [
   'ElevenLabs',
   'salary'
 ];
@@ -42,6 +45,14 @@ test.describe('Hire me page (PoC, preview only)', () => {
 
     await expect(page.getByRole('heading', { name: 'Numbers at a glance', level: 2 })).toBeVisible();
     await expect(page.locator('section[aria-labelledby="numbers-heading"] li').first()).toBeVisible();
+
+    const experience = page.getByTestId('hire-me-experience');
+    await expect(experience.getByRole('heading', { name: 'Experience', level: 2 })).toBeVisible();
+    await expect(experience.getByText(/Independent Developer Educator since Oct 2026/)).toBeVisible();
+    await expect(experience.getByText(/Zephyr from Apr 2026 to Sep 2026/)).toBeVisible();
+    await expect(experience.getByText(/Block in Feb 2026/)).toBeVisible();
+    await expect(experience.getByText(/Microsoft from May 2022 to Dec 2025/)).toBeVisible();
+    await expect(experience.locator('li')).toHaveCount(4);
 
     await expect(page.getByRole('heading', { name: 'Questions recruiters ask me', level: 2 })).toBeVisible();
     await expect(page.getByText('Tell me about yourself')).toBeVisible();
@@ -106,14 +117,30 @@ test.describe('Hire me page (PoC, preview only)', () => {
 
     await expect(page.locator('main a[href="https://www.youtube.com/watch?v=IixdI2bTR1g"]').first()).toHaveText('180K');
     await expect(page.locator('main a[href="https://www.youtube.com/watch?v=AaCj939XIQ4"]').first()).toHaveText('140K');
+    await expect(
+      page.locator('main a[href="https://www.youtube.com/watch?v=erqdtkd1GNg"]').first()
+    ).toHaveText('A live MCP workshop I co-taught in Spanish');
 
-    // Visible page text only — not script URLs or custom-element tag names.
-    const visibleText = await page.evaluate(() => {
-      // eslint-disable-next-line unicorn/prefer-dom-node-text-content -- leak guard must use visible text, not textContent
+    // Open Q&A answers so company-name ban covers answer copy via innerText.
+    for (const details of await page.getByTestId('hire-me-questions').locator('details').all())
+      await details.evaluate(el => el.setAttribute('open', ''));
+
+    const questionsText = await page.getByTestId('hire-me-questions').evaluate((el) => {
+      // eslint-disable-next-line unicorn/prefer-dom-node-text-content -- scoped leak guard must use visible text
+      return (el as HTMLElement).innerText;
+    });
+    for (const term of companyNamesInQuestions) {
+      expect(questionsText, `questions section must not contain "${term}"`).not.toMatch(
+        new RegExp(`\\b${term}\\b`, 'i')
+      );
+    }
+
+    const pageText = await page.evaluate(() => {
+      // eslint-disable-next-line unicorn/prefer-dom-node-text-content -- page-wide ban must use visible text
       return document.body.innerText;
     });
-    for (const term of forbiddenTerms) {
-      expect(visibleText, `visible page text must not contain "${term}"`).not.toMatch(
+    for (const term of pageWideBanned) {
+      expect(pageText, `page must not contain "${term}"`).not.toMatch(
         new RegExp(`\\b${term}\\b`, 'i')
       );
     }

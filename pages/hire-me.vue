@@ -15,6 +15,7 @@ const urls = {
   site: 'https://github.com/debs-obrien/debbie.codes',
   mcpTutorial180k: 'https://www.youtube.com/watch?v=IixdI2bTR1g',
   mcpTutorial140k: 'https://www.youtube.com/watch?v=AaCj939XIQ4',
+  mcpWorkshopSpanish: 'https://www.youtube.com/watch?v=erqdtkd1GNg',
 } as const
 
 function link(text: string, href: string): HireMePart {
@@ -29,6 +30,11 @@ const mcpTutorialViews: HireMePart[] = [
   ' views.',
 ]
 
+const mcpWorkshopSpanishViews: HireMePart[] = [
+  link('A live MCP workshop I co-taught in Spanish', urls.mcpWorkshopSpanish),
+  ' has about 16k views.',
+]
+
 const stats: Array<string | HireMePart[]> = [
   'Weekly npm downloads of playwright grew from under 1M to over 20M while I led its developer education (May 2022 to Dec 2025).',
   [
@@ -40,7 +46,7 @@ const stats: Array<string | HireMePart[]> = [
   'I ran a Playwright ambassador program with 10 people in 5 countries and 4 languages.',
   'Developer feedback led to accessible locators shipping in v1.27 within three weeks (7 Oct 2022), and later shaped UI Mode in v1.32.',
   mcpTutorialViews,
-  'A live MCP workshop I co-taught in Spanish has about 16k views.',
+  mcpWorkshopSpanishViews,
   'I have spoken at conferences since 2018 and gave 20+ conference talks and workshops as Playwright\'s external voice.',
   'I wrote 55 pages of end-user docs with 59 screenshots in four days, using an AI agent and three agent skills I built.',
   [
@@ -51,13 +57,10 @@ const stats: Array<string | HireMePart[]> = [
 ]
 
 const experience = [
-  'Independent Developer Educator, independent since Oct 2026.',
-  'Platform Engineer, Applied AI, at a platform startup, Apr 2026 to Sep 2026.',
-  'Senior Staff Developer Relations Engineer, Applied AI, at a fintech, Feb 2026.',
-  'Principal Technical Program Manager, Playwright, at a large developer platform company, May 2022 to Dec 2025.',
-  'Head of Developer Advocacy at a developer tools startup, 2021.',
-  'Developer Advocate for an open source framework, 2020 to 2021.',
-  'Tech lead, consultant and educator, 2008 to 2020.',
+  'I have been an Independent Developer Educator since Oct 2026.',
+  'I was Platform Engineer, Applied AI, at Zephyr from Apr 2026 to Sep 2026.',
+  'I was Senior Staff Developer Relations Engineer, Applied AI, at Block in Feb 2026.',
+  'I led Playwright developer education and community at Microsoft from May 2022 to Dec 2025. The Playwright Ambassador program later became part of the Microsoft MVP program.',
 ]
 
 const recruiterQuestions: Array<{ question: string, answer: Array<string | HireMePart[]> }> = [
@@ -123,7 +126,9 @@ const recruiterQuestions: Array<{ question: string, answer: Array<string | HireM
     question: 'How do you learn something new fast enough to teach it?',
     answer: [
       [
-        'When MCP was brand new, I built and broke MCP servers myself before writing a single slide. Then I co-taught a live beginner workshop in Spanish. We covered the mental model first, then real server demos, then a live build of ',
+        'When MCP was brand new, I built and broke MCP servers myself before writing a single slide. Then I co-taught ',
+        link('a live beginner workshop in Spanish', urls.mcpWorkshopSpanish),
+        '. We covered the mental model first, then real server demos, then a live build of ',
         link('a weather MCP server', urls.weatherDemo),
         ' that viewers could copy in about 20 minutes. The recording has about 16k views.',
       ],
@@ -156,7 +161,9 @@ const moreQuestions: Array<{ question: string, answer: Array<string | HireMePart
         link('180K', urls.mcpTutorial180k),
         ' and ',
         link('140K', urls.mcpTutorial140k),
-        ' views. A live MCP workshop I co-taught in Spanish has about 16k views. A demo app I built for teaching has over 100 GitHub stars and still runs.',
+        ' views. ',
+        link('A live MCP workshop I co-taught in Spanish', urls.mcpWorkshopSpanish),
+        ' has about 16k views. A demo app I built for teaching has over 100 GitHub stars and still runs.',
       ],
     ],
   },
@@ -328,7 +335,11 @@ useHead(() => ({
       </ul>
     </section>
 
-    <section class="mb-12" aria-labelledby="experience-heading">
+    <section
+      class="mb-12"
+      aria-labelledby="experience-heading"
+      data-testid="hire-me-experience"
+    >
       <h2
         id="experience-heading"
         class="text-2xl sm:text-3xl font-bold mb-4 text-gray-900 dark:text-white"
@@ -342,51 +353,53 @@ useHead(() => ({
       </ul>
     </section>
 
-    <section class="mb-12" aria-labelledby="recruiter-qa-heading">
-      <h2
-        id="recruiter-qa-heading"
-        class="text-2xl sm:text-3xl font-bold mb-4 text-gray-900 dark:text-white"
-      >
-        Questions recruiters ask me
-      </h2>
-      <ul class="space-y-3">
-        <li v-for="item in recruiterQuestions" :key="item.question">
-          <details class="group border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/40 open:bg-white dark:open:bg-gray-800">
-            <summary class="cursor-pointer list-none px-4 py-3 font-semibold text-gray-900 dark:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-primary">
-              {{ item.question }}
-            </summary>
-            <div class="px-4 pb-4 space-y-3 text-gray-700 dark:text-gray-200 leading-relaxed">
-              <p v-for="(paragraph, index) in item.answer" :key="index">
-                <HireMeParts :content="paragraph" />
-              </p>
-            </div>
-          </details>
-        </li>
-      </ul>
-    </section>
+    <div data-testid="hire-me-questions">
+      <section class="mb-12" aria-labelledby="recruiter-qa-heading">
+        <h2
+          id="recruiter-qa-heading"
+          class="text-2xl sm:text-3xl font-bold mb-4 text-gray-900 dark:text-white"
+        >
+          Questions recruiters ask me
+        </h2>
+        <ul class="space-y-3">
+          <li v-for="item in recruiterQuestions" :key="item.question">
+            <details class="group border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/40 open:bg-white dark:open:bg-gray-800">
+              <summary class="cursor-pointer list-none px-4 py-3 font-semibold text-gray-900 dark:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+                {{ item.question }}
+              </summary>
+              <div class="px-4 pb-4 space-y-3 text-gray-700 dark:text-gray-200 leading-relaxed">
+                <p v-for="(paragraph, index) in item.answer" :key="index">
+                  <HireMeParts :content="paragraph" />
+                </p>
+              </div>
+            </details>
+          </li>
+        </ul>
+      </section>
 
-    <section class="mb-12" aria-labelledby="more-qa-heading">
-      <h2
-        id="more-qa-heading"
-        class="text-2xl sm:text-3xl font-bold mb-4 text-gray-900 dark:text-white"
-      >
-        More questions people ask before hiring me
-      </h2>
-      <ul class="space-y-3">
-        <li v-for="item in moreQuestions" :key="item.question">
-          <details class="group border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/40 open:bg-white dark:open:bg-gray-800">
-            <summary class="cursor-pointer list-none px-4 py-3 font-semibold text-gray-900 dark:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-primary">
-              {{ item.question }}
-            </summary>
-            <div class="px-4 pb-4 space-y-3 text-gray-700 dark:text-gray-200 leading-relaxed">
-              <p v-for="(paragraph, index) in item.answer" :key="index">
-                <HireMeParts :content="paragraph" />
-              </p>
-            </div>
-          </details>
-        </li>
-      </ul>
-    </section>
+      <section class="mb-12" aria-labelledby="more-qa-heading">
+        <h2
+          id="more-qa-heading"
+          class="text-2xl sm:text-3xl font-bold mb-4 text-gray-900 dark:text-white"
+        >
+          More questions people ask before hiring me
+        </h2>
+        <ul class="space-y-3">
+          <li v-for="item in moreQuestions" :key="item.question">
+            <details class="group border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/40 open:bg-white dark:open:bg-gray-800">
+              <summary class="cursor-pointer list-none px-4 py-3 font-semibold text-gray-900 dark:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+                {{ item.question }}
+              </summary>
+              <div class="px-4 pb-4 space-y-3 text-gray-700 dark:text-gray-200 leading-relaxed">
+                <p v-for="(paragraph, index) in item.answer" :key="index">
+                  <HireMeParts :content="paragraph" />
+                </p>
+              </div>
+            </details>
+          </li>
+        </ul>
+      </section>
+    </div>
 
     <section class="mb-12" aria-labelledby="projects-heading">
       <h2
