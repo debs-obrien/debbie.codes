@@ -1,4 +1,7 @@
-import { readFileSync, writeFileSync } from 'node:fs';
+import type { APIRequestContext } from '@playwright/test';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { expect, test } from '@playwright/test';
 import { parseDescriptionChapters } from '../utils/description-chapters';
 import {
@@ -15,6 +18,8 @@ import { youtubeWatchUrl } from '../utils/youtube';
 
 const expected = Object.values(webmcpTools).map(t => t.name).sort();
 const listVideos = webmcpTools.listVideos;
+const repoRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
+const catalogPath = join(repoRoot, 'public/webmcp/content-index.json');
 
 async function waitForWebmcpTools(page: import('@playwright/test').Page) {
   await expect.poll(async () => {
@@ -113,8 +118,10 @@ test.describe('WebMCP tools', () => {
       expect(tool.annotations?.readOnly).toBe(true);
   });
 
-  test('topic-brief summarizes mcp and accepts the long alias', async ({ page }) => {
-    const raw = loadCatalog();
+  test('topic-brief summarizes mcp and accepts the long alias', async ({ page, request, baseURL }) => {
+    // Prefer the site under test so Netlify preview / merge-commit checkouts
+    // do not compare a regenerated local index against a different deploy.
+    const raw = await loadSiteCatalog(request, baseURL);
     const tagged = raw.items.filter((item: { tags?: string[] }) => item.tags?.includes('mcp'));
     const counts = { blog: 0, video: 0, podcast: 0, course: 0 };
     for (const item of tagged) {
@@ -188,7 +195,7 @@ test.describe('WebMCP tools', () => {
     saveSample('topic-brief-timings', { first: first.ms, second: second.ms, warm: times });
   });
 
-  test('search-content finds playwright agents and a chapter deep link', async ({ page }) => {
+  test('search-content finds playwright agents and a chapter deep link', async ({ page, request, baseURL }) => {
     const found: any = await page.webmcp.callTool('search-content', { query: 'playwright agents' });
     expect(found.error).toBeUndefined();
     expect(found.results.length).toBeGreaterThan(0);
@@ -206,7 +213,7 @@ test.describe('WebMCP tools', () => {
     }
     saveSample('search-content-playwright-agents', found);
 
-    const index = parseContentIndex(loadCatalog());
+    const index = parseContentIndex(await loadSiteCatalog(request, baseURL));
     const video = index.items.find(item =>
       item.type === 'video'
       && item.chapters?.some(chapter => chapter.time > 0 && chapter.title.length >= 12 && chapter.title.length <= 80)
@@ -315,8 +322,21 @@ test.describe('list-videos response size', () => {
   });
 });
 
-function loadCatalog() {
-  return JSON.parse(readFileSync('public/webmcp/content-index.json', 'utf8'));
+function loadCatalogFromDisk() {
+  if (!existsSync(catalogPath))
+    throw new Error(`missing content index at ${catalogPath}`);
+  return JSON.parse(readFileSync(catalogPath, 'utf8'));
+}
+
+/** Catalog the site under test actually serves (preview-safe). Falls back to disk. */
+async function loadSiteCatalog(request: APIRequestContext, baseURL?: string) {
+  const root = (baseURL || process.env.PLAYWRIGHT_TEST_BASE_URL || process.env.BASE_URL || '').replace(/\/$/, '');
+  if (root) {
+    const response = await request.get(`${root}/webmcp/content-index.json`);
+    expect(response.ok(), `GET ${root}/webmcp/content-index.json → ${response.status()}`).toBeTruthy();
+    return await response.json();
+  }
+  return loadCatalogFromDisk();
 }
 
 function saveSample(name: string, value: unknown) {
@@ -391,8 +411,9 @@ test('tool catalog stays inside the WebMCP size limits', () => {
   }
 });
 
-test('content index omits banned videos and keeps chapter timestamps', () => {
-  const raw = loadCatalog();
+test('content index omits banned videos and keeps chapter timestamps', async ({ request, baseURL }) => {
+  // Endform runners may not ship public/; prefer the preview URL when set.
+  const raw = await loadSiteCatalog(request, baseURL);
   const index = parseContentIndex(raw);
   const ids = index.items.flatMap(item => item.type === 'video' ? [item.video] : []);
   expect(ids).not.toContain('A8Gu-ayw6dM');
