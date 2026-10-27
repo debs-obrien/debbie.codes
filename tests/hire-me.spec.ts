@@ -52,7 +52,10 @@ test.describe('Hire me page (PoC, preview only)', () => {
     await expect(experience.getByText(/Zephyr from Apr 2026 to Sep 2026/)).toBeVisible();
     await expect(experience.getByText(/Block in Feb 2026/)).toBeVisible();
     await expect(experience.getByText(/Microsoft from May 2022 to Dec 2025/)).toBeVisible();
-    await expect(experience.locator('li')).toHaveCount(4);
+    await expect(experience.getByText(/Head of Developer Advocacy at Bit in 2021/)).toBeVisible();
+    await expect(experience.getByText(/Developer Advocate at Nuxt from 2020 to 2021/)).toBeVisible();
+    await expect(experience.getByText(/tech lead, consultant and educator from 2008 to 2020/)).toBeVisible();
+    await expect(experience.locator('li')).toHaveCount(7);
 
     await expect(page.getByRole('heading', { name: 'Questions recruiters ask me', level: 2 })).toBeVisible();
     await expect(page.getByText('Tell me about yourself')).toBeVisible();

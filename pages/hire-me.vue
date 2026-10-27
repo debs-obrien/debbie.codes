@@ -61,6 +61,9 @@ const experience = [
   'I was Platform Engineer, Applied AI, at Zephyr from Apr 2026 to Sep 2026.',
   'I was Senior Staff Developer Relations Engineer, Applied AI, at Block in Feb 2026.',
   'I led Playwright developer education and community at Microsoft from May 2022 to Dec 2025. The Playwright Ambassador program later became part of the Microsoft MVP program.',
+  'I was Head of Developer Advocacy at Bit in 2021, leading advocacy strategy and content and growing the community through talks, demos and educational content.',
+  'I was Developer Advocate at Nuxt from 2020 to 2021, covering content, talks, community, courses and videos for the Nuxt ecosystem.',
+  'Earlier I worked as a tech lead, consultant and educator from 2008 to 2020 on frontend and performance, leading teams, delivering workshops, and teaching at Vue School and Jamstack Explorers.',
 ]
 
 const recruiterQuestions: Array<{ question: string, answer: Array<string | HireMePart[]> }> = [
