@@ -89,7 +89,7 @@ I didn't build this one on my own. I worked with my Grok Bot.
 
 Everything the agent knows comes from one system prompt, about 9,000 characters, written from the same notes as the page. There's no knowledge base and there are no tools. My rules for what it should and shouldn't say are in that prompt too. ElevenLabs has its own built-in guardrails, and I have them turned on, so they sit on top of the rules in the prompt.
 
-The prompt doesn't sync with the page. So when I change the page, Grok Bot updates the prompt through the ElevenLabs Agents API to match. For example, when I widened the page's audience to recruiters, hiring managers and future teammates, the prompt got the same change.
+Keep the agent's facts the same as the page. Nothing syncs them, so when the page changes, update the prompt too. On my site, Grok Bot does that through the ElevenLabs Agents API. For example, when I widened the page's audience to recruiters, hiring managers and future teammates, the prompt got the same change.
 
 ### How I tested it
 
@@ -102,6 +102,8 @@ Honestly, the testing was thin. The agent's history shows 3 test calls: an 80 se
 The site itself has Playwright tests that run in CI. They check that the page renders and that certain words never appear on it, and that "Hire me" is in the menus and the sitemap.
 
 I haven't tested every rule in a real call yet, so treat the rules above as what the agent is told to do.
+
+Before you share your own agent, ask it something it shouldn't answer, ask if it's you, and ask something that isn't on the page.
 
 ### The embed
 
@@ -148,14 +150,6 @@ These steps follow the official docs:
 5. **Lock it down.** The widget needs a public agent, so add your site to the agent's allowlist. The [authentication docs](https://elevenlabs.io/docs/eleven-agents/customization/authentication) say you can add up to 10 hostnames, and each one has to match exactly, so add `www` separately if you use it.
 6. **Check your privacy settings.** The [privacy docs](https://elevenlabs.io/docs/eleven-agents/customization/privacy) cover how long transcripts are kept and whether call audio is saved.
 7. **Optional: manage it from code.** If you want your agent in version control or want an AI agent to set it up for you, like I did with Grok Bot, you can use the Agents API to [get](https://elevenlabs.io/docs/api-reference/agents/get) and [update](https://elevenlabs.io/docs/api-reference/agents/update) an agent.
-
-## What I learned
-
-- **Keep the agent's facts the same as the page.** Today there's no automatic sync, so when the page changes, the prompt has to change too.
-- **Rules are product decisions.** No company names in the answers and "I'm her AI assistant" were both choices about how I want to come across.
-- **Honest numbers beat big numbers.** Saying "I was part of the growth" is better than claiming all of it.
-- **Accept the vendor's branding.** The "Powered by" line stays.
-- **Test the questions people might worry about.** Before you share your own agent, ask it a question it shouldn't answer, ask if it's you, ask something that isn't on the page, and check what it says.
 
 ## Try it
 
