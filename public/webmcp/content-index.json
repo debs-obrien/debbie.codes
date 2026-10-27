@@ -245,6 +245,19 @@
     },
     {
       "type": "blog",
+      "title": "I Used Skill Creator v2 to Improve One of My Agent Skills in VS Code",
+      "date": "2026-03-21",
+      "tags": [
+        "ai",
+        "githubcopilot",
+        "webdev"
+      ],
+      "url": "https://debbie.codes/blog/skill-creator-v2-agent-skills-vs-code",
+      "path": "/blog/skill-creator-v2-agent-skills-vs-code",
+      "description": "I just published a video showing how I used Skill Creator v2 to improve an existing AI skill inside VS Code, and honestly, I was seriously surprised at how much this thing does."
+    },
+    {
+      "type": "blog",
       "title": "Build Websites, Games, and Teaching Resources With Google Gemini for Free (No Coding Required)",
       "date": "2026-03-15",
       "tags": [
@@ -279,6 +292,19 @@
       "url": "https://debbie.codes/blog/from-prompt-files-to-agent-skills",
       "path": "/blog/from-prompt-files-to-agent-skills",
       "description": "How I migrated from three separate VS Code prompt files to a single portable agent skill that handles videos, podcasts, and blog posts — with browser verification and automatic PR creation built in."
+    },
+    {
+      "type": "blog",
+      "title": "I Needed an APP to Track My Learning Journey, AI built it in less than half an hour with a single prompt",
+      "date": "2026-01-17",
+      "tags": [
+        "ai",
+        "mcp",
+        "playwright"
+      ],
+      "url": "https://debbie.codes/blog/app-to-track-my-learning-journey",
+      "path": "/blog/app-to-track-my-learning-journey",
+      "description": "I have been trying to build a Learning Hub App for a good few months using various tools and have had many iterations back and forth on trying to get it to work and ended up going round in circles fixing one thing and breaking another."
     },
     {
       "type": "blog",
@@ -1779,6 +1805,35 @@
     },
     {
       "type": "video",
+      "title": "Building AI Agent Workflows With Skills and MCPs | Prepathon 2026",
+      "date": "2026-09-25",
+      "tags": [
+        "conference-talk",
+        "ai",
+        "mcp"
+      ],
+      "url": "https://www.youtube.com/watch?v=YEnFOGUcWBY",
+      "video": "YEnFOGUcWBY",
+      "description": "Debbie O'Brien, Developer Educator, shows how to use AI agents, Skills, and MCPs (Model Context Protocol) to build development workflows that run without you. She walks through the pattern she runs on her own site, debbie.codes: one skill that hunts for bugs, another that reproduces and fixes them, always with screenshot proof before any code changes, and always with a human pressing merge.",
+      "conference": "Cloudways Prepathon 2026"
+    },
+    {
+      "type": "video",
+      "title": "Agentic commerce with Grok Bot and PayPal",
+      "date": "2026-09-09",
+      "tags": [
+        "live-streams",
+        "ai",
+        "grok-bot",
+        "interviews"
+      ],
+      "url": "https://www.youtube.com/watch?v=hJzFv6izuYs",
+      "video": "hJzFv6izuYs",
+      "description": "Debbie O'Brien shows Eddie Jaoude how an AI agent can shop from a photo, fill the cart, and walk itself to PayPal checkout. She has spent weeks handing pieces of her life to an agent—inbox, meeting notes, blog posts, and the food shop—and does a live Decathlon purchase where the agent drives checkout and Debbie approves.",
+      "host": "PayPal Developer"
+    },
+    {
+      "type": "video",
       "title": "I Created an AI Fitness Coach with Grok Bot",
       "date": "2026-09-08",
       "tags": [
@@ -2212,6 +2267,21 @@
     },
     {
       "type": "video",
+      "title": "Frontend Nation 2026: How I Used AI to Fix Our E2E Test Architecture by Debbie O'Brien",
+      "date": "2026-06-11",
+      "tags": [
+        "conference-talk",
+        "playwright",
+        "testing",
+        "ai"
+      ],
+      "url": "https://www.youtube.com/watch?v=HAoE8XncIWM",
+      "video": "HAoE8XncIWM",
+      "description": "What happens when your E2E tests pass in CI but fail locally? In this Frontend Nation 2026 talk, Debbie O'Brien shares how she used AI to analyze 14,000 lines of Playwright test infrastructure, uncover hidden issues, and systematically improve the reliability of an end-to-end testing suite—including a reusable AI-driven workflow that implemented 33 targeted improvements.",
+      "conference": "Frontend Nation 2026"
+    },
+    {
+      "type": "video",
       "title": "Coffee and Open Source Conversation - Debbie O'Brien",
       "date": "2026-05-19",
       "tags": [
@@ -2241,6 +2311,22 @@
       "video": "PbC5m-4P4hU",
       "description": "The future of development isn't just AI-assisted, it's AI-orchestrated. In this talk from Vue Amsterdam, explore how to build powerful agentic workflows that transform how developers work — assigning tasks directly to AI agents, leveraging the Model Context Protocol (MCP) ecosystem to extend agent capabilities, and verifying agent work using tools like Playwright.",
       "conference": "Vue Amsterdam"
+    },
+    {
+      "type": "video",
+      "title": "Playwright MCP: Master AI-Powered Debugging & Browser Automation",
+      "date": "2026-04-09",
+      "tags": [
+        "conference-talk",
+        "playwright",
+        "testing",
+        "ai",
+        "mcp"
+      ],
+      "url": "https://www.youtube.com/watch?v=3x6J5IEEp5E",
+      "video": "3x6J5IEEp5E",
+      "description": "In this session of TestMu Conference 2025, Debbie O'Brien explores how AI is transforming slow and unreliable testing workflows with smarter debugging, AI-powered test creation, and seamless browser automation using Playwright MCP.",
+      "conference": "TestMu Conference 2025"
     },
     {
       "type": "video",
@@ -2900,6 +2986,22 @@
     },
     {
       "type": "video",
+      "title": "AIDD Day MCP Edition: Supercharged Testing: AI-Powered Workflows with Playwright + MCP",
+      "date": "2025-11-26",
+      "tags": [
+        "conference-talk",
+        "playwright",
+        "ai",
+        "mcp",
+        "testing"
+      ],
+      "url": "https://www.youtube.com/watch?v=Z_kJlltXIQA",
+      "video": "Z_kJlltXIQA",
+      "description": "AI is changing how we build software, and it's about to change how we test it. Learn how to supercharge your end-to-end testing strategy by combining Playwright's powerful test capabilities with the Playwright Test MCP (Model Context Protocol) Server through Playwright Agents to enable intelligent, AI-assisted testing workflows.",
+      "conference": "AI-Driven Development Day MCP Edition"
+    },
+    {
+      "type": "video",
       "title": "How I Vibe Code - Live session on improving my site design with Goose and Gemini 3",
       "date": "2025-11-20",
       "tags": [
@@ -3266,6 +3368,22 @@
     },
     {
       "type": "video",
+      "title": "Playwright Live - Playwright Agents & Playwright MCP",
+      "date": "2025-10-09",
+      "tags": [
+        "live-streams",
+        "playwright",
+        "testing",
+        "ai",
+        "mcp"
+      ],
+      "url": "https://www.youtube.com/watch?v=S4qzP07ZkOg",
+      "video": "S4qzP07ZkOg",
+      "description": "Playwright Live session on Playwright Agents with Debbie O'Brien and Ben Fellows—using the planner agent to generate test plans, the generator agent to create tests from those plans, and the healer agent to debug and fix failing tests.",
+      "host": "Playwright"
+    },
+    {
+      "type": "video",
       "title": "Playwright v1.56 - From MCP to Playwright Agents",
       "date": "2025-10-06",
       "tags": [
@@ -3390,6 +3508,20 @@
     },
     {
       "type": "video",
+      "title": "Playwright Live - Playwright in VS Code",
+      "date": "2025-08-29",
+      "tags": [
+        "live-streams",
+        "playwright",
+        "testing"
+      ],
+      "url": "https://www.youtube.com/watch?v=8iZte7u4vlE",
+      "video": "8iZte7u4vlE",
+      "description": "Playwright Live session with Debbie O'Brien and Simon Knott showing off Playwright in VS Code with the Playwright VS Code Extension—installation, configuration, running and debugging tests, locators, codegen, and more.",
+      "host": "Playwright"
+    },
+    {
+      "type": "video",
       "title": "Playwright MCP + Chrome Extension Testing with Logged-In Profiles",
       "date": "2025-08-21",
       "tags": [
@@ -3428,6 +3560,21 @@
           "title": "Generating tests with the LLM"
         }
       ]
+    },
+    {
+      "type": "video",
+      "title": "Let's Learn MCP: TypeScript (Español)",
+      "date": "2025-07-23",
+      "tags": [
+        "mcp",
+        "typescript",
+        "live-streams",
+        "ai"
+      ],
+      "url": "https://www.youtube.com/watch?v=erqdtkd1GNg",
+      "video": "erqdtkd1GNg",
+      "description": "Spanish-language beginner workshop on the Model Context Protocol (MCP), an innovative framework designed to standardize interactions between AI models and client applications. Featuring Debbie O'Brien and Miguel Angel Duran, walking through creating your first MCP server.",
+      "host": "Microsoft Reactor"
     },
     {
       "type": "video",
@@ -4106,6 +4253,52 @@
     },
     {
       "type": "video",
+      "title": "Automation, Playwright, and the Future | Debbie O'Brien | #Qonfx2025",
+      "date": "2025-05-18",
+      "tags": [
+        "conference-talk",
+        "playwright",
+        "testing",
+        "ai",
+        "interviews"
+      ],
+      "url": "https://www.youtube.com/watch?v=9rrfvKBzMY0",
+      "video": "9rrfvKBzMY0",
+      "description": "In this QonfX 2025 fireside chat, Debbie O'Brien explores how AI is changing the landscape of test automation, the shifting role of programming, and what tools like Playwright might look like with deeper AI integration—plus role-specific advice for test leaders and engineers navigating this AI-led shift.",
+      "conference": "QonfX 2025 / The Test Tribe"
+    },
+    {
+      "type": "video",
+      "title": "Playwright Live - Testing with AI using Playwright MCP (Model Context Protocol) + Live Demo",
+      "date": "2025-04-16",
+      "tags": [
+        "live-streams",
+        "playwright",
+        "testing",
+        "ai",
+        "mcp"
+      ],
+      "url": "https://www.youtube.com/watch?v=CNzg1aPwrKI",
+      "video": "CNzg1aPwrKI",
+      "description": "Playwright Live session with Debbie O'Brien and Simon Knott diving into Playwright MCP (Model Context Protocol)—what MCP is, live demos of driving browsers with language models for testing, and how to start experimenting with it today.",
+      "host": "Playwright"
+    },
+    {
+      "type": "video",
+      "title": "Advanced Playwright Techniques for flawless testing | Debbie O'Brien | #testflix2024",
+      "date": "2025-01-20",
+      "tags": [
+        "conference-talk",
+        "playwright",
+        "testing"
+      ],
+      "url": "https://www.youtube.com/watch?v=W1tFtIA7rWA",
+      "video": "W1tFtIA7rWA",
+      "description": "In this TestFlix 2024 session, Debbie O'Brien dives into Advanced Playwright Techniques for Flawless Testing—covering efficient test setup, test annotations, API mocking, and other practical insights for enhancing test reliability.",
+      "conference": "TestFlix 2024"
+    },
+    {
+      "type": "video",
       "title": "Advanced Playwright Techniques for Flawless Testing",
       "date": "2024-11-13",
       "tags": [
@@ -4194,6 +4387,77 @@
       "video": "O0TeeSbQPWY",
       "description": "Here's another session on \"Advanced Playwright Techniques for Flawless Testing\" by 𝐃𝐞𝐛𝐛𝐢𝐞 𝐎'𝐁𝐫𝐢𝐞𝐧, Senior Program Manager, Microsoft. In this talk, she explores some advanced Playwright capabilities and uncovers a range of features that you may not know about, from project dependencies to box steps, API mocking, testing time, and more.",
       "host": "LambdaTest"
+    },
+    {
+      "type": "video",
+      "title": "E2E Testing using Playwright with Debbie O'Brien from Microsoft",
+      "date": "2024-07-10",
+      "tags": [
+        "live-streams",
+        "playwright",
+        "testing"
+      ],
+      "url": "https://www.youtube.com/watch?v=lcHaBZKuPdk",
+      "video": "lcHaBZKuPdk",
+      "description": "In this livestream Debbie O'Brien, Senior Technical PM at Microsoft, joins Eddie Jaoude to add Playwright to a Next.js project (Healthcheck), covering why automated testing early gives confidence that a project is stable.",
+      "host": "Eddie Jaoude"
+    },
+    {
+      "type": "video",
+      "title": "Frontend Nation 2024: Debbie O'Brien - Testing with Playwright in an AI-Assisted Development World",
+      "date": "2024-06-06",
+      "tags": [
+        "conference-talk",
+        "playwright",
+        "testing",
+        "ai"
+      ],
+      "url": "https://www.youtube.com/watch?v=PJExSphHd-k",
+      "video": "PJExSphHd-k",
+      "description": "In her Frontend Nation talk, Debbie O'Brien explores the crucial role of testing with Playwright in the era of AI-assisted development—how Playwright can be your testing co-pilot with codegen, tracing, and cross-browser testing while embracing tools like GitHub Copilot.",
+      "conference": "Frontend Nation 2024"
+    },
+    {
+      "type": "video",
+      "title": "A chat with Debbie O'Brien",
+      "date": "2024-03-12",
+      "tags": [
+        "interviews",
+        "live-streams"
+      ],
+      "url": "https://www.youtube.com/watch?v=LGZHiAr2Wdo",
+      "video": "LGZHiAr2Wdo",
+      "description": "For this episode of the BeJS Podcast/chat, Debbie O'Brien joins BeJS. Debbie is Senior Technical Program Manager at Microsoft, a Microsoft MVP in developer technologies, Google Developer Expert in web technologies, GitHub Star, and international speaker.",
+      "host": "BeJS"
+    },
+    {
+      "type": "video",
+      "title": "Everyone Can Easily Write Tests - Debbie O'Brien, TestJS Summit 2023",
+      "date": "2023-12-18",
+      "tags": [
+        "conference-talk",
+        "playwright",
+        "testing"
+      ],
+      "url": "https://www.youtube.com/watch?v=SR7KbeImRII",
+      "video": "SR7KbeImRII",
+      "description": "Let's take a look at how Playwright can help you get your end to end tests written with tools like Codegen that generate tests on user interaction. Explore UI mode for a better developer experience, then go further with Playwright's testing features.",
+      "conference": "TestJS Summit 2023"
+    },
+    {
+      "type": "video",
+      "title": "DEBBIE O'BRIEN - Playing your tests wright",
+      "date": "2023-11-07",
+      "tags": [
+        "conference-talk",
+        "playwright",
+        "testing",
+        "react"
+      ],
+      "url": "https://www.youtube.com/watch?v=LrUxVstGM08",
+      "video": "LrUxVstGM08",
+      "description": "Debbie O'Brien presents Playing your tests wright at React Alicante 2023.",
+      "conference": "React Alicante 2023"
     },
     {
       "type": "video",
@@ -4607,6 +4871,35 @@
           "title": "Community and resources"
         }
       ]
+    },
+    {
+      "type": "video",
+      "title": "Component Testing with Playwright, Debbie O'Brien, ViteConf 2022",
+      "date": "2023-02-03",
+      "tags": [
+        "conference-talk",
+        "playwright",
+        "testing"
+      ],
+      "url": "https://www.youtube.com/watch?v=ZF1W6FxWOiA",
+      "video": "ZF1W6FxWOiA",
+      "description": "Let's make testing easy and fun. From installation to getting tests running on CI, generating and running tests without leaving your editor, and using Trace Viewer for component test debugging—Playwright helps you create better and more stable applications.",
+      "conference": "ViteConf 2022"
+    },
+    {
+      "type": "video",
+      "title": "Playwright with Debbie O'Brien (JS Party Live!)",
+      "date": "2022-11-21",
+      "tags": [
+        "live-streams",
+        "playwright",
+        "testing",
+        "interviews"
+      ],
+      "url": "https://www.youtube.com/watch?v=1I3lEiSlwvY",
+      "video": "1I3lEiSlwvY",
+      "description": "Amal Hussein and Nick Nisi welcome Debbie O'Brien to discuss all things Playwright on JS Party Live.",
+      "host": "Changelog"
     },
     {
       "type": "video",
@@ -9875,6 +10168,18 @@
       "url": "https://unhandledexceptionpodcast.com/posts/0083-playwright/",
       "description": "In this episode, Debbie O'Brien chats about Playwright - Microsoft's open-source end-to-end testing framework. Topics covered include Codegen, Trace Viewer, UI Mode, and AI features including the Playwright MCP Server which enables AI agents to automate browser interactions.",
       "host": "The Unhandled Exception Podcast"
+    },
+    {
+      "type": "podcast",
+      "title": "La IA de Microsoft va a REVOLUCIONAR el desarrollo con Debbie O'Brien | MAB Podcast #19",
+      "date": "2025-11-27",
+      "tags": [
+        "playwright",
+        "testing"
+      ],
+      "url": "https://www.youtube.com/watch?v=J3djzf5bMEs",
+      "description": "En este episodio de Más Allá del BUG, Debbie O'Brien, Developer Advocate en Microsoft, speaker internacional y figura clave en la comunidad front-end y de testing, habla sobre Playwright—el framework creado por el equipo original de Puppeteer y Chrome DevTools—y cómo la IA está revolucionando el desarrollo y la automatización.",
+      "host": "Más Allá del BUG / QEvolution"
     },
     {
       "type": "podcast",

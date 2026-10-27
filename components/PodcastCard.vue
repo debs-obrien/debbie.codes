@@ -16,7 +16,7 @@ defineProps<{
         class="block"
       >
         <NuxtImg
-          :provider="item.provider || 'cloudinary'"
+          :provider="item.image?.includes('/image/upload/') ? (item.provider || 'cloudinary') : undefined"
           :src="item.image"
           :alt="item.title"
           width="400"

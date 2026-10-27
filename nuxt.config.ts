@@ -94,7 +94,7 @@ export default defineNuxtConfig({
 
   vue: {
     compilerOptions: {
-      isCustomElement: tag => ['lite-youtube'].includes(tag),
+      isCustomElement: tag => ['lite-youtube', 'elevenlabs-convai'].includes(tag),
     },
   },
 
@@ -102,6 +102,8 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
+      // PoC /hire-me voice widget (public agent id; origin-allowlisted for preview + debbie.codes).
+      hireMeAgentId: process.env.HIRE_ME_AGENT_ID || 'agent_8801m5yfwzgpf61szvhj0mj0v5fv',
       // Defaults are the live debbie.codes WebMCP tokens (utils/origin-trial.ts).
       // NUXT_PUBLIC_WEBMCP_OT_CHROME / _EDGE override. webmcpOtRender is baked at
       // build time so production HTML keeps the meta after client hydration.
