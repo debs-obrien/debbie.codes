@@ -85,13 +85,9 @@ I didn't build this one on my own. I worked with my Grok Bot.
 - **The spec.** Grok Bot wrote a Markdown spec for the agent with two parts: the first message and the system prompt. The facts in the prompt were written from the same notes as the page.
 - **The agent.** Grok Bot created the agent from that spec through the ElevenLabs Agents API, then set the allowed site and the widget labels through the API too. I reviewed it and told it what to change.
 
-![The agent in the ElevenLabs dashboard with the start of the system prompt, the first message, the Alice voice and English. The model name is blurred.](/images/blog/hire-me-voice-agent-grok-bot/09-elevenlabs-agent-overview.png)
-
 ### How the agent gets its data
 
 Everything the agent knows comes from one system prompt, about 9,000 characters, written from the same notes as the page. There's no knowledge base and there are no tools. My rules for what it should and shouldn't say are in that prompt too. ElevenLabs has its own built-in guardrails, and I have them turned on, so they sit on top of the rules in the prompt.
-
-![Some of the "Never do these" rules in the system prompt.](/images/blog/hire-me-voice-agent-grok-bot/10-elevenlabs-prompt-rules.png)
 
 The prompt doesn't sync with the page. So when I change the page, Grok Bot updates the prompt through the ElevenLabs Agents API to match. For example, when I widened the page's audience to recruiters, hiring managers and future teammates, the prompt got the same change.
 
