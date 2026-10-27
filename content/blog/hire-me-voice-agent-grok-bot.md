@@ -110,7 +110,7 @@ That also means there's no automatic sync. When the page changes, the prompt has
 
 ### How I tested it
 
-Honestly, the testing was thin. There are 3 recorded calls: an 80 second voice call, a 60 second voice call and a 14 second typed chat.
+Honestly, the testing was thin. The agent's history shows 3 test calls: an 80 second voice call, a 60 second voice call and a 14 second typed chat.
 
 - In the first call it gave my Playwright MCP numbers exactly as they are in the prompt, and when it was asked whether it would hire me, it said it's just my assistant and pointed to my contact page.
 - In the second call it was asked about a specific company, and it didn't talk about specific companies.
@@ -118,7 +118,7 @@ Honestly, the testing was thin. There are 3 recorded calls: an 80 second voice c
 
 The site itself has Playwright tests that run in CI. They check that the page renders and that certain words never appear on it, and that "Hire me" is in the menus and the sitemap.
 
-I haven't tested every rule on a recorded call yet, so treat the rules above as what the agent is told to do.
+I haven't tested every rule in a real call yet, so treat the rules above as what the agent is told to do.
 
 ### The embed
 
@@ -145,8 +145,8 @@ The widget shows a small "Powered by ElevenAgents" line, and I'm keeping it.
 ### Privacy settings
 
 - Visitors can't upload files to the agent.
-- Calls are recorded.
-- Recordings of new conversations are kept for 30 days.
+- Call audio isn't stored.
+- Transcripts are kept for 30 days.
 
 ![The hire me page on a phone.](/images/blog/hire-me-voice-agent-grok-bot/07-mobile-top.png)
 
@@ -167,7 +167,7 @@ These steps follow the official docs:
 3. **Pick a voice and test it.** Choose a voice, then test the agent in the dashboard before it goes anywhere near your site.
 4. **Add the widget to your site.** Add the `<elevenlabs-convai>` element with your agent's ID and the widget script to your page. The [widget docs](https://elevenlabs.io/docs/eleven-agents/customization/widget) show the code and all the options, like changing the button text.
 5. **Lock it down.** The widget needs a public agent, so add your site to the agent's allowlist. The [authentication docs](https://elevenlabs.io/docs/eleven-agents/customization/authentication) say you can add up to 10 hostnames.
-6. **Check your privacy settings.** The [privacy docs](https://elevenlabs.io/docs/eleven-agents/customization/privacy) cover how long transcripts and call recordings are kept.
+6. **Check your privacy settings.** The [privacy docs](https://elevenlabs.io/docs/eleven-agents/customization/privacy) cover how long transcripts are kept and whether call audio is saved.
 7. **Optional: manage it from code.** If you want your agent in version control or want an AI agent to set it up for you, like I did with Grok Bot, you can use the Agents API to [get](https://elevenlabs.io/docs/api-reference/agents/get) and [update](https://elevenlabs.io/docs/api-reference/agents/update) an agent.
 
 ## What I learned
