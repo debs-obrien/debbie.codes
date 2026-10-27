@@ -52,4 +52,6 @@ export interface PrevNext {
 export interface Navigation {
   url: string
   link: string
+  /** When true, omit from header/footer/mobile nav. Page + sitemap stay as-is. */
+  hidden?: boolean
 }
