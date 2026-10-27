@@ -83,16 +83,46 @@ An assistant that talks about you to people who might hire you needs clear rules
 - **It's honest about what it is.** It's my AI assistant, not me.
 - **Some topics are for a real conversation.** It politely declines questions about salary, other job processes, why a role ended, health, family or my personal life, and points you to my contact page instead.
 - **No promises.** It won't commit to availability, start dates or contract terms. That's a conversation for me.
-- **It keeps its rules** even if someone tries to talk it out of them.
+- **It's told to keep its rules** even if someone tries to talk it out of them.
 
 ## How I built it
 
 I didn't build this one on my own. I worked with my Grok Bot.
 
+### What Grok Bot did
+
 - **The page.** Grok Bot drafted the page content and I edited it until it sounded like me. The code was written by Cursor cloud agents that Grok Bot launched and reviewed, in [PR #674](https://github.com/debs-obrien/debbie.codes/pull/674) and [PR #675](https://github.com/debs-obrien/debbie.codes/pull/675). I approved the merges. You can also just [visit the live page](https://debbie.codes/hire-me).
-- **The agent.** Grok Bot created and set up the voice agent through the ElevenLabs Agents API, from a Markdown spec with the first message and system prompt, then set the allowed site and widget labels through the API. I reviewed it and told it what to change.
-- **The prompt.** All of the agent's facts live in its system prompt, about 9,000 characters. There are no knowledge base documents and no tools. The prompt tells it to answer only from that knowledge section.
-- **The embed.** The page uses the ElevenLabs web widget. My site is built with Nuxt, so the widget sits inside `<ClientOnly>` and the widget script is only added on the hire me page. The Nuxt config also marks `elevenlabs-convai` as a custom element so Vue doesn't try to treat it as a component.
+- **The spec.** Grok Bot wrote a Markdown spec for the agent with two parts: the first message and the system prompt. The facts in the prompt were written from the same notes as the page.
+- **The agent.** Grok Bot created the agent from that spec through the ElevenLabs Agents API, then set the allowed site and the widget labels through the API too. I reviewed it and told it what to change.
+
+### How the agent gets its data
+
+Everything the agent knows is in its system prompt, about 9,000 characters, built from the facts on the page. There's no knowledge base and there are no tools. Every rule lives in the prompt too. ElevenLabs has its own built-in guardrails, but I have them turned off, so the prompt is the only place the rules come from.
+
+That also means there's no automatic sync. When the page changes, the prompt has to change by hand. On the day I built it, the prompt and first message were edited six times, and each edit matched a change on the page:
+
+1. I took a story out of the page, so it came out of the prompt too.
+2. I stopped naming a program on the page, so the prompt stopped naming it.
+3. I removed a time frame from one of the stories, on the page and in the prompt.
+4. I removed an extra sentence from the first message, and a matching line at the start of the prompt, that labelled the assistant in a way I didn't want.
+5. I widened the audience to recruiters, hiring managers and future teammates.
+6. I reworded the line describing an earlier course assistant, on the page and in the prompt.
+
+### How I tested it
+
+Honestly, the testing was thin. There are 3 recorded calls: an 80 second voice call, a 60 second voice call and a 14 second typed chat.
+
+- In the first call it gave my Playwright MCP numbers exactly as they are in the prompt, and when it was asked whether it would hire me, it said it's just my assistant and pointed to my contact page.
+- In the second call it was asked about a specific company, and it didn't talk about specific companies.
+- The typed chat asked about my voice agent work. It answered with wording I changed later on the page and in the prompt.
+
+The site itself has Playwright tests that run in CI. They check that the page renders and that certain words never appear on it, and that "Hire me" is in the menus and the sitemap.
+
+I haven't tested every rule on a recorded call yet, so treat the rules above as what the agent is told to do.
+
+### The embed
+
+The page uses the ElevenLabs web widget. My site is built with Nuxt, so the widget sits inside `<ClientOnly>` and the widget script is only added on the hire me page. The Nuxt config also marks `elevenlabs-convai` as a custom element so Vue doesn't try to treat it as a component.
 
 Here's a simplified version of the embed:
 
@@ -107,10 +137,16 @@ Here's a simplified version of the embed:
 </ClientOnly>
 ```
 
-- **Locking it down.** The widget needs a public agent, so the agent has an allowlist set to debbie.codes only. Other websites can't embed it.
+- **Locking it down.** The widget needs a public agent, so the agent is locked to debbie.codes with an allowlist.
 - **Mobile.** On phones the widget floats at the bottom of the screen and doesn't cover the footer.
 
 The widget shows a small "Powered by ElevenAgents" line, and I'm keeping it.
+
+### Privacy settings
+
+- Visitors can't upload files to the agent.
+- Calls are recorded.
+- Recordings of new conversations are kept for 30 days.
 
 ![The hire me page on a phone.](/images/blog/hire-me-voice-agent-grok-bot/07-mobile-top.png)
 
@@ -140,7 +176,7 @@ These steps follow the official docs:
 - **Rules are product decisions.** No salary talk, no company names in the answers and "I'm her AI assistant" were all choices about how I want to come across.
 - **Honest numbers beat big numbers.** Saying "I was part of the growth" is better than claiming all of it.
 - **Accept the vendor's branding.** The "Powered by" line stays.
-- **Test the questions you're scared of.** Ask about salary, ask if it's me, ask something that isn't on the page, and check what it says.
+- **Test the questions people might worry about.** Before you share your own agent, ask it about salary, ask if it's you, ask something that isn't on the page, and check what it says.
 
 ## Try it
 
