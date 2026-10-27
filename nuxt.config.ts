@@ -12,6 +12,13 @@ export default defineNuxtConfig({
     host: '127.0.0.1',
   },
 
+  // PoC /hire-me voice widget — empty until filled on the deploy preview.
+  runtimeConfig: {
+    public: {
+      hireMeAgentId: process.env.HIRE_ME_AGENT_ID || '',
+    },
+  },
+
   modules: [
     '@nuxtjs/robots',
     '@nuxt/image',
@@ -86,7 +93,7 @@ export default defineNuxtConfig({
 
   vue: {
     compilerOptions: {
-      isCustomElement: tag => ['lite-youtube'].includes(tag),
+      isCustomElement: tag => ['lite-youtube', 'elevenlabs-convai'].includes(tag),
     },
   },
 
