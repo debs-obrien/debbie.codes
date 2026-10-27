@@ -220,7 +220,7 @@ const projects: Array<string | HireMePart[]> = [
     '.',
   ],
   'An agent that explores a real desktop app every hour with Playwright and files bug reports for a second agent to fix.',
-  'Small voice projects: a release-video agent skill that narrates in my cloned voice, a two-voice podcast made from one of my blog posts, and an earlier course voice assistant prototype.',
+  'Small voice projects: a release-video agent skill that narrates in my cloned voice, a two-voice podcast made from one of my blog posts, and an earlier voice assistant for a course.',
 ]
 
 const askExamples = [
