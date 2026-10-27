@@ -10,6 +10,9 @@ generateContentIndex()
 
 export default defineNuxtConfig({
   srcDir: '.',
+  // Isolated dirs for scripts/check-origin-trial.mjs so a production generate
+  // never rebuilds the shared .nuxt / .output used by `nuxt dev` / Playwright.
+  ...(process.env.NUXT_OT_BUILD_DIR ? { buildDir: process.env.NUXT_OT_BUILD_DIR } : {}),
 
   // Dedicated local port for this Nuxt app (avoid 3000/3001 conflicts)
   devServer: {
@@ -110,6 +113,9 @@ export default defineNuxtConfig({
   },
 
   nitro: {
+    ...(process.env.NUXT_OT_OUTPUT_DIR
+      ? { output: { dir: process.env.NUXT_OT_OUTPUT_DIR } }
+      : {}),
     prerender: {
       // Prefer completing the static publish (public/ assets, including
       // sitemap.xml + _redirects) over failing the whole generate on

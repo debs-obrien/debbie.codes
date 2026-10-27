@@ -14,7 +14,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "playwright test",
-    "test:endform": "endform test"
+    "test:endform": "endform test",
+    "check:origin-trial": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/check-origin-trial.mjs"
   },
   "dependencies": {
     "better-sqlite3": "^12.11.1",

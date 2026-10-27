@@ -1,4 +1,4 @@
-import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 import { expect, test } from '@playwright/test';
 import { parseDescriptionChapters } from '../utils/description-chapters';
 import {
@@ -320,9 +320,13 @@ function loadCatalog() {
 }
 
 function saveSample(name: string, value: unknown) {
-  const dir = '/opt/cursor/artifacts';
-  mkdirSync(dir, { recursive: true });
-  writeFileSync(`${dir}/${name}.json`, `${JSON.stringify(value, null, 2)}\n`);
+  const path = test.info().outputPath(`${name}.json`);
+  writeFileSync(path, `${JSON.stringify(value, null, 2)}\n`);
+  test.info().attachments.push({
+    name: `${name}.json`,
+    path,
+    contentType: 'application/json'
+  });
 }
 
 function isWebmcpPayload(url: string) {
