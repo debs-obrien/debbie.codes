@@ -1,3 +1,4 @@
+import process from 'node:process'
 import { generateSitemap } from './scripts/generate-sitemap.mjs'
 
 // Static public/sitemap.xml — avoids Netlify Function/SQLite 500s for /sitemap.xml.
@@ -10,6 +11,13 @@ export default defineNuxtConfig({
   devServer: {
     port: 8000,
     host: '127.0.0.1',
+  },
+
+  // PoC /hire-me voice widget (public agent id; origin-allowlisted for preview + debbie.codes).
+  runtimeConfig: {
+    public: {
+      hireMeAgentId: process.env.HIRE_ME_AGENT_ID || 'agent_8801m5yfwzgpf61szvhj0mj0v5fv',
+    },
   },
 
   modules: [
@@ -86,7 +94,7 @@ export default defineNuxtConfig({
 
   vue: {
     compilerOptions: {
-      isCustomElement: tag => ['lite-youtube'].includes(tag),
+      isCustomElement: tag => ['lite-youtube', 'elevenlabs-convai'].includes(tag),
     },
   },
 
