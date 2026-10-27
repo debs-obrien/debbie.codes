@@ -5,4 +5,29 @@ description: Let me introduce you to Playwright - Reliable end-to-end cross brow
 video: Cjg545ew1q8
 tags: [conference-talk, testing, playwright]
 conference: NordicJS, Sweden
+chapters:
+  - time: 0
+    title: "Introduction"
+  - time: 148
+    title: "Challenges in testing"
+  - time: 283
+    title: "Getting started"
+  - time: 424
+    title: "Running and debugging tests"
+  - time: 538
+    title: "Locators and assertions"
+  - time: 675
+    title: "Code generation tool"
+  - time: 826
+    title: "Refining tests"
+  - time: 1005
+    title: "Reports and tracing"
+  - time: 1277
+    title: "Mobile testing"
+  - time: 1514
+    title: "CI/CD integration"
+  - time: 1556
+    title: "Component testing"
+  - time: 1748
+    title: "Resources and conclusion"
 ---

@@ -5,4 +5,11 @@ description: It’s time to play your tests wright. Let’s take a look at how t
 video: yMSIsavrOR4
 tags: [conference-talk, testing, playwright]
 conference: Js Heroes
+chapters:
+  - time: 243
+    title: "Test user-visible behavior"
+  - time: 330
+    title: "Avoid Testing 3rd Party Dependencies"
+  - time: 547
+    title: "Generate Locators"
 ---

@@ -1603,7 +1603,53 @@
       "url": "https://www.youtube.com/watch?v=nn56fcN7-PU",
       "video": "nn56fcN7-PU",
       "description": "A beginner’s tour of Grok Bot: what it is, how your account’s one shared cloud computer (browser, file manager, terminal) and one shared email address work for all your bots, plus routines and a live Luma events demo.",
-      "host": "Debbie O'Brien"
+      "host": "Debbie O'Brien",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "What the hell is Grok Bot?"
+        },
+        {
+          "time": 30,
+          "title": "Beyond ChatGPT"
+        },
+        {
+          "time": 104,
+          "title": "Creating your first bot"
+        },
+        {
+          "time": 139,
+          "title": "Your bots' shared computer"
+        },
+        {
+          "time": 213,
+          "title": "Inside its browser"
+        },
+        {
+          "time": 254,
+          "title": "File manager and terminal"
+        },
+        {
+          "time": 298,
+          "title": "Walk away while it works"
+        },
+        {
+          "time": 352,
+          "title": "Routines and morning reports"
+        },
+        {
+          "time": 400,
+          "title": "Demo: a browser task on Luma"
+        },
+        {
+          "time": 560,
+          "title": "Your Grok Bot email"
+        },
+        {
+          "time": 628,
+          "title": "Tips to get started"
+        }
+      ]
     },
     {
       "type": "video",
@@ -1616,7 +1662,73 @@
       "url": "https://www.youtube.com/watch?v=1g6boZousFI",
       "video": "1g6boZousFI",
       "description": "By voice, I ask Grok Bot to find a video on my computer, copy it to the shared cloud computer, clean the audio, write the title, description and tags, and get thumbnails from my designer bot. It uploads the video as private until I approve.",
-      "host": "Debbie O'Brien"
+      "host": "Debbie O'Brien",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Grok Bot can use your computer"
+        },
+        {
+          "time": 25,
+          "title": "Asking it by voice to upload my video"
+        },
+        {
+          "time": 80,
+          "title": "Finding the video on my computer"
+        },
+        {
+          "time": 123,
+          "title": "Copying the file over in pieces"
+        },
+        {
+          "time": 161,
+          "title": "Handing off to the video editor and YouTube bot"
+        },
+        {
+          "time": 204,
+          "title": "Asking the designer for thumbnails"
+        },
+        {
+          "time": 264,
+          "title": "Keeping it all in one Publish channel"
+        },
+        {
+          "time": 335,
+          "title": "\"How are we getting on?\" Fixing lopsided audio"
+        },
+        {
+          "time": 381,
+          "title": "Adding a bot to the Publish channel"
+        },
+        {
+          "time": 440,
+          "title": "YouTube bot waits for my OK"
+        },
+        {
+          "time": 519,
+          "title": "Talk to your bot like a person"
+        },
+        {
+          "time": 535,
+          "title": "Blog drafts in Notion"
+        },
+        {
+          "time": 572,
+          "title": "Reviewing the thumbnail options"
+        },
+        {
+          "time": 689,
+          "title": "Asking other bots for ideas"
+        },
+        {
+          "time": 728,
+          "title": "Picking \"it has its own computer\""
+        },
+        {
+          "time": 811,
+          "title": "Recap: my computer to my Grok Bot computer to YouTube"
+        }
+      ]
     },
     {
       "type": "video",
@@ -1629,7 +1741,41 @@
       "url": "https://www.youtube.com/watch?v=Gg3lV7lPQoo",
       "video": "Gg3lV7lPQoo",
       "description": "I build a prep doc from past work, then do a voice mode mock interview with coaching: lead with the result, say I not we, and cut the hedging.",
-      "host": "Debbie O'Brien"
+      "host": "Debbie O'Brien",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Why I'm practising interviews out loud"
+        },
+        {
+          "time": 62,
+          "title": "Turning my past work into a prep doc"
+        },
+        {
+          "time": 113,
+          "title": "Starting voice mode"
+        },
+        {
+          "time": 125,
+          "title": "Question 1: A tight deadline"
+        },
+        {
+          "time": 250,
+          "title": "Question 2: Disagreeing with a technical decision"
+        },
+        {
+          "time": 361,
+          "title": "Question 3: Learning something completely new (MCP)"
+        },
+        {
+          "time": 464,
+          "title": "Feedback on how I answered"
+        },
+        {
+          "time": 560,
+          "title": "Stage speaking vs interviewing"
+        }
+      ]
     },
     {
       "type": "video",
@@ -1642,7 +1788,37 @@
       "url": "https://www.youtube.com/watch?v=WKXZuPD7X2s",
       "video": "WKXZuPD7X2s",
       "description": "I created a Grok Bot coach for gym, nutrition, and accountability after having twins. It sets goals with real constraints, builds workouts from photos of my home gym, tracks protein from food packaging, critiques workout videos, and adds follow-along videos to my YouTube playlist.",
-      "host": "Debbie O'Brien"
+      "host": "Debbie O'Brien",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Intro — why I needed a realistic coach"
+        },
+        {
+          "time": 63,
+          "title": "Goals, diet limits & home gym photos"
+        },
+        {
+          "time": 185,
+          "title": "Protein target & real food portions"
+        },
+        {
+          "time": 330,
+          "title": "Critiquing a 20-min dumbbell workout"
+        },
+        {
+          "time": 379,
+          "title": "Daily check-ins, bike & TRX"
+        },
+        {
+          "time": 492,
+          "title": "Bot finds videos and adds them to my playlist"
+        },
+        {
+          "time": 570,
+          "title": "Outro"
+        }
+      ]
     },
     {
       "type": "video",
@@ -1655,7 +1831,65 @@
       "url": "https://www.youtube.com/watch?v=bd2KnjGJ6BM",
       "video": "bd2KnjGJ6BM",
       "description": "Quick walk-through of how I did my full shop with Grok Bot from my phone, while out with the twins.",
-      "host": "Debbie's youtube channel"
+      "host": "Debbie's youtube channel",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Intro — shopping with Grok Bot"
+        },
+        {
+          "time": 6,
+          "title": "Tip: archive / duplicate Chief of Staff for context"
+        },
+        {
+          "time": 43,
+          "title": "Pick up from the beer cart + add drinks & spices"
+        },
+        {
+          "time": 73,
+          "title": "Mobile voice while walking the twins"
+        },
+        {
+          "time": 122,
+          "title": "Mayo swap (jar → squeezable) + ice"
+        },
+        {
+          "time": 160,
+          "title": "Spin up a dedicated shopping bot"
+        },
+        {
+          "time": 181,
+          "title": "Burgers — Galicia / Angus / meat"
+        },
+        {
+          "time": 250,
+          "title": "Milk, cheese, lettuce, apple juice"
+        },
+        {
+          "time": 336,
+          "title": "Photo → kids’ snacks (Smileat Triboo)"
+        },
+        {
+          "time": 367,
+          "title": "Captcha friction (clear it yourself)"
+        },
+        {
+          "time": 388,
+          "title": "Full cart review, delivery slot, PayPal"
+        },
+        {
+          "time": 425,
+          "title": "Why this works for busy parents"
+        },
+        {
+          "time": 478,
+          "title": "Price-check other shops + 2-for-1 beer"
+        },
+        {
+          "time": 547,
+          "title": "CTA — drip adds all day, then bang go pay"
+        }
+      ]
     },
     {
       "type": "video",
@@ -1668,7 +1902,49 @@
       "url": "https://www.youtube.com/watch?v=tg7asTfgG7E",
       "video": "tg7asTfgG7E",
       "description": "Francesco Ciulla talks with Debbie O'Brien about using Grok Bot as a personal AI chief of staff for content, conferences, calendar, shopping, meetings, and everyday tasks.",
-      "host": "Francesco Ciulla"
+      "host": "Francesco Ciulla",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Meet Debbie O'Brien"
+        },
+        {
+          "time": 91,
+          "title": "Why Grok Bot surprised her"
+        },
+        {
+          "time": 338,
+          "title": "The real problem: context switching"
+        },
+        {
+          "time": 496,
+          "title": "Can an AI manage your conferences?"
+        },
+        {
+          "time": 667,
+          "title": "She let Grok Bot do her shopping"
+        },
+        {
+          "time": 885,
+          "title": "When AI becomes part of your daily life"
+        },
+        {
+          "time": 1053,
+          "title": "“There’s nothing it can’t do?”"
+        },
+        {
+          "time": 1122,
+          "title": "One bot vs multiple AI bots"
+        },
+        {
+          "time": 1385,
+          "title": "Why Grok Bot feels like WhatsApp"
+        },
+        {
+          "time": 1437,
+          "title": "How to start using Grok Bot"
+        }
+      ]
     },
     {
       "type": "video",
@@ -1681,7 +1957,53 @@
       "url": "https://www.youtube.com/watch?v=f4ent80mR4w",
       "video": "f4ent80mR4w",
       "description": "I need to look for a job, so I made a Job Hunt bot on Grok Bot. It looked me up online, found roles, and can even do interview prep.",
-      "host": "Debbie O'Brien"
+      "host": "Debbie O'Brien",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Why I'm job hunting"
+        },
+        {
+          "time": 25,
+          "title": "Meet the Job Hunt bot"
+        },
+        {
+          "time": 60,
+          "title": "It rebuilds my public profile"
+        },
+        {
+          "time": 91,
+          "title": "It found my March Anthropic signal"
+        },
+        {
+          "time": 112,
+          "title": "Fresh search from mobile"
+        },
+        {
+          "time": 143,
+          "title": "Anthropic, Databricks, Diagrid roles"
+        },
+        {
+          "time": 168,
+          "title": "Hover previews from multiple sites"
+        },
+        {
+          "time": 203,
+          "title": "Ranked picks + interview prep offer"
+        },
+        {
+          "time": 226,
+          "title": "Digging into the Databricks JD"
+        },
+        {
+          "time": 246,
+          "title": "Build your own Job Hunt bot"
+        },
+        {
+          "time": 299,
+          "title": "What's next (I'll post on X)"
+        }
+      ]
     },
     {
       "type": "video",
@@ -1694,7 +2016,53 @@
       "url": "https://www.youtube.com/watch?v=6v9txfFIwtw",
       "video": "6v9txfFIwtw",
       "description": "I ran out of gluten-free beer and asked my Grok Bot chief of staff to buy more. Amazon jumbo rolls from my phone, Alcampo wouldn't let me log in, a morning podcast, and a delivery slot I can keep adding to.",
-      "host": "Debbie O'Brien"
+      "host": "Debbie O'Brien",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Meet the chief of staff"
+        },
+        {
+          "time": 30,
+          "title": "School bags and the Amazon checkout"
+        },
+        {
+          "time": 195,
+          "title": "News patrol"
+        },
+        {
+          "time": 245,
+          "title": "Out of gluten-free beer"
+        },
+        {
+          "time": 375,
+          "title": "Debugging in the bot's browser"
+        },
+        {
+          "time": 460,
+          "title": "Stuck on Alcampo login"
+        },
+        {
+          "time": 705,
+          "title": "Password reset and the morning podcast"
+        },
+        {
+          "time": 810,
+          "title": "Delivery slots"
+        },
+        {
+          "time": 875,
+          "title": "Why I want the bot to shop"
+        },
+        {
+          "time": 980,
+          "title": "Routines and the other bots"
+        },
+        {
+          "time": 1045,
+          "title": "Hold the slot, keep the cart open"
+        }
+      ]
     },
     {
       "type": "video",
@@ -1707,7 +2075,89 @@
       "url": "https://www.youtube.com/watch?v=xDNLKLg7Ib8",
       "video": "xDNLKLg7Ib8",
       "description": "Can Grok Bot actually book flights? A real Palma to Dublin trip for two adults and two toddlers — what it handled, where Ryanair checkout got stuck, plus a content publishing recipe with blog, LinkedIn, X, and Dev.to bots.",
-      "host": "Debbie O'Brien"
+      "host": "Debbie O'Brien",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Intro — Grok Bot as a travel agent"
+        },
+        {
+          "time": 15,
+          "title": "Setup is 10/10"
+        },
+        {
+          "time": 28,
+          "title": "Travel agent bot: Palma to Dublin"
+        },
+        {
+          "time": 73,
+          "title": "Dates, options, and locking in a return"
+        },
+        {
+          "time": 102,
+          "title": "Two adults and two two-year-olds"
+        },
+        {
+          "time": 123,
+          "title": "Ryanair on the computer (and closing the app)"
+        },
+        {
+          "time": 155,
+          "title": "Asking the bot to fill in passenger details"
+        },
+        {
+          "time": 207,
+          "title": "Contact details, email, and phone"
+        },
+        {
+          "time": 263,
+          "title": "Comparison: Playwright MCP buying a table"
+        },
+        {
+          "time": 320,
+          "title": "Watching the computer — is it stuck?"
+        },
+        {
+          "time": 365,
+          "title": "Why flight booking should work this way"
+        },
+        {
+          "time": 442,
+          "title": "Still stuck — what needs fixing"
+        },
+        {
+          "time": 496,
+          "title": "Day two of the product + Playwright feedback"
+        },
+        {
+          "time": 534,
+          "title": "Payment popup and card details later"
+        },
+        {
+          "time": 553,
+          "title": "Bonus: blog post bot from a video"
+        },
+        {
+          "time": 610,
+          "title": "Keep my wording — don't invent details"
+        },
+        {
+          "time": 661,
+          "title": "PR, Cursor, LinkedIn and X bots"
+        },
+        {
+          "time": 707,
+          "title": "Dev.to sign-in, thumbnail, and workflow"
+        },
+        {
+          "time": 769,
+          "title": "LinkedIn live (Cloudflare captcha)"
+        },
+        {
+          "time": 800,
+          "title": "Verdict: content recipe vs travel agent"
+        }
+      ]
     },
     {
       "type": "video",
@@ -1720,7 +2170,45 @@
       "url": "https://www.youtube.com/watch?v=kiDvQnoCveU",
       "video": "kiDvQnoCveU",
       "description": "Grok Bot just dropped. I downloaded it on a Mac the same day and recorded myself setting it up. Not a feature list — what I actually clicked, what worked, and which bots I would create.",
-      "host": "Debbie O'Brien"
+      "host": "Debbie O'Brien",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Intro – what Grok Bot is"
+        },
+        {
+          "time": 28,
+          "title": "Creating a coding bot"
+        },
+        {
+          "time": 229,
+          "title": "GitHub issues on the Playwright movies app"
+        },
+        {
+          "time": 322,
+          "title": "Creating a LinkedIn bot"
+        },
+        {
+          "time": 439,
+          "title": "Signing into LinkedIn on the bot's computer"
+        },
+        {
+          "time": 694,
+          "title": "Drafting & posting to LinkedIn (for real)"
+        },
+        {
+          "time": 967,
+          "title": "Exploring plugins (Gmail, Calendar, Drive, Playwright…)"
+        },
+        {
+          "time": 1205,
+          "title": "Email bot + X bot"
+        },
+        {
+          "time": 1417,
+          "title": "Wrap-up – this is how we're going to work"
+        }
+      ]
     },
     {
       "type": "video",
@@ -1764,7 +2252,45 @@
       "url": "https://www.youtube.com/watch?v=WplS5lycPHM",
       "video": "WplS5lycPHM",
       "description": "A walkthrough of Anthropic's Skill Creator v2 showing how to review and improve real agent skills using sub-agents, evals, and benchmark comparisons for GitHub Copilot, Claude Code, and other coding agents.",
-      "host": "Debbie's youtube channel"
+      "host": "Debbie's youtube channel",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Intro and Find Skill Creator on skills.sh"
+        },
+        {
+          "time": 89,
+          "title": "Install Skill Creator"
+        },
+        {
+          "time": 189,
+          "title": "Explore what the skill includes"
+        },
+        {
+          "time": 328,
+          "title": "Test it on a real README skill"
+        },
+        {
+          "time": 539,
+          "title": "Review problems and planned fixes"
+        },
+        {
+          "time": 774,
+          "title": "Run evals and sub-agents"
+        },
+        {
+          "time": 850,
+          "title": "Compare benchmark results"
+        },
+        {
+          "time": 1138,
+          "title": "Open the HTML eval viewer"
+        },
+        {
+          "time": 1425,
+          "title": "Optimize the skill description"
+        }
+      ]
     },
     {
       "type": "video",
@@ -1778,7 +2304,97 @@
       "url": "https://www.youtube.com/watch?v=L0ew62S4UZo",
       "video": "L0ew62S4UZo",
       "description": "Interview with Debbie O'Brien, formerly Developer Advocate at Microsoft on the Playwright team, discussing AI coding, AI agents, and the impact of artificial intelligence on developer jobs and the future of programming.",
-      "host": "Inteligencia Artificial"
+      "host": "Inteligencia Artificial",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Trailer"
+        },
+        {
+          "time": 117,
+          "title": "Introducción"
+        },
+        {
+          "time": 187,
+          "title": "Trayectoria profesional de Debbie O'Brien"
+        },
+        {
+          "time": 1180,
+          "title": "¿Qué es Playwright?"
+        },
+        {
+          "time": 1340,
+          "title": "¿Qué pasó con tu trabajo en Microsoft?"
+        },
+        {
+          "time": 1403,
+          "title": "¿Cuáles fueron las razones de tu despido?"
+        },
+        {
+          "time": 1848,
+          "title": "Trabaja con nosotros gracias a InfoJobs"
+        },
+        {
+          "time": 2014,
+          "title": "¿Qué te parece la decisión? ¿Crees que tiene sentido?"
+        },
+        {
+          "time": 2338,
+          "title": "Visión sobre el aprendizaje de la IA"
+        },
+        {
+          "time": 2692,
+          "title": "¿Habrá más despidos este año?"
+        },
+        {
+          "time": 2864,
+          "title": "El estado actual del trabajo de los programadores"
+        },
+        {
+          "time": 3253,
+          "title": "¿Hacia dónde te enfocarás ahora?"
+        },
+        {
+          "time": 3518,
+          "title": "La IA a nivel personal"
+        },
+        {
+          "time": 3600,
+          "title": "Almacena, ahorra o migra tu web con Hostinger"
+        },
+        {
+          "time": 3769,
+          "title": "¿Está la sociedad preparada para este cambio?"
+        },
+        {
+          "time": 4216,
+          "title": "El factor miedo frente a la Inteligencia Artificial"
+        },
+        {
+          "time": 4433,
+          "title": "¿Qué opinas del Vibe Coding?"
+        },
+        {
+          "time": 4968,
+          "title": "Consejos para programadores que aún no dominan la IA"
+        },
+        {
+          "time": 5308,
+          "title": "¿Recomendarías a los jóvenes estudiar programación?"
+        },
+        {
+          "time": 5501,
+          "title": "Graba tus reuniones con Plaud"
+        },
+        {
+          "time": 5605,
+          "title": "El futuro de la programación en los próximos 5 años"
+        },
+        {
+          "time": 5744,
+          "title": "¿Habrá trabajo para todos en el futuro?"
+        }
+      ]
     },
     {
       "type": "video",
@@ -1790,7 +2406,29 @@
       "url": "https://www.youtube.com/watch?v=BUDAS6E4xyY",
       "video": "BUDAS6E4xyY",
       "description": "Did you know you can build a website in minutes using AI? In this video, Debbie shows how Google Gemini can generate complete websites and even simple games using nothing but a prompt — no coding skills required.",
-      "host": "Debbie O'Brien"
+      "host": "Debbie O'Brien",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Introduction to AI building"
+        },
+        {
+          "time": 56,
+          "title": "Using Gemini Canvas for games"
+        },
+        {
+          "time": 147,
+          "title": "Iterating and adding features"
+        },
+        {
+          "time": 265,
+          "title": "Building websites with AI"
+        },
+        {
+          "time": 386,
+          "title": "Sharing and final thoughts"
+        }
+      ]
     },
     {
       "type": "video",
@@ -1802,7 +2440,33 @@
       "url": "https://www.youtube.com/watch?v=2REiUlciObk",
       "video": "2REiUlciObk",
       "description": "Skills are the simplest way to teach your AI agent something new. In this beginner-friendly walkthrough, I'll break down exactly what a skill is, how it works, and we'll build one together from scratch in VS Code.",
-      "host": "Debbie's youtube channel"
+      "host": "Debbie's youtube channel",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "What are skills?"
+        },
+        {
+          "time": 90,
+          "title": "Anatomy of a skill"
+        },
+        {
+          "time": 195,
+          "title": "Creating the SKILL.md file"
+        },
+        {
+          "time": 371,
+          "title": "Writing the skill instructions"
+        },
+        {
+          "time": 451,
+          "title": "Testing the skill"
+        },
+        {
+          "time": 524,
+          "title": "Community skills and next steps"
+        }
+      ]
     },
     {
       "type": "video",
@@ -1814,7 +2478,45 @@
       "url": "https://www.youtube.com/watch?v=WxhqmxDW770",
       "video": "WxhqmxDW770",
       "description": "I was laid off from Block yesterday — just weeks into the job. This is my second layoff in a matter of months after Microsoft. In this video, I share exactly what happened, how I found out, what it feels like, and where I think the tech industry is headed.",
-      "host": "Debbie's youtube channel"
+      "host": "Debbie's youtube channel",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Introduction and thank you"
+        },
+        {
+          "time": 28,
+          "title": "The day of the layoff"
+        },
+        {
+          "time": 158,
+          "title": "Processing the news"
+        },
+        {
+          "time": 224,
+          "title": "Spanish law and severance"
+        },
+        {
+          "time": 290,
+          "title": "Working with AI at Block"
+        },
+        {
+          "time": 425,
+          "title": "Reflections on the layoff"
+        },
+        {
+          "time": 522,
+          "title": "Is any job in tech stable now?"
+        },
+        {
+          "time": 635,
+          "title": "Advice if you've been laid off"
+        },
+        {
+          "time": 798,
+          "title": "Looking ahead"
+        }
+      ]
     },
     {
       "type": "video",
@@ -1864,7 +2566,105 @@
       "url": "https://www.youtube.com/watch?v=4pW1DrERvm0",
       "video": "4pW1DrERvm0",
       "description": "Learn how to use Playwright CLI skills to automate browser actions with the goose OSS agent. This tutorial demonstrates building and using skills, including generating Playwright tests and browser interactions. Explore the dashboard for monitoring agent tasks and debugging with traces and video recordings.",
-      "host": "Debbie O'Brien"
+      "host": "Debbie O'Brien",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Introduction to Goose"
+        },
+        {
+          "time": 121,
+          "title": "Understanding AI Skills"
+        },
+        {
+          "time": 292,
+          "title": "How to structure skills"
+        },
+        {
+          "time": 431,
+          "title": "Managing skill context"
+        },
+        {
+          "time": 692,
+          "title": "Summoning skills in Goose"
+        },
+        {
+          "time": 865,
+          "title": "Installing Playwright CLI"
+        },
+        {
+          "time": 1022,
+          "title": "Setting up the skill"
+        },
+        {
+          "time": 1158,
+          "title": "Testing the Playwright skill"
+        },
+        {
+          "time": 1222,
+          "title": "Browser automation example"
+        },
+        {
+          "time": 1430,
+          "title": "Headless browser snapshots"
+        },
+        {
+          "time": 1734,
+          "title": "The agent dashboard"
+        },
+        {
+          "time": 1819,
+          "title": "Generating tests and traces"
+        },
+        {
+          "time": 1940,
+          "title": "Analyzing trace data"
+        },
+        {
+          "time": 2089,
+          "title": "Reviewing generated tests"
+        },
+        {
+          "time": 2230,
+          "title": "Fixing skill issues"
+        },
+        {
+          "time": 2290,
+          "title": "Debugging with trace viewer"
+        },
+        {
+          "time": 2461,
+          "title": "Running the trace viewer"
+        },
+        {
+          "time": 2617,
+          "title": "Trace viewer visualization"
+        },
+        {
+          "time": 2691,
+          "title": "Automating content workflow"
+        },
+        {
+          "time": 2819,
+          "title": "Pull request verification"
+        },
+        {
+          "time": 2871,
+          "title": "Verifying site changes"
+        },
+        {
+          "time": 2901,
+          "title": "Resources for learning"
+        },
+        {
+          "time": 3019,
+          "title": "CLI vs MCP for tests"
+        },
+        {
+          "time": 3323,
+          "title": "Conclusion and next steps"
+        }
+      ]
     },
     {
       "type": "video",
@@ -1878,7 +2678,37 @@
       "url": "https://www.youtube.com/watch?v=_MpbmD_unnU",
       "video": "_MpbmD_unnU",
       "description": "In this video, you'll learn how to set up Playwright Skills to enable an agent to browse the web, perform real user actions, and automatically generate Playwright tests from those interactions.",
-      "host": "goose OSS"
+      "host": "goose OSS",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Intro"
+        },
+        {
+          "time": 35,
+          "title": "Installing Playwright CLI Skills"
+        },
+        {
+          "time": 132,
+          "title": "Opening a Browser & Taking Screenshots"
+        },
+        {
+          "time": 278,
+          "title": "Navigating & Generating Tests with Natural Language"
+        },
+        {
+          "time": 486,
+          "title": "Test Passes!"
+        },
+        {
+          "time": 560,
+          "title": "Recording Video & Traces"
+        },
+        {
+          "time": 759,
+          "title": "Viewing the Trace in Playwright Trace Viewer"
+        }
+      ]
     },
     {
       "type": "video",
@@ -1984,7 +2814,41 @@
       "url": "https://www.youtube.com/watch?v=zaFJ2E70jUo",
       "video": "zaFJ2E70jUo",
       "description": "I'm back ❤️ After a few very quiet months, layoffs, big life changes, and a lot of reflection — I'm starting a brand new chapter at Block, diving deep into AI… and I wanted to share the journey with you.",
-      "host": "Debbie's youtube channel"
+      "host": "Debbie's youtube channel",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Returning after layoffs"
+        },
+        {
+          "time": 21,
+          "title": "Starting a new job"
+        },
+        {
+          "time": 65,
+          "title": "The scary hiring process"
+        },
+        {
+          "time": 107,
+          "title": "Navigating industry layoffs"
+        },
+        {
+          "time": 171,
+          "title": "Reflecting on Microsoft"
+        },
+        {
+          "time": 283,
+          "title": "Finding structure again"
+        },
+        {
+          "time": 380,
+          "title": "Building tools with AI"
+        },
+        {
+          "time": 628,
+          "title": "Taking time to step back"
+        }
+      ]
     },
     {
       "type": "video",
@@ -2045,7 +2909,33 @@
       "url": "https://www.youtube.com/watch?v=nSsBYokJefw",
       "video": "nSsBYokJefw",
       "description": "This is such a fun session where I tested out Gemini 3 LLM along with Goose as my coding agent to improve my site design. Watch as I try to tell it what I want and my reaction at the matrix style hero it gave me. Very cool and impressive what it can do in such a short space of time.",
-      "host": "Debbie's youtube channel"
+      "host": "Debbie's youtube channel",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Intro and configuring Goose to use Gemini 3"
+        },
+        {
+          "time": 89,
+          "title": "First prompt to improve my site design"
+        },
+        {
+          "time": 325,
+          "title": "Matrix Design me being wowed by Geminis skills"
+        },
+        {
+          "time": 978,
+          "title": "Prompt to improve the featured podcast section"
+        },
+        {
+          "time": 1251,
+          "title": "Goose amazing me by downloading an image for me for my podcast section"
+        },
+        {
+          "time": 2316,
+          "title": "Prompting for 7 new hero images that auto change on refresh just for fun"
+        }
+      ]
     },
     {
       "type": "video",
@@ -2121,7 +3011,81 @@
       "url": "https://www.youtube.com/watch?v=bwqOE6ngdtg",
       "video": "bwqOE6ngdtg",
       "description": "In this live session i go though how I make changes to my website running multiple agents at the same time to modify and improve my website, heal tests along the way and check linting and accessibility.",
-      "host": "Debbie's youtube channel"
+      "host": "Debbie's youtube channel",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Website redesign overview"
+        },
+        {
+          "time": 64,
+          "title": "Improving tags with Goose"
+        },
+        {
+          "time": 182,
+          "title": "Local server troubleshooting"
+        },
+        {
+          "time": 310,
+          "title": "Fixing year pages"
+        },
+        {
+          "time": 432,
+          "title": "Refactoring with Claude AI"
+        },
+        {
+          "time": 657,
+          "title": "Podcast page accessibility"
+        },
+        {
+          "time": 907,
+          "title": "Finalizing UI layouts"
+        },
+        {
+          "time": 1210,
+          "title": "Debugging pagination"
+        },
+        {
+          "time": 1467,
+          "title": "Running Playwright tests"
+        },
+        {
+          "time": 1735,
+          "title": "Fixing broken test cases"
+        },
+        {
+          "time": 1852,
+          "title": "Optimizing test assertions"
+        },
+        {
+          "time": 2021,
+          "title": "Resolving Linting conflicts"
+        },
+        {
+          "time": 2200,
+          "title": "TypeScript refactoring"
+        },
+        {
+          "time": 2514,
+          "title": "Defining styling standards"
+        },
+        {
+          "time": 2865,
+          "title": "Fixing video filter tests"
+        },
+        {
+          "time": 3042,
+          "title": "Robust test update"
+        },
+        {
+          "time": 3195,
+          "title": "Refining next and previous"
+        },
+        {
+          "time": 3555,
+          "title": "Final review and commit"
+        }
+      ]
     },
     {
       "type": "video",
@@ -2192,7 +3156,41 @@
       "url": "https://www.youtube.com/watch?v=x20mG6AigRg",
       "video": "x20mG6AigRg",
       "description": "Ready to build your first AI agent? This tutorial walks you through creating an intelligent automation agent using n8n's visual workflow builder and Google's Gemini AI. Learn how to combine no-code automation with powerful AI capabilities to create agents that can handle complex tasks.",
-      "host": "Debbie's youtube channel"
+      "host": "Debbie's youtube channel",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Introduction to AI Agents"
+        },
+        {
+          "time": 175,
+          "title": "Getting started with N8N"
+        },
+        {
+          "time": 290,
+          "title": "Chat triggers and settings"
+        },
+        {
+          "time": 407,
+          "title": "Setting up the AI model"
+        },
+        {
+          "time": 562,
+          "title": "Integrating action tools"
+        },
+        {
+          "time": 878,
+          "title": "Connecting specialized APIs"
+        },
+        {
+          "time": 1041,
+          "title": "Sending email notifications"
+        },
+        {
+          "time": 1146,
+          "title": "Customizing and testing"
+        }
+      ]
     },
     {
       "type": "video",
@@ -2204,7 +3202,33 @@
       "url": "https://www.youtube.com/watch?v=85NM9EGnNx0",
       "video": "85NM9EGnNx0",
       "description": "See how GitHub Copilot can transform code reviews on legacy codebases! This video demonstrates practical techniques for using AI to understand, analyze, and review older code. Learn how Copilot can help identify issues, suggest improvements, and make legacy code review more efficient and thorough.",
-      "host": "Debbie's youtube channel"
+      "host": "Debbie's youtube channel",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Reviewing PR with Copilot"
+        },
+        {
+          "time": 172,
+          "title": "Fixing hardcoded input name"
+        },
+        {
+          "time": 184,
+          "title": "Improving component semantics"
+        },
+        {
+          "time": 217,
+          "title": "Resolving autofill issues"
+        },
+        {
+          "time": 286,
+          "title": "Verifying fix semantic changes"
+        },
+        {
+          "time": 313,
+          "title": "Finalizing PR and testing"
+        }
+      ]
     },
     {
       "type": "video",
@@ -2566,7 +3590,21 @@
       "url": "https://www.youtube.com/watch?v=9Ar-6qQzk8o",
       "video": "9Ar-6qQzk8o",
       "description": "Learn how to configure Copilot usage and completion settings in VS Code, including monitoring premium requests and using the snooze next edit feature. Optimize your AI-powered development workflow for maximum efficiency.",
-      "host": "Debbie's youtube channel"
+      "host": "Debbie's youtube channel",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "GitHub Copilot usage anxiety"
+        },
+        {
+          "time": 26,
+          "title": "Monitoring premium usage"
+        },
+        {
+          "time": 59,
+          "title": "Managing code completions"
+        }
+      ]
     },
     {
       "type": "video",
@@ -2802,7 +3840,33 @@
       "url": "https://www.youtube.com/watch?v=n3g8d9wA5vk",
       "video": "n3g8d9wA5vk",
       "description": "Vibe coding to update a logo on my site with the help of AI and GitHub Copilot.",
-      "host": "Debbie's youtube channel"
+      "host": "Debbie's youtube channel",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Identifying the task"
+        },
+        {
+          "time": 35,
+          "title": "Automating with AI"
+        },
+        {
+          "time": 109,
+          "title": "Reviewing code changes"
+        },
+        {
+          "time": 203,
+          "title": "Committing and branching"
+        },
+        {
+          "time": 302,
+          "title": "Refining UI styling"
+        },
+        {
+          "time": 414,
+          "title": "Finalizing the session"
+        }
+      ]
     },
     {
       "type": "video",
@@ -2814,7 +3878,33 @@
       "url": "https://www.youtube.com/watch?v=2sch7u2-E8g",
       "video": "2sch7u2-E8g",
       "description": "Use AI to complete issues for you by assigning issues to the GitHub Copilot coding agent.",
-      "host": "Debbie's youtube channel"
+      "host": "Debbie's youtube channel",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Automating site updates"
+        },
+        {
+          "time": 74,
+          "title": "Copilot session analysis"
+        },
+        {
+          "time": 176,
+          "title": "Refining pull requests"
+        },
+        {
+          "time": 264,
+          "title": "Debugging test failures"
+        },
+        {
+          "time": 372,
+          "title": "Analyzing test reports"
+        },
+        {
+          "time": 494,
+          "title": "The value of AI agents"
+        }
+      ]
     },
     {
       "type": "video",
@@ -2910,7 +4000,45 @@
       "url": "https://www.youtube.com/watch?v=zyOJfGtJ3Rw",
       "video": "zyOJfGtJ3Rw",
       "description": "Modern web applications demand robust testing and rapid debugging processes. In this session, we explore how to leverage Playwright's innovative Copy Prompt button to generate AI-assisted debugging insights and recommendations to fix your tests, reducing the time spent on debugging while increasing overall productivity.",
-      "host": "Microsoft Build"
+      "host": "Microsoft Build",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Introduction to MCP's Test Generation"
+        },
+        {
+          "time": 51,
+          "title": "Max Demonstrates Debugging Techniques"
+        },
+        {
+          "time": 152,
+          "title": "Explanation of the Playwright Prompt"
+        },
+        {
+          "time": 365,
+          "title": "Contextual Switching in Debugging"
+        },
+        {
+          "time": 393,
+          "title": "Remote Debugging Capabilities"
+        },
+        {
+          "time": 437,
+          "title": "Overview of test generation using Copilot"
+        },
+        {
+          "time": 615,
+          "title": "Successful identification of movie using AI in demo"
+        },
+        {
+          "time": 650,
+          "title": "Test Case Created and Passed"
+        },
+        {
+          "time": 677,
+          "title": "Discussion on Playwright MCP Capabilities"
+        }
+      ]
     },
     {
       "type": "video",
@@ -2925,7 +4053,69 @@
       "url": "https://www.youtube.com/watch?v=ybYK9jM0lco",
       "video": "ybYK9jM0lco",
       "description": "This talk explores advanced Playwright techniques for achieving flawless testing. It was recorded at Copenhagen Developers Festival in Copenhagen, Denmark, covering best practices, effective locator strategies, and automation approaches.",
-      "host": "NDC Conferences"
+      "host": "NDC Conferences",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Introduction"
+        },
+        {
+          "time": 107,
+          "title": "Playwright overview"
+        },
+        {
+          "time": 214,
+          "title": "Powerful tooling"
+        },
+        {
+          "time": 288,
+          "title": "Generating tests with Codegen"
+        },
+        {
+          "time": 623,
+          "title": "AI assisted test generation"
+        },
+        {
+          "time": 757,
+          "title": "Testing best practices"
+        },
+        {
+          "time": 851,
+          "title": "Assertions and test steps"
+        },
+        {
+          "time": 1055,
+          "title": "API mocking techniques"
+        },
+        {
+          "time": 1418,
+          "title": "Testing date and time"
+        },
+        {
+          "time": 1707,
+          "title": "Setting up tests"
+        },
+        {
+          "time": 1978,
+          "title": "CLI efficiency"
+        },
+        {
+          "time": 2043,
+          "title": "Only changed tests"
+        },
+        {
+          "time": 2360,
+          "title": "Sharding tests"
+        },
+        {
+          "time": 2477,
+          "title": "Cloud hosted browsers"
+        },
+        {
+          "time": 2755,
+          "title": "Resources and Q&A"
+        }
+      ]
     },
     {
       "type": "video",
@@ -2953,7 +4143,45 @@
       "url": "https://www.youtube.com/watch?v=kqJSrSU9DPY",
       "video": "kqJSrSU9DPY",
       "description": "Lets’ take a look at how to test across iframes and different browser contexts by testing the user flow of the Stackblitz website, setting up a Vite project in Stackblitz, modifying the code and sharing it so others can open and interact with it. Let’s get testing.",
-      "host": "Vite Conf"
+      "host": "Vite Conf",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Introduction"
+        },
+        {
+          "time": 47,
+          "title": "Playwright overview"
+        },
+        {
+          "time": 141,
+          "title": "Setting up the demo"
+        },
+        {
+          "time": 196,
+          "title": "Recording the test"
+        },
+        {
+          "time": 359,
+          "title": "Running in UI mode"
+        },
+        {
+          "time": 473,
+          "title": "Testing user isolation"
+        },
+        {
+          "time": 634,
+          "title": "Adding assertions"
+        },
+        {
+          "time": 784,
+          "title": "Debugging and final test"
+        },
+        {
+          "time": 868,
+          "title": "Conclusion and resources"
+        }
+      ]
     },
     {
       "type": "video",
@@ -2995,7 +4223,21 @@
       "url": "https://www.youtube.com/watch?v=yMSIsavrOR4",
       "video": "yMSIsavrOR4",
       "description": "It’s time to play your tests wright. Let’s take a look at how to write good tests and cover some of the best practices for testing, choosing the right locators and more. Let’s make testing easy and fun by generating tests on user actions. Then lets explore some cool tips and tricks to help you write better tests.",
-      "conference": "Js Heroes"
+      "conference": "Js Heroes",
+      "chapters": [
+        {
+          "time": 243,
+          "title": "Test user-visible behavior"
+        },
+        {
+          "time": 330,
+          "title": "Avoid Testing 3rd Party Dependencies"
+        },
+        {
+          "time": 547,
+          "title": "Generate Locators"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3021,7 +4263,49 @@
       "url": "https://www.youtube.com/watch?v=4K6YR5FbjM0",
       "video": "4K6YR5FbjM0",
       "description": "It's time to play your tests wright. Let's take a look at how to write good tests and cover some of the best practices for testing, choosing the right locators and more. Let's make testing easy and fun by generating tests on user actions.",
-      "host": "Angular Tiny Conf"
+      "host": "Angular Tiny Conf",
+      "chapters": [
+        {
+          "time": 82,
+          "title": "Test user-visible behavior"
+        },
+        {
+          "time": 202,
+          "title": "Avoid Testing 3rd Party Dependencies"
+        },
+        {
+          "time": 272,
+          "title": "Use Locators"
+        },
+        {
+          "time": 313,
+          "title": "Use Chaining and Filtering"
+        },
+        {
+          "time": 335,
+          "title": "Prefer User-facing Attributes To Xpath or CSS selectors"
+        },
+        {
+          "time": 393,
+          "title": "Generate Locators"
+        },
+        {
+          "time": 455,
+          "title": "Generate Tests"
+        },
+        {
+          "time": 679,
+          "title": "Keep your Playwright dependency up to date"
+        },
+        {
+          "time": 723,
+          "title": "Use Parallelism and Sharding"
+        },
+        {
+          "time": 790,
+          "title": "Use Emulation"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3034,7 +4318,37 @@
       "url": "https://www.youtube.com/watch?v=ECkMUATC1aA",
       "video": "ECkMUATC1aA",
       "description": "Get started with Playwright and VS Code using the VS Code extension. Create, run and debug your tests right in VS Code.",
-      "host": "VS Code"
+      "host": "VS Code",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Introduction to Playwright"
+        },
+        {
+          "time": 52,
+          "title": "Installation and setup"
+        },
+        {
+          "time": 186,
+          "title": "Running and viewing tests"
+        },
+        {
+          "time": 335,
+          "title": "Debugging and locators"
+        },
+        {
+          "time": 510,
+          "title": "Generating tests"
+        },
+        {
+          "time": 636,
+          "title": "Picking custom locators"
+        },
+        {
+          "time": 723,
+          "title": "Multi-browser testing"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3047,7 +4361,21 @@
       "url": "https://www.youtube.com/watch?v=b9slZ76u2Vs",
       "video": "b9slZ76u2Vs",
       "description": "Let's take a look at how to write good tests and cover some of the best practices for testing, choosing the right locators and more. Let's make testing easy and fun by generating tests on user actions. Then lets explore some cool tips and tricks to help you write better tests.",
-      "host": "daily dev"
+      "host": "daily dev",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Intro"
+        },
+        {
+          "time": 3375,
+          "title": "The New And Shiny ... Node.js Built-in Test Runner"
+        },
+        {
+          "time": 3379,
+          "title": "How Visual AI Makes Testing Easy"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3061,7 +4389,65 @@
       "url": "https://www.youtube.com/watch?v=lCb9JoZFpHI",
       "video": "lCb9JoZFpHI",
       "description": "Easily generate tests with Playwright`s test generator, use Project dependencies to setup authentication before running your tests to ensure your tests are in a loggedin state. Run your tests across multiple browsers and visually see them run or check out the HTML report or trace of your test!",
-      "host": "This Dot Media"
+      "host": "This Dot Media",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Introduction to Playwright"
+        },
+        {
+          "time": 81,
+          "title": "Installing Playwright"
+        },
+        {
+          "time": 197,
+          "title": "Playwright configuration file"
+        },
+        {
+          "time": 444,
+          "title": "Running the example test"
+        },
+        {
+          "time": 602,
+          "title": "Debugging in VS Code"
+        },
+        {
+          "time": 881,
+          "title": "Generating test reports"
+        },
+        {
+          "time": 1044,
+          "title": "Using Playwright traces"
+        },
+        {
+          "time": 1401,
+          "title": "Configuring browser selection"
+        },
+        {
+          "time": 1653,
+          "title": "Codegen and recording tests"
+        },
+        {
+          "time": 2267,
+          "title": "Authentication setup"
+        },
+        {
+          "time": 2863,
+          "title": "Troubleshooting configuration"
+        },
+        {
+          "time": 3101,
+          "title": "Refactoring with fixtures"
+        },
+        {
+          "time": 3345,
+          "title": "Managing environment variables"
+        },
+        {
+          "time": 3749,
+          "title": "Q&A and best practices"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3074,7 +4460,37 @@
       "url": "https://www.youtube.com/watch?v=vEwCyggZzhI",
       "video": "vEwCyggZzhI",
       "description": "Playwright has released a UI mode for debugging and writing tests and it has sparked interest in the testing community. With Debbie, we are going to take a look into this new feature and see how it improves Playwright experience.",
-      "host": "Filip Hric"
+      "host": "Filip Hric",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Introduction"
+        },
+        {
+          "time": 674,
+          "title": "Getting started with testing"
+        },
+        {
+          "time": 1083,
+          "title": "Exploring Playwright UI mode"
+        },
+        {
+          "time": 1545,
+          "title": "Debugging and test fixes"
+        },
+        {
+          "time": 2386,
+          "title": "Writing new tests"
+        },
+        {
+          "time": 3550,
+          "title": "Testing best practices"
+        },
+        {
+          "time": 4877,
+          "title": "Wrap-up and final thoughts"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3088,7 +4504,45 @@
       "url": "https://www.youtube.com/watch?v=n-ooHE-rNnw",
       "video": "n-ooHE-rNnw",
       "description": "It's time to play your tests wright. Let's take a look at how to write good tests and cover some of the best practices for testing, choosing the right locators and more. Let's make testing easy and fun by generating tests on user actions. Then lets explore some cool tips and tricks to help you write better tests.",
-      "conference": "Vue Amsterdam"
+      "conference": "Vue Amsterdam",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Conference and networking"
+        },
+        {
+          "time": 84,
+          "title": "Introduction to Playwright"
+        },
+        {
+          "time": 180,
+          "title": "Playwright capabilities"
+        },
+        {
+          "time": 275,
+          "title": "Testing philosophy"
+        },
+        {
+          "time": 469,
+          "title": "Locators and best practices"
+        },
+        {
+          "time": 651,
+          "title": "Debugging and CI"
+        },
+        {
+          "time": 841,
+          "title": "Advanced test configuration"
+        },
+        {
+          "time": 934,
+          "title": "Live coding demonstration"
+        },
+        {
+          "time": 1366,
+          "title": "Community and resources"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3102,7 +4556,53 @@
       "url": "https://www.youtube.com/watch?v=VavFU2vLnT0",
       "video": "VavFU2vLnT0",
       "description": "Let me introduce you to Playwright - Reliable end-to-end cross browser testing for modern web apps, by Microsoft and fully open source. Playwright's codegen generates tests for you so now you really have no excuses. It's time to play your tests wright",
-      "conference": ".NET Conference"
+      "conference": ".NET Conference",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Introduction"
+        },
+        {
+          "time": 6,
+          "title": "Debbie O'Brien, Senior PM at Microsoft"
+        },
+        {
+          "time": 14,
+          "title": "Max Schmitt, Senior Software Engineer"
+        },
+        {
+          "time": 38,
+          "title": "What is Playwright?"
+        },
+        {
+          "time": 262,
+          "title": "Codegen"
+        },
+        {
+          "time": 378,
+          "title": "Playwright + .NET 7"
+        },
+        {
+          "time": 420,
+          "title": "Demo: Integrating Playwright + .NET 7"
+        },
+        {
+          "time": 586,
+          "title": "Running the example test"
+        },
+        {
+          "time": 694,
+          "title": "Slowing the test for a closer look"
+        },
+        {
+          "time": 760,
+          "title": "Pausing the test execution to debug"
+        },
+        {
+          "time": 1291,
+          "title": "Running the test on CI"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3116,7 +4616,53 @@
       "url": "https://www.youtube.com/watch?v=meiA4TPltoI",
       "video": "meiA4TPltoI",
       "description": "Testing is hard, testing takes time to learn and to write, and time is money. As developers we want to test. We know we should but we don't have time. So how can we get more developers to do testing? We can create better tools.",
-      "conference": "DevFest Nantes"
+      "conference": "DevFest Nantes",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Introduction to testing"
+        },
+        {
+          "time": 178,
+          "title": "Playwright overview"
+        },
+        {
+          "time": 371,
+          "title": "Setting up in VS Code"
+        },
+        {
+          "time": 547,
+          "title": "Running and debugging tests"
+        },
+        {
+          "time": 690,
+          "title": "Mastering locators"
+        },
+        {
+          "time": 919,
+          "title": "Code generation demo"
+        },
+        {
+          "time": 1195,
+          "title": "Refining generated tests"
+        },
+        {
+          "time": 1322,
+          "title": "Trace viewer tooling"
+        },
+        {
+          "time": 1655,
+          "title": "Mobile and navigation"
+        },
+        {
+          "time": 2029,
+          "title": "CI/CD and components"
+        },
+        {
+          "time": 2133,
+          "title": "Q&A and conclusion"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3130,7 +4676,57 @@
       "url": "https://www.youtube.com/watch?v=Vn__rlS36yc",
       "video": "Vn__rlS36yc",
       "description": "Testing is hard, testing takes time to learn and to write, and time is money. As developers we want to test. We know we should but we don't have time. So how can we get more developers to do testing? We can create better tools.",
-      "conference": "React Brussels"
+      "conference": "React Brussels",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Introduction and motivation"
+        },
+        {
+          "time": 91,
+          "title": "What is Playwright"
+        },
+        {
+          "time": 230,
+          "title": "Getting started with VS Code"
+        },
+        {
+          "time": 370,
+          "title": "Debugging tests"
+        },
+        {
+          "time": 456,
+          "title": "Locators and assertions"
+        },
+        {
+          "time": 646,
+          "title": "Code generation in action"
+        },
+        {
+          "time": 881,
+          "title": "Refining generated tests"
+        },
+        {
+          "time": 972,
+          "title": "Trace viewer tool"
+        },
+        {
+          "time": 1298,
+          "title": "Testing navigation"
+        },
+        {
+          "time": 1364,
+          "title": "Mobile testing"
+        },
+        {
+          "time": 1538,
+          "title": "CI and component testing"
+        },
+        {
+          "time": 1584,
+          "title": "Conclusion and resources"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3144,7 +4740,57 @@
       "url": "https://www.youtube.com/watch?v=Cjg545ew1q8",
       "video": "Cjg545ew1q8",
       "description": "Let me introduce you to Playwright - Reliable end-to-end cross browser testing for modern web apps, by Microsoft and fully open source. Playwright’s codegen generates tests for you in JavaScript, TypeScript, Dot Net, Java or Python. Now you really have no excuses. It\\’s time to play your tests wright.",
-      "conference": "NordicJS, Sweden"
+      "conference": "NordicJS, Sweden",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Introduction"
+        },
+        {
+          "time": 148,
+          "title": "Challenges in testing"
+        },
+        {
+          "time": 283,
+          "title": "Getting started"
+        },
+        {
+          "time": 424,
+          "title": "Running and debugging tests"
+        },
+        {
+          "time": 538,
+          "title": "Locators and assertions"
+        },
+        {
+          "time": 675,
+          "title": "Code generation tool"
+        },
+        {
+          "time": 826,
+          "title": "Refining tests"
+        },
+        {
+          "time": 1005,
+          "title": "Reports and tracing"
+        },
+        {
+          "time": 1277,
+          "title": "Mobile testing"
+        },
+        {
+          "time": 1514,
+          "title": "CI/CD integration"
+        },
+        {
+          "time": 1556,
+          "title": "Component testing"
+        },
+        {
+          "time": 1748,
+          "title": "Resources and conclusion"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3158,7 +4804,53 @@
       "url": "https://www.youtube.com/watch?v=xkSnDXjCEvU",
       "video": "xkSnDXjCEvU",
       "description": "Testing is hard, testing takes time to learn and to write, and time is money. As developers we want to test. We know we should but we don't have time. So how can we get more developers to do testing? We can create better tools.",
-      "conference": "VueJS Berlin"
+      "conference": "VueJS Berlin",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Introduction to Playwright"
+        },
+        {
+          "time": 128,
+          "title": "Testing goals"
+        },
+        {
+          "time": 206,
+          "title": "VS Code extension setup"
+        },
+        {
+          "time": 352,
+          "title": "Debugging tests"
+        },
+        {
+          "time": 432,
+          "title": "Locators and picking"
+        },
+        {
+          "time": 584,
+          "title": "Web first assertions"
+        },
+        {
+          "time": 634,
+          "title": "CodeGen for test generation"
+        },
+        {
+          "time": 872,
+          "title": "Component testing"
+        },
+        {
+          "time": 1208,
+          "title": "Component testing technicals"
+        },
+        {
+          "time": 1319,
+          "title": "Reports and tracing"
+        },
+        {
+          "time": 1517,
+          "title": "CI and concluding thoughts"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3172,7 +4864,61 @@
       "url": "https://www.youtube.com/watch?v=kbTohfkZAMA",
       "video": "kbTohfkZAMA",
       "description": "Testing is hard, testing takes time to learn and to write, and time is money. As developers we want to test. We know we should but we don't have time. So how can we get more developers to do testing? We can create better tools.",
-      "conference": "NDC Oslo"
+      "conference": "NDC Oslo",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Introduction and background"
+        },
+        {
+          "time": 130,
+          "title": "Testing challenges and solutions"
+        },
+        {
+          "time": 378,
+          "title": "Getting started with Playwright"
+        },
+        {
+          "time": 505,
+          "title": "VS Code and installation"
+        },
+        {
+          "time": 717,
+          "title": "Debugging tests"
+        },
+        {
+          "time": 913,
+          "title": "Locators and assertions"
+        },
+        {
+          "time": 1065,
+          "title": "Code generation for tests"
+        },
+        {
+          "time": 1723,
+          "title": "Reporting and results"
+        },
+        {
+          "time": 1816,
+          "title": "Trace viewer and debugging"
+        },
+        {
+          "time": 2128,
+          "title": "Mobile testing and edge cases"
+        },
+        {
+          "time": 2499,
+          "title": "CI/CD and GitHub Actions"
+        },
+        {
+          "time": 2551,
+          "title": "Component testing"
+        },
+        {
+          "time": 2663,
+          "title": "Summary and Q&A"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3186,7 +4932,33 @@
       "url": "https://www.youtube.com/watch?v=_1vQ4Wj9KtA",
       "video": "_1vQ4Wj9KtA",
       "description": "Testing is hard, testing takes time to learn and to write, and time is money. As developers we want to test. We know we should but we don't have time. So how can we get more developers to do testing? We can create better tools.",
-      "conference": "Infobip Shift Croatia"
+      "conference": "Infobip Shift Croatia",
+      "chapters": [
+        {
+          "time": 335,
+          "title": "Running Tests"
+        },
+        {
+          "time": 464,
+          "title": "Picking Selectors"
+        },
+        {
+          "time": 542,
+          "title": "Codegen"
+        },
+        {
+          "time": 651,
+          "title": "Web First Assertions"
+        },
+        {
+          "time": 830,
+          "title": "Component Testing"
+        },
+        {
+          "time": 1103,
+          "title": "Configure Test for Mobile Safari"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3214,7 +4986,57 @@
       "url": "https://www.youtube.com/watch?v=jorsD4lInwA",
       "video": "jorsD4lInwA",
       "description": "Playwright enables reliable end-to-end testing for modern web apps. Let's walk though the docs and get started with Playwright in this live stream!",
-      "host": "Eddie Jaoude"
+      "host": "Eddie Jaoude",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Introduction"
+        },
+        {
+          "time": 175,
+          "title": "Playwright overview"
+        },
+        {
+          "time": 436,
+          "title": "Getting started guide"
+        },
+        {
+          "time": 731,
+          "title": "Testing best practices"
+        },
+        {
+          "time": 1188,
+          "title": "Running first tests"
+        },
+        {
+          "time": 1736,
+          "title": "VS Code extension"
+        },
+        {
+          "time": 2026,
+          "title": "Debugging tests"
+        },
+        {
+          "time": 2518,
+          "title": "Test generator tool"
+        },
+        {
+          "time": 2811,
+          "title": "Trace viewer tool"
+        },
+        {
+          "time": 3530,
+          "title": "Advanced testing"
+        },
+        {
+          "time": 4208,
+          "title": "Open source testing"
+        },
+        {
+          "time": 4700,
+          "title": "Final thoughts"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3228,7 +5050,65 @@
       "url": "https://www.youtube.com/watch?v=MWaxxbOdIrw",
       "video": "MWaxxbOdIrw",
       "description": "Let me introduce you to Playwright - Reliable end-to-end cross browser testing for modern web apps, by Microsoft and fully open source. Playwright’s codegen generates tests for you in JavaScript, TypeScript, Dot Net, Java or Python. Now you really have no excuses. It\\’s time to play your tests wright.",
-      "conference": "dotNET Madrid"
+      "conference": "dotNET Madrid",
+      "chapters": [
+        {
+          "time": 255,
+          "title": "Testing Can Be Hard"
+        },
+        {
+          "time": 309,
+          "title": "How Can We Get More Developers To Write Tests"
+        },
+        {
+          "time": 389,
+          "title": "Getting Started"
+        },
+        {
+          "time": 443,
+          "title": "Codegen"
+        },
+        {
+          "time": 659,
+          "title": "Test the Search"
+        },
+        {
+          "time": 961,
+          "title": "Assertions"
+        },
+        {
+          "time": 1207,
+          "title": "Test Iframes"
+        },
+        {
+          "time": 1341,
+          "title": "Run in Debug Mode"
+        },
+        {
+          "time": 1481,
+          "title": "Trace Files"
+        },
+        {
+          "time": 1553,
+          "title": "Trace File"
+        },
+        {
+          "time": 1572,
+          "title": "Actions"
+        },
+        {
+          "time": 1672,
+          "title": "Chromium"
+        },
+        {
+          "time": 1914,
+          "title": "Dom Snapshot"
+        },
+        {
+          "time": 2391,
+          "title": "How Do You Approach Logins with Multi-Factor Authentication"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3242,7 +5122,93 @@
       "url": "https://www.youtube.com/watch?v=dxbh0bl4It8",
       "video": "dxbh0bl4It8",
       "description": "Testing is hard, testing takes time to learn and to write, and time is money. As developers we want to test. We know we should but we don't have time. So how can we get more developers to do testing? We can create better tools.",
-      "conference": "Craft Conference"
+      "conference": "Craft Conference",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Introduction to speaker"
+        },
+        {
+          "time": 25,
+          "title": "Introduction to playwright"
+        },
+        {
+          "time": 54,
+          "title": "Speaker background and work"
+        },
+        {
+          "time": 149,
+          "title": "Why testing matters"
+        },
+        {
+          "time": 230,
+          "title": "Overview of playwright"
+        },
+        {
+          "time": 321,
+          "title": "Getting started with it"
+        },
+        {
+          "time": 476,
+          "title": "Using codegen to test"
+        },
+        {
+          "time": 696,
+          "title": "Multi-language support"
+        },
+        {
+          "time": 774,
+          "title": "Running tests fast"
+        },
+        {
+          "time": 870,
+          "title": "Debugging broken tests"
+        },
+        {
+          "time": 1043,
+          "title": "Understanding locators"
+        },
+        {
+          "time": 1255,
+          "title": "Advanced locator techniques"
+        },
+        {
+          "time": 1356,
+          "title": "Testing iframes"
+        },
+        {
+          "time": 1440,
+          "title": "Debugging in action"
+        },
+        {
+          "time": 1535,
+          "title": "Generating reports"
+        },
+        {
+          "time": 1572,
+          "title": "Using trace viewer"
+        },
+        {
+          "time": 1756,
+          "title": "DOM snapshot interaction"
+        },
+        {
+          "time": 1810,
+          "title": "Summary of features"
+        },
+        {
+          "time": 1916,
+          "title": "Component testing"
+        },
+        {
+          "time": 1964,
+          "title": "Open source community"
+        },
+        {
+          "time": 2117,
+          "title": "Q&A session"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3255,7 +5221,53 @@
       "url": "https://www.youtube.com/watch?v=YWr5XnoDru4",
       "video": "YWr5XnoDru4",
       "description": "When is it a good time to make a new component or reuse one that is already created? Making these decisions early on is key to great software architecture. If we think before we build, we can build amazing apps that will easily scale.",
-      "conference": "BeJS Brussels"
+      "conference": "BeJS Brussels",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Introduction and welcome"
+        },
+        {
+          "time": 85,
+          "title": "Philosophy of components"
+        },
+        {
+          "time": 192,
+          "title": "Core principles of components"
+        },
+        {
+          "time": 407,
+          "title": "Designing for maintenance"
+        },
+        {
+          "time": 577,
+          "title": "Tooling and documentation"
+        },
+        {
+          "time": 728,
+          "title": "Build vs buy decision"
+        },
+        {
+          "time": 789,
+          "title": "Implementing design tokens"
+        },
+        {
+          "time": 963,
+          "title": "Theming and styling strategies"
+        },
+        {
+          "time": 1101,
+          "title": "Component development workflow"
+        },
+        {
+          "time": 1266,
+          "title": "Extending to configurations"
+        },
+        {
+          "time": 1362,
+          "title": "Conclusion and Q&A"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3268,7 +5280,73 @@
       "url": "https://www.youtube.com/watch?v=6mjDrGPF3P8",
       "video": "6mjDrGPF3P8",
       "description": "The frontend is a great place to be in these days and as apps get bigger and bigger, components get more difficult to maintain. But are we really building component driven? Do we really know how to take a design and break it down into components? How small do we go? How do we name things? When is it a good time to make a new component or reuse one that is already created? Making these decisions early on is key to great software architecture. If we think before we build, we can build amazing apps that will easily scale.",
-      "conference": "Shop Apotheke"
+      "conference": "Shop Apotheke",
+      "chapters": [
+        {
+          "time": 489,
+          "title": "Component Driven"
+        },
+        {
+          "time": 633,
+          "title": "Composable"
+        },
+        {
+          "time": 1057,
+          "title": "It all starts with the designers"
+        },
+        {
+          "time": 1203,
+          "title": "Design Tokens"
+        },
+        {
+          "time": 1336,
+          "title": "Base Theme"
+        },
+        {
+          "time": 1348,
+          "title": "Theme Provider"
+        },
+        {
+          "time": 1397,
+          "title": "Pink Theme"
+        },
+        {
+          "time": 1430,
+          "title": "Cart Page"
+        },
+        {
+          "time": 1600,
+          "title": "Heading Component"
+        },
+        {
+          "time": 1624,
+          "title": "Image Component"
+        },
+        {
+          "time": 1653,
+          "title": "Text Component"
+        },
+        {
+          "time": 1659,
+          "title": "Button Component"
+        },
+        {
+          "time": 1699,
+          "title": "Remove From Cart Component"
+        },
+        {
+          "time": 1733,
+          "title": "Component Library"
+        },
+        {
+          "time": 1757,
+          "title": "Keep Building"
+        },
+        {
+          "time": 1887,
+          "title": "Reuse Components in any App"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3281,7 +5359,33 @@
       "url": "https://www.youtube.com/watch?v=0hp-G107dT0",
       "video": "0hp-G107dT0",
       "description": "Virtual panel moderated by Kaya of Wordify with leading web personalities Tracy, Lee, Debbie and Kent as we take a dive into what content on the web looks like and how various products across developer tooling, hosting and content management are making leaps to create better, faster experiences for users on the web.",
-      "host": "Strapi"
+      "host": "Strapi",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Introduction"
+        },
+        {
+          "time": 60,
+          "title": "Overview"
+        },
+        {
+          "time": 195,
+          "title": "Static vs Server Rendering"
+        },
+        {
+          "time": 473,
+          "title": "Have You Seen Any Projects"
+        },
+        {
+          "time": 548,
+          "title": "Headless vs Decoupled"
+        },
+        {
+          "time": 749,
+          "title": "Finding Components"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3295,7 +5399,45 @@
       "url": "https://www.youtube.com/watch?v=-7odLW_hG7s",
       "video": "-7odLW_hG7s",
       "description": "A look at my my journey to learning React, what I found difficult to grasp and how the new docs helped me and what my favourite parts of the new docs are.",
-      "conference": "React Conf"
+      "conference": "React Conf",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Introduction to React"
+        },
+        {
+          "time": 102,
+          "title": "Understanding JSX"
+        },
+        {
+          "time": 159,
+          "title": "Prop Children Explained"
+        },
+        {
+          "time": 215,
+          "title": "Context and Theming"
+        },
+        {
+          "time": 266,
+          "title": "Hook Basics and State"
+        },
+        {
+          "time": 349,
+          "title": "State Updates and Batching"
+        },
+        {
+          "time": 444,
+          "title": "Updater Functions"
+        },
+        {
+          "time": 492,
+          "title": "Reducer Pattern"
+        },
+        {
+          "time": 530,
+          "title": "Conclusion"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3308,7 +5450,109 @@
       "url": "https://www.youtube.com/watch?v=nQA48vH2CCc",
       "video": "nQA48vH2CCc",
       "description": "We think in monorepos when we want to share components across many teams and apps. but let's face it, we all hate monorepos. As soon as we hear the word we just think legacy. But it doesn't have to be. But if we make our repos component driven, where we can easily share components across any repos or apps then everything changes. We really are moving towards a component driven world so lets start building in component driven repos.",
-      "conference": "NDC Oslo"
+      "conference": "NDC Oslo",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Introduction and speaker bio"
+        },
+        {
+          "time": 61,
+          "title": "Personal story and context"
+        },
+        {
+          "time": 158,
+          "title": "The state of modern web development"
+        },
+        {
+          "time": 245,
+          "title": "The evolution of architecture"
+        },
+        {
+          "time": 328,
+          "title": "Front-end monolithic challenges"
+        },
+        {
+          "time": 477,
+          "title": "Solutions: packaging and limitations"
+        },
+        {
+          "time": 730,
+          "title": "The monorepo debate"
+        },
+        {
+          "time": 1005,
+          "title": "Feedback and common pain points"
+        },
+        {
+          "time": 1136,
+          "title": "Redefining team ownership"
+        },
+        {
+          "time": 1273,
+          "title": "Scopes and project structure"
+        },
+        {
+          "time": 1432,
+          "title": "Achieving team autonomy"
+        },
+        {
+          "time": 1540,
+          "title": "Building an independent ecosystem"
+        },
+        {
+          "time": 1668,
+          "title": "Practical component composition"
+        },
+        {
+          "time": 1842,
+          "title": "Versioning and component reuse"
+        },
+        {
+          "time": 1940,
+          "title": "The component-as-a-product mindset"
+        },
+        {
+          "time": 2047,
+          "title": "Benefits of the driven approach"
+        },
+        {
+          "time": 2147,
+          "title": "Technical characteristics of components"
+        },
+        {
+          "time": 2297,
+          "title": "Documentation and trust"
+        },
+        {
+          "time": 2423,
+          "title": "Real-world scaling and history"
+        },
+        {
+          "time": 2543,
+          "title": "Monorepos vs. decoupled code"
+        },
+        {
+          "time": 2647,
+          "title": "Standardization through components"
+        },
+        {
+          "time": 2747,
+          "title": "Demo and final considerations"
+        },
+        {
+          "time": 2861,
+          "title": "Core principles of independent components"
+        },
+        {
+          "time": 3039,
+          "title": "Closing thoughts and resources"
+        },
+        {
+          "time": 3099,
+          "title": "Q&A session"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3321,7 +5565,45 @@
       "url": "https://www.youtube.com/watch?v=Gb9o4VI8wLU",
       "video": "Gb9o4VI8wLU",
       "description": "We think in monorepos when we want to share components across many teams and apps. but let's face it, we all hate monorepos. As soon as we hear the word we just think legacy. But it doesn't have to be. But if we make our repos component driven, where we can easily share components across any repos or apps then everything changes. We really are moving towards a component driven world so lets start building in component driven repos.",
-      "conference": "BuildStuff Lithuania"
+      "conference": "BuildStuff Lithuania",
+      "chapters": [
+        {
+          "time": 453,
+          "title": "Frontend Monolith"
+        },
+        {
+          "time": 651,
+          "title": "Packaging Components"
+        },
+        {
+          "time": 1165,
+          "title": "Support Team"
+        },
+        {
+          "time": 1228,
+          "title": "Design Team"
+        },
+        {
+          "time": 1798,
+          "title": "Your Component"
+        },
+        {
+          "time": 1851,
+          "title": "Organizations"
+        },
+        {
+          "time": 1974,
+          "title": "Encapsulated"
+        },
+        {
+          "time": 2078,
+          "title": "Reusable"
+        },
+        {
+          "time": 2478,
+          "title": "Component Driven"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3335,7 +5617,85 @@
       "url": "https://www.youtube.com/watch?v=70b-gtHkOZ8",
       "video": "70b-gtHkOZ8",
       "description": "Transitioning from Vue to React. Debbie joins to talk all about it, her learning process, which features she likes more from which frameworks, and so much more!",
-      "host": "James Q Quick"
+      "host": "James Q Quick",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Guest and topic introduction"
+        },
+        {
+          "time": 127,
+          "title": "About guest's previous role at Nuxt"
+        },
+        {
+          "time": 229,
+          "title": "What did you enjoy about Vue?"
+        },
+        {
+          "time": 527,
+          "title": "The power of Developer Relations"
+        },
+        {
+          "time": 654,
+          "title": "How one's background affects their framework adaptability"
+        },
+        {
+          "time": 826,
+          "title": "What was your transition to React like?"
+        },
+        {
+          "time": 1022,
+          "title": "Digression about originality and new React docs"
+        },
+        {
+          "time": 1368,
+          "title": "React conf reminder & guest's panel teaser"
+        },
+        {
+          "time": 1428,
+          "title": "WHAT THE HELL ARE CHILDREN?!"
+        },
+        {
+          "time": 1498,
+          "title": "Guest's advice on switching from React to Vue"
+        },
+        {
+          "time": 1778,
+          "title": "About Vue/Nuxt 3 ecosystems' current state"
+        },
+        {
+          "time": 2036,
+          "title": "Do you have a favorite React feature?"
+        },
+        {
+          "time": 2110,
+          "title": "Benefits of hooks and their ecosystem"
+        },
+        {
+          "time": 2239,
+          "title": "The struggle of free content creation & OSS"
+        },
+        {
+          "time": 2429,
+          "title": "Content creation as a means of learning"
+        },
+        {
+          "time": 2509,
+          "title": "Do you have any personal React milestones?"
+        },
+        {
+          "time": 2681,
+          "title": "What made you look into useReducer?"
+        },
+        {
+          "time": 2874,
+          "title": "Speakers' approaches to grasping new technologies"
+        },
+        {
+          "time": 3038,
+          "title": "Final words and wrap-up"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3348,7 +5708,97 @@
       "url": "https://www.youtube.com/watch?v=Hzj26kS8GK8",
       "video": "Hzj26kS8GK8",
       "description": "Alex and Brittney sit down with Debbie O'Brien to talk about bit (bit.dev). We dive deep into how you can use bit to compose your application one bit at a time.",
-      "host": "Alex Patterson, Brittney Postman"
+      "host": "Alex Patterson, Brittney Postman",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Intro"
+        },
+        {
+          "time": 15,
+          "title": "Debbie Intro"
+        },
+        {
+          "time": 75,
+          "title": "Composing Modern Applications with Bit"
+        },
+        {
+          "time": 210,
+          "title": "What kind/framework components are supported?"
+        },
+        {
+          "time": 300,
+          "title": "What is the workflow for Bit?"
+        },
+        {
+          "time": 500,
+          "title": "Compositions for components"
+        },
+        {
+          "time": 585,
+          "title": "GUI for components"
+        },
+        {
+          "time": 660,
+          "title": "Sandbox for components"
+        },
+        {
+          "time": 720,
+          "title": "Using multiple frameworks"
+        },
+        {
+          "time": 780,
+          "title": "Dependency testing"
+        },
+        {
+          "time": 900,
+          "title": "Scope graph"
+        },
+        {
+          "time": 1080,
+          "title": "Compile and build time"
+        },
+        {
+          "time": 1140,
+          "title": "Demo"
+        },
+        {
+          "time": 1380,
+          "title": "Installing"
+        },
+        {
+          "time": 1455,
+          "title": "Benefits of bit cloud"
+        },
+        {
+          "time": 1650,
+          "title": "Demo of different teams components"
+        },
+        {
+          "time": 2100,
+          "title": "Source of truth"
+        },
+        {
+          "time": 2475,
+          "title": "Purrfect Picks - Debbie - Atomic Habits"
+        },
+        {
+          "time": 2570,
+          "title": "Brittney - Bit compiler for Svelte"
+        },
+        {
+          "time": 2632,
+          "title": "Brittney - rollerblade wheels for office chair"
+        },
+        {
+          "time": 2695,
+          "title": "Alex - readme project"
+        },
+        {
+          "time": 2735,
+          "title": "Alex - No Time to Die"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3374,7 +5824,81 @@
       "url": "https://www.youtube.com/watch?v=nuDwgjkRNSI",
       "video": "nuDwgjkRNSI",
       "description": "We think in monorepos when we want to share components across many teams and apps. but let's face it, we all hate monorepos. As soon as we hear the word we just think legacy. But it doesn't have to be. But if we make our repos component driven, where we can easily share components across any repos or apps then everything changes. We really are moving towards a component driven world so lets start building in component driven repos.",
-      "conference": "GDG DevFest Nantes"
+      "conference": "GDG DevFest Nantes",
+      "chapters": [
+        {
+          "time": 219,
+          "title": "HOW IT'S GOING"
+        },
+        {
+          "time": 495,
+          "title": "Duplicating Components"
+        },
+        {
+          "time": 554,
+          "title": "Packaging Components"
+        },
+        {
+          "time": 771,
+          "title": "Scaling one large app"
+        },
+        {
+          "time": 851,
+          "title": "Product Team"
+        },
+        {
+          "time": 917,
+          "title": "What's a Scope?"
+        },
+        {
+          "time": 941,
+          "title": "Every Scope can have it's own Repo"
+        },
+        {
+          "time": 1059,
+          "title": "But how do we even do that?"
+        },
+        {
+          "time": 1280,
+          "title": "Team Ownership"
+        },
+        {
+          "time": 1434,
+          "title": "View Component Props"
+        },
+        {
+          "time": 1465,
+          "title": "Visibility and Discoverability"
+        },
+        {
+          "time": 1539,
+          "title": "Use your Component Anywhere"
+        },
+        {
+          "time": 1573,
+          "title": "Independent Versions"
+        },
+        {
+          "time": 1658,
+          "title": "View Component Dependencies"
+        },
+        {
+          "time": 1701,
+          "title": "Consistent and Standardised Tooling"
+        },
+        {
+          "time": 1989,
+          "title": "Import Component to change code from any repo"
+        },
+        {
+          "time": 2275,
+          "title": "Build Component Driven Build with Bit"
+        },
+        {
+          "time": 2429,
+          "title": "Demo Projects"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3387,7 +5911,97 @@
       "url": "https://www.youtube.com/watch?v=R2Q0L9PDHtc",
       "video": "R2Q0L9PDHtc",
       "description": "How can you scale fast, build fast and yet keep the same standards across all projects and teams? Let’s take a look at tooling as well as creating shareable configs and template generators for components so you can speed up your team’s delivery.",
-      "conference": "JetBrains JavaScript Day 2021"
+      "conference": "JetBrains JavaScript Day 2021",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Intro animation"
+        },
+        {
+          "time": 51,
+          "title": "Welcome"
+        },
+        {
+          "time": 595,
+          "title": "Scaling Team Delivery Using Standardization, by Debbie O’Brien"
+        },
+        {
+          "time": 1730,
+          "title": "Q&A with Debbie"
+        },
+        {
+          "time": 3345,
+          "title": "TC39 Demystified, by Ujjwal Sharma"
+        },
+        {
+          "time": 4988,
+          "title": "Q&A with Ujjwal"
+        },
+        {
+          "time": 5423,
+          "title": "Documenting the Web Platform, by Florian Scholz"
+        },
+        {
+          "time": 6615,
+          "title": "Q&A with Florian"
+        },
+        {
+          "time": 7806,
+          "title": "Hands-Free Coding With Gaze Control in JavaScript, by Charlie Gerard"
+        },
+        {
+          "time": 9043,
+          "title": "Q&A with Charlie"
+        },
+        {
+          "time": 10094,
+          "title": "Coffee Break"
+        },
+        {
+          "time": 11581,
+          "title": "Documentation Playgrounds With Module Imports Support, by Andrey Grandilevskiy"
+        },
+        {
+          "time": 12601,
+          "title": "Q&A with Andrey"
+        },
+        {
+          "time": 13788,
+          "title": "Angular 13, by Aaron Frost"
+        },
+        {
+          "time": 15255,
+          "title": "Q&A with Aaron"
+        },
+        {
+          "time": 16306,
+          "title": "htmx: Writing JavaScript to Avoid Writing JavaScript, by Carson Gross"
+        },
+        {
+          "time": 17405,
+          "title": "Q&A with Carson"
+        },
+        {
+          "time": 18699,
+          "title": "Monorepos: Any Size Fits All, by Altan Stalker"
+        },
+        {
+          "time": 19813,
+          "title": "Q&A with Altan"
+        },
+        {
+          "time": 21163,
+          "title": "How to Get Involved in Open Source: A Quickstart Guide, By Tracy Lee"
+        },
+        {
+          "time": 22625,
+          "title": "Q&A with Tracy"
+        },
+        {
+          "time": 23526,
+          "title": "Closing remarks"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3401,7 +6015,45 @@
       "url": "https://www.youtube.com/watch?v=IV890jKXe_s",
       "video": "IV890jKXe_s",
       "description": "There is a way to have better control as a developer on the image performance of your website. Debbie will walk you through the greatness of Nuxt Images and showcase all the benefits of using this plug-and-play image optimization module.",
-      "conference": "Nuxt Nation"
+      "conference": "Nuxt Nation",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Introduction"
+        },
+        {
+          "time": 76,
+          "title": "Identifying the problem"
+        },
+        {
+          "time": 158,
+          "title": "Performance analysis"
+        },
+        {
+          "time": 374,
+          "title": "Image source analysis"
+        },
+        {
+          "time": 574,
+          "title": "Implementing next/image"
+        },
+        {
+          "time": 766,
+          "title": "Next config and presets"
+        },
+        {
+          "time": 869,
+          "title": "Results and comparison"
+        },
+        {
+          "time": 1051,
+          "title": "Cost and layout analysis"
+        },
+        {
+          "time": 1251,
+          "title": "Tips and conclusions"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3415,7 +6067,65 @@
       "url": "https://www.youtube.com/watch?v=SRK-8UEVleY",
       "video": "SRK-8UEVleY",
       "description": "In this episode we'll learn how to build React components with Bit so that we can more easily scale our websites and apps!",
-      "host": "Alex Trost"
+      "host": "Alex Trost",
+      "chapters": [
+        {
+          "time": 97,
+          "title": "Who Is Debbie O'brien"
+        },
+        {
+          "time": 105,
+          "title": "Debbie O'brien"
+        },
+        {
+          "time": 794,
+          "title": "Figma Workflow"
+        },
+        {
+          "time": 1411,
+          "title": "Card Component"
+        },
+        {
+          "time": 1702,
+          "title": "Tests"
+        },
+        {
+          "time": 1732,
+          "title": "Dependencies"
+        },
+        {
+          "time": 2419,
+          "title": "Docs File"
+        },
+        {
+          "time": 2657,
+          "title": "Available Colors"
+        },
+        {
+          "time": 3254,
+          "title": "Getting Started"
+        },
+        {
+          "time": 3481,
+          "title": "Installing Bit"
+        },
+        {
+          "time": 3676,
+          "title": "Initialize a Workspace"
+        },
+        {
+          "time": 3900,
+          "title": "Workspace Json"
+        },
+        {
+          "time": 3928,
+          "title": "Default Scope"
+        },
+        {
+          "time": 4065,
+          "title": "React Environment"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3427,7 +6137,97 @@
       "url": "https://www.youtube.com/watch?v=9UHDTz5PCkw",
       "video": "9UHDTz5PCkw",
       "description": "Recognize those who go above and beyond. Lift up the people who inspire and educate your communities with the GitHub Stars program",
-      "host": "Eddie Jaoude"
+      "host": "Eddie Jaoude",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Welcome and introductions"
+        },
+        {
+          "time": 120,
+          "title": "Gina and Mario intros"
+        },
+        {
+          "time": 324,
+          "title": "Debbie and Ruth intros"
+        },
+        {
+          "time": 524,
+          "title": "Maintaining engagement"
+        },
+        {
+          "time": 715,
+          "title": "Debbie's career journey"
+        },
+        {
+          "time": 976,
+          "title": "Gina's path to open source"
+        },
+        {
+          "time": 1215,
+          "title": "Overcoming challenges"
+        },
+        {
+          "time": 1494,
+          "title": "Mario's tech origin story"
+        },
+        {
+          "time": 1787,
+          "title": "Career growth and teaching"
+        },
+        {
+          "time": 2044,
+          "title": "Ruth's journey into tech"
+        },
+        {
+          "time": 2235,
+          "title": "Reflections on GitHub stars"
+        },
+        {
+          "time": 2527,
+          "title": "Maintaining work-life balance"
+        },
+        {
+          "time": 2914,
+          "title": "Finding motivation"
+        },
+        {
+          "time": 3139,
+          "title": "Side projects and happiness"
+        },
+        {
+          "time": 3416,
+          "title": "Community impact"
+        },
+        {
+          "time": 3673,
+          "title": "Advice for aspiring stars"
+        },
+        {
+          "time": 4038,
+          "title": "Community and visibility"
+        },
+        {
+          "time": 4435,
+          "title": "The power of mentorship"
+        },
+        {
+          "time": 4642,
+          "title": "Future goals"
+        },
+        {
+          "time": 5055,
+          "title": "Advice for beginners"
+        },
+        {
+          "time": 5262,
+          "title": "Valuing community contributions"
+        },
+        {
+          "time": 5600,
+          "title": "Wrap up and final remarks"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3441,7 +6241,45 @@
       "url": "https://www.youtube.com/watch?v=0Y-XdRyUb1U",
       "video": "0Y-XdRyUb1U",
       "description": "Performance is super important for any app. Did you know all the cool things Nuxt does for you out of the box, to make sure your app is as performant as possible? Let’s take a look at them and dive into some more performance enhancements for your Nuxt app.",
-      "conference": "Vue Amsterdam"
+      "conference": "Vue Amsterdam",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Introduction to performance"
+        },
+        {
+          "time": 96,
+          "title": "Webpack and routing magic"
+        },
+        {
+          "time": 275,
+          "title": "Component and chunk management"
+        },
+        {
+          "time": 371,
+          "title": "Prefetching and bundle analysis"
+        },
+        {
+          "time": 550,
+          "title": "Progressive web app features"
+        },
+        {
+          "time": 746,
+          "title": "Offline support and benefits"
+        },
+        {
+          "time": 847,
+          "title": "Google fonts and AMP"
+        },
+        {
+          "time": 944,
+          "title": "Next image and picture"
+        },
+        {
+          "time": 1184,
+          "title": "Closing thoughts"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3455,7 +6293,37 @@
       "url": "https://www.youtube.com/watch?v=6WL9t63LjzM",
       "video": "6WL9t63LjzM",
       "description": "Let's take a look at how to add a theme context to your React components so you can easily add theming.",
-      "host": "Benjy"
+      "host": "Benjy",
+      "chapters": [
+        {
+          "time": 98,
+          "title": "Css Variables"
+        },
+        {
+          "time": 345,
+          "title": "Tailwind Config"
+        },
+        {
+          "time": 1217,
+          "title": "Color the Text"
+        },
+        {
+          "time": 1735,
+          "title": "Add Product Theme to the Home Page"
+        },
+        {
+          "time": 1895,
+          "title": "Product Card Grid"
+        },
+        {
+          "time": 2042,
+          "title": "Using a Theme Context"
+        },
+        {
+          "time": 2975,
+          "title": "Authentication Context"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3481,7 +6349,85 @@
       "url": "https://www.youtube.com/watch?v=7afMBwj5fR4",
       "video": "7afMBwj5fR4",
       "description": "What is Bit? Bit is a platform for building with components. You can use Bit to build UI components, hooks, middleware, server-less functions and all things JavaScript! In this session, learn how to build more scalable and reusable components. Let’s take a look at how we can get your components in the cloud complete with documentation, tests and compositions, so they can easily be shared and used in other applications.",
-      "host": "This Dot Media"
+      "host": "This Dot Media",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Introduction"
+        },
+        {
+          "time": 121,
+          "title": "What is Bit?"
+        },
+        {
+          "time": 290,
+          "title": "Installing and setting up Bit"
+        },
+        {
+          "time": 432,
+          "title": "Initializing a workspace"
+        },
+        {
+          "time": 550,
+          "title": "Workspace configuration"
+        },
+        {
+          "time": 723,
+          "title": "Creating a component"
+        },
+        {
+          "time": 958,
+          "title": "Testing and documentation"
+        },
+        {
+          "time": 1061,
+          "title": "Using Bit composition"
+        },
+        {
+          "time": 1159,
+          "title": "Starting the dev server"
+        },
+        {
+          "time": 1342,
+          "title": "Reviewing component UI"
+        },
+        {
+          "time": 1575,
+          "title": "Styling the component"
+        },
+        {
+          "time": 1844,
+          "title": "Adding component props"
+        },
+        {
+          "time": 2105,
+          "title": "Building a card component"
+        },
+        {
+          "time": 2373,
+          "title": "Advanced component usage"
+        },
+        {
+          "time": 2720,
+          "title": "Tagging components"
+        },
+        {
+          "time": 2940,
+          "title": "Exporting to the cloud"
+        },
+        {
+          "time": 3187,
+          "title": "Verifying cloud export"
+        },
+        {
+          "time": 3403,
+          "title": "Using component in an app"
+        },
+        {
+          "time": 3625,
+          "title": "Conclusion and Q&A"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3495,7 +6441,37 @@
       "url": "https://www.youtube.com/watch?v=2jojhi5W4BM",
       "video": "2jojhi5W4BM",
       "description": "Let's see if we can help Tim improve his application and think in components and perhaps get him to try out Bit",
-      "host": "Tim Benniks"
+      "host": "Tim Benniks",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Project intro and goals"
+        },
+        {
+          "time": 286,
+          "title": "Understanding Bit's purpose"
+        },
+        {
+          "time": 744,
+          "title": "Setting up the Bit workspace"
+        },
+        {
+          "time": 1294,
+          "title": "Creating components"
+        },
+        {
+          "time": 1813,
+          "title": "Developing with Bit"
+        },
+        {
+          "time": 2383,
+          "title": "Testing and UI features"
+        },
+        {
+          "time": 2826,
+          "title": "Exporting and final thoughts"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3508,7 +6484,81 @@
       "url": "https://www.youtube.com/watch?v=ItgsipIm9s0",
       "video": "ItgsipIm9s0",
       "description": "Talk about the Bit platform, advantages of using Bit, frameworks supported, and how to get started.",
-      "host": "Santosh"
+      "host": "Santosh",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Intro"
+        },
+        {
+          "time": 52,
+          "title": "About bit"
+        },
+        {
+          "time": 274,
+          "title": "Updating dependencies"
+        },
+        {
+          "time": 361,
+          "title": "Versions"
+        },
+        {
+          "time": 407,
+          "title": "Customization"
+        },
+        {
+          "time": 469,
+          "title": "Getting started"
+        },
+        {
+          "time": 696,
+          "title": "Installing"
+        },
+        {
+          "time": 733,
+          "title": "What is Harmony"
+        },
+        {
+          "time": 799,
+          "title": "Testing"
+        },
+        {
+          "time": 872,
+          "title": "Framework support"
+        },
+        {
+          "time": 942,
+          "title": "Pricing"
+        },
+        {
+          "time": 963,
+          "title": "Ripple"
+        },
+        {
+          "time": 1095,
+          "title": "GitHub Actions"
+        },
+        {
+          "time": 1119,
+          "title": "Bit Infrastructure"
+        },
+        {
+          "time": 1171,
+          "title": "How to contribute"
+        },
+        {
+          "time": 1251,
+          "title": "How to consume components"
+        },
+        {
+          "time": 1689,
+          "title": "How to find components"
+        },
+        {
+          "time": 1864,
+          "title": "React Bootstrap"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3521,7 +6571,45 @@
       "url": "https://www.youtube.com/watch?v=4HfC9OirWVI",
       "video": "4HfC9OirWVI",
       "description": "Let's learn how to animate with CSS and create a Beaver who moves its tail and eyebrows.",
-      "host": "Julia Miocene"
+      "host": "Julia Miocene",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Introduction"
+        },
+        {
+          "time": 105,
+          "title": "Setting up the project"
+        },
+        {
+          "time": 272,
+          "title": "Building the body"
+        },
+        {
+          "time": 728,
+          "title": "Adding ears and arms"
+        },
+        {
+          "time": 1349,
+          "title": "Crafting the face"
+        },
+        {
+          "time": 1960,
+          "title": "Eyes and details"
+        },
+        {
+          "time": 2311,
+          "title": "Belly, tail, and best practices"
+        },
+        {
+          "time": 2874,
+          "title": "Animating the beaver"
+        },
+        {
+          "time": 3757,
+          "title": "Adding interactivity and wrap-up"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3534,7 +6622,37 @@
       "url": "https://www.youtube.com/watch?v=WlpHiYQGG6k",
       "video": "WlpHiYQGG6k",
       "description": "If you ever wondered what developer advocates do, how their typical day looks like, or want to know how to get started with advocacy, this episode is for you!",
-      "host": "Marc Backes"
+      "host": "Marc Backes",
+      "chapters": [
+        {
+          "time": 757,
+          "title": "Favorite Part of Being a Developer Advocate"
+        },
+        {
+          "time": 842,
+          "title": "What Does a Typical Day Look like for You as a Developer Advocate"
+        },
+        {
+          "time": 1322,
+          "title": "Leading Developer Advocates"
+        },
+        {
+          "time": 1412,
+          "title": "Understanding the Product Code"
+        },
+        {
+          "time": 1739,
+          "title": "Any Personal Trait Someone Should Have in Order To Be a Developer Advocate"
+        },
+        {
+          "time": 2111,
+          "title": "Being Opinionated"
+        },
+        {
+          "time": 2612,
+          "title": "Do I Code every Day"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3560,7 +6678,45 @@
       "url": "https://www.youtube.com/watch?v=lSxU_q-8Rrc",
       "video": "lSxU_q-8Rrc",
       "description": "Welcome to the second episode of the DevRel roundtable series where I invite developer relation people to a roundtable discussion to converse on whatever topics we feel are relevant. This episode features Debbie O'Brien and Lucie Haberer.",
-      "host": "Tim Benniks"
+      "host": "Tim Benniks",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Intro"
+        },
+        {
+          "time": 24,
+          "title": "Meet Lucie and Debbie"
+        },
+        {
+          "time": 55,
+          "title": "Lucies job"
+        },
+        {
+          "time": 171,
+          "title": "Death rail"
+        },
+        {
+          "time": 303,
+          "title": "School"
+        },
+        {
+          "time": 320,
+          "title": "Why DevRel"
+        },
+        {
+          "time": 611,
+          "title": "Debbies role at DevRel"
+        },
+        {
+          "time": 813,
+          "title": "Career path of DevRel"
+        },
+        {
+          "time": 1130,
+          "title": "Outro"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3574,7 +6730,57 @@
       "url": "https://www.youtube.com/watch?v=w4-9B_cKeu4",
       "video": "w4-9B_cKeu4",
       "description": "Come watch Samuel from Storyblok try to convince me that Storyblok is better than Nuxt Content. It's gonna be a fun one.",
-      "host": "Samuel Snopko"
+      "host": "Samuel Snopko",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Introduction and backgrounds"
+        },
+        {
+          "time": 186,
+          "title": "Nuxt Content vs Storyblok"
+        },
+        {
+          "time": 448,
+          "title": "Storyblok setup and overview"
+        },
+        {
+          "time": 855,
+          "title": "Integrating Storyblok into Nuxt"
+        },
+        {
+          "time": 1528,
+          "title": "Real-time editing and features"
+        },
+        {
+          "time": 1847,
+          "title": "Configuring content components"
+        },
+        {
+          "time": 2127,
+          "title": "Live integration on site"
+        },
+        {
+          "time": 2705,
+          "title": "Fetching and displaying data"
+        },
+        {
+          "time": 3535,
+          "title": "Debugging the live integration"
+        },
+        {
+          "time": 4208,
+          "title": "Implementing the visual editor"
+        },
+        {
+          "time": 4783,
+          "title": "Creating new content blocks"
+        },
+        {
+          "time": 5600,
+          "title": "Final thoughts and resources"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3589,7 +6795,89 @@
       "url": "https://www.youtube.com/watch?v=Spt4j_Xq79w",
       "video": "Spt4j_Xq79w",
       "description": "This talk covers how to use static sites with Hasura, from setting up your endpoint, adding the query to Nuxt.js to display your data with Apollo and GraphQL, how to setup a hook so that it triggers a deploy of your site on content change as static sites need to be redeployed on content change.",
-      "conference": "Ask the Expert"
+      "conference": "Ask the Expert",
+      "chapters": [
+        {
+          "time": 105,
+          "title": "Nuxt Benefits"
+        },
+        {
+          "time": 420,
+          "title": "Lighthouse"
+        },
+        {
+          "time": 911,
+          "title": "Generate your site A"
+        },
+        {
+          "time": 1130,
+          "title": "GraphQL Endpoint"
+        },
+        {
+          "time": 1135,
+          "title": "GraphQL Playground"
+        },
+        {
+          "time": 1196,
+          "title": "Install and register http"
+        },
+        {
+          "time": 1219,
+          "title": "Create a plugin"
+        },
+        {
+          "time": 1273,
+          "title": "Register the Plugin"
+        },
+        {
+          "time": 1299,
+          "title": "Add your query"
+        },
+        {
+          "time": 1325,
+          "title": "AsyncData"
+        },
+        {
+          "time": 1357,
+          "title": "Use in your template"
+        },
+        {
+          "time": 1453,
+          "title": "Generate on Update"
+        },
+        {
+          "time": 1462,
+          "title": "Create your trigger"
+        },
+        {
+          "time": 1504,
+          "title": "Netlify Build Hooks"
+        },
+        {
+          "time": 1511,
+          "title": "Add the URL to Hasura"
+        },
+        {
+          "time": 1622,
+          "title": "Nuxt Full Static"
+        },
+        {
+          "time": 1712,
+          "title": "Hybrid"
+        },
+        {
+          "time": 1742,
+          "title": "Stale While Revalidating"
+        },
+        {
+          "time": 1796,
+          "title": "Nuxt Serverless"
+        },
+        {
+          "time": 1902,
+          "title": "Think Static be Dynamic"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3602,7 +6890,45 @@
       "url": "https://www.youtube.com/watch?v=xUwST2bAWw8",
       "video": "xUwST2bAWw8",
       "description": "Let's build a Nuxt application with Prismic CMS. Lucie will teach me everything I need to know so I can easily build a Nuxt site with my content coming from Prismic.",
-      "host": "Samuel Lucie Harber"
+      "host": "Samuel Lucie Harber",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Introduction and setup"
+        },
+        {
+          "time": 634,
+          "title": "Prismic project initialization"
+        },
+        {
+          "time": 880,
+          "title": "Working with Slice Machine"
+        },
+        {
+          "time": 1269,
+          "title": "Creating a website slice"
+        },
+        {
+          "time": 1563,
+          "title": "Modeling component content"
+        },
+        {
+          "time": 2226,
+          "title": "Styling with Tailwind CSS"
+        },
+        {
+          "time": 2888,
+          "title": "Pushing and configuring slices"
+        },
+        {
+          "time": 3570,
+          "title": "Content editing experience"
+        },
+        {
+          "time": 4224,
+          "title": "Final demo and wrap-up"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3616,7 +6942,113 @@
       "url": "https://www.youtube.com/watch?v=Rj1qYm5zctE",
       "video": "Rj1qYm5zctE",
       "description": "Let's learn how to use Strapi, a headless CMS to get some food data onto our Nuxt app with a bit of GraphQL.",
-      "host": "Daniel"
+      "host": "Daniel",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Intro"
+        },
+        {
+          "time": 20,
+          "title": "Welcome"
+        },
+        {
+          "time": 85,
+          "title": "Strapi"
+        },
+        {
+          "time": 875,
+          "title": "Sharing Screens"
+        },
+        {
+          "time": 915,
+          "title": "Watch Mode"
+        },
+        {
+          "time": 985,
+          "title": "Admin"
+        },
+        {
+          "time": 1075,
+          "title": "Create Content Type"
+        },
+        {
+          "time": 1195,
+          "title": "Strap"
+        },
+        {
+          "time": 1215,
+          "title": "Collection"
+        },
+        {
+          "time": 1255,
+          "title": "Menu"
+        },
+        {
+          "time": 1275,
+          "title": "Meal Name"
+        },
+        {
+          "time": 1355,
+          "title": "Price"
+        },
+        {
+          "time": 1375,
+          "title": "Format"
+        },
+        {
+          "time": 1405,
+          "title": "Single Media"
+        },
+        {
+          "time": 1435,
+          "title": "Restaurant"
+        },
+        {
+          "time": 1475,
+          "title": "Menus"
+        },
+        {
+          "time": 1525,
+          "title": "Chicken Curry"
+        },
+        {
+          "time": 1595,
+          "title": "Publish"
+        },
+        {
+          "time": 1685,
+          "title": "User Permissions"
+        },
+        {
+          "time": 1835,
+          "title": "localhost"
+        },
+        {
+          "time": 1990,
+          "title": "applications"
+        },
+        {
+          "time": 2060,
+          "title": "Telescope"
+        },
+        {
+          "time": 2135,
+          "title": "Documentation"
+        },
+        {
+          "time": 2480,
+          "title": "Graphql Playground"
+        },
+        {
+          "time": 2681,
+          "title": "Apollo"
+        },
+        {
+          "time": 3150,
+          "title": "Script"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3629,7 +7061,37 @@
       "url": "https://www.youtube.com/watch?v=u7UzYB3PBD4",
       "video": "u7UzYB3PBD4",
       "description": "Spanish - About me and how I get into coding, my acting career and so many more questions with lots of fun answers.",
-      "host": "OS Weeekends"
+      "host": "OS Weeekends",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Intro"
+        },
+        {
+          "time": 240,
+          "title": "Empezamos"
+        },
+        {
+          "time": 860,
+          "title": "Dani"
+        },
+        {
+          "time": 2160,
+          "title": "James"
+        },
+        {
+          "time": 3595,
+          "title": "Jordi"
+        },
+        {
+          "time": 5335,
+          "title": "Debbie"
+        },
+        {
+          "time": 7764,
+          "title": "Despedida y cierre"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3642,7 +7104,113 @@
       "url": "https://www.youtube.com/watch?v=UE64S_ExxY4",
       "video": "UE64S_ExxY4",
       "description": "Interview on all things Nuxt and how my background including my story on how I got into Open Source and working at Nuxt",
-      "host": "Eddie Jaoude"
+      "host": "Eddie Jaoude",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Introduction"
+        },
+        {
+          "time": 155,
+          "title": "Early career struggles"
+        },
+        {
+          "time": 359,
+          "title": "Defining your dream"
+        },
+        {
+          "time": 529,
+          "title": "Learning and mentorship"
+        },
+        {
+          "time": 717,
+          "title": "Overcoming rejection"
+        },
+        {
+          "time": 884,
+          "title": "The turning point"
+        },
+        {
+          "time": 1053,
+          "title": "Interview challenges"
+        },
+        {
+          "time": 1221,
+          "title": "Importance of peer reviews"
+        },
+        {
+          "time": 1406,
+          "title": "Collaborating on code"
+        },
+        {
+          "time": 1531,
+          "title": "Landing a job"
+        },
+        {
+          "time": 1657,
+          "title": "Getting into open source"
+        },
+        {
+          "time": 1803,
+          "title": "The cereal bar story"
+        },
+        {
+          "time": 2112,
+          "title": "Adding value to others"
+        },
+        {
+          "time": 2246,
+          "title": "Contributions and rewards"
+        },
+        {
+          "time": 2429,
+          "title": "Community growth"
+        },
+        {
+          "time": 2645,
+          "title": "Open source vs. corporate"
+        },
+        {
+          "time": 2842,
+          "title": "Advice for beginners"
+        },
+        {
+          "time": 3030,
+          "title": "Does IT experience matter?"
+        },
+        {
+          "time": 3173,
+          "title": "When to start contributing"
+        },
+        {
+          "time": 3280,
+          "title": "Networking and feedback"
+        },
+        {
+          "time": 3432,
+          "title": "Learning Nuxt.js"
+        },
+        {
+          "time": 3611,
+          "title": "Time management"
+        },
+        {
+          "time": 3728,
+          "title": "Burnout and mental health"
+        },
+        {
+          "time": 3892,
+          "title": "Finding motivation"
+        },
+        {
+          "time": 4038,
+          "title": "Project ideas"
+        },
+        {
+          "time": 4444,
+          "title": "Conclusion"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3655,7 +7223,57 @@
       "url": "https://www.youtube.com/watch?v=NCID3OL02B0",
       "video": "NCID3OL02B0",
       "description": "Conversation on Nuxt and static times with a look back on previous jobs and how I got to where I am today.",
-      "host": "Romulo Cintra"
+      "host": "Romulo Cintra",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Intro"
+        },
+        {
+          "time": 72,
+          "title": "Who is Debbie"
+        },
+        {
+          "time": 448,
+          "title": "How to get on your feet"
+        },
+        {
+          "time": 1111,
+          "title": "Web landscape"
+        },
+        {
+          "time": 1286,
+          "title": "Open source"
+        },
+        {
+          "time": 1436,
+          "title": "Future plans"
+        },
+        {
+          "time": 1601,
+          "title": "How do you work"
+        },
+        {
+          "time": 1821,
+          "title": "Plugins"
+        },
+        {
+          "time": 2171,
+          "title": "Side Projects"
+        },
+        {
+          "time": 2241,
+          "title": "Upcoming Features"
+        },
+        {
+          "time": 2391,
+          "title": "React vs Vue"
+        },
+        {
+          "time": 2626,
+          "title": "Final Thoughts"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3670,7 +7288,41 @@
       "url": "https://www.youtube.com/watch?v=fe3Y1_Na9K4",
       "video": "fe3Y1_Na9K4",
       "description": "This talk covers how to use static sites with Hasura, from setting up your endpoint, adding the query to Nuxt.js to display your data with Apollo and GraphQL, how to setup a hook so that it triggers a deploy of your site on content change as static sites need to be redeployed on content change.",
-      "conference": "Vue Toronto"
+      "conference": "Vue Toronto",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Introduction to full static"
+        },
+        {
+          "time": 75,
+          "title": "Nuxt.js features"
+        },
+        {
+          "time": 150,
+          "title": "Why go static"
+        },
+        {
+          "time": 248,
+          "title": "Deployment with Netlify"
+        },
+        {
+          "time": 338,
+          "title": "Integrating Hasura and GraphQL"
+        },
+        {
+          "time": 666,
+          "title": "Data implementation in Nuxt"
+        },
+        {
+          "time": 957,
+          "title": "Previewing dynamic data"
+        },
+        {
+          "time": 1249,
+          "title": "Automation and conclusion"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3683,7 +7335,81 @@
       "url": "https://www.youtube.com/watch?v=eRjqRhdWpCk",
       "video": "eRjqRhdWpCk",
       "description": "This episode is all about Javascript, and understanding some of the frameworks. In the show, we’ll get an introduction to Node.js - a runtime which allows developers to use Javacript on the server-side and in the cloud.",
-      "host": "Adam Jackson, Wassim Chegham, Yohan Lasora, Ana Cidre"
+      "host": "Adam Jackson, Wassim Chegham, Yohan Lasora, Ana Cidre",
+      "chapters": [
+        {
+          "time": 71,
+          "title": "Javascript Frameworks"
+        },
+        {
+          "time": 462,
+          "title": "The Difference between Javascript and Node Js"
+        },
+        {
+          "time": 471,
+          "title": "The Difference between the Language and the Framework"
+        },
+        {
+          "time": 515,
+          "title": "Node Js"
+        },
+        {
+          "time": 1001,
+          "title": "Introduction to Javascript"
+        },
+        {
+          "time": 1016,
+          "title": "Beginner Series to Javascript"
+        },
+        {
+          "time": 1211,
+          "title": "Azure Static Web Apps"
+        },
+        {
+          "time": 1268,
+          "title": "Azure Static Web Apps Service"
+        },
+        {
+          "time": 1274,
+          "title": "Static Web Apps"
+        },
+        {
+          "time": 1511,
+          "title": "How Did You Get Started with Javascript"
+        },
+        {
+          "time": 2205,
+          "title": "What Do I Do as a Developer Advocate"
+        },
+        {
+          "time": 2330,
+          "title": "Avocado Labs"
+        },
+        {
+          "time": 2398,
+          "title": "How Did You Get into Javascript"
+        },
+        {
+          "time": 2555,
+          "title": "Angular"
+        },
+        {
+          "time": 2980,
+          "title": "What Is Javascript"
+        },
+        {
+          "time": 2988,
+          "title": "What Javascript Is"
+        },
+        {
+          "time": 3057,
+          "title": "Why Learn Javascript"
+        },
+        {
+          "time": 3112,
+          "title": "Native Applications"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3696,7 +7422,185 @@
       "url": "https://www.youtube.com/watch?v=MuKzaCoDB1E",
       "video": "MuKzaCoDB1E",
       "description": "Let's build a running app so we can connect our running data to Contentful and show it in our Nuxt app using GraphQL.",
-      "host": "Shyamal Ruparel"
+      "host": "Shyamal Ruparel",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Introductions and welcome"
+        },
+        {
+          "time": 49,
+          "title": "Meet Debbie O'Brien"
+        },
+        {
+          "time": 83,
+          "title": "Contentful community resources"
+        },
+        {
+          "time": 160,
+          "title": "Nuxt learning resources"
+        },
+        {
+          "time": 231,
+          "title": "What is Nuxt?"
+        },
+        {
+          "time": 335,
+          "title": "Setting up a Nuxt app"
+        },
+        {
+          "time": 498,
+          "title": "Rendering modes and hosting"
+        },
+        {
+          "time": 647,
+          "title": "Running the development server"
+        },
+        {
+          "time": 749,
+          "title": "Contentful model configuration"
+        },
+        {
+          "time": 842,
+          "title": "Adding sample content"
+        },
+        {
+          "time": 1053,
+          "title": "Image transformation"
+        },
+        {
+          "time": 1163,
+          "title": "Nuxt modules for GraphQL"
+        },
+        {
+          "time": 1274,
+          "title": "Nuxt file structure and routing"
+        },
+        {
+          "time": 1417,
+          "title": "Creating pages and components"
+        },
+        {
+          "time": 1589,
+          "title": "Fetching data in Nuxt"
+        },
+        {
+          "time": 1683,
+          "title": "Configuring environment variables"
+        },
+        {
+          "time": 1820,
+          "title": "Handling authentication"
+        },
+        {
+          "time": 2034,
+          "title": "Executing GraphQL queries"
+        },
+        {
+          "time": 2175,
+          "title": "Displaying data on the page"
+        },
+        {
+          "time": 2282,
+          "title": "Troubleshooting console logs"
+        },
+        {
+          "time": 2431,
+          "title": "Looping through content"
+        },
+        {
+          "time": 2568,
+          "title": "Formatting data for display"
+        },
+        {
+          "time": 2683,
+          "title": "Adding image rendering"
+        },
+        {
+          "time": 2908,
+          "title": "Dynamic routing with slugs"
+        },
+        {
+          "time": 3056,
+          "title": "Filtering content by URL"
+        },
+        {
+          "time": 3224,
+          "title": "GraphQL query variables"
+        },
+        {
+          "time": 3400,
+          "title": "Debugging dynamic queries"
+        },
+        {
+          "time": 3570,
+          "title": "Implementing preview mode"
+        },
+        {
+          "time": 3725,
+          "title": "Fixing query errors"
+        },
+        {
+          "time": 3861,
+          "title": "Verifying data flow"
+        },
+        {
+          "time": 4028,
+          "title": "Reviewing content updates"
+        },
+        {
+          "time": 4153,
+          "title": "Static site generation"
+        },
+        {
+          "time": 4272,
+          "title": "Deploying to Netlify"
+        },
+        {
+          "time": 4452,
+          "title": "Testing the deployment"
+        },
+        {
+          "time": 4547,
+          "title": "Final content adjustments"
+        },
+        {
+          "time": 4663,
+          "title": "Formatting the link display"
+        },
+        {
+          "time": 4771,
+          "title": "Wsl environment explanation"
+        },
+        {
+          "time": 4905,
+          "title": "Debugging static generation"
+        },
+        {
+          "time": 5057,
+          "title": "Understanding payload files"
+        },
+        {
+          "time": 5236,
+          "title": "Preview mode functionality"
+        },
+        {
+          "time": 5352,
+          "title": "Contentful preview configuration"
+        },
+        {
+          "time": 5515,
+          "title": "Testing preview mode"
+        },
+        {
+          "time": 5664,
+          "title": "Final checks and wrap-up"
+        },
+        {
+          "time": 5821,
+          "title": "Resources and conclusions"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3709,7 +7613,45 @@
       "url": "https://www.youtube.com/watch?v=cppypvbgUBs",
       "video": "cppypvbgUBs",
       "description": "Nuxt.js, the intuitive web framework, has had some killer features recently released. Debbie will take you through those new features and shed some light on what is to come in Nuxt.js",
-      "conference": "CityJS"
+      "conference": "CityJS",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Introduction to Nuxt updates"
+        },
+        {
+          "time": 84,
+          "title": "Community and project news"
+        },
+        {
+          "time": 204,
+          "title": "Documentation improvements"
+        },
+        {
+          "time": 466,
+          "title": "Roadmap and architecture"
+        },
+        {
+          "time": 669,
+          "title": "Nuxt version 2.14 features"
+        },
+        {
+          "time": 878,
+          "title": "Future content and resources"
+        },
+        {
+          "time": 1046,
+          "title": "Modules and ecosystem"
+        },
+        {
+          "time": 1218,
+          "title": "Deep dive into Nuxt Content"
+        },
+        {
+          "time": 1954,
+          "title": "Docs theme and conclusion"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3723,7 +7665,65 @@
       "url": "https://www.youtube.com/watch?v=D84pmKtQB3w",
       "video": "D84pmKtQB3w",
       "description": "Once you start using Tailwind there is no going back but first you have convince your boss and your team that utility first CSS is the way to go.",
-      "host": "Simon Vrachliotis"
+      "host": "Simon Vrachliotis",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Warming up"
+        },
+        {
+          "time": 298,
+          "title": "Greetings with Debbie O'Brien"
+        },
+        {
+          "time": 370,
+          "title": "Your first impression with Tailwind CSS"
+        },
+        {
+          "time": 800,
+          "title": "The complexity has to live somewhere!"
+        },
+        {
+          "time": 998,
+          "title": "How did your team react to Tailwind CSS?"
+        },
+        {
+          "time": 1103,
+          "title": "Give it two weeks!"
+        },
+        {
+          "time": 1291,
+          "title": "Designer/developer workflow in Tailwind CSS"
+        },
+        {
+          "time": 1388,
+          "title": "Any pain points transitioning to Tailwind?"
+        },
+        {
+          "time": 1870,
+          "title": "Abstracting component classes with @apply"
+        },
+        {
+          "time": 2114,
+          "title": "That feeling when you go back to other CSS methodologies"
+        },
+        {
+          "time": 2226,
+          "title": "How do you demo Tailwind CSS?"
+        },
+        {
+          "time": 3213,
+          "title": "Audience questions"
+        },
+        {
+          "time": 4143,
+          "title": "Wrapping up"
+        },
+        {
+          "time": 4780,
+          "title": "Encore! Behind the scenes"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3736,7 +7736,73 @@
       "url": "https://www.youtube.com/watch?v=EiQ9ghz6pE0",
       "video": "EiQ9ghz6pE0",
       "description": "Eddie reached out to other Developers and YouTubers and asked them for their top 3 tips they would give to coders. Here are their tips!",
-      "host": "Eddie Jaoude"
+      "host": "Eddie Jaoude",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Intro by Eddie Jaoude"
+        },
+        {
+          "time": 39,
+          "title": "Danny Thompson aka DThompsonDev"
+        },
+        {
+          "time": 219,
+          "title": "Debbie O'Brien"
+        },
+        {
+          "time": 284,
+          "title": "Jesse Hall aka codeSTACKr"
+        },
+        {
+          "time": 347,
+          "title": "Bryan Jenks aka BryanJenksTech"
+        },
+        {
+          "time": 407,
+          "title": "Brian Douglas aka ilikerobot"
+        },
+        {
+          "time": 439,
+          "title": "Ali Spittel aka alispitteldev"
+        },
+        {
+          "time": 573,
+          "title": "Dennis Ivanov aka dennisivy"
+        },
+        {
+          "time": 633,
+          "title": "Praveen Science aka praveenscience"
+        },
+        {
+          "time": 708,
+          "title": "Real Tough Candy aka RTC"
+        },
+        {
+          "time": 760,
+          "title": "James Perkins"
+        },
+        {
+          "time": 850,
+          "title": "Claudio Bernasconi"
+        },
+        {
+          "time": 914,
+          "title": "Niall Maher aka CodúCommunity"
+        },
+        {
+          "time": 1025,
+          "title": "Jon Wood"
+        },
+        {
+          "time": 1087,
+          "title": "Adrian aka hungryturtledev"
+        },
+        {
+          "time": 1160,
+          "title": "Eddie Jaoude"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3749,7 +7815,85 @@
       "url": "https://www.youtube.com/watch?v=KrqzTw_OiDY",
       "video": "KrqzTw_OiDY",
       "description": "Teaching Eddie a few things about Nuxt and how Nuxt content works. Watch Eddies reaction to the live editing feature of Nuxt content.",
-      "host": "Eddie Jaoude"
+      "host": "Eddie Jaoude",
+      "chapters": [
+        {
+          "time": 223,
+          "title": "What Is Nux Js"
+        },
+        {
+          "time": 1461,
+          "title": "Semantic Pull Requests"
+        },
+        {
+          "time": 1597,
+          "title": "Can I Use Nux with Other Vue Js Frameworks like Beautify"
+        },
+        {
+          "time": 1993,
+          "title": "Template Svg"
+        },
+        {
+          "time": 2023,
+          "title": "Content"
+        },
+        {
+          "time": 2146,
+          "title": "Why Would You Want a Layout"
+        },
+        {
+          "time": 2606,
+          "title": "Add a Navigation"
+        },
+        {
+          "time": 2629,
+          "title": "Plugins"
+        },
+        {
+          "time": 2826,
+          "title": "Compiler Options"
+        },
+        {
+          "time": 2875,
+          "title": "Incognito Mode in Chrome"
+        },
+        {
+          "time": 2914,
+          "title": "Global Page Headers"
+        },
+        {
+          "time": 2957,
+          "title": "Global Css"
+        },
+        {
+          "time": 2982,
+          "title": "Auto Import Your Components"
+        },
+        {
+          "time": 3003,
+          "title": "Build Modules"
+        },
+        {
+          "time": 3304,
+          "title": "Documentation"
+        },
+        {
+          "time": 3640,
+          "title": "Handling Markdowns"
+        },
+        {
+          "time": 4498,
+          "title": "Live Preview Mode"
+        },
+        {
+          "time": 5035,
+          "title": "Table of Contents"
+        },
+        {
+          "time": 5791,
+          "title": "Buttons"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3762,7 +7906,25 @@
       "url": "https://www.youtube.com/watch?v=hWtlp3nhicQ",
       "video": "hWtlp3nhicQ",
       "description": "Maria Lamardo interviews Debbie after her talk at Vue Global on all things Nuxt.",
-      "host": "VueJS Global"
+      "host": "VueJS Global",
+      "chapters": [
+        {
+          "time": 60,
+          "title": "Q: If you wish to go full code, even for content. But how do you convince clients?"
+        },
+        {
+          "time": 212,
+          "title": "Debbie's new hobbies during the pandemic.."
+        },
+        {
+          "time": 335,
+          "title": "New things coming to Nuxt.."
+        },
+        {
+          "time": 399,
+          "title": "Debbie's favorite Nuxt thing coming out.."
+        }
+      ]
     },
     {
       "type": "video",
@@ -3775,7 +7937,29 @@
       "url": "https://www.youtube.com/watch?v=oncKtrmHICQ",
       "video": "oncKtrmHICQ",
       "description": "Debbie and Maya answer live questions on the Jamstack during the CityJS online Conference.",
-      "host": "CityJS"
+      "host": "CityJS",
+      "chapters": [
+        {
+          "time": 881,
+          "title": "Sensitive Data Exposure"
+        },
+        {
+          "time": 1096,
+          "title": "How Long Does It Take To Build Your Site"
+        },
+        {
+          "time": 1329,
+          "title": "Content Module"
+        },
+        {
+          "time": 1689,
+          "title": "Is There a Way To Move from a Monolith to Jam Stack"
+        },
+        {
+          "time": 1995,
+          "title": "Move from Monolith to Jam Stack"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3801,7 +7985,57 @@
       "url": "https://www.youtube.com/watch?v=ZUD9hWCmf9c",
       "video": "ZUD9hWCmf9c",
       "description": "Global Vue Meetup featuring Debbie O'Brien & Maya Shavin",
-      "conference": "This Dot Media"
+      "conference": "This Dot Media",
+      "chapters": [
+        {
+          "time": 15,
+          "title": "SPONSOR"
+        },
+        {
+          "time": 102,
+          "title": "SPEAKERS"
+        },
+        {
+          "time": 422,
+          "title": "Goodbye Wordpress"
+        },
+        {
+          "time": 1064,
+          "title": "Features"
+        },
+        {
+          "time": 1313,
+          "title": "Out of the Box"
+        },
+        {
+          "time": 1371,
+          "title": "Components"
+        },
+        {
+          "time": 1451,
+          "title": "Badge"
+        },
+        {
+          "time": 1455,
+          "title": "Code Group"
+        },
+        {
+          "time": 1472,
+          "title": "Code Sandbox"
+        },
+        {
+          "time": 1625,
+          "title": "Thank you Debbie O'Brien"
+        },
+        {
+          "time": 2100,
+          "title": "Use @nuxtjs/cloudinary"
+        },
+        {
+          "time": 3190,
+          "title": "Summary"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3814,7 +8048,69 @@
       "url": "https://www.youtube.com/watch?v=pllsjSDVTwk",
       "video": "pllsjSDVTwk",
       "description": "This event is part of a four part online series hosted with Hasura! Each week, we will focus on GraphQL + different a front-end framework. This week, join us for a lively round table discussion and Q&A about GraphQL and Vue!",
-      "host": "Natalia Tepluhina and Tanmai Gopal"
+      "host": "Natalia Tepluhina and Tanmai Gopal",
+      "chapters": [
+        {
+          "time": 22,
+          "title": "Sponsors"
+        },
+        {
+          "time": 59,
+          "title": "Upcoming Events"
+        },
+        {
+          "time": 136,
+          "title": "Introductions"
+        },
+        {
+          "time": 172,
+          "title": "Introduction"
+        },
+        {
+          "time": 365,
+          "title": "Rest Api"
+        },
+        {
+          "time": 401,
+          "title": "Axios"
+        },
+        {
+          "time": 466,
+          "title": "Apollo Module"
+        },
+        {
+          "time": 836,
+          "title": "Did graphql Kind of Change the Way That You Thought about Api Integration"
+        },
+        {
+          "time": 1377,
+          "title": "Data Close to Components"
+        },
+        {
+          "time": 1927,
+          "title": "Api Integration"
+        },
+        {
+          "time": 2246,
+          "title": "Graphql Fragments"
+        },
+        {
+          "time": 2557,
+          "title": "Graphql Is Difficult"
+        },
+        {
+          "time": 2741,
+          "title": "Testing Experience"
+        },
+        {
+          "time": 2841,
+          "title": "Experience of Setting Up the Mock Client"
+        },
+        {
+          "time": 3064,
+          "title": "Integration Testing"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3828,7 +8124,49 @@
       "url": "https://www.youtube.com/watch?v=nCc-YPf9lAU",
       "video": "nCc-YPf9lAU",
       "description": "When we first built websites many years ago they were very static. It was all we knew. Html with some CSS and a tiny bit of JavaScript. A typical website from 1996, SpaceJam which really shows how static sites are.",
-      "conference": "Create Frontend"
+      "conference": "Create Frontend",
+      "chapters": [
+        {
+          "time": 447,
+          "title": "Welcome"
+        },
+        {
+          "time": 820,
+          "title": "Keynote: Streamlining the Static Web Apps Experience"
+        },
+        {
+          "time": 1886,
+          "title": "Maya Mystery: The Inner Workings of a Static Web App"
+        },
+        {
+          "time": 2754,
+          "title": "Why Static Sites Are back: From Static, Servers, Browser to Static"
+        },
+        {
+          "time": 4176,
+          "title": "A11y For Everyone: Building Inclusive and Accessible Web Applications"
+        },
+        {
+          "time": 5782,
+          "title": "Observability In Serverless Applications"
+        },
+        {
+          "time": 6678,
+          "title": "Sketchnotingi 101: Visual Storytelling for Technologists"
+        },
+        {
+          "time": 7509,
+          "title": "Developing an Inclusive Frontend Product"
+        },
+        {
+          "time": 8329,
+          "title": "Panel: Working Remotely - The Struggle is Real"
+        },
+        {
+          "time": 9718,
+          "title": "Hands on Workshop"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3841,7 +8179,29 @@
       "url": "https://www.youtube.com/watch?v=IBKgryFpUDs",
       "video": "IBKgryFpUDs",
       "description": "We discuss Nuxt/content and how Nuxt are working on a bunch of new features to make Nuxt even more flexible. After that we discuss how I experienced landing the job and how I learnt a lot from previous job hunting.",
-      "host": "Tim Benniks"
+      "host": "Tim Benniks",
+      "chapters": [
+        {
+          "time": 105,
+          "title": "Content Module"
+        },
+        {
+          "time": 130,
+          "title": "What Will People Learn"
+        },
+        {
+          "time": 178,
+          "title": "A Headless Cms"
+        },
+        {
+          "time": 955,
+          "title": "Personal Narrative"
+        },
+        {
+          "time": 1483,
+          "title": "Create a Chrome Extension"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3870,7 +8230,69 @@
       "url": "https://www.youtube.com/watch?v=nO6hz2ZdhoA",
       "video": "nO6hz2ZdhoA",
       "description": "This talk covers how to use static sites with Hasura, from setting up your endpoint, adding the query to Nuxt.js to display your data with Apollo and GraphQL, how to setup a hook so that it triggers a deploy of your site on content change as static sites need to be redeployed on content change.",
-      "conference": "Hasura Conf"
+      "conference": "Hasura Conf",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Intro"
+        },
+        {
+          "time": 13,
+          "title": "Debbie O'Brien"
+        },
+        {
+          "time": 130,
+          "title": "Nuxt Static.Module"
+        },
+        {
+          "time": 176,
+          "title": "Full Static"
+        },
+        {
+          "time": 271,
+          "title": "Install and register http"
+        },
+        {
+          "time": 289,
+          "title": "Create a plugin"
+        },
+        {
+          "time": 336,
+          "title": "Register the Plugin"
+        },
+        {
+          "time": 346,
+          "title": "Import"
+        },
+        {
+          "time": 377,
+          "title": "AsyncData"
+        },
+        {
+          "time": 410,
+          "title": "Use in your template"
+        },
+        {
+          "time": 460,
+          "title": "Generate on Update"
+        },
+        {
+          "time": 469,
+          "title": "Create your trigger"
+        },
+        {
+          "time": 492,
+          "title": "Netlify Build Hooks"
+        },
+        {
+          "time": 503,
+          "title": "Add the URL to Hasura"
+        },
+        {
+          "time": 513,
+          "title": "Browse, Modify, Delete"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3884,7 +8306,37 @@
       "url": "https://www.youtube.com/watch?v=v-CjZRqBpMI",
       "video": "v-CjZRqBpMI",
       "description": "Static sites have many benefits from costs to performance and even reducing the carbon footprint. And with the new static module from Nuxt static is going to a whole new level. Static sites are the future and they can used for more than just blogs.",
-      "conference": "Vue Montreal"
+      "conference": "Vue Montreal",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Welcome and introductions"
+        },
+        {
+          "time": 534,
+          "title": "Speaker introduction"
+        },
+        {
+          "time": 841,
+          "title": "SEO in a Nuxt.js world"
+        },
+        {
+          "time": 2880,
+          "title": "Open mic session"
+        },
+        {
+          "time": 2953,
+          "title": "Introduction of second speaker"
+        },
+        {
+          "time": 3061,
+          "title": "Full static with Nuxt"
+        },
+        {
+          "time": 4413,
+          "title": "Q&A and closing remarks"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3899,7 +8351,129 @@
       "url": "https://www.youtube.com/watch?v=O4K8moLOfSQ",
       "video": "O4K8moLOfSQ",
       "description": "Statically generated sites are the future. Seriously. With frameworks like Nuxt we can build really cool sites that look and feel like a single page application but are actually static generated. That means no need for a server but most importantly performance is amazing. Everything is generated at build time.",
-      "conference": "Vue Zurich"
+      "conference": "Vue Zurich",
+      "chapters": [
+        {
+          "time": 739,
+          "title": "Debbie O'Brien"
+        },
+        {
+          "time": 776,
+          "title": "What I will Cover"
+        },
+        {
+          "time": 822,
+          "title": "It's all about the api's"
+        },
+        {
+          "time": 866,
+          "title": "What we gain"
+        },
+        {
+          "time": 1020,
+          "title": "What has changed"
+        },
+        {
+          "time": 1050,
+          "title": "Static is the new Dynamic"
+        },
+        {
+          "time": 1150,
+          "title": "Push and deploy"
+        },
+        {
+          "time": 1241,
+          "title": "Benefits of Nuxt"
+        },
+        {
+          "time": 1301,
+          "title": "SSR, SPA or Static"
+        },
+        {
+          "time": 1372,
+          "title": "Case Study"
+        },
+        {
+          "time": 1418,
+          "title": "Patterson Travel"
+        },
+        {
+          "time": 1484,
+          "title": "Booking Engine --- SPA"
+        },
+        {
+          "time": 1501,
+          "title": "SPA Fallback"
+        },
+        {
+          "time": 1555,
+          "title": "How it works Site is pre rendered"
+        },
+        {
+          "time": 1615,
+          "title": "API call on navigation"
+        },
+        {
+          "time": 1630,
+          "title": "I just want full static"
+        },
+        {
+          "time": 1686,
+          "title": "static module"
+        },
+        {
+          "time": 1693,
+          "title": "payload.json"
+        },
+        {
+          "time": 1702,
+          "title": "Calling the payload"
+        },
+        {
+          "time": 1736,
+          "title": "Static Sites --- Great Performance"
+        },
+        {
+          "time": 1768,
+          "title": "Accessibility"
+        },
+        {
+          "time": 1797,
+          "title": "Chrome dev tools for Accessibilit"
+        },
+        {
+          "time": 1839,
+          "title": "Auto optimise your images"
+        },
+        {
+          "time": 1875,
+          "title": "Lazy Load your images"
+        },
+        {
+          "time": 1881,
+          "title": "PWA"
+        },
+        {
+          "time": 1934,
+          "title": "CSS Stats"
+        },
+        {
+          "time": 1957,
+          "title": "modern mode"
+        },
+        {
+          "time": 1996,
+          "title": "Code split from the start o"
+        },
+        {
+          "time": 2052,
+          "title": "Tailwind + Purgess"
+        },
+        {
+          "time": 2119,
+          "title": "webpack analyzer"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3912,7 +8486,49 @@
       "url": "https://www.youtube.com/watch?v=aw4nl6hGjb0",
       "video": "aw4nl6hGjb0",
       "description": "We have a lovely and LONG conversation about my new job as Head of Learning at Nuxtjs, my ways of working and cultural differences. We flow from tender, insightful moments to jokes.",
-      "host": "Tim Benniks"
+      "host": "Tim Benniks",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Introduction to the interview"
+        },
+        {
+          "time": 64,
+          "title": "Cultural and personal insights"
+        },
+        {
+          "time": 209,
+          "title": "Gender experiences in tech"
+        },
+        {
+          "time": 414,
+          "title": "Her journey into programming"
+        },
+        {
+          "time": 658,
+          "title": "Overcoming personal obstacles"
+        },
+        {
+          "time": 949,
+          "title": "Professional recognition"
+        },
+        {
+          "time": 1099,
+          "title": "Landing the job at Next"
+        },
+        {
+          "time": 2070,
+          "title": "Taekwondo and discipline"
+        },
+        {
+          "time": 2263,
+          "title": "Motivation and daily mindset"
+        },
+        {
+          "time": 2441,
+          "title": "Conference stickers and closing"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3927,7 +8543,161 @@
       "url": "https://www.youtube.com/watch?v=llxPRNZ8wrY",
       "video": "llxPRNZ8wrY",
       "description": "Statically generated sites are the future. Seriously. With frameworks like Nuxt we can build really cool sites that look and feel like a single page application but are actually static generated. That means no need for a server but most importantly performance is amazing. Everything is generated at build time.",
-      "conference": "BuildStuff Meetups"
+      "conference": "BuildStuff Meetups",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Intro"
+        },
+        {
+          "time": 11,
+          "title": "Debbie O'Brien"
+        },
+        {
+          "time": 45,
+          "title": "Get rid of the LAMP"
+        },
+        {
+          "time": 56,
+          "title": "What I will Cover The new frontend"
+        },
+        {
+          "time": 73,
+          "title": "What has changed"
+        },
+        {
+          "time": 113,
+          "title": "It's all about the api's"
+        },
+        {
+          "time": 143,
+          "title": "What we gain"
+        },
+        {
+          "time": 203,
+          "title": "Definition of Static"
+        },
+        {
+          "time": 326,
+          "title": "Static is the new Dynamic"
+        },
+        {
+          "time": 366,
+          "title": "Taekwondo and Static Sitesi"
+        },
+        {
+          "time": 425,
+          "title": "Push and deploy"
+        },
+        {
+          "time": 482,
+          "title": "That's a lot of Generation"
+        },
+        {
+          "time": 500,
+          "title": "Going Nuxł Nuxt is not just a static site generator"
+        },
+        {
+          "time": 535,
+          "title": "Benefits of Nuxł"
+        },
+        {
+          "time": 617,
+          "title": "SSR, SPA or Static"
+        },
+        {
+          "time": 720,
+          "title": "Case Study"
+        },
+        {
+          "time": 754,
+          "title": "Patterson Travel"
+        },
+        {
+          "time": 817,
+          "title": "Booking Engine --- SPA"
+        },
+        {
+          "time": 846,
+          "title": "SPA Fallback"
+        },
+        {
+          "time": 889,
+          "title": "How it works Site is pre rendered"
+        },
+        {
+          "time": 942,
+          "title": "API call on navigation"
+        },
+        {
+          "time": 970,
+          "title": "I just want full static"
+        },
+        {
+          "time": 1009,
+          "title": "static module"
+        },
+        {
+          "time": 1023,
+          "title": "payload.json"
+        },
+        {
+          "time": 1039,
+          "title": "Calling the payload"
+        },
+        {
+          "time": 1125,
+          "title": "Accessibility"
+        },
+        {
+          "time": 1153,
+          "title": "Chrome dev tools for Accessibilit"
+        },
+        {
+          "time": 1196,
+          "title": "Auto optimise your images"
+        },
+        {
+          "time": 1258,
+          "title": "Lazy Load your images"
+        },
+        {
+          "time": 1267,
+          "title": "PWA"
+        },
+        {
+          "time": 1340,
+          "title": "CSS Stats"
+        },
+        {
+          "time": 1353,
+          "title": "modern mode"
+        },
+        {
+          "time": 1372,
+          "title": "Code split from the start"
+        },
+        {
+          "time": 1402,
+          "title": "Lazy load your translations."
+        },
+        {
+          "time": 1418,
+          "title": "Tailwind + Purgess"
+        },
+        {
+          "time": 1450,
+          "title": "webpack analyzer"
+        },
+        {
+          "time": 1486,
+          "title": "JAMstack - Do we need it?"
+        },
+        {
+          "time": 1543,
+          "title": "Useful Links"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3956,7 +8726,121 @@
       "video": "wTN6BPvs_6g",
       "description": "Statically generated sites are the future. Seriously. With frameworks like Nuxt we can build really cool sites that look and feel like a single page application but are actually static generated. That means no need for a server but most importantly performance is amazing. Everything is generated at build time.",
       "start": 4530,
-      "conference": "Vue Amsterdam Meetup"
+      "conference": "Vue Amsterdam Meetup",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Introduction"
+        },
+        {
+          "time": 290,
+          "title": "Open Share"
+        },
+        {
+          "time": 440,
+          "title": "Composition API"
+        },
+        {
+          "time": 680,
+          "title": "UseView"
+        },
+        {
+          "time": 830,
+          "title": "ModelView"
+        },
+        {
+          "time": 1375,
+          "title": "Dynamic Voting"
+        },
+        {
+          "time": 1405,
+          "title": "Dynamic Parameter"
+        },
+        {
+          "time": 1475,
+          "title": "API"
+        },
+        {
+          "time": 1855,
+          "title": "Navigations"
+        },
+        {
+          "time": 1985,
+          "title": "Questions"
+        },
+        {
+          "time": 2055,
+          "title": "When to release"
+        },
+        {
+          "time": 2135,
+          "title": "Roadmap"
+        },
+        {
+          "time": 2230,
+          "title": "Lazy loading"
+        },
+        {
+          "time": 2345,
+          "title": "Thank you"
+        },
+        {
+          "time": 2370,
+          "title": "Introducing Roman"
+        },
+        {
+          "time": 2415,
+          "title": "Virtual Meeting"
+        },
+        {
+          "time": 2485,
+          "title": "Static Sites"
+        },
+        {
+          "time": 2515,
+          "title": "Backend"
+        },
+        {
+          "time": 2645,
+          "title": "Service"
+        },
+        {
+          "time": 2850,
+          "title": "Gemstick"
+        },
+        {
+          "time": 2895,
+          "title": "Static Pages"
+        },
+        {
+          "time": 3000,
+          "title": "How to get things from A to B"
+        },
+        {
+          "time": 3030,
+          "title": "Building a graph"
+        },
+        {
+          "time": 3070,
+          "title": "Markdown files"
+        },
+        {
+          "time": 3090,
+          "title": "Limitations"
+        },
+        {
+          "time": 3140,
+          "title": "Example"
+        },
+        {
+          "time": 3420,
+          "title": "Sharp"
+        },
+        {
+          "time": 3495,
+          "title": "Graph File"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3970,7 +8854,137 @@
       "url": "https://www.youtube.com/watch?v=joc9j9e-D3s",
       "video": "joc9j9e-D3s",
       "description": "Static sites have many benefits from costs to performance and even reducing the carbon footprint. And with the new static module from Nuxt static is going to a whole new level. Static sites are the future and they can used for more than just blogs.",
-      "conference": "Vue Amsterdam"
+      "conference": "Vue Amsterdam",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Intro"
+        },
+        {
+          "time": 29,
+          "title": "Debbie O'Brien"
+        },
+        {
+          "time": 79,
+          "title": "Nuxt Benefits"
+        },
+        {
+          "time": 100,
+          "title": "Gridsome or Nuxt?"
+        },
+        {
+          "time": 213,
+          "title": "But Static is very Static"
+        },
+        {
+          "time": 287,
+          "title": "Headless CMS"
+        },
+        {
+          "time": 331,
+          "title": "Netlify CMS"
+        },
+        {
+          "time": 365,
+          "title": "index.html"
+        },
+        {
+          "time": 404,
+          "title": "index.vue"
+        },
+        {
+          "time": 435,
+          "title": "Nuxt Dynamic Routes"
+        },
+        {
+          "time": 457,
+          "title": "Nuxt Crawler"
+        },
+        {
+          "time": 611,
+          "title": "Add a new table"
+        },
+        {
+          "time": 631,
+          "title": "Browse, Modify, Delete"
+        },
+        {
+          "time": 642,
+          "title": "GraphQL Endpoint"
+        },
+        {
+          "time": 659,
+          "title": "GraphQL Playground"
+        },
+        {
+          "time": 719,
+          "title": "Apollo"
+        },
+        {
+          "time": 737,
+          "title": "Add our Query"
+        },
+        {
+          "time": 762,
+          "title": "Network Tab - Call APV"
+        },
+        {
+          "time": 778,
+          "title": "Generate on Update"
+        },
+        {
+          "time": 800,
+          "title": "Create your trigger"
+        },
+        {
+          "time": 822,
+          "title": "Netlify Build Hooks"
+        },
+        {
+          "time": 840,
+          "title": "Add the URL to Hasura"
+        },
+        {
+          "time": 867,
+          "title": "Netlify Deploys"
+        },
+        {
+          "time": 888,
+          "title": "Nuxt Hydration"
+        },
+        {
+          "time": 947,
+          "title": "Nuxt Static Module"
+        },
+        {
+          "time": 983,
+          "title": "Call the payload"
+        },
+        {
+          "time": 1033,
+          "title": "Async Data"
+        },
+        {
+          "time": 1086,
+          "title": "Convert to a static site"
+        },
+        {
+          "time": 1141,
+          "title": "SPA inside a Static site"
+        },
+        {
+          "time": 1221,
+          "title": "Why Static?"
+        },
+        {
+          "time": 1322,
+          "title": "Thank you"
+        },
+        {
+          "time": 1330,
+          "title": "Vue School"
+        }
+      ]
     },
     {
       "type": "video",
@@ -3996,7 +9010,125 @@
       "url": "https://www.youtube.com/watch?v=LXkNSEjUokE",
       "video": "LXkNSEjUokE",
       "description": "Are you afraid to take the next step? Do you think you’re not good enough? Or wonder why you were hired in the first place? This is what we call Impostor Syndrome. Did you know some of the most famous, brilliant and amazing people suffer from it? In this talk I will share my experience and thoughts and hopefully help you take that step to become the developer you really want to become.",
-      "conference": "BuildStuff Lithuania"
+      "conference": "BuildStuff Lithuania",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Intro"
+        },
+        {
+          "time": 24,
+          "title": "Debbie O'Brien"
+        },
+        {
+          "time": 178,
+          "title": "In the winter"
+        },
+        {
+          "time": 210,
+          "title": "Back to studying"
+        },
+        {
+          "time": 235,
+          "title": "Knocking on doors"
+        },
+        {
+          "time": 319,
+          "title": "iPhone"
+        },
+        {
+          "time": 374,
+          "title": "Tables everywhere"
+        },
+        {
+          "time": 504,
+          "title": "First frontend role"
+        },
+        {
+          "time": 577,
+          "title": "English teacher"
+        },
+        {
+          "time": 785,
+          "title": "Job interviews"
+        },
+        {
+          "time": 807,
+          "title": "JavaScript"
+        },
+        {
+          "time": 849,
+          "title": "The new frontend"
+        },
+        {
+          "time": 931,
+          "title": "Constantly climbing"
+        },
+        {
+          "time": 969,
+          "title": "Failure"
+        },
+        {
+          "time": 1016,
+          "title": "Guardian angel"
+        },
+        {
+          "time": 1042,
+          "title": "What is your dream?"
+        },
+        {
+          "time": 1090,
+          "title": "My dream is"
+        },
+        {
+          "time": 1229,
+          "title": "Build a booking engine in react"
+        },
+        {
+          "time": 1272,
+          "title": "Online Tech Degree"
+        },
+        {
+          "time": 1348,
+          "title": "7 days a week 12 hours a day"
+        },
+        {
+          "time": 1400,
+          "title": "6 week booking engine"
+        },
+        {
+          "time": 1458,
+          "title": "And Another Challenge"
+        },
+        {
+          "time": 1562,
+          "title": "My testimonial"
+        },
+        {
+          "time": 1665,
+          "title": "My worst interview ever"
+        },
+        {
+          "time": 1755,
+          "title": "Peer reviews at Treehouse"
+        },
+        {
+          "time": 1792,
+          "title": "First Real Job"
+        },
+        {
+          "time": 2296,
+          "title": "Vue School"
+        },
+        {
+          "time": 2510,
+          "title": "Imposter syndrome is back"
+        },
+        {
+          "time": 2581,
+          "title": "The voice never goes away"
+        }
+      ]
     },
     {
       "type": "video",
@@ -4010,7 +9142,201 @@
       "url": "https://www.youtube.com/watch?v=FBEOIuDUZh4",
       "video": "FBEOIuDUZh4",
       "description": "It's almost 2020 and there is still so much legacy code around. We need to start migrating. We need to stop being afraid of the migration process. So let's just do it. Where do we start? how do we do it? I will show you how we did it. How we turned our company's vision to stop working with legacy and start working with Vue and Nuxt.",
-      "conference": "Vue Toronto"
+      "conference": "Vue Toronto",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Intro"
+        },
+        {
+          "time": 23,
+          "title": "Leave your legacy code behind and go Nuxt"
+        },
+        {
+          "time": 45,
+          "title": "We have a problem"
+        },
+        {
+          "time": 59,
+          "title": "Old Tech stacks"
+        },
+        {
+          "time": 70,
+          "title": "Unmaintainable Code"
+        },
+        {
+          "time": 79,
+          "title": "Bad Performance"
+        },
+        {
+          "time": 113,
+          "title": "What are we doing about it?"
+        },
+        {
+          "time": 146,
+          "title": "What should we be doing?"
+        },
+        {
+          "time": 204,
+          "title": "Where do we start?"
+        },
+        {
+          "time": 256,
+          "title": "Separate Front and Back"
+        },
+        {
+          "time": 271,
+          "title": "The JSON war"
+        },
+        {
+          "time": 283,
+          "title": "Decide who is responsible for what"
+        },
+        {
+          "time": 299,
+          "title": "Invest in your team"
+        },
+        {
+          "time": 335,
+          "title": "Lead your code"
+        },
+        {
+          "time": 346,
+          "title": "Create Standards"
+        },
+        {
+          "time": 355,
+          "title": "Pre Commit Hooks: Husky"
+        },
+        {
+          "time": 371,
+          "title": "Use Pull Requests"
+        },
+        {
+          "time": 426,
+          "title": "Test your code"
+        },
+        {
+          "time": 457,
+          "title": "Cypress"
+        },
+        {
+          "time": 470,
+          "title": "Vue Testing Library"
+        },
+        {
+          "time": 490,
+          "title": "Document your code"
+        },
+        {
+          "time": 524,
+          "title": "Generate your files"
+        },
+        {
+          "time": 576,
+          "title": "Think first, code later"
+        },
+        {
+          "time": 589,
+          "title": "Styles"
+        },
+        {
+          "time": 721,
+          "title": "Add a PWA in 3 steps"
+        },
+        {
+          "time": 931,
+          "title": "2 seconds and I'm gone"
+        },
+        {
+          "time": 961,
+          "title": "Build sites for everyone"
+        },
+        {
+          "time": 966,
+          "title": "Build Static Sites"
+        },
+        {
+          "time": 1018,
+          "title": "Full Static module"
+        },
+        {
+          "time": 1078,
+          "title": "Payloads"
+        },
+        {
+          "time": 1109,
+          "title": "Calling the Payload"
+        },
+        {
+          "time": 1148,
+          "title": "Static Site + SPA"
+        },
+        {
+          "time": 1237,
+          "title": "Pages Folder"
+        },
+        {
+          "time": 1376,
+          "title": "Nuxt Crawler"
+        },
+        {
+          "time": 1408,
+          "title": "Impatient?"
+        },
+        {
+          "time": 1444,
+          "title": "Run Performance Tests"
+        },
+        {
+          "time": 1458,
+          "title": "Analyse your bundle"
+        },
+        {
+          "time": 1480,
+          "title": "yarn build -a"
+        },
+        {
+          "time": 1497,
+          "title": "Improve your code Nuxt gives you code splitting by routes for free"
+        },
+        {
+          "time": 1514,
+          "title": "How does Code Splitting work?"
+        },
+        {
+          "time": 1530,
+          "title": "Code Split your components"
+        },
+        {
+          "time": 1570,
+          "title": "Lazy Load your translations"
+        },
+        {
+          "time": 1582,
+          "title": "Lazy load your images"
+        },
+        {
+          "time": 1595,
+          "title": "Use a CDN for your images"
+        },
+        {
+          "time": 1632,
+          "title": "Put Accessibility first"
+        },
+        {
+          "time": 1640,
+          "title": "Use your tools"
+        },
+        {
+          "time": 1680,
+          "title": "Modern mode Build two versions of your app"
+        },
+        {
+          "time": 1730,
+          "title": "Be proud of your code"
+        }
+      ]
     },
     {
       "type": "video",
@@ -4040,7 +9366,41 @@
       "url": "https://www.youtube.com/watch?v=jWqYuPZW9vU",
       "video": "jWqYuPZW9vU",
       "description": "Performance is so important for any application and really we all should be vueing it a little more. This lightening talk covers some tips to help you improve your performance of your Vue and Nuxt application.",
-      "conference": "FullStack Fest"
+      "conference": "FullStack Fest",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Performance best practices"
+        },
+        {
+          "time": 319,
+          "title": "Pragmatic frontend testing"
+        },
+        {
+          "time": 702,
+          "title": "Implementing skeleton screens"
+        },
+        {
+          "time": 1231,
+          "title": "TypeScript typing patterns"
+        },
+        {
+          "time": 1586,
+          "title": "Optimized PR workflows"
+        },
+        {
+          "time": 1821,
+          "title": "Maze generation algorithms"
+        },
+        {
+          "time": 2180,
+          "title": "Asynchronous JS patterns"
+        },
+        {
+          "time": 2338,
+          "title": "Workflow-centric state management"
+        }
+      ]
     },
     {
       "type": "video",
@@ -4054,7 +9414,165 @@
       "url": "https://www.youtube.com/watch?v=EbEVTa7HLsg",
       "video": "EbEVTa7HLsg",
       "description": "It's almost 2020 and there is still so much legacy code around. We need to start migrating. We need to stop being afraid of the migration process. So let's just do it. Where do we start? how do we do it? I will show you how we did it. How we turned our company's vision to stop working with legacy and start working with Vue and Nuxt.",
-      "conference": "Vue Alicante"
+      "conference": "Vue Alicante",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Intro"
+        },
+        {
+          "time": 50,
+          "title": "Leave your legacy code behind and go Nuxt"
+        },
+        {
+          "time": 63,
+          "title": "We have a problem"
+        },
+        {
+          "time": 81,
+          "title": "Old Tech stacks"
+        },
+        {
+          "time": 93,
+          "title": "Unmaintainable Code"
+        },
+        {
+          "time": 105,
+          "title": "Bad Performance"
+        },
+        {
+          "time": 165,
+          "title": "What are we doing about it?"
+        },
+        {
+          "time": 180,
+          "title": "What? Why?"
+        },
+        {
+          "time": 212,
+          "title": "Where do we start?"
+        },
+        {
+          "time": 372,
+          "title": "The JSON war"
+        },
+        {
+          "time": 378,
+          "title": "Decide who is responsible for what"
+        },
+        {
+          "time": 400,
+          "title": "Invest in your team"
+        },
+        {
+          "time": 433,
+          "title": "Lead your code"
+        },
+        {
+          "time": 446,
+          "title": "Create Standards"
+        },
+        {
+          "time": 474,
+          "title": "Pre Commit Hooks: Husky"
+        },
+        {
+          "time": 490,
+          "title": "Use Pull Requests"
+        },
+        {
+          "time": 546,
+          "title": "Test your code"
+        },
+        {
+          "time": 594,
+          "title": "Document your code"
+        },
+        {
+          "time": 622,
+          "title": "Generate your files"
+        },
+        {
+          "time": 680,
+          "title": "Create your own components"
+        },
+        {
+          "time": 690,
+          "title": "Dropdown Component"
+        },
+        {
+          "time": 749,
+          "title": "Accordion Component"
+        },
+        {
+          "time": 807,
+          "title": "Hero components?"
+        },
+        {
+          "time": 843,
+          "title": "Use Named Slots"
+        },
+        {
+          "time": 877,
+          "title": "Styles"
+        },
+        {
+          "time": 1109,
+          "title": "PWA Tips By default the PWA name === package.json name"
+        },
+        {
+          "time": 1140,
+          "title": "Build Static Sites"
+        },
+        {
+          "time": 1157,
+          "title": "Static Site + Dynamic Content"
+        },
+        {
+          "time": 1213,
+          "title": "Run Performance Tests"
+        },
+        {
+          "time": 1230,
+          "title": "Analyze your bundle"
+        },
+        {
+          "time": 1277,
+          "title": "Improve your code"
+        },
+        {
+          "time": 1294,
+          "title": "How does Code Splitting work?"
+        },
+        {
+          "time": 1313,
+          "title": "Code Split your components Just change this"
+        },
+        {
+          "time": 1363,
+          "title": "Lazy Load your translations"
+        },
+        {
+          "time": 1393,
+          "title": "Lazy load your images"
+        },
+        {
+          "time": 1417,
+          "title": "Use a CDN for your images"
+        },
+        {
+          "time": 1469,
+          "title": "Improve your SEO"
+        },
+        {
+          "time": 1504,
+          "title": "Use your tools"
+        },
+        {
+          "time": 1533,
+          "title": "Modern mode Build two versions of your app"
+        }
+      ]
     },
     {
       "type": "video",
@@ -4068,7 +9586,49 @@
       "url": "https://www.youtube.com/watch?v=17WrJ99pwXk",
       "video": "17WrJ99pwXk",
       "description": "Did you know nuxt.js can pre render all your pages so you can easily create static sites using the Vue.js framework. That means you have a Single Page Application without the need of a server and with great SEO and that's just a few of the benefits of using nuxt.js.",
-      "conference": "Vue Verona"
+      "conference": "Vue Verona",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Introduction"
+        },
+        {
+          "time": 44,
+          "title": "What is Nuxt?"
+        },
+        {
+          "time": 143,
+          "title": "Universal and static apps"
+        },
+        {
+          "time": 281,
+          "title": "The magic of hydration"
+        },
+        {
+          "time": 391,
+          "title": "Real-world examples"
+        },
+        {
+          "time": 526,
+          "title": "SEO and dynamic routes"
+        },
+        {
+          "time": 682,
+          "title": "Project configuration"
+        },
+        {
+          "time": 922,
+          "title": "Live deployment"
+        },
+        {
+          "time": 1235,
+          "title": "Advanced Nuxt features"
+        },
+        {
+          "time": 1373,
+          "title": "Community and resources"
+        }
+      ]
     },
     {
       "type": "video",
@@ -4081,7 +9641,61 @@
       "url": "https://www.youtube.com/watch?v=0feCjLV69Z0",
       "video": "0feCjLV69Z0",
       "description": "Building your own framework doesn't sound like the right thing to do but sometimes it is. In this talk I go over the problems we were facing and how we achieved a solution by creating our own framework.",
-      "conference": "BuildStuff Lithuania"
+      "conference": "BuildStuff Lithuania",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Intro"
+        },
+        {
+          "time": 26,
+          "title": "Our Mission was"
+        },
+        {
+          "time": 522,
+          "title": "Dependencies"
+        },
+        {
+          "time": 741,
+          "title": "JavaScript"
+        },
+        {
+          "time": 848,
+          "title": "Operations"
+        },
+        {
+          "time": 1026,
+          "title": "Now that's what I call a plan"
+        },
+        {
+          "time": 1115,
+          "title": "The bosses were happy"
+        },
+        {
+          "time": 1296,
+          "title": "Styles"
+        },
+        {
+          "time": 1601,
+          "title": "Icons"
+        },
+        {
+          "time": 1663,
+          "title": "Components"
+        },
+        {
+          "time": 2028,
+          "title": "Versioning"
+        },
+        {
+          "time": 2092,
+          "title": "Builds and Performance"
+        },
+        {
+          "time": 2255,
+          "title": "And so Alexandria lived happily ever after"
+        }
+      ]
     },
     {
       "type": "video",
@@ -4094,7 +9708,21 @@
       "url": "https://www.youtube.com/watch?v=Be3N_i4bC34",
       "video": "Be3N_i4bC34",
       "description": "I was initially turned away for may roles because I didn't have the required training. So I signed up for OpenClassrooms, and eight months later I got a job as a Front-End Architect at Bluekiri. Here is my story.",
-      "host": "OpenClassrooms"
+      "host": "OpenClassrooms",
+      "chapters": [
+        {
+          "time": 139,
+          "title": "Front-End Architect"
+        },
+        {
+          "time": 167,
+          "title": "Nice Working Environment"
+        },
+        {
+          "time": 190,
+          "title": "Best Practices for Developers"
+        }
+      ]
     },
     {
       "type": "video",

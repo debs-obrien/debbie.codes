@@ -1,7 +1,8 @@
 /**
- * Fill optional chapters on MCP-tagged videos from YouTube's own chapter markers.
+ * Fill optional chapters on every content/videos/*.md file from YouTube's own
+ * chapter markers.
  *
- * Rerun after adding an MCP-tagged video:
+ * Rerun after adding videos:
  *   node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/fill-video-chapters.mjs
  *
  * Then regenerate the WebMCP index:
@@ -10,15 +11,16 @@
  * Prefers youtubei/v1/next chapter markers (the same list the watch page shows,
  * derived from the creator's description timestamps). Falls back to parsing the
  * watch-page description text. Skips when YouTube lists no chapters. Never invents
- * chapters. A failed fetch leaves that file unchanged.
+ * chapters. Skips hard-banned YouTube ids. A failed fetch leaves that file unchanged.
  */
 import { readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import process from 'node:process'
 import { fileURLToPath } from 'node:url'
 import { parseDescriptionChapters } from '../utils/description-chapters.ts'
+import { HIDDEN_YOUTUBE_VIDEO_IDS } from '../utils/videos.ts'
 import { fetchYouTubePlayerChapters } from '../utils/youtube-chapters-fetch.ts'
-import { normalizeTag, parseFrontmatter } from './generate-content-index.mjs'
+import { parseFrontmatter } from './generate-content-index.mjs'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 const videosDir = join(root, 'content/videos')
@@ -133,7 +135,7 @@ export function withChapters(raw, chapters) {
   return (newline === '\n' ? head : head.replace(/\n/g, newline)) + body
 }
 
-function mcpVideos() {
+function allVideos() {
   return readdirSync(videosDir)
     .filter(name => name.endsWith('.md'))
     .sort()
@@ -141,10 +143,13 @@ function mcpVideos() {
       const file = join(videosDir, name)
       const raw = readFileSync(file, 'utf8')
       const fm = parseFrontmatter(raw)
-      const tags = Array.isArray(fm.tags) ? fm.tags.map(normalizeTag) : []
-      return { file, name, raw, fm, tags }
+      return { file, name, raw, fm }
     })
-    .filter(video => video.tags.includes('mcp') && typeof video.fm.video === 'string')
+    .filter((video) => {
+      if (typeof video.fm.video !== 'string' || !video.fm.video.trim())
+        return false
+      return !HIDDEN_YOUTUBE_VIDEO_IDS.has(video.fm.video.trim())
+    })
 }
 
 async function chaptersForVideo(videoId) {
@@ -159,9 +164,9 @@ async function chaptersForVideo(videoId) {
 }
 
 export async function fillVideoChapters() {
-  const videos = mcpVideos()
+  const videos = allVideos()
   const summary = {
-    mcp: videos.length,
+    videos: videos.length,
     filled: 0,
     unchanged: 0,
     skipped: 0,
@@ -190,7 +195,7 @@ export async function fillVideoChapters() {
       summary.failed++
       console.log(`fail ${video.name}: ${error instanceof Error ? error.message : error}`)
     }
-    await sleep(200)
+    await sleep(150)
   }
   return summary
 }

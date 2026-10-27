@@ -5,4 +5,19 @@ description: "Playwright has released a UI mode for debugging and writing tests 
 video: vEwCyggZzhI
 tags: [playwright, testing]
 host: Filip Hric
+chapters:
+  - time: 0
+    title: "Introduction"
+  - time: 674
+    title: "Getting started with testing"
+  - time: 1083
+    title: "Exploring Playwright UI mode"
+  - time: 1545
+    title: "Debugging and test fixes"
+  - time: 2386
+    title: "Writing new tests"
+  - time: 3550
+    title: "Testing best practices"
+  - time: 4877
+    title: "Wrap-up and final thoughts"
 ---

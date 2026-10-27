@@ -5,4 +5,19 @@ description: In this video, you'll learn how to set up Playwright Skills to enab
 video: _MpbmD_unnU
 tags: [playwright, ai, testing]
 host: goose OSS
+chapters:
+  - time: 0
+    title: "Intro"
+  - time: 35
+    title: "Installing Playwright CLI Skills"
+  - time: 132
+    title: "Opening a Browser & Taking Screenshots"
+  - time: 278
+    title: "Navigating & Generating Tests with Natural Language"
+  - time: 486
+    title: "Test Passes!"
+  - time: 560
+    title: "Recording Video & Traces"
+  - time: 759
+    title: "Viewing the Trace in Playwright Trace Viewer"
 ---

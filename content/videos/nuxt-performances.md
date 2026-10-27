@@ -5,4 +5,23 @@ description: Performance is super important for any app. Did you know all the co
 video: 0Y-XdRyUb1U
 tags: [conference-talk, nuxt, performance]
 conference: Vue Amsterdam
+chapters:
+  - time: 0
+    title: "Introduction to performance"
+  - time: 96
+    title: "Webpack and routing magic"
+  - time: 275
+    title: "Component and chunk management"
+  - time: 371
+    title: "Prefetching and bundle analysis"
+  - time: 550
+    title: "Progressive web app features"
+  - time: 746
+    title: "Offline support and benefits"
+  - time: 847
+    title: "Google fonts and AMP"
+  - time: 944
+    title: "Next image and picture"
+  - time: 1184
+    title: "Closing thoughts"
 ---
