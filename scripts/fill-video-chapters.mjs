@@ -2,7 +2,7 @@
  * Fill optional chapters on MCP-tagged videos from YouTube description timestamps.
  *
  * Rerun after adding an MCP-tagged video:
- *   node scripts/fill-video-chapters.mjs
+ *   node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/fill-video-chapters.mjs
  *
  * Then regenerate the WebMCP index:
  *   node scripts/generate-content-index.mjs
@@ -15,6 +15,7 @@ import { readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import process from 'node:process'
 import { fileURLToPath } from 'node:url'
+import { parseDescriptionChapters } from '../utils/description-chapters.ts'
 import { normalizeTag, parseFrontmatter } from './generate-content-index.mjs'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
@@ -86,47 +87,6 @@ export async function fetchYouTubeDescription(videoId) {
   const found = []
   descriptionTexts(data, found)
   return found.sort((a, b) => b.length - a.length)[0] ?? ''
-}
-
-function parseStamp(stamp) {
-  const parts = stamp.split(':').map(part => Number(part))
-  if (parts.some(part => !Number.isInteger(part) || part < 0))
-    return null
-  if (parts.length === 2) {
-    const [minutes, seconds] = parts
-    if (seconds > 59)
-      return null
-    return minutes * 60 + seconds
-  }
-  if (parts.length === 3) {
-    const [hours, minutes, seconds] = parts
-    if (minutes > 59 || seconds > 59)
-      return null
-    return hours * 3600 + minutes * 60 + seconds
-  }
-  return null
-}
-
-export function parseDescriptionChapters(description) {
-  if (typeof description !== 'string' || !description.trim())
-    return []
-  const chapters = []
-  const seen = new Set()
-  for (const line of description.split(/\r?\n/)) {
-    const match = line.trim().match(/^(\d{1,2}:\d{2}(?::\d{2})?)(?: *[-\u2013\u2014:] +| +)(\S.*)$/)
-    if (!match)
-      continue
-    const time = parseStamp(match[1])
-    const title = match[2].replace(/\s+/g, ' ').trim()
-    if (time == null || title.length < 2 || title.length > 100 || seen.has(time))
-      continue
-    if (/^https?:\/\//i.test(title))
-      continue
-    seen.add(time)
-    chapters.push({ time, title })
-  }
-  chapters.sort((a, b) => a.time - b.time)
-  return chapters.length >= 2 ? chapters : []
 }
 
 function yamlString(value) {

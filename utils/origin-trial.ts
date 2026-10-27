@@ -5,6 +5,10 @@ export function originTrialMeta(chrome: unknown, edge: unknown) {
     const content = token.trim()
     if (!content)
       return []
-    return [{ httpEquiv: 'origin-trial', content }]
+    return [{
+      'http-equiv': 'origin-trial',
+      'content': content,
+      'key': `origin-trial:${content}`,
+    }]
   })
 }

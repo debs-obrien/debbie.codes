@@ -1,6 +1,6 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { expect, test } from '@playwright/test';
-import { parseDescriptionChapters } from '../scripts/fill-video-chapters.mjs';
+import { parseDescriptionChapters } from '../utils/description-chapters';
 import { originTrialMeta } from '../utils/origin-trial';
 import { parseContentIndex } from '../utils/webmcp/content-index';
 import { currentPage, searchContent, topicBrief } from '../utils/webmcp/query';
@@ -455,11 +455,11 @@ test('origin-trial meta is present only for non-empty tokens', () => {
   expect(originTrialMeta('', '')).toEqual([]);
   expect(originTrialMeta('   ', undefined)).toEqual([]);
   expect(originTrialMeta('chrome-token', '')).toEqual([
-    { httpEquiv: 'origin-trial', content: 'chrome-token' }
+    { 'http-equiv': 'origin-trial', 'content': 'chrome-token', 'key': 'origin-trial:chrome-token' }
   ]);
   expect(originTrialMeta('chrome-token', 'edge-token')).toEqual([
-    { httpEquiv: 'origin-trial', content: 'chrome-token' },
-    { httpEquiv: 'origin-trial', content: 'edge-token' }
+    { 'http-equiv': 'origin-trial', 'content': 'chrome-token', 'key': 'origin-trial:chrome-token' },
+    { 'http-equiv': 'origin-trial', 'content': 'edge-token', 'key': 'origin-trial:edge-token' }
   ]);
 });
 
