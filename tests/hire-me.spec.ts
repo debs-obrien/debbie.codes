@@ -57,13 +57,14 @@ test.describe('Hire me page (PoC, preview only)', () => {
     await expect(experience.getByText(/tech lead, consultant and educator from 2008 to 2020/)).toBeVisible();
     await expect(experience.locator('li')).toHaveCount(7);
 
-    await expect(page.getByRole('heading', { name: 'Questions recruiters ask me', level: 2 })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Questions from recruiters, hiring managers and future teammates', level: 2 })).toBeVisible();
     await expect(page.getByText('Tell me about yourself')).toBeVisible();
     await expect(page.getByText('What is your quality bar for content?')).toHaveCount(0);
 
     const assistant = page.locator('section[aria-labelledby="hire-me-assistant-heading"]');
     await expect(page.getByRole('heading', { name: 'Ask about Debbie', level: 2 })).toBeVisible();
-    await expect(assistant.getByText(/answers recruiter questions about my work, numbers and the roles/i)).toBeVisible();
+    await expect(assistant.getByText(/answers questions from recruiters, hiring managers and future teammates about my work, numbers and the roles/i)).toBeVisible();
+    await expect(assistant.getByText(/prototype/i)).toHaveCount(0);
     await expect(assistant.getByText('Try asking:')).toBeVisible();
     await expect(assistant.getByText('What has Debbie done with Playwright and MCP?')).toBeVisible();
     await expect(assistant.getByText('What roles is she looking for?')).toBeVisible();

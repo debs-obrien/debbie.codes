@@ -297,7 +297,7 @@ useHead(() => ({
         Ask about Debbie
       </h2>
       <p class="text-gray-600 dark:text-gray-300 mb-4">
-        A voice assistant that answers recruiter questions about my work, numbers and the roles I'm looking for. It needs your microphone.
+        A voice assistant that answers questions from recruiters, hiring managers and future teammates about my work, numbers and the roles I'm looking for. It needs your microphone.
       </p>
       <p class="font-semibold text-gray-900 dark:text-white mb-2">
         Try asking:
@@ -362,7 +362,7 @@ useHead(() => ({
           id="recruiter-qa-heading"
           class="text-2xl sm:text-3xl font-bold mb-4 text-gray-900 dark:text-white"
         >
-          Questions recruiters ask me
+          Questions from recruiters, hiring managers and future teammates
         </h2>
         <ul class="space-y-3">
           <li v-for="item in recruiterQuestions" :key="item.question">
