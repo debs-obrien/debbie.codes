@@ -5,6 +5,7 @@
  */
 import { mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
+import process from 'node:process'
 import { fileURLToPath } from 'node:url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
@@ -20,6 +21,7 @@ const staticRoutes = [
   '/courses',
   '/blog',
   '/now',
+  '/hire-me',
   '/contact',
 ]
 

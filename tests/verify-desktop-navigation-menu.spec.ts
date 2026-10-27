@@ -35,6 +35,9 @@ test.describe('Navigation Functionality', { tag: ['@agent', '@smoke'] }, () => {
         - listitem:
           - link "Now":
             - /url: /now
+        - listitem:
+          - link "Hire me":
+            - /url: /hire-me
     `);
 
     // Logo/name link navigates back to home

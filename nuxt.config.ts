@@ -102,7 +102,7 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      // PoC /hire-me voice widget (public agent id; origin-allowlisted for preview + debbie.codes).
+      // /hire-me voice widget (public agent id; origin-allowlisted for debbie.codes).
       hireMeAgentId: process.env.HIRE_ME_AGENT_ID || 'agent_8801m5yfwzgpf61szvhj0mj0v5fv',
       // Defaults are the live debbie.codes WebMCP tokens (utils/origin-trial.ts).
       // NUXT_PUBLIC_WEBMCP_OT_CHROME / _EDGE override. webmcpOtRender is baked at
