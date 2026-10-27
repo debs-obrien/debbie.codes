@@ -103,5 +103,6 @@ useHead({
       <NuxtPage />
     </div>
     <TheFooter />
+    <WebMcpAgentStatus />
   </div>
 </template>

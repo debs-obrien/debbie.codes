@@ -222,3 +222,29 @@ body {
     transform: none;
   }
 }
+
+/* Brief outline when an agent’s list-videos result matches a card. */
+.webmcp-agent-match > div {
+  outline: 2px solid #d8002d;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .webmcp-agent-match > div {
+    animation: webmcp-match-pulse 1.2s ease-out 2;
+  }
+}
+
+@keyframes webmcp-match-pulse {
+  0%,
+  100% {
+    outline-color: #d8002d;
+  }
+  50% {
+    outline-color: rgba(216, 0, 45, 0.35);
+  }
+}
+
+.dark .webmcp-agent-match > div {
+  outline-color: #fd213b;
+}

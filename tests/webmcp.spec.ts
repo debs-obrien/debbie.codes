@@ -94,6 +94,58 @@ test.describe('WebMCP list-videos', () => {
     const talk = result.videos.find((v: any) => v.title.startsWith('Static generated sites'));
     expect(talk?.link).toBe('https://www.youtube.com/watch?v=wTN6BPvs_6g&t=4530s');
   });
+
+  test('list-videos shows a status pill, applies the tag filter, and highlights matching cards', async ({ page }) => {
+    const result: any = await page.webmcp.callTool('list-videos', { tag: 'playwright', limit: 3 });
+    expect(result.error).toBeUndefined();
+    expect(result.videos.length).toBeGreaterThan(0);
+
+    const status = page.getByRole('status');
+    await expect(status).toBeVisible();
+    await expect(status).toContainText('Agent used list-videos');
+    await expect(status).toContainText('playwright');
+
+    await expect(page).toHaveURL(/\/videos\/tags\/playwright\/?$/);
+
+    const highlighted = page.locator('article.webmcp-agent-match[data-video-id]');
+    await expect(highlighted).toHaveCount(result.videos.length);
+
+    const highlightedIds = await highlighted.evaluateAll(els =>
+      els.map(el => el.getAttribute('data-video-id')),
+    );
+    const resultIds = result.videos.map((v: { link: string }) => {
+      const m = v.link.match(/[?&]v=([^&]+)/);
+      return m?.[1];
+    });
+    expect(highlightedIds.sort()).toEqual([...resultIds].sort());
+
+    await expect(highlighted.first()).toBeInViewport();
+  });
+
+  test('list-videos with a bad tag shows an error pill and keeps the tool error', async ({ page }) => {
+    const result: any = await page.webmcp.callTool('list-videos', { tag: 'definitely-not-a-tag' });
+    expect(result.error).toMatch(/No videos matched tag 'definitely-not-a-tag'/);
+
+    const status = page.getByRole('status');
+    await expect(status).toBeVisible();
+    await expect(status).toContainText('Agent used list-videos');
+    await expect(status).toContainText('definitely-not-a-tag');
+    await expect(page).not.toHaveURL(/\/videos\/tags\/definitely-not-a-tag/);
+  });
+
+  test('list-videos with no tag shows the pill without changing the filter', async ({ page }) => {
+    await page.goto('/videos', { waitUntil: 'domcontentloaded' });
+    await waitForWebmcpTools(page);
+
+    const result: any = await page.webmcp.callTool('list-videos', { limit: 2 });
+    expect(result.error).toBeUndefined();
+
+    const status = page.getByRole('status');
+    await expect(status).toBeVisible();
+    await expect(status).toHaveText('Agent used list-videos');
+    await expect(page).toHaveURL(/\/videos\/?$/);
+    await expect(page.locator('article.webmcp-agent-match')).toHaveCount(0);
+  });
 });
 
 test.describe('list-videos response size', () => {

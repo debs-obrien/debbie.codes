@@ -1,4 +1,5 @@
 import { filterVisibleVideos } from '../videos'
+import { announceListVideos } from './announce'
 import { buildVideosResponse } from './response'
 import { webmcpTools } from './tools'
 
@@ -47,13 +48,28 @@ export async function registerWebMCPTools(mc: { registerTool: (tool: object, opt
         if (input.tag)
           rows = rows.filter(r => r.tags?.some((x: string) => x.toLowerCase() === input.tag))
         rows = filterVisibleVideos(rows)
-        if (!rows.length)
-          return noMatchError(input)
+        if (!rows.length) {
+          const err = noMatchError(input)
+          announceListVideos({ tag: input.tag, error: err.error })
+          return err
+        }
 
-        return buildVideosResponse(rows, limit)
+        const response = buildVideosResponse(rows, limit)
+        if ('error' in response && response.error) {
+          announceListVideos({ tag: input.tag, error: response.error })
+          return response
+        }
+        const count = 'videos' in response ? response.videos.length : 0
+        announceListVideos({
+          tag: input.tag,
+          videoIds: rows.slice(0, count).map(r => r.video),
+        })
+        return response
       }
       catch (e) {
-        return { error: `debbie.codes could not read videos right now (${(e as Error).message}). Try again.` }
+        const error = `debbie.codes could not read videos right now (${(e as Error).message}). Try again.`
+        announceListVideos({ error })
+        return { error }
       }
     },
   }, { signal })

@@ -7,7 +7,10 @@ defineProps<{
 </script>
 
 <template>
-  <article class="flex flex-col overflow-hidden flex-1 max-width h-full">
+  <article
+    class="flex flex-col overflow-hidden flex-1 max-width h-full"
+    :data-video-id="item.video"
+  >
     <div
       class="h-full rounded-xl bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 overflow-hidden"
     >
