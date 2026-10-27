@@ -81,7 +81,7 @@ An assistant that talks about you to people who might hire you needs clear rules
 - **It only answers from what it knows.** All of its facts come from the same content as the page. If you ask something that isn't there, it says it doesn't have that and points you to my contact page.
 - **It never makes up a number.** No estimating and no rounding up. Growth numbers are team and community numbers, the same framing as the page.
 - **It's honest about what it is.** It's my AI assistant, not me.
-- **Some topics are for a real conversation.** It politely declines questions about salary, other job processes, why a role ended, health, family or my personal life, and points you to my contact page instead.
+- **Some topics are for a real conversation.** It politely declines questions about other job processes, why a role ended, health, family or my personal life, and points you to my contact page instead.
 - **No promises.** It won't commit to availability, start dates or contract terms. That's a conversation for me.
 - **It's told to keep its rules** even if someone tries to talk it out of them.
 
@@ -101,7 +101,7 @@ I didn't build this one on my own. I worked with my Grok Bot.
 
 Everything the agent knows is in its system prompt, about 9,000 characters, built from the facts on the page. There's no knowledge base and there are no tools. Every rule lives in the prompt too. ElevenLabs has its own built-in guardrails, but I have them turned off, so the prompt is the only place the rules come from.
 
-![The "Never do these" rules in the system prompt.](/images/blog/hire-me-voice-agent-grok-bot/10-elevenlabs-prompt-rules.png)
+![Some of the "Never do these" rules in the system prompt.](/images/blog/hire-me-voice-agent-grok-bot/10-elevenlabs-prompt-rules.png)
 
 That also means there's no automatic sync. When the page changes, the prompt has to change by hand. On the day I built it, the prompt and first message were edited six times, and each edit matched a change on the page:
 
@@ -181,10 +181,10 @@ These steps follow the official docs:
 ## What I learned
 
 - **Keep the agent's facts the same as the page.** Today there's no automatic sync, so when the page changes, the prompt has to change too.
-- **Rules are product decisions.** No salary talk, no company names in the answers and "I'm her AI assistant" were all choices about how I want to come across.
+- **Rules are product decisions.** No company names in the answers and "I'm her AI assistant" were both choices about how I want to come across.
 - **Honest numbers beat big numbers.** Saying "I was part of the growth" is better than claiming all of it.
 - **Accept the vendor's branding.** The "Powered by" line stays.
-- **Test the questions people might worry about.** Before you share your own agent, ask it about salary, ask if it's you, ask something that isn't on the page, and check what it says.
+- **Test the questions people might worry about.** Before you share your own agent, ask it a question it shouldn't answer, ask if it's you, ask something that isn't on the page, and check what it says.
 
 ## Try it
 
