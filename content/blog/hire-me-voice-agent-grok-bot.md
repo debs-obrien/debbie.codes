@@ -127,11 +127,7 @@ Here's a simplified version of the embed:
 - **Locking it down.** The widget needs a public agent, so the agent is locked to debbie.codes with an allowlist.
 - **Mobile.** On phones the widget floats at the bottom of the screen and doesn't cover the footer.
 
-![The Security settings with authentication off and debbie.codes as the only host on the allowlist.](/images/blog/hire-me-voice-agent-grok-bot/11-elevenlabs-allowlist.png)
-
 The widget shows a small "Powered by ElevenAgents" line, and I'm keeping it.
-
-![The widget text settings with Ask about Debbie, Start a call and End call, and a preview of the widget.](/images/blog/hire-me-voice-agent-grok-bot/12-elevenlabs-widget-labels.png)
 
 ### Privacy settings
 
