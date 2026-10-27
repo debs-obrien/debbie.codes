@@ -1,6 +1,12 @@
+import process from 'node:process';
 import { expect, test } from '@playwright/test';
 
 const hireMeAgentId = 'agent_8801m5yfwzgpf61szvhj0mj0v5fv';
+
+// @nuxtjs/robots blocks indexing in local/dev; mock production so we assert
+// the page itself is indexable (deploy previews already run as production).
+const externalBaseURL = (process.env.PLAYWRIGHT_TEST_BASE_URL || process.env.BASE_URL)?.trim();
+const hireMePath = externalBaseURL ? '/hire-me' : '/hire-me?mockProductionEnv';
 
 const expectedGithubHrefs = [
   'https://github.com/debs-obrien/learn-agent-skills',
@@ -34,17 +40,19 @@ test.describe('Hire me page', () => {
   test('is reachable, indexable, linked from nav, in sitemap, and keeps private names out', async ({ page, request }) => {
     await blockElevenLabs(page);
 
-    const res = await page.goto('/hire-me');
+    const res = await page.goto(hireMePath);
     expect(res?.status()).toBe(200);
 
     await expect(page.getByRole('heading', { name: 'Hire me', level: 1 })).toBeVisible();
 
     const robots = page.locator('meta[name="robots"]');
-    if (await robots.count()) {
-      const content = await robots.first().getAttribute('content');
-      expect(content ?? '', 'hire-me must be indexable').not.toMatch(/noindex/i);
-      expect(content ?? '', 'hire-me must be followable').not.toMatch(/nofollow/i);
-    }
+    await expect(robots).toHaveAttribute('content', /index/i);
+    await expect(robots).not.toHaveAttribute('content', /noindex/i);
+    await expect(robots).not.toHaveAttribute('content', /nofollow/i);
+
+    const headerRes = await request.get(hireMePath);
+    const xRobots = headerRes.headers()['x-robots-tag'] ?? '';
+    expect(xRobots, 'x-robots-tag must not noindex /hire-me').not.toMatch(/noindex/i);
 
     await expect(page.getByRole('heading', { name: 'Numbers at a glance', level: 2 })).toBeVisible();
     await expect(page.locator('section[aria-labelledby="numbers-heading"] li').first()).toBeVisible();
@@ -87,16 +95,22 @@ test.describe('Hire me page', () => {
     // Mobile dialog nav: Hire me is visible and goes to /hire-me
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto('/');
-    await page.getByRole('button', { name: 'Open menu' }).click();
+    const openMenu = page.getByRole('button', { name: 'Open menu' });
     const mobileMenu = page.getByRole('dialog', { name: 'Menu' });
-    await expect(mobileMenu).toBeVisible();
+    // Open handler attaches on hydration; retry until the dialog is open.
+    await expect(async () => {
+      if (!(await mobileMenu.isVisible().catch(() => false))) {
+        await openMenu.click();
+      }
+      await expect(mobileMenu).toBeVisible({ timeout: 2000 });
+    }).toPass({ timeout: 15000 });
     const mobileHireMe = mobileMenu.getByRole('navigation').getByRole('link', { name: 'Hire me' });
     await expect(mobileHireMe).toBeVisible();
     await mobileHireMe.click();
     await expect(page).toHaveURL(/\/hire-me\/?$/);
 
     await page.setViewportSize({ width: 1280, height: 720 });
-    await page.goto('/hire-me');
+    await page.goto(hireMePath);
 
     const projects = page.locator('section[aria-labelledby="projects-heading"]');
     await expect(projects.getByRole('link', { name: 'learn-agent-skills' })).toHaveAttribute(
