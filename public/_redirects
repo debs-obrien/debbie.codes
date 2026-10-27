@@ -54,3 +54,6 @@
 # Dev.to canonical URLs that point at older slugs
 /blog/nuxt-ignoring-files /blog/nuxt-ignoring-files-nuxt 301
 /blog/page-and-layout-transitions /blog/nuxt-page-and-layout-transitions 301
+
+# Duplicate MCP beginner tutorial (canonical slug matches dev.to)
+/blog/building-your-first-mcp-server /blog/building-your-first-mcp-server-a-beginners-tutorial 301

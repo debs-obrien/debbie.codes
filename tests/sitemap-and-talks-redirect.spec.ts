@@ -53,6 +53,27 @@ test.describe('Sitemap and /talks redirect', () => {
     expect(redirects).toMatch(/^\/videos\/tags\/interview\s+\/videos\/tags\/interviews\s+301\s*$/m);
   });
 
+  test('_redirects sends duplicate MCP beginner post to canonical slug', { tag: '@smoke' }, () => {
+    test.skip(
+      isEndform || !existsSync(redirectsPath),
+      'public/_redirects is not available on Endform runners (no repo checkout)'
+    );
+
+    const redirects = readFileSync(redirectsPath, 'utf8');
+    expect(redirects).toMatch(
+      /^\/blog\/building-your-first-mcp-server\s+\/blog\/building-your-first-mcp-server-a-beginners-tutorial\s+301\s*$/m
+    );
+  });
+
+  test('sitemap lists canonical MCP beginner tutorial only', async ({ request }) => {
+    const res = await request.get('/sitemap.xml');
+    expect(res.status()).toBe(200);
+
+    const body = await res.text();
+    expect(body).toContain('https://debbie.codes/blog/building-your-first-mcp-server-a-beginners-tutorial');
+    expect(body).not.toMatch(/https:\/\/debbie\.codes\/blog\/building-your-first-mcp-server<\/loc>/);
+  });
+
   test('sitemap lists interviews tag, not singular interview', async ({ request }) => {
     const res = await request.get('/sitemap.xml');
     expect(res.status()).toBe(200);
