@@ -86,6 +86,19 @@ test.describe('WebMCP tools', () => {
       expect(pageText).toContain(video.title);
   });
 
+  test('list-videos includes total for conference-talk beyond the limit', async ({ page, request, baseURL }) => {
+    const raw = await loadSiteCatalog(request, baseURL);
+    const conferenceTalkCount = raw.items.filter((item: { type?: string, tags?: string[] }) =>
+      item.type === 'video' && item.tags?.includes('conference-talk')
+    ).length;
+    const result: any = await page.webmcp.callTool('list-videos', { tag: 'conference-talk', limit: 5 });
+    expect(result.error).toBeUndefined();
+    expect(result.videos.length).toBe(5);
+    expect(result.total).toBeGreaterThan(5);
+    expect(result.total).toBe(conferenceTalkCount);
+    expect(JSON.stringify(result).length).toBeLessThanOrEqual(1500);
+  });
+
   test('bad input returns an error sentence, not an exception', async ({ page }) => {
     const result: any = await page.webmcp.callTool('list-videos', { tag: 'definitely-not-a-tag' });
     expect(result.error).toMatch(/No videos matched tag 'definitely-not-a-tag'/);
