@@ -229,8 +229,8 @@ const askExamples = [
   'What results has she had with developer content?',
 ]
 
-const widgetActionText = 'Questions about hiring Debbie? Talk to her AI assistant'
-const widgetStartCallText = 'Start voice call'
+const widgetActionText = 'Ask about Debbie'
+const widgetStartCallText = 'Start a call'
 const widgetEndCallText = 'End call'
 
 useHead(() => ({

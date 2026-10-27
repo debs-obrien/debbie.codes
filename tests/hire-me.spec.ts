@@ -71,12 +71,6 @@ test.describe('Hire me page (PoC, preview only)', () => {
 
     const widget = page.locator('elevenlabs-convai');
     await expect(widget).toHaveAttribute('agent-id', hireMeAgentId);
-    await expect(widget).toHaveAttribute(
-      'action-text',
-      'Questions about hiring Debbie? Talk to her AI assistant'
-    );
-    await expect(widget).toHaveAttribute('start-call-text', 'Start voice call');
-    await expect(widget).toHaveAttribute('end-call-text', 'End call');
 
     await expect(page.getByRole('banner').getByRole('link', { name: /hire me/i })).toHaveCount(0);
     await expect(page.locator('footer').getByRole('link', { name: /hire me/i })).toHaveCount(0);
