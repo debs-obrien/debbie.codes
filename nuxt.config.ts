@@ -1,5 +1,7 @@
+import process from 'node:process'
 import { generateContentIndex } from './scripts/generate-content-index.mjs'
 import { generateSitemap } from './scripts/generate-sitemap.mjs'
+import { DEFAULT_WEBMCP_OT_CHROME, DEFAULT_WEBMCP_OT_EDGE } from './utils/origin-trial'
 
 // Static public/sitemap.xml — avoids Netlify Function/SQLite 500s for /sitemap.xml.
 generateSitemap()
@@ -97,8 +99,13 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      webmcpOtChrome: '',
-      webmcpOtEdge: '',
+      // Defaults are the live debbie.codes WebMCP tokens (utils/origin-trial.ts).
+      // NUXT_PUBLIC_WEBMCP_OT_CHROME / _EDGE override. webmcpOtRender is baked at
+      // build time so production HTML keeps the meta after client hydration.
+      webmcpOtChrome: process.env.NUXT_PUBLIC_WEBMCP_OT_CHROME || DEFAULT_WEBMCP_OT_CHROME,
+      webmcpOtEdge: process.env.NUXT_PUBLIC_WEBMCP_OT_EDGE || DEFAULT_WEBMCP_OT_EDGE,
+      webmcpOtRender: process.env.NUXT_PUBLIC_WEBMCP_OT_RENDER
+        ?? (process.env.CONTEXT === 'production' ? '1' : '0'),
     },
   },
 

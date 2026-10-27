@@ -1,7 +1,12 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { expect, test } from '@playwright/test';
 import { parseDescriptionChapters } from '../utils/description-chapters';
-import { originTrialMeta } from '../utils/origin-trial';
+import {
+  DEFAULT_WEBMCP_OT_CHROME,
+  DEFAULT_WEBMCP_OT_EDGE,
+  originTrialMeta,
+  shouldRenderOriginTrial
+} from '../utils/origin-trial';
 import { parseContentIndex } from '../utils/webmcp/content-index';
 import { currentPage, searchContent, topicBrief } from '../utils/webmcp/query';
 import { buildVideosResponse } from '../utils/webmcp/response';
@@ -461,6 +466,16 @@ test('origin-trial meta is present only for non-empty tokens', () => {
     { 'http-equiv': 'origin-trial', 'content': 'chrome-token', 'key': 'origin-trial:chrome-token' },
     { 'http-equiv': 'origin-trial', 'content': 'edge-token', 'key': 'origin-trial:edge-token' }
   ]);
+  expect(originTrialMeta(DEFAULT_WEBMCP_OT_CHROME, DEFAULT_WEBMCP_OT_EDGE)).toHaveLength(2);
+});
+
+test('origin-trial meta renders only for production (or explicit override)', () => {
+  expect(shouldRenderOriginTrial({ CONTEXT: 'production' })).toBe(true);
+  expect(shouldRenderOriginTrial({ CONTEXT: 'deploy-preview' })).toBe(false);
+  expect(shouldRenderOriginTrial({ CONTEXT: 'branch-deploy' })).toBe(false);
+  expect(shouldRenderOriginTrial({})).toBe(false);
+  expect(shouldRenderOriginTrial({ NUXT_PUBLIC_WEBMCP_OT_RENDER: '1' })).toBe(true);
+  expect(shouldRenderOriginTrial({ CONTEXT: 'production', NUXT_PUBLIC_WEBMCP_OT_RENDER: '0' })).toBe(false);
 });
 
 test('llms.txt lists the main sections and WebMCP tools', async ({ request }) => {
@@ -486,7 +501,9 @@ test('the home page does not link llms.txt', async ({ page }) => {
   await expect(page.locator('a[href*="llms.txt"]')).toHaveCount(0);
 });
 
-test('origin-trial meta is absent when the tokens are unset', async ({ page }) => {
+test('origin-trial meta is absent on the local (non-production) home page', async ({ page }) => {
+  // Defaults are in runtimeConfig, but webmcpOtRender is '0' unless
+  // CONTEXT=production at build/dev start (Netlify production for debbie.codes).
   await page.goto('/', { waitUntil: 'domcontentloaded' });
   await expect(page.locator('meta[http-equiv="origin-trial"]')).toHaveCount(0);
 });
