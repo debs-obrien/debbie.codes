@@ -75,7 +75,7 @@ An assistant that talks about you to people who might hire you needs clear rules
 
 I didn't build this one on my own. I worked with my Grok Bot.
 
-- **The page.** The code was written by Cursor cloud agents that Grok Bot launched and reviewed. You can see the changes in [PR #674](https://github.com/debs-obrien/debbie.codes/pull/674) and [PR #675](https://github.com/debs-obrien/debbie.codes/pull/675), or just [visit the live page](https://debbie.codes/hire-me).
+- **The page.** Grok Bot drafted the page content and I edited it until it sounded like me. The code was written by Cursor cloud agents that Grok Bot launched and reviewed, in [PR #674](https://github.com/debs-obrien/debbie.codes/pull/674) and [PR #675](https://github.com/debs-obrien/debbie.codes/pull/675). I approved the merges. You can also just [visit the live page](https://debbie.codes/hire-me).
 - **The agent.** Grok Bot created and set up the voice agent through the ElevenLabs Agents API, from a Markdown spec with the first message and system prompt, then set the allowed site and widget labels through the API. I reviewed it and told it what to change.
 - **The prompt.** All of the agent's facts live in its system prompt, about 9,000 characters. There are no knowledge base documents and no tools. The prompt tells it to answer only from that knowledge section.
 - **The embed.** The page uses the ElevenLabs web widget. My site is built with Nuxt, so the widget sits inside `<ClientOnly>` and the widget script is only added on the hire me page. The Nuxt config also marks `elevenlabs-convai` as a custom element so Vue doesn't try to treat it as a component.
