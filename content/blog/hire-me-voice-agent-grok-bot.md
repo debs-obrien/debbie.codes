@@ -89,7 +89,7 @@ I didn't build this one on my own. I worked with my Grok Bot.
 
 ### How the agent gets its data
 
-Everything the agent knows is in its system prompt, about 9,000 characters, built from the facts on the page. There's no knowledge base and there are no tools. Every rule lives in the prompt too. ElevenLabs has its own built-in guardrails, but I have them turned off, so the prompt is the only place the rules come from.
+Everything the agent knows is in its system prompt, about 9,000 characters, built from the facts on the page. There's no knowledge base and there are no tools. My own rules live in the prompt too. ElevenLabs has its own built-in guardrails, and I have them turned on, so they sit on top of the rules in the prompt.
 
 ![Some of the "Never do these" rules in the system prompt.](/images/blog/hire-me-voice-agent-grok-bot/10-elevenlabs-prompt-rules.png)
 
