@@ -22,7 +22,7 @@ Preconditions:
 - Doctor reports healthy.
 - Scope links to `navigation` or `contentinfo`. The same names exist in both.
 
-- **Desktop tour.** Run `node .cursor/skills/verify-debbie-codes/control-debbie-codes.mjs drive navigation --json`. After About, Speaking, Videos, Podcasts, Courses, Blog, Now, and Hire me, the URL is `/hire-me`.
+- **Desktop tour.** Run `node .cursor/skills/verify-debbie-codes/control-debbie-codes.mjs drive navigation --json`. After About, Speaking, Videos, Podcasts, Courses, Blog, and Now, the URL is `/now`.
 - **Logo.** Choose `Debbie O'Brien Debbie O'Brien`. The URL is `/`.
 - **Mobile open.** Set viewport 375×667. Choose `Open menu` until `Close menu` with text `✕` is visible, then choose `Videos`. The URL is `/videos` and the hamburger name is `Open menu` again.
 - **Isolated driver.** `.cursor/skills/verify-debbie-codes/bin/verify drive navigation` walks the same header links, then logo home.
