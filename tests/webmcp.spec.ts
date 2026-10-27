@@ -111,7 +111,7 @@ test.describe('WebMCP list-videos', () => {
     await expect(highlighted).toHaveCount(result.videos.length);
 
     const highlightedIds = await highlighted.evaluateAll(els =>
-      els.map(el => el.getAttribute('data-video-id')),
+      els.map(el => el.getAttribute('data-video-id'))
     );
     const resultIds = result.videos.map((v: { link: string }) => {
       const m = v.link.match(/[?&]v=([^&]+)/);

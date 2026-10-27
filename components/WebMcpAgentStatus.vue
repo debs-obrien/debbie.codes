@@ -35,16 +35,11 @@ function applyHighlight(ids: string[]) {
     return
   highlightIds = ids
   const idSet = new Set(ids)
-  let first: Element | null = null
-  document.querySelectorAll<HTMLElement>('[data-video-id]').forEach((el) => {
-    const id = el.getAttribute('data-video-id')
-    if (!id || !idSet.has(id))
-      return
+  const matches = [...document.querySelectorAll<HTMLElement>('[data-video-id]')]
+    .filter(el => idSet.has(el.getAttribute('data-video-id') || ''))
+  for (const el of matches)
     el.classList.add(HIGHLIGHT_CLASS)
-    if (!first)
-      first = el
-  })
-  first?.scrollIntoView({
+  matches[0]?.scrollIntoView({
     behavior: prefersReducedMotion() ? 'auto' : 'smooth',
     block: 'center',
   })

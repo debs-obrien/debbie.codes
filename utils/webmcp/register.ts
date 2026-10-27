@@ -59,10 +59,10 @@ export async function registerWebMCPTools(mc: { registerTool: (tool: object, opt
           announceListVideos({ tag: input.tag, error: response.error })
           return response
         }
-        const count = 'videos' in response ? response.videos.length : 0
+        const videos = 'videos' in response ? response.videos : undefined
         announceListVideos({
           tag: input.tag,
-          videoIds: rows.slice(0, count).map(r => r.video),
+          videoIds: videos ? rows.slice(0, videos.length).map(r => r.video) : [],
         })
         return response
       }
