@@ -8,7 +8,21 @@ image: /images/blog/covers/hire-me-voice-agent-grok-bot.png
 ogImage: /images/blog/covers/hire-me-voice-agent-grok-bot.png
 ---
 
-Recruiters, hiring managers and future teammates ask me the same questions in every first call. So I answered them once, on one page, and then I gave that page a voice.
+I've been doing lots of interviews lately, and the same questions keep coming up.
+
+I lose a lot of time when hiring managers and recruiters are on calls asking me the same things, when the information is already online.
+
+So the idea is that someone looking to hire me can read this page and get the insight they need. Then the call with the recruiter can focus on their questions, their doubts and the process.
+
+I added the voice agent because nobody reads the whole page. You want to sift through it. So you can ask, in your own voice, about something specific, like MCP or AI agents, and the agent answers based on the content I've provided. It's true to what I would say.
+
+I think it's a nice way to improve the hiring process. More people are applying with AI, and recruiters have endless CVs to get through. Personal time is valuable. So if you had an agent that could review, and I have an agent that can receive, one agent is talking to the other. It sounds crazy, but it saves time. And I want a company to know quickly if I'm a good fit or not.
+
+I'd do the same on their company website, researching the culture and whether the role is a fit. So why not let agents take on the repetitive stuff and automate it, so the human call is more valuable?
+
+I'm just testing things out, so give it a try and tell me what you think. I'd love your feedback. Just don't burn all my credits, because it costs per call, and please don't all call at once.
+
+Think about the possibilities beyond customer service call agents. How can we give humans time back, improve processes, and use voice AI agents to help with the things we struggle with?
 
 ![The top of my hire me page on desktop, with the intro.](/images/blog/hire-me-voice-agent-grok-bot/01-desktop-hero.png)
 
@@ -16,7 +30,7 @@ Recruiters, hiring managers and future teammates ask me the same questions in ev
 
 I have been independent since October 2026 and I'm looking for my next role in developer relations and developer advocacy, developer and product education, and developer experience around AI agents, testing and MCP.
 
-A CV doesn't answer the follow up questions. What did you actually do on that project? What numbers can you back up? What are you looking for next? The same questions come up every time, so one page with honest answers saves everyone time.
+A CV doesn't answer the follow up questions. What did you actually do on that project? What numbers can you back up? What are you looking for next?
 
 I also teach AI agents. So it made sense for the page itself to show an agent built carefully, with clear rules, honest numbers and an assistant that says it's an AI assistant.
 
