@@ -35,6 +35,9 @@ useHead({
       <p>
         The rest of this site has no visitor accounts.
       </p>
+      <p>
+        debbie.codes counts page views with Cloudflare Web Analytics, which doesn't use cookies and doesn't track individual visitors.
+      </p>
     </div>
   </main>
 </template>
