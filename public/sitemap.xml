@@ -76,9 +76,6 @@
     <loc>https://debbie.codes/blog/building-cart-context-component</loc>
   </url>
   <url>
-    <loc>https://debbie.codes/blog/building-your-first-mcp-server</loc>
-  </url>
-  <url>
     <loc>https://debbie.codes/blog/building-your-first-mcp-server-a-beginners-tutorial</loc>
   </url>
   <url>
@@ -545,6 +542,9 @@
   </url>
   <url>
     <loc>https://debbie.codes/podcasts/tags/jamstack</loc>
+  </url>
+  <url>
+    <loc>https://debbie.codes/podcasts/tags/mcp</loc>
   </url>
   <url>
     <loc>https://debbie.codes/podcasts/tags/mentoring</loc>

@@ -1,6 +1,6 @@
 ---
 title: Fixing Failing Tests Automatically with Playwright's New Healer Agent
-date: 2024-11-13
+date: 2025-11-13
 description: If you've ever returned to your test suite to find a sea of red, you're going to love this one. The Playwright Healer Agent is here — and it's changing how we think about test maintenance.
 tags: [playwright, ai, testing]
 canonical: https://dev.to/debs_obrien/fixing-failing-tests-automatically-with-playwrights-new-healer-agent-13ck

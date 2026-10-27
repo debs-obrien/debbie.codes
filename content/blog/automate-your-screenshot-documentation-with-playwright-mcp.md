@@ -1,6 +1,6 @@
 ---
 title: Automate Your Screenshot Documentation with Playwright MCP
-date: 2024-09-03
+date: 2025-09-03
 description: Creating visual documentation has always been a time-consuming process. What if I told you there's a way to automate this entire workflow with a single prompt using Playwright MCP?
 tags: [playwright, mcp, ai]
 canonical: https://dev.to/debs_obrien/automate-your-screenshot-documentation-with-playwright-mcp-3gk4
