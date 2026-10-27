@@ -1,7 +1,7 @@
 import type { APIRequestContext } from '@playwright/test';
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
+import process from 'node:process';
 import { expect, test } from '@playwright/test';
 import { parseDescriptionChapters } from '../utils/description-chapters';
 import {
@@ -18,8 +18,9 @@ import { youtubeWatchUrl } from '../utils/youtube';
 
 const expected = Object.values(webmcpTools).map(t => t.name).sort();
 const listVideos = webmcpTools.listVideos;
-const repoRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
-const catalogPath = join(repoRoot, 'public/webmcp/content-index.json');
+// Playwright loads this file outside native ESM, so avoid import.meta.
+// cwd is the repo root for local, GHA, preview, and Endform runners.
+const catalogPath = join(process.cwd(), 'public/webmcp/content-index.json');
 
 async function waitForWebmcpTools(page: import('@playwright/test').Page) {
   await expect.poll(async () => {
