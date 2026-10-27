@@ -1,5 +1,5 @@
 ---
-title: "I Gave My Hire Me Page a Voice with Grok Bot and ElevenLabs"
+title: "My Hire Me Page Can Talk: A Voice Agent Built with Grok Bot and ElevenLabs"
 date: 2026-10-27
 description: "I built a hire me page that answers what recruiters, hiring managers and future teammates ask, and Grok Bot set up a voice agent on it that answers out loud from the same facts."
 tags: [ai, agents, grok-bot]
