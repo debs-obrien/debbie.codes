@@ -37,6 +37,9 @@
     <loc>https://debbie.codes/blog/api-mocking-for-your-playwright-tests</loc>
   </url>
   <url>
+    <loc>https://debbie.codes/blog/app-to-track-my-learning-journey</loc>
+  </url>
+  <url>
     <loc>https://debbie.codes/blog/ask-engineers-anything</loc>
   </url>
   <url>
@@ -347,6 +350,9 @@
   </url>
   <url>
     <loc>https://debbie.codes/blog/sharing-react-components-across-multiple-applications</loc>
+  </url>
+  <url>
+    <loc>https://debbie.codes/blog/skill-creator-v2-agent-skills-vs-code</loc>
   </url>
   <url>
     <loc>https://debbie.codes/blog/tags/agents</loc>
