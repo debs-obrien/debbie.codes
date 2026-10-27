@@ -311,6 +311,12 @@ useHead(() => ({
           :end-call-text="widgetEndCallText"
         />
       </ClientOnly>
+      <p class="mt-3 text-sm text-gray-500 dark:text-gray-400">
+        Calls are handled by a third-party voice AI provider. Audio is not stored; transcripts are kept for 30 days to improve the assistant, then deleted.
+        <NuxtLink to="/privacy" class="text-primary font-medium hover:underline">
+          Privacy
+        </NuxtLink>
+      </p>
     </section>
 
     <section class="mb-12" aria-labelledby="numbers-heading">
