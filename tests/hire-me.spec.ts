@@ -62,7 +62,7 @@ test.describe('Hire me page (PoC, preview only)', () => {
     await expect(page.getByText('What is your quality bar for content?')).toHaveCount(0);
 
     const assistant = page.locator('section[aria-labelledby="hire-me-assistant-heading"]');
-    await expect(page.getByRole('heading', { name: 'Ask about Debbie (prototype)', level: 2 })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Ask about Debbie', level: 2 })).toBeVisible();
     await expect(assistant.getByText(/answers recruiter questions about my work, numbers and the roles/i)).toBeVisible();
     await expect(assistant.getByText('Try asking:')).toBeVisible();
     await expect(assistant.getByText('What has Debbie done with Playwright and MCP?')).toBeVisible();

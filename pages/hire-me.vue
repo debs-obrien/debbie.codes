@@ -281,7 +281,7 @@ useHead(() => ({
         I meet developers where they are, in their editors, coding agents and frameworks. I live in the product. I build the demo, then teach from what actually worked.
       </p>
       <p>
-        There is a voice assistant on this page. It is a prototype, and it answers from the questions and numbers below.
+        There is a voice assistant on this page. It answers from the questions and numbers below.
       </p>
     </div>
 
@@ -294,10 +294,10 @@ useHead(() => ({
         id="hire-me-assistant-heading"
         class="text-2xl sm:text-3xl font-bold mb-3 text-gray-900 dark:text-white"
       >
-        Ask about Debbie (prototype)
+        Ask about Debbie
       </h2>
       <p class="text-gray-600 dark:text-gray-300 mb-4">
-        A voice assistant that answers recruiter questions about my work, numbers and the roles I'm looking for. It's a prototype and needs your microphone.
+        A voice assistant that answers recruiter questions about my work, numbers and the roles I'm looking for. It needs your microphone.
       </p>
       <p class="font-semibold text-gray-900 dark:text-white mb-2">
         Try asking:
