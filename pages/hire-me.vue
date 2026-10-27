@@ -72,13 +72,13 @@ const recruiterQuestions = [
     question: 'How have you turned developer feedback into product changes?',
     answer: [
       'At a conference in Sep 2022 I sat with a well-known testing educator while he tried Playwright for the first time. He wanted role-based accessible locators and a visual UI mode. He also went looking for a plugin for a web server feature we already had, which showed me we weren\'t telling people about what had shipped.',
-      'The week I got back I took his feedback to the engineers and got him talking to the team directly. Accessible locators shipped in v1.27 less than three weeks later, on 7 Oct 2022. UI Mode shipped six months later in v1.32. The web server got its own docs page, and he later became a Playwright ambassador.',
+      'The week I got back I took his feedback to the engineers and got him talking to the team directly. Accessible locators shipped in v1.27 less than three weeks later, on 7 Oct 2022. UI Mode followed in v1.32. The web server got its own docs page, and he later became a Playwright ambassador.',
     ],
   },
   {
     question: 'How do you grow people you don\'t manage?',
     answer: [
-      'I built the Playwright ambassador program. The ambassadors didn\'t report to me. I picked people already teaching in their own communities and languages, gave them a stage and direct feedback, and nominated them for recognition. The public roster reached 10 ambassadors in 5 countries and 4 languages. Several went on to write books and courses. One ambassador in Argentina now teaches Playwright in Spanish across South America.',
+      'I built the Playwright ambassador program. The ambassadors didn\'t report to me. I picked people already teaching in their own communities and languages, gave them a stage and direct feedback, and nominated them for recognition. The public roster reached 10 ambassadors in 5 countries and 4 languages. Several went on to write books and courses. One ambassador in Argentina now teaches Playwright in Spanish across South America. The program later became part of a larger, long-running developer recognition program, which let us grow more Playwright ambassadors and reach a much wider community.',
     ],
   },
   {
