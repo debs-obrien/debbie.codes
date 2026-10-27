@@ -50,9 +50,15 @@ test.describe('Hire me page', () => {
     await expect(robots).not.toHaveAttribute('content', /noindex/i);
     await expect(robots).not.toHaveAttribute('content', /nofollow/i);
 
-    const headerRes = await request.get(hireMePath);
-    const xRobots = headerRes.headers()['x-robots-tag'] ?? '';
-    expect(xRobots, 'x-robots-tag must not noindex /hire-me').not.toMatch(/noindex/i);
+    // Netlify deploy previews always send X-Robots-Tag: noindex for every
+    // path. Assert the header only outside those previews (local mock /
+    // production), where it reflects app/route config.
+    const isNetlifyDeployPreview = /deploy-preview|--.*\.netlify\.app/i.test(externalBaseURL || '');
+    if (!isNetlifyDeployPreview) {
+      const headerRes = await request.get(hireMePath);
+      const xRobots = headerRes.headers()['x-robots-tag'] ?? '';
+      expect(xRobots, 'x-robots-tag must not noindex /hire-me').not.toMatch(/noindex/i);
+    }
 
     await expect(page.getByRole('heading', { name: 'Numbers at a glance', level: 2 })).toBeVisible();
     await expect(page.locator('section[aria-labelledby="numbers-heading"] li').first()).toBeVisible();
