@@ -15,13 +15,13 @@ useHead({
       Voice assistant privacy
     </h1>
 
-    <div class="prose dark:prose-invert max-w-none space-y-4 text-gray-700 dark:text-gray-200">
+    <div class="space-y-4 text-gray-700 dark:text-gray-200 leading-relaxed">
       <p>
         Calls to the voice assistant on the
         <NuxtLink to="/hire-me" class="text-primary font-medium hover:underline">
           hire me
         </NuxtLink>
-        page are handled by a third-party voice AI provider.
+        page are handled by ElevenLabs.
       </p>
       <p>
         Call audio is not stored. Transcripts are kept for 30 days to improve the assistant, then deleted. Visitors cannot upload files through the assistant.
