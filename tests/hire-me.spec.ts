@@ -2,6 +2,15 @@ import { expect, test } from '@playwright/test';
 
 const hireMeAgentId = 'agent_8801m5yfwzgpf61szvhj0mj0v5fv';
 
+const expectedGithubHrefs = [
+  'https://github.com/debs-obrien/learn-agent-skills',
+  'https://github.com/debs-obrien/playwright-movies-app',
+  'https://github.com/microsoft/playwright-mcp',
+  'https://github.com/debs-obrien/playwright-mcp-prompts',
+  'https://github.com/debs-obrien/mcp-weather-server-demo',
+  'https://github.com/debs-obrien/debbie.codes'
+];
+
 // PoC voice widget on /hire-me; abort so networkidle stays reliable (same as #667).
 async function blockElevenLabs(page: import('@playwright/test').Page) {
   await page.route(/unpkg\.com|elevenlabs\.io|api\.elevenlabs/, route => route.abort());
@@ -58,6 +67,45 @@ test.describe('Hire me page (PoC, preview only)', () => {
     await expect(page.getByRole('banner').getByRole('link', { name: /hire me/i })).toHaveCount(0);
     await expect(page.locator('footer').getByRole('link', { name: /hire me/i })).toHaveCount(0);
     await expect(page.locator('a[href="/hire-me"], a[href="/hire-me/"]')).toHaveCount(0);
+
+    const projects = page.locator('section[aria-labelledby="projects-heading"]');
+    await expect(projects.getByRole('link', { name: 'learn-agent-skills' })).toHaveAttribute(
+      'href',
+      'https://github.com/debs-obrien/learn-agent-skills'
+    );
+    await expect(projects.getByRole('link', { name: 'playwright-movies-app' })).toHaveAttribute(
+      'href',
+      'https://github.com/debs-obrien/playwright-movies-app'
+    );
+    await expect(projects.getByRole('link', { name: '(live demo)' })).toHaveAttribute(
+      'href',
+      'https://debs-obrien.github.io/playwright-movies-app/'
+    );
+    await expect(projects.getByRole('link', { name: 'playwright-mcp-prompts' })).toHaveAttribute(
+      'href',
+      'https://github.com/debs-obrien/playwright-mcp-prompts'
+    );
+    await expect(projects.getByRole('link', { name: 'mcp-weather-server-demo' })).toHaveAttribute(
+      'href',
+      'https://github.com/debs-obrien/mcp-weather-server-demo'
+    );
+    await expect(
+      projects.getByRole('link', { name: 'This site, built with Nuxt and Nuxt Content, is open source' })
+    ).toHaveAttribute('href', 'https://github.com/debs-obrien/debbie.codes');
+
+    const githubHrefs = await page.locator('main a[href^="https://github.com/"]').evaluateAll(anchors =>
+      [...new Set(anchors.map(a => (a as HTMLAnchorElement).href))].sort()
+    );
+    expect(githubHrefs).toEqual([...expectedGithubHrefs].sort());
+
+    for (const href of expectedGithubHrefs) {
+      await expect(page.locator(`main a[href="${href}"]`).first()).toHaveAttribute('href', href);
+      const linkRes = await request.get(href);
+      expect(linkRes.status(), `expected 200 for ${href}`).toBe(200);
+    }
+
+    await expect(page.locator('main a[href="https://www.youtube.com/watch?v=IixdI2bTR1g"]').first()).toHaveText('180K');
+    await expect(page.locator('main a[href="https://www.youtube.com/watch?v=AaCj939XIQ4"]').first()).toHaveText('140K');
 
     // Visible page text only — not script URLs or custom-element tag names.
     const visibleText = await page.evaluate(() => {

@@ -1,19 +1,53 @@
 <script setup lang="ts">
+import type { HireMePart } from '~/components/HireMeParts.vue'
+
 const config = useRuntimeConfig()
 const hireMeAgentId = computed(() => String(config.public.hireMeAgentId || '').trim())
 const showVoiceAgent = computed(() => Boolean(hireMeAgentId.value))
 
-const stats = [
+const urls = {
+  learnAgentSkills: 'https://github.com/debs-obrien/learn-agent-skills',
+  moviesApp: 'https://github.com/debs-obrien/playwright-movies-app',
+  moviesDemo: 'https://debs-obrien.github.io/playwright-movies-app/',
+  playwrightMcp: 'https://github.com/microsoft/playwright-mcp',
+  mcpPrompts: 'https://github.com/debs-obrien/playwright-mcp-prompts',
+  weatherDemo: 'https://github.com/debs-obrien/mcp-weather-server-demo',
+  site: 'https://github.com/debs-obrien/debbie.codes',
+  mcpTutorial180k: 'https://www.youtube.com/watch?v=IixdI2bTR1g',
+  mcpTutorial140k: 'https://www.youtube.com/watch?v=AaCj939XIQ4',
+} as const
+
+function link(text: string, href: string): HireMePart {
+  return { text, href }
+}
+
+const mcpTutorialViews: HireMePart[] = [
+  'My Playwright MCP tutorials on the official channel passed ',
+  link('180K', urls.mcpTutorial180k),
+  ' and ',
+  link('140K', urls.mcpTutorial140k),
+  ' views.',
+]
+
+const stats: Array<string | HireMePart[]> = [
   'Weekly npm downloads of playwright grew from under 1M to over 20M while I led its developer education (May 2022 to Dec 2025).',
-  'I pushed for the official Playwright MCP server. It launched on 21 Mar 2025 and got about 5k GitHub stars in roughly its first week. By Dec 2025 it had about 24k stars and about 1M weekly npm downloads. On 27 Oct 2026 it had over 38k stars. It became one of the fastest-adopted parts of Playwright.',
+  [
+    'I pushed for ',
+    link('the official Playwright MCP server', urls.playwrightMcp),
+    '. It launched on 21 Mar 2025 and got about 5k GitHub stars in roughly its first week. By Dec 2025 it had about 24k stars and about 1M weekly npm downloads. On 27 Oct 2026 it had over 38k stars. It became one of the fastest-adopted parts of Playwright.',
+  ],
   'Community channels when I left in Dec 2025: 44K LinkedIn followers, 18K Discord members and 27K YouTube subscribers. Playwright\'s dev.to posts reached 269K views.',
   'I ran a Playwright ambassador program with 10 people in 5 countries and 4 languages.',
   'Developer feedback led to accessible locators shipping in v1.27 within three weeks (7 Oct 2022), and later shaped UI Mode in v1.32.',
-  'My Playwright MCP tutorials on the official channel passed 180K and 140K views.',
+  mcpTutorialViews,
   'A live MCP workshop I co-taught in Spanish has about 16k views.',
   'I have spoken at conferences since 2018 and gave 20+ conference talks and workshops as Playwright\'s external voice.',
   'I wrote 55 pages of end-user docs with 59 screenshots in four days, using an AI agent and three agent skills I built.',
-  'I still maintain a teaching demo app I built, playwright-movies-app. It has over 100 GitHub stars.',
+  [
+    'I still maintain a teaching demo app I built, ',
+    link('playwright-movies-app', urls.moviesApp),
+    '. It has over 100 GitHub stars.',
+  ],
 ]
 
 const experience = [
@@ -26,11 +60,15 @@ const experience = [
   'Tech lead, consultant and educator, 2008 to 2020.',
 ]
 
-const recruiterQuestions = [
+const recruiterQuestions: Array<{ question: string, answer: Array<string | HireMePart[]> }> = [
   {
     question: 'Tell me about yourself',
     answer: [
-      'I\'m an Independent Developer Educator in Palma, Spain. I teach AI coding agents, MCP and agent skills through my site, YouTube, an open source learn-agent-skills repo, talks and live workshops.',
+      [
+        'I\'m an Independent Developer Educator in Palma, Spain. I teach AI coding agents, MCP and agent skills through my site, YouTube, an open source ',
+        link('learn-agent-skills', urls.learnAgentSkills),
+        ' repo, talks and live workshops.',
+      ],
       'Before that I led developer education and community for Playwright for three and a half years. Weekly downloads grew from under 1M to over 20M during that time. I pushed for the official Playwright MCP server and taught it to developers.',
       'After that I worked in applied AI, first in developer relations and then in platform engineering, where I built a Playwright agent inside a company\'s AI platform. It drives Playwright over CDP, takes test requests in the app, runs them in an embedded browser and returns an HTML report and trace.',
       'I\'ve spoken at conferences since 2018, in English and Spanish.',
@@ -84,18 +122,26 @@ const recruiterQuestions = [
   {
     question: 'How do you learn something new fast enough to teach it?',
     answer: [
-      'When MCP was brand new, I built and broke MCP servers myself before writing a single slide. Then I co-taught a live beginner workshop in Spanish. We covered the mental model first, then real server demos, then a live build of a weather MCP server that viewers could copy in about 20 minutes. The recording has about 16k views.',
+      [
+        'When MCP was brand new, I built and broke MCP servers myself before writing a single slide. Then I co-taught a live beginner workshop in Spanish. We covered the mental model first, then real server demos, then a live build of ',
+        link('a weather MCP server', urls.weatherDemo),
+        ' that viewers could copy in about 20 minutes. The recording has about 16k views.',
+      ],
     ],
   },
   {
     question: 'What have you kept going after a job changed?',
     answer: [
-      'I built playwright-movies-app as a teaching demo in Jan 2025. When I moved on, its cloud backend was no longer available, so I replaced it with a mock API and a simple hosted login. The live demo and the learn site still work, and the repo has over 100 stars.',
+      [
+        'I built ',
+        link('playwright-movies-app', urls.moviesApp),
+        ' as a teaching demo in Jan 2025. When I moved on, its cloud backend was no longer available, so I replaced it with a mock API and a simple hosted login. The live demo and the learn site still work, and the repo has over 100 stars.',
+      ],
     ],
   },
 ]
 
-const moreQuestions = [
+const moreQuestions: Array<{ question: string, answer: Array<string | HireMePart[]> }> = [
   {
     question: 'What kind of reach can you bring?',
     answer: [
@@ -105,7 +151,13 @@ const moreQuestions = [
   {
     question: 'How do you know your content lands?',
     answer: [
-      'I look at what people watch and use. My Playwright MCP tutorials on the official channel passed 180K and 140K views. A live MCP workshop I co-taught in Spanish has about 16k views. A demo app I built for teaching has over 100 GitHub stars and still runs.',
+      [
+        'I look at what people watch and use. My Playwright MCP tutorials on the official channel passed ',
+        link('180K', urls.mcpTutorial180k),
+        ' and ',
+        link('140K', urls.mcpTutorial140k),
+        ' views. A live MCP workshop I co-taught in Spanish has about 16k views. A demo app I built for teaching has over 100 GitHub stars and still runs.',
+      ],
     ],
   },
   {
@@ -134,9 +186,29 @@ const moreQuestions = [
   },
 ]
 
-const projects = [
-  'learn-agent-skills, an open source repo for learning agent skills.',
-  'playwright-movies-app, a teaching demo app I still maintain.',
+const projects: Array<string | HireMePart[]> = [
+  [
+    link('learn-agent-skills', urls.learnAgentSkills),
+    ', an open source repo for learning agent skills.',
+  ],
+  [
+    link('playwright-movies-app', urls.moviesApp),
+    ', a teaching demo app I still maintain ',
+    link('(live demo)', urls.moviesDemo),
+    '.',
+  ],
+  [
+    link('playwright-mcp-prompts', urls.mcpPrompts),
+    ', a collection of Playwright MCP prompt files for automated and manual testing.',
+  ],
+  [
+    link('mcp-weather-server-demo', urls.weatherDemo),
+    ', the weather MCP server from my live workshop.',
+  ],
+  [
+    link('This site, built with Nuxt and Nuxt Content, is open source', urls.site),
+    '.',
+  ],
   'An agent that explores a real desktop app every hour with Playwright and files bug reports for a second agent to fix.',
   'Small voice projects: a release-video agent skill that narrates in my cloned voice, a two-voice podcast made from one of my blog posts, and an earlier course voice assistant prototype.',
 ]
@@ -187,7 +259,13 @@ useHead(() => ({
         For three and a half years I led developer education and community for Playwright. During that time weekly npm downloads of the playwright package grew from under 1M to over 20M. I pushed for the official Playwright MCP server and taught it through docs, videos, talks and workshops.
       </p>
       <p>
-        I treat developer education like a product. Docs, videos, workshops, talks and an ambassador program all feed back into the tool, and developer feedback has shipped as features within weeks. Today I teach AI coding agents, MCP and agent skills on this site, on YouTube, in my open source learn-agent-skills repo and in live workshops in English and Spanish.
+        I treat developer education like a product. Docs, videos, workshops, talks and an ambassador program all feed back into the tool, and developer feedback has shipped as features within weeks. Today I teach AI coding agents, MCP and agent skills on this site, on YouTube, in my open source
+        <a
+          :href="urls.learnAgentSkills"
+          rel="noopener"
+          class="text-primary font-medium hover:underline"
+        >learn-agent-skills</a>
+        repo and in live workshops in English and Spanish.
       </p>
       <p>
         I meet developers where they are, in their editors, coding agents and frameworks. I live in the product. I build the demo, then teach from what actually worked.
@@ -245,7 +323,7 @@ useHead(() => ({
           :key="index"
           class="border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/60 p-4 text-sm leading-relaxed text-gray-700 dark:text-gray-200"
         >
-          {{ stat }}
+          <HireMeParts :content="stat" />
         </li>
       </ul>
     </section>
@@ -279,7 +357,7 @@ useHead(() => ({
             </summary>
             <div class="px-4 pb-4 space-y-3 text-gray-700 dark:text-gray-200 leading-relaxed">
               <p v-for="(paragraph, index) in item.answer" :key="index">
-                {{ paragraph }}
+                <HireMeParts :content="paragraph" />
               </p>
             </div>
           </details>
@@ -302,7 +380,7 @@ useHead(() => ({
             </summary>
             <div class="px-4 pb-4 space-y-3 text-gray-700 dark:text-gray-200 leading-relaxed">
               <p v-for="(paragraph, index) in item.answer" :key="index">
-                {{ paragraph }}
+                <HireMeParts :content="paragraph" />
               </p>
             </div>
           </details>
@@ -319,7 +397,7 @@ useHead(() => ({
       </h2>
       <ul class="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-200">
         <li v-for="(item, index) in projects" :key="index">
-          {{ item }}
+          <HireMeParts :content="item" />
         </li>
       </ul>
     </section>
