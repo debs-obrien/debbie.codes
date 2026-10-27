@@ -6,8 +6,9 @@ const twitterCard = 'https://debbie.codes/x-card.png'
 const mySite = 'https://debbie.codes'
 
 const { path } = useRoute()
-const canonical = computed(()=> {
-  if (path === '/') return mySite
+const canonical = computed(() => {
+  if (path === '/')
+    return mySite
   const { href: canonical } = new URL(path, mySite)
   return canonical
 })
@@ -41,8 +42,7 @@ useHead({
     },
     {
       property: 'og:title',
-      content: ogTitle
-      ,
+      content: ogTitle,
     },
     {
       property: 'og:description',
