@@ -185,7 +185,7 @@ The improved skill outperformed the baseline on two out of four evals and tied o
 
 The overall result improved from 81 to 97.5.
 
-That’s a 15.7% improvement.
+That’s a 20.4% improvement.
 
 Some of the biggest wins came from improving the skill’s ability to:
 
