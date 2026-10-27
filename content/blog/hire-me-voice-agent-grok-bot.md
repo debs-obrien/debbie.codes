@@ -36,8 +36,6 @@ I also teach AI agents. So it made sense for the page itself to show an agent bu
 
 The page is live at [debbie.codes/hire-me](https://debbie.codes/hire-me), and "Hire me" is now in the main menu.
 
-![The site menu with Hire me at the end.](/images/blog/hire-me-voice-agent-grok-bot/02-desktop-nav.png)
-
 ## What's on the page
 
 The page is one long read, written in my own words:
@@ -52,10 +50,6 @@ The page is one long read, written in my own words:
 
 I didn't repeat all the numbers here. They live on the page, so go and [read them there](https://debbie.codes/hire-me).
 
-![The Experience section with my roles.](/images/blog/hire-me-voice-agent-grok-bot/04-desktop-experience.png)
-
-![The questions section with the first answer open.](/images/blog/hire-me-voice-agent-grok-bot/05-desktop-questions.png)
-
 ## Meet "Ask about Debbie"
 
 On the page there's a voice assistant called "Ask about Debbie". You press "Start a call", allow your microphone, and ask a question out loud. It answers out loud from the same facts that are on the page.
@@ -69,8 +63,6 @@ You can try one of the suggested questions:
 - What has Debbie done with Playwright and MCP?
 - What roles is she looking for?
 - What results has she had with developer content?
-
-![The Ask about Debbie section with three questions to try and the voice widget in the corner.](/images/blog/hire-me-voice-agent-grok-bot/06-desktop-widget.png)
 
 ## The rules I gave it, and why
 
@@ -153,10 +145,6 @@ The widget shows a small "Powered by ElevenAgents" line, and I'm keeping it.
 - Visitors can't upload files to the agent.
 - Call audio isn't stored.
 - Transcripts are kept for 30 days.
-
-![The hire me page on a phone.](/images/blog/hire-me-voice-agent-grok-bot/07-mobile-top.png)
-
-![On a phone the widget sits below the footer instead of covering it.](/images/blog/hire-me-voice-agent-grok-bot/08-mobile-widget.png)
 
 ## What are ElevenLabs Agents
 
