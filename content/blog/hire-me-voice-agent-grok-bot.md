@@ -89,18 +89,11 @@ I didn't build this one on my own. I worked with my Grok Bot.
 
 ### How the agent gets its data
 
-Everything the agent knows is in its system prompt, about 9,000 characters, built from the facts on the page. There's no knowledge base and there are no tools. My own rules live in the prompt too. ElevenLabs has its own built-in guardrails, and I have them turned on, so they sit on top of the rules in the prompt.
+Everything the agent knows comes from one system prompt, about 9,000 characters, written from the same notes as the page. There's no knowledge base and there are no tools. My rules for what it should and shouldn't say are in that prompt too. ElevenLabs has its own built-in guardrails, and I have them turned on, so they sit on top of the rules in the prompt.
 
 ![Some of the "Never do these" rules in the system prompt.](/images/blog/hire-me-voice-agent-grok-bot/10-elevenlabs-prompt-rules.png)
 
-That also means there's no automatic sync. When the page changes, the prompt has to change by hand. On the day I built it, the prompt and first message were edited six times, and each edit matched a change on the page:
-
-1. I took a story out of the page, so it came out of the prompt too.
-2. I stopped naming a program on the page, so the prompt stopped naming it.
-3. I removed a time frame from one of the stories, on the page and in the prompt.
-4. I removed an extra sentence from the first message, and a matching line at the start of the prompt, that labelled the assistant in a way I didn't want.
-5. I widened the audience to recruiters, hiring managers and future teammates.
-6. I reworded the line describing an earlier course assistant, on the page and in the prompt.
+The prompt doesn't sync with the page. So when I change the page, Grok Bot updates the prompt through the ElevenLabs Agents API to match. For example, when I widened the page's audience to recruiters, hiring managers and future teammates, the prompt got the same change.
 
 ### How I tested it
 
