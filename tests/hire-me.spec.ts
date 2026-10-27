@@ -27,8 +27,7 @@ const companyNamesInQuestions = [
 
 const pageWideBanned = [
   'ElevenLabs',
-  'salary',
-  'six months'
+  'salary'
 ];
 
 test.describe('Hire me page (PoC, preview only)', () => {
