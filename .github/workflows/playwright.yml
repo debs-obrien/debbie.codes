@@ -1,9 +1,9 @@
 name: Playwright Tests
 on:
   push:
-    branches: [ main, master ]
+    branches: [main, master]
   pull_request:
-    branches: [ main, master ]
+    branches: [main, master]
 
 # Phase 2 selective CI (local GHA only):
 # - pull_request: plan job maps changed paths → selective file set (or full / fail-closed)
@@ -25,7 +25,7 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
-          node-version: '22.23.3'
+          node-version: 22.23.3
 
       - name: Ensure PR base ref is available
         if: github.event_name == 'pull_request'
@@ -67,37 +67,37 @@ jobs:
       matrix:
         shardIndex: ${{ fromJson(needs.plan.outputs.shards) }}
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
-      with:
-        node-version: '22.23.3'
-    - name: Install dependencies
-      run: npm ci
-    - name: Check Google Chrome
-      run: google-chrome --version
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.23.3
+      - name: Install dependencies
+        run: npm ci
+      - name: Check Google Chrome
+        run: google-chrome --version
 
-    - name: Run Playwright tests
-      env:
-        SELECTIVE_CI_MODE: ${{ needs.plan.outputs.mode }}
-        SELECTIVE_CI_TEST_FILES: ${{ needs.plan.outputs.test_files }}
-        SELECTIVE_CI_SHARD_TOTAL: ${{ needs.plan.outputs.shard_total }}
-        SHARD_INDEX: ${{ matrix.shardIndex }}
-      run: |
-        set -euo pipefail
-        if [ "$SELECTIVE_CI_MODE" = "selective" ]; then
-          # shellcheck disable=SC2086 — file list is space-separated paths from our map
-          npx playwright test $SELECTIVE_CI_TEST_FILES --shard="${SHARD_INDEX}/${SELECTIVE_CI_SHARD_TOTAL}"
-        else
-          npx playwright test --shard="${SHARD_INDEX}/${SELECTIVE_CI_SHARD_TOTAL}"
-        fi
+      - name: Run Playwright tests
+        env:
+          SELECTIVE_CI_MODE: ${{ needs.plan.outputs.mode }}
+          SELECTIVE_CI_TEST_FILES: ${{ needs.plan.outputs.test_files }}
+          SELECTIVE_CI_SHARD_TOTAL: ${{ needs.plan.outputs.shard_total }}
+          SHARD_INDEX: ${{ matrix.shardIndex }}
+        run: |
+          set -euo pipefail
+          if [ "$SELECTIVE_CI_MODE" = "selective" ]; then
+            # shellcheck disable=SC2086 — file list is space-separated paths from our map
+            npx playwright test $SELECTIVE_CI_TEST_FILES --shard="${SHARD_INDEX}/${SELECTIVE_CI_SHARD_TOTAL}"
+          else
+            npx playwright test --shard="${SHARD_INDEX}/${SELECTIVE_CI_SHARD_TOTAL}"
+          fi
 
-    - name: Upload blob report to GitHub Actions Artifacts
-      if: ${{ !cancelled() }}
-      uses: actions/upload-artifact@v4
-      with:
-        name: blob-report-${{ matrix.shardIndex }}
-        path: blob-report
-        retention-days: 1
+      - name: Upload blob report to GitHub Actions Artifacts
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: blob-report-${{ matrix.shardIndex }}
+          path: blob-report
+          retention-days: 1
 
   # Production origin-trial meta check. Isolated from Playwright shards so a
   # generate never rebuilds the shared .nuxt while `nuxt dev` is serving tests.
@@ -105,14 +105,14 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
-      with:
-        node-version: '22.23.3'
-    - name: Install dependencies
-      run: npm ci
-    - name: Check origin-trial meta in production generate
-      run: npm run check:origin-trial
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.23.3
+      - name: Install dependencies
+        run: npm ci
+      - name: Check origin-trial meta in production generate
+        run: npm run check:origin-trial
 
   merge-reports:
     # Merge reports after playwright-tests, even if some shards have failed
@@ -121,26 +121,26 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
-      with:
-        node-version: '22.23.3'
-    - name: Install dependencies
-      run: npm ci
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.23.3
+      - name: Install dependencies
+        run: npm ci
 
-    - name: Download blob reports from GitHub Actions Artifacts
-      uses: actions/download-artifact@v4
-      with:
-        path: all-blob-reports
-        pattern: blob-report-*
-        merge-multiple: true
+      - name: Download blob reports from GitHub Actions Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: all-blob-reports
+          pattern: blob-report-*
+          merge-multiple: true
 
-    - name: Merge into HTML Report
-      run: npx playwright merge-reports --reporter html ./all-blob-reports
+      - name: Merge into HTML Report
+        run: npx playwright merge-reports --reporter html ./all-blob-reports
 
-    - name: Upload HTML report
-      uses: actions/upload-artifact@v4
-      with:
-        name: html-report--attempt-${{ github.run_attempt }}
-        path: playwright-report
-        retention-days: 14
+      - name: Upload HTML report
+        uses: actions/upload-artifact@v4
+        with:
+          name: html-report--attempt-${{ github.run_attempt }}
+          path: playwright-report
+          retention-days: 14
