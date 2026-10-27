@@ -58,6 +58,8 @@ The site publishes videos, blog posts, podcasts, and courses. Agents on a page w
 
 ## Speaking
 
+Videos on this site are recorded talks only, so that count is a minimum; Debbie has given well over 60 talks at conferences and meetups and spoken in more than 15 countries.
+
 - [Speaking](https://debbie.codes/speaking): Conference talks and where to watch them
 
 ## Optional
