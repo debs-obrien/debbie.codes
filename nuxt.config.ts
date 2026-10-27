@@ -13,10 +13,10 @@ export default defineNuxtConfig({
     host: '127.0.0.1',
   },
 
-  // PoC /hire-me voice widget — empty until filled on the deploy preview.
+  // PoC /hire-me voice widget (public agent id; origin-allowlisted for preview + debbie.codes).
   runtimeConfig: {
     public: {
-      hireMeAgentId: process.env.HIRE_ME_AGENT_ID || '',
+      hireMeAgentId: process.env.HIRE_ME_AGENT_ID || 'agent_8801m5yfwzgpf61szvhj0mj0v5fv',
     },
   },
 

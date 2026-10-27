@@ -200,10 +200,13 @@ useHead(() => ({
     >
       <h2
         id="hire-me-assistant-heading"
-        class="text-2xl sm:text-3xl font-bold mb-4 text-gray-900 dark:text-white"
+        class="text-2xl sm:text-3xl font-bold mb-3 text-gray-900 dark:text-white"
       >
-        Ask my assistant (prototype)
+        Ask about Debbie (prototype)
       </h2>
+      <p class="text-gray-600 dark:text-gray-300 mb-4">
+        This is a voice prototype that answers from this page. It needs microphone access.
+      </p>
       <ClientOnly>
         <elevenlabs-convai :agent-id="hireMeAgentId" />
       </ClientOnly>

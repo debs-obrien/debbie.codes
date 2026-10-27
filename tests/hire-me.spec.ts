@@ -1,5 +1,7 @@
 import { expect, test } from '@playwright/test';
 
+const hireMeAgentId = 'agent_8801m5yfwzgpf61szvhj0mj0v5fv';
+
 // PoC voice widget on /hire-me; abort so networkidle stays reliable (same as #667).
 async function blockElevenLabs(page: import('@playwright/test').Page) {
   await page.route(/unpkg\.com|elevenlabs\.io|api\.elevenlabs/, route => route.abort());
@@ -35,13 +37,21 @@ test.describe('Hire me page (PoC, preview only)', () => {
     await expect(page.getByRole('heading', { name: 'Questions recruiters ask me', level: 2 })).toBeVisible();
     await expect(page.getByText('Tell me about yourself')).toBeVisible();
 
+    await expect(page.getByRole('heading', { name: 'Ask about Debbie (prototype)', level: 2 })).toBeVisible();
+    const widget = page.locator('elevenlabs-convai');
+    await expect(widget).toHaveAttribute('agent-id', hireMeAgentId);
+
     await expect(page.getByRole('banner').getByRole('link', { name: /hire me/i })).toHaveCount(0);
     await expect(page.locator('footer').getByRole('link', { name: /hire me/i })).toHaveCount(0);
     await expect(page.locator('a[href="/hire-me"], a[href="/hire-me/"]')).toHaveCount(0);
 
-    const bodyText = await page.locator('body').textContent();
+    // Visible page text only — not script URLs or custom-element tag names.
+    const visibleText = await page.evaluate(() => {
+      // eslint-disable-next-line unicorn/prefer-dom-node-text-content -- leak guard must use visible text, not textContent
+      return document.body.innerText;
+    });
     for (const term of forbiddenTerms) {
-      expect(bodyText, `rendered page must not contain "${term}"`).not.toMatch(
+      expect(visibleText, `visible page text must not contain "${term}"`).not.toMatch(
         new RegExp(`\\b${term}\\b`, 'i')
       );
     }
