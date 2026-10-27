@@ -36,4 +36,16 @@ test.describe('Videos filter chips', () => {
       });
     });
   }
+
+  test('AI Fitness Coach video appears under Grok Bot tag', async ({ page, isMobile }) => {
+    if (isMobile)
+      return;
+
+    await page.goto('/videos/tags/grok-bot');
+    await page.waitForLoadState('networkidle');
+    await expect.poll(() => page.getByRole('article').count(), { timeout: 15000 }).toBeGreaterThan(0);
+    await expect(
+      page.getByRole('heading', { name: 'I Created an AI Fitness Coach with Grok Bot' }),
+    ).toBeVisible();
+  });
 });
