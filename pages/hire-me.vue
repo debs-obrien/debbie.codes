@@ -47,7 +47,7 @@ const stats: Array<string | HireMePart[]> = [
   'Developer feedback led to accessible locators shipping in v1.27 within three weeks (7 Oct 2022), and later shaped UI Mode in v1.32.',
   mcpTutorialViews,
   mcpWorkshopSpanishViews,
-  'I have spoken at conferences since 2018 and gave 20+ conference talks and workshops as Playwright\'s external voice.',
+  'I have spoken at conferences since 2018, given over 60 talks and workshops, and spoken in more than 15 countries.',
   'I wrote 55 pages of end-user docs with 59 screenshots in four days, using an AI agent and three agent skills I built.',
   [
     'I still maintain a teaching demo app I built, ',
@@ -220,7 +220,7 @@ const projects: Array<string | HireMePart[]> = [
     '.',
   ],
   'An agent that explores a real desktop app every hour with Playwright and files bug reports for a second agent to fix.',
-  'Small voice projects: a release-video agent skill that narrates in my cloned voice, a two-voice podcast made from one of my blog posts, and an earlier course voice assistant prototype.',
+  'Small voice projects: a release-video agent skill that narrates in my cloned voice, a two-voice podcast made from one of my blog posts, and an earlier voice assistant for a course.',
 ]
 
 const askExamples = [

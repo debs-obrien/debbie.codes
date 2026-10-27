@@ -36,11 +36,12 @@ function toToolVideo(r: VideoRow) {
 
 /** Build the list-videos response; the whole serialized object stays within MAX_OUTPUT_CHARS. */
 export function buildVideosResponse(rows: VideoRow[], limit: number) {
+  const total = rows.length
   const videos = rows.slice(0, limit).map(toToolVideo)
-  const size = () => JSON.stringify({ videos }).length
+  const size = () => JSON.stringify({ videos, total }).length
   while (videos.length > 1 && size() > MAX_OUTPUT_CHARS)
     videos.pop()
   if (size() > MAX_OUTPUT_CHARS)
     return { error: 'That video\'s details are too long to return. Try the /videos page on debbie.codes.' }
-  return { videos }
+  return { videos, total }
 }

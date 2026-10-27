@@ -407,6 +407,8 @@ function renderLlms(items) {
   lines.push(
     '## Speaking',
     '',
+    'The conference-talk videos on this site are only the recorded ones, so their count is a minimum. Debbie has given well over 60 talks at conferences and meetups and spoken in more than 15 countries.',
+    '',
     mdLink('Speaking', `${SITE}/speaking`, 'Conference talks and where to watch them'),
     '',
     '## Optional',

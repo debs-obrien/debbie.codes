@@ -4527,6 +4527,54 @@
     },
     {
       "type": "video",
+      "title": "Test automation with Playwright",
+      "date": "2023-07-19",
+      "tags": [
+        "conference-talk",
+        "playwright",
+        "testing"
+      ],
+      "url": "https://www.youtube.com/watch?v=1yaqKDHhktI",
+      "video": "1yaqKDHhktI",
+      "description": "You know you need more end-to-end testing, but at what cost? In this Microsoft Build 2023 demo session, Debbie O'Brien and Max Schmitt show how Playwright can save developers time, increase productivity, and catch issues closer to code authoring — including integrating tests into CI/CD so regressions are caught before they impact you.",
+      "conference": "Microsoft Build 2023",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "The problem with production"
+        },
+        {
+          "time": 91,
+          "title": "Setting up Playwright"
+        },
+        {
+          "time": 202,
+          "title": "Running the first test"
+        },
+        {
+          "time": 277,
+          "title": "Generating tests with codegen"
+        },
+        {
+          "time": 442,
+          "title": "Adding test assertions"
+        },
+        {
+          "time": 531,
+          "title": "Debugging with UI mode"
+        },
+        {
+          "time": 657,
+          "title": "Fixing tests with watch mode"
+        },
+        {
+          "time": 694,
+          "title": "Deploying to GitHub Actions"
+        }
+      ]
+    },
+    {
+      "type": "video",
       "title": "e2e Testing with Playwright",
       "date": "2023-06-30",
       "tags": [
@@ -4538,6 +4586,50 @@
       "video": "uB6bOQV18X0",
       "description": "GirlCode Coffee Break - our casual monthly get together. Let's chat about things in Tech that we care about, but address way too little. This week, we are joined by Debbie O'Brien (https://twitter.com/debs_obrien), to talk about End to End Testing and all things Playwright",
       "conference": "GirlCode Coffee Break"
+    },
+    {
+      "type": "video",
+      "title": "e2e testing with Playwright | OD111",
+      "date": "2023-05-24",
+      "tags": [
+        "conference-talk",
+        "playwright",
+        "testing"
+      ],
+      "url": "https://www.youtube.com/watch?v=Wgp1a1XRq3I",
+      "video": "Wgp1a1XRq3I",
+      "description": "Join Debbie O'Brien to catch up on all things new in Playwright — from the locators API to the Visual Studio Code extension, plus UI Mode with watch mode and time travel debugging. Recorded as Microsoft Build 2023 on-demand session OD111.",
+      "conference": "Microsoft Build 2023",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Introduction to Playwright"
+        },
+        {
+          "time": 68,
+          "title": "Installation and Setup"
+        },
+        {
+          "time": 143,
+          "title": "Locating elements"
+        },
+        {
+          "time": 237,
+          "title": "Test generation with Codegen"
+        },
+        {
+          "time": 350,
+          "title": "Project dependencies"
+        },
+        {
+          "time": 491,
+          "title": "UI mode and debugging"
+        },
+        {
+          "time": 853,
+          "title": "Community and resources"
+        }
+      ]
     },
     {
       "type": "video",
@@ -4960,6 +5052,20 @@
           "title": "Running the test on CI"
         }
       ]
+    },
+    {
+      "type": "video",
+      "title": "Testing Web Applications with Playwright - Debbie O'Brien, TestJS Summit 2022",
+      "date": "2022-11-07",
+      "tags": [
+        "conference-talk",
+        "playwright",
+        "testing"
+      ],
+      "url": "https://www.youtube.com/watch?v=kfGzzzx572A",
+      "video": "kfGzzzx572A",
+      "description": "Testing is hard and takes time — so how do we get more developers to do it? Debbie introduces Playwright for reliable end-to-end cross-browser testing, including Codegen, the VS Code extension, debugging, and CI. Talk from TestJS Summit 2022.",
+      "conference": "TestJS Summit 2022"
     },
     {
       "type": "video",
@@ -5743,6 +5849,19 @@
           "title": "Finding Components"
         }
       ]
+    },
+    {
+      "type": "video",
+      "title": "Volar by Debbie O'Brien: Vue.js Nation 2022 Mighty Bites",
+      "date": "2022-02-08",
+      "tags": [
+        "conference-talk",
+        "vue"
+      ],
+      "url": "https://www.youtube.com/watch?v=jiJwVqxlHAY",
+      "video": "jiJwVqxlHAY",
+      "description": "Debbie O'Brien shares why Volar is the recommended VS Code extension for Vue 3 development, including full support for script setup and understanding the relationship between it and the template. A short Mighty Bite from Vue.js Nation 2022.",
+      "conference": "Vue.js Nation 2022"
     },
     {
       "type": "video",
@@ -6635,6 +6754,43 @@
         {
           "time": 1184,
           "title": "Closing thoughts"
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "title": "VueConf US 2021 | Nuxt Performance by Debbie O'Brien",
+      "date": "2021-06-14",
+      "tags": [
+        "conference-talk",
+        "nuxt",
+        "performance",
+        "vue"
+      ],
+      "url": "https://www.youtube.com/watch?v=ZFQNYfTx4wM",
+      "video": "ZFQNYfTx4wM",
+      "description": "Nuxt is performant out of the box, doing a lot for you automatically. Take a look at how webpack works for lazy loading and code splitting, and how Nuxt Image makes your images super performant. Talk from VueConf US 2021.",
+      "conference": "VueConf US 2021",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Intro"
+        },
+        {
+          "time": 76,
+          "title": "Nuxt Performances main presentation"
+        },
+        {
+          "time": 493,
+          "title": "Lazy Load Components"
+        },
+        {
+          "time": 913,
+          "title": "Next Performances: Modules"
+        },
+        {
+          "time": 1515,
+          "title": "Wrapping up"
         }
       ]
     },
@@ -7566,6 +7722,51 @@
         {
           "time": 4444,
           "title": "Conclusion"
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "title": "Going Static in a Dynamic World with Hasura and Nuxt.js • Debbie O'Brien • GOTO 2020",
+      "date": "2020-12-15",
+      "tags": [
+        "conference-talk",
+        "nuxt",
+        "jamstack",
+        "hasura"
+      ],
+      "url": "https://www.youtube.com/watch?v=1j9DIX32GpY",
+      "video": "1j9DIX32GpY",
+      "description": "This talk covers how to use static sites with Hasura — setting up your endpoint, querying data in Nuxt.js with Apollo and GraphQL, securing your API, and triggering redeploys on content change. Recorded at GOTOpia Europe 2020.",
+      "conference": "GOTO 2020",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Intro"
+        },
+        {
+          "time": 49,
+          "title": "Agenda"
+        },
+        {
+          "time": 77,
+          "title": "Nuxt.js"
+        },
+        {
+          "time": 261,
+          "title": "How static sites work"
+        },
+        {
+          "time": 612,
+          "title": "Hasura and GraphQL"
+        },
+        {
+          "time": 1107,
+          "title": "Build hooks & trigger with Netlify deployment"
+        },
+        {
+          "time": 1344,
+          "title": "Nuxt.js full static"
         }
       ]
     },
