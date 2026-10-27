@@ -111,6 +111,9 @@ export default defineNuxtConfig({
       webmcpOtEdge: process.env.NUXT_PUBLIC_WEBMCP_OT_EDGE || DEFAULT_WEBMCP_OT_EDGE,
       webmcpOtRender: process.env.NUXT_PUBLIC_WEBMCP_OT_RENDER
         ?? (process.env.CONTEXT === 'production' ? '1' : '0'),
+      // Same Netlify production gate as webmcpOtRender — bake at generate so
+      // deploy previews and local dev never emit the Cloudflare beacon.
+      cfWebAnalytics: process.env.CONTEXT === 'production' ? '1' : '0',
     },
   },
 
