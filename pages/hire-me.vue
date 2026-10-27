@@ -240,10 +240,6 @@ useHead(() => ({
       name: 'description',
       content: 'I\'m Debbie, an Independent Developer Educator in Palma, Spain. I teach developers to build with AI agents, MCP and Playwright.',
     },
-    {
-      name: 'robots',
-      content: 'noindex, nofollow',
-    },
   ],
   script: showVoiceAgent.value
     ? [{
@@ -471,5 +467,17 @@ summary::before {
 
 details[open] > summary::before {
   content: '−';
+}
+</style>
+
+<!--
+  Mobile: reserve space for the fixed voice widget (sheet + small footer)
+  so the last page content and site footer are not covered. Widget stays visible.
+-->
+<style>
+@media (max-width: 639px) {
+  body:has(elevenlabs-convai) {
+    padding-bottom: 10rem;
+  }
 }
 </style>

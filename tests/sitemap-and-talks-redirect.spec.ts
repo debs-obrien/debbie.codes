@@ -21,6 +21,7 @@ test.describe('Sitemap and /talks redirect', () => {
     expect(body).toContain('https://debbie.codes/courses');
     expect(body).toContain('https://debbie.codes/about');
     expect(body).toContain('https://debbie.codes/now');
+    expect(body).toContain('https://debbie.codes/hire-me');
     // At least one content blog URL from the collection
     expect(body).toMatch(/https:\/\/debbie\.codes\/blog\/[a-z0-9-]+/);
   });

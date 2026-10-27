@@ -45,6 +45,9 @@ test.describe('404 Error Page', () => {
           - listitem:
             - link "Now":
               - /url: /now
+          - listitem:
+            - link "Hire me":
+              - /url: /hire-me
     `);
 
     await expect(page.getByRole('contentinfo').getByRole('list').first()).toMatchAriaSnapshot(`
@@ -70,6 +73,9 @@ test.describe('404 Error Page', () => {
         - listitem:
           - link "Now":
             - /url: /now
+        - listitem:
+          - link "Hire me":
+            - /url: /hire-me
     `);
   });
 });
