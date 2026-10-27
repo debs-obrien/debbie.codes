@@ -5,4 +5,17 @@ description: Before the Playwright MCP Browser Extension, using a logged-in stat
 video: uE0r51pneSA
 tags: [mcp, playwright, testing, ai]
 host: Debbie's youtube channel
+chapters:
+  - time: 0
+    title: "The logged-in testing problem"
+  - time: 21
+    title: "The Playwright MCP extension"
+  - time: 82
+    title: "Installing the extension"
+  - time: 162
+    title: "Configuring the MCP server"
+  - time: 214
+    title: "Testing in a logged-in state"
+  - time: 331
+    title: "Generating tests with the LLM"
 ---

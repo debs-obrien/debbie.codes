@@ -15,6 +15,7 @@ export interface Video extends BaseContent {
   start?: number
   host?: string
   conference?: string
+  chapters?: { time: number, title: string }[]
   featured?: boolean
   featuredOrder?: number
 }

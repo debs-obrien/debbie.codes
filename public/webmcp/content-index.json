@@ -1,0 +1,4274 @@
+{
+  "items": [
+    {
+      "type": "blog",
+      "title": "Grok Bot Uploads My YouTube Videos For Me (Beginner Walkthrough)",
+      "date": "2026-10-17",
+      "tags": [
+        "ai",
+        "agents",
+        "grok-bot"
+      ],
+      "url": "https://debbie.codes/blog/grok-bot-uploads-my-youtube-videos",
+      "path": "/blog/grok-bot-uploads-my-youtube-videos",
+      "description": "Grok Bot can use your own computer too. I asked it by voice to find a video on my laptop, fix the audio and hand it to my other bots to get it ready for YouTube, with nothing going public until I say yes."
+    },
+    {
+      "type": "blog",
+      "title": "Grok Bot Explained: Your Bots Get a Cloud Computer, Browser & Email",
+      "date": "2026-10-14",
+      "tags": [
+        "ai",
+        "agents",
+        "grok-bot"
+      ],
+      "url": "https://debbie.codes/blog/grok-bot-explained",
+      "path": "/blog/grok-bot-explained",
+      "description": "Your Grok Bot account comes with a cloud computer, browser and email that all your bots share. Here's what that looks like and why it changes how the bots work."
+    },
+    {
+      "type": "blog",
+      "title": "How Grok Bot turned 133 family photos into a 50th birthday video with zero editing",
+      "date": "2026-10-13",
+      "tags": [
+        "ai",
+        "personal",
+        "grok-bot"
+      ],
+      "url": "https://debbie.codes/blog/grok-bot-50th-birthday-photo-video",
+      "path": "/blog/grok-bot-50th-birthday-photo-video",
+      "description": "How I made a photo video for my brother Ken's 50th birthday with my Grok Bots: scanned prints, photos from my Mac and family, music, pacing, and an intro and outro."
+    },
+    {
+      "type": "blog",
+      "title": "Talk to my bots through Alexa: building an Alexa skill for Grok Bot",
+      "date": "2026-10-13",
+      "tags": [
+        "ai",
+        "personal",
+        "grok-bot"
+      ],
+      "url": "https://debbie.codes/blog/talk-to-my-bots-through-alexa",
+      "path": "/blog/talk-to-my-bots-through-alexa",
+      "description": "How I connected Alexa to my Grok Bot chief of staff with a small Cloudflare Worker, and learned the Amazon developer console by calling my engineer bot in Grok Bot and having it talk me through each screen."
+    },
+    {
+      "type": "blog",
+      "title": "Back to the gym after three years",
+      "date": "2026-09-25",
+      "tags": [
+        "personal"
+      ],
+      "url": "https://debbie.codes/blog/back-to-the-gym-after-three-years",
+      "path": "/blog/back-to-the-gym-after-three-years",
+      "description": "First gym session in three years after twins started school in Spain — celebrating the milestone and choosing me time again."
+    },
+    {
+      "type": "blog",
+      "title": "I Created an AI Fitness Coach with Grok Bot",
+      "date": "2026-09-08",
+      "tags": [
+        "ai",
+        "agents",
+        "grok-bot"
+      ],
+      "url": "https://debbie.codes/blog/i-created-an-ai-fitness-coach-with-grok-bot",
+      "path": "/blog/i-created-an-ai-fitness-coach-with-grok-bot",
+      "description": "I created a Grok Bot coach for gym, nutrition, and accountability after having twins. Home gym photos, 130g protein, workout critiques, and a garage playlist on my iPad."
+    },
+    {
+      "type": "blog",
+      "title": "Did you know Grok Bot can watch videos for you?",
+      "date": "2026-08-31",
+      "tags": [
+        "ai",
+        "agents",
+        "grok-bot"
+      ],
+      "url": "https://debbie.codes/blog/did-you-know-grok-bot-can-watch-videos",
+      "path": "/blog/did-you-know-grok-bot-can-watch-videos",
+      "description": "I created a CoachBot for nutrition and training. It watched my workout video and told me my five kilo dumbbells were not enough."
+    },
+    {
+      "type": "blog",
+      "title": "Grok Bot does my shopping (while walking the twins)",
+      "date": "2026-08-24",
+      "tags": [
+        "ai",
+        "agents",
+        "grok-bot"
+      ],
+      "url": "https://debbie.codes/blog/grok-bot-does-my-shopping",
+      "path": "/blog/grok-bot-does-my-shopping",
+      "description": "Quick walk-through of how I did my full shop with Grok Bot from my phone, while out with the twins."
+    },
+    {
+      "type": "blog",
+      "title": "Job Hunt With a Bot?",
+      "date": "2026-08-22",
+      "tags": [
+        "ai",
+        "agents",
+        "grok-bot"
+      ],
+      "url": "https://debbie.codes/blog/job-hunt-with-a-bot",
+      "path": "/blog/job-hunt-with-a-bot",
+      "description": "I need to look for a job, so I made a Job Hunt bot on Grok Bot. It looked me up online, found roles, and can even do interview prep."
+    },
+    {
+      "type": "blog",
+      "title": "I Sent Grok Bot to Buy My Gluten-Free Beer",
+      "date": "2026-08-16",
+      "tags": [
+        "ai",
+        "agents",
+        "grok-bot"
+      ],
+      "url": "https://debbie.codes/blog/i-sent-grok-bot-to-buy-my-gluten-free-beer",
+      "path": "/blog/i-sent-grok-bot-to-buy-my-gluten-free-beer",
+      "description": "I ran out of gluten-free beer on a Sunday night and asked my Grok Bot chief of staff to buy more. Amazon rolls bought from my phone, an Alcampo login that would not click, a morning podcast, and a delivery slot I can keep adding to."
+    },
+    {
+      "type": "blog",
+      "title": "How to Get Started with Grok Bot",
+      "date": "2026-08-14",
+      "tags": [
+        "ai",
+        "agents",
+        "grok-bot"
+      ],
+      "url": "https://debbie.codes/blog/how-to-get-started-with-grok-bot",
+      "path": "/blog/how-to-get-started-with-grok-bot",
+      "description": "Grok Bot just dropped. I downloaded it on a Mac the same day and recorded myself setting it up. Not a feature list. What I actually clicked, what worked, and which bots I would create."
+    },
+    {
+      "type": "blog",
+      "title": "I Tested If Grok Bot Could Book My Flights",
+      "date": "2026-08-13",
+      "tags": [
+        "ai",
+        "agents",
+        "grok-bot"
+      ],
+      "url": "https://debbie.codes/blog/i-tested-if-grok-bot-could-book-my-flights",
+      "path": "/blog/i-tested-if-grok-bot-could-book-my-flights",
+      "description": "I asked a Grok Bot to act as my travel agent and book flights. Close, but missing the last step. Here is the video of what worked and what didn't."
+    },
+    {
+      "type": "blog",
+      "title": "Grok Bot Just Dropped and I Had to Try It",
+      "date": "2026-08-11",
+      "tags": [
+        "ai",
+        "agents",
+        "grok-bot"
+      ],
+      "url": "https://debbie.codes/blog/grok-bot-just-dropped",
+      "path": "/blog/grok-bot-just-dropped",
+      "description": "Grok Bot just dropped. A team of bots on your computer for LinkedIn, GitHub, email, and content publishing. Here is my raw first look."
+    },
+    {
+      "type": "blog",
+      "title": "An Agent That Hunts Bugs in My App While I Sleep",
+      "date": "2026-07-10",
+      "tags": [
+        "ai",
+        "agents",
+        "testing",
+        "playwright"
+      ],
+      "url": "https://debbie.codes/blog/an-agent-that-hunts-bugs-while-i-sleep",
+      "path": "/blog/an-agent-that-hunts-bugs-while-i-sleep",
+      "description": "Every hour, an agent opens our real app, clicks around like a tester, and files honest bug reports. A second agent fixes them. Here is how it works."
+    },
+    {
+      "type": "blog",
+      "title": "How We Test an AI Product Without Burning Credit",
+      "date": "2026-07-10",
+      "tags": [
+        "ai",
+        "testing",
+        "playwright"
+      ],
+      "url": "https://debbie.codes/blog/testing-an-ai-product-without-burning-credit",
+      "path": "/blog/testing-an-ai-product-without-burning-credit",
+      "description": "Every message in an AI product is a paid model call. Here is how we test the full chat flow end to end and spend nothing doing it."
+    },
+    {
+      "type": "blog",
+      "title": "How I Documented an Entire Product in 4 Days with an AI Agent",
+      "date": "2026-05-13",
+      "tags": [
+        "ai",
+        "webdev"
+      ],
+      "url": "https://debbie.codes/blog/documenting-product-with-ai-agent",
+      "path": "/blog/documenting-product-with-ai-agent",
+      "description": "How I used Goose, an open-source AI agent, to write 55 pages of documentation, capture 59 screenshots, and build three reusable skills in just four days."
+    },
+    {
+      "type": "blog",
+      "title": "How I Used AI to Fix Our E2E Test Architecture",
+      "date": "2026-04-29",
+      "tags": [
+        "testing",
+        "playwright",
+        "ai"
+      ],
+      "url": "https://debbie.codes/blog/how-i-used-ai-to-fix-our-e2e-test-architecture",
+      "path": "/blog/how-i-used-ai-to-fix-our-e2e-test-architecture",
+      "description": "AI-led analysis of a 6% local pass rate — from tracer bullet planning to building an agent skill that transformed 38 spec files with measurable benchmarks."
+    },
+    {
+      "type": "blog",
+      "title": "Claude Code Commands and Shortcuts",
+      "date": "2026-03-31",
+      "tags": [
+        "ai"
+      ],
+      "url": "https://debbie.codes/blog/claude-code-commands-and-shortcuts",
+      "path": "/blog/claude-code-commands-and-shortcuts",
+      "description": "A guide to Claude Code's slash commands, keyboard shortcuts, and tips for a smoother workflow in the terminal."
+    },
+    {
+      "type": "blog",
+      "title": "I Built an Agent Skill That Turns Rough READMEs Into Polished Docs",
+      "date": "2026-03-24",
+      "tags": [
+        "ai",
+        "githubcopilot",
+        "webdev"
+      ],
+      "url": "https://debbie.codes/blog/built-agent-skill-readme-wizard",
+      "path": "/blog/built-agent-skill-readme-wizard",
+      "description": "How I turned a single-file agent skill into a maintainable README workflow with scripts, references, and evals."
+    },
+    {
+      "type": "blog",
+      "title": "Build Websites, Games, and Teaching Resources With Google Gemini for Free (No Coding Required)",
+      "date": "2026-03-15",
+      "tags": [
+        "ai",
+        "webdev"
+      ],
+      "url": "https://debbie.codes/blog/build-websites-games-and-teaching-resources-with-google-gemini",
+      "path": "/blog/build-websites-games-and-teaching-resources-with-google-gemini",
+      "description": "Discover how Google Gemini's Canvas lets anyone build websites, games, and interactive teaching resources for free — no coding skills required."
+    },
+    {
+      "type": "blog",
+      "title": "What Are Agent Skills? Beginners Guide",
+      "date": "2026-03-04",
+      "tags": [
+        "ai",
+        "webdev"
+      ],
+      "url": "https://debbie.codes/blog/what-are-agent-skills-beginners-guide",
+      "path": "/blog/what-are-agent-skills-beginners-guide",
+      "description": "A beginner's guide to AI agent skills — what they are, how they work, and how to build your first skill in minutes."
+    },
+    {
+      "type": "blog",
+      "title": "From Prompt Files to Agent Skills: How I Unified My Content Automation",
+      "date": "2026-02-18",
+      "tags": [
+        "ai",
+        "mcp",
+        "playwright"
+      ],
+      "url": "https://debbie.codes/blog/from-prompt-files-to-agent-skills",
+      "path": "/blog/from-prompt-files-to-agent-skills",
+      "description": "How I migrated from three separate VS Code prompt files to a single portable agent skill that handles videos, podcasts, and blog posts — with browser verification and automatic PR creation built in."
+    },
+    {
+      "type": "blog",
+      "title": "How I Use AI Agents + MCP to Fully Automate My Website's Content",
+      "date": "2026-01-14",
+      "tags": [
+        "mcp",
+        "ai"
+      ],
+      "url": "https://debbie.codes/blog/ai-agents-mcp-automate-content",
+      "path": "/blog/ai-agents-mcp-automate-content",
+      "description": "How I use AI agents and MCP tools to automate publishing and updating podcasts, videos, and other content on my website."
+    },
+    {
+      "type": "blog",
+      "title": "First Two Years of Raising Kids and Working Fulltime",
+      "date": "2026-01-11",
+      "tags": [
+        "personal"
+      ],
+      "url": "https://debbie.codes/blog/first-two-years-raising-kids-working-fulltime",
+      "path": "/blog/first-two-years-raising-kids-working-fulltime",
+      "description": "I now have two year old twins yet I also work fulltime and manage to raise my kids with no daycare or family help. Many people ask me how I do it and sometimes I even wonder myself! In this post, I want to share my experiences, challenges, and strategies for balancing work and parenthood over the past two years."
+    },
+    {
+      "type": "blog",
+      "title": "Debugging My Zsh Config With Goose (and Why Agentic AI Actually Helped)",
+      "date": "2025-12-15",
+      "tags": [
+        "ai",
+        "webdev"
+      ],
+      "url": "https://debbie.codes/blog/debugging-my-zsh-config-with-goose-and-why-agentic-ai-actually-helped",
+      "path": "/blog/debugging-my-zsh-config-with-goose-and-why-agentic-ai-actually-helped",
+      "description": "I've been playing around with a few things recently and wanted to share a real experience that genuinely surprised me. When Goose CLI wouldn't run, the agent investigated my .zshrc file and found a subtle syntax error that would have taken me much longer to debug manually."
+    },
+    {
+      "type": "blog",
+      "title": "Laid off from my dream job, what now?",
+      "date": "2025-12-10",
+      "tags": [
+        "personal"
+      ],
+      "url": "https://debbie.codes/blog/laid-off-what-now",
+      "path": "/blog/laid-off-what-now",
+      "description": "It’s time to say goodbye. Unfortunately I have been the latest victim of layoffs due to reorgs in Microsoft Spain. I have taken some time to process but I won’t lie, It has been really hard to deal with. This wasn’t just a job. This was my dream. And my dream came true. But unfortunately all dreams must come to an end at some point. So what now?"
+    },
+    {
+      "type": "blog",
+      "title": "How I vibe code: Improving my site design with Goose and Gemini 3",
+      "date": "2025-11-20",
+      "tags": [
+        "ai",
+        "webdev"
+      ],
+      "url": "https://debbie.codes/blog/how-i-vibe-code-improving-my-site-design-with-goose-and-gemini-3",
+      "path": "/blog/how-i-vibe-code-improving-my-site-design-with-goose-and-gemini-3",
+      "description": "Having fun with Google's Gemini 3 and Goose coding agent to redesign my home page, creating dynamic hero components that change on refresh."
+    },
+    {
+      "type": "blog",
+      "title": "Playwright MCP Servers Explained Automation and Testing",
+      "date": "2025-11-17",
+      "tags": [
+        "playwright",
+        "mcp",
+        "ai",
+        "testing"
+      ],
+      "url": "https://debbie.codes/blog/playwright-mcp-servers-explained-automation-and-testing",
+      "path": "/blog/playwright-mcp-servers-explained-automation-and-testing",
+      "description": "Did you know Playwright has two MCP servers? Learn about the Playwright MCP server for browser automation and the Playwright Test MCP server for testing, both designed to work with AI agents and GitHub Copilot."
+    },
+    {
+      "type": "blog",
+      "title": "Fixing Failing Tests Automatically with Playwright's New Healer Agent",
+      "date": "2025-11-13",
+      "tags": [
+        "playwright",
+        "ai",
+        "testing"
+      ],
+      "url": "https://debbie.codes/blog/fixing-failing-tests-automatically-with-playwrights-new-healer-agent",
+      "path": "/blog/fixing-failing-tests-automatically-with-playwrights-new-healer-agent",
+      "description": "If you've ever returned to your test suite to find a sea of red, you're going to love this one. The Playwright Healer Agent is here — and it's changing how we think about test maintenance."
+    },
+    {
+      "type": "blog",
+      "title": "I Built My Own AI Agent using n8n — And You Can Too",
+      "date": "2025-11-06",
+      "tags": [
+        "ai"
+      ],
+      "url": "https://debbie.codes/blog/i-built-my-own-ai-agent-and-you-can-too",
+      "path": "/blog/i-built-my-own-ai-agent-and-you-can-too",
+      "description": "I recently built my own AI agent. Not because I needed one, but because I wanted to see how far I could take the current tools available. It turned out to be surprisingly straightforward, extremely flexible, and genuinely useful."
+    },
+    {
+      "type": "blog",
+      "title": "Playwright Agents Planner, Generator, and Healer in Action",
+      "date": "2025-10-06",
+      "tags": [
+        "playwright",
+        "testing",
+        "ai"
+      ],
+      "url": "https://debbie.codes/blog/playwright-agents-planner-generator-and-healer-in-action",
+      "path": "/blog/playwright-agents-planner-generator-and-healer-in-action",
+      "description": "Playwright has introduced a powerful new feature: Playwright Agents. These agents can generate test plans, create tests based on those plans, and even debug and fix failing tests automatically."
+    },
+    {
+      "type": "blog",
+      "title": "Automate Your Screenshot Documentation with Playwright MCP",
+      "date": "2025-09-03",
+      "tags": [
+        "playwright",
+        "mcp",
+        "ai"
+      ],
+      "url": "https://debbie.codes/blog/automate-your-screenshot-documentation-with-playwright-mcp",
+      "path": "/blog/automate-your-screenshot-documentation-with-playwright-mcp",
+      "description": "Creating visual documentation has always been a time-consuming process. What if I told you there's a way to automate this entire workflow with a single prompt using Playwright MCP?"
+    },
+    {
+      "type": "blog",
+      "title": "Testing in a Logged-In State with the Playwright MCP Browser Extension",
+      "date": "2025-08-21",
+      "tags": [
+        "playwright",
+        "mcp",
+        "testing",
+        "ai"
+      ],
+      "url": "https://debbie.codes/blog/testing-logged-in-state-playwright-mcp-browser-extension",
+      "path": "/blog/testing-logged-in-state-playwright-mcp-browser-extension",
+      "description": "If you've ever needed to test an application that requires authentication, you know the pain of logging in every time or, worse, handing over your credentials to an LLM. With the new Playwright MCP Browser Extension for Chrome and Edge, that's no longer necessary."
+    },
+    {
+      "type": "blog",
+      "title": "Install Playwright MCP Server in VS Code",
+      "date": "2025-07-15",
+      "tags": [
+        "playwright",
+        "mcp",
+        "ai",
+        "vs-code"
+      ],
+      "url": "https://debbie.codes/blog/install-playwright-mcp-server-in-vs-code",
+      "path": "/blog/install-playwright-mcp-server-in-vs-code",
+      "description": "Installing MCP(Model Context Protocol) servers in Visual Studio Code just got a major upgrade! Learn how to use the new MCP Servers section in the Extensions panel to easily browse, install, and manage MCP servers."
+    },
+    {
+      "type": "blog",
+      "title": "Automating Form Submissions with Playwright MCP and a Prompt file",
+      "date": "2025-07-10",
+      "tags": [
+        "playwright",
+        "mcp",
+        "ai"
+      ],
+      "url": "https://debbie.codes/blog/automating-form-submissions-with-playwright-mcp-and-a-prompt-file",
+      "path": "/blog/automating-form-submissions-with-playwright-mcp-and-a-prompt-file",
+      "description": "Have you ever wished you could automate browser tasks — like filling out a form or uploading a file — without writing a full-blown test script? What if all you needed was a plain-text prompt written in natural language? Well now you can with Playwright's MCP server."
+    },
+    {
+      "type": "blog",
+      "title": "Building Your First MCP Server: A Beginners Tutorial",
+      "date": "2025-07-01",
+      "tags": [
+        "mcp",
+        "webdev",
+        "ai",
+        "typescript"
+      ],
+      "url": "https://debbie.codes/blog/building-your-first-mcp-server-a-beginners-tutorial",
+      "path": "/blog/building-your-first-mcp-server-a-beginners-tutorial",
+      "description": "Have you ever wanted your AI assistant to access real-time data? Model Context Protocol (MCP) servers make this possible, and they're surprisingly simple to build and use! Learn how to build an MCP server from scratch using TypeScript, connect it to a real weather API, and integrate it with VS Code and GitHub Copilot."
+    },
+    {
+      "type": "blog",
+      "title": "Vibe Coding with Copilot and Gemini 2.5 pro - Simplifying My Blog with AI-Assisted Refactoring",
+      "date": "2025-06-20",
+      "tags": [
+        "webdev",
+        "ai",
+        "githubcopilot",
+        "vscode"
+      ],
+      "url": "https://debbie.codes/blog/vibe-coding-with-copilot-and-gemini",
+      "path": "/blog/vibe-coding-with-copilot-and-gemini",
+      "description": "I have been wanting to share more content on my blog, but ironically, the process of publishing has been slowing me down. In a recent vibe coding session, I decided to remove images from the blog entirely and explore a content-first approach with AI assistance."
+    },
+    {
+      "type": "blog",
+      "title": "Generate Playwright tests without code access using MCP and Copilot",
+      "date": "2025-06-18",
+      "tags": [
+        "playwright",
+        "testing",
+        "mcp",
+        "ai"
+      ],
+      "url": "https://debbie.codes/blog/generate-playwright-tests-without-code-access",
+      "path": "/blog/generate-playwright-tests-without-code-access",
+      "description": "Discover how to use MCP (Model Context Protocol) and GitHub Copilot to generate Playwright tests without needing access to your application's source code, perfect for testing external sites or black-box testing scenarios."
+    },
+    {
+      "type": "blog",
+      "title": "Letting Playwright MCP explore your site and write your tests",
+      "date": "2025-06-18",
+      "tags": [
+        "playwright",
+        "testing",
+        "mcp",
+        "ai"
+      ],
+      "url": "https://debbie.codes/blog/letting-playwright-mcp-explore-your-site",
+      "path": "/blog/letting-playwright-mcp-explore-your-site",
+      "description": "Learn how to use Playwright MCP (Model Context Protocol) to explore your website and automatically generate comprehensive tests, making web testing more efficient and thorough."
+    },
+    {
+      "type": "blog",
+      "title": "Setting Up the Official GitHub MCP Server, A simple Guide",
+      "date": "2025-04-16",
+      "tags": [
+        "mcp",
+        "ai"
+      ],
+      "url": "https://debbie.codes/blog/github-mcp-server",
+      "path": "/blog/github-mcp-server",
+      "description": "The GitHub MCP (Model Context Protocol) Server is a powerful tool that provides seamless integration with GitHub APIs, enabling advanced automation and interaction capabilities. This guide will walk you through how to set up and use the official GitHub MCP Server."
+    },
+    {
+      "type": "blog",
+      "title": "Taking my babies to a conference",
+      "date": "2024-09-02",
+      "tags": [
+        "personal"
+      ],
+      "url": "https://debbie.codes/blog/brought-my-babies-to-a-conference",
+      "path": "/blog/brought-my-babies-to-a-conference",
+      "description": "But this time it was different. I brought my babies to the conference. I was really worried about doing this as what would people think? And the voices start going off in my head. But why should I care. Cause you know, I just do."
+    },
+    {
+      "type": "blog",
+      "title": "Testing Staging and Production environments in Playwright",
+      "date": "2024-08-02",
+      "tags": [
+        "playwright",
+        "testing"
+      ],
+      "url": "https://debbie.codes/blog/testing-staging-production-envs-playwright",
+      "path": "/blog/testing-staging-production-envs-playwright",
+      "description": "When working with third party API's it is better to mock the API call rather than hit the API especially when they are API's that you do not control. Mocking the API allows you to finish developing your component or app and write the tests and then when the API is ready you can just swap out the mock for the real API call."
+    },
+    {
+      "type": "blog",
+      "title": "Delivering a Talk",
+      "date": "2023-10-20",
+      "tags": [
+        "personal",
+        "mentoring",
+        "motivation"
+      ],
+      "url": "https://debbie.codes/blog/delivering-a-talk",
+      "path": "/blog/delivering-a-talk",
+      "description": "How can we walk on that stage with more confidence, deliver a great talk and not only own the stage but also connect with the audience. It’s not easy, but like everything it does get easier with practice. Let’s go over a few ways you can improve your public speaking skills, either for the big stage or for remote talks, and let’s discuss what is holding you back from becoming an amazing tech speaker."
+    },
+    {
+      "type": "blog",
+      "title": "Getting Started with Python and Playwright",
+      "date": "2023-09-07",
+      "tags": [
+        "playwright",
+        "testing"
+      ],
+      "url": "https://debbie.codes/blog/python-and-playwright",
+      "path": "/blog/python-and-playwright",
+      "description": "For those new to Python here is a quick beginners guide on how to setup Python and Pytest and install Playwright. We then create an example test and run it in both headed and headless mode meaning with and without a browser window."
+    },
+    {
+      "type": "blog",
+      "title": "Not One but Two",
+      "date": "2023-08-11",
+      "tags": [
+        "personal"
+      ],
+      "url": "https://debbie.codes/blog/not-one-but-two",
+      "path": "/blog/not-one-but-two",
+      "description": "On our 9th attempt at fertility treatment, we were super excited when the doctor called us 10 days after the transfer to tell us that we were pregnant. It had worked. I asked him if he was sure and he said \"yes, very sure. But then when we had the first scan, we got a big surprise."
+    },
+    {
+      "type": "blog",
+      "title": "API Mocking for your Playwright tests",
+      "date": "2023-07-04",
+      "tags": [
+        "playwright",
+        "testing"
+      ],
+      "url": "https://debbie.codes/blog/api-mocking-for-your-playwright-tests",
+      "path": "/blog/api-mocking-for-your-playwright-tests",
+      "description": "When working with third party API's it is better to mock the API call rather than hit the API especially when they are API's that you do not control. Mocking the API allows you to finish developing your component or app and write the tests and then when the API is ready you can just swap out the mock for the real API call."
+    },
+    {
+      "type": "blog",
+      "title": "Playwright's UI Mode - watch mode and time travel debugging",
+      "date": "2023-05-05",
+      "tags": [
+        "playwright",
+        "testing"
+      ],
+      "url": "https://debbie.codes/blog/ui-mode-playwright",
+      "path": "/blog/ui-mode-playwright",
+      "description": "Are you looking for a more efficient way to execute and debug your end to end tests? Look no further than Playwright's UI Mode. In this guide, we'll explore the features of Playwright's UI Mode and show you how to take advantage of them for your test automation needs."
+    },
+    {
+      "type": "blog",
+      "title": "A better global setup in Playwright reusing login with project dependencies",
+      "date": "2023-03-15",
+      "tags": [
+        "playwright",
+        "testing"
+      ],
+      "url": "https://debbie.codes/blog/playwright-global-setup",
+      "path": "/blog/playwright-global-setup",
+      "description": "When you use global setup, you don't see a trace for the setup part of your tests and the setup doesn't appear in the HTML report. This can make debugging difficult. It's also not possible to use fixtures in global setup. In order to fix this issue, project dependencies were created."
+    },
+    {
+      "type": "blog",
+      "title": "Setup a local dev server for your Playwright tests",
+      "date": "2023-03-07",
+      "tags": [
+        "playwright",
+        "testing"
+      ],
+      "url": "https://debbie.codes/blog/playwright-local-dev-server",
+      "path": "/blog/playwright-local-dev-server",
+      "description": "Playwright comes with a webserver option in the config file which gives you the ability to launch a local dev server before running your tests. This is ideal for when writing your tests during development and when you don't have a staging or production url to test against."
+    },
+    {
+      "type": "blog",
+      "title": "Testing Menus on Desktop and Mobile",
+      "date": "2023-03-01",
+      "tags": [
+        "playwright",
+        "testing"
+      ],
+      "url": "https://debbie.codes/blog/testing-menus-desktop-mobile",
+      "path": "/blog/testing-menus-desktop-mobile",
+      "description": "We can write a simple test to make sure that when a user clicks on an item in the menu it takes them to the correct page. To test my website I use Playwright which I already have installed. Let's take a look at how to test the menu on desktop and mobile."
+    },
+    {
+      "type": "blog",
+      "title": "2022 Recap - Achieving your dreams Debbie",
+      "date": "2022-12-31",
+      "tags": [
+        "personal"
+      ],
+      "url": "https://debbie.codes/blog/2022-in-review",
+      "path": "/blog/2022-in-review",
+      "description": "And there it is, another year gone but when you look back at all you have achieved then really there is no more to say than; what a year. From Google interviews to being hired by Microsoft, speaking at conferences and traveling to so many conferences and lots of sport, 2022 was a great year."
+    },
+    {
+      "type": "blog",
+      "title": "How To Locate Elements in Playwright",
+      "date": "2022-12-01",
+      "tags": [
+        "playwright",
+        "testing"
+      ],
+      "url": "https://debbie.codes/blog/locate-elements-playwright",
+      "path": "/blog/locate-elements-playwright",
+      "description": "In order to write end to end tests we need to first find elements on the webpage and then perform user actions on them. For example, find a link and click on it. But before we dive into how to use the test generator, first let's understand what a link element is and what exactly locators are."
+    },
+    {
+      "type": "blog",
+      "title": "How to locate elements in Playwright",
+      "date": "2022-11-30",
+      "tags": [
+        "testing",
+        "playwright"
+      ],
+      "url": "https://debbie.codes/blog/how-to-locate-elements-in-playwright",
+      "path": "/blog/how-to-locate-elements-in-playwright",
+      "description": "How can we locate a link click on it in our e2e tests. In this article we will learn how to locate elements in Playwright using the test generator to generate your tets based on user actions or pick a locator by clicking on an element"
+    },
+    {
+      "type": "blog",
+      "title": "Migrating from Nuxt 2 to Nuxt 3",
+      "date": "2022-11-27",
+      "tags": [
+        "nuxt"
+      ],
+      "url": "https://debbie.codes/blog/migrating-nuxt2-nuxt3",
+      "path": "/blog/migrating-nuxt2-nuxt3",
+      "description": "My personal website was built many years ago and had collected quite a large amount of code as I used my site to play around and experiment new features of Nuxt. It took me ages to finally decide to migrate cause lets face it, we all hate migrations. But I finally did it and I'm so glad I did. I'm going to share with you the steps I took to migrate my site from Nuxt 2 to Nuxt 3."
+    },
+    {
+      "type": "blog",
+      "title": "Challenging Yourself",
+      "date": "2022-09-11",
+      "tags": [
+        "personal",
+        "motivation"
+      ],
+      "url": "https://debbie.codes/blog/challenging-yourself",
+      "path": "/blog/challenging-yourself",
+      "description": "Cycle all around the island of Mallorca for a total of 235km with an expected cycling time of 9.5 hours at a speed of 25km per hour. Just the thoughts of that is scary enough. Was I able for it? Had I trained enough for it? Probably not. But I was determined to give it a go."
+    },
+    {
+      "type": "blog",
+      "title": "Testing a Sites Color Mode with Playwright",
+      "date": "2022-09-03",
+      "tags": [
+        "testing",
+        "playwright"
+      ],
+      "url": "https://debbie.codes/blog/testing-color-mode",
+      "path": "/blog/testing-color-mode",
+      "description": "My site has a color mode option to change from light theme to dark theme or sepia theme or use the system preference. So how can we write a test to make sure this all works?"
+    },
+    {
+      "type": "blog",
+      "title": "Interviewing with the Big Tech Companies",
+      "date": "2022-05-19",
+      "tags": [
+        "personal"
+      ],
+      "url": "https://debbie.codes/blog/interviewing-with-the-big-tech-companies",
+      "path": "/blog/interviewing-with-the-big-tech-companies",
+      "description": "When a recruiter from Meta, from America, had called me, it just opened my eyes to the possibility that maybe just maybe I was actually good enough to work for the big tech companies."
+    },
+    {
+      "type": "blog",
+      "title": "Why Microsoft and How I achieved my Goal",
+      "date": "2022-05-19",
+      "tags": [
+        "personal"
+      ],
+      "url": "https://debbie.codes/blog/why-microsoft",
+      "path": "/blog/why-microsoft",
+      "description": "I just really liked the idea that Microsoft were willing to send people out to help others, to help them build better software with their products and I said to the two Microsoft guys, \"One day I will work for Microsoft\"."
+    },
+    {
+      "type": "blog",
+      "title": "Fixing Diversity in Tech",
+      "date": "2022-05-15",
+      "tags": [
+        "personal"
+      ],
+      "url": "https://debbie.codes/blog/fixing-diversity-in-tech",
+      "path": "/blog/fixing-diversity-in-tech",
+      "description": "When you step back from the nationality, the color, the religion the sex etc you just get a bunch of people who become a great bunch of friends. This is tech. This is what tech should be like always, for everyone."
+    },
+    {
+      "type": "blog",
+      "title": "The JavaScript Array.at() method",
+      "date": "2022-05-12",
+      "tags": [
+        "javascript"
+      ],
+      "url": "https://debbie.codes/blog/js-array-at-method",
+      "path": "/blog/js-array-at-method",
+      "description": "Often we want to return a single item from an array. There are a few methods of doing this including the `at(index)` method which returns the item at a given index."
+    },
+    {
+      "type": "blog",
+      "title": "The JavaScript Array.filter() method",
+      "date": "2022-05-11",
+      "tags": [
+        "javascript"
+      ],
+      "url": "https://debbie.codes/blog/js-array-filter-method",
+      "path": "/blog/js-array-filter-method",
+      "description": "The .filter() method in JavaScript creates a new array with all elements that pass the test implemented by the provided function."
+    },
+    {
+      "type": "blog",
+      "title": "Finding the Right Work Life Balance",
+      "date": "2022-05-10",
+      "tags": [
+        "personal"
+      ],
+      "url": "https://debbie.codes/blog/work-life-balance",
+      "path": "/blog/work-life-balance",
+      "description": "To many people it might look like I have it all worked out and to be honest I do think I have a pretty good work life balance. But it wasn't always that way. I am probably older than most people who will read this and therefore I have had more time to make mistakes and learn from them."
+    },
+    {
+      "type": "blog",
+      "title": "Finding courage and inspiration in the developer community",
+      "date": "2022-05-09",
+      "tags": [
+        "mentoring"
+      ],
+      "url": "https://debbie.codes/blog/courage-inspiration-developer-community",
+      "path": "/blog/courage-inspiration-developer-community",
+      "description": "How do we empower women in tech and equip them with the skills to help them become true leaders? One way is learning from others' successes and failures. Web GDEs—Debbie O'Brien, Julia Miocene, and Glafira Zhur—discuss the value of one to one mentoring and the impact it has made on their own professional and personal development."
+    },
+    {
+      "type": "blog",
+      "title": "Minimizing SVGs",
+      "date": "2022-05-09",
+      "tags": [
+        "performance"
+      ],
+      "url": "https://debbie.codes/blog/minimizing-svgs",
+      "path": "/blog/minimizing-svgs",
+      "description": "When working with SVG's sometimes we just put the svg into our code and think nothing more of it. But do we always need all that code that the SVG gives us? Perhaps not. SVGO is a tool that can take an SVG and compress it down to a smaller size ensuring your site is more performant."
+    },
+    {
+      "type": "blog",
+      "title": "Finding Motivation as a Developer",
+      "date": "2022-05-06",
+      "tags": [
+        "personal",
+        "motivation"
+      ],
+      "url": "https://debbie.codes/blog/finding-motivation-as-a-developer",
+      "path": "/blog/finding-motivation-as-a-developer",
+      "description": "Many people keep asking me where I get my motivation from, how do I find so much time and energy to do so much? I certainly don't have all the answers but I do think it is something you teach yourself."
+    },
+    {
+      "type": "blog",
+      "title": "Being an Imposter",
+      "date": "2022-03-27",
+      "tags": [
+        "personal",
+        "motivation"
+      ],
+      "url": "https://debbie.codes/blog/being-an-imposter",
+      "path": "/blog/being-an-imposter",
+      "description": "If you ever look at the home page of my site or the intro slide of my talks you will probably think I am the biggest show off in the world. However, really I am an imposter. I doubt my abilities and find it difficult to accept my accomplishments and wonder if I deserve them."
+    },
+    {
+      "type": "blog",
+      "title": "Pagination in Nuxt Content",
+      "date": "2022-03-26",
+      "tags": [
+        "nuxt"
+      ],
+      "url": "https://debbie.codes/blog/pagination-in-nuxt-content",
+      "path": "/blog/pagination-in-nuxt-content",
+      "description": "My blog was getting bigger and bigger and so time to add pagination. I am using Nuxt Content to manage my blog posts. So how do I add pagination to my blog? Let me show you how I did it."
+    },
+    {
+      "type": "blog",
+      "title": "Debugging Tests in Playwright",
+      "date": "2022-03-25",
+      "tags": [
+        "testing",
+        "playwright"
+      ],
+      "url": "https://debbie.codes/blog/debugging-tests-in-playwright",
+      "path": "/blog/debugging-tests-in-playwright",
+      "description": "Let's take a look at some of the ways you can debug your tests in Playwright should they fail. Playwright scripts work with existing debugging tools, like Node.js debuggers and browser developer tools. Playwright also introduces new debugging features for browser automation."
+    },
+    {
+      "type": "blog",
+      "title": "Playwright Reports and Traces",
+      "date": "2022-03-25",
+      "tags": [
+        "testing",
+        "playwright"
+      ],
+      "url": "https://debbie.codes/blog/reports-tracing-tests-in-playwright",
+      "path": "/blog/reports-tracing-tests-in-playwright",
+      "description": "Playwright will serve up a HTML report on your local server so you can easily walk through the steps of your test. You can also open a trace file which gives you even more powerful options of viewing, reporting, interacting and even debugging your tests."
+    },
+    {
+      "type": "blog",
+      "title": "Design Tokens and Theming",
+      "date": "2022-03-24",
+      "tags": [
+        "react"
+      ],
+      "url": "https://debbie.codes/blog/design-tokens-and-theming",
+      "path": "/blog/design-tokens-and-theming",
+      "description": "As frontend developers we are normally given a design from Figma or similar tools that we then need to turn into code. So where do we start? What are the first steps we should take when converting our design into code?"
+    },
+    {
+      "type": "blog",
+      "title": "Getting Started with Playwright Testing",
+      "date": "2022-03-24",
+      "tags": [
+        "testing",
+        "playwright"
+      ],
+      "url": "https://debbie.codes/blog/getting-started-with-playwright-testing",
+      "path": "/blog/getting-started-with-playwright-testing",
+      "description": "How can we get more developers to write tests? We can create better tools that makes testing easier. Let's take a look at Playwright and it's amazing features including codegen which writes your tests for you."
+    },
+    {
+      "type": "blog",
+      "title": "Testing iframes with Playwright",
+      "date": "2022-03-24",
+      "tags": [
+        "testing",
+        "playwright"
+      ],
+      "url": "https://debbie.codes/blog/testing-iframes-with-playwright",
+      "path": "/blog/testing-iframes-with-playwright",
+      "description": "Have you ever had to test something in an iframe on your page with end to end testing? Even testing the play button of an embedded video used to be difficult but then along came Playwright. Let's take a look at how Playwright can help you test iframes."
+    },
+    {
+      "type": "blog",
+      "title": "Theming in React",
+      "date": "2022-03-10",
+      "tags": [
+        "react"
+      ],
+      "url": "https://debbie.codes/blog/theming-in-react",
+      "path": "/blog/theming-in-react",
+      "description": "Theming is a fascinating topic and a really important one these days as more and more people add light and dark mode to their sites and companies change the theme of their site or part of their site on specific dates to celebrate occasions such as christmas, pride week etc."
+    },
+    {
+      "type": "blog",
+      "title": "Learning about Developer Advocates",
+      "date": "2022-02-06",
+      "tags": [
+        "personal",
+        "dev-rel"
+      ],
+      "url": "https://debbie.codes/blog/learning-about-developer-advocates",
+      "path": "/blog/learning-about-developer-advocates",
+      "description": "Being a Developer Advocate is by far the best job in the world, at least in my opinion and for me. It isn't for everyone and that's ok too. In this post I am going to share a bit about what I do as a Developer Advocate and what I love about it."
+    },
+    {
+      "type": "blog",
+      "title": "Building a Cart Context Component",
+      "date": "2022-02-02",
+      "tags": [
+        "react"
+      ],
+      "url": "https://debbie.codes/blog/building-cart-context-component",
+      "path": "/blog/building-cart-context-component",
+      "description": "Creating a generic cart component that can add and remove a product from the cart using React Context. This component can then be used in any other component or app to create more specific cart components."
+    },
+    {
+      "type": "blog",
+      "title": "Building and Testing a Counter Component",
+      "date": "2022-01-12",
+      "tags": [
+        "react",
+        "testing"
+      ],
+      "url": "https://debbie.codes/blog/building-and-testing-counter-component",
+      "path": "/blog/building-and-testing-counter-component",
+      "description": "We want to build and test a counter component built with React and TypeScript. So where do we start? Which components do we need to build to create this component and what do we test?"
+    },
+    {
+      "type": "blog",
+      "title": "TypeScript and Children",
+      "date": "2022-01-11",
+      "tags": [
+        "typescript",
+        "react"
+      ],
+      "url": "https://debbie.codes/blog/typescript-and-children",
+      "path": "/blog/typescript-and-children",
+      "description": "What happens when we pass in children in React? Children is a special prop that allows us to pass in any type of element. It could be a number, a string, a boolean, an array of elements or even another component. So how can we check the types?"
+    },
+    {
+      "type": "blog",
+      "title": "Building and Testing a Select Component",
+      "date": "2022-01-10",
+      "tags": [
+        "react",
+        "testing"
+      ],
+      "url": "https://debbie.codes/blog/building-and-testing-select-input",
+      "path": "/blog/building-and-testing-select-input",
+      "description": "Building a Select component with a Composition to see the component render in isolation as well as Tests using React Testing Library to test the select works on change and shows a new value."
+    },
+    {
+      "type": "blog",
+      "title": "Testing a Button Component",
+      "date": "2022-01-07",
+      "tags": [
+        "react",
+        "testing"
+      ],
+      "url": "https://debbie.codes/blog/testing-button-component",
+      "path": "/blog/testing-button-component",
+      "description": "Testing a button component with React Testing Library. What to test and how to test your button component when building multiple compositions of the button."
+    },
+    {
+      "type": "blog",
+      "title": "2021 - climbing higher and higher",
+      "date": "2021-12-31",
+      "tags": [
+        "personal"
+      ],
+      "url": "https://debbie.codes/blog/2021-in-review",
+      "path": "/blog/2021-in-review",
+      "description": "A look back at yet again another amazing year even though times were hard. From lockdowns to in person conferences, to changing jobs and learning a new library, as well as mentoring, teaching workshops, doing lots of sport and so much more."
+    },
+    {
+      "type": "blog",
+      "title": "Adding TailwindCSS to Bit",
+      "date": "2021-12-30",
+      "tags": [
+        "react"
+      ],
+      "url": "https://debbie.codes/blog/adding-tailwind-to-bit",
+      "path": "/blog/adding-tailwind-to-bit",
+      "description": "Adding TailwindCSS to your Bit components by adding it to the env that is used by your components. This way the the component compositions will show the TailwindCSS classes."
+    },
+    {
+      "type": "blog",
+      "title": "Building an ecommerce Product details component",
+      "date": "2021-12-23",
+      "tags": [
+        "react"
+      ],
+      "url": "https://debbie.codes/blog/building-an-ecommerce-product-page",
+      "path": "/blog/building-an-ecommerce-product-page",
+      "description": "Where do you start when building a product page for an e-commerce store? How do you think about naming the components and how much to break down the components? What do you start building first and why?"
+    },
+    {
+      "type": "blog",
+      "title": "Understanding TypeScript",
+      "date": "2021-10-06",
+      "tags": [
+        "typescript",
+        "react"
+      ],
+      "url": "https://debbie.codes/blog/understanding-typescript",
+      "path": "/blog/understanding-typescript",
+      "description": "TypeScript is a superset of JavaScript. Any types that are added are not part of the final bundle so really TypeScript is there to make your life easier as a developer."
+    },
+    {
+      "type": "blog",
+      "title": "Improve Performance with Nuxt Image",
+      "date": "2021-09-16",
+      "tags": [
+        "nuxt",
+        "performance"
+      ],
+      "url": "https://debbie.codes/blog/nuxt-image",
+      "path": "/blog/nuxt-image",
+      "description": "Showing the benefits of Nuxt image by analyzing the performance of my website before and after adding the Nuxt Image module."
+    },
+    {
+      "type": "blog",
+      "title": "Publish Multiple Components to NPM with no package.jsons to Maintain",
+      "date": "2021-08-11",
+      "tags": [
+        "architecture"
+      ],
+      "url": "https://debbie.codes/blog/publish-multiple-components-to-npm",
+      "path": "/blog/publish-multiple-components-to-npm",
+      "description": "Sharing components across multiple projects or with other developers seems to be the most complicated thing, yet it really shouldn’t be. With package registries such as npm or GitHub packages surely we should easily be able to share our components by publishing them as packages."
+    },
+    {
+      "type": "blog",
+      "title": "Sharing React Components across Multiple Applications",
+      "date": "2021-06-16",
+      "tags": [
+        "react",
+        "architecture"
+      ],
+      "url": "https://debbie.codes/blog/sharing-react-components-across-multiple-applications",
+      "path": "/blog/sharing-react-components-across-multiple-applications",
+      "description": "We have almost all been in a situation where we need to share a component between one app and another. Often we just decide to copy and paste it because it really is the quickest option. And sometimes it’s even ok, especially when it comes to those smaller components. But what if you wanted to share a big and more complex component?"
+    },
+    {
+      "type": "blog",
+      "title": "VS Code Tips",
+      "date": "2021-05-13",
+      "tags": [
+        "vs-code"
+      ],
+      "url": "https://debbie.codes/blog/vs-code-tips",
+      "path": "/blog/vs-code-tips",
+      "description": "Tips, shortcuts and extensions to make working with VS Code easier so you can developer faster and let the tools do the job for you."
+    },
+    {
+      "type": "blog",
+      "title": "Amazing Things are Going to Happen",
+      "date": "2021-04-26",
+      "tags": [
+        "personal",
+        "motivation"
+      ],
+      "url": "https://debbie.codes/blog/amazing-things-are-going-to-happen",
+      "path": "/blog/amazing-things-are-going-to-happen",
+      "description": "Believing in yourself is hard, especially when for so long people have put you down or not believed in you. Getting those voices out of your head is not easy but I think I have finally done it and now I can finally grow and just be a star."
+    },
+    {
+      "type": "blog",
+      "title": "Discord as a Virtual Office",
+      "date": "2021-04-03",
+      "tags": [
+        "personal"
+      ],
+      "url": "https://debbie.codes/blog/discord-virtual-office",
+      "path": "/blog/discord-virtual-office",
+      "description": "We use Discord as our virtual office at Bit and I have to tell you all about it as it really is a great way to work and collaborate with others especially when working in different time zones."
+    },
+    {
+      "type": "blog",
+      "title": "Learning React",
+      "date": "2021-03-21",
+      "tags": [
+        "react"
+      ],
+      "url": "https://debbie.codes/blog/learning-react",
+      "path": "/blog/learning-react",
+      "description": "Recently I started learning React for my new job. I basically went from being a coding ninja to being a coding newbie. But hey everything can be learnt so here is what I have learnt so far."
+    },
+    {
+      "type": "blog",
+      "title": "GitHub Star Shares Tips on Developer Advocacy, Coding Without a Degree, and Imposter Syndrome",
+      "date": "2021-03-10",
+      "tags": [
+        "dev-rel"
+      ],
+      "url": "https://debbie.codes/blog/ask-engineers-anything",
+      "path": "/blog/ask-engineers-anything",
+      "description": "For February’s Ask Engineers Anything event (aka office hours for our engineer community), I invited GitHub Star and community favorite, Debbie O’Brien, to share her experience as a woman in tech who is making a huge difference in the ecosystem."
+    },
+    {
+      "type": "blog",
+      "title": "Understanding Nuxt Middleware",
+      "date": "2021-02-18",
+      "tags": [
+        "nuxt"
+      ],
+      "url": "https://debbie.codes/blog/nuxt-middleware",
+      "path": "/blog/nuxt-middleware",
+      "description": "Middleware lets you define custom functions that can be run before rendering either a page or a group of pages which we call layouts."
+    },
+    {
+      "type": "blog",
+      "title": "Customizing the Nuxt Loading Component",
+      "date": "2021-02-16",
+      "tags": [
+        "nuxt"
+      ],
+      "url": "https://debbie.codes/blog/nuxt-loading",
+      "path": "/blog/nuxt-loading",
+      "description": "We can customize the Loading for our Client Side applications as well as the loading Progress bar for our server rendered applications and we can even customize this to create our own."
+    },
+    {
+      "type": "blog",
+      "title": "Deploying your Nuxt app to Netlify",
+      "date": "2021-02-07",
+      "tags": [
+        "nuxt"
+      ],
+      "url": "https://debbie.codes/blog/nuxt-deploying-to-netlify",
+      "path": "/blog/nuxt-deploying-to-netlify",
+      "description": "If you are building a Nuxt static site and want to deploy it easily and for free then Netlify is a great choice. Let me show you how easy it is."
+    },
+    {
+      "type": "blog",
+      "title": "Why Live Streams Scare me",
+      "date": "2021-02-05",
+      "tags": [
+        "personal"
+      ],
+      "url": "https://debbie.codes/blog/why-livestreams-scare-me",
+      "path": "/blog/why-livestreams-scare-me",
+      "description": "What its like to do a live stream, why it scares me and why I know the only way to get over fear is to keep doing it again and again."
+    },
+    {
+      "type": "blog",
+      "title": "How Progressive Web Apps work",
+      "date": "2021-02-04",
+      "tags": [
+        "nuxt",
+        "performance"
+      ],
+      "url": "https://debbie.codes/blog/progressive-web-apps",
+      "path": "/blog/progressive-web-apps",
+      "description": "Progressive web apps will really help your performance and you can install them on your home screen or desktop and have that app like feel for your website. Let's have a look at how they work."
+    },
+    {
+      "type": "blog",
+      "title": "Adding Vue Plugins to your Nuxt APP",
+      "date": "2021-02-02",
+      "tags": [
+        "nuxt"
+      ],
+      "url": "https://debbie.codes/blog/nuxt-add-vue-plugins",
+      "path": "/blog/nuxt-add-vue-plugins",
+      "description": "In Nuxt we can add Vue plugins to our application by creating a Nuxt plugin and then registering that plugin in the Nuxt Config file."
+    },
+    {
+      "type": "blog",
+      "title": "Creating Video Courses",
+      "date": "2021-01-31",
+      "tags": [
+        "personal"
+      ],
+      "url": "https://debbie.codes/blog/creating-video-courses",
+      "path": "/blog/creating-video-courses",
+      "description": "Creating video courses can be very time consuming and for sure there is no one way to go about it. In this post I share what I have learnt and how I now find it easier to create courses."
+    },
+    {
+      "type": "blog",
+      "title": "Why I Love Nuxt",
+      "date": "2021-01-30",
+      "tags": [
+        "nuxt",
+        "personal"
+      ],
+      "url": "https://debbie.codes/blog/why-i-love-nuxt",
+      "path": "/blog/why-i-love-nuxt",
+      "description": "I have been using Nuxt in all of my recent tech jobs but why did I start using it? What problems did I have trying to convince the team and more important the clients. And why should you use Nuxt?"
+    },
+    {
+      "type": "blog",
+      "title": "Lite YouTube Embeds",
+      "date": "2021-01-29",
+      "tags": [
+        "nuxt",
+        "performance"
+      ],
+      "url": "https://debbie.codes/blog/nuxt-lite-youtube-embeds",
+      "path": "/blog/nuxt-lite-youtube-embeds",
+      "description": "If you are adding YouTube videos to your site you might notice that they can load quite slowly especially when loading iframes. However this is a better way. With this library your YouTube videos will load super fast and your site will be more performant because of it."
+    },
+    {
+      "type": "blog",
+      "title": "Adding analytics to your Nuxt site",
+      "date": "2021-01-28",
+      "tags": [
+        "nuxt"
+      ],
+      "url": "https://debbie.codes/blog/nuxt-analytics",
+      "path": "/blog/nuxt-analytics",
+      "description": "When you build your own site sometimes it's important to add analytics to see what is doing well, what your audience is spending time and perhaps find ways of improving your site"
+    },
+    {
+      "type": "blog",
+      "title": "2020 - my most successful year (career wise)",
+      "date": "2020-12-30",
+      "tags": [
+        "personal"
+      ],
+      "url": "https://debbie.codes/blog/2020-in-review",
+      "path": "/blog/2020-in-review",
+      "description": "A look back at what we could say has been an interesting year, challenging in many ways yet somehow has been my most successful year to date."
+    },
+    {
+      "type": "blog",
+      "title": "Creating a Nuxt Module",
+      "date": "2020-11-27",
+      "tags": [
+        "nuxt"
+      ],
+      "url": "https://debbie.codes/blog/creating-a-nuxt-module",
+      "path": "/blog/creating-a-nuxt-module",
+      "description": "Modules are functions that are called sequentially when booting Nuxt. The framework waits for each module to finish before continuing. In this way, modules can customize almost any aspect of your project. Nuxt modules can be incorporated into npm packages. This makes them easy to reuse across projects and to share with the community."
+    },
+    {
+      "type": "blog",
+      "title": "How we use Nuxt at The NuxtJS Company",
+      "date": "2020-10-22",
+      "tags": [
+        "nuxt"
+      ],
+      "url": "https://debbie.codes/blog/how-we-use-nuxt-at-the-nuxtjs-company",
+      "path": "/blog/how-we-use-nuxt-at-the-nuxtjs-company",
+      "description": "The first commit for Nuxt.js on Github was made on October 26th, 2016. Since then the Nuxt.js framework has grown from 2 creators in 2016 to having 10 full-time employees at the NuxtJS company, as well as the amazing Nuxt community with maintainers, ambassadors and contributors."
+    },
+    {
+      "type": "blog",
+      "title": "Vue Directives",
+      "date": "2020-10-16",
+      "tags": [
+        "vue",
+        "nuxt"
+      ],
+      "url": "https://debbie.codes/blog/vue-directives",
+      "path": "/blog/vue-directives",
+      "description": "Vue Directives are a great way of doing things like trimming your models or only showing something once. So many cool directives to make your life easier when coding in Vue."
+    },
+    {
+      "type": "blog",
+      "title": "Formatting a date in JavaScript",
+      "date": "2020-10-09",
+      "tags": [
+        "javascript"
+      ],
+      "url": "https://debbie.codes/blog/date-formatting",
+      "path": "/blog/date-formatting",
+      "description": "How to format a date in JavaScript without using any libraries so you easily display dates in your Vue or Nuxt application"
+    },
+    {
+      "type": "blog",
+      "title": "Advanced i18n in Nuxt using Interpolations",
+      "date": "2020-09-17",
+      "tags": [
+        "nuxt",
+        "vue"
+      ],
+      "url": "https://debbie.codes/blog/advanced-i18n-in-nuxt-using-interpolations",
+      "path": "/blog/advanced-i18n-in-nuxt-using-interpolations",
+      "description": "That's where i18n interpolation comes into practice. With i18n, instead of using v-html we can instead use interpolation. How? i18n gives us an <i18n> component that we can use on any of our pages or inside our components."
+    },
+    {
+      "type": "blog",
+      "title": "Being an Extrovert in a Virtual World",
+      "date": "2020-09-12",
+      "tags": [
+        "personal"
+      ],
+      "url": "https://debbie.codes/blog/extrovert-in-virtual-world",
+      "path": "/blog/extrovert-in-virtual-world",
+      "description": "From being surrounded by amazing people to being locked up from the world. 2020 has been an interesting year and a very hard one for those who are extroverts and love being around people."
+    },
+    {
+      "type": "blog",
+      "title": "CityJSConf talks to…Debbie O’Brien",
+      "date": "2020-09-07",
+      "tags": [
+        "personal"
+      ],
+      "url": "https://debbie.codes/blog/cityjs-conf",
+      "path": "/blog/cityjs-conf",
+      "description": "“I guess you could say I love the buzz of the stage but also because my talks help people learn something new. Now the virtual world is not the same at all, but what can we do? I don’t dislike it — I would just prefer to see and talk to people. I am very much a people’s person.”"
+    },
+    {
+      "type": "blog",
+      "title": "Why static sites are back",
+      "date": "2020-09-07",
+      "tags": [
+        "jamstack"
+      ],
+      "url": "https://debbie.codes/blog/why-static-sites-are-back",
+      "path": "/blog/why-static-sites-are-back",
+      "description": "When we first built websites many years ago they were very static. It was all we knew. Html with some CSS and a tiny bit of JavaScript. A typical website from 1996, SpaceJam which really shows how static sites are."
+    },
+    {
+      "type": "blog",
+      "title": "The JavaScript Array.Map() method",
+      "date": "2020-08-09",
+      "tags": [
+        "javascript"
+      ],
+      "url": "https://debbie.codes/blog/js-array-map-method",
+      "path": "/blog/js-array-map-method",
+      "description": "The .map() method in JavaScript lets you loop over every element in an array and modify or add to it and then return a different element to take that elements place"
+    },
+    {
+      "type": "blog",
+      "title": "Adding a cookie consent banner",
+      "date": "2020-07-29",
+      "tags": [
+        "nuxt"
+      ],
+      "url": "https://debbie.codes/blog/nuxt-cookie-consent",
+      "path": "/blog/nuxt-cookie-consent",
+      "description": "When in Europe and using cookies we need to show a cookie consent banner so our users are aware that we are using cookies on the site."
+    },
+    {
+      "type": "blog",
+      "title": "Fetching graphQL queries",
+      "date": "2020-07-17",
+      "tags": [
+        "nuxt"
+      ],
+      "url": "https://debbie.codes/blog/nuxt-fetching-graphql-queries",
+      "path": "/blog/nuxt-fetching-graphql-queries",
+      "description": "How to fetch data from graphQL without having to use libraries such as apollo"
+    },
+    {
+      "type": "blog",
+      "title": "Migrating to Nuxt content",
+      "date": "2020-07-17",
+      "tags": [
+        "nuxt"
+      ],
+      "url": "https://debbie.codes/blog/nuxt-migrating-to-nuxt-content",
+      "path": "/blog/nuxt-migrating-to-nuxt-content",
+      "description": "If you already have documentation set up and would like to migrate to Nuxt Content then this guide should help you make migrate easily and take advantage of what the docs theme gives you."
+    },
+    {
+      "type": "blog",
+      "title": "Setting up cypress",
+      "date": "2020-07-17",
+      "tags": [
+        "nuxt",
+        "testing"
+      ],
+      "url": "https://debbie.codes/blog/cypress-setup",
+      "path": "/blog/cypress-setup",
+      "description": "Let's take a look at how you setup Cypress in your Nuxt.js project, setup a github action for continuous integration so that Netlify will run the tests every time your application is building."
+    },
+    {
+      "type": "blog",
+      "title": "Using Apollo to Fetch Data",
+      "date": "2020-07-17",
+      "tags": [
+        "nuxt"
+      ],
+      "url": "https://debbie.codes/blog/nuxt-using-apollo-to-fetch-data",
+      "path": "/blog/nuxt-using-apollo-to-fetch-data",
+      "description": "Using Apollo to Fetch Data from a GraphQL API"
+    },
+    {
+      "type": "blog",
+      "title": "Create a Blog with Nuxt Content",
+      "date": "2020-07-02",
+      "tags": [
+        "nuxt"
+      ],
+      "url": "https://debbie.codes/blog/create-a-blog-with-nuxt-content",
+      "path": "/blog/create-a-blog-with-nuxt-content",
+      "description": "The content module is a git files based headless CMS that provides powerful features when it comes to write blogs, documentation sites or just adding content to any regular website. In this post we will go through most of the benefits of this module and discover how we can create a blog with it."
+    },
+    {
+      "type": "blog",
+      "title": "Adding a PWA in Nuxt.js",
+      "date": "2020-06-28",
+      "tags": [
+        "nuxt",
+        "performance"
+      ],
+      "url": "https://debbie.codes/blog/nuxt-adding-pwa",
+      "path": "/blog/nuxt-adding-pwa",
+      "description": "Most people don't realise how easy it really is to add a PWA with Nuxt.js. Progressive Web Apps (PWA) deliver native-like capabilities, reliability, and installability while reaching anyone, anywhere, on any device with a single codebase."
+    },
+    {
+      "type": "blog",
+      "title": "Styling your active classes in Nuxt.js",
+      "date": "2020-06-28",
+      "tags": [
+        "nuxt"
+      ],
+      "url": "https://debbie.codes/blog/nuxt-active-styles",
+      "path": "/blog/nuxt-active-styles",
+      "description": "Nuxt.js, which uses `vue-router`, can easily tell what route you are on and therefore can add a class to that link when the user is on that page. By default this class is called `nuxt-link-active`."
+    },
+    {
+      "type": "blog",
+      "title": "Auto Load Vuejs Components in Nuxt",
+      "date": "2020-06-17",
+      "tags": [
+        "nuxt"
+      ],
+      "url": "https://debbie.codes/blog/autoload-vue-components-in-nuxt",
+      "path": "/blog/autoload-vue-components-in-nuxt",
+      "description": "With Nuxt components you can auto import your components really easily and even comes with support for dynamic imports otherwise known as lazy loading. That means you can just add your component in the template without having to add it to the script tag. This makes development much faster."
+    },
+    {
+      "type": "blog",
+      "title": "Moving from @nuxtjs/dotenv to runtime config",
+      "date": "2020-06-15",
+      "tags": [
+        "nuxt"
+      ],
+      "url": "https://debbie.codes/blog/moving-from-dontenv-to-runtime-config",
+      "path": "/blog/moving-from-dontenv-to-runtime-config",
+      "description": "In our frontend applications, we often use APIs and third-party integrations which require us to use configuration data which is usually provided by environment variables. These variables should not be exposed to the frontend as the browser environment is accessible by all visitors."
+    },
+    {
+      "type": "blog",
+      "title": "Going dark with Nuxt.js color mode",
+      "date": "2020-05-19",
+      "tags": [
+        "nuxt"
+      ],
+      "url": "https://debbie.codes/blog/going-dark-nuxt-color-mode",
+      "path": "/blog/going-dark-nuxt-color-mode",
+      "description": "The @nuxtjs/color-mode module is a cool way of adding dark mode to your site. But not only does it switch from dark to light but also any color theme (eg sepia mode). It even has auto detection so that it will choose the right mode depending on your system appearance."
+    },
+    {
+      "type": "blog",
+      "title": "ignoring your files with Nuxt.js",
+      "date": "2020-04-24",
+      "tags": [
+        "nuxt"
+      ],
+      "url": "https://debbie.codes/blog/nuxt-ignoring-files-nuxt",
+      "path": "/blog/nuxt-ignoring-files-nuxt",
+      "description": "In Nuxt.js there are 3 different ways to ignore files during the build phase. This is great for static site generation which means you can still generate your site with a broken page as it will be ignored."
+    },
+    {
+      "type": "blog",
+      "title": "Creating an error page in Nuxt.js",
+      "date": "2020-04-23",
+      "tags": [
+        "nuxt"
+      ],
+      "url": "https://debbie.codes/blog/nuxt-error-page",
+      "path": "/blog/nuxt-error-page",
+      "description": "An error page is the page you see when you arrive at a page that can't be found. These are typically called 404 pages. To create an error page all you need to do is create an `error.vue` file in your layouts folder. Layouts?"
+    },
+    {
+      "type": "blog",
+      "title": "Configure the Nuxt.js server to see your site on your mobile",
+      "date": "2020-04-21",
+      "tags": [
+        "nuxt"
+      ],
+      "url": "https://debbie.codes/blog/nuxt-configure-server-to-see-site-on-mobile",
+      "path": "/blog/nuxt-configure-server-to-see-site-on-mobile",
+      "description": "Sometimes you want to test out your site on your actual mobile device or tablet and not just in the dev tools. This is great when bug fixing or just to see how it looks in a real environment."
+    },
+    {
+      "type": "blog",
+      "title": "Show a message when your user is offline with $nuxt.isOffline",
+      "date": "2020-04-20",
+      "tags": [
+        "nuxt"
+      ],
+      "url": "https://debbie.codes/blog/nuxt-show-message-when-offline",
+      "path": "/blog/nuxt-show-message-when-offline",
+      "description": "Did you know that `$nuxt.isOffline` can be used to show your users content based on if they are online or not."
+    },
+    {
+      "type": "blog",
+      "title": "The Nuxt Loading Progress Bar",
+      "date": "2020-04-17",
+      "tags": [
+        "nuxt"
+      ],
+      "url": "https://debbie.codes/blog/nuxt-loading-progress-bar",
+      "path": "/blog/nuxt-loading-progress-bar",
+      "description": "Nuxt.js automatically gives you a loading progress bar component which is shown between routes. Did you know you can customise it, disable it or create your own component?"
+    },
+    {
+      "type": "blog",
+      "title": "Let's Analyze your webpack bundles with Nuxt",
+      "date": "2020-04-16",
+      "tags": [
+        "nuxt",
+        "performance"
+      ],
+      "url": "https://debbie.codes/blog/nuxt-analyze-webpack-bundles",
+      "path": "/blog/nuxt-analyze-webpack-bundles",
+      "description": "As we add so many third party libraries to our site sometimes we forget that perhaps they are going to have an impact on our performance or sometimes we just don't read the install instructions and install the whole library instead of only what we need."
+    },
+    {
+      "type": "blog",
+      "title": "Page and Layout Transitions in Nuxt.js",
+      "date": "2020-04-13",
+      "tags": [
+        "nuxt"
+      ],
+      "url": "https://debbie.codes/blog/nuxt-page-and-layout-transitions",
+      "path": "/blog/nuxt-page-and-layout-transitions",
+      "description": "With Nuxt.js it is really easy to add transitions between your pages. You can create transitions for all your pages or layouts and you can even have different transitions for specific pages."
+    },
+    {
+      "type": "blog",
+      "title": "Build a Counter, Dropdown and Accordion in Vue Components!",
+      "date": "2019-08-21",
+      "tags": [
+        "vue"
+      ],
+      "url": "https://debbie.codes/blog/build-counter-dropdown-accordion",
+      "path": "/blog/build-counter-dropdown-accordion",
+      "description": "Let’s dive into building some core main components that you might be tasked with when writing applications in Vue. Or, if you’re new to Vue, then these are definitely some great ways to get started understanding the more ‘common’ components that we might work with on a day-to-day basis. With that in mind, let’s get started right away with building a Counter, Dropdown and finally an Accordion with Vue!"
+    },
+    {
+      "type": "blog",
+      "title": "Finding your way around the Vue UI",
+      "date": "2019-06-25",
+      "tags": [
+        "vue"
+      ],
+      "url": "https://debbie.codes/blog/finding-your-way-around-the-vue-ui",
+      "path": "/blog/finding-your-way-around-the-vue-ui",
+      "description": "Vue CLI is the fastest way to get your Vue project off the ground and it also comes with a really cool graphical user interface that allows you to easily modify your project’s configuration, run linters, search for and install plugins, analyse your bundle with webpack and more."
+    },
+    {
+      "type": "blog",
+      "title": "JavaScript Workshop with Kyle Simpson",
+      "date": "2018-10-15",
+      "tags": [
+        "personal"
+      ],
+      "url": "https://debbie.codes/blog/javascript-workshop-with-kyle-simpson",
+      "path": "/blog/javascript-workshop-with-kyle-simpson",
+      "description": "It has been a couple of months since Kyle, author of the “You Don’t Know JS” series, visited our trivago headquarters and gave us a wonderful JavaScript workshop. It was such an enjoyable week, being able to meet Kyle in person and walk through his thinking behind the materials."
+    },
+    {
+      "type": "blog",
+      "title": "How learning to code changed my life",
+      "date": "2018-05-14",
+      "tags": [
+        "personal"
+      ],
+      "url": "https://debbie.codes/blog/how-learning-to-code-changed-my-life",
+      "path": "/blog/how-learning-to-code-changed-my-life",
+      "description": "A year ago, I was in a very different place. I had come to the end of a very long journey and I just didn’t know what to do next. I didn’t really have the interest or the strength to continue and I believed that I didn’t have a purpose anymore. I was in a deep, dark hole and I didn’t know how to get out of it."
+    },
+    {
+      "type": "blog",
+      "title": "Meet Debbie, It Took Her Only 8 Months to Become a Front-End Architect",
+      "date": "2017-12-27",
+      "tags": [
+        "personal"
+      ],
+      "url": "https://debbie.codes/blog/meet-debbie-8-months-to-frontend-architect",
+      "path": "/blog/meet-debbie-8-months-to-frontend-architect",
+      "description": "Each day we look forward to seeing our students around the world succeed as they grow and navigate within their chosen career path. We’re even more thrilled when our students become graduates and get a job in their dream role!"
+    },
+    {
+      "type": "blog",
+      "title": "What It’s Like To Work After Studying Online",
+      "date": "2017-11-30",
+      "tags": [
+        "personal"
+      ],
+      "url": "https://debbie.codes/blog/whats-it-like-to-work-after-studying-online",
+      "path": "/blog/whats-it-like-to-work-after-studying-online",
+      "description": "I was one of the first graduates from the Front-End Web Development course. I had played around with different online courses in coding before, but really found what I was looking for with OpenClassrooms. Fast forward 8 months, I had completed all projects and managed to get myself a job at Logitravel, a holiday booking site based in Palma, Mallorca."
+    },
+    {
+      "type": "video",
+      "title": "Grok Bot Explained: Your Bots Get a Cloud Computer, Browser & Email",
+      "date": "2026-10-15",
+      "tags": [
+        "ai",
+        "grok-bot"
+      ],
+      "url": "https://www.youtube.com/watch?v=nn56fcN7-PU",
+      "video": "nn56fcN7-PU",
+      "description": "A beginner’s tour of Grok Bot: what it is, how your account’s one shared cloud computer (browser, file manager, terminal) and one shared email address work for all your bots, plus routines and a live Luma events demo.",
+      "host": "Debbie O'Brien"
+    },
+    {
+      "type": "video",
+      "title": "Grok Bot Uploads My YouTube Videos For Me (Beginner Walkthrough)",
+      "date": "2026-10-15",
+      "tags": [
+        "ai",
+        "grok-bot"
+      ],
+      "url": "https://www.youtube.com/watch?v=1g6boZousFI",
+      "video": "1g6boZousFI",
+      "description": "By voice, I ask Grok Bot to find a video on my computer, copy it to the shared cloud computer, clean the audio, write the title, description and tags, and get thumbnails from my designer bot. It uploads the video as private until I approve.",
+      "host": "Debbie O'Brien"
+    },
+    {
+      "type": "video",
+      "title": "How I Use Grok Bot Voice Mode to Practise for Job Interviews",
+      "date": "2026-10-15",
+      "tags": [
+        "ai",
+        "grok-bot"
+      ],
+      "url": "https://www.youtube.com/watch?v=Gg3lV7lPQoo",
+      "video": "Gg3lV7lPQoo",
+      "description": "I build a prep doc from past work, then do a voice mode mock interview with coaching: lead with the result, say I not we, and cut the hedging.",
+      "host": "Debbie O'Brien"
+    },
+    {
+      "type": "video",
+      "title": "I Created an AI Fitness Coach with Grok Bot",
+      "date": "2026-09-08",
+      "tags": [
+        "ai",
+        "grok-bot"
+      ],
+      "url": "https://www.youtube.com/watch?v=WKXZuPD7X2s",
+      "video": "WKXZuPD7X2s",
+      "description": "I created a Grok Bot coach for gym, nutrition, and accountability after having twins. It sets goals with real constraints, builds workouts from photos of my home gym, tracks protein from food packaging, critiques workout videos, and adds follow-along videos to my YouTube playlist.",
+      "host": "Debbie O'Brien"
+    },
+    {
+      "type": "video",
+      "title": "Grok Bot does my shopping (while walking the twins)",
+      "date": "2026-08-24",
+      "tags": [
+        "ai",
+        "grok-bot"
+      ],
+      "url": "https://www.youtube.com/watch?v=bd2KnjGJ6BM",
+      "video": "bd2KnjGJ6BM",
+      "description": "Quick walk-through of how I did my full shop with Grok Bot from my phone, while out with the twins.",
+      "host": "Debbie's youtube channel"
+    },
+    {
+      "type": "video",
+      "title": "Grok Bot Is Insane. Here's How to Use It in Tech.",
+      "date": "2026-08-24",
+      "tags": [
+        "ai",
+        "grok-bot"
+      ],
+      "url": "https://www.youtube.com/watch?v=tg7asTfgG7E",
+      "video": "tg7asTfgG7E",
+      "description": "Francesco Ciulla talks with Debbie O'Brien about using Grok Bot as a personal AI chief of staff for content, conferences, calendar, shopping, meetings, and everyday tasks.",
+      "host": "Francesco Ciulla"
+    },
+    {
+      "type": "video",
+      "title": "Job Hunt With a Bot? (Grok Bot Finds Roles for Me)",
+      "date": "2026-08-22",
+      "tags": [
+        "ai",
+        "grok-bot"
+      ],
+      "url": "https://www.youtube.com/watch?v=f4ent80mR4w",
+      "video": "f4ent80mR4w",
+      "description": "I need to look for a job, so I made a Job Hunt bot on Grok Bot. It looked me up online, found roles, and can even do interview prep.",
+      "host": "Debbie O'Brien"
+    },
+    {
+      "type": "video",
+      "title": "I sent Grok Bot to buy my gluten-free beer",
+      "date": "2026-08-16",
+      "tags": [
+        "ai",
+        "grok-bot"
+      ],
+      "url": "https://www.youtube.com/watch?v=6v9txfFIwtw",
+      "video": "6v9txfFIwtw",
+      "description": "I ran out of gluten-free beer and asked my Grok Bot chief of staff to buy more. Amazon jumbo rolls from my phone, Alcampo wouldn't let me log in, a morning podcast, and a delivery slot I can keep adding to.",
+      "host": "Debbie O'Brien"
+    },
+    {
+      "type": "video",
+      "title": "Can Grok Bot Book My Flights? Let's Find Out",
+      "date": "2026-08-13",
+      "tags": [
+        "ai",
+        "grok-bot"
+      ],
+      "url": "https://www.youtube.com/watch?v=xDNLKLg7Ib8",
+      "video": "xDNLKLg7Ib8",
+      "description": "Can Grok Bot actually book flights? A real Palma to Dublin trip for two adults and two toddlers — what it handled, where Ryanair checkout got stuck, plus a content publishing recipe with blog, LinkedIn, X, and Dev.to bots.",
+      "host": "Debbie O'Brien"
+    },
+    {
+      "type": "video",
+      "title": "How to Get Started with Grok Bot",
+      "date": "2026-08-11",
+      "tags": [
+        "ai",
+        "grok-bot"
+      ],
+      "url": "https://www.youtube.com/watch?v=kiDvQnoCveU",
+      "video": "kiDvQnoCveU",
+      "description": "Grok Bot just dropped. I downloaded it on a Mac the same day and recorded myself setting it up. Not a feature list — what I actually clicked, what worked, and which bots I would create.",
+      "host": "Debbie O'Brien"
+    },
+    {
+      "type": "video",
+      "title": "Coffee and Open Source Conversation - Debbie O'Brien",
+      "date": "2026-05-19",
+      "tags": [
+        "interviews",
+        "playwright",
+        "testing",
+        "nuxt",
+        "vue",
+        "dev-rel"
+      ],
+      "url": "https://www.youtube.com/watch?v=Lz32-p2JeUA",
+      "video": "Lz32-p2JeUA",
+      "description": "Debbie joins Isaac Levin on Coffee and Open Source to chat about her journey in frontend development, working in dev rel, her love for Vue.js and Nuxt.js, and her current focus on end-to-end testing with Playwright.",
+      "host": "Isaac Levin"
+    },
+    {
+      "type": "video",
+      "title": "The Agentic Developer: Orchestrating AI Workflows with MCPs",
+      "date": "2026-04-27",
+      "tags": [
+        "ai",
+        "mcp",
+        "conference-talk",
+        "vue"
+      ],
+      "url": "https://www.youtube.com/watch?v=PbC5m-4P4hU",
+      "video": "PbC5m-4P4hU",
+      "description": "The future of development isn't just AI-assisted, it's AI-orchestrated. In this talk from Vue Amsterdam, explore how to build powerful agentic workflows that transform how developers work — assigning tasks directly to AI agents, leveraging the Model Context Protocol (MCP) ecosystem to extend agent capabilities, and verifying agent work using tools like Playwright.",
+      "conference": "Vue Amsterdam"
+    },
+    {
+      "type": "video",
+      "title": "Build Better AI Agent Skills With Skill Creator v2 from Anthropic",
+      "date": "2026-03-21",
+      "tags": [
+        "ai"
+      ],
+      "url": "https://www.youtube.com/watch?v=WplS5lycPHM",
+      "video": "WplS5lycPHM",
+      "description": "A walkthrough of Anthropic's Skill Creator v2 showing how to review and improve real agent skills using sub-agents, evals, and benchmark comparisons for GitHub Copilot, Claude Code, and other coding agents.",
+      "host": "Debbie's youtube channel"
+    },
+    {
+      "type": "video",
+      "title": "Este año puede haber despidos masivos por la IA - Debbie O'Brien, Developer IA",
+      "date": "2026-03-12",
+      "tags": [
+        "ai",
+        "interviews",
+        "playwright"
+      ],
+      "url": "https://www.youtube.com/watch?v=L0ew62S4UZo",
+      "video": "L0ew62S4UZo",
+      "description": "Interview with Debbie O'Brien, formerly Developer Advocate at Microsoft on the Playwright team, discussing AI coding, AI agents, and the impact of artificial intelligence on developer jobs and the future of programming.",
+      "host": "Inteligencia Artificial"
+    },
+    {
+      "type": "video",
+      "title": "Build Websites, Games, and Teaching Resources With Google Gemini (No Coding Required)",
+      "date": "2026-03-09",
+      "tags": [
+        "ai"
+      ],
+      "url": "https://www.youtube.com/watch?v=BUDAS6E4xyY",
+      "video": "BUDAS6E4xyY",
+      "description": "Did you know you can build a website in minutes using AI? In this video, Debbie shows how Google Gemini can generate complete websites and even simple games using nothing but a prompt — no coding skills required.",
+      "host": "Debbie O'Brien"
+    },
+    {
+      "type": "video",
+      "title": "What Are Skills? Build Your First AI Agent Skill in Minutes",
+      "date": "2026-03-04",
+      "tags": [
+        "ai"
+      ],
+      "url": "https://www.youtube.com/watch?v=2REiUlciObk",
+      "video": "2REiUlciObk",
+      "description": "Skills are the simplest way to teach your AI agent something new. In this beginner-friendly walkthrough, I'll break down exactly what a skill is, how it works, and we'll build one together from scratch in VS Code.",
+      "host": "Debbie's youtube channel"
+    },
+    {
+      "type": "video",
+      "title": "I Got Laid Off From Block — My Second Layoff in Months | The Reality of Tech in 2026",
+      "date": "2026-02-27",
+      "tags": [
+        "dev-rel"
+      ],
+      "url": "https://www.youtube.com/watch?v=WxhqmxDW770",
+      "video": "WxhqmxDW770",
+      "description": "I was laid off from Block yesterday — just weeks into the job. This is my second layoff in a matter of months after Microsoft. In this video, I share exactly what happened, how I found out, what it feels like, and where I think the tech industry is headed.",
+      "host": "Debbie's youtube channel"
+    },
+    {
+      "type": "video",
+      "title": "Order Food Directly From Your AI Agent 🍽️ Goose + Neighborhood Extension and MCP Apps",
+      "date": "2026-02-24",
+      "tags": [
+        "ai",
+        "mcp"
+      ],
+      "url": "https://www.youtube.com/watch?v=DG1HUFsekyc",
+      "video": "DG1HUFsekyc",
+      "description": "Learn how to use the Neighborhood extension in Goose to discover nearby restaurants, browse interactive menus, and place a takeout order — all from a simple chat prompt.",
+      "host": "goose OSS",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Installing & enabling the Neighborhood extension"
+        },
+        {
+          "time": 68,
+          "title": "Prompting Goose to find gluten-free lunch options"
+        },
+        {
+          "time": 159,
+          "title": "Browsing interactive menus with images (MCP Apps)"
+        },
+        {
+          "time": 233,
+          "title": "Building the order — salad, soup & drinks"
+        },
+        {
+          "time": 308,
+          "title": "Cart & checkout right from the chat"
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "title": "Agentic Testing and Browser Automation with Playwright CLI Skill Live Stream",
+      "date": "2026-02-19",
+      "tags": [
+        "live-streams",
+        "playwright",
+        "ai",
+        "testing"
+      ],
+      "url": "https://www.youtube.com/watch?v=4pW1DrERvm0",
+      "video": "4pW1DrERvm0",
+      "description": "Learn how to use Playwright CLI skills to automate browser actions with the goose OSS agent. This tutorial demonstrates building and using skills, including generating Playwright tests and browser interactions. Explore the dashboard for monitoring agent tasks and debugging with traces and video recordings.",
+      "host": "Debbie O'Brien"
+    },
+    {
+      "type": "video",
+      "title": "How to Use Playwright Skills for Agentic Testing",
+      "date": "2026-02-13",
+      "tags": [
+        "playwright",
+        "ai",
+        "testing"
+      ],
+      "url": "https://www.youtube.com/watch?v=_MpbmD_unnU",
+      "video": "_MpbmD_unnU",
+      "description": "In this video, you'll learn how to set up Playwright Skills to enable an agent to browse the web, perform real user actions, and automatically generate Playwright tests from those interactions.",
+      "host": "goose OSS"
+    },
+    {
+      "type": "video",
+      "title": "Supercharged Testing: AI-Powered Workflows with Playwright + MCP - Debbie O'Brien",
+      "date": "2026-02-11",
+      "tags": [
+        "playwright",
+        "testing",
+        "ai",
+        "mcp",
+        "conference-talk"
+      ],
+      "url": "https://www.youtube.com/watch?v=Numb52aJkJw",
+      "video": "Numb52aJkJw",
+      "description": "AI is changing how we build software and it's about to change how we test it. Learn how to supercharge your end-to-end testing strategy by combining Playwright's powerful test capabilities with the Playwright MCP Server to enable intelligent, AI-assisted workflows. Covers modern locators, resilient test patterns, parallelization, debugging features, and connecting the Playwright MCP Server to an LLM for automated test generation, coverage gap identification, and debugging failing tests.",
+      "conference": "NDC Conferences"
+    },
+    {
+      "type": "video",
+      "title": "I'm Back ❤️ Layoffs, AI, New Job & What's Next",
+      "date": "2026-02-08",
+      "tags": [
+        "ai"
+      ],
+      "url": "https://www.youtube.com/watch?v=zaFJ2E70jUo",
+      "video": "zaFJ2E70jUo",
+      "description": "I'm back ❤️ After a few very quiet months, layoffs, big life changes, and a lot of reflection — I'm starting a brand new chapter at Block, diving deep into AI… and I wanted to share the journey with you.",
+      "host": "Debbie's youtube channel"
+    },
+    {
+      "type": "video",
+      "title": "From Prompt to Context Engineering: Spark Your Ideas the Right Way",
+      "date": "2025-12-19",
+      "tags": [
+        "conference-talk",
+        "ai"
+      ],
+      "url": "https://www.youtube.com/watch?v=-7o0S1V4lKg",
+      "video": "-7o0S1V4lKg",
+      "description": "This talk was recorded at the Lisbon Exhibition and Congress Centre in Lisbon, Portugal at the Azure Dev Summit.",
+      "conference": "Azure Dev Summit"
+    },
+    {
+      "type": "video",
+      "title": "Goose AI Fixed My Broken Zsh Config (and Saved Me Hours)",
+      "date": "2025-12-15",
+      "tags": [
+        "ai",
+        "mcp"
+      ],
+      "url": "https://www.youtube.com/watch?v=fk6S4yLxzYU",
+      "video": "fk6S4yLxzYU",
+      "description": "A first look at Goose, a local-first, open-source AI agent framework released by Block. Watch as Goose detects a syntax error in the .zshrc file, finds that two PATH exports were accidentally merged into one line, safely edits the config file, and explains exactly why the terminal wasn't picking up the changes.",
+      "host": "Debbie O'Brien"
+    },
+    {
+      "type": "video",
+      "title": "How I Vibe Code - Live session on improving my site design with Goose and Gemini 3",
+      "date": "2025-11-20",
+      "tags": [
+        "live-streams",
+        "ai"
+      ],
+      "url": "https://www.youtube.com/watch?v=nSsBYokJefw",
+      "video": "nSsBYokJefw",
+      "description": "This is such a fun session where I tested out Gemini 3 LLM along with Goose as my coding agent to improve my site design. Watch as I try to tell it what I want and my reaction at the matrix style hero it gave me. Very cool and impressive what it can do in such a short space of time.",
+      "host": "Debbie's youtube channel"
+    },
+    {
+      "type": "video",
+      "title": "Supercharged Testing: AI-Powered Workflows with Playwright + MCP",
+      "date": "2025-11-19",
+      "tags": [
+        "conference-talk",
+        "playwright",
+        "ai",
+        "mcp",
+        "testing"
+      ],
+      "url": "https://www.youtube.com/watch?v=CR4mBQFVWUU",
+      "video": "CR4mBQFVWUU",
+      "description": "AI is changing how we build software—and it's about to change how we test it. In this session, you'll learn how to supercharge your end-to-end testing strategy by combining Playwright's powerful test capabilities with the Playwright MCP Server to enable intelligent, AI-assisted workflows.",
+      "conference": "Azure Dev Summit"
+    },
+    {
+      "type": "video",
+      "title": "How I vibe code - Live session featuring Claude, Copilot, Goose and Playwright Healer",
+      "date": "2025-11-18",
+      "tags": [
+        "live-streams",
+        "ai",
+        "playwright"
+      ],
+      "url": "https://www.youtube.com/watch?v=bwqOE6ngdtg",
+      "video": "bwqOE6ngdtg",
+      "description": "In this live session i go though how I make changes to my website running multiple agents at the same time to modify and improve my website, heal tests along the way and check linting and accessibility.",
+      "host": "Debbie's youtube channel"
+    },
+    {
+      "type": "video",
+      "title": "Playwright MCP Servers Explained: Automation and Testing",
+      "date": "2025-11-17",
+      "tags": [
+        "playwright",
+        "mcp",
+        "testing",
+        "ai"
+      ],
+      "url": "https://www.youtube.com/watch?v=U5Hsa6s2EqE",
+      "video": "U5Hsa6s2EqE",
+      "description": "Model Context Protocol (MCP) meets Playwright! In this video, we explore how MCP servers bridge the gap between AI and browser automation, enabling intelligent testing workflows. Learn how to set up Playwright MCP servers, understand their architecture, and see real-world examples of AI-powered testing in action.",
+      "host": "Debbie's youtube channel",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Two Playwright MCP servers?"
+        },
+        {
+          "time": 64,
+          "title": "Playwright MCP server tools"
+        },
+        {
+          "time": 165,
+          "title": "Demo: an agent browses the web"
+        },
+        {
+          "time": 398,
+          "title": "Playwright Test MCP server"
+        },
+        {
+          "time": 570,
+          "title": "Working with the test agents"
+        },
+        {
+          "time": 829,
+          "title": "Comparing the two MCP servers"
+        },
+        {
+          "time": 1038,
+          "title": "Running and analyzing tests"
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "title": "Test Debugging with Playwright's Healer Agent — Walkthrough",
+      "date": "2025-11-13",
+      "tags": [
+        "playwright",
+        "testing",
+        "ai"
+      ],
+      "url": "https://www.youtube.com/watch?v=KEjFCe3Qg3Y",
+      "video": "KEjFCe3Qg3Y",
+      "description": "Watch as Playwright's new Healer agent automatically diagnoses and fixes failing tests! This walkthrough demonstrates how AI can intelligently analyze test failures, identify root causes, and suggest or even implement fixes. See the future of test maintenance in action.",
+      "host": "Playwright YouTube"
+    },
+    {
+      "type": "video",
+      "title": "Build your First AI Agent with n8n and Gemini",
+      "date": "2025-11-06",
+      "tags": [
+        "ai"
+      ],
+      "url": "https://www.youtube.com/watch?v=x20mG6AigRg",
+      "video": "x20mG6AigRg",
+      "description": "Ready to build your first AI agent? This tutorial walks you through creating an intelligent automation agent using n8n's visual workflow builder and Google's Gemini AI. Learn how to combine no-code automation with powerful AI capabilities to create agents that can handle complex tasks.",
+      "host": "Debbie's youtube channel"
+    },
+    {
+      "type": "video",
+      "title": "Using GitHub Copilot for Code Reviews on a Legacy Codebase",
+      "date": "2025-10-27",
+      "tags": [
+        "ai"
+      ],
+      "url": "https://www.youtube.com/watch?v=85NM9EGnNx0",
+      "video": "85NM9EGnNx0",
+      "description": "See how GitHub Copilot can transform code reviews on legacy codebases! This video demonstrates practical techniques for using AI to understand, analyze, and review older code. Learn how Copilot can help identify issues, suggest improvements, and make legacy code review more efficient and thorough.",
+      "host": "Debbie's youtube channel"
+    },
+    {
+      "type": "video",
+      "title": "Playwright v1.56 - From MCP to Playwright Agents",
+      "date": "2025-10-06",
+      "tags": [
+        "playwright",
+        "testing",
+        "ai",
+        "mcp"
+      ],
+      "url": "https://www.youtube.com/watch?v=_AifxZGxwuk",
+      "video": "_AifxZGxwuk",
+      "description": "This video demonstrates how Playwright Agents can automatically generate test plans, create Playwright tests based on those plans, and debug/fix failing tests using the Healer agent. It covers using the Planner agent to build test plans, the Generator agent to create real Playwright tests, and the Healer agent to debug and fix broken tests. The video walks through seeding tests with fixtures and setup files, providing a complete workflow for AI-powered end-to-end testing with Playwright.",
+      "host": "Playwright YouTube",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Intro to Playwright Agents"
+        },
+        {
+          "time": 52,
+          "title": "Setting up with a seed file"
+        },
+        {
+          "time": 135,
+          "title": "Planner Agent – generating a test plan"
+        },
+        {
+          "time": 191,
+          "title": "Generator Agent – creating test files"
+        },
+        {
+          "time": 256,
+          "title": "Healer Agent – fixing failing tests"
+        },
+        {
+          "time": 279,
+          "title": "Running and reviewing everything"
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "title": "AI-Driven Development Day 2025: AI Testing & Browser Automation with Playwright",
+      "date": "2025-09-19",
+      "tags": [
+        "conference-talk",
+        "playwright",
+        "ai",
+        "mcp",
+        "testing"
+      ],
+      "url": "https://www.youtube.com/watch?v=pGPWSILa0PM",
+      "video": "pGPWSILa0PM",
+      "description": "Looking to supercharge your web automation game? In this talk, from AI-Driven Development Day 2025, Debbie O'Brien reveals how Playwright + the Model Context Protocol (MCP) lets AI agents do more than just test - they can now browse, interact, and automate the web intelligently.",
+      "conference": "AI-Driven Development Day 2025"
+    },
+    {
+      "type": "video",
+      "title": "Take Screenshots with Playwright MCP - Effortless Documentation Creation",
+      "date": "2025-09-03",
+      "tags": [
+        "playwright",
+        "mcp",
+        "ai",
+        "testing"
+      ],
+      "url": "https://www.youtube.com/watch?v=Jfi08dULAmw",
+      "video": "Jfi08dULAmw",
+      "description": "Learn how to revolutionize your documentation workflow by automatically creating interactive screenshots using the Playwright MCP server! This tutorial shows you how to generate step-by-step visual guides with minimal effort.",
+      "host": "Debbie O'Brien"
+    },
+    {
+      "type": "video",
+      "title": "Playwright MCP + Chrome Extension Testing with Logged-In Profiles",
+      "date": "2025-08-21",
+      "tags": [
+        "mcp",
+        "playwright",
+        "testing",
+        "ai"
+      ],
+      "url": "https://www.youtube.com/watch?v=uE0r51pneSA",
+      "video": "uE0r51pneSA",
+      "description": "Before the Playwright MCP Browser Extension, using a logged-in state with the Playwright MCP server often meant giving your login credentials to the LLM. Now, with the extension, you can securely reuse your existing browser profile — no passwords required. The LLM can run tests against a session that's already authenticated.",
+      "host": "Debbie's youtube channel",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "The logged-in testing problem"
+        },
+        {
+          "time": 21,
+          "title": "The Playwright MCP extension"
+        },
+        {
+          "time": 82,
+          "title": "Installing the extension"
+        },
+        {
+          "time": 162,
+          "title": "Configuring the MCP server"
+        },
+        {
+          "time": 214,
+          "title": "Testing in a logged-in state"
+        },
+        {
+          "time": 331,
+          "title": "Generating tests with the LLM"
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "title": "Let's Learn MCP JavaScript + TypeScript",
+      "date": "2025-07-21",
+      "tags": [
+        "mcp",
+        "typescript",
+        "live-streams",
+        "ai"
+      ],
+      "url": "https://www.youtube.com/watch?v=AKjW94vQZkc",
+      "video": "AKjW94vQZkc",
+      "description": "Live stream session exploring MCP (Model Context Protocol) with JavaScript and TypeScript. Join the Visual Studio Code team as they demonstrate practical implementations and best practices for working with MCP.",
+      "host": "VS Code Channel",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "What is MCP"
+        },
+        {
+          "time": 1061,
+          "title": "Demo: Microsoft Docs MCP"
+        },
+        {
+          "time": 1325,
+          "title": "Demo: Playwright MCP"
+        },
+        {
+          "time": 1588,
+          "title": "Demo FileSystem MCP"
+        },
+        {
+          "time": 1868,
+          "title": "Live Coding: Create your first MCP"
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "title": "New Playwright MCP Tool Evaluate JavaScript",
+      "date": "2025-07-17",
+      "tags": [
+        "playwright",
+        "mcp",
+        "testing",
+        "ai"
+      ],
+      "url": "https://www.youtube.com/watch?v=n0CFmm38o4Y",
+      "video": "n0CFmm38o4Y",
+      "description": "Learn about the new Playwright MCP tool for evaluating JavaScript in your testing workflows. Discover how this powerful integration enhances your testing capabilities by allowing direct JavaScript evaluation within your Playwright tests.",
+      "host": "Debbie's youtube channel"
+    },
+    {
+      "type": "video",
+      "title": "Manual Testing with Playwright MCP – No Code, Just Prompts!",
+      "date": "2025-07-12",
+      "tags": [
+        "playwright",
+        "mcp",
+        "testing",
+        "ai"
+      ],
+      "url": "https://www.youtube.com/watch?v=2vnttb-YZrA",
+      "video": "2vnttb-YZrA",
+      "description": "Discover how to perform manual testing using Playwright MCP without writing any code, using simple prompts instead. This revolutionary approach makes testing accessible to everyone, regardless of their coding experience.",
+      "host": "Debbie's youtube channel",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Manual testing with no code"
+        },
+        {
+          "time": 48,
+          "title": "Getting started: Playwright MCP in VS Code"
+        },
+        {
+          "time": 87,
+          "title": "The manual-testing prompt file"
+        },
+        {
+          "time": 215,
+          "title": "Reviewing the AI's test report"
+        },
+        {
+          "time": 361,
+          "title": "Creating a test plan from the report"
+        },
+        {
+          "time": 570,
+          "title": "Reviewing the test plan"
+        },
+        {
+          "time": 865,
+          "title": "Running the test plan"
+        },
+        {
+          "time": 965,
+          "title": "Results and final thoughts"
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "title": "Automate Form Filling with a Prompt file and the Playwright MCP",
+      "date": "2025-07-10",
+      "tags": [
+        "playwright",
+        "mcp",
+        "ai"
+      ],
+      "url": "https://www.youtube.com/watch?v=NSpCfRDS7vo",
+      "video": "NSpCfRDS7vo",
+      "description": "In this video, I'll show you how to use the Playwright MCP (Model Context Protocol) server to completely automate filling out a form — including uploading an image — just by writing a simple markdown prompt in VS Code.",
+      "host": "Debbie's youtube channel"
+    },
+    {
+      "type": "video",
+      "title": "Supercharge Copilot with Custom Playwright Instructions in VS Code",
+      "date": "2025-07-09",
+      "tags": [
+        "playwright",
+        "testing",
+        "ai"
+      ],
+      "url": "https://www.youtube.com/watch?v=hYjXgdsk0mE",
+      "video": "hYjXgdsk0mE",
+      "description": "Learn how to give GitHub Copilot better context in your codebase by generating custom Playwright instructions and using VS Code's \"Generate Instructions\" feature for smarter, more context-aware suggestions.",
+      "host": "Debbie's youtube channel"
+    },
+    {
+      "type": "video",
+      "title": "Copilot Usage & Completion Settings in VS Code | Monitor Premium Requests + Snooze Next Edit",
+      "date": "2025-07-08",
+      "tags": [
+        "ai"
+      ],
+      "url": "https://www.youtube.com/watch?v=9Ar-6qQzk8o",
+      "video": "9Ar-6qQzk8o",
+      "description": "Learn how to configure Copilot usage and completion settings in VS Code, including monitoring premium requests and using the snooze next edit feature. Optimize your AI-powered development workflow for maximum efficiency.",
+      "host": "Debbie's youtube channel"
+    },
+    {
+      "type": "video",
+      "title": "Install an MCP Server in VS Code. (Watch me install Playwright MCP)",
+      "date": "2025-07-05",
+      "tags": [
+        "mcp",
+        "playwright",
+        "ai"
+      ],
+      "url": "https://www.youtube.com/watch?v=exsikHe20D8",
+      "video": "exsikHe20D8",
+      "description": "A step-by-step guide to installing an MCP server in VS Code, specifically demonstrating the Playwright MCP installation process. Follow along as I walk through the complete setup and configuration.",
+      "host": "Debbie's youtube channel",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Installing Playwright MCP"
+        },
+        {
+          "time": 56,
+          "title": "Exploring MCP servers"
+        },
+        {
+          "time": 126,
+          "title": "Using Playwright in chat"
+        },
+        {
+          "time": 170,
+          "title": "Configuring tools for chat"
+        },
+        {
+          "time": 206,
+          "title": "Custom chat modes"
+        },
+        {
+          "time": 285,
+          "title": "Summary and next steps"
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "title": "Exploring Playwright and MCP",
+      "date": "2025-07-03",
+      "tags": [
+        "playwright",
+        "testing",
+        "mcp",
+        "ai"
+      ],
+      "url": "https://www.youtube.com/watch?v=0CDGPWjajcE",
+      "video": "0CDGPWjajcE",
+      "description": "From real-world advice on overcoming resistance to testing in teams to the exciting possibilities MCP brings for generating and scaling tests with natural language and AI, this conversation is packed with both practical tips and future-looking insights."
+    },
+    {
+      "type": "video",
+      "title": "MCP Server Tutorial - Building Your First Model Context Protocol Server",
+      "date": "2025-07-03",
+      "tags": [
+        "mcp",
+        "ai"
+      ],
+      "url": "https://www.youtube.com/watch?v=egVm_z1nnnQ",
+      "video": "egVm_z1nnnQ",
+      "description": "Learn how to build your first MCP (Model Context Protocol) server from scratch in this comprehensive tutorial. Perfect for developers looking to integrate AI applications with external data sources and tools.",
+      "host": "Debbie's youtube channel",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Introduction to MCP servers"
+        },
+        {
+          "time": 180,
+          "title": "Project setup and dependencies"
+        },
+        {
+          "time": 200,
+          "title": "Building the basic server structure"
+        },
+        {
+          "time": 516,
+          "title": "Registering the get-weather tool"
+        },
+        {
+          "time": 735,
+          "title": "Adding the stdio transport"
+        },
+        {
+          "time": 968,
+          "title": "Testing the server with the MCP Inspector"
+        },
+        {
+          "time": 1145,
+          "title": "Adding real weather data"
+        },
+        {
+          "time": 1210,
+          "title": "Geocoding a city to latitude/longitude"
+        },
+        {
+          "time": 1415,
+          "title": "Fetching the forecast with coordinates"
+        },
+        {
+          "time": 1755,
+          "title": "Re-testing with real data"
+        },
+        {
+          "time": 1840,
+          "title": "VS Code and GitHub Copilot integration"
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "title": "The Angular Show - Playwright Takes Center Stage",
+      "date": "2025-07-01",
+      "tags": [
+        "playwright",
+        "testing",
+        "mcp",
+        "ai"
+      ],
+      "url": "https://www.youtube.com/watch?v=tdmgXAUfWFo",
+      "video": "tdmgXAUfWFo",
+      "description": "insights on what makes Playwright different, the latest features transforming the testing landscape, and how AI is being integrated to make testing more intelligent and efficient. You can expect to learn why Playwright is becoming the go-to choice for modern web testing and how to leverage its powerful features in your projects.",
+      "host": "Angular Show"
+    },
+    {
+      "type": "video",
+      "title": "Frontend Nation 2025: AI-Powered Debugging & Browser Automation with Playwright MCP",
+      "date": "2025-06-20",
+      "tags": [
+        "conference-talk",
+        "playwright",
+        "testing",
+        "ai",
+        "mcp"
+      ],
+      "url": "https://www.youtube.com/watch?v=rrrklkDzQ1M",
+      "video": "rrrklkDzQ1M",
+      "description": "Debbie O'Brien from Microsoft dives into how AI is changing the game for browser automation and testing. In this talk, you'll explore how Playwright is evolving with the help of AI; making debugging smarter, test creation faster, and browser interactions more adaptive through Playwright MCP (Model Context Provider). Whether you're writing tests or trying to make sense of flaky ones, Debbie shows how integrating AI into your workflow can help you work faster without losing control. Learn what's possible now and what's coming next in this powerful combination of testing and intelligence.",
+      "conference": "Frontend Nation 2025"
+    },
+    {
+      "type": "video",
+      "title": "Vibe Coding - update a logo",
+      "date": "2025-06-20",
+      "tags": [
+        "ai"
+      ],
+      "url": "https://www.youtube.com/watch?v=n3g8d9wA5vk",
+      "video": "n3g8d9wA5vk",
+      "description": "Vibe coding to update a logo on my site with the help of AI and GitHub Copilot.",
+      "host": "Debbie's youtube channel"
+    },
+    {
+      "type": "video",
+      "title": "Assign an issue to GitHub Copilot",
+      "date": "2025-06-19",
+      "tags": [
+        "ai"
+      ],
+      "url": "https://www.youtube.com/watch?v=2sch7u2-E8g",
+      "video": "2sch7u2-E8g",
+      "description": "Use AI to complete issues for you by assigning issues to the GitHub Copilot coding agent.",
+      "host": "Debbie's youtube channel"
+    },
+    {
+      "type": "video",
+      "title": "Agent Mode Generate Tests",
+      "date": "2025-06-09",
+      "tags": [
+        "mcp",
+        "ai",
+        "playwright",
+        "testing"
+      ],
+      "url": "https://www.youtube.com/watch?v=pwbgvbJP8KM",
+      "video": "pwbgvbJP8KM",
+      "description": "using agent mode to generate tests with Playwright and GitHub Copilot.",
+      "host": "Debbie's youtube channel"
+    },
+    {
+      "type": "video",
+      "title": "Agent Mode Complete this PR",
+      "date": "2025-06-03",
+      "tags": [
+        "mcp",
+        "ai",
+        "playwright"
+      ],
+      "url": "https://www.youtube.com/watch?v=psdu0BVal6w",
+      "video": "psdu0BVal6w",
+      "description": "Getting agent mode to complete a PR with Playwright and GitHub Copilot.",
+      "host": "Debbie's youtube channel"
+    },
+    {
+      "type": "video",
+      "title": "Advanced Playwright Debugging and Test Resilience",
+      "date": "2025-05-21",
+      "tags": [
+        "conference-talk",
+        "playwright",
+        "testing",
+        "ai"
+      ],
+      "url": "https://www.youtube.com/watch?v=zyOJfGtJ3Rw",
+      "video": "zyOJfGtJ3Rw",
+      "description": "Modern web applications demand robust testing and rapid debugging processes. In this session, we explore how to leverage Playwright's innovative Copy Prompt button to generate AI-assisted debugging insights and recommendations to fix your tests, reducing the time spent on debugging while increasing overall productivity.",
+      "host": "Microsoft Build"
+    },
+    {
+      "type": "video",
+      "title": "Advanced Playwright Techniques for Flawless Testing",
+      "date": "2024-11-13",
+      "tags": [
+        "conference-talk",
+        "playwright",
+        "testing",
+        "typescript"
+      ],
+      "url": "https://www.youtube.com/watch?v=ybYK9jM0lco",
+      "video": "ybYK9jM0lco",
+      "description": "This talk explores advanced Playwright techniques for achieving flawless testing. It was recorded at Copenhagen Developers Festival in Copenhagen, Denmark, covering best practices, effective locator strategies, and automation approaches.",
+      "host": "NDC Conferences"
+    },
+    {
+      "type": "video",
+      "title": "Advanced Playwright Techniques for Flawless Testing",
+      "date": "2024-08-25",
+      "tags": [
+        "conference-talk",
+        "playwright",
+        "testing"
+      ],
+      "url": "https://www.youtube.com/watch?v=O0TeeSbQPWY",
+      "video": "O0TeeSbQPWY",
+      "description": "Here's another session on \"Advanced Playwright Techniques for Flawless Testing\" by 𝐃𝐞𝐛𝐛𝐢𝐞 𝐎'𝐁𝐫𝐢𝐞𝐧, Senior Program Manager, Microsoft. In this talk, she explores some advanced Playwright capabilities and uncovers a range of features that you may not know about, from project dependencies to box steps, API mocking, testing time, and more.",
+      "host": "LambdaTest"
+    },
+    {
+      "type": "video",
+      "title": "End to End Testing with Playwright",
+      "date": "2023-10-06",
+      "tags": [
+        "conference-talk",
+        "playwright",
+        "testing"
+      ],
+      "url": "https://www.youtube.com/watch?v=kqJSrSU9DPY",
+      "video": "kqJSrSU9DPY",
+      "description": "Lets’ take a look at how to test across iframes and different browser contexts by testing the user flow of the Stackblitz website, setting up a Vite project in Stackblitz, modifying the code and sharing it so others can open and interact with it. Let’s get testing.",
+      "host": "Vite Conf"
+    },
+    {
+      "type": "video",
+      "title": "Aprende a crear Test de forma Facil",
+      "date": "2023-09-17",
+      "tags": [
+        "conference-talk",
+        "playwright",
+        "testing"
+      ],
+      "url": "https://www.youtube.com/watch?v=x8wmQ-8oaMU",
+      "video": "x8wmQ-8oaMU",
+      "description": "See how easy it is to create tests with Playwright especially using tools like Codegen and UI mode for a better developer experience. Talk is in Spanish.",
+      "host": "Miguel Angel Duran"
+    },
+    {
+      "type": "video",
+      "title": "e2e Testing with Playwright",
+      "date": "2023-06-30",
+      "tags": [
+        "interviews",
+        "testing",
+        "playwright"
+      ],
+      "url": "https://www.youtube.com/watch?v=uB6bOQV18X0",
+      "video": "uB6bOQV18X0",
+      "description": "GirlCode Coffee Break - our casual monthly get together. Let's chat about things in Tech that we care about, but address way too little. This week, we are joined by Debbie O'Brien (https://twitter.com/debs_obrien), to talk about End to End Testing and all things Playwright",
+      "conference": "GirlCode Coffee Break"
+    },
+    {
+      "type": "video",
+      "title": "Playing your Tests Wright",
+      "date": "2023-05-19",
+      "tags": [
+        "conference-talk",
+        "testing",
+        "playwright"
+      ],
+      "url": "https://www.youtube.com/watch?v=yMSIsavrOR4",
+      "video": "yMSIsavrOR4",
+      "description": "It’s time to play your tests wright. Let’s take a look at how to write good tests and cover some of the best practices for testing, choosing the right locators and more. Let’s make testing easy and fun by generating tests on user actions. Then lets explore some cool tips and tricks to help you write better tests.",
+      "conference": "Js Heroes"
+    },
+    {
+      "type": "video",
+      "title": "End to end testing with playwright",
+      "date": "2023-05-04",
+      "tags": [
+        "playwright",
+        "testing"
+      ],
+      "url": "https://www.youtube.com/watch?v=sKUVyVd-nJg",
+      "video": "sKUVyVd-nJg",
+      "description": "Debbie shows Tim how to get started with Playwright and use some of the powerful tooling including UI mode and the VS Code extension and most importantly how to debug when tests fail.",
+      "host": "Uniform"
+    },
+    {
+      "type": "video",
+      "title": "Playing your tests wright",
+      "date": "2023-05-04",
+      "tags": [
+        "playwright",
+        "testing"
+      ],
+      "url": "https://www.youtube.com/watch?v=4K6YR5FbjM0",
+      "video": "4K6YR5FbjM0",
+      "description": "It's time to play your tests wright. Let's take a look at how to write good tests and cover some of the best practices for testing, choosing the right locators and more. Let's make testing easy and fun by generating tests on user actions.",
+      "host": "Angular Tiny Conf"
+    },
+    {
+      "type": "video",
+      "title": "Playing your tests wright in VS Code",
+      "date": "2023-05-01",
+      "tags": [
+        "playwright",
+        "testing"
+      ],
+      "url": "https://www.youtube.com/watch?v=ECkMUATC1aA",
+      "video": "ECkMUATC1aA",
+      "description": "Get started with Playwright and VS Code using the VS Code extension. Create, run and debug your tests right in VS Code.",
+      "host": "VS Code"
+    },
+    {
+      "type": "video",
+      "title": "Testing tools for developers",
+      "date": "2023-04-23",
+      "tags": [
+        "playwright",
+        "testing"
+      ],
+      "url": "https://www.youtube.com/watch?v=b9slZ76u2Vs",
+      "video": "b9slZ76u2Vs",
+      "description": "Let's take a look at how to write good tests and cover some of the best practices for testing, choosing the right locators and more. Let's make testing easy and fun by generating tests on user actions. Then lets explore some cool tips and tricks to help you write better tests.",
+      "host": "daily dev"
+    },
+    {
+      "type": "video",
+      "title": "Introduction to Playwright for e2e testing",
+      "date": "2023-04-05",
+      "tags": [
+        "live-streams",
+        "testing",
+        "playwright"
+      ],
+      "url": "https://www.youtube.com/watch?v=lCb9JoZFpHI",
+      "video": "lCb9JoZFpHI",
+      "description": "Easily generate tests with Playwright`s test generator, use Project dependencies to setup authentication before running your tests to ensure your tests are in a loggedin state. Run your tests across multiple browsers and visually see them run or check out the HTML report or trace of your test!",
+      "host": "This Dot Media"
+    },
+    {
+      "type": "video",
+      "title": "Let's test with Playwright",
+      "date": "2023-04-05",
+      "tags": [
+        "playwright",
+        "testing"
+      ],
+      "url": "https://www.youtube.com/watch?v=vEwCyggZzhI",
+      "video": "vEwCyggZzhI",
+      "description": "Playwright has released a UI mode for debugging and writing tests and it has sparked interest in the testing community. With Debbie, we are going to take a look into this new feature and see how it improves Playwright experience.",
+      "host": "Filip Hric"
+    },
+    {
+      "type": "video",
+      "title": "Playing your Tests Wright",
+      "date": "2023-02-12",
+      "tags": [
+        "conference-talk",
+        "testing",
+        "playwright"
+      ],
+      "url": "https://www.youtube.com/watch?v=n-ooHE-rNnw",
+      "video": "n-ooHE-rNnw",
+      "description": "It's time to play your tests wright. Let's take a look at how to write good tests and cover some of the best practices for testing, choosing the right locators and more. Let's make testing easy and fun by generating tests on user actions. Then lets explore some cool tips and tricks to help you write better tests.",
+      "conference": "Vue Amsterdam"
+    },
+    {
+      "type": "video",
+      "title": "Testing Blazor Applications with Playwright",
+      "date": "2022-11-09",
+      "tags": [
+        "conference-talk",
+        "testing",
+        "playwright"
+      ],
+      "url": "https://www.youtube.com/watch?v=VavFU2vLnT0",
+      "video": "VavFU2vLnT0",
+      "description": "Let me introduce you to Playwright - Reliable end-to-end cross browser testing for modern web apps, by Microsoft and fully open source. Playwright's codegen generates tests for you so now you really have no excuses. It's time to play your tests wright",
+      "conference": ".NET Conference"
+    },
+    {
+      "type": "video",
+      "title": "Testing Web Applications with Playwright",
+      "date": "2022-10-19",
+      "tags": [
+        "conference-talk",
+        "testing",
+        "playwright"
+      ],
+      "url": "https://www.youtube.com/watch?v=meiA4TPltoI",
+      "video": "meiA4TPltoI",
+      "description": "Testing is hard, testing takes time to learn and to write, and time is money. As developers we want to test. We know we should but we don't have time. So how can we get more developers to do testing? We can create better tools.",
+      "conference": "DevFest Nantes"
+    },
+    {
+      "type": "video",
+      "title": "Testing Web Applications with Playwright",
+      "date": "2022-10-12",
+      "tags": [
+        "conference-talk",
+        "testing",
+        "playwright"
+      ],
+      "url": "https://www.youtube.com/watch?v=Vn__rlS36yc",
+      "video": "Vn__rlS36yc",
+      "description": "Testing is hard, testing takes time to learn and to write, and time is money. As developers we want to test. We know we should but we don't have time. So how can we get more developers to do testing? We can create better tools.",
+      "conference": "React Brussels"
+    },
+    {
+      "type": "video",
+      "title": "Testing Web Applications with Playwright",
+      "date": "2022-10-07",
+      "tags": [
+        "conference-talk",
+        "testing",
+        "playwright"
+      ],
+      "url": "https://www.youtube.com/watch?v=Cjg545ew1q8",
+      "video": "Cjg545ew1q8",
+      "description": "Let me introduce you to Playwright - Reliable end-to-end cross browser testing for modern web apps, by Microsoft and fully open source. Playwright’s codegen generates tests for you in JavaScript, TypeScript, Dot Net, Java or Python. Now you really have no excuses. It\\’s time to play your tests wright.",
+      "conference": "NordicJS, Sweden"
+    },
+    {
+      "type": "video",
+      "title": "Testing Web Applications with Playwright",
+      "date": "2022-10-05",
+      "tags": [
+        "conference-talk",
+        "testing",
+        "playwright"
+      ],
+      "url": "https://www.youtube.com/watch?v=xkSnDXjCEvU",
+      "video": "xkSnDXjCEvU",
+      "description": "Testing is hard, testing takes time to learn and to write, and time is money. As developers we want to test. We know we should but we don't have time. So how can we get more developers to do testing? We can create better tools.",
+      "conference": "VueJS Berlin"
+    },
+    {
+      "type": "video",
+      "title": "Testing Web Applications with Playwright",
+      "date": "2022-09-28",
+      "tags": [
+        "conference-talk",
+        "testing",
+        "playwright"
+      ],
+      "url": "https://www.youtube.com/watch?v=kbTohfkZAMA",
+      "video": "kbTohfkZAMA",
+      "description": "Testing is hard, testing takes time to learn and to write, and time is money. As developers we want to test. We know we should but we don't have time. So how can we get more developers to do testing? We can create better tools.",
+      "conference": "NDC Oslo"
+    },
+    {
+      "type": "video",
+      "title": "Testing Web Applications with Playwright",
+      "date": "2022-09-20",
+      "tags": [
+        "conference-talk",
+        "testing",
+        "playwright"
+      ],
+      "url": "https://www.youtube.com/watch?v=_1vQ4Wj9KtA",
+      "video": "_1vQ4Wj9KtA",
+      "description": "Testing is hard, testing takes time to learn and to write, and time is money. As developers we want to test. We know we should but we don't have time. So how can we get more developers to do testing? We can create better tools.",
+      "conference": "Infobip Shift Croatia"
+    },
+    {
+      "type": "video",
+      "title": "Aprende Tests End to End con Playwright",
+      "date": "2022-09-13",
+      "tags": [
+        "conference-talk",
+        "testing",
+        "playwright"
+      ],
+      "url": "https://www.youtube.com/watch?v=WlDkXteR8io",
+      "video": "WlDkXteR8io",
+      "description": "Testing is hard, testing takes time to learn and to write, and time is money. As developers we want to test. We know we should but we don't have time. So how can we get more developers to do testing? We can create better tools.",
+      "conference": "MiduConf"
+    },
+    {
+      "type": "video",
+      "title": "Playwright cross browser automated testing",
+      "date": "2022-07-15",
+      "tags": [
+        "live-streams",
+        "playwright",
+        "testing"
+      ],
+      "url": "https://www.youtube.com/watch?v=jorsD4lInwA",
+      "video": "jorsD4lInwA",
+      "description": "Playwright enables reliable end-to-end testing for modern web apps. Let's walk though the docs and get started with Playwright in this live stream!",
+      "host": "Eddie Jaoude"
+    },
+    {
+      "type": "video",
+      "title": "Testing Web Applications with Playwright and .NET",
+      "date": "2022-06-28",
+      "tags": [
+        "conference-talk",
+        "testing",
+        "playwright"
+      ],
+      "url": "https://www.youtube.com/watch?v=MWaxxbOdIrw",
+      "video": "MWaxxbOdIrw",
+      "description": "Let me introduce you to Playwright - Reliable end-to-end cross browser testing for modern web apps, by Microsoft and fully open source. Playwright’s codegen generates tests for you in JavaScript, TypeScript, Dot Net, Java or Python. Now you really have no excuses. It\\’s time to play your tests wright.",
+      "conference": "dotNET Madrid"
+    },
+    {
+      "type": "video",
+      "title": "Testing Web Applications with Playwright",
+      "date": "2022-06-02",
+      "tags": [
+        "conference-talk",
+        "testing",
+        "playwright"
+      ],
+      "url": "https://www.youtube.com/watch?v=dxbh0bl4It8",
+      "video": "dxbh0bl4It8",
+      "description": "Testing is hard, testing takes time to learn and to write, and time is money. As developers we want to test. We know we should but we don't have time. So how can we get more developers to do testing? We can create better tools.",
+      "conference": "Craft Conference"
+    },
+    {
+      "type": "video",
+      "title": "It's all about components",
+      "date": "2022-05-13",
+      "tags": [
+        "conference-talk",
+        "architecture"
+      ],
+      "url": "https://www.youtube.com/watch?v=YWr5XnoDru4",
+      "video": "YWr5XnoDru4",
+      "description": "When is it a good time to make a new component or reuse one that is already created? Making these decisions early on is key to great software architecture. If we think before we build, we can build amazing apps that will easily scale.",
+      "conference": "BeJS Brussels"
+    },
+    {
+      "type": "video",
+      "title": "It's All About Components",
+      "date": "2022-03-31",
+      "tags": [
+        "conference-talk",
+        "architecture"
+      ],
+      "url": "https://www.youtube.com/watch?v=6mjDrGPF3P8",
+      "video": "6mjDrGPF3P8",
+      "description": "The frontend is a great place to be in these days and as apps get bigger and bigger, components get more difficult to maintain. But are we really building component driven? Do we really know how to take a design and break it down into components? How small do we go? How do we name things? When is it a good time to make a new component or reuse one that is already created? Making these decisions early on is key to great software architecture. If we think before we build, we can build amazing apps that will easily scale.",
+      "conference": "Shop Apotheke"
+    },
+    {
+      "type": "video",
+      "title": "Handling Content on the Modern Web",
+      "date": "2022-03-24",
+      "tags": [
+        "interviews",
+        "jamstack"
+      ],
+      "url": "https://www.youtube.com/watch?v=0hp-G107dT0",
+      "video": "0hp-G107dT0",
+      "description": "Virtual panel moderated by Kaya of Wordify with leading web personalities Tracy, Lee, Debbie and Kent as we take a dive into what content on the web looks like and how various products across developer tooling, hosting and content management are making leaps to create better, faster experiences for users on the web.",
+      "host": "Strapi"
+    },
+    {
+      "type": "video",
+      "title": "Learning React with the New React Docs",
+      "date": "2021-12-08",
+      "tags": [
+        "conference-talk",
+        "react",
+        "learning-to-code"
+      ],
+      "url": "https://www.youtube.com/watch?v=-7odLW_hG7s",
+      "video": "-7odLW_hG7s",
+      "description": "A look at my my journey to learning React, what I found difficult to grasp and how the new docs helped me and what my favourite parts of the new docs are.",
+      "conference": "React Conf"
+    },
+    {
+      "type": "video",
+      "title": "Component Driven Repo for a Component Driven World",
+      "date": "2021-11-28",
+      "tags": [
+        "conference-talk",
+        "architecture"
+      ],
+      "url": "https://www.youtube.com/watch?v=nQA48vH2CCc",
+      "video": "nQA48vH2CCc",
+      "description": "We think in monorepos when we want to share components across many teams and apps. but let's face it, we all hate monorepos. As soon as we hear the word we just think legacy. But it doesn't have to be. But if we make our repos component driven, where we can easily share components across any repos or apps then everything changes. We really are moving towards a component driven world so lets start building in component driven repos.",
+      "conference": "NDC Oslo"
+    },
+    {
+      "type": "video",
+      "title": "Component Driven Repo for a Component Driven World",
+      "date": "2021-11-18",
+      "tags": [
+        "conference-talk",
+        "architecture"
+      ],
+      "url": "https://www.youtube.com/watch?v=Gb9o4VI8wLU",
+      "video": "Gb9o4VI8wLU",
+      "description": "We think in monorepos when we want to share components across many teams and apps. but let's face it, we all hate monorepos. As soon as we hear the word we just think legacy. But it doesn't have to be. But if we make our repos component driven, where we can easily share components across any repos or apps then everything changes. We really are moving towards a component driven world so lets start building in component driven repos.",
+      "conference": "BuildStuff Lithuania"
+    },
+    {
+      "type": "video",
+      "title": "From Vue to React",
+      "date": "2021-11-12",
+      "tags": [
+        "interviews",
+        "vue",
+        "react"
+      ],
+      "url": "https://www.youtube.com/watch?v=70b-gtHkOZ8",
+      "video": "70b-gtHkOZ8",
+      "description": "Transitioning from Vue to React. Debbie joins to talk all about it, her learning process, which features she likes more from which frameworks, and so much more!",
+      "host": "James Q Quick"
+    },
+    {
+      "type": "video",
+      "title": "Composing Modern Applications with Bit",
+      "date": "2021-11-10",
+      "tags": [
+        "interviews",
+        "architecture"
+      ],
+      "url": "https://www.youtube.com/watch?v=Hzj26kS8GK8",
+      "video": "Hzj26kS8GK8",
+      "description": "Alex and Brittney sit down with Debbie O'Brien to talk about bit (bit.dev). We dive deep into how you can use bit to compose your application one bit at a time.",
+      "host": "Alex Patterson, Brittney Postman"
+    },
+    {
+      "type": "video",
+      "title": "Taking Component Driven One Step Further",
+      "date": "2021-10-25",
+      "tags": [
+        "conference-talk",
+        "architecture"
+      ],
+      "url": "https://www.youtube.com/watch?v=Nrr-aw1mJY0",
+      "video": "Nrr-aw1mJY0",
+      "description": "We think in monorepos when we want to share components across many teams and apps. but let’s face it, we all hate monorepos. As soon as we hear the word we just think legacy. But it doesn’t have to be. But if we make our repos component driven, where we can easily share components across any repos or apps then everything changes. We really are moving towards a component driven world so lets start building in component driven repos.",
+      "conference": "React Advanced"
+    },
+    {
+      "type": "video",
+      "title": "Component Driven Repo for Component Driven World",
+      "date": "2021-10-20",
+      "tags": [
+        "conference-talk",
+        "architecture"
+      ],
+      "url": "https://www.youtube.com/watch?v=nuDwgjkRNSI",
+      "video": "nuDwgjkRNSI",
+      "description": "We think in monorepos when we want to share components across many teams and apps. but let's face it, we all hate monorepos. As soon as we hear the word we just think legacy. But it doesn't have to be. But if we make our repos component driven, where we can easily share components across any repos or apps then everything changes. We really are moving towards a component driven world so lets start building in component driven repos.",
+      "conference": "GDG DevFest Nantes"
+    },
+    {
+      "type": "video",
+      "title": "Scaling Team Delivery using Standardisation",
+      "date": "2021-10-14",
+      "tags": [
+        "conference-talk",
+        "architecture"
+      ],
+      "url": "https://www.youtube.com/watch?v=R2Q0L9PDHtc",
+      "video": "R2Q0L9PDHtc",
+      "description": "How can you scale fast, build fast and yet keep the same standards across all projects and teams? Let’s take a look at tooling as well as creating shareable configs and template generators for components so you can speed up your team’s delivery.",
+      "conference": "JetBrains JavaScript Day 2021"
+    },
+    {
+      "type": "video",
+      "title": "Nuxtify your Images",
+      "date": "2021-09-15",
+      "tags": [
+        "conference-talk",
+        "nuxt",
+        "performance"
+      ],
+      "url": "https://www.youtube.com/watch?v=IV890jKXe_s",
+      "video": "IV890jKXe_s",
+      "description": "There is a way to have better control as a developer on the image performance of your website. Debbie will walk you through the greatness of Nuxt Images and showcase all the benefits of using this plug-and-play image optimization module.",
+      "conference": "Nuxt Nation"
+    },
+    {
+      "type": "video",
+      "title": "Component Driven Development with React and Bit",
+      "date": "2021-09-08",
+      "tags": [
+        "live-streams",
+        "architecture",
+        "react"
+      ],
+      "url": "https://www.youtube.com/watch?v=SRK-8UEVleY",
+      "video": "SRK-8UEVleY",
+      "description": "In this episode we'll learn how to build React components with Bit so that we can more easily scale our websites and apps!",
+      "host": "Alex Trost"
+    },
+    {
+      "type": "video",
+      "title": "GitHub Stars Stories - are you the next GitHub Star?",
+      "date": "2021-07-31",
+      "tags": [
+        "interviews"
+      ],
+      "url": "https://www.youtube.com/watch?v=9UHDTz5PCkw",
+      "video": "9UHDTz5PCkw",
+      "description": "Recognize those who go above and beyond. Lift up the people who inspire and educate your communities with the GitHub Stars program",
+      "host": "Eddie Jaoude"
+    },
+    {
+      "type": "video",
+      "title": "Nuxt Performances",
+      "date": "2021-07-08",
+      "tags": [
+        "conference-talk",
+        "nuxt",
+        "performance"
+      ],
+      "url": "https://www.youtube.com/watch?v=0Y-XdRyUb1U",
+      "video": "0Y-XdRyUb1U",
+      "description": "Performance is super important for any app. Did you know all the cool things Nuxt does for you out of the box, to make sure your app is as performant as possible? Let’s take a look at them and dive into some more performance enhancements for your Nuxt app.",
+      "conference": "Vue Amsterdam"
+    },
+    {
+      "type": "video",
+      "title": "Theming Components in React",
+      "date": "2021-05-26",
+      "tags": [
+        "live-streams",
+        "react",
+        "architecture"
+      ],
+      "url": "https://www.youtube.com/watch?v=6WL9t63LjzM",
+      "video": "6WL9t63LjzM",
+      "description": "Let's take a look at how to add a theme context to your React components so you can easily add theming.",
+      "host": "Benjy"
+    },
+    {
+      "type": "video",
+      "title": "Building Components in Harmony",
+      "date": "2021-05-19",
+      "tags": [
+        "conference-talk",
+        "architecture"
+      ],
+      "url": "https://www.youtube.com/watch?v=mbURSw1fhoc",
+      "video": "mbURSw1fhoc",
+      "description": "What if we thought about building components so that they are extendable, theme-able, and reusable across different code bases. If we could do that then we would be able to deliver applications at a much faster pace. We would be able to scale much easier. It's not easy but that is exactly why Bit Harmony was built.",
+      "conference": "Stories from the Blok"
+    },
+    {
+      "type": "video",
+      "title": "Let's Build with Bit",
+      "date": "2021-05-19",
+      "tags": [
+        "live-streams",
+        "architecture"
+      ],
+      "url": "https://www.youtube.com/watch?v=7afMBwj5fR4",
+      "video": "7afMBwj5fR4",
+      "description": "What is Bit? Bit is a platform for building with components. You can use Bit to build UI components, hooks, middleware, server-less functions and all things JavaScript! In this session, learn how to build more scalable and reusable components. Let’s take a look at how we can get your components in the cloud complete with documentation, tests and compositions, so they can easily be shared and used in other applications.",
+      "host": "This Dot Media"
+    },
+    {
+      "type": "video",
+      "title": "Breaking down your React app into components",
+      "date": "2021-05-14",
+      "tags": [
+        "live-streams",
+        "react",
+        "architecture"
+      ],
+      "url": "https://www.youtube.com/watch?v=2jojhi5W4BM",
+      "video": "2jojhi5W4BM",
+      "description": "Let's see if we can help Tim improve his application and think in components and perhaps get him to try out Bit",
+      "host": "Tim Benniks"
+    },
+    {
+      "type": "video",
+      "title": "Bit - A better way to build with modern components",
+      "date": "2021-05-07",
+      "tags": [
+        "interviews",
+        "architecture"
+      ],
+      "url": "https://www.youtube.com/watch?v=ItgsipIm9s0",
+      "video": "ItgsipIm9s0",
+      "description": "Talk about the Bit platform, advantages of using Bit, frameworks supported, and how to get started.",
+      "host": "Santosh"
+    },
+    {
+      "type": "video",
+      "title": "CSS Animations with Julia",
+      "date": "2021-05-07",
+      "tags": [
+        "live-streams",
+        "css"
+      ],
+      "url": "https://www.youtube.com/watch?v=4HfC9OirWVI",
+      "video": "4HfC9OirWVI",
+      "description": "Let's learn how to animate with CSS and create a Beaver who moves its tail and eyebrows.",
+      "host": "Julia Miocene"
+    },
+    {
+      "type": "video",
+      "title": "What is a Developer Advocate",
+      "date": "2021-04-26",
+      "tags": [
+        "interviews",
+        "dev-rel"
+      ],
+      "url": "https://www.youtube.com/watch?v=WlpHiYQGG6k",
+      "video": "WlpHiYQGG6k",
+      "description": "If you ever wondered what developer advocates do, how their typical day looks like, or want to know how to get started with advocacy, this episode is for you!",
+      "host": "Marc Backes"
+    },
+    {
+      "type": "video",
+      "title": "Women in Tech Panel",
+      "date": "2021-03-09",
+      "tags": [
+        "interviews",
+        "nuxt"
+      ],
+      "url": "https://www.youtube.com/watch?v=xytiKzxfzJ8",
+      "video": "xytiKzxfzJ8",
+      "description": "Very fun and interesting chat about all things tech related and how we have all just changed jobs, how long we stay in jobs, what we do when we consider moving jobs and so much more.",
+      "host": "Maya Shavin, Mnady Kerr"
+    },
+    {
+      "type": "video",
+      "title": "DevRel Roundtable",
+      "date": "2021-03-08",
+      "tags": [
+        "interviews",
+        "dev-rel"
+      ],
+      "url": "https://www.youtube.com/watch?v=lSxU_q-8Rrc",
+      "video": "lSxU_q-8Rrc",
+      "description": "Welcome to the second episode of the DevRel roundtable series where I invite developer relation people to a roundtable discussion to converse on whatever topics we feel are relevant. This episode features Debbie O'Brien and Lucie Haberer.",
+      "host": "Tim Benniks"
+    },
+    {
+      "type": "video",
+      "title": "Nuxt Storyblok",
+      "date": "2021-03-05",
+      "tags": [
+        "live-streams",
+        "nuxt",
+        "cms"
+      ],
+      "url": "https://www.youtube.com/watch?v=w4-9B_cKeu4",
+      "video": "w4-9B_cKeu4",
+      "description": "Come watch Samuel from Storyblok try to convince me that Storyblok is better than Nuxt Content. It's gonna be a fun one.",
+      "host": "Samuel Snopko"
+    },
+    {
+      "type": "video",
+      "title": "Going Static in a Dynamic World with Hasura and Nuxt.js",
+      "date": "2021-03-02",
+      "tags": [
+        "conference-talk",
+        "nuxt",
+        "jamstack",
+        "hasura"
+      ],
+      "url": "https://www.youtube.com/watch?v=Spt4j_Xq79w",
+      "video": "Spt4j_Xq79w",
+      "description": "This talk covers how to use static sites with Hasura, from setting up your endpoint, adding the query to Nuxt.js to display your data with Apollo and GraphQL, how to setup a hook so that it triggers a deploy of your site on content change as static sites need to be redeployed on content change.",
+      "conference": "Ask the Expert"
+    },
+    {
+      "type": "video",
+      "title": "Nuxt Prismic",
+      "date": "2021-03-02",
+      "tags": [
+        "live-streams",
+        "nuxt"
+      ],
+      "url": "https://www.youtube.com/watch?v=xUwST2bAWw8",
+      "video": "xUwST2bAWw8",
+      "description": "Let's build a Nuxt application with Prismic CMS. Lucie will teach me everything I need to know so I can easily build a Nuxt site with my content coming from Prismic.",
+      "host": "Samuel Lucie Harber"
+    },
+    {
+      "type": "video",
+      "title": "Nuxt and Strapi",
+      "date": "2021-02-18",
+      "tags": [
+        "live-streams",
+        "nuxt",
+        "cms"
+      ],
+      "url": "https://www.youtube.com/watch?v=Rj1qYm5zctE",
+      "video": "Rj1qYm5zctE",
+      "description": "Let's learn how to use Strapi, a headless CMS to get some food data onto our Nuxt app with a bit of GraphQL.",
+      "host": "Daniel"
+    },
+    {
+      "type": "video",
+      "title": "Interview with Debbie O'Brien",
+      "date": "2021-02-13",
+      "tags": [
+        "interviews",
+        "nuxt"
+      ],
+      "url": "https://www.youtube.com/watch?v=u7UzYB3PBD4",
+      "video": "u7UzYB3PBD4",
+      "description": "Spanish - About me and how I get into coding, my acting career and so many more questions with lots of fun answers.",
+      "host": "OS Weeekends"
+    },
+    {
+      "type": "video",
+      "title": "GitHub Stars with Debbie O'Brien",
+      "date": "2021-01-15",
+      "tags": [
+        "interviews",
+        "nuxt"
+      ],
+      "url": "https://www.youtube.com/watch?v=UE64S_ExxY4",
+      "video": "UE64S_ExxY4",
+      "description": "Interview on all things Nuxt and how my background including my story on how I got into Open Source and working at Nuxt",
+      "host": "Eddie Jaoude"
+    },
+    {
+      "type": "video",
+      "title": "The Web Show - !Static Times with Debbie O'Brien",
+      "date": "2020-11-26",
+      "tags": [
+        "interviews",
+        "nuxt"
+      ],
+      "url": "https://www.youtube.com/watch?v=NCID3OL02B0",
+      "video": "NCID3OL02B0",
+      "description": "Conversation on Nuxt and static times with a look back on previous jobs and how I got to where I am today.",
+      "host": "Romulo Cintra"
+    },
+    {
+      "type": "video",
+      "title": "Going Static in a Dynamic World with Hasura and Nuxt.js",
+      "date": "2020-11-06",
+      "tags": [
+        "conference-talk",
+        "nuxt",
+        "jamstack",
+        "hasura"
+      ],
+      "url": "https://www.youtube.com/watch?v=fe3Y1_Na9K4",
+      "video": "fe3Y1_Na9K4",
+      "description": "This talk covers how to use static sites with Hasura, from setting up your endpoint, adding the query to Nuxt.js to display your data with Apollo and GraphQL, how to setup a hook so that it triggers a deploy of your site on content change as static sites need to be redeployed on content change.",
+      "conference": "Vue Toronto"
+    },
+    {
+      "type": "video",
+      "title": "The CloudSkills Show - Intro to JavaScript Frameworks",
+      "date": "2020-11-05",
+      "tags": [
+        "interviews",
+        "nuxt"
+      ],
+      "url": "https://www.youtube.com/watch?v=eRjqRhdWpCk",
+      "video": "eRjqRhdWpCk",
+      "description": "This episode is all about Javascript, and understanding some of the frameworks. In the show, we’ll get an introduction to Node.js - a runtime which allows developers to use Javacript on the server-side and in the cloud.",
+      "host": "Adam Jackson, Wassim Chegham, Yohan Lasora, Ana Cidre"
+    },
+    {
+      "type": "video",
+      "title": "Contentful and Nuxt",
+      "date": "2020-10-27",
+      "tags": [
+        "live-streams",
+        "nuxt"
+      ],
+      "url": "https://www.youtube.com/watch?v=MuKzaCoDB1E",
+      "video": "MuKzaCoDB1E",
+      "description": "Let's build a running app so we can connect our running data to Contentful and show it in our Nuxt app using GraphQL.",
+      "host": "Shyamal Ruparel"
+    },
+    {
+      "type": "video",
+      "title": "What's new in Nuxt",
+      "date": "2020-10-22",
+      "tags": [
+        "conference-talk",
+        "nuxt"
+      ],
+      "url": "https://www.youtube.com/watch?v=cppypvbgUBs",
+      "video": "cppypvbgUBs",
+      "description": "Nuxt.js, the intuitive web framework, has had some killer features recently released. Debbie will take you through those new features and shed some light on what is to come in Nuxt.js",
+      "conference": "CityJS"
+    },
+    {
+      "type": "video",
+      "title": "How to Convince your boss and your team to use Tailwind",
+      "date": "2020-10-14",
+      "tags": [
+        "live-streams",
+        "nuxt",
+        "css"
+      ],
+      "url": "https://www.youtube.com/watch?v=D84pmKtQB3w",
+      "video": "D84pmKtQB3w",
+      "description": "Once you start using Tailwind there is no going back but first you have convince your boss and your team that utility first CSS is the way to go.",
+      "host": "Simon Vrachliotis"
+    },
+    {
+      "type": "video",
+      "title": "Tips for Devs by Devs",
+      "date": "2020-10-08",
+      "tags": [
+        "interviews",
+        "learning-to-code"
+      ],
+      "url": "https://www.youtube.com/watch?v=EiQ9ghz6pE0",
+      "video": "EiQ9ghz6pE0",
+      "description": "Eddie reached out to other Developers and YouTubers and asked them for their top 3 tips they would give to coders. Here are their tips!",
+      "host": "Eddie Jaoude"
+    },
+    {
+      "type": "video",
+      "title": "NuxtJS introduction",
+      "date": "2020-09-29",
+      "tags": [
+        "live-streams",
+        "nuxt"
+      ],
+      "url": "https://www.youtube.com/watch?v=KrqzTw_OiDY",
+      "video": "KrqzTw_OiDY",
+      "description": "Teaching Eddie a few things about Nuxt and how Nuxt content works. Watch Eddies reaction to the live editing feature of Nuxt content.",
+      "host": "Eddie Jaoude"
+    },
+    {
+      "type": "video",
+      "title": "Q and A Session on Nuxt",
+      "date": "2020-09-18",
+      "tags": [
+        "interviews",
+        "nuxt"
+      ],
+      "url": "https://www.youtube.com/watch?v=hWtlp3nhicQ",
+      "video": "hWtlp3nhicQ",
+      "description": "Maria Lamardo interviews Debbie after her talk at Vue Global on all things Nuxt.",
+      "host": "VueJS Global"
+    },
+    {
+      "type": "video",
+      "title": "Jam Stack Session",
+      "date": "2020-09-13",
+      "tags": [
+        "interviews",
+        "nuxt"
+      ],
+      "url": "https://www.youtube.com/watch?v=oncKtrmHICQ",
+      "video": "oncKtrmHICQ",
+      "description": "Debbie and Maya answer live questions on the Jamstack during the CityJS online Conference.",
+      "host": "CityJS"
+    },
+    {
+      "type": "video",
+      "title": "Charla con Debbie O'Brien (Nuxt.js)",
+      "date": "2020-08-26",
+      "tags": [
+        "interviews",
+        "nuxt"
+      ],
+      "url": "https://www.youtube.com/watch?v=VH_xtuBojmw",
+      "video": "VH_xtuBojmw",
+      "description": "En esta charla, nos cuenta como re-ivento su carrera y termino trabajando en Nuxt, nos habla de su trabajo, consejos para empezar y contesta todas nuestras preguntas sobre el framework. Que es? Para que sirve? Cuando usarlo? Como llevarlo a produccion?",
+      "host": "Nacho Anaya"
+    },
+    {
+      "type": "video",
+      "title": "Nuxt.js as a headless CMS",
+      "date": "2020-08-20",
+      "tags": [
+        "conference-talk",
+        "nuxt"
+      ],
+      "url": "https://www.youtube.com/watch?v=ZUD9hWCmf9c",
+      "video": "ZUD9hWCmf9c",
+      "description": "Global Vue Meetup featuring Debbie O'Brien & Maya Shavin",
+      "conference": "This Dot Media"
+    },
+    {
+      "type": "video",
+      "title": "GraphQL Fireside Chat - Vue",
+      "date": "2020-08-04",
+      "tags": [
+        "interviews",
+        "nuxt"
+      ],
+      "url": "https://www.youtube.com/watch?v=pllsjSDVTwk",
+      "video": "pllsjSDVTwk",
+      "description": "This event is part of a four part online series hosted with Hasura! Each week, we will focus on GraphQL + different a front-end framework. This week, join us for a lively round table discussion and Q&A about GraphQL and Vue!",
+      "host": "Natalia Tepluhina and Tanmai Gopal"
+    },
+    {
+      "type": "video",
+      "title": "Why Static Sites Are back. From Static, Servers, Browser to Static",
+      "date": "2020-07-29",
+      "tags": [
+        "interviews",
+        "nuxt",
+        "jamstack"
+      ],
+      "url": "https://www.youtube.com/watch?v=nCc-YPf9lAU",
+      "video": "nCc-YPf9lAU",
+      "description": "When we first built websites many years ago they were very static. It was all we knew. Html with some CSS and a tiny bit of JavaScript. A typical website from 1996, SpaceJam which really shows how static sites are.",
+      "conference": "Create Frontend"
+    },
+    {
+      "type": "video",
+      "title": "Vue.js Global conference interview",
+      "date": "2020-07-27",
+      "tags": [
+        "interviews",
+        "nuxt"
+      ],
+      "url": "https://www.youtube.com/watch?v=IBKgryFpUDs",
+      "video": "IBKgryFpUDs",
+      "description": "We discuss Nuxt/content and how Nuxt are working on a bunch of new features to make Nuxt even more flexible. After that we discuss how I experienced landing the job and how I learnt a lot from previous job hunting.",
+      "host": "Tim Benniks"
+    },
+    {
+      "type": "video",
+      "title": "NuxtJS Static Pages and Content API",
+      "date": "2020-06-30",
+      "tags": [
+        "live-streams",
+        "nuxt",
+        "cms"
+      ],
+      "url": "https://www.youtube.com/watch?v=syD1Z55X8fQ",
+      "video": "syD1Z55X8fQ",
+      "description": "NuxtJS Static Pages and Content API is finally here! NuxtJS just released a brand new version full of awesome features for building static pages, working with content like Markdown files, and lots more.",
+      "host": "James Quick"
+    },
+    {
+      "type": "video",
+      "title": "Going Static in a Dynamic World with Hasura and Nuxt.js",
+      "date": "2020-06-25",
+      "tags": [
+        "conference-talk",
+        "nuxt",
+        "jamstack",
+        "hasura"
+      ],
+      "url": "https://www.youtube.com/watch?v=nO6hz2ZdhoA",
+      "video": "nO6hz2ZdhoA",
+      "description": "This talk covers how to use static sites with Hasura, from setting up your endpoint, adding the query to Nuxt.js to display your data with Apollo and GraphQL, how to setup a hook so that it triggers a deploy of your site on content change as static sites need to be redeployed on content change.",
+      "conference": "Hasura Conf"
+    },
+    {
+      "type": "video",
+      "title": "Full Static with Nuxt",
+      "date": "2020-06-16",
+      "tags": [
+        "conference-talk",
+        "nuxt",
+        "jamstack"
+      ],
+      "url": "https://www.youtube.com/watch?v=v-CjZRqBpMI",
+      "video": "v-CjZRqBpMI",
+      "description": "Static sites have many benefits from costs to performance and even reducing the carbon footprint. And with the new static module from Nuxt static is going to a whole new level. Static sites are the future and they can used for more than just blogs.",
+      "conference": "Vue Montreal"
+    },
+    {
+      "type": "video",
+      "title": "Static generated sites === great performance. What are you waiting for?",
+      "date": "2020-05-11",
+      "tags": [
+        "conference-talk",
+        "nuxt",
+        "jamstack",
+        "performance"
+      ],
+      "url": "https://www.youtube.com/watch?v=O4K8moLOfSQ",
+      "video": "O4K8moLOfSQ",
+      "description": "Statically generated sites are the future. Seriously. With frameworks like Nuxt we can build really cool sites that look and feel like a single page application but are actually static generated. That means no need for a server but most importantly performance is amazing. Everything is generated at build time.",
+      "conference": "Vue Zurich"
+    },
+    {
+      "type": "video",
+      "title": "An interview with Debbie O'Brien from NuxtJS",
+      "date": "2020-04-29",
+      "tags": [
+        "interviews",
+        "nuxt"
+      ],
+      "url": "https://www.youtube.com/watch?v=aw4nl6hGjb0",
+      "video": "aw4nl6hGjb0",
+      "description": "We have a lovely and LONG conversation about my new job as Head of Learning at Nuxtjs, my ways of working and cultural differences. We flow from tender, insightful moments to jokes.",
+      "host": "Tim Benniks"
+    },
+    {
+      "type": "video",
+      "title": "Static generated sites === great performance. What are you waiting for?",
+      "date": "2020-04-09",
+      "tags": [
+        "conference-talk",
+        "nuxt",
+        "jamstack",
+        "performance"
+      ],
+      "url": "https://www.youtube.com/watch?v=llxPRNZ8wrY",
+      "video": "llxPRNZ8wrY",
+      "description": "Statically generated sites are the future. Seriously. With frameworks like Nuxt we can build really cool sites that look and feel like a single page application but are actually static generated. That means no need for a server but most importantly performance is amazing. Everything is generated at build time.",
+      "conference": "BuildStuff Meetups"
+    },
+    {
+      "type": "video",
+      "title": "From Zero to Hero with several years of Anguish - Bursting through barriers",
+      "date": "2020-04-07",
+      "tags": [
+        "conference-talk",
+        "imposter-syndrome"
+      ],
+      "url": "https://www.youtube.com/watch?v=CEXoGajxY60",
+      "video": "CEXoGajxY60",
+      "description": "Are you afraid to take the next step? Do you think you’re not good enough? Or wonder why you were hired in the first place? This is what we call Impostor Syndrome. Did you know some of the most famous, brilliant and amazing people suffer from it? In this talk I will share my experience and thoughts and hopefully help you take that step to become the developer you really want to become.",
+      "conference": "Zurich and Bern Meetup"
+    },
+    {
+      "type": "video",
+      "title": "Static generated sites === great performance. What are you waiting for?",
+      "date": "2020-03-26",
+      "tags": [
+        "conference-talk",
+        "nuxt",
+        "jamstack",
+        "performance"
+      ],
+      "url": "https://www.youtube.com/watch?v=wTN6BPvs_6g&t=4530s",
+      "video": "wTN6BPvs_6g",
+      "description": "Statically generated sites are the future. Seriously. With frameworks like Nuxt we can build really cool sites that look and feel like a single page application but are actually static generated. That means no need for a server but most importantly performance is amazing. Everything is generated at build time.",
+      "start": 4530,
+      "conference": "Vue Amsterdam Meetup"
+    },
+    {
+      "type": "video",
+      "title": "Full Static with Nuxt",
+      "date": "2020-02-21",
+      "tags": [
+        "conference-talk",
+        "nuxt",
+        "jamstack"
+      ],
+      "url": "https://www.youtube.com/watch?v=joc9j9e-D3s",
+      "video": "joc9j9e-D3s",
+      "description": "Static sites have many benefits from costs to performance and even reducing the carbon footprint. And with the new static module from Nuxt static is going to a whole new level. Static sites are the future and they can used for more than just blogs.",
+      "conference": "Vue Amsterdam"
+    },
+    {
+      "type": "video",
+      "title": "From Zero to Hero with several years of Anguish - Bursting through barriers",
+      "date": "2020-01-14",
+      "tags": [
+        "conference-talk",
+        "imposter-syndrome"
+      ],
+      "url": "https://www.youtube.com/watch?v=CZ3YODmwOcA",
+      "video": "CZ3YODmwOcA",
+      "description": "Are you afraid to take the next step? Do you think you’re not good enough? Or wonder why you were hired in the first place? This is what we call Impostor Syndrome. Did you know some of the most famous, brilliant and amazing people suffer from it? In this talk I will share my experience and thoughts and hopefully help you take that step to become the developer you really want to become.",
+      "conference": "AntarctiConf"
+    },
+    {
+      "type": "video",
+      "title": "From Zero to Hero with several years of Anguish - Bursting through barriers",
+      "date": "2019-11-12",
+      "tags": [
+        "conference-talk",
+        "imposter-syndrome"
+      ],
+      "url": "https://www.youtube.com/watch?v=LXkNSEjUokE",
+      "video": "LXkNSEjUokE",
+      "description": "Are you afraid to take the next step? Do you think you’re not good enough? Or wonder why you were hired in the first place? This is what we call Impostor Syndrome. Did you know some of the most famous, brilliant and amazing people suffer from it? In this talk I will share my experience and thoughts and hopefully help you take that step to become the developer you really want to become.",
+      "conference": "BuildStuff Lithuania"
+    },
+    {
+      "type": "video",
+      "title": "Leave your legacy code behind and go Nuxt",
+      "date": "2019-11-09",
+      "tags": [
+        "conference-talk",
+        "nuxt",
+        "performance"
+      ],
+      "url": "https://www.youtube.com/watch?v=FBEOIuDUZh4",
+      "video": "FBEOIuDUZh4",
+      "description": "It's almost 2020 and there is still so much legacy code around. We need to start migrating. We need to stop being afraid of the migration process. So let's just do it. Where do we start? how do we do it? I will show you how we did it. How we turned our company's vision to stop working with legacy and start working with Vue and Nuxt.",
+      "conference": "Vue Toronto"
+    },
+    {
+      "type": "video",
+      "title": "Static generated sites === great performance. What are you waiting for?",
+      "date": "2019-10-16",
+      "tags": [
+        "conference-talk",
+        "nuxt",
+        "jamstack",
+        "performance"
+      ],
+      "url": "https://www.youtube.com/watch?v=H793eyVM_04",
+      "video": "H793eyVM_04",
+      "description": "Statically generated sites are the future. Seriously. With frameworks like Nuxt we can build really cool sites that look and feel like a single page application but are actually static generated. That means no need for a server but most importantly performance is amazing. Everything is generated at build time.",
+      "conference": "Jamstack Conf"
+    },
+    {
+      "type": "video",
+      "title": "Why you should be vue-ing your performance",
+      "date": "2019-09-12",
+      "tags": [
+        "conference-talk",
+        "nuxt",
+        "vue",
+        "performance"
+      ],
+      "url": "https://www.youtube.com/watch?v=jWqYuPZW9vU",
+      "video": "jWqYuPZW9vU",
+      "description": "Performance is so important for any application and really we all should be vueing it a little more. This lightening talk covers some tips to help you improve your performance of your Vue and Nuxt application.",
+      "conference": "FullStack Fest"
+    },
+    {
+      "type": "video",
+      "title": "Leave your legacy code behind and go Nuxt",
+      "date": "2019-05-31",
+      "tags": [
+        "conference-talk",
+        "nuxt",
+        "performance"
+      ],
+      "url": "https://www.youtube.com/watch?v=EbEVTa7HLsg",
+      "video": "EbEVTa7HLsg",
+      "description": "It's almost 2020 and there is still so much legacy code around. We need to start migrating. We need to stop being afraid of the migration process. So let's just do it. Where do we start? how do we do it? I will show you how we did it. How we turned our company's vision to stop working with legacy and start working with Vue and Nuxt.",
+      "conference": "Vue Alicante"
+    },
+    {
+      "type": "video",
+      "title": "Getting started with nuxt.js + static sites",
+      "date": "2019-04-12",
+      "tags": [
+        "conference-talk",
+        "nuxt",
+        "jamstack"
+      ],
+      "url": "https://www.youtube.com/watch?v=17WrJ99pwXk",
+      "video": "17WrJ99pwXk",
+      "description": "Did you know nuxt.js can pre render all your pages so you can easily create static sites using the Vue.js framework. That means you have a Single Page Application without the need of a server and with great SEO and that's just a few of the benefits of using nuxt.js.",
+      "conference": "Vue Verona"
+    },
+    {
+      "type": "video",
+      "title": "How we made frontend development easy and fast by building a custom built framework",
+      "date": "2018-11-12",
+      "tags": [
+        "conference-talk",
+        "architecture"
+      ],
+      "url": "https://www.youtube.com/watch?v=0feCjLV69Z0",
+      "video": "0feCjLV69Z0",
+      "description": "Building your own framework doesn't sound like the right thing to do but sometimes it is. In this talk I go over the problems we were facing and how we achieved a solution by creating our own framework.",
+      "conference": "BuildStuff Lithuania"
+    },
+    {
+      "type": "video",
+      "title": "How Studying Online With OpenClassrooms Landed Me The Job Of My Dreams",
+      "date": "2017-12-21",
+      "tags": [
+        "interviews",
+        "learning-to-code"
+      ],
+      "url": "https://www.youtube.com/watch?v=Be3N_i4bC34",
+      "video": "Be3N_i4bC34",
+      "description": "I was initially turned away for may roles because I didn't have the required training. So I signed up for OpenClassrooms, and eight months later I got a job as a Front-End Architect at Bluekiri. Here is my story.",
+      "host": "OpenClassrooms"
+    },
+    {
+      "type": "video",
+      "title": "How To Overcome The Biggest Obstacle When Learning Web Development",
+      "date": "2017-09-26",
+      "tags": [
+        "interviews",
+        "learning-to-code"
+      ],
+      "url": "https://www.youtube.com/watch?v=R8ZsDhf5Tis",
+      "video": "R8ZsDhf5Tis",
+      "description": "While studying for a diploma in Front-End Web Development I get flown to Paris and interviewed about my experience learning to code online.",
+      "host": "OpenClassrooms"
+    },
+    {
+      "type": "podcast",
+      "title": "The Role of AI in Testing with Debbie O'Brien",
+      "date": "2026-07-16",
+      "tags": [
+        "testing",
+        "playwright"
+      ],
+      "url": "https://www.dotnetrocks.com/details/2011",
+      "description": "How has testing changed in the era of AI? Carl and Richard talk to Debbie O'Brien about using LLMs to help build and validate tests, drawing on her work at Zephyr Cloud. Debbie talks about using Playwright to validate application workflows and generate documentation. This leads to a discussion about documentation being more important than ever, since LLMs will actually read it! Maintaining quality is a challenge with LLM-generated code and tests, so there's always a role for a critical eye in the process.",
+      "host": ".NET Rocks"
+    },
+    {
+      "type": "podcast",
+      "title": "Coffee and Open Source Conversation - Debbie O'Brien",
+      "date": "2026-05-19",
+      "tags": [
+        "dev-rel",
+        "playwright",
+        "testing"
+      ],
+      "url": "https://www.coffeeandopensource.com/guest/debbie-o-brien.html",
+      "description": "Debbie joins Isaac Levin on Coffee and Open Source to chat about her journey in frontend development, working in dev rel, her love for Vue.js and Nuxt.js, and her current focus on end-to-end testing with Playwright.",
+      "host": "Coffee and Open Source"
+    },
+    {
+      "type": "podcast",
+      "title": "Future of Testing | Debbie O'Brien on Playwright, MCP, and AI-Driven Testing",
+      "date": "2026-01-19",
+      "tags": [
+        "playwright",
+        "testing",
+        "mcp"
+      ],
+      "url": "https://www.youtube.com/watch?v=j2n58sSZheo",
+      "description": "In this episode, I'm joined by Debbie O'Brien, long-time Playwright advocate and testing expert, to talk about the future of software testing, automation, and AI-driven workflows. Debbie recently transitioned out of the Playwright core team and now continues her work as a Playwright ambassador. We talk openly about what that change means, how she views the future of Playwright, and what's next for her personally and professionally.",
+      "host": "alexusadays"
+    },
+    {
+      "type": "podcast",
+      "title": "How to Test with Playwright - Debbie O'Brien",
+      "date": "2026-01-19",
+      "tags": [
+        "playwright",
+        "testing",
+        "mcp"
+      ],
+      "url": "https://www.youtube.com/watch?v=2d4FtmO8Xas",
+      "description": "In this episode of \"How to Test This,\" we are joined by Debbie O'Brien, Global Community Lead and key contributor to the Playwright framework. Topics discussed include her journey from a front-end developer to a leader in the testing community, Playwright as a powerful tool for end-to-end testing, common mistakes teams make when using Playwright, the role of AI in testing and MCP, and practical advice for aspiring test automation engineers.",
+      "host": "How To Test This Podcast"
+    },
+    {
+      "type": "podcast",
+      "title": "Open Source, Cycling and What's Next with Debbie O'Brien",
+      "date": "2026-01-02",
+      "tags": [
+        "dev-rel"
+      ],
+      "url": "https://www.harper.fast/resources/open-source-cycling-and-what-s-next-with-debbie-o-brien",
+      "description": "Join Debbie O'Brien on the Select * Podcast as she shares insights on open source, and developer experience, and family.",
+      "host": "Select * Podcast"
+    },
+    {
+      "type": "podcast",
+      "title": "Playwright - with Debbie O'Brien",
+      "date": "2025-12-27",
+      "tags": [
+        "testing",
+        "playwright",
+        "mcp"
+      ],
+      "url": "https://unhandledexceptionpodcast.com/posts/0083-playwright/",
+      "description": "In this episode, Debbie O'Brien chats about Playwright - Microsoft's open-source end-to-end testing framework. Topics covered include Codegen, Trace Viewer, UI Mode, and AI features including the Playwright MCP Server which enables AI agents to automate browser interactions.",
+      "host": "The Unhandled Exception Podcast"
+    },
+    {
+      "type": "podcast",
+      "title": "Testing Made Easy: Debbie O'Brien Explains Playwright and its Game-Changing MCP Server",
+      "date": "2025-09-15",
+      "tags": [
+        "playwright",
+        "testing",
+        "mcp"
+      ],
+      "url": "https://dotnetcore.show/season-8/testing-made-easy-debbie-obrien-explains-playwright-and-its-game-changing-mcp-server/",
+      "description": "Debbie O'Brien discussed her experience with Playwright and its MCP Server. She highlighted the importance of keeping up with technology and not getting complacent, as new tools and features are constantly emerging. Debbie shared her own journey from being a JavaScript developer to becoming more comfortable working in .NET, citing AI's role in facilitating this transition.",
+      "host": "The Modern .NET Show"
+    },
+    {
+      "type": "podcast",
+      "title": "TestGuild Automation Podcast - Playwright Expert Interview",
+      "date": "2025-07-08",
+      "tags": [
+        "playwright",
+        "testing"
+      ],
+      "url": "https://testguild.com/podcast/automation/a552-debbie/",
+      "description": "Join Debbie O'Brien as she shares her expertise on Playwright testing, automation best practices, and the future of web application testing. Learn from real-world experiences and discover how to implement effective testing strategies in your development workflow.",
+      "host": "TestGuild"
+    },
+    {
+      "type": "podcast",
+      "title": "Angular Show - Playwright Takes Center Stage",
+      "date": "2025-07-07",
+      "tags": [
+        "playwright",
+        "testing"
+      ],
+      "url": "https://podcasts.apple.com/us/podcast/s9-e14-playwright-takes-center-stage-debbie-obrien/id1501989276?i=1000716318022",
+      "description": "Debbie O'Brien joins the podcast to discuss how Playwright is revolutionizing the testing landscape. From its cross-browser capabilities to its developer-friendly APIs, learn why Playwright is becoming the go-to choice for modern web application testing.",
+      "host": "Angular Show"
+    },
+    {
+      "type": "podcast",
+      "title": "Changing Testing using Playwright MCP with Debbie O'Brien",
+      "date": "2025-06-05",
+      "tags": [
+        "testing",
+        "playwright",
+        "mcp"
+      ],
+      "url": "https://www.dotnetrocks.com/details/1954",
+      "description": "What happens when AI comes to your web testing tool? While at Build, Carl and Richard talked to Debbie O'Brien about the latest features in Playwright, including Playwright MCP, the model control plane for Playwright capabilities. Debbie talks about using Playwright MCP to buy a table. Ask your LLM what tests should be written for your web page, and then ask it to write them.",
+      "host": ".NET Rocks"
+    },
+    {
+      "type": "podcast",
+      "title": "Playwright with Debbie O’Brien",
+      "date": "2023-05-25",
+      "tags": [
+        "playwright",
+        "testing"
+      ],
+      "url": "https://webrush.io/episodes/episode-235-playwright-with-debbie-obrien",
+      "description": "Debbie O’Brien talks with us about Playwright, writing tests with different languages, the Playwright VS Code extension, visual comparison testing, automating tests with Playwright, and migration tools to move to Playwright.",
+      "host": "Web Rush"
+    },
+    {
+      "type": "podcast",
+      "title": "Playwright with Debbie O’Brien and Max Schmitt",
+      "date": "2023-05-23",
+      "tags": [
+        "playwright",
+        "testing"
+      ],
+      "url": "https://legacycoderocks.libsyn.com/playwright-with-debbie-obrien-and-max-schmitt",
+      "description": "Microsoft invited the Legacy Code Rocks team to attend Microsoft Build Conference in the Seattle Convention Center. In this episode, we talk with Debbie O’Brien and Max Schmitt, both part of the Microsoft Playwright team..",
+      "host": "Legacy Rocks"
+    },
+    {
+      "type": "podcast",
+      "title": "Web Testing with Playwright",
+      "date": "2023-05-12",
+      "tags": [
+        "playwright",
+        "testing"
+      ],
+      "url": "https://podcasters.spotify.com/pod/show/qa-therapy-podcast/episodes/S3-E19-Web-Testing-with-Playwright-e23scj3",
+      "description": "Are you unsure of what framework to adopt for web testing? Tools such as Playwright, backed by Microsoft and a big community, are a great option.",
+      "host": "QA Therapy"
+    },
+    {
+      "type": "podcast",
+      "title": "Your testing questions answered",
+      "date": "2023-02-28",
+      "tags": [
+        "playwright",
+        "testing"
+      ],
+      "url": "https://podrocket.logrocket.com/mailbag-1",
+      "description": "In our first-ever mailbag episode, testing experts Debbie O’Brien, Gleb Bahmutov, and Kent C. Dodds answer your questions about testing.",
+      "host": "PodRocket"
+    },
+    {
+      "type": "podcast",
+      "title": "Web Testing And Automations With Playwright",
+      "date": "2023-01-07",
+      "tags": [
+        "playwright",
+        "testing"
+      ],
+      "url": "https://topenddevs.com/podcasts/views-on-vue/web-testing-and-automations-with-playwright-vue-206",
+      "description": "Steve and Debbie talk about the Microsoft tool called “Playwright”. It is a framework for Web Testing and Automation. Moreover, they go into how the testing works, its useful features, and how it has more advantages than other testing solutions.",
+      "host": "Steve Edwards"
+    },
+    {
+      "type": "podcast",
+      "title": "e2e Testing with Playwright and the use of codegen",
+      "date": "2022-12-04",
+      "tags": [
+        "playwright",
+        "testing"
+      ],
+      "url": "https://www.betabit.nl/en/betatalks-the-podcast/45-end-to-end-testing-with-playwright-and-the-use-of-codegen-with-debbie-obrien",
+      "description": "What problems do Playwright and codegen solve? And what’s coming in the near future? Moreover, we elaborate on what Playwright exactly is; its best features and benefits, what it does differently, and how easily it integrates.",
+      "host": "Betatalks"
+    },
+    {
+      "type": "podcast",
+      "title": "All about Playwright",
+      "date": "2022-11-24",
+      "tags": [
+        "playwright",
+        "testing"
+      ],
+      "url": "https://changelog.com/jsparty/253",
+      "description": "deep-dive on Playwright, an automation library for cross-browser end-to-end testing. Along the way, we learn Playwright’s unique value proposition, cool features like auto-waiting & the trace viewer, how it compares to Cypress & a lot more.",
+      "host": "JS Party"
+    },
+    {
+      "type": "podcast",
+      "title": "e2e Testing with Playwright",
+      "date": "2022-10-24",
+      "tags": [
+        "playwright",
+        "testing"
+      ],
+      "url": "https://www.compressed.fm/episode/98",
+      "description": "Debbie discusses the importance of end to end testing as well as her work at Microsoft.",
+      "host": "Compressed fm"
+    },
+    {
+      "type": "podcast",
+      "title": "Testing Web Apps using Playwright",
+      "date": "2022-10-13",
+      "tags": [
+        "playwright",
+        "testing"
+      ],
+      "url": "https://open.spotify.com/episode/35ofJFdyBhDlZQDE91iaq9",
+      "description": "How do you test your web applications? Carl and Richard talk to Debbie O'Brien about Playwright, Microsoft's new open-source web application testing tool. Playwright lets you build tests in an array of languages, platforms, and browsers. Debbie talks about how you can build atomic tests that will survive new versions, and test independently of other features. And when tests fail, Playwright generates a PWA of the test run showing exactly where the test fails!",
+      "host": ".NET Rocks"
+    },
+    {
+      "type": "podcast",
+      "title": "Component testing with Playwright",
+      "date": "2022-10-04",
+      "tags": [
+        "playwright",
+        "testing"
+      ],
+      "url": "https://podrocket.logrocket.com/playwright",
+      "description": "Debbie O’Brien, Senior Technical Program Manager at Microsoft and advocate for Playwright, comes to talk about how Playwright provides end-to-end testing, component testing, and more!",
+      "host": "PodRocket"
+    },
+    {
+      "type": "podcast",
+      "title": "Transition from Nuxt to React",
+      "date": "2022-04-01",
+      "tags": [
+        "nuxt",
+        "react"
+      ],
+      "url": "https://open.spotify.com/episode/2pQNVdLkGXL0f9QVHFlnpK?si=4b9c466d3b2a4fc3&nd=1",
+      "description": "Debbie O’Brien is an expert as she advocates, gives talks on and helps with documentation on Nuxt. But she recently had to transition to the React world, which meant transitioning from being an expert in her field to a junior developer again. Stay tuned and learn how she navigated the change.",
+      "host": "JS World, Passionate People"
+    },
+    {
+      "type": "podcast",
+      "title": "Ant-man and the Wasp - w/ Debbie O'Brien",
+      "date": "2021-10-06",
+      "tags": [
+        "bit"
+      ],
+      "url": "https://frontendheroes.transistor.fm/episodes/ant-man-and-the-wasp-w-debbie-obrien",
+      "description": "We talk about starting out in the frontend, how to keep learning and growing, even while switching from one paradigm to another to another.  We also talk a fair amount about the concepts behind Bit, getting an understanding of what problems it tries to solve and why.",
+      "host": "Scott Francis and Evan Payne"
+    },
+    {
+      "type": "podcast",
+      "title": "Tu Código me suena",
+      "date": "2021-09-16",
+      "tags": [
+        "bit"
+      ],
+      "url": "https://anchor.fm/tu-codigo-me-suena/episodes/05---Pasamos-fro-en-la-Antrtida--mientras-tenemos-un-combate-de-taekwondo-y-vamos-en-bici-e153d1o",
+      "description": "En este quinto episodio conoceremos a una persona que ha dado una charla en la Antartida, es dev advocate y dan 4 cinturón negro en taekwondo, además fue actriz y le encanta ir en bici.",
+      "host": "Quique Fdez Guerra"
+    },
+    {
+      "type": "podcast",
+      "title": "Developer Advocacy from Nuxt to React",
+      "date": "2021-07-26",
+      "tags": [
+        "dev-rel"
+      ],
+      "url": "https://enjoythevue.io/episodes/71/",
+      "description": "Transitioning from being a developer to team leader to working as a developer advocate, Debbie shares her passionate take on KPIs as well as the lessons she learned from the book Surrounded by Idiots. We delve into the traits that make up a good developer advocate and discuss why there\\’s a need for companies to introduce the role of junior developer advocate. Later Debbie shares some of the learning challenges you\\’ll experience as a developer advocate and how she adapted to learning React under high-pressure circumstances.",
+      "host": "Enjoy the Vue"
+    },
+    {
+      "type": "podcast",
+      "title": "Bit with Debbie O'Brien",
+      "date": "2021-07-12",
+      "tags": [
+        "nuxt",
+        "bit"
+      ],
+      "url": "https://fsjam.org/35",
+      "description": "In this episode we discuss workflows to enable sharing components across large codebases, how to make reusable frontend code, and techniques for navigating digital work environments.",
+      "host": "FSJam"
+    },
+    {
+      "type": "podcast",
+      "title": "Developer Advocacy, Navigating Tech, & Frontend Dev#",
+      "date": "2021-05-08",
+      "tags": [
+        "bit",
+        "dev-rel"
+      ],
+      "url": "https://rss.com/podcasts/harperdb-select-star/200839/",
+      "description": "In SELECT* episode 6, Margo chats with Debbie O'Brien on her interesting journey into tech and across numerous roles, from leading a dev team into dev advocacy, and more! She shares a bit about her initial career shift and learning to code and what it's like to work at Bit.",
+      "host": "Margo McCabe"
+    },
+    {
+      "type": "podcast",
+      "title": "Managing Component Architecture",
+      "date": "2021-03-24",
+      "tags": [
+        "bit"
+      ],
+      "url": "https://dev.to/modernweb/s08e07-modern-web-podcast-managing-component-architecture-with-debbie-o-brien",
+      "description": "In this episode, Tracy Lee interviews Debbie about bit.dev, a new open source tool for helping developer share components. We learn how to use Bit to manage component architecture, think in components, and how this can help you a build more scalable, reusable codebase and work across teams.",
+      "host": "Tracy Lee"
+    },
+    {
+      "type": "podcast",
+      "title": "From Nuxt to React",
+      "date": "2021-03-17",
+      "tags": [
+        "nuxt",
+        "react",
+        "bit"
+      ],
+      "url": "https://topenddevs.com/podcasts/views-on-vue/vue-142-from-nuxt-to-react-catching-up-with-debbie-o-brien",
+      "description": "Lindsay and Steve talk with Debbie about her new position, about what Bit is, and how they are bringing a new approach to component development. We also talk about how Debbie is having to learn React and ways we learn new frameworks and libraries.",
+      "host": "Lindsay Wardall, Steve Edwards"
+    },
+    {
+      "type": "podcast",
+      "title": "Redefining JamStack",
+      "date": "2021-02-28",
+      "tags": [
+        "nuxt",
+        "jamstack"
+      ],
+      "url": "https://www.heavybit.com/library/podcasts/jamstack-radio/ep-74-redefining-jamstack-with-debbie-obrien-of-nuxtjs",
+      "description": "In episode 74 of JAMstack Radio, Brian speaks with Debbie O’Brien of NuxtJS. They discuss the use cases of NuxtJS, tactics for engaging open source communities, and the importance of rewarding project maintainers.",
+      "host": "Brian Douglas"
+    },
+    {
+      "type": "podcast",
+      "title": "Speaking to an Online Audience",
+      "date": "2021-01-01",
+      "tags": [
+        "nuxt"
+      ],
+      "url": "https://podcasts.apple.com/us/podcast/2-debbie-obrien-speaking-to-an-online-audience/id1544906363?i=1000503628662",
+      "description": "I caught up with Debbie last month to talk about bullying in the workplace, burnout, advancing your career, and tips for speaking to an online audience",
+      "host": "Christina Aldan"
+    },
+    {
+      "type": "podcast",
+      "title": "Whiskey Wednesday Mentorship",
+      "date": "2020-10-07",
+      "tags": [
+        "mentoring"
+      ],
+      "url": "https://anchor.fm/whiskey-wednesday/episodes/Episode-10---Mentorship-eko1me",
+      "description": "Finding a mentor when starting out as a beginner (and also after) is important and not always an easy task. In this episode, we will talk about everything you need to know when looking for a mentor, or becoming a mentor.",
+      "host": "Simon McManus"
+    },
+    {
+      "type": "podcast",
+      "title": "Nuxtify Everything",
+      "date": "2020-09-20",
+      "tags": [
+        "nuxt"
+      ],
+      "url": "https://topenddevs.com/podcasts/views-on-vue/vov-118-nuxtify-everything-with-debbie-o-brien",
+      "description": "In this episode we discuss Nuxt becoming a company, the new component and content modules, and the static module. We also talk about enhancements to the Nuxt documentation, providing new ways to learn Nuxt and ways to integrate it with other technologies.",
+      "host": "Lindsay Wardall, Steve Edwards"
+    },
+    {
+      "type": "podcast",
+      "title": "CityJS Conference",
+      "date": "2020-08-23",
+      "tags": [
+        "nuxt"
+      ],
+      "url": "https://podimo.com/en/shows/london-node-user-group-lnug-podcast/episode/b4e6f280-3e61-43f6-ab4c-2d7d082cce7d",
+      "description": "A look at the upcoming online CityJS event, what to expect from an online conference and we get some insight from some of the speakers.",
+      "host": "Simon McManus"
+    },
+    {
+      "type": "podcast",
+      "title": "NuxtJS and the JamStack",
+      "date": "2020-07-06",
+      "tags": [
+        "nuxt"
+      ],
+      "url": "https://thatsmyjamstack.com/episodes/debbie-obrien/",
+      "description": "Debbie O'Brien on NuxtJS, web frameworks, creating your own framework and more",
+      "host": "Bryan Robinson"
+    },
+    {
+      "type": "podcast",
+      "title": "Desarrollo en NuxtJS",
+      "date": "2020-06-20",
+      "tags": [
+        "nuxt"
+      ],
+      "url": "https://www.danielprimo.io/blog/desarrolla-nuxtjs-con-debbie-o-brien",
+      "description": "Qué consiste mi labor profesional y como he crecido como desarrolladora a lo largo de los años (un proceso que cuento de forma muy divertida).",
+      "host": "Daniel Primo"
+    },
+    {
+      "type": "podcast",
+      "title": "Nuxt and Next Steps",
+      "date": "2020-05-18",
+      "tags": [
+        "nuxt"
+      ],
+      "url": "https://enjoythevue.io/episodes/17/",
+      "description": "Debbie tells us all about Nuxt. She even has an exciting announcement about a new release coming soon with Markdown in Nuxt that has the panel super excited! There is talk about WordPress Headless CMS and Wiziwig.",
+      "host": "Aria Clark, Ben Hong, Tessa"
+    },
+    {
+      "type": "podcast",
+      "title": "Contributing to Open Source",
+      "date": "2019-08-06",
+      "tags": [
+        "nuxt"
+      ],
+      "url": "https://topenddevs.com/podcasts/views-on-vue/vov-073-contributing-to-open-source-with-debbie-o-brien",
+      "description": "Becoming a programmer and how I got into Vue and contributing to open source projects. The panel talks about contributing to open source and how to get started contributing.",
+      "host": "Chris Fritz, Ben Hong, Aria Clark"
+    },
+    {
+      "type": "course",
+      "title": "Learn Agent Skills",
+      "date": "2026-03-05",
+      "tags": [
+        "ai",
+        "skills",
+        "agents"
+      ],
+      "url": "https://github.com/debs-obrien/learn-agent-skills",
+      "description": "A hands-on tutorial series for building agent skills. Reusable instructions that teach AI coding agents how to do specific tasks well."
+    },
+    {
+      "type": "course",
+      "title": "Let's Learn MCP JavaScript + TypeScript",
+      "date": "2025-07-21",
+      "tags": [
+        "mcp",
+        "ai",
+        "typescript"
+      ],
+      "url": "https://www.youtube.com/watch?v=AKjW94vQZkc",
+      "description": "Live session with the VS Code team on Model Context Protocol in JavaScript and TypeScript, plus the companion repo."
+    },
+    {
+      "type": "course",
+      "title": "Playwright Movies App",
+      "date": "2025-01-09",
+      "tags": [
+        "playwright",
+        "testing"
+      ],
+      "url": "https://github.com/debs-obrien/playwright-movies-app",
+      "description": "A movies app with Playwright tests. Clone it, break it, and learn end-to-end testing against a real UI."
+    },
+    {
+      "type": "course",
+      "title": "React for Beginners",
+      "date": "2022-03-06",
+      "tags": [
+        "react"
+      ],
+      "url": "https://www.youtube.com/playlist?list=PLtIMuymsF0jdUeZetvF9S9djZuNGIm3GM",
+      "description": "Complete Beginners guide to building your first React Component using the new React Docs and doing the coding challenges."
+    },
+    {
+      "type": "course",
+      "title": "Nuxt Series",
+      "date": "2021-04-15",
+      "tags": [
+        "nuxt"
+      ],
+      "url": "https://www.youtube.com/playlist?list=PLtIMuymsF0jcsFDIAq6fGGU2kuOFrFPSm",
+      "description": "Using create-nuxt-app to get started with Nuxt and many more videos showing off Nuxt and all its features."
+    },
+    {
+      "type": "course",
+      "title": "Get Started with Nuxt",
+      "date": "2021-01-06",
+      "tags": [
+        "nuxt"
+      ],
+      "url": "https://explorers.netlify.com/learn/get-started-with-nuxt",
+      "description": "Nuxt.js is a Vue framework for building static and server-side rendered sites. This mission will walk you through the essentials of building a Nuxt.js site from the ground up."
+    },
+    {
+      "type": "course",
+      "title": "Vue-Apollo GraphQL Fundamentals",
+      "date": "2020-11-15",
+      "tags": [
+        "graphql",
+        "apollo",
+        "vue"
+      ],
+      "url": "https://vueschool.io/courses/vue-apollo-graphql-fundamentals",
+      "description": "Learn how to consume and use GraphQL APIs in your Vue.js apps with Vue-Apollo."
+    },
+    {
+      "type": "course",
+      "title": "GraphQL Fundamentals",
+      "date": "2020-09-04",
+      "tags": [
+        "graphql"
+      ],
+      "url": "https://vueschool.io/courses/learn-graphql-fundamentals",
+      "description": "GraphQL is a fantastic new API standard that provides a more efficient, powerful, and flexible alternative to REST. In this course, you'll learn the fundamentals of GraphQL."
+    },
+    {
+      "type": "course",
+      "title": "Internationalization with vue-i18n",
+      "date": "2019-09-20",
+      "tags": [
+        "vue",
+        "i18n"
+      ],
+      "url": "https://vueschool.io/courses/internationalization-with-vue-i18n",
+      "description": "Master internationalization and learn how to create multilingual websites and vue.js applications with vue-i18n."
+    },
+    {
+      "type": "course",
+      "title": "Vue Router for Everyone",
+      "date": "2019-07-15",
+      "tags": [
+        "vue",
+        "router"
+      ],
+      "url": "https://vueschool.io/courses/vue-router-for-everyone",
+      "description": "Learn how to build powerful Single Page Applications in Vue with the Vue Router."
+    }
+  ]
+}

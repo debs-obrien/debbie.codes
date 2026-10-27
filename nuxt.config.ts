@@ -1,7 +1,10 @@
+import { generateContentIndex } from './scripts/generate-content-index.mjs'
 import { generateSitemap } from './scripts/generate-sitemap.mjs'
 
 // Static public/sitemap.xml — avoids Netlify Function/SQLite 500s for /sitemap.xml.
 generateSitemap()
+// Static public/webmcp/content-index.json and public/llms.txt.
+generateContentIndex()
 
 export default defineNuxtConfig({
   srcDir: '.',
@@ -91,6 +94,13 @@ export default defineNuxtConfig({
   },
 
   compatibilityDate: '2025-03-13',
+
+  runtimeConfig: {
+    public: {
+      webmcpOtChrome: '',
+      webmcpOtEdge: '',
+    },
+  },
 
   nitro: {
     prerender: {

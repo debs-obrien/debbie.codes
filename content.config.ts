@@ -16,8 +16,8 @@ export default defineContentConfig({
         ogImage: z.string().optional(),
         published: z.boolean(),
         canonical: z.string().url().optional(),
-        featured: z.boolean().optional()
-      })
+        featured: z.boolean().optional(),
+      }),
     }),
     courses: defineCollection({
       source: 'courses/*.md',
@@ -30,8 +30,8 @@ export default defineContentConfig({
         image: z.string(),
         provider: z.string(),
         tags: z.array(z.string()),
-        platform: z.string()
-      })
+        platform: z.string(),
+      }),
     }),
     openSource: defineCollection({
       source: 'open-source/*.md',
@@ -42,8 +42,8 @@ export default defineContentConfig({
         description: z.string(),
         url: z.string().url(),
         image: z.string(),
-        tags: z.array(z.string())
-      })
+        tags: z.array(z.string()),
+      }),
     }),
     podcasts: defineCollection({
       source: 'podcasts/*.md',
@@ -57,8 +57,8 @@ export default defineContentConfig({
         tags: z.array(z.string()),
         host: z.string(),
         provider: z.string().default('cloudinary'),
-        featured: z.boolean().optional()
-      })
+        featured: z.boolean().optional(),
+      }),
     }),
     tips: defineCollection({
       source: 'tips/*.md',
@@ -67,8 +67,8 @@ export default defineContentConfig({
         title: z.string(),
         date: z.string(),
         description: z.string(),
-        tags: z.array(z.string())
-      })
+        tags: z.array(z.string()),
+      }),
     }),
     videos: defineCollection({
       source: 'videos/*.md',
@@ -82,10 +82,14 @@ export default defineContentConfig({
         tags: z.array(z.string()),
         host: z.string().optional(),
         conference: z.string().optional(),
+        chapters: z.array(z.object({
+          time: z.number(),
+          title: z.string(),
+        })).optional(),
         image: z.string(),
         featured: z.boolean().optional(),
-        featuredOrder: z.number().optional()
-      })
+        featuredOrder: z.number().optional(),
+      }),
     }),
     about: defineCollection({
       source: 'about.md',
@@ -94,5 +98,5 @@ export default defineContentConfig({
         title: z.string(),
       }),
     }),
-  }
+  },
 })
