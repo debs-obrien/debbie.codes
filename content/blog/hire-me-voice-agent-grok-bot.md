@@ -38,8 +38,6 @@ The page is live at [debbie.codes/hire-me](https://debbie.codes/hire-me), and "H
 
 ![The site menu with Hire me at the end.](/images/blog/hire-me-voice-agent-grok-bot/02-desktop-nav.png)
 
-![The mobile menu with Hire me.](/images/blog/hire-me-voice-agent-grok-bot/03-mobile-menu.png)
-
 ## What's on the page
 
 The page is one long read, written in my own words:
