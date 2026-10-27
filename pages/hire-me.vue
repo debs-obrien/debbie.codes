@@ -252,8 +252,7 @@ useHead(() => ({
 </script>
 
 <template>
-  <!-- Extra mobile bottom padding so the voice widget footer does not cover last content -->
-  <main class="max-w-3xl mx-auto px-4 sm:px-6 pt-10 pb-28 sm:pb-10">
+  <main class="max-w-3xl mx-auto px-4 sm:px-6 py-10">
     <h1 class="text-4xl sm:text-5xl font-bold mb-6">
       Hire me
     </h1>
@@ -468,5 +467,17 @@ summary::before {
 
 details[open] > summary::before {
   content: '−';
+}
+</style>
+
+<!--
+  Mobile: reserve space for the fixed voice widget (sheet + small footer)
+  so the last page content and site footer are not covered. Widget stays visible.
+-->
+<style>
+@media (max-width: 639px) {
+  body:has(elevenlabs-convai) {
+    padding-bottom: 10rem;
+  }
 }
 </style>
