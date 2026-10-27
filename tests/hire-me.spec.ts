@@ -36,10 +36,24 @@ test.describe('Hire me page (PoC, preview only)', () => {
 
     await expect(page.getByRole('heading', { name: 'Questions recruiters ask me', level: 2 })).toBeVisible();
     await expect(page.getByText('Tell me about yourself')).toBeVisible();
+    await expect(page.getByText('What is your quality bar for content?')).toHaveCount(0);
 
+    const assistant = page.locator('section[aria-labelledby="hire-me-assistant-heading"]');
     await expect(page.getByRole('heading', { name: 'Ask about Debbie (prototype)', level: 2 })).toBeVisible();
+    await expect(assistant.getByText(/answers recruiter questions about my work, numbers and the roles/i)).toBeVisible();
+    await expect(assistant.getByText('Try asking:')).toBeVisible();
+    await expect(assistant.getByText('What has Debbie done with Playwright and MCP?')).toBeVisible();
+    await expect(assistant.getByText('What roles is she looking for?')).toBeVisible();
+    await expect(assistant.getByText('What results has she had with developer content?')).toBeVisible();
+
     const widget = page.locator('elevenlabs-convai');
     await expect(widget).toHaveAttribute('agent-id', hireMeAgentId);
+    await expect(widget).toHaveAttribute(
+      'action-text',
+      'Questions about hiring Debbie? Talk to her AI assistant'
+    );
+    await expect(widget).toHaveAttribute('start-call-text', 'Start voice call');
+    await expect(widget).toHaveAttribute('end-call-text', 'End call');
 
     await expect(page.getByRole('banner').getByRole('link', { name: /hire me/i })).toHaveCount(0);
     await expect(page.locator('footer').getByRole('link', { name: /hire me/i })).toHaveCount(0);

@@ -93,12 +93,6 @@ const recruiterQuestions = [
       'I built playwright-movies-app as a teaching demo in Jan 2025. When I moved on, its cloud backend was no longer available, so I replaced it with a mock API and a simple hosted login. The live demo and the learn site still work, and the repo has over 100 stars.',
     ],
   },
-  {
-    question: 'What is your quality bar for content?',
-    answer: [
-      'If I wouldn\'t send it to a senior engineer I respect, it doesn\'t go up. If I hear the same confusion three times, that\'s a bug in my content.',
-    ],
-  },
 ]
 
 const moreQuestions = [
@@ -146,6 +140,16 @@ const projects = [
   'An agent that explores a real desktop app every hour with Playwright and files bug reports for a second agent to fix.',
   'Small voice projects: a release-video agent skill that narrates in my cloned voice, a two-voice podcast made from one of my blog posts, and an earlier course voice assistant prototype.',
 ]
+
+const askExamples = [
+  'What has Debbie done with Playwright and MCP?',
+  'What roles is she looking for?',
+  'What results has she had with developer content?',
+]
+
+const widgetActionText = 'Questions about hiring Debbie? Talk to her AI assistant'
+const widgetStartCallText = 'Start voice call'
+const widgetEndCallText = 'End call'
 
 useHead(() => ({
   title: 'Hire me',
@@ -205,10 +209,23 @@ useHead(() => ({
         Ask about Debbie (prototype)
       </h2>
       <p class="text-gray-600 dark:text-gray-300 mb-4">
-        This is a voice prototype that answers from this page. It needs microphone access.
+        A voice assistant that answers recruiter questions about my work, numbers and the roles I'm looking for. It's a prototype and needs your microphone.
       </p>
+      <p class="font-semibold text-gray-900 dark:text-white mb-2">
+        Try asking:
+      </p>
+      <ul class="list-disc pl-5 mb-6 space-y-1 text-gray-700 dark:text-gray-200">
+        <li v-for="example in askExamples" :key="example">
+          {{ example }}
+        </li>
+      </ul>
       <ClientOnly>
-        <elevenlabs-convai :agent-id="hireMeAgentId" />
+        <elevenlabs-convai
+          :agent-id="hireMeAgentId"
+          :action-text="widgetActionText"
+          :start-call-text="widgetStartCallText"
+          :end-call-text="widgetEndCallText"
+        />
       </ClientOnly>
     </section>
 
