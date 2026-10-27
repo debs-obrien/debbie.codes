@@ -680,6 +680,7 @@ async function driveNavigation(page, state, flags) {
     ['Courses', /\/courses\/?$/],
     ['Blog', /\/blog\/?$/],
     ['Now', /\/now\/?$/],
+    ['Hire me', /\/hire-me\/?$/],
   ]
   for (const [name, pattern] of headerLinks) {
     await expect(async () => {

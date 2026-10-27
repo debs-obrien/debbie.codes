@@ -240,10 +240,6 @@ useHead(() => ({
       name: 'description',
       content: 'I\'m Debbie, an Independent Developer Educator in Palma, Spain. I teach developers to build with AI agents, MCP and Playwright.',
     },
-    {
-      name: 'robots',
-      content: 'noindex, nofollow',
-    },
   ],
   script: showVoiceAgent.value
     ? [{
@@ -256,7 +252,8 @@ useHead(() => ({
 </script>
 
 <template>
-  <main class="max-w-3xl mx-auto px-4 sm:px-6 py-10">
+  <!-- Extra mobile bottom padding so the voice widget footer does not cover last content -->
+  <main class="max-w-3xl mx-auto px-4 sm:px-6 pt-10 pb-28 sm:pb-10">
     <h1 class="text-4xl sm:text-5xl font-bold mb-6">
       Hire me
     </h1>

@@ -20,6 +20,7 @@ const staticRoutes = [
   '/courses',
   '/blog',
   '/now',
+  '/hire-me',
   '/contact',
 ]
 

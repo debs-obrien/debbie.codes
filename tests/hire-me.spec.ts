@@ -11,7 +11,7 @@ const expectedGithubHrefs = [
   'https://github.com/debs-obrien/debbie.codes'
 ];
 
-// PoC voice widget on /hire-me; abort so networkidle stays reliable (same as #667).
+// Voice widget on /hire-me; abort so networkidle stays reliable (same as #667).
 async function blockElevenLabs(page: import('@playwright/test').Page) {
   await page.route(/unpkg\.com|elevenlabs\.io|api\.elevenlabs/, route => route.abort());
 }
@@ -30,8 +30,8 @@ const pageWideBanned = [
   'salary'
 ];
 
-test.describe('Hire me page (PoC, preview only)', () => {
-  test('is reachable, noindex, undiscoverable, and keeps private names out', async ({ page, request }) => {
+test.describe('Hire me page', () => {
+  test('is reachable, indexable, linked from nav, in sitemap, and keeps private names out', async ({ page, request }) => {
     await blockElevenLabs(page);
 
     const res = await page.goto('/hire-me');
@@ -40,8 +40,11 @@ test.describe('Hire me page (PoC, preview only)', () => {
     await expect(page.getByRole('heading', { name: 'Hire me', level: 1 })).toBeVisible();
 
     const robots = page.locator('meta[name="robots"]');
-    await expect(robots).toHaveAttribute('content', /noindex/);
-    await expect(robots).toHaveAttribute('content', /nofollow/);
+    if (await robots.count()) {
+      const content = await robots.first().getAttribute('content');
+      expect(content ?? '', 'hire-me must be indexable').not.toMatch(/noindex/i);
+      expect(content ?? '', 'hire-me must be followable').not.toMatch(/nofollow/i);
+    }
 
     await expect(page.getByRole('heading', { name: 'Numbers at a glance', level: 2 })).toBeVisible();
     await expect(page.locator('section[aria-labelledby="numbers-heading"] li').first()).toBeVisible();
@@ -73,9 +76,27 @@ test.describe('Hire me page (PoC, preview only)', () => {
     const widget = page.locator('elevenlabs-convai');
     await expect(widget).toHaveAttribute('agent-id', hireMeAgentId);
 
-    await expect(page.getByRole('banner').getByRole('link', { name: /hire me/i })).toHaveCount(0);
-    await expect(page.locator('footer').getByRole('link', { name: /hire me/i })).toHaveCount(0);
-    await expect(page.locator('a[href="/hire-me"], a[href="/hire-me/"]')).toHaveCount(0);
+    // Desktop nav: Hire me is visible and goes to /hire-me
+    await page.setViewportSize({ width: 1280, height: 720 });
+    await page.goto('/');
+    const desktopHireMe = page.getByRole('navigation').getByRole('link', { name: 'Hire me' });
+    await expect(desktopHireMe).toBeVisible();
+    await desktopHireMe.click();
+    await expect(page).toHaveURL(/\/hire-me\/?$/);
+
+    // Mobile dialog nav: Hire me is visible and goes to /hire-me
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto('/');
+    await page.getByRole('button', { name: 'Open menu' }).click();
+    const mobileMenu = page.getByRole('dialog', { name: 'Menu' });
+    await expect(mobileMenu).toBeVisible();
+    const mobileHireMe = mobileMenu.getByRole('navigation').getByRole('link', { name: 'Hire me' });
+    await expect(mobileHireMe).toBeVisible();
+    await mobileHireMe.click();
+    await expect(page).toHaveURL(/\/hire-me\/?$/);
+
+    await page.setViewportSize({ width: 1280, height: 720 });
+    await page.goto('/hire-me');
 
     const projects = page.locator('section[aria-labelledby="projects-heading"]');
     await expect(projects.getByRole('link', { name: 'learn-agent-skills' })).toHaveAttribute(
@@ -146,6 +167,6 @@ test.describe('Hire me page (PoC, preview only)', () => {
     const sitemap = await request.get('/sitemap.xml');
     expect(sitemap.ok()).toBeTruthy();
     const sitemapXml = await sitemap.text();
-    expect(sitemapXml).not.toContain('/hire-me');
+    expect(sitemapXml).toContain('/hire-me');
   });
 });

@@ -29,4 +29,8 @@ export const NavLinks: Navigation[] = [
     url: '/now',
     link: 'Now',
   },
+  {
+    url: '/hire-me',
+    link: 'Hire me',
+  },
 ]

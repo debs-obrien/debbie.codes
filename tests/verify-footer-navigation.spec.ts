@@ -36,6 +36,9 @@ test.describe('Navigation Functionality', { tag: '@agent' }, () => {
           - listitem:
             - link "Now":
               - /url: /now
+          - listitem:
+            - link "Hire me":
+              - /url: /hire-me
         - list:
           - listitem:
             - link "x":
