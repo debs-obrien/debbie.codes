@@ -5,4 +5,13 @@ description: Getting agent mode to complete a PR with Playwright and GitHub Copi
 host: Debbie's youtube channel
 video: psdu0BVal6w
 tags: [mcp, ai, playwright]
+chapters:
+  - time: 0
+    title: "Intro"
+  - time: 45
+    title: "Demo"
+  - time: 167
+    title: "Testing"
+  - time: 380
+    title: "Pull Request"
 ---

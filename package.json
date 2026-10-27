@@ -7,14 +7,15 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
-    "pregenerate": "node scripts/generate-sitemap.mjs",
+    "pregenerate": "node scripts/generate-sitemap.mjs && node scripts/generate-content-index.mjs",
     "generate": "nuxt generate; node scripts/ensure-static-publish.mjs",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "playwright test",
-    "test:endform": "endform test"
+    "test:endform": "endform test",
+    "check:origin-trial": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/check-origin-trial.mjs"
   },
   "dependencies": {
     "better-sqlite3": "^12.11.1",

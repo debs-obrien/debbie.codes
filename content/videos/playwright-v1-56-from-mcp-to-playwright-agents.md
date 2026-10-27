@@ -5,4 +5,17 @@ description: This video demonstrates how Playwright Agents can automatically gen
 video: _AifxZGxwuk
 tags: [playwright, testing, ai, mcp]
 host: Playwright YouTube
+chapters:
+  - time: 0
+    title: "Intro to Playwright Agents"
+  - time: 52
+    title: "Setting up with a seed file"
+  - time: 135
+    title: "Planner Agent – generating a test plan"
+  - time: 191
+    title: "Generator Agent – creating test files"
+  - time: 256
+    title: "Healer Agent – fixing failing tests"
+  - time: 279
+    title: "Running and reviewing everything"
 ---

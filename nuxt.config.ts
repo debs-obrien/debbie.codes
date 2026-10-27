@@ -1,23 +1,23 @@
 import process from 'node:process'
+import { generateContentIndex } from './scripts/generate-content-index.mjs'
 import { generateSitemap } from './scripts/generate-sitemap.mjs'
+import { DEFAULT_WEBMCP_OT_CHROME, DEFAULT_WEBMCP_OT_EDGE } from './utils/origin-trial'
 
 // Static public/sitemap.xml — avoids Netlify Function/SQLite 500s for /sitemap.xml.
 generateSitemap()
+// Static public/webmcp/content-index.json and public/llms.txt.
+generateContentIndex()
 
 export default defineNuxtConfig({
   srcDir: '.',
+  // Isolated dirs for scripts/check-origin-trial.mjs so a production generate
+  // never rebuilds the shared .nuxt / .output used by `nuxt dev` / Playwright.
+  ...(process.env.NUXT_OT_BUILD_DIR ? { buildDir: process.env.NUXT_OT_BUILD_DIR } : {}),
 
   // Dedicated local port for this Nuxt app (avoid 3000/3001 conflicts)
   devServer: {
     port: 8000,
     host: '127.0.0.1',
-  },
-
-  // /hire-me voice widget (public agent id; origin-allowlisted for debbie.codes).
-  runtimeConfig: {
-    public: {
-      hireMeAgentId: process.env.HIRE_ME_AGENT_ID || 'agent_8801m5yfwzgpf61szvhj0mj0v5fv',
-    },
   },
 
   modules: [
@@ -100,7 +100,24 @@ export default defineNuxtConfig({
 
   compatibilityDate: '2025-03-13',
 
+  runtimeConfig: {
+    public: {
+      // /hire-me voice widget (public agent id; origin-allowlisted for debbie.codes).
+      hireMeAgentId: process.env.HIRE_ME_AGENT_ID || 'agent_8801m5yfwzgpf61szvhj0mj0v5fv',
+      // Defaults are the live debbie.codes WebMCP tokens (utils/origin-trial.ts).
+      // NUXT_PUBLIC_WEBMCP_OT_CHROME / _EDGE override. webmcpOtRender is baked at
+      // build time so production HTML keeps the meta after client hydration.
+      webmcpOtChrome: process.env.NUXT_PUBLIC_WEBMCP_OT_CHROME || DEFAULT_WEBMCP_OT_CHROME,
+      webmcpOtEdge: process.env.NUXT_PUBLIC_WEBMCP_OT_EDGE || DEFAULT_WEBMCP_OT_EDGE,
+      webmcpOtRender: process.env.NUXT_PUBLIC_WEBMCP_OT_RENDER
+        ?? (process.env.CONTEXT === 'production' ? '1' : '0'),
+    },
+  },
+
   nitro: {
+    ...(process.env.NUXT_OT_OUTPUT_DIR
+      ? { output: { dir: process.env.NUXT_OT_OUTPUT_DIR } }
+      : {}),
     prerender: {
       // Prefer completing the static publish (public/ assets, including
       // sitemap.xml + _redirects) over failing the whole generate on

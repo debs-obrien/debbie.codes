@@ -5,4 +5,17 @@ description: Virtual panel moderated by Kaya of Wordify with leading web persona
 video: 0hp-G107dT0
 tags: [interviews, jamstack]
 host: Strapi
+chapters:
+  - time: 0
+    title: "Introduction"
+  - time: 60
+    title: "Overview"
+  - time: 195
+    title: "Static vs Server Rendering"
+  - time: 473
+    title: "Have You Seen Any Projects"
+  - time: 548
+    title: "Headless vs Decoupled"
+  - time: 749
+    title: "Finding Components"
 ---

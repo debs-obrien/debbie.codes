@@ -5,4 +5,23 @@ description: We think in monorepos when we want to share components across many 
 video: Gb9o4VI8wLU
 tags: [conference-talk, architecture]
 conference: BuildStuff Lithuania
+chapters:
+  - time: 453
+    title: "Frontend Monolith"
+  - time: 651
+    title: "Packaging Components"
+  - time: 1165
+    title: "Support Team"
+  - time: 1228
+    title: "Design Team"
+  - time: 1798
+    title: "Your Component"
+  - time: 1851
+    title: "Organizations"
+  - time: 1974
+    title: "Encapsulated"
+  - time: 2078
+    title: "Reusable"
+  - time: 2478
+    title: "Component Driven"
 ---

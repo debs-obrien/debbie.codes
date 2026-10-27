@@ -1,0 +1,67 @@
+# Debbie Codes
+
+> Debbie O'Brien is a developer educator focused on AI agents, Playwright, and testing.
+
+The site publishes videos, blog posts, podcasts, and courses. Agents on a page with document.modelContext can call the WebMCP tools list-videos, topic-brief, search-content, and get-current-page.
+
+## Videos
+
+- [All videos](https://debbie.codes/videos): Conference talks, interviews, and tutorials
+- [playwright videos](https://debbie.codes/videos/tags/playwright): Videos tagged playwright
+- [mcp videos](https://debbie.codes/videos/tags/mcp): Videos tagged mcp
+- [ai videos](https://debbie.codes/videos/tags/ai): Videos tagged ai
+- [nuxt videos](https://debbie.codes/videos/tags/nuxt): Videos tagged nuxt
+- [testing videos](https://debbie.codes/videos/tags/testing): Videos tagged testing
+- [grok-bot videos](https://debbie.codes/videos/tags/grok-bot): Videos tagged grok-bot
+- [Grok Bot Explained: Your Bots Get a Cloud Computer, Browser & Email](https://www.youtube.com/watch?v=nn56fcN7-PU): Video, 2026-10-15
+- [Grok Bot Uploads My YouTube Videos For Me (Beginner Walkthrough)](https://www.youtube.com/watch?v=1g6boZousFI): Video, 2026-10-15
+- [How I Use Grok Bot Voice Mode to Practise for Job Interviews](https://www.youtube.com/watch?v=Gg3lV7lPQoo): Video, 2026-10-15
+
+## Blog
+
+- [Blog](https://debbie.codes/blog): Articles by Debbie
+- [playwright posts](https://debbie.codes/blog/tags/playwright): Blog tagged playwright
+- [mcp posts](https://debbie.codes/blog/tags/mcp): Blog tagged mcp
+- [ai posts](https://debbie.codes/blog/tags/ai): Blog tagged ai
+- [nuxt posts](https://debbie.codes/blog/tags/nuxt): Blog tagged nuxt
+- [testing posts](https://debbie.codes/blog/tags/testing): Blog tagged testing
+- [grok-bot posts](https://debbie.codes/blog/tags/grok-bot): Blog tagged grok-bot
+- [Grok Bot Uploads My YouTube Videos For Me (Beginner Walkthrough)](https://debbie.codes/blog/grok-bot-uploads-my-youtube-videos): Blog, 2026-10-17
+- [Grok Bot Explained: Your Bots Get a Cloud Computer, Browser & Email](https://debbie.codes/blog/grok-bot-explained): Blog, 2026-10-14
+- [How Grok Bot turned 133 family photos into a 50th birthday video with zero editing](https://debbie.codes/blog/grok-bot-50th-birthday-photo-video): Blog, 2026-10-13
+
+## Podcasts
+
+- [Podcasts](https://debbie.codes/podcasts): Interviews and shows
+- [playwright episodes](https://debbie.codes/podcasts/tags/playwright): Podcasts tagged playwright
+- [mcp episodes](https://debbie.codes/podcasts/tags/mcp): Podcasts tagged mcp
+- [nuxt episodes](https://debbie.codes/podcasts/tags/nuxt): Podcasts tagged nuxt
+- [testing episodes](https://debbie.codes/podcasts/tags/testing): Podcasts tagged testing
+- [bit episodes](https://debbie.codes/podcasts/tags/bit): Podcasts tagged bit
+- [dev-rel episodes](https://debbie.codes/podcasts/tags/dev-rel): Podcasts tagged dev-rel
+- [The Role of AI in Testing with Debbie O'Brien](https://www.dotnetrocks.com/details/2011): Podcast, 2026-07-16
+- [Coffee and Open Source Conversation - Debbie O'Brien](https://www.coffeeandopensource.com/guest/debbie-o-brien.html): Podcast, 2026-05-19
+- [Future of Testing | Debbie O'Brien on Playwright, MCP, and AI-Driven Testing](https://www.youtube.com/watch?v=j2n58sSZheo): Podcast, 2026-01-19
+
+## Courses
+
+- [Courses](https://debbie.codes/courses): Courses Debbie teaches
+- [playwright courses](https://debbie.codes/courses/tags/playwright): Courses tagged playwright
+- [mcp courses](https://debbie.codes/courses/tags/mcp): Courses tagged mcp
+- [ai courses](https://debbie.codes/courses/tags/ai): Courses tagged ai
+- [nuxt courses](https://debbie.codes/courses/tags/nuxt): Courses tagged nuxt
+- [testing courses](https://debbie.codes/courses/tags/testing): Courses tagged testing
+- [vue courses](https://debbie.codes/courses/tags/vue): Courses tagged vue
+- [Learn Agent Skills](https://github.com/debs-obrien/learn-agent-skills): Course, 2026-03-05
+- [Let's Learn MCP JavaScript + TypeScript](https://www.youtube.com/watch?v=AKjW94vQZkc): Course, 2025-07-21
+- [Playwright Movies App](https://github.com/debs-obrien/playwright-movies-app): Course, 2025-01-09
+
+## Speaking
+
+- [Speaking](https://debbie.codes/speaking): Conference talks and where to watch them
+
+## Optional
+
+- [About](https://debbie.codes/about): About Debbie
+- [Now](https://debbie.codes/now): What Debbie is doing now
+- [Contact](https://debbie.codes/contact): Contact Debbie

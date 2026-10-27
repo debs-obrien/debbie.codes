@@ -6,4 +6,17 @@ video: 2REiUlciObk
 tags: [ai]
 host: Debbie's youtube channel
 image: https://img.youtube.com/vi/2REiUlciObk/sddefault.jpg
+chapters:
+  - time: 0
+    title: "What are skills?"
+  - time: 90
+    title: "Anatomy of a skill"
+  - time: 195
+    title: "Creating the SKILL.md file"
+  - time: 371
+    title: "Writing the skill instructions"
+  - time: 451
+    title: "Testing the skill"
+  - time: 524
+    title: "Community skills and next steps"
 ---

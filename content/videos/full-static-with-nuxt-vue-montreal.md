@@ -5,4 +5,19 @@ description: Static sites have many benefits from costs to performance and even 
 video: v-CjZRqBpMI
 tags: [conference-talk, nuxt, jamstack]
 conference: Vue Montreal
+chapters:
+  - time: 0
+    title: "Welcome and introductions"
+  - time: 534
+    title: "Speaker introduction"
+  - time: 841
+    title: "SEO in a Nuxt.js world"
+  - time: 2880
+    title: "Open mic session"
+  - time: 2953
+    title: "Introduction of second speaker"
+  - time: 3061
+    title: "Full static with Nuxt"
+  - time: 4413
+    title: "Q&A and closing remarks"
 ---

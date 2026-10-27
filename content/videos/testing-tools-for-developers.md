@@ -5,4 +5,11 @@ description: "Let's take a look at how to write good tests and cover some of the
 video: b9slZ76u2Vs
 tags: [playwright, testing]
 host: daily dev
+chapters:
+  - time: 0
+    title: "Intro"
+  - time: 3375
+    title: "The New And Shiny ... Node.js Built-in Test Runner"
+  - time: 3379
+    title: "How Visual AI Makes Testing Easy"
 ---

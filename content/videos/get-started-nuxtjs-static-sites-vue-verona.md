@@ -5,4 +5,25 @@ description: Did you know nuxt.js can pre render all your pages so you can easil
 video: 17WrJ99pwXk
 tags: [conference-talk, nuxt, jamstack]
 conference: Vue Verona
+chapters:
+  - time: 0
+    title: "Introduction"
+  - time: 44
+    title: "What is Nuxt?"
+  - time: 143
+    title: "Universal and static apps"
+  - time: 281
+    title: "The magic of hydration"
+  - time: 391
+    title: "Real-world examples"
+  - time: 526
+    title: "SEO and dynamic routes"
+  - time: 682
+    title: "Project configuration"
+  - time: 922
+    title: "Live deployment"
+  - time: 1235
+    title: "Advanced Nuxt features"
+  - time: 1373
+    title: "Community and resources"
 ---

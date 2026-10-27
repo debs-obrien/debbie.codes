@@ -5,4 +5,43 @@ description: What is Bit? Bit is a platform for building with components. You ca
 video: 7afMBwj5fR4
 tags: [live-streams, architecture]
 host: This Dot Media
+chapters:
+  - time: 0
+    title: "Introduction"
+  - time: 121
+    title: "What is Bit?"
+  - time: 290
+    title: "Installing and setting up Bit"
+  - time: 432
+    title: "Initializing a workspace"
+  - time: 550
+    title: "Workspace configuration"
+  - time: 723
+    title: "Creating a component"
+  - time: 958
+    title: "Testing and documentation"
+  - time: 1061
+    title: "Using Bit composition"
+  - time: 1159
+    title: "Starting the dev server"
+  - time: 1342
+    title: "Reviewing component UI"
+  - time: 1575
+    title: "Styling the component"
+  - time: 1844
+    title: "Adding component props"
+  - time: 2105
+    title: "Building a card component"
+  - time: 2373
+    title: "Advanced component usage"
+  - time: 2720
+    title: "Tagging components"
+  - time: 2940
+    title: "Exporting to the cloud"
+  - time: 3187
+    title: "Verifying cloud export"
+  - time: 3403
+    title: "Using component in an app"
+  - time: 3625
+    title: "Conclusion and Q&A"
 ---
