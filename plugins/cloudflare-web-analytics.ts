@@ -6,8 +6,8 @@ export default defineNuxtPlugin(() => {
 
   useHead({
     script: [{
-      src: 'https://static.cloudflareinsights.com/beacon.min.js',
-      defer: true,
+      'src': 'https://static.cloudflareinsights.com/beacon.min.js',
+      'defer': true,
       'data-cf-beacon': '{"token": "2e4614220fa04e208244f7d4d5771685"}',
     }],
   })
