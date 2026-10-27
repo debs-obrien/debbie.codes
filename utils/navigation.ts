@@ -1,6 +1,6 @@
 import type { Navigation } from '~/types'
 
-export const NavLinks: Navigation[] = [
+const allNavLinks: Navigation[] = [
   {
     url: '/about',
     link: 'About',
@@ -28,9 +28,14 @@ export const NavLinks: Navigation[] = [
   {
     url: '/now',
     link: 'Now',
+    // Temporarily hide from nav; revert by removing `hidden` (page + sitemap stay live).
+    hidden: true,
   },
   {
     url: '/hire-me',
     link: 'Hire me',
   },
 ]
+
+/** Links shown in desktop top bar, mobile dialog nav, and footer. */
+export const NavLinks: Navigation[] = allNavLinks.filter(nav => !nav.hidden)

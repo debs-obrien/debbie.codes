@@ -121,8 +121,6 @@ test.describe('Mobile Navigation', () => {
             - listitem:
               - link "Blog"
             - listitem:
-              - link "Now"
-            - listitem:
               - link "Hire me"
       `);
     });

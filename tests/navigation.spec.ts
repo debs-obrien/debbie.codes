@@ -52,12 +52,6 @@ test.describe('navigation', () => {
     if (isMobile) {
       await hamburgerMenu.click();
     }
-    await page.getByRole('navigation').getByRole('link', { name: 'now' }).click();
-    await expect(page).toHaveURL(/\/now\/?$/);
-
-    if (isMobile) {
-      await hamburgerMenu.click();
-    }
     await page.getByRole('navigation').getByRole('link', { name: 'hire me' }).click();
     await expect(page).toHaveURL(/\/hire-me\/?$/);
   });
@@ -81,9 +75,6 @@ test.describe('navigation', () => {
 
     await page.getByRole('contentinfo').getByRole('link', { name: 'blog' }).click();
     await expect(page).toHaveURL(/\/blog\/?$/);
-
-    await page.getByRole('contentinfo').getByRole('link', { name: 'now' }).click();
-    await expect(page).toHaveURL(/\/now\/?$/);
 
     await page.getByRole('contentinfo').getByRole('link', { name: 'hire me' }).click();
     await expect(page).toHaveURL(/\/hire-me\/?$/);

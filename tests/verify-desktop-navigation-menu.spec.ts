@@ -33,9 +33,6 @@ test.describe('Navigation Functionality', { tag: ['@agent', '@smoke'] }, () => {
           - link "Blog":
             - /url: /blog
         - listitem:
-          - link "Now":
-            - /url: /now
-        - listitem:
           - link "Hire me":
             - /url: /hire-me
     `);

@@ -43,9 +43,6 @@ test.describe('404 Error Page', () => {
             - link "Blog":
               - /url: /blog
           - listitem:
-            - link "Now":
-              - /url: /now
-          - listitem:
             - link "Hire me":
               - /url: /hire-me
     `);
@@ -70,9 +67,6 @@ test.describe('404 Error Page', () => {
         - listitem:
           - link "Blog":
             - /url: /blog
-        - listitem:
-          - link "Now":
-            - /url: /now
         - listitem:
           - link "Hire me":
             - /url: /hire-me
