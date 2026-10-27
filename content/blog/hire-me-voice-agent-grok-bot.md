@@ -95,9 +95,13 @@ I didn't build this one on my own. I worked with my Grok Bot.
 - **The spec.** Grok Bot wrote a Markdown spec for the agent with two parts: the first message and the system prompt. The facts in the prompt were written from the same notes as the page.
 - **The agent.** Grok Bot created the agent from that spec through the ElevenLabs Agents API, then set the allowed site and the widget labels through the API too. I reviewed it and told it what to change.
 
+![The agent in the ElevenLabs dashboard with the start of the system prompt, the first message, the Alice voice and English. The model name is blurred.](/images/blog/hire-me-voice-agent-grok-bot/09-elevenlabs-agent-overview.png)
+
 ### How the agent gets its data
 
 Everything the agent knows is in its system prompt, about 9,000 characters, built from the facts on the page. There's no knowledge base and there are no tools. Every rule lives in the prompt too. ElevenLabs has its own built-in guardrails, but I have them turned off, so the prompt is the only place the rules come from.
+
+![The "Never do these" rules in the system prompt.](/images/blog/hire-me-voice-agent-grok-bot/10-elevenlabs-prompt-rules.png)
 
 That also means there's no automatic sync. When the page changes, the prompt has to change by hand. On the day I built it, the prompt and first message were edited six times, and each edit matched a change on the page:
 
@@ -140,7 +144,11 @@ Here's a simplified version of the embed:
 - **Locking it down.** The widget needs a public agent, so the agent is locked to debbie.codes with an allowlist.
 - **Mobile.** On phones the widget floats at the bottom of the screen and doesn't cover the footer.
 
+![The Security settings with authentication off and debbie.codes as the only host on the allowlist.](/images/blog/hire-me-voice-agent-grok-bot/11-elevenlabs-allowlist.png)
+
 The widget shows a small "Powered by ElevenAgents" line, and I'm keeping it.
+
+![The widget text settings with Ask about Debbie, Start a call and End call, and a preview of the widget.](/images/blog/hire-me-voice-agent-grok-bot/12-elevenlabs-widget-labels.png)
 
 ### Privacy settings
 
