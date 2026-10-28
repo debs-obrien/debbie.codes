@@ -62,13 +62,6 @@ function getRateLimitStore(): { store: ReturnType<typeof createMemoryRateLimitSt
   }
 }
 
-function jsonResponse(status: number, body: Record<string, unknown>) {
-  return new Response(JSON.stringify(body), {
-    status,
-    headers: CORS_HEADERS,
-  })
-}
-
 export default async (req: Request, context: Context) => {
   if (req.method === 'OPTIONS')
     return new Response(null, { status: 204, headers: CORS_HEADERS })
