@@ -144,32 +144,10 @@ export async function handleContactSubmit(
     return json(502, errorBody('forward_failed'))
   }
 
-  // Diagnostics for non-production deploys (never includes raw IP).
-  const isProd = process.env.CONTEXT === 'production'
-  let debug: { burst: number, ipHashPrefix: string, context: string } | undefined
-  if (!isProd) {
-    try {
-      const rec = await deps.rateLimitStore.get(ipHash)
-      debug = {
-        burst: rec?.burst.length ?? 0,
-        ipHashPrefix: ipHash.slice(0, 8),
-        context: process.env.CONTEXT || 'unknown',
-      }
-    }
-    catch {
-      debug = {
-        burst: -1,
-        ipHashPrefix: ipHash.slice(0, 8),
-        context: process.env.CONTEXT || 'unknown',
-      }
-    }
-  }
-
   return json(200, {
     ok: true,
     // Never echo raw input; first name only for success greeting.
     firstName: firstNameOf(validated.value.name),
-    ...(debug ? { debug } : {}),
   })
 }
 
