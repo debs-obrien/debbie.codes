@@ -3,7 +3,7 @@ import { expect, test } from './fixtures';
 test.beforeEach(async ({ page, isMobile }) => {
   await page.goto('/');
 
-  if(isMobile){
+  if (isMobile) {
     await page.getByRole('button', { name: 'open menu' }).click();
   }
 });
@@ -48,4 +48,3 @@ test('Nuxt Ambassador badge is shown without a link', async ({ page }) => {
   await expect(page.getByText('Nuxt Ambassador', { exact: true })).toBeVisible();
   await expect(page.getByRole('link', { name: 'Nuxt Ambassador' })).toHaveCount(0);
 });
-

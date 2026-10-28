@@ -36,7 +36,6 @@ test.describe('About Page', () => {
       await expect(page.locator('.prose').getByText(/Google Developer Expert in web technologies/)).toBeVisible();
       await expect(page.locator('.prose').getByText(/former Microsoft MVP, Cloudinary Media Developer Expert, and GitHub Star/)).toBeVisible();
     });
-
   });
 
   test('About page - Displays awards and achievements section', async ({ page }) => {
@@ -135,18 +134,17 @@ test.describe('About Page', () => {
     await test.step('Verify external award links', async () => {
       // GitHub Star Alumni
       await expect(page.getByRole('link', { name: 'Learn more about GitHub Star Alumni (opens in new tab)' }).first()).toHaveAttribute('href', 'https://stars.github.com/alumni/');
-      
+
       // Google Developer Expert
       await expect(page.getByRole('link', { name: 'Learn more about Google Developer Expert (opens in new tab)' }).first()).toHaveAttribute('href', 'https://me.developers.google.com/u/115790798136433531532');
-      
+
       // Microsoft MVP
       await expect(page.getByRole('link', { name: 'Learn more about Former Microsoft Most Valuable Professional (opens in new tab)' }).first()).toHaveAttribute('href', 'https://mvp.microsoft.com/en-us/PublicProfile/5003613?fullName=Debbie%20O%27Brien');
-      
+
       // Media Developer Expert
       await expect(page.getByRole('link', { name: 'Learn more about Media Developer Expert (opens in new tab)' }).first()).toHaveAttribute('href', 'https://cloudinary.com/blog/announcing_cloudinary_s_media_developer_experts_program');
     });
   });
-
 
   test('About page - External profile links work correctly', async ({ page }) => {
     await test.step('Verify YouTube channel link', async () => {

@@ -9,14 +9,17 @@
  *
  * Opt out for a specific test with `test.use({ blockCloudinary: false })`.
  */
-import { readFileSync } from 'node:fs'
-import { join } from 'node:path'
-import process from 'node:process'
-import { expect, test as base } from '@playwright/test'
+import { Buffer } from 'node:buffer'
+import { test as base, expect } from '@playwright/test'
 
-const PLACEHOLDER_PNG = readFileSync(
-  join(process.cwd(), 'tests', 'fixtures', 'cloudinary-placeholder.png'),
+// Inline 400×200 PNG — Endform runners use cwd=/tmp, so do not read from disk.
+const PLACEHOLDER_PNG = Buffer.from(
+  'iVBORw0KGgoAAAANSUhEUgAAAZAAAADICAIAAABJdyC1AAAB/0lEQVR42u3UMQ0AAAzDsPLHWDBFsWOSDSFHUoAnIgFgWACGBRgWgGEBGBZgWACGBWBYgGEBGBaAYQGGBWBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFYFgAhgUYFoBhAYYFYFgAhgUYFoBhARgWYFgAhgVgWIBhARgWgGEBhgVgWACGBRgWgGEBGBZgWACGBWBYgGEBGBaAYQGGBWBYAIYFGBaAYQGGBWBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFYFgAhgUYFoBhARgWYFgAhgVgWIBhARgWgGEBhgVgWACGBRgWgGEBhgVgWACGBRgWgGEBGBZgWACGBWBYgGEBGBaAYQGGBWBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFYFgAhgUYFoBhAYYFYFgAhgUYFoBhARgWYFgAhgVgWIBhARgWgGEBhgVgWACGBRgWgGEBGBZgWACGBWBYgGEBGBaAYQGGBWBYAIYFGBaAYQGGBWBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFYFgAhgUYFoBhARgWYFgAhgVgWIBhARgWgGEBhgVgWACGBRgWgGEBhgVgWACGBRgWgGEBGBZgWACGBWBYgGEBGBaAYQGGBWBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFcGdOj9ks/HgpswAAAABJRU5ErkJggg==',
+  'base64',
 )
+
+/** Response header set on fulfilled Cloudinary mocks so tests can ignore them. */
+export const CLOUDINARY_MOCK_HEADER = 'x-playwright-cloudinary-mock'
 
 /** True when the request would pull bytes from res.cloudinary.com (directly or via a local/edge image proxy). */
 export function isCloudinaryBandwidthRequest(url: string): boolean {
@@ -31,7 +34,7 @@ export function isCloudinaryBandwidthRequest(url: string): boolean {
   return false
 }
 
-type CloudinaryFixtures = {
+interface CloudinaryFixtures {
   blockCloudinary: boolean
 }
 
@@ -55,6 +58,7 @@ export const test = base.extend<CloudinaryFixtures>({
         await route.fulfill({
           status: 200,
           contentType: 'image/png',
+          headers: { [CLOUDINARY_MOCK_HEADER]: '1' },
           body: PLACEHOLDER_PNG,
         })
       })

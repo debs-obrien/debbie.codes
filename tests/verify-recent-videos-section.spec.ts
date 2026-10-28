@@ -1,7 +1,7 @@
 // spec: specs/test-plan.md
 // seed: tests/seed.spec.ts
 
-import { test, expect } from './fixtures';
+import { expect, test } from './fixtures';
 
 test.describe('Home Page Content Display', { tag: '@agent' }, () => {
   // Videos section structure has changed after redesign
@@ -12,7 +12,7 @@ test.describe('Home Page Content Display', { tag: '@agent' }, () => {
 
     // 2. Locate the "Recent Videos" section
     // 3. Count the video articles displayed
-    
+
     // Verify 'Recent Videos' heading is visible
     await expect(page.getByRole('heading', { name: 'Recent Videos' })).toBeVisible();
 
@@ -29,13 +29,13 @@ test.describe('Home Page Content Display', { tag: '@agent' }, () => {
     for (const article of await videoArticles.all()) {
       // Date (time element)
       await expect(article.locator('time')).toBeVisible();
-      
+
       // Publisher/source (paragraph)
       await expect(article.getByRole('paragraph')).toBeVisible();
-      
+
       // Title (heading level 3)
       await expect(article.getByRole('heading', { level: 3 })).toBeVisible();
-      
+
       // Tags list
       await expect(article.getByRole('list')).toBeVisible();
     }

@@ -1,7 +1,7 @@
 // spec: specs/test-plan.md
 // seed: tests/seed.spec.ts
 
-import { test, expect } from './fixtures';
+import { expect, test } from './fixtures';
 
 test.describe('Home Page Content Display', { tag: '@agent' }, () => {
   test('Verify Award Badges Display', async ({ page }) => {
