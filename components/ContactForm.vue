@@ -109,8 +109,7 @@ function focusSummary() {
   })
 }
 
-async function onSubmit(event: Event) {
-  event.preventDefault()
+async function onSubmit() {
   if (status.value === 'submitting')
     return
 
@@ -357,12 +356,12 @@ function fieldDescribedBy(id: string, errorKey: keyof ContactFieldErrors, extra?
         :class="{ 'contact-form-busy': isReadOnly }"
         data-testid="contact-form"
         novalidate
-        @submit="onSubmit"
+        @submit.prevent="onSubmit"
       >
         <input type="hidden" name="form-name" :value="CONTACT_FORM_NAME">
         <input type="hidden" name="challenge" :value="challenge">
 
-        <div class="sr-only" aria-hidden="true">
+        <div class="contact-honeypot" aria-hidden="true" hidden>
           <label for="company-website">Leave this empty</label>
           <input
             id="company-website"

@@ -2,9 +2,18 @@ import { expect, test } from '@playwright/test';
 
 const LINKEDIN = 'https://www.linkedin.com/in/debbie-obrien';
 
+async function waitForContactForm(page: import('@playwright/test').Page) {
+  await page.goto('/contact');
+  await expect(page.getByTestId('contact-form')).toBeVisible();
+  // Challenge token means the client handler + API are ready (hydration done).
+  await expect.poll(async () => {
+    return page.locator('input[name="challenge"]').inputValue();
+  }).not.toBe('');
+}
+
 test.describe('Contact page', () => {
   test('renders hiring-first layout with LinkedIn CTA and no email', async ({ page }) => {
-    await page.goto('/contact');
+    await waitForContactForm(page);
 
     await expect(page).toHaveURL(/\/contact\/?$/);
     await expect(page).toHaveTitle(/Contact/);
@@ -47,7 +56,7 @@ test.describe('Contact page', () => {
   });
 
   test('client validation blocks empty submit', async ({ page }) => {
-    await page.goto('/contact');
+    await waitForContactForm(page);
     await page.getByTestId('contact-submit').click();
     await expect(page.getByTestId('contact-error-summary')).toBeVisible();
     await expect(page.getByText('Please add your name.')).toBeVisible();
@@ -56,7 +65,7 @@ test.describe('Contact page', () => {
   });
 
   test('maxlength holds on name and message', async ({ page }) => {
-    await page.goto('/contact');
+    await waitForContactForm(page);
     const name = page.getByTestId('contact-name');
     const message = page.getByTestId('contact-message');
     await expect(name).toHaveAttribute('maxlength', '80');
@@ -64,27 +73,25 @@ test.describe('Contact page', () => {
   });
 
   test('honeypot field exists and filled honeypot is rejected', async ({ page }) => {
-    await page.goto('/contact');
+    await waitForContactForm(page);
 
     const honeypot = page.getByTestId('contact-honeypot');
     await expect(honeypot).toHaveCount(1);
     await expect(honeypot).toBeHidden();
-
-    // Wait for challenge token from the API.
-    await expect.poll(async () => {
-      return page.locator('input[name="challenge"]').inputValue();
-    }).not.toBe('');
 
     await page.getByTestId('contact-name').fill('Alex Rivera');
     await page.getByTestId('contact-email').fill('alex@company.com');
     await page.getByTestId('contact-reason').selectOption('other');
     await page.getByTestId('contact-message').fill('QA test from engineer bot, please ignore this honeypot case.');
 
-    // Fill honeypot via DOM (hidden from users).
-    await honeypot.fill('https://spam.example');
+    // Fill honeypot via DOM so Vue v-model updates (field is [hidden]).
+    await honeypot.evaluate((el) => {
+      const input = el as HTMLInputElement;
+      input.value = 'https://spam.example';
+      input.dispatchEvent(new Event('input', { bubbles: true }));
+    });
 
-    // Enforce min submit time locally by advancing challenge age isn't
-    // possible without the secret; wait 3s so timing doesn't mask honeypot.
+    // Enforce min submit time so timing doesn't mask the honeypot rejection.
     await page.waitForTimeout(3100);
 
     await page.getByTestId('contact-submit').click();
