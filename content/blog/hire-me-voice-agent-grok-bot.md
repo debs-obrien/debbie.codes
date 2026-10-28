@@ -58,10 +58,10 @@ You can try one of the suggested questions:
 
 An assistant that talks about you to people who might hire you needs clear rules. These are the ones I care about most:
 
-- **It only answers from what it knows.** All of its facts come from the same content as the page. If you ask something that isn't there, it says it doesn't have that and points you to my contact page.
+- **It only answers from what it knows.** All of its facts come from the same content as the page and my CV. If you ask something that isn't there, it says it doesn't have that and points you to my contact page.
 - **It never makes up a number.** No estimating and no rounding up. Growth numbers are team and community numbers, the same framing as the page.
 - **It's honest about what it is.** It's my AI assistant, not me.
-- **Some topics are for a real conversation.** It politely declines questions about other job processes, why a role ended, health, family or my personal life, and points you to my contact page instead.
+- **Some topics are for a real conversation.** It politely declines questions about other job processes, health, family or my personal life, and points you to my contact page instead.
 - **No promises.** It won't commit to availability, start dates or contract terms. That's a conversation for me.
 - **No opinions on other companies.** It only names companies I've worked for when you ask about my work history, and it won't give opinions on other companies or compare me to anyone.
 - **It's told to keep its rules** even if someone tries to talk it out of them.
@@ -80,7 +80,7 @@ It went from idea to live page in one morning. On 27 October the hire me page PR
 
 ### How the agent gets its data
 
-Everything the agent knows comes from one system prompt, about 9,000 characters, written from the same notes as the page. There's no knowledge base and there are no tools. My rules for what it should and shouldn't say are in that prompt too. ElevenLabs has its own built-in guardrails. I turned on the focus, prompt injection and content guardrails, and they end the call if they're triggered, on top of the rules in the prompt.
+Most of what the agent knows comes from one system prompt, written from the same notes as the page. After launch I also added a knowledge doc with my education and career history from my CV and LinkedIn, which is always loaded. There are no tools. My rules for what it should and shouldn't say are in that prompt too. ElevenLabs has its own built-in guardrails. I turned on the focus, prompt injection and content guardrails, and they end the call if they're triggered, on top of the rules in the prompt.
 
 Here are a few lines from my prompt's guardrails:
 
@@ -124,15 +124,30 @@ The tests are saved in my ElevenLabs account, so I can run them again every time
 
 ### What I changed after launch
 
-In early test calls it said "over twenty talks". The prompt now says well over 60 talks in more than 15 countries, treated as minimums, and I added my largest audience, about 1,000 people at Vue Amsterdam, after a test had no figure. On the first night of real visitors it hit the limit of 30 calls a day, and 34 attempts between 23:10 and 00:55 Madrid time were turned away. One visitor asked for "10 minutes, in very, very detail" and it talked until the 5 minute cap, twice, so now it gives at most four sentences and asks which area to go deeper on. It also once told a visitor it only speaks English while answering others in Spanish, so now it replies in English or Spanish to match the visitor.
+By about 17:00 Madrid time on 28 October, the day after launch, it had 111 visitor conversations, 91 voice and 20 text, from about 100 different browsers. The median voice call was 46.5 seconds, and 90% were under 131 seconds. Some visitors probed it, like asking for its raw JSON config. One pasted about 21,000 characters of Lorem ipsum into the text box, twice, and it politely said it looked like placeholder text.
 
-The table above was the first round, with 18 of 21 passing. I added more tests, and after these changes 32 of 33 pass.
+The questions it couldn't answer well were about my university, relocating, why I left my recent roles, and how it was built. So I added the knowledge doc from my CV and LinkedIn. It focuses on 2020 onwards and only goes further back if you ask, since I've been in tech since 2008. It can now answer questions about my studies and career history, whether I'm open to relocating (I work remotely), and my recent roles, and it points to an interview I did in Spanish on my [videos page](https://debbie.codes/videos). If you ask how it was built, it says ElevenLabs Agents and links the docs, but it doesn't name the model. In early test calls it also said "over twenty talks", so the prompt now says well over 60 talks in more than 15 countries, treated as minimums, plus my largest audience, about 1,000 people at Vue Amsterdam.
+
+Other fixes:
+
+- One visitor asked for "10 minutes, in very, very detail" and it talked until the 5 minute cap, twice. Now it gives at most four sentences and asks which area to go deeper on, and I cut the maximum call length from 5 minutes to 3, since 93% of calls had ended by then.
+- It once said it only speaks English and made up an explanation about a desktop app. I added a language rule, English and Spanish, and told it not to explain beyond what it knows.
+- In text chats it said "slash contact" out loud, so I fixed how it gives links in text.
+- The "still there?" wait went from 7 to 20 seconds, and calls now hang up after 15 seconds of silence instead of 30, to save credits.
+- When the daily limit is hit, it now says my assistant has had a busy day and to try tomorrow or use my contact page. It turned away 36 attempts, but it wasn't capping voice calls the way I expected, and I'm still looking into why.
+- I'm adding a 500 character limit on typed messages to the site.
+
+After each conversation, ElevenLabs analysis checks whether it followed the rules, used its knowledge, kept answers short and used the right language, and records things like the type of visitor and the topics asked.
+
+The table above was the first round, with 18 of 21 passing. I added more tests, and the latest full runs passed 35 of 39 and 39 of 45. The misses were the safety guardrail ending override attempts early, which is what I want.
 
 ### What it costs
 
-I'm on the Creator plan, which I upgraded to from the free plan on launch day. Up to the morning of 28 October there were 72 sessions using 30,868 credits, about $5.44 at list price, so about 8 US cents a session on average. Voice is about 480 credits a minute and the median voice call was 40 seconds. Text chat is much cheaper: 26 messages cost 738 credits. The three calls that ran to the 5 minute cap used 24% of the credits.
+I'm on the Creator plan, which I upgraded to from the free plan on launch day. It gives about 121,000 credits a month. In October I used about 67,600 credits, all between 26 and 28 October, which is about 56% of the plan. The hire me agent used 63,854 of that: about 50,900 on visitor conversations, about 2,500 on my own testing before launch, about 9,600 on automated test runs and about 900 I can't explain.
 
-The limits are two calls at once (others wait up to 3 minutes), 30 voice calls a day, and 5 minutes per call, after which it says goodbye and points you to my contact page.
+Voice is about 97% of the conversation cost, at about 473 credits a minute, or about 540 per voice call. A text chat costs about 75. The four voice calls that hit the old 5 minute cap were about 20% of the voice spend. My lesson on tests: run only the tests a change touches, not the full suite three times.
+
+The limits are now two calls at once (others wait up to 3 minutes) and 3 minutes per call, after which it says goodbye and points you to my contact page.
 
 ### The embed
 
