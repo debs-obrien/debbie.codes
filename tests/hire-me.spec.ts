@@ -189,4 +189,34 @@ test.describe('Hire me page', () => {
     const sitemapXml = await sitemap.text();
     expect(sitemapXml).toContain('/hire-me');
   });
+
+  test('limits the voice widget text box to 500 characters', async ({ page }) => {
+    // Needs the real embed UI (do not abort unpkg / voice hosts).
+    // Agent origin allowlists often block non-production hosts; skip cleanly then.
+    await page.goto(hireMePath);
+
+    const host = page.locator('elevenlabs-convai');
+    try {
+      await expect(host).toBeAttached({ timeout: 15000 });
+      await expect(host.locator('button[aria-label="Message"]')).toBeVisible({ timeout: 20000 });
+    }
+    catch {
+      test.skip(true, 'Voice widget did not load (embed blocked or origin not allowlisted for this host)');
+      return;
+    }
+
+    await host.locator('button[aria-label="Message"]').click();
+
+    const textbox = host.locator('textarea[placeholder="Send a message..."]');
+    try {
+      await expect(textbox).toBeVisible({ timeout: 10000 });
+    }
+    catch {
+      test.skip(true, 'Voice widget text box did not open (embed blocked or origin not allowlisted for this host)');
+      return;
+    }
+
+    await textbox.fill('x'.repeat(600));
+    expect((await textbox.inputValue()).length).toBe(500);
+  });
 });
