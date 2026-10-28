@@ -9,11 +9,23 @@ test.describe('Cloudinary bandwidth guard', () => {
     expect(isCloudinaryBandwidthRequest('https://debbie.codes/images/blog/covers/x.png')).toBe(false)
   })
 
-  test('page loads do not download res.cloudinary.com bytes', async ({ page }) => {
-    const cloudinaryGets: string[] = []
-    page.on('response', (response) => {
-      if (response.url().includes('res.cloudinary.com') && response.ok())
-        cloudinaryGets.push(response.url())
+  test('page loads do not download real Cloudinary media bytes', async ({ page }) => {
+    // Route fulfill still reports the original URL with status 200, so ignore
+    // tiny placeholder bodies and only fail on real (large) payloads.
+    const leaked: Array<{ url: string, bytes: number }> = []
+    page.on('response', async (response) => {
+      const url = response.url()
+      if (!isCloudinaryBandwidthRequest(url) || !response.ok())
+        return
+      try {
+        const body = await response.body()
+        // Placeholder PNG is <1KB; anything larger is a real origin fetch.
+        if (body.byteLength > 2048)
+          leaked.push({ url, bytes: body.byteLength })
+      }
+      catch {
+        // Body unavailable (redirect/opaque) — ignore
+      }
     })
 
     await page.goto('/')
@@ -21,6 +33,9 @@ test.describe('Cloudinary bandwidth guard', () => {
     await page.goto('/blog/testing-color-mode')
     await page.goto('/blog/nuxt-lite-youtube-embeds')
 
-    expect(cloudinaryGets, `unexpected Cloudinary downloads:\n${cloudinaryGets.join('\n')}`).toEqual([])
+    expect(
+      leaked,
+      `unexpected Cloudinary downloads:\n${leaked.map(l => `${l.bytes}B ${l.url}`).join('\n')}`,
+    ).toEqual([])
   })
 })
