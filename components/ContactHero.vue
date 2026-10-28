@@ -24,7 +24,7 @@ import {
         class="contact-inline-link"
         data-testid="contact-email-link"
       >{{ PUBLIC_EMAIL }}</a>
-      or message me on LinkedIn; LinkedIn is often the quickest.
+      or message me on LinkedIn. Email or LinkedIn both work.
     </p>
 
     <div class="contact-cta-row">

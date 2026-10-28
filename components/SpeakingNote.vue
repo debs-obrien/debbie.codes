@@ -11,8 +11,8 @@
         About speaking invites
       </h3>
       <p class="speaking-note-text">
-        I love speaking, and I've given over 60 talks and workshops. Right now I
-        can only say yes to a few new invites. My confirmed talks are on my
+        I love speaking, and I've given over 60 talks and workshops. My confirmed
+        talks are on my
         <NuxtLink to="/speaking" class="contact-inline-link">speaking page</NuxtLink>.
       </p>
     </div>
