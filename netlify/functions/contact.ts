@@ -1,7 +1,7 @@
 import type { Handler, HandlerEvent } from '@netlify/functions'
 import { Buffer } from 'node:buffer'
 import process from 'node:process'
-import { getStore } from '@netlify/blobs'
+import { connectLambda, getStore } from '@netlify/blobs'
 import { createBlobsRateLimitStore } from '../../utils/contact/blobs-store'
 import {
   handleContactSubmit,
@@ -29,8 +29,10 @@ function clientIp(event: HandlerEvent): string {
   return 'unknown'
 }
 
-async function getRateLimitStore() {
+function getRateLimitStore(event: HandlerEvent) {
   try {
+    // Classic `export const handler` Functions need connectLambda for Blobs.
+    connectLambda(event)
     const store = getStore({ name: 'contact-rate-limit', consistency: 'strong' })
     // Store.get overloads are wider than our JSON-only adapter needs.
     return createBlobsRateLimitStore(store as unknown as Parameters<typeof createBlobsRateLimitStore>[0])
@@ -47,7 +49,7 @@ export const handler: Handler = async (event) => {
   }
 
   const secrets = resolveContactSecrets(process.env)
-  const rateLimitStore = await getRateLimitStore()
+  const rateLimitStore = getRateLimitStore(event)
   const deps = {
     ...secrets,
     rateLimitStore,
