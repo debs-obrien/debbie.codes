@@ -14,14 +14,10 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "playwright test",
-    "test:unit": "vitest run tests/unit",
     "test:endform": "endform test",
-    "typecheck": "nuxt typecheck",
     "check:origin-trial": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/check-origin-trial.mjs"
   },
   "dependencies": {
-    "@netlify/blobs": "^10.7.13",
-    "@netlify/functions": "^6.0.3",
     "better-sqlite3": "^12.11.1",
     "feed": "^5.1.0",
     "ipx": "^3.1.1"
@@ -35,17 +31,13 @@
     "@nuxtjs/tailwindcss": "^6.14.0",
     "@playwright/test": "^1.64.1",
     "@tailwindcss/typography": "^0.5.19",
-    "@types/node": "^24.19.2",
+    "@types/node": "^24.7.1",
     "dotenv": "^17.2.3",
     "endform": "^0.72.0",
     "eslint": "^9.22.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.3",
     "lite-youtube-embed": "^0.3.3",
-    "nuxt": "^4.6.0",
-    "tsx": "^4.23.15",
-    "typescript": "^6.0.3",
-    "vitest": "^5.0.5",
-    "vue-tsc": "^3.3.13"
+    "nuxt": "^4.6.0"
   }
 }

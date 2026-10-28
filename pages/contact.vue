@@ -2,7 +2,7 @@
 import '~/assets/css/contact.css'
 
 const title = 'Contact | Debbie O\'Brien'
-const description = 'Hiring, collaborating or planning an event? Here\'s how to reach me. LinkedIn is quickest, or send me a message here.'
+const description = 'Hiring, collaborating or planning an event? Here\'s how to reach me. LinkedIn is quickest.'
 
 useHead({
   title,
@@ -20,10 +20,7 @@ useHead({
 
 <template>
   <main class="contact-page" data-testid="contact-page">
-    <div class="contact-hero-grid">
-      <ContactHero />
-      <ContactForm />
-    </div>
+    <ContactHero />
     <LookingForStrip />
     <SpeakingNote />
   </main>

@@ -1,0 +1,4 @@
+/** Social / contact destinations used by the contact page. */
+export const LINKEDIN_URL = 'https://www.linkedin.com/in/debbie-obrien'
+export const X_URL = 'https://x.com/debs_obrien'
+export const GITHUB_URL = 'https://github.com/debs-obrien'

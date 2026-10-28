@@ -16,8 +16,6 @@
         <NuxtLink to="/speaking" class="contact-inline-link">
           speaking page
         </NuxtLink>.
-        If you have an event in mind, pick <strong>Speaking</strong> in the form
-        and tell me the date, the place and who'll be in the room.
       </p>
     </div>
   </aside>
