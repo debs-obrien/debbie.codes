@@ -40,7 +40,7 @@ The page is one long read in my own words: a short intro, the voice assistant, 1
 
 ## Meet "Ask about Debbie"
 
-On the page there's a voice assistant called "Ask about Debbie". You press "Start a call", allow your microphone, and ask a question out loud. You can also type instead. It answers out loud from the same facts that are on the page.
+On the page there's a voice assistant called "Ask about Debbie". You press "Start a call", allow your microphone, and ask a question out loud. You can also type instead. It answers from the same facts that are on the page.
 
 When you start a call it says: "Hi, I'm Debbie's assistant. I can tell you about Debbie's work, her numbers, and the roles she's looking for. What would you like to know?"
 
