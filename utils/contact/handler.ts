@@ -106,7 +106,14 @@ export async function handleContactSubmit(
   }
 
   const ipHash = hashIp(options.clientIp || 'unknown', deps.ipSalt)
-  const rate = await checkAndRecordRateLimit(deps.rateLimitStore, ipHash, now)
+  let rate
+  try {
+    rate = await checkAndRecordRateLimit(deps.rateLimitStore, ipHash, now)
+  }
+  catch (err) {
+    console.error('contact rate-limit store error', err)
+    return json(500, errorBody('server_error'))
+  }
   if (!rate.ok)
     return json(429, errorBody('rate_limit'))
 
@@ -137,10 +144,28 @@ export async function handleContactSubmit(
     return json(502, errorBody('forward_failed'))
   }
 
+  // After recording, re-read burst length for deploy-preview diagnostics only.
+  // Never includes the raw IP — only a short hash prefix.
+  const previewDebug = process.env.CONTEXT === 'deploy-preview'
+    ? await (async () => {
+        try {
+          const rec = await deps.rateLimitStore.get(ipHash)
+          return {
+            burst: rec?.burst.length ?? 0,
+            ipHashPrefix: ipHash.slice(0, 8),
+          }
+        }
+        catch {
+          return { burst: -1, ipHashPrefix: ipHash.slice(0, 8) }
+        }
+      })()
+    : undefined
+
   return json(200, {
     ok: true,
     // Never echo raw input; first name only for success greeting.
     firstName: firstNameOf(validated.value.name),
+    ...(previewDebug ? { debug: previewDebug } : {}),
   })
 }
 

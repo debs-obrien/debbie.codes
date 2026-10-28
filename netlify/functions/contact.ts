@@ -31,13 +31,25 @@ function clientIp(req: Request, context: Context): string {
 }
 
 function getRateLimitStore() {
+  // Prefer strong consistency when the runtime provides it; otherwise fall
+  // back to the default (eventual) store rather than ephemeral memory so
+  // limits still apply across invocations.
   try {
-    // Modern Functions get full Blobs context, including strong consistency.
-    const store = getStore({ name: 'contact-rate-limit', consistency: 'strong' })
-    return createBlobsRateLimitStore(store as unknown as Parameters<typeof createBlobsRateLimitStore>[0])
+    return createBlobsRateLimitStore(
+      getStore({ name: 'contact-rate-limit', consistency: 'strong' }) as unknown as Parameters<typeof createBlobsRateLimitStore>[0],
+    )
   }
-  catch {
-    return createMemoryRateLimitStore()
+  catch (err) {
+    console.warn('contact: strong Blobs unavailable, using default store', err)
+    try {
+      return createBlobsRateLimitStore(
+        getStore('contact-rate-limit') as unknown as Parameters<typeof createBlobsRateLimitStore>[0],
+      )
+    }
+    catch (err2) {
+      console.error('contact: Blobs unavailable, using memory store', err2)
+      return createMemoryRateLimitStore()
+    }
   }
 }
 
