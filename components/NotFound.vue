@@ -18,8 +18,7 @@
       </NuxtLink>
     </div>
     <NuxtImg
-      provider="cloudinary"
-      src="v1668347473/debbie.codes/broken_vktobk.png"
+      src="/images/broken-connection.webp"
       alt="broken connection"
       width="444"
       height="256"

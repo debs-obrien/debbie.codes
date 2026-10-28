@@ -93,8 +93,7 @@ useHead({
         <div class="w-14 h-0.5 bg-primary mx-auto mb-10 rounded-full" aria-hidden="true" />
 
         <NuxtImg
-          provider="cloudinary"
-          src="v1589118478/debbie.codes/debbie-thumb_clt00n"
+          src="/images/debbie-thumb.webp"
           alt="Debbie O'Brien"
           width="200"
           height="200"
