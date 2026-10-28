@@ -13,9 +13,7 @@
       <p class="speaking-note-text">
         I love speaking, and I've given over 60 talks and workshops. Right now I
         can only say yes to a few new invites. My confirmed talks are on my
-        <NuxtLink to="/speaking" class="contact-inline-link">
-          speaking page
-        </NuxtLink>.
+        <NuxtLink to="/speaking" class="contact-inline-link">speaking page</NuxtLink>.
       </p>
     </div>
   </aside>

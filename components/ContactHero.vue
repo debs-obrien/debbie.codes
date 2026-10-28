@@ -36,7 +36,7 @@ import { GITHUB_URL, LINKEDIN_URL, X_URL } from '~/utils/contact-links'
           target="_blank"
           rel="noopener noreferrer"
           class="contact-btn contact-btn-secondary"
-          aria-label="Follow me on X (opens in a new tab)"
+          aria-label="@debs_obrien on X (opens in a new tab)"
           data-testid="contact-x-cta"
         >
           <svg class="contact-btn-icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
