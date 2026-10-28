@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { PUBLIC_EMAIL, PUBLIC_MAILTO } from '~/utils/site-contact'
+
 useHead({
   title: 'Now',
   meta: [{
@@ -30,7 +32,7 @@ useHead({
         </p>
         <p>
           Email
-          <a href="mailto:dobriendev@gmail.com">dobriendev@gmail.com</a>.
+          <a :href="PUBLIC_MAILTO">{{ PUBLIC_EMAIL }}</a>.
           A bot helps me triage, so write a clear subject.
         </p>
       </section>

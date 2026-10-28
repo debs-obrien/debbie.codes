@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { PUBLIC_MAILTO } from '~/utils/site-contact'
+
 const upcoming: {
   event: string
   dates: string
@@ -81,7 +83,7 @@ useHead({
         class="text-primary hover:underline"
       >slide decks on GitHub</a>.
       For anything else,
-      <a href="mailto:dobriendev@gmail.com" class="text-primary hover:underline">email me</a>.
+      <a :href="PUBLIC_MAILTO" class="text-primary hover:underline">email me</a>.
     </p>
   </main>
 </template>

@@ -1,19 +1,13 @@
 import { expect, test } from '@playwright/test';
+import { GITHUB_URL, LINKEDIN_URL, PUBLIC_MAILTO, X_URL } from '../utils/site-contact';
 
-const LINKEDIN = 'https://www.linkedin.com/in/debbie-obrien';
-const X = 'https://x.com/debs_obrien';
-const GITHUB = 'https://github.com/debs-obrien';
-
-test('contact page links to LinkedIn, X, GitHub and hire-me with no mailto', async ({ page }) => {
+test('contact page links to LinkedIn, X, GitHub, hire-me and email', async ({ page }) => {
   await page.goto('/contact');
   await expect(page.getByTestId('contact-page')).toBeVisible();
 
-  await expect(page.getByTestId('contact-linkedin-cta')).toHaveAttribute('href', LINKEDIN);
-  await expect(page.getByTestId('contact-x-cta')).toHaveAttribute('href', X);
-  await expect(page.getByTestId('contact-github-cta')).toHaveAttribute('href', GITHUB);
+  await expect(page.getByTestId('contact-linkedin-cta')).toHaveAttribute('href', LINKEDIN_URL);
+  await expect(page.getByTestId('contact-x-cta')).toHaveAttribute('href', X_URL);
+  await expect(page.getByTestId('contact-github-cta')).toHaveAttribute('href', GITHUB_URL);
   await expect(page.getByTestId('contact-hire-me-link')).toHaveAttribute('href', '/hire-me');
-
-  const html = await page.content();
-  expect(html).not.toMatch(/mailto:/i);
-  expect(html).not.toMatch(/dobriendev@gmail\.com/i);
+  await expect(page.getByTestId('contact-email-link')).toHaveAttribute('href', PUBLIC_MAILTO);
 });

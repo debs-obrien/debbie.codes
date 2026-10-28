@@ -2,7 +2,7 @@
 import '~/assets/css/contact.css'
 
 const title = 'Contact | Debbie O\'Brien'
-const description = 'Hiring, collaborating or planning an event? Here\'s how to reach me. LinkedIn is quickest.'
+const description = 'I\'d love to hear from you — talks, workshops, collaborations or just saying hi. Email or LinkedIn both work.'
 
 useHead({
   title,

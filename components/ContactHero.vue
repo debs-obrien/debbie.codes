@@ -1,5 +1,11 @@
 <script setup lang="ts">
-import { GITHUB_URL, LINKEDIN_URL, X_URL } from '~/utils/contact-links'
+import {
+  GITHUB_URL,
+  LINKEDIN_URL,
+  PUBLIC_EMAIL,
+  PUBLIC_MAILTO,
+  X_URL,
+} from '~/utils/site-contact'
 </script>
 
 <template>
@@ -8,12 +14,17 @@ import { GITHUB_URL, LINKEDIN_URL, X_URL } from '~/utils/contact-links'
       Contact
     </p>
     <h1 class="contact-h1">
-      Hiring? Let's talk.
+      I'd love to hear from you.
     </h1>
     <p class="contact-lead">
-      I'm Debbie, an Independent Developer Educator. I teach developers to build
-      with AI agents, MCP and Playwright, and I'm looking for my next role.
-      LinkedIn is the quickest way to reach me.
+      Whether it's a talk, a workshop, a collaboration, a hiring chat or just
+      saying hi — drop me a line. You can
+      <a
+        :href="PUBLIC_MAILTO"
+        class="contact-inline-link"
+        data-testid="contact-email-link"
+      >{{ PUBLIC_EMAIL }}</a>
+      or message me on LinkedIn; LinkedIn is often the quickest.
     </p>
 
     <div class="contact-cta-row">
