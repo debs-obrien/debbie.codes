@@ -1,25 +1,32 @@
-import { test, expect } from '@playwright/test'
+import { expect, test } from '@playwright/test';
+
+// Demo-only ElevenLabs widget on /videos; keep tests offline from third-party.
+async function blockElevenLabs(page: import('@playwright/test').Page) {
+  await page.route(/unpkg\.com|elevenlabs\.io|api\.elevenlabs/, route => route.abort());
+}
 
 test.describe('Videos pagination', () => {
   test('lists featured, latest, and links to older pages', async ({ page }) => {
-    await page.goto('/videos')
+    await blockElevenLabs(page);
+    await page.goto('/videos');
 
-    await expect(page.getByRole('heading', { name: 'Videos', level: 1 })).toHaveText('Videos')
-    await expect(page.getByRole('heading', { name: 'Featured', level: 2 })).toBeVisible()
-    await expect(page.getByRole('heading', { name: 'Latest', level: 2 })).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'Videos', level: 1 })).toHaveText('Videos');
+    await expect(page.getByRole('heading', { name: 'Featured', level: 2 })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Latest', level: 2 })).toBeVisible();
 
-    await expect(page.getByRole('region', { name: 'Featured' }).getByRole('article')).toHaveCount(3)
-    await expect(page.getByRole('region', { name: 'Latest' }).getByRole('article')).toHaveCount(24)
+    await expect(page.getByRole('region', { name: 'Featured' }).getByRole('article')).toHaveCount(3);
+    await expect(page.getByRole('region', { name: 'Latest' }).getByRole('article')).toHaveCount(24);
 
-    const next = page.getByRole('link', { name: /next/i })
-    await expect(next).toHaveAttribute('href', /\/videos\/page\/2/)
-    await next.click()
-    await expect(page).toHaveURL(/\/videos\/page\/2\/?$/)
-    await expect.poll(() => page.getByRole('article').count()).toBeGreaterThan(0)
-  })
+    const next = page.getByRole('link', { name: /next/i });
+    await expect(next).toHaveAttribute('href', /\/videos\/page\/2/);
+    await next.click();
+    await expect(page).toHaveURL(/\/videos\/page\/2\/?$/);
+    await expect.poll(() => page.getByRole('article').count()).toBeGreaterThan(0);
+  });
 
   test('redirects /videos/all to /videos', async ({ page }) => {
-    await page.goto('/videos/all')
-    await expect(page).toHaveURL(/\/videos\/?$/)
-  })
-})
+    await blockElevenLabs(page);
+    await page.goto('/videos/all');
+    await expect(page).toHaveURL(/\/videos\/?$/);
+  });
+});
