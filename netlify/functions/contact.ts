@@ -1,7 +1,6 @@
-import type { Handler, HandlerEvent } from '@netlify/functions'
-import { Buffer } from 'node:buffer'
+import type { Config, Context } from '@netlify/functions'
 import process from 'node:process'
-import { connectLambda, getStore } from '@netlify/blobs'
+import { getStore } from '@netlify/blobs'
 import { createBlobsRateLimitStore } from '../../utils/contact/blobs-store'
 import {
   handleContactSubmit,
@@ -17,76 +16,72 @@ const CORS_HEADERS = {
   'Content-Type': 'application/json; charset=utf-8',
 }
 
-function clientIp(event: HandlerEvent): string {
-  const xf = event.headers['x-forwarded-for'] || event.headers['X-Forwarded-For']
-  if (typeof xf === 'string' && xf.length > 0)
+function clientIp(req: Request, context: Context): string {
+  const xf = req.headers.get('x-forwarded-for')
+  if (xf)
     return xf.split(',')[0]!.trim()
-  const nf = event.headers['x-nf-client-connection-ip']
-    || event.headers['client-ip']
-    || event.headers['x-real-ip']
-  if (typeof nf === 'string' && nf.length > 0)
+  const nf = req.headers.get('x-nf-client-connection-ip')
+    || req.headers.get('client-ip')
+    || req.headers.get('x-real-ip')
+  if (nf)
     return nf.trim()
-  return 'unknown'
+  // Netlify Context may expose IP on some runtimes.
+  const ctxIp = (context as { ip?: string }).ip
+  return ctxIp || 'unknown'
 }
 
-function getRateLimitStore(event: HandlerEvent) {
+function getRateLimitStore() {
   try {
-    // Classic `export const handler` Functions need connectLambda for Blobs.
-    connectLambda(event)
-    // Default eventual consistency — strong consistency needs uncachedEdgeURL
-    // which classic Functions do not expose on this site.
-    const store = getStore('contact-rate-limit')
-    // Store.get overloads are wider than our JSON-only adapter needs.
+    // Modern Functions get full Blobs context, including strong consistency.
+    const store = getStore({ name: 'contact-rate-limit', consistency: 'strong' })
     return createBlobsRateLimitStore(store as unknown as Parameters<typeof createBlobsRateLimitStore>[0])
   }
   catch {
-    // Local `netlify functions:serve` without Blobs — fall back to memory.
     return createMemoryRateLimitStore()
   }
 }
 
-export const handler: Handler = async (event) => {
-  if (event.httpMethod === 'OPTIONS') {
-    return { statusCode: 204, headers: CORS_HEADERS, body: '' }
-  }
+function jsonResponse(status: number, body: Record<string, unknown>) {
+  return new Response(JSON.stringify(body), {
+    status,
+    headers: CORS_HEADERS,
+  })
+}
+
+export default async (req: Request, context: Context) => {
+  if (req.method === 'OPTIONS')
+    return new Response(null, { status: 204, headers: CORS_HEADERS })
 
   const secrets = resolveContactSecrets(process.env)
-  const rateLimitStore = getRateLimitStore(event)
   const deps = {
     ...secrets,
-    rateLimitStore,
+    rateLimitStore: getRateLimitStore(),
   }
 
-  if (event.httpMethod === 'GET') {
+  if (req.method === 'GET') {
     const result = issueContactChallenge(deps)
-    return {
-      statusCode: result.status,
-      headers: CORS_HEADERS,
-      body: JSON.stringify(result.body),
-    }
+    return jsonResponse(result.status, result.body)
   }
 
-  if (event.httpMethod !== 'POST') {
-    return {
-      statusCode: 405,
-      headers: CORS_HEADERS,
-      body: JSON.stringify({ ok: false, code: 'method_not_allowed' }),
-    }
+  if (req.method !== 'POST')
+    return jsonResponse(405, { ok: false, code: 'method_not_allowed' })
+
+  const rawBody = await req.text()
+  try {
+    const result = await handleContactSubmit(deps, {
+      rawBody,
+      contentType: req.headers.get('content-type') || undefined,
+      clientIp: clientIp(req, context),
+    })
+    return jsonResponse(result.status, result.body)
   }
-
-  const rawBody = event.isBase64Encoded
-    ? Buffer.from(event.body || '', 'base64').toString('utf8')
-    : (event.body || '')
-
-  const result = await handleContactSubmit(deps, {
-    rawBody,
-    contentType: event.headers['content-type'] || event.headers['Content-Type'],
-    clientIp: clientIp(event),
-  })
-
-  return {
-    statusCode: result.status,
-    headers: CORS_HEADERS,
-    body: JSON.stringify(result.body),
+  catch (err) {
+    console.error('contact function error', err)
+    return jsonResponse(500, { ok: false, code: 'server_error' })
   }
+}
+
+export const config: Config = {
+  // Keep the existing /.netlify/functions/contact URL.
+  path: '/.netlify/functions/contact',
 }
