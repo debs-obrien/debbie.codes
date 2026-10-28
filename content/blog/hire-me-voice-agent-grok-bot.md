@@ -2,7 +2,7 @@
 title: "My Hire Me Page Can Talk: A Voice Agent Built with Grok Bot and ElevenLabs"
 date: 2026-10-27
 description: "My hire me page now answers recruiters' questions out loud. Here's how my Grok Bot built the voice agent with ElevenLabs, how it gets its facts, and how I tested it."
-tags: [ai, agents, grok-bot]
+tags: [ai, agents, grok-bot, testing]
 published: true
 image: /images/blog/covers/hire-me-voice-agent-grok-bot.png
 ogImage: /images/blog/covers/hire-me-voice-agent-grok-bot.png
@@ -10,17 +10,17 @@ ogImage: /images/blog/covers/hire-me-voice-agent-grok-bot.png
 
 I've been doing lots of interviews lately, and the same questions keep coming up.
 
-I lose a lot of time when hiring managers and recruiters are on calls asking me the same things, when the information is already online.
+I lose a lot of time on calls answering things that are already online.
 
 So the idea is that someone looking to hire me can read my hire me page and get the insight they need. Then the call with the recruiter can focus on their questions, their doubts and the process.
 
-I added the voice agent because nobody reads the whole page. You want to sift through it. So you can ask, in your own voice, about something specific, like MCP or AI agents, and the agent answers based on the content I've provided. It's true to what I would say.
+I added the voice agent because nobody reads the whole page. You want to skim it. So you can ask, in your own voice, about something specific, like MCP or AI agents, and the agent answers based on the content I've provided. It's true to what I would say.
 
 I think it's a nice way to improve the hiring process. More people are applying with AI, and recruiters have endless CVs to get through. Personal time is valuable. So if a recruiter has an agent reviewing candidates, and I have an agent answering for me, one agent is talking to the other. It sounds crazy, but it saves time. And I want a company to know quickly if I'm a good fit or not.
 
 I'd do the same on their company website, researching the culture and whether the role is a fit. So why not let agents take on the repetitive stuff and automate it, so the human call is more valuable?
 
-I'm just testing things out, so give it a try and tell me what you think. I'd love your feedback. Just don't burn all my credits, because it costs per call, and please don't all call at once.
+I'm just testing things out, so give it a try. Just don't burn all my credits, because it costs per call, and please don't all call at once.
 
 ![The top of my hire me page on desktop, with the intro.](/images/blog/hire-me-voice-agent-grok-bot/01-desktop-hero.png)
 
@@ -30,7 +30,7 @@ I have been independent since October and I'm looking for my next role in develo
 
 A CV doesn't answer the follow up questions. What did you actually do on that project? What numbers can you back up? What are you looking for next?
 
-I also teach AI agents. So it made sense for the page itself to show an agent built carefully, with clear rules, honest numbers and an assistant that says it's an AI assistant.
+I also teach AI agents. So it made sense for the page itself to show an agent built carefully, with clear rules, honest numbers and an assistant that's upfront about being AI.
 
 The page is live at [debbie.codes/hire-me](https://debbie.codes/hire-me), and "Hire me" is now in the main menu.
 
@@ -40,7 +40,7 @@ The page is one long read in my own words: a short intro, the voice assistant, 1
 
 ## Meet "Ask about Debbie"
 
-On the page there's a voice assistant called "Ask about Debbie". You press "Start a call", allow your microphone, and ask a question out loud. It answers out loud from the same facts that are on the page.
+On the page there's a voice assistant called "Ask about Debbie". You press "Start a call", allow your microphone, and ask a question out loud. You can also type instead. It answers out loud from the same facts that are on the page.
 
 When you start a call it says: "Hi, I'm Debbie's assistant. I can tell you about Debbie's work, her numbers, and the roles she's looking for. What would you like to know?"
 
@@ -63,6 +63,7 @@ An assistant that talks about you to people who might hire you needs clear rules
 - **It's honest about what it is.** It's my AI assistant, not me.
 - **Some topics are for a real conversation.** It politely declines questions about other job processes, why a role ended, health, family or my personal life, and points you to my contact page instead.
 - **No promises.** It won't commit to availability, start dates or contract terms. That's a conversation for me.
+- **No company names.** It doesn't name the companies I've worked for, and it won't give opinions on other companies or compare me to anyone.
 - **It's told to keep its rules** even if someone tries to talk it out of them.
 
 ## How I built it
@@ -71,23 +72,23 @@ I didn't build this one on my own. I worked with my Grok Bot.
 
 ### What Grok Bot did
 
-- **The page.** Grok Bot drafted the page content and I edited it until it sounded like me. The code was written by Cursor cloud agents that Grok Bot launched and reviewed, in [PR #674](https://github.com/debs-obrien/debbie.codes/pull/674) and [PR #675](https://github.com/debs-obrien/debbie.codes/pull/675). I approved the merges. You can also just [visit the live page](https://debbie.codes/hire-me).
+- **The page.** Grok Bot drafted the page content and I edited it until it sounded like me. The code was written by Cursor cloud agents that Grok Bot launched and reviewed, in [PR #674](https://github.com/debs-obrien/debbie.codes/pull/674) and [PR #675](https://github.com/debs-obrien/debbie.codes/pull/675). I approved the merges.
 - **The spec.** Grok Bot wrote a Markdown spec for the agent with two parts: the first message and the system prompt. The facts in the prompt were written from the same notes as the page.
-- **The agent.** Grok Bot created the agent from that spec through the ElevenLabs Agents API, then set the allowed site and the widget labels through the API too. I reviewed it and told it what to change.
+- **The agent.** Grok Bot created the agent from that spec through the ElevenAgents API, then set the allowed site and the widget labels through the API too. I reviewed it and told it what to change.
 
 ### How the agent gets its data
 
 Everything the agent knows comes from one system prompt, about 9,000 characters, written from the same notes as the page. There's no knowledge base and there are no tools. My rules for what it should and shouldn't say are in that prompt too. ElevenLabs has its own built-in guardrails. I turned on the focus, prompt injection and content guardrails, and they end the call if they're triggered, on top of the rules in the prompt.
 
-Keep the agent's facts the same as the page. Nothing syncs them, so when the page changes, update the prompt too. On my site, Grok Bot does that through the ElevenLabs Agents API. For example, when I widened the page's audience to recruiters, hiring managers and future teammates, the prompt got the same change.
+The agent's facts have to stay the same as the page. Nothing syncs them, so when the page changes, the prompt has to change too. On my site, Grok Bot does that through the ElevenAgents API. For example, when I widened the page's audience to recruiters, hiring managers and future teammates, the prompt got the same change.
 
 ### How I tested it
 
 I tested it in three ways: a few real calls, ElevenLabs agent tests, and Playwright tests on the site.
 
-**Real calls.** Around launch there were 3 test calls: an 80 second voice call, a 60 second voice call and a 14 second typed chat. It gave my Playwright MCP numbers exactly as they are in the prompt, said it's just my assistant when asked whether it would hire me, and wouldn't talk about a specific company.
+**Real calls.** Around launch there were 3 test calls: an 80 second voice call, a 60 second voice call and a 14 second typed chat. It gave my Playwright MCP numbers exactly as they are in the prompt, said it's just my assistant and pointed to my contact page when asked whether it would hire me, and wouldn't talk about a specific company.
 
-**Agent tests.** Three calls don't prove much, so I had my Grok Bot add tests in ElevenLabs. ElevenLabs Agents has [built-in testing](https://elevenlabs.io/docs/eleven-agents/customization/agent-testing). A next reply test gives the agent a message and checks its answer against a pass condition written in plain English. A simulation test lets an AI play the visitor for a whole conversation. In both, another AI model reads the answer and decides pass or fail.
+**Agent tests.** Three calls don't prove much, so I had my Grok Bot add tests in ElevenLabs. ElevenAgents has [built-in testing](https://elevenlabs.io/docs/eleven-agents/customization/agent-testing). A next reply test gives the agent a message and checks its answer against a pass condition written in plain English. A simulation test lets an AI play the visitor for a whole conversation. In both, another AI model reads the answer and decides pass or fail.
 
 I added seven tests for the rules I care about most and ran each one three times, because the agent doesn't give the exact same answer every time:
 
@@ -127,9 +128,9 @@ Here's a simplified version of the embed:
 </ClientOnly>
 ```
 
-- **Locking it down.** The widget needs a public agent, so the agent is locked to debbie.codes with an allowlist.
+The widget needs a public agent, so mine only works on debbie.codes, using an allowlist.
 
-The widget shows a small "Powered by" line for ElevenLabs, and I'm keeping it.
+The widget shows a small "Powered by ElevenAgents" line, and I'm keeping it.
 
 ### Privacy settings
 
@@ -139,7 +140,7 @@ The widget shows a small "Powered by" line for ElevenLabs, and I'm keeping it.
 
 ## How to get started building one
 
-ElevenLabs Agents is the ElevenLabs platform for building agents that talk with people, combining speech to text, a language model you choose, text to speech and a turn taking model ([overview docs](https://elevenlabs.io/docs/eleven-agents/overview)). You can set one up in the dashboard, with the CLI or through the API, and put it on the web, in a mobile app or on a phone line.
+ElevenAgents is the ElevenLabs platform for building agents that talk with people. An agent can combine speech to text, a language model you choose, text to speech and a turn taking model ([overview docs](https://elevenlabs.io/docs/eleven-agents/overview)). You can set one up in the dashboard, with the CLI or through the API, and put it on the web, in a mobile app or on a phone line.
 
 These steps follow the official docs:
 
