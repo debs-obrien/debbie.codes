@@ -5,6 +5,7 @@ import { Buffer } from 'node:buffer'
 import process from 'node:process'
 import { createChallenge, verifyChallenge } from './challenge'
 import { CONTACT_FORM_NAME, CONTACT_LIMITS } from './constants'
+import { CONTACT_PROOF_HEADER, createFormProof } from './proof'
 import { checkAndRecordRateLimit, hashIp } from './rate-limit'
 import {
   parseContactBody,
@@ -99,11 +100,8 @@ export async function handleContactSubmit(
   }
 
   const challenge = verifyChallenge(input.challenge, deps.secret, now)
-  if (!challenge.ok) {
-    if (challenge.reason === 'too_fast')
-      return json(400, errorBody('timing'))
+  if (!challenge.ok)
     return json(400, errorBody('timing'))
-  }
 
   const ipHash = hashIp(options.clientIp || 'unknown', deps.ipSalt)
   let rate
@@ -112,12 +110,13 @@ export async function handleContactSubmit(
   }
   catch (err) {
     console.error('contact rate-limit store error', err)
-    return json(500, errorBody('server_error'))
+    return json(503, errorBody('blobs_unavailable'))
   }
   if (!rate.ok)
     return json(429, errorBody('rate_limit'))
 
   // Forward to Netlify Forms (plain text fields only; no HTML).
+  // Edge gate requires X-Contact-Proof so direct public POSTs cannot bypass.
   const formBody = new URLSearchParams({
     'form-name': CONTACT_FORM_NAME,
     'name': sanitizePlainText(validated.value.name),
@@ -125,15 +124,18 @@ export async function handleContactSubmit(
     'reason': validated.value.reason,
     'message': sanitizePlainText(validated.value.message),
     'company-website': '',
-  })
+  }).toString()
+
+  const proof = await createFormProof(deps.secret, formBody)
 
   try {
     const res = await fetchFn(deps.siteOrigin, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
+        [CONTACT_PROOF_HEADER]: proof,
       },
-      body: formBody.toString(),
+      body: formBody,
     })
     // Netlify Forms returns 200 or 303 on success.
     if (!res.ok && res.status !== 303) {
@@ -180,10 +182,12 @@ export function resolveContactSecrets(env: NodeJS.ProcessEnv = process.env): {
   ipSalt: string
   siteOrigin: string
 } {
+  // Prefer the deployment-specific URL so preview Functions forward to the
+  // preview Forms endpoint, not production (env.URL is the production site).
   const siteOrigin = (
-    env.URL
-    || env.DEPLOY_PRIME_URL
+    env.DEPLOY_PRIME_URL
     || env.DEPLOY_URL
+    || env.URL
     || 'http://127.0.0.1:8000'
   ).replace(/\/$/, '')
 

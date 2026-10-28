@@ -1,26 +1,35 @@
 import assert from 'node:assert/strict'
-import { afterEach, describe, it } from 'vitest'
+import { describe, it } from 'vitest'
 import { createChallenge } from '../../utils/contact/challenge'
 import { CONTACT_LIMITS } from '../../utils/contact/constants'
 import {
   handleContactSubmit,
   issueContactChallenge,
+  resolveContactSecrets,
   sanitizePlainText,
 } from '../../utils/contact/handler'
+import { CONTACT_PROOF_HEADER, createFormProof, verifyFormProof } from '../../utils/contact/proof'
 import {
+  checkAndRecordRateLimit,
   createMemoryRateLimitStore,
 } from '../../utils/contact/rate-limit'
+import { countLinks } from '../../utils/contact/spam'
 
 const SECRET = 'test-secret-hmac'
 const IP_SALT = 'test-ip-salt'
 
 function deps(overrides: Partial<Parameters<typeof handleContactSubmit>[0]> = {}) {
   const store = createMemoryRateLimitStore()
-  const forwards: Array<{ url: string, body: string }> = []
+  const forwards: Array<{ url: string, body: string, headers: Record<string, string> }> = []
   const fetchFn = (async (input: RequestInfo | URL, init?: RequestInit) => {
+    const headers: Record<string, string> = {}
+    new Headers(init?.headers).forEach((v, k) => {
+      headers[k.toLowerCase()] = v
+    })
     forwards.push({
       url: String(input),
       body: String(init?.body || ''),
+      headers,
     })
     return new Response(null, { status: 200 })
   }) as typeof fetch
@@ -56,10 +65,6 @@ function validBody(extra: Record<string, string> = {}) {
 }
 
 describe('contact handler', () => {
-  afterEach(() => {
-    // no-op placeholder for future cleanup
-  })
-
   it('issues a challenge on GET', () => {
     const { deps: d } = deps()
     const result = issueContactChallenge(d)
@@ -106,7 +111,7 @@ describe('contact handler', () => {
   it('rejects too-fast submissions (timing)', async () => {
     const { deps: d } = deps()
     const now = 1_700_000_000_000
-    const challenge = createChallenge(SECRET, now) // just issued
+    const challenge = createChallenge(SECRET, now)
     const result = await handleContactSubmit({
       ...d,
       nowMs: () => now + 500,
@@ -191,7 +196,7 @@ describe('contact handler', () => {
     assert.equal(blocked.body.code, 'rate_limit')
   })
 
-  it('forwards accepted submissions to Netlify Forms without echoing HTML', async () => {
+  it('forwards with HMAC proof header and without echoing HTML', async () => {
     const { deps: d, forwards } = deps()
     const result = await handleContactSubmit(d, {
       rawBody: validBody({
@@ -209,6 +214,9 @@ describe('contact handler', () => {
     assert.match(forwards[0]!.body, /form-name=contact/)
     assert.doesNotMatch(forwards[0]!.body, /<script>/)
     assert.doesNotMatch(forwards[0]!.body, /<b>/)
+    const proof = forwards[0]!.headers[CONTACT_PROOF_HEADER]
+    assert.ok(proof)
+    assert.equal(await verifyFormProof(SECRET, forwards[0]!.body, proof), true)
   })
 
   it('sanitizePlainText strips angle brackets', () => {
@@ -233,5 +241,63 @@ describe('contact handler', () => {
     })
     assert.equal(result.status, 400)
     assert.equal(result.body.code, 'validation')
+  })
+
+  it('prefers DEPLOY_PRIME_URL over production URL for previews', () => {
+    const resolved = resolveContactSecrets({
+      URL: 'https://debbie.codes',
+      DEPLOY_PRIME_URL: 'https://deploy-preview-685--debbiecodes.netlify.app',
+      SITE_ID: 'site',
+    })
+    assert.equal(resolved.siteOrigin, 'https://deploy-preview-685--debbiecodes.netlify.app')
+  })
+})
+
+describe('link counting', () => {
+  it('counts https://www.x once, not twice', () => {
+    assert.equal(countLinks('https://www.one.test and https://www.two.test'), 2)
+  })
+
+  it('counts bare www and scheme URLs separately when distinct', () => {
+    assert.equal(countLinks('see www.a.test and https://b.test please'), 2)
+  })
+})
+
+describe('form proof', () => {
+  it('round-trips HMAC proof', async () => {
+    const body = 'form-name=contact&name=Alex'
+    const proof = await createFormProof(SECRET, body)
+    assert.equal(await verifyFormProof(SECRET, body, proof), true)
+    assert.equal(await verifyFormProof(SECRET, body, 'nope'), false)
+    assert.equal(await verifyFormProof(SECRET, `${body}&x=1`, proof), false)
+  })
+})
+
+describe('concurrent rate limit', () => {
+  it('allows at most burst under parallel submits', async () => {
+    const store = createMemoryRateLimitStore()
+    const now = Date.now()
+    // Yield between get and set so Promise.all actually interleaves.
+    const delayingStore = {
+      async getWithEtag(key: string) {
+        const got = await store.getWithEtag(key)
+        await new Promise(r => setTimeout(r, 5))
+        return got
+      },
+      setConditional: store.setConditional.bind(store),
+      async getGlobalWithEtag() {
+        const got = await store.getGlobalWithEtag()
+        await new Promise(r => setTimeout(r, 5))
+        return got
+      },
+      setGlobalConditional: store.setGlobalConditional.bind(store),
+    }
+
+    const results = await Promise.all(
+      Array.from({ length: 12 }, () => checkAndRecordRateLimit(delayingStore, 'same-ip', now)),
+    )
+    const ok = results.filter(r => r.ok).length
+    assert.equal(ok, CONTACT_LIMITS.rateLimitBurst)
+    assert.equal(results.filter(r => !r.ok).length, 12 - CONTACT_LIMITS.rateLimitBurst)
   })
 })

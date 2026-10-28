@@ -1,9 +1,9 @@
+import type { H3Event } from 'h3'
 /**
  * Local/dev mirror of `netlify/functions/contact.ts`.
- * Production static deploys use the Netlify Function; this route only exists
- * when running `nuxt dev` / Nitro (not in `nuxt generate` output).
+ * Uses an explicit in-memory rate-limit store (local only). Production and
+ * deploy previews use Blobs and fail closed if Blobs is unavailable.
  */
-import type { H3Event } from 'h3'
 import process from 'node:process'
 import {
   handleContactSubmit,
@@ -29,7 +29,7 @@ export default defineEventHandler(async (event) => {
   const method = event.method
   const secrets = resolveContactSecrets(process.env)
 
-  // Locally there is no Netlify Forms endpoint — accept the forward.
+  // Locally there is no Netlify Forms / edge gate — accept the forward.
   const fetchFn: typeof fetch = isLocalOrigin(secrets.siteOrigin)
     ? (async () => new Response(null, { status: 200 })) as typeof fetch
     : fetch

@@ -57,4 +57,5 @@ export type ContactErrorCode
     | 'payload_too_large'
     | 'method_not_allowed'
     | 'forward_failed'
+    | 'blobs_unavailable'
     | 'server_error'

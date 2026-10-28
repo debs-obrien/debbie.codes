@@ -1,4 +1,5 @@
-const LINK_RE = /https?:\/\/|www\./gi
+/** Match a full URL once: scheme with optional www, or bare www. */
+const LINK_RE = /https?:\/\/(?:www\.)?|www\./gi
 
 const SPAM_PHRASES = [
   'buy now',

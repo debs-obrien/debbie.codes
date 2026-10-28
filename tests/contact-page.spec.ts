@@ -77,7 +77,13 @@ test.describe('Contact page', () => {
 
     const honeypot = page.getByTestId('contact-honeypot');
     await expect(honeypot).toHaveCount(1);
-    await expect(honeypot).toBeHidden();
+    // Assert exclusion from a11y/tab order rather than layout visibility —
+    // clipped/sr-only fields can still report as "visible" to Playwright.
+    await expect(honeypot).toHaveAttribute('tabindex', '-1');
+    await expect(honeypot).toHaveAttribute('autocomplete', 'off');
+    const wrapper = page.locator('.contact-honeypot');
+    await expect(wrapper).toHaveAttribute('aria-hidden', 'true');
+    await expect(wrapper).toHaveAttribute('hidden', '');
 
     await page.getByTestId('contact-name').fill('Alex Rivera');
     await page.getByTestId('contact-email').fill('alex@company.com');

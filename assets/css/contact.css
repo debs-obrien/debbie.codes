@@ -199,6 +199,11 @@
   text-decoration: underline;
 }
 
+/* Dark mode: #ff8a9a on #1f2937 ≈ 5.3:1 (AA for normal text). */
+.dark .contact-inline-link {
+  color: #ff8a9a;
+}
+
 .contact-tap-link {
   display: inline-flex;
   align-items: center;

@@ -10,7 +10,7 @@ import {
 import { contactApiEndpoint } from '~/utils/contact/endpoint'
 import { validateContactFields } from '~/utils/contact/validate'
 
-type FormStatus = 'idle' | 'submitting' | 'success' | 'rate_limited' | 'send_failed'
+type FormStatus = 'idle' | 'submitting' | 'success' | 'rate_limited' | 'timing' | 'send_failed'
 
 const route = useRoute()
 
@@ -173,8 +173,15 @@ async function onSubmit() {
       return
     }
 
-    if (res.status === 400 && (data.code === 'timing' || data.code === 'payload_too_large')) {
-      status.value = 'rate_limited'
+    // Keep the existing challenge so the wait clock is not restarted.
+    if (res.status === 400 && data.code === 'timing') {
+      status.value = 'timing'
+      statusMessage.value = ''
+      return
+    }
+
+    if (res.status === 400 && data.code === 'payload_too_large') {
+      status.value = 'send_failed'
       statusMessage.value = ''
       await fetchChallenge()
       return
@@ -329,6 +336,16 @@ function fieldDescribedBy(id: string, errorKey: keyof ContactFieldErrors, extra?
       </div>
 
       <div
+        v-if="status === 'timing'"
+        class="contact-banner contact-banner-warn"
+        role="alert"
+        data-testid="contact-timing"
+      >
+        <strong>Please wait a few seconds</strong>
+        and try again — this helps stop automated spam. Your message is still here.
+      </div>
+
+      <div
         v-if="status === 'send_failed'"
         class="contact-banner contact-banner-error"
         role="alert"
@@ -341,17 +358,15 @@ function fieldDescribedBy(id: string, errorKey: keyof ContactFieldErrors, extra?
       </div>
 
       <!--
-        Static registration for Netlify Forms (data-netlify + honeypot).
-        JS submits to the Netlify Function; no-JS falls back to a plain POST.
+        Posts only to the hardened Function (JS and no-JS). Form detection for
+        Netlify Forms lives in public/__forms.html; an Edge gate blocks direct
+        Forms POSTs that lack the Function's HMAC proof header.
       -->
       <form
         ref="formRef"
         name="contact"
         method="POST"
-        action="/"
-        data-netlify="true"
-        data-netlify-honeypot="company-website"
-        netlify-honeypot="company-website"
+        action="/.netlify/functions/contact"
         class="contact-form"
         :class="{ 'contact-form-busy': isReadOnly }"
         data-testid="contact-form"

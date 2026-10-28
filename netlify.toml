@@ -1,36 +1,49 @@
 [build]
-  command = "npm run generate"
-  publish = "dist"
-  ignore = "git log -1 --pretty=%B | grep dependabot"
+command = "npm run generate"
+publish = "dist"
+ignore = "git log -1 --pretty=%B | grep dependabot"
 
 [functions]
-  directory = "netlify/functions"
-  node_bundler = "esbuild"
+directory = "netlify/functions"
+node_bundler = "esbuild"
 
-[functions."contact"]
-  # Included in the function bundle for shared validation / rate-limit code.
-  included_files = ["utils/contact/**"]
+[functions.contact]
+# Included in the function bundle for shared validation / rate-limit code.
+included_files = [ "utils/contact/**" ]
+
+[dev]
+edge_functions = "netlify/edge-functions"
+
+[[edge_functions]]
+function = "guard-contact-form"
+path = "/*"
 
 [[redirects]]
-  from = "/talks"
-  to = "/speaking"
-  status = 301
-  force = true
+from = "/talks"
+to = "/speaking"
+status = 301
+force = true
 
 [[redirects]]
-  from = "/talks/"
-  to = "/speaking"
-  status = 301
-  force = true
+from = "/talks/"
+to = "/speaking"
+status = 301
+force = true
 
 [[headers]]
-  for = "/*"
-  [headers.values]
-    X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block"
+for = "/*"
+
+[headers.values]
+X-Frame-Options = "DENY"
+X-XSS-Protection = "1; mode=block"
 
 [images]
-  remote_images = ["res.cloudinary.com", "dev-to-uploads.s3.amazonaws.com", "raw.githubusercontent.com", "theaiplatform.app"]
+remote_images = [
+  "res.cloudinary.com",
+  "dev-to-uploads.s3.amazonaws.com",
+  "raw.githubusercontent.com",
+  "theaiplatform.app"
+]
 
 [build.environment]
-  NODE_VERSION = "22.23.3"
+NODE_VERSION = "22.23.3"

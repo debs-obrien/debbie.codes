@@ -6,8 +6,10 @@
 </head>
 <body>
   <!--
-    Static HTML so Netlify Forms detects the `contact` form at build time
-    even when the Vue page is client-hydrated. Do not remove.
+    Build-time registration only so Netlify creates the `contact` form.
+    Public POSTs without the Function's HMAC proof are blocked by
+    netlify/edge-functions/guard-contact-form.ts. Real submissions come from
+    netlify/functions/contact.ts after validation + rate limiting.
   -->
   <form name="contact" method="POST" data-netlify="true" netlify-honeypot="company-website" hidden>
     <input type="hidden" name="form-name" value="contact">

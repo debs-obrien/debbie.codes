@@ -7,7 +7,6 @@ import {
   issueContactChallenge,
   resolveContactSecrets,
 } from '../../utils/contact/handler'
-import { createMemoryRateLimitStore } from '../../utils/contact/rate-limit'
 
 const CORS_HEADERS = {
   'Access-Control-Allow-Origin': '*',
@@ -25,31 +24,23 @@ function clientIp(req: Request, context: Context): string {
     || req.headers.get('x-real-ip')
   if (nf)
     return nf.trim()
-  // Netlify Context may expose IP on some runtimes.
   const ctxIp = (context as { ip?: string }).ip
   return ctxIp || 'unknown'
 }
 
+/**
+ * Blobs is required in production/preview. Never fall back to memory —
+ * that silently disables rate limiting across cold starts.
+ */
 function getRateLimitStore() {
-  // Prefer strong consistency when the runtime provides it; otherwise fall
-  // back to the default (eventual) store rather than ephemeral memory so
-  // limits still apply across invocations.
   try {
     return createBlobsRateLimitStore(
       getStore({ name: 'contact-rate-limit', consistency: 'strong' }) as unknown as Parameters<typeof createBlobsRateLimitStore>[0],
     )
   }
   catch (err) {
-    console.warn('contact: strong Blobs unavailable, using default store', err)
-    try {
-      return createBlobsRateLimitStore(
-        getStore('contact-rate-limit') as unknown as Parameters<typeof createBlobsRateLimitStore>[0],
-      )
-    }
-    catch (err2) {
-      console.error('contact: Blobs unavailable, using memory store', err2)
-      return createMemoryRateLimitStore()
-    }
+    console.error('contact: Blobs unavailable — failing closed', err)
+    throw err
   }
 }
 
@@ -65,9 +56,18 @@ export default async (req: Request, context: Context) => {
     return new Response(null, { status: 204, headers: CORS_HEADERS })
 
   const secrets = resolveContactSecrets(process.env)
+
+  let rateLimitStore
+  try {
+    rateLimitStore = getRateLimitStore()
+  }
+  catch {
+    return jsonResponse(503, { ok: false, code: 'blobs_unavailable' })
+  }
+
   const deps = {
     ...secrets,
-    rateLimitStore: getRateLimitStore(),
+    rateLimitStore,
   }
 
   if (req.method === 'GET') {
@@ -94,6 +94,5 @@ export default async (req: Request, context: Context) => {
 }
 
 export const config: Config = {
-  // Keep the existing /.netlify/functions/contact URL.
   path: '/.netlify/functions/contact',
 }
