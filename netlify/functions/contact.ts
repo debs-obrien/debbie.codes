@@ -33,7 +33,9 @@ function getRateLimitStore(event: HandlerEvent) {
   try {
     // Classic `export const handler` Functions need connectLambda for Blobs.
     connectLambda(event)
-    const store = getStore({ name: 'contact-rate-limit', consistency: 'strong' })
+    // Default eventual consistency — strong consistency needs uncachedEdgeURL
+    // which classic Functions do not expose on this site.
+    const store = getStore('contact-rate-limit')
     // Store.get overloads are wider than our JSON-only adapter needs.
     return createBlobsRateLimitStore(store as unknown as Parameters<typeof createBlobsRateLimitStore>[0])
   }
