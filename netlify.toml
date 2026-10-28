@@ -3,6 +3,14 @@
   publish = "dist"
   ignore = "git log -1 --pretty=%B | grep dependabot"
 
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+[functions."contact"]
+  # Included in the function bundle for shared validation / rate-limit code.
+  included_files = ["utils/contact/**"]
+
 [[redirects]]
   from = "/talks"
   to = "/speaking"

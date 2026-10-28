@@ -43,7 +43,7 @@ test.describe('Navigation Functionality', { tag: '@agent' }, () => {
               - img
           - listitem:
             - link "LinkedIn":
-              - /url: https://www.linkedin.com/in/debbie-o-brien-1a199975/
+              - /url: https://www.linkedin.com/in/debbie-obrien
               - img
           - listitem:
             - link "YouTube":

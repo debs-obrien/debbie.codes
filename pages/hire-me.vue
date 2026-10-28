@@ -438,7 +438,7 @@ useHead(() => ({
       </h2>
       <p class="text-gray-700 dark:text-gray-200 leading-relaxed">
         If you'd like to talk,
-        <NuxtLink to="/contact" class="text-primary font-medium hover:underline">
+        <NuxtLink to="/contact?reason=hiring" class="text-primary font-medium hover:underline">
           get in touch through my contact page
         </NuxtLink>.
         You can also

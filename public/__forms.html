@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Form detection</title>
+</head>
+<body>
+  <!--
+    Static HTML so Netlify Forms detects the `contact` form at build time
+    even when the Vue page is client-hydrated. Do not remove.
+  -->
+  <form name="contact" method="POST" data-netlify="true" netlify-honeypot="company-website" hidden>
+    <input type="hidden" name="form-name" value="contact">
+    <input type="text" name="name">
+    <input type="email" name="email">
+    <input type="text" name="reason">
+    <textarea name="message"></textarea>
+    <input type="text" name="company-website">
+  </form>
+</body>
+</html>
