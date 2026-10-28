@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './fixtures';
 
 function motion(page: import('@playwright/test').Page) {
   return page.getByRole('region', { name: 'Introduction' }).getByTestId('hero-css-motion');

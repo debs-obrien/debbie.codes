@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './fixtures';
 
 test.beforeEach(async ({ page }) => {
   await page.goto('/blog/testing-color-mode');
@@ -68,12 +68,12 @@ test('blog prev and next links update when navigating from paginated blog pages'
 async function clickUntilUrl(
   page: import('@playwright/test').Page,
   link: import('@playwright/test').Locator,
-  urlPattern: RegExp,
+  urlPattern: RegExp
 ) {
   await expect(async () => {
     if (!urlPattern.test(new URL(page.url()).pathname)) {
-      await link.click({ timeout: 3000 }).catch(() => {})
+      await link.click({ timeout: 3000 }).catch(() => {});
     }
-    await expect(page).toHaveURL(urlPattern, { timeout: 2000 })
-  }).toPass({ timeout: 20000 })
+    await expect(page).toHaveURL(urlPattern, { timeout: 2000 });
+  }).toPass({ timeout: 20000 });
 }

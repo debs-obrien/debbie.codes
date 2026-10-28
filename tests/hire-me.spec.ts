@@ -1,5 +1,5 @@
 import process from 'node:process';
-import { expect, test } from '@playwright/test';
+import { expect, test } from './fixtures';
 
 const hireMeAgentId = 'agent_8801m5yfwzgpf61szvhj0mj0v5fv';
 
