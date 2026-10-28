@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './fixtures';
 
 test.use({ colorScheme: 'dark' });
 
@@ -13,7 +13,7 @@ test('test system color mode', async ({ page, isMobile }) => {
   // Initial state: preference is 'system', which resolves to 'dark' based on test.use({ colorScheme: 'dark' })
   // Button should show 'system'
   await test.step('Initial state verification', async () => {
-    const systemButton = isMobile 
+    const systemButton = isMobile
       ? page.getByRole('button', { name: 'system' }).nth(1)
       : page.getByRole('button', { name: 'system' }).first();
     await expect(systemButton).toBeVisible();
@@ -25,13 +25,13 @@ test('test system color mode', async ({ page, isMobile }) => {
       await hamburger.click();
     }
 
-    const systemButton = isMobile 
+    const systemButton = isMobile
       ? page.getByRole('button', { name: 'system' }).nth(1)
       : page.getByRole('button', { name: 'system' }).first();
     await systemButton.click();
-    
+
     // After clicking, should cycle to explicit 'dark' mode - wait for aria-label to change
-    const darkButton = isMobile 
+    const darkButton = isMobile
       ? page.getByRole('button', { name: 'dark' }).nth(1)
       : page.getByRole('button', { name: 'dark' }).first();
     await expect(darkButton).toBeVisible();
@@ -47,13 +47,13 @@ test('test system color mode', async ({ page, isMobile }) => {
       await hamburger.click();
     }
 
-    const darkButton = isMobile 
+    const darkButton = isMobile
       ? page.getByRole('button', { name: 'dark' }).nth(1)
       : page.getByRole('button', { name: 'dark' }).first();
     await darkButton.click();
-    
+
     // After clicking, should cycle to 'light' mode - wait for aria-label to change
-    const lightButton = isMobile 
+    const lightButton = isMobile
       ? page.getByRole('button', { name: 'light' }).nth(1)
       : page.getByRole('button', { name: 'light' }).first();
     await expect(lightButton).toBeVisible();
@@ -69,13 +69,13 @@ test('test system color mode', async ({ page, isMobile }) => {
       await hamburger.click();
     }
 
-    const lightButton = isMobile 
+    const lightButton = isMobile
       ? page.getByRole('button', { name: 'light' }).nth(1)
       : page.getByRole('button', { name: 'light' }).first();
     await lightButton.click();
-    
+
     // After clicking, should cycle back to 'system', which resolves to 'dark' due to test config
-    const systemButton = isMobile 
+    const systemButton = isMobile
       ? page.getByRole('button', { name: 'system' }).nth(1)
       : page.getByRole('button', { name: 'system' }).first();
     await expect(systemButton).toBeVisible();

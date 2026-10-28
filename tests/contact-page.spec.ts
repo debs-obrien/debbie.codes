@@ -1,5 +1,5 @@
-import { expect, test } from '@playwright/test';
 import { GITHUB_URL, LINKEDIN_URL, PUBLIC_MAILTO, X_URL } from '../utils/site-contact';
+import { expect, test } from './fixtures';
 
 test('contact page links to LinkedIn, X, GitHub, hire-me and email', async ({ page }) => {
   await page.goto('/contact');

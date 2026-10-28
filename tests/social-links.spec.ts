@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { expect, test } from './fixtures';
 
 test.describe('Social Links', () => {
   test.beforeEach(async ({ page }) => {
@@ -28,4 +28,3 @@ test.describe('Social Links', () => {
     await expect(page1).toHaveURL('https://www.youtube.com/c/DebbieOBrien');
   });
 });
-

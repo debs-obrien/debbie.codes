@@ -1,7 +1,7 @@
 // spec: specs/test-plan.md
 // seed: tests/seed.spec.ts
 
-import { test, expect } from '@playwright/test';
+import { expect, test } from './fixtures';
 
 test.describe('Home Page Content Display', { tag: '@agent' }, () => {
   test('Verify Featured Podcast Section', async ({ page }) => {
@@ -10,7 +10,7 @@ test.describe('Home Page Content Display', { tag: '@agent' }, () => {
 
     // 2. Locate the "Featured Podcast" section
     // 3. Verify podcast details
-    
+
     // Verify 'Featured Podcast' heading (level 2) is visible
     await expect(page.getByRole('heading', { name: 'Featured Podcast', level: 2 })).toBeVisible();
 
@@ -20,7 +20,7 @@ test.describe('Home Page Content Display', { tag: '@agent' }, () => {
 
     // Verify podcast title is displayed (dynamically loaded from content with featured: true)
     await expect(featuredPodcastRegion.getByRole('heading', { level: 3 })).toBeVisible();
-    
+
     // Verify podcast host is displayed
     await expect(featuredPodcastRegion.locator('p').first()).toBeVisible();
 
@@ -32,7 +32,7 @@ test.describe('Home Page Content Display', { tag: '@agent' }, () => {
     // Verify visual indicator (play button or image) is present
     const visualElement = featuredPodcastRegion.locator('img').first();
     await expect(visualElement).toBeVisible();
-    
+
     // Verify "Listen Now" button is present
     await expect(featuredPodcastRegion.getByText('Listen Now')).toBeVisible();
   });

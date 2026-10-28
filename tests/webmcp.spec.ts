@@ -2,7 +2,6 @@ import type { APIRequestContext } from '@playwright/test';
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import process from 'node:process';
-import { expect, test } from '@playwright/test';
 import { parseDescriptionChapters } from '../utils/description-chapters';
 import {
   DEFAULT_WEBMCP_OT_CHROME,
@@ -15,6 +14,7 @@ import { currentPage, searchContent, topicBrief } from '../utils/webmcp/query';
 import { buildVideosResponse } from '../utils/webmcp/response';
 import { MAX_OUTPUT_CHARS, webmcpTools } from '../utils/webmcp/tools';
 import { youtubeWatchUrl } from '../utils/youtube';
+import { expect, test } from './fixtures';
 
 const expected = Object.values(webmcpTools).map(t => t.name).sort();
 const listVideos = webmcpTools.listVideos;
@@ -370,11 +370,11 @@ function isWebmcpPayload(url: string) {
     || url.includes('__nuxt_content');
 }
 
-test('page load without document.modelContext fetches no WebMCP code or index', async ({ browser, baseURL }) => {
+test('page load without document.modelContext fetches no WebMCP code or index', async ({ context, baseURL }) => {
   // Chromium 156+ may expose modelContext without --enable-features=WebMCP.
   // Hide document.modelContext and leave a navigator stub so the plugin has to
   // ignore navigator.modelContext the same way a browser without the feature would.
-  const context = await browser.newContext();
+  // Use the fixture `context` (not browser.newContext) so Cloudinary stays blocked.
   const page = await context.newPage();
   await page.addInitScript(() => {
     Object.defineProperty(document, 'modelContext', {
@@ -404,7 +404,7 @@ test('page load without document.modelContext fetches no WebMCP code or index', 
   // register, tools, the content index, and the content dump must not.
   expect(urls.filter(isWebmcpPayload)).toEqual([]);
 
-  await context.close();
+  await page.close();
 });
 
 test('tool catalog stays inside the WebMCP size limits', () => {

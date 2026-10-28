@@ -18,7 +18,7 @@ import {
     </h1>
     <p class="contact-lead">
       Whether it's a talk, a workshop, a collaboration, a hiring chat or just
-      saying hi — drop me a line. You can
+      saying hi — drop me a line. Email me at
       <a
         :href="PUBLIC_MAILTO"
         class="contact-inline-link"
