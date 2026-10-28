@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './fixtures';
 
 // Newest post: on home recent posts and /blog (as the lead card)
 const COVER_POST = 'grok-bot-uploads-my-youtube-videos';

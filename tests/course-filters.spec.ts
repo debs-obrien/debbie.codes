@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './fixtures';
 
 const topics = ['apollo', 'graphql', 'i18n', 'nuxt', 'react', 'router', 'vue'];
 

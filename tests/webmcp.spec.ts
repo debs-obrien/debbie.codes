@@ -2,7 +2,7 @@ import type { APIRequestContext } from '@playwright/test';
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import process from 'node:process';
-import { expect, test } from '@playwright/test';
+import { expect, test } from './fixtures';
 import { parseDescriptionChapters } from '../utils/description-chapters';
 import {
   DEFAULT_WEBMCP_OT_CHROME,

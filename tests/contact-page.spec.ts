@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test'
+import { expect, test } from './fixtures'
 
 test.describe('Contact page', () => {
   test('is a real page without a visible email address', async ({ page }) => {

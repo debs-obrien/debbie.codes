@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test'
+import { expect, test } from './fixtures'
 
 test.describe('Current courses', () => {
   test('lists Playwright and agent courses ahead of the archive', async ({ page }) => {

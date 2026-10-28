@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './fixtures';
 
 test.describe('Blog Tag Normalization', () => {
   test.beforeEach(async ({ page }) => {

@@ -1,7 +1,7 @@
 // spec: specs/test-plan.md
 // seed: tests/seed.spec.ts
 
-import { expect, test } from '@playwright/test';
+import { expect, test } from './fixtures';
 
 test.describe('Navigation Functionality', { tag: '@agent' }, () => {
   test('Verify Footer Navigation', async ({ page }) => {

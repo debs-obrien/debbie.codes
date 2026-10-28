@@ -47,7 +47,18 @@ And if we check in our performance tab in the Chrome dev tools we can see how ou
 
 In order to really see the difference in load times you just have to watch this video which shows the YouTube videos loaded with an iframe first followed by the YouTube videos loaded with a facade. The difference really is insane.
 
-![Difference between iframe and facade](https://res.cloudinary.com/debsobrien/video/upload/f_auto,q_auto/v1611941119/debbie.codes/blog/facade_upiufl.gif)
+<video
+  width="100%"
+  height="auto"
+  controls
+  muted
+  playsinline
+  preload="none"
+  poster="https://res.cloudinary.com/debsobrien/video/upload/so_0,w_800,c_limit,f_jpg,q_auto/v1611941119/debbie.codes/blog/facade_upiufl.jpg"
+  aria-label="Difference between iframe and facade"
+>
+  <source src="https://res.cloudinary.com/debsobrien/video/upload/w_800,c_limit,q_auto,vc_auto,f_mp4/v1611941119/debbie.codes/blog/facade_upiufl.gif" type="video/mp4">
+</video>
 
 ## Lite YouTube Embed library
 

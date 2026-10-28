@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './fixtures';
 
 // Map of test topics to their display names with # prefix and proper capitalization
 // Only include tags that are actually displayed in the filter section

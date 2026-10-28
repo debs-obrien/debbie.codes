@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test'
+import { test, expect } from './fixtures'
 
 test.describe('Videos pagination', () => {
   test('lists featured, latest, and links to older pages', async ({ page }) => {

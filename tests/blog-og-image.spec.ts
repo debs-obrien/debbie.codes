@@ -1,5 +1,5 @@
-import { expect, test } from '@playwright/test'
 import { DEFAULT_OG_IMAGE, resolveOgImage } from '../utils/og-image'
+import { expect, test } from './fixtures'
 
 test.describe('Blog OG / Twitter images', () => {
   test('posts without a cover image fall back to the site default card', () => {
@@ -8,7 +8,7 @@ test.describe('Blog OG / Twitter images', () => {
     expect(resolveOgImage(null, '  ')).toBe(DEFAULT_OG_IMAGE)
   })
 
-  test('posts with ogImage frontmatter emit an absolute https URL', async ({ page, request }) => {
+  test('posts with ogImage frontmatter emit an absolute https URL', async ({ page }) => {
     await page.goto('/blog/work-life-balance')
 
     const ogImage = await page.locator('meta[property="og:image"]').getAttribute('content')
@@ -18,9 +18,8 @@ test.describe('Blog OG / Twitter images', () => {
     expect(twitterImage).toMatch(/^https:\/\//)
     expect(ogImage).not.toBe(DEFAULT_OG_IMAGE)
     expect(ogImage).toContain('devs-in-the-forest')
-
-    const imageResponse = await request.get(ogImage!)
-    expect(imageResponse.status(), `${ogImage} should return 200`).toBe(200)
+    // Do not request.get the Cloudinary OG URL — CI/request traffic shows up as
+    // the "node" client in Cloudinary bandwidth reports. Meta tags are enough.
   })
   test('Grok Bot 50th birthday post uses its local share image and shows a header cover', async ({ page }) => {
     await page.goto('/blog/grok-bot-50th-birthday-photo-video')

@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test'
+import { expect, test } from './fixtures'
 
 test.describe('OG / social card assets', () => {
   for (const path of ['/x-card.png', '/twitter-card.png'] as const) {
