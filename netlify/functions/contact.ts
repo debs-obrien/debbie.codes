@@ -14,6 +14,7 @@ const CORS_HEADERS = {
   'Access-Control-Allow-Headers': 'Content-Type',
   'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
   'Content-Type': 'application/json; charset=utf-8',
+  'X-Contact-Fn': 'v3-modern-blobs',
 }
 
 function clientIp(req: Request, context: Context): string {
