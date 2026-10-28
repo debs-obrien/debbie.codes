@@ -137,7 +137,7 @@ Other fixes:
 - In text chats it said "slash contact" out loud, so I fixed how it gives links in text.
 - The "still there?" wait went from 7 to 20 seconds, and calls now hang up after 15 seconds of silence instead of 30, to save credits.
 - When the daily limit is hit, it now says my assistant has had a busy day and to try tomorrow or use my contact page. It turned away 36 attempts, but it wasn't capping voice calls the way I expected, and I'm still looking into why.
-- I'm adding a 500 character limit on typed messages to the site.
+- I also added a 500 character limit on typed messages on the site.
 
 After each conversation, ElevenLabs analysis checks whether it followed the rules, used its knowledge, kept answers short and used the right language, and records things like the type of visitor and the topics asked.
 
