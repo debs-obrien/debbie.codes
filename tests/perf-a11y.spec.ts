@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './fixtures';
 
 test.describe('performance and accessibility guards', () => {
   test('canonical no-slash URLs are served without a redirect', async ({ request }) => {

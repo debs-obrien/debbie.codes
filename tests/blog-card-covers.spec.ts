@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './fixtures';
 
 // A post with a cover that stays on home recent posts.
 const COVER_POST = 'grok-bot-uploads-my-youtube-videos';

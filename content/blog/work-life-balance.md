@@ -64,7 +64,7 @@ So that's when I decided to change how I live. I decided to do sport in the morn
 
 I work much better when I get up in the morning and go for a 60km cycle or a 15km run or play a few padel matches. The morning sun helps me appreciate things, clears the mind and sets me up for the day. My sport is normally outdoors and surrounded by nature. Then I know I can go to work and not have to try to stop work to do sport. Cause for some reason I simply keep saying 5 more minutes to myself and then hours pass and it becomes too late to do sport. There are days when I can enjoy an evening run but it doesn't always happen. Morning just works so much better for me.
 
-![me cycling with other female cyclists](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1652182298/debbie.codes/blog/2022/cycling-with-girls_nh2k0q.heic)
+![me cycling with other female cyclists](https://res.cloudinary.com/debsobrien/image/upload/c_limit,w_1200,f_auto,q_auto/v1652182298/debbie.codes/blog/2022/cycling-with-girls_nh2k0q.heic)
 
 In order to make sure I kept to my routine I would block time in my calendar for these activities, either the cycles or padel matches etc. If it is set in my calendar then I won't forget to do it even if it's something I love. Once it becomes routine it becomes a new habit that you are simply used to doing.
 
@@ -78,7 +78,7 @@ I then either study, or work for an hour if there is anything urgent, but normal
 
 Then at about 9am I head to the gym, sometimes a bit earlier or sometimes a bit later depending on if I have a class or match or a cycle. I run to the gym every day and run home which is only a 1km run but it was a habit I made and have kept for almost 2 years now. I can't believe I used to drive to the gym.
 
-![me running in the forest](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1652182229/debbie.codes/blog/2022/me_running_q64fvs)
+![me running in the forest](https://res.cloudinary.com/debsobrien/image/upload/c_limit,w_1200,f_auto,q_auto/v1652182229/debbie.codes/blog/2022/me_running_q64fvs)
 
 I then stay in the gym for about 3 hours. I play padel which is similar to tennis and we play outdoors and as a team so not only am I in the fresh air but I am also mixing with people. People and sport give me energy. Sometimes I might go for a 3-4 hour cycle with the club and sometimes I might just go for a 10-15km run.
 
@@ -92,7 +92,7 @@ In the summer it is a lot easier to take breaks cause it is so hot and we have a
 
 Although I say this I am still working on improving this. Now that the days are getting nicer I also try to work some hours on the roof terrace. Sometimes changing scenery helps and even just getting up and going to the roof is at least some form of movement. I do have a standing desk though and try to do all my meetings standing so that I am not sitting in the same position for too long.
 
-![me working in my egg chair on the roof](https://res.cloudinary.com/debsobrien/image/upload/c_scale,f_auto,h_4032,q_auto/v1652182266/debbie.codes/blog/2022/IMG_2873_qxkes9)
+![me working in my egg chair on the roof](https://res.cloudinary.com/debsobrien/image/upload/c_limit,w_1200,f_auto,q_auto/v1652182266/debbie.codes/blog/2022/IMG_2873_qxkes9)
 
 ### Evening Routine
 

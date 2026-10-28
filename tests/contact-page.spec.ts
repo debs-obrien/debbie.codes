@@ -1,18 +1,13 @@
-import { expect, test } from '@playwright/test'
+import { GITHUB_URL, LINKEDIN_URL, PUBLIC_MAILTO, X_URL } from '../utils/site-contact';
+import { expect, test } from './fixtures';
 
-test.describe('Contact page', () => {
-  test('is a real page without a visible email address', async ({ page }) => {
-    await page.goto('/contact')
+test('contact page links to LinkedIn, X, GitHub, hire-me and email', async ({ page }) => {
+  await page.goto('/contact');
+  await expect(page.getByTestId('contact-page')).toBeVisible();
 
-    await expect(page).toHaveURL(/\/contact\/?$/)
-    await expect(page).toHaveTitle(/Contact/)
-    await expect(page.getByRole('heading', { name: 'Contact', level: 1 })).toBeVisible()
-    await expect(page.getByText(/not looking for a high volume of mail/i)).toBeVisible()
-    await expect(page.getByRole('link', { name: /say hello/i })).toHaveAttribute(
-      'href',
-      'mailto:dobriendev@gmail.com',
-    )
-    await expect(page.getByText('dobriendev@gmail.com')).toHaveCount(0)
-    await expect(page.getByRole('main').getByRole('link', { name: 'speaking', exact: true })).toHaveAttribute('href', '/speaking')
-  })
-})
+  await expect(page.getByTestId('contact-linkedin-cta')).toHaveAttribute('href', LINKEDIN_URL);
+  await expect(page.getByTestId('contact-x-cta')).toHaveAttribute('href', X_URL);
+  await expect(page.getByTestId('contact-github-cta')).toHaveAttribute('href', GITHUB_URL);
+  await expect(page.getByTestId('contact-hire-me-link')).toHaveAttribute('href', '/hire-me');
+  await expect(page.getByTestId('contact-email-link')).toHaveAttribute('href', PUBLIC_MAILTO);
+});

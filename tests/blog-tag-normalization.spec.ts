@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './fixtures';
 
 test.describe('Blog Tag Normalization', () => {
   test.beforeEach(async ({ page }) => {
@@ -11,7 +11,7 @@ test.describe('Blog Tag Normalization', () => {
     // progressively, so an immediate read can catch an empty list.
     const tagLinks = page.locator('[href^="/blog/tags/"]');
     await expect.poll(() => tagLinks.count(), { timeout: 15000 }).toBeGreaterThan(0);
-    
+
     // Verify that capitalized tags exist (which shows normalization is working)
     // Use first() to avoid strict mode violations since there are multiple instances
     await expect(page.getByRole('link', { name: '#Playwright', exact: true }).first()).toBeVisible();

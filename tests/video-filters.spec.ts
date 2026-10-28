@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './fixtures';
 
 // Curated /videos filter chips (designer lock). Agents → `ai`; Grok Bot → `grok-bot`.
 const curatedChips = [

@@ -31,7 +31,7 @@
 
       <li>
         <a
-          href="https://www.linkedin.com/in/debbie-o-brien-1a199975/"
+          href="https://www.linkedin.com/in/debbie-obrien"
           target="_blank"
           rel="nofollow noopener noreferrer"
           aria-label="LinkedIn"
