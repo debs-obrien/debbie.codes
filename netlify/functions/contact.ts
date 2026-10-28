@@ -31,25 +31,33 @@ function clientIp(req: Request, context: Context): string {
   return ctxIp || 'unknown'
 }
 
-function getRateLimitStore() {
+type StoreKind = 'blobs-strong' | 'blobs-default' | 'memory'
+
+function getRateLimitStore(): { store: ReturnType<typeof createMemoryRateLimitStore>, kind: StoreKind } {
   // Prefer strong consistency when the runtime provides it; otherwise fall
   // back to the default (eventual) store rather than ephemeral memory so
   // limits still apply across invocations.
   try {
-    return createBlobsRateLimitStore(
-      getStore({ name: 'contact-rate-limit', consistency: 'strong' }) as unknown as Parameters<typeof createBlobsRateLimitStore>[0],
-    )
+    return {
+      kind: 'blobs-strong',
+      store: createBlobsRateLimitStore(
+        getStore({ name: 'contact-rate-limit', consistency: 'strong' }) as unknown as Parameters<typeof createBlobsRateLimitStore>[0],
+      ),
+    }
   }
   catch (err) {
     console.warn('contact: strong Blobs unavailable, using default store', err)
     try {
-      return createBlobsRateLimitStore(
-        getStore('contact-rate-limit') as unknown as Parameters<typeof createBlobsRateLimitStore>[0],
-      )
+      return {
+        kind: 'blobs-default',
+        store: createBlobsRateLimitStore(
+          getStore('contact-rate-limit') as unknown as Parameters<typeof createBlobsRateLimitStore>[0],
+        ),
+      }
     }
     catch (err2) {
       console.error('contact: Blobs unavailable, using memory store', err2)
-      return createMemoryRateLimitStore()
+      return { kind: 'memory', store: createMemoryRateLimitStore() }
     }
   }
 }
@@ -66,18 +74,24 @@ export default async (req: Request, context: Context) => {
     return new Response(null, { status: 204, headers: CORS_HEADERS })
 
   const secrets = resolveContactSecrets(process.env)
+  const { store, kind } = getRateLimitStore()
+  const headers = { ...CORS_HEADERS, 'X-Contact-Store': kind }
   const deps = {
     ...secrets,
-    rateLimitStore: getRateLimitStore(),
+    rateLimitStore: store,
   }
 
   if (req.method === 'GET') {
     const result = issueContactChallenge(deps)
-    return jsonResponse(result.status, result.body)
+    return new Response(JSON.stringify(result.body), { status: result.status, headers })
   }
 
-  if (req.method !== 'POST')
-    return jsonResponse(405, { ok: false, code: 'method_not_allowed' })
+  if (req.method !== 'POST') {
+    return new Response(JSON.stringify({ ok: false, code: 'method_not_allowed' }), {
+      status: 405,
+      headers,
+    })
+  }
 
   const rawBody = await req.text()
   try {
@@ -86,11 +100,14 @@ export default async (req: Request, context: Context) => {
       contentType: req.headers.get('content-type') || undefined,
       clientIp: clientIp(req, context),
     })
-    return jsonResponse(result.status, result.body)
+    return new Response(JSON.stringify(result.body), { status: result.status, headers })
   }
   catch (err) {
     console.error('contact function error', err)
-    return jsonResponse(500, { ok: false, code: 'server_error' })
+    return new Response(JSON.stringify({ ok: false, code: 'server_error' }), {
+      status: 500,
+      headers,
+    })
   }
 }
 
