@@ -8,7 +8,8 @@ const { data: allPodcasts } = await useAsyncData('podcasts', () => queryCollecti
 
 // Filter out featured podcasts from the main list (podcasts with featured: true)
 const podcasts = computed(() => {
-  if (!allPodcasts.value) return []
+  if (!allPodcasts.value)
+    return []
   return allPodcasts.value.filter(podcast => !podcast.featured)
 })
 
