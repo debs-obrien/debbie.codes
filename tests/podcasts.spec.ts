@@ -17,7 +17,7 @@ test.describe('Podcasts Page', () => {
 
       await test.step('Verify collaboration section', async () => {
         await expect(page.getByRole('heading', { level: 3, name: 'Want to collaborate?' })).toBeVisible();
-        await expect(page.getByRole('link', { name: 'Get in touch' })).toHaveAttribute('href', 'https://www.linkedin.com/in/debbie-o-brien-1a199975/');
+        await expect(page.getByRole('link', { name: 'Get in touch' })).toHaveAttribute('href', 'https://www.linkedin.com/in/debbie-obrien');
         await expect(page.getByText('I\'m always open to interesting podcast conversations about web development, testing, and technology.')).toBeVisible();
       });
     });
@@ -77,7 +77,7 @@ test.describe('Podcasts Page', () => {
           page.getByRole('link', { name: 'Get in touch' }).click()
         ]);
 
-        await expect(linkedInPage).toHaveURL('https://www.linkedin.com/in/debbie-o-brien-1a199975/');
+        await expect(linkedInPage).toHaveURL('https://www.linkedin.com/in/debbie-obrien');
         await expect(linkedInPage.locator('body')).toContainText('Mocked LinkedIn Page');
       });
     });

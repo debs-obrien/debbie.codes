@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import { PUBLIC_MAILTO } from '~/utils/site-contact'
+</script>
+
 <template>
   <section
     class="hero-spotlight relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] -mt-top-bar w-screen bg-dark text-white overflow-hidden"
@@ -43,7 +47,7 @@
         <NuxtLink to="/now" class="hero-cta">
           See what I’m working on
         </NuxtLink>
-        <a href="mailto:dobriendev@gmail.com" class="hero-cta">
+        <a :href="PUBLIC_MAILTO" class="hero-cta">
           Say hello
         </a>
       </div>

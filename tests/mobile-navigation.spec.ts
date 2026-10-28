@@ -157,7 +157,7 @@ test.describe('Mobile Navigation', () => {
               - img
           - listitem:
             - link "linkedIn":
-              - /url: https://www.linkedin.com/in/debbie-o-brien-1a199975/
+              - /url: https://www.linkedin.com/in/debbie-obrien
               - img
           - listitem:
             - link "github":
