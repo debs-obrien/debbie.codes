@@ -233,6 +233,9 @@ const widgetActionText = 'Ask about Debbie'
 const widgetStartCallText = 'Start a call'
 const widgetEndCallText = 'End call'
 
+if (showVoiceAgent.value)
+  useConvaiInputLimit()
+
 useHead(() => ({
   title: 'Hire me',
   meta: [
@@ -243,7 +246,7 @@ useHead(() => ({
   ],
   script: showVoiceAgent.value
     ? [{
-        src: 'https://unpkg.com/@elevenlabs/convai-widget-embed',
+        src: 'https://unpkg.com/@elevenlabs/convai-widget-embed@0.22.0',
         async: true,
         type: 'text/javascript',
       }]
