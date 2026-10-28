@@ -26,7 +26,7 @@ I'm just testing things out, so give it a try. Just don't burn all my credits, b
 
 ## Why I built a hire me page
 
-I have been independent since October and I'm looking for my next role in developer relations and developer advocacy, developer and product education, and developer experience around AI agents, testing and MCP.
+I have been independent since October 2026 and I'm looking for my next role in developer relations and developer advocacy, developer and product education, and developer experience around AI agents, testing and MCP.
 
 A CV doesn't answer the follow up questions. What did you actually do on that project? What numbers can you back up? What are you looking for next?
 
@@ -44,7 +44,7 @@ On the page there's a voice assistant called "Ask about Debbie". You press "Star
 
 When you start a call it says: "Hi, I'm Debbie's assistant. I can tell you about Debbie's work, her numbers, and the roles she's looking for. What would you like to know?"
 
-It uses a premade voice called Alice, not a clone of my voice. If you ask whether it's me, it tells you it's my AI assistant. It talks about me in the third person and keeps its answers short, because nobody wants a list read out to them. A call can last up to 5 minutes, then it says goodbye and points you to my contact page.
+It uses a premade voice called Alice, not a clone of my voice. If you ask whether it's me, it tells you it's my AI assistant. It talks about me in the third person and keeps its answers short, because nobody wants a list read out to them.
 
 You can try one of the suggested questions:
 
@@ -63,7 +63,7 @@ An assistant that talks about you to people who might hire you needs clear rules
 - **It's honest about what it is.** It's my AI assistant, not me.
 - **Some topics are for a real conversation.** It politely declines questions about other job processes, why a role ended, health, family or my personal life, and points you to my contact page instead.
 - **No promises.** It won't commit to availability, start dates or contract terms. That's a conversation for me.
-- **No company names.** It doesn't name the companies I've worked for, and it won't give opinions on other companies or compare me to anyone.
+- **No opinions on other companies.** It only names companies I've worked for when you ask about my work history, and it won't give opinions on other companies or compare me to anyone.
 - **It's told to keep its rules** even if someone tries to talk it out of them.
 
 ## How I built it
@@ -76,9 +76,20 @@ I didn't build this one on my own. I worked with my Grok Bot.
 - **The spec.** Grok Bot wrote a Markdown spec for the agent with two parts: the first message and the system prompt. The facts in the prompt were written from the same notes as the page.
 - **The agent.** Grok Bot created the agent from that spec through the ElevenAgents API, then set the allowed site and the widget labels through the API too. I reviewed it and told it what to change.
 
+It went from idea to live page in one morning. On 27 October the hire me page PR opened at 11:37 Madrid time, the first call to the voice agent was at 11:57, the page merged at 13:14 and the menu PR merged at 13:29.
+
 ### How the agent gets its data
 
 Everything the agent knows comes from one system prompt, about 9,000 characters, written from the same notes as the page. There's no knowledge base and there are no tools. My rules for what it should and shouldn't say are in that prompt too. ElevenLabs has its own built-in guardrails. I turned on the focus, prompt injection and content guardrails, and they end the call if they're triggered, on top of the rules in the prompt.
+
+Here are a few lines from my prompt's guardrails:
+
+```
+# Guardrails
+- Never invent, estimate or round up a number. Use the figures exactly as written, with their dates.
+- Don't work out new numbers from the facts, such as years of experience from a start year.
+- If asked for a figure you don't have, say so. This step is important.
+```
 
 The agent's facts have to stay the same as the page. Nothing syncs them, so when the page changes, the prompt has to change too. On my site, Grok Bot does that through the ElevenAgents API. For example, when I widened the page's audience to recruiters, hiring managers and future teammates, the prompt got the same change.
 
@@ -110,6 +121,18 @@ The two that didn't pass every time are worth explaining:
 The tests are saved in my ElevenLabs account, so I can run them again every time I change the prompt.
 
 **Site tests.** The site itself has Playwright tests that run in CI. They check that the page renders, that "Hire me" is in the menus and the sitemap, and that words I don't want on the page never sneak back in.
+
+### What I changed after launch
+
+In early test calls it said "over twenty talks". The prompt now says well over 60 talks in more than 15 countries, treated as minimums, and I added my largest audience, about 1,000 people at Vue Amsterdam, after a test had no figure. On the first night of real visitors it hit the limit of 30 calls a day, and 34 attempts between 23:10 and 00:55 Madrid time were turned away. One visitor asked for "10 minutes, in very, very detail" and it talked until the 5 minute cap, twice, so now it gives at most four sentences and asks which area to go deeper on. It also once told a visitor it only speaks English while answering others in Spanish, so now it replies in English or Spanish to match the visitor.
+
+The table above was the first round, with 18 of 21 passing. I added more tests, and after these changes 32 of 33 pass.
+
+### What it costs
+
+I'm on the Creator plan, which I upgraded to from the free plan on launch day. Up to the morning of 28 October there were 72 sessions using 30,868 credits, about $5.44 at list price, so about 8 US cents a session on average. Voice is about 480 credits a minute and the median voice call was 40 seconds. Text chat is much cheaper: 26 messages cost 738 credits. The three calls that ran to the 5 minute cap used 24% of the credits.
+
+The limits are two calls at once (others wait up to 3 minutes), 30 voice calls a day, and 5 minutes per call, after which it says goodbye and points you to my contact page.
 
 ### The embed
 
@@ -155,5 +178,7 @@ These steps follow the official docs:
 ## Try it
 
 Go to [debbie.codes/hire-me](https://debbie.codes/hire-me), press "Start a call" and ask one of the suggested questions. Then [tell me what you think](https://debbie.codes/contact). I'd love your feedback, and if you'd like to talk to the real me, that's the place too.
+
+It's brand new, so I'll share what people ask once it's had some use.
 
 Think about the possibilities beyond customer service call agents. How can we give humans time back, improve processes, and use voice AI agents to help with the things we struggle with?
