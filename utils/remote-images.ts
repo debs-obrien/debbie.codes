@@ -1,12 +1,37 @@
 /**
  * Hosts allowed through Netlify Image CDN (`netlify.toml` → `images.remote_images`).
- * Keep in sync — `tests/remote-images-allowlist.spec.ts` asserts equality.
+ * Single source of truth — `tests/remote-images-allowlist.spec.ts` asserts
+ * `netlify.toml` patterns match `netlifyRemoteImagePatterns()`.
  */
 export const NETLIFY_REMOTE_IMAGE_HOSTS = [
   'dev-to-uploads.s3.amazonaws.com',
   'raw.githubusercontent.com',
   'theaiplatform.app',
 ] as const
+
+/** Escape a hostname for use inside a Netlify `remote_images` regex. */
+function escapeRemoteImageHost(host: string): string {
+  return host.replace(/\./g, '\\.')
+}
+
+/**
+ * Anchored Netlify Image CDN allowlist patterns (docs: single-quoted regex).
+ * Shape: `https://host\.tld/.*` — requires the `https://` scheme so a bare
+ * hostname substring in a query string cannot match.
+ */
+export function netlifyRemoteImagePatterns(
+  hosts: readonly string[] = NETLIFY_REMOTE_IMAGE_HOSTS,
+): string[] {
+  return hosts.map(host => `https://${escapeRemoteImageHost(host)}/.*`)
+}
+
+/** True when `url` matches at least one Netlify `remote_images` pattern. */
+export function matchesNetlifyRemoteImagePattern(
+  url: string,
+  patterns: readonly string[] = netlifyRemoteImagePatterns(),
+): boolean {
+  return patterns.some(pattern => new RegExp(pattern).test(url))
+}
 
 export function isNetlifyRemoteImageHost(hostname: string): boolean {
   return (NETLIFY_REMOTE_IMAGE_HOSTS as readonly string[]).includes(hostname)

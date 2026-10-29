@@ -27,7 +27,7 @@ Enforced by `scripts/check-image-budgets.mjs` (CI content-check) and `scripts/cl
 - **Avatar** `debbie-thumb.webp` 512→320 (2× of 160 CSS) — 36 KB → 14 KB.
 - **10 MP4s**: H.264, `-an`, `+faststart`, CRF 28, width capped ~960 (GIF loops left at native size).
 - **OG cards**: `x-card.jpg` / `twitter-card.jpg` / `x-card-blog.jpg` at 1200×630 JPEG under 300 KB; app/feed defaults updated.
-- **Cache**: `Cache-Control: public, max-age=31536000, immutable` for `/images/*` and `/.netlify/images`.
+- **Cache**: `Cache-Control: public, max-age=604800, must-revalidate` for `/images/*` (Netlify Image CDN inherits source headers for `/.netlify/images`). Use `netlify dev` to exercise the real Image CDN locally.
 
 ## q82 / large WebP leftovers (>200 KB) and why
 

@@ -26,19 +26,16 @@ X-XSS-Protection = "1; mode=block"
 for = "/images/*"
 
 [headers.values]
-Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-for = "/.netlify/images"
-
-[headers.values]
-Cache-Control = "public, max-age=31536000, immutable"
+# Filenames are not content-hashed — use Netlify Image CDN documented caching.
+# Transformed `/.netlify/images` responses inherit these source headers.
+Cache-Control = "public, max-age=604800, must-revalidate"
 
 [images]
+# Anchored regex (single-quoted). Keep in sync with utils/remote-images.ts.
 remote_images = [
-  "dev-to-uploads.s3.amazonaws.com",
-  "raw.githubusercontent.com",
-  "theaiplatform.app"
+  'https://dev-to-uploads\.s3\.amazonaws\.com/.*',
+  'https://raw\.githubusercontent\.com/.*',
+  'https://theaiplatform\.app/.*'
 ]
 
 [build.environment]

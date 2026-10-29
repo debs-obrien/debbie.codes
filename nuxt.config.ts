@@ -2,6 +2,7 @@ import process from 'node:process'
 import { generateContentIndex } from './scripts/generate-content-index.mjs'
 import { generateSitemap } from './scripts/generate-sitemap.mjs'
 import { DEFAULT_WEBMCP_OT_CHROME, DEFAULT_WEBMCP_OT_EDGE } from './utils/origin-trial'
+import { NETLIFY_REMOTE_IMAGE_HOSTS } from './utils/remote-images'
 
 // Static public/sitemap.xml — avoids Netlify Function/SQLite 500s for /sitemap.xml.
 generateSitemap()
@@ -52,8 +53,10 @@ export default defineNuxtConfig({
         },
       },
     },
-    domains: ['images.unsplash.com', 'dev-to-uploads.s3.amazonaws.com', 'raw.githubusercontent.com', 'theaiplatform.app', 'i.ytimg.com', 'img.youtube.com'],
-    // Prefer WebP; Netlify Image CDN negotiates AVIF when the client accepts it.
+    // IPX local-dev allowlist — match Netlify `remote_images` hosts (utils/remote-images.ts).
+    // Unsplash uses the imgix provider (not domains). YouTube thumbs stay plain <img>.
+    domains: [...NETLIFY_REMOTE_IMAGE_HOSTS],
+    // Force WebP via fm=webp on Netlify Image CDN (no Accept-based AVIF negotiation).
     format: ['webp'],
     quality: 80,
     // Keep screens aligned with real layout breakpoints used in `sizes`.
