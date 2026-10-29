@@ -91,10 +91,12 @@ test.describe('No Cloudinary crawl', () => {
           if (isCloudinaryBandwidthRequest(url))
             cloudinaryHits.push(url);
           const type = res.request().resourceType();
-          // Flag broken local masters and any Netlify Image CDN 4xx (including
-          // remote_images allowlist misses). Pre-existing Unsplash IPX 403s are
-          // out of scope for this migration.
+          // Flag broken local masters and Netlify Image CDN 4xx (allowlist
+          // misses). Ignore Unsplash — not in remote_images; covers use imgix.
           if ((type === 'image' || type === 'media') && res.status() >= 400) {
+            const decoded = decodeSrc(url);
+            if (decoded.includes('images.unsplash.com'))
+              return;
             if (url.includes('/.netlify/images') || isLocalImageSrc(url))
               badMedia.push(`${res.status()} ${url}`);
           }

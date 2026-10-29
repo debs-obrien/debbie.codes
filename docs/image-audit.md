@@ -133,6 +133,7 @@ All 10 MP4s: H.264, no audio, faststart, `preload="none"` (or metadata) off-scre
 | #677 local images | Cover + inline screenshots converted PNG→WebP under `public/images/blog/` (already local, no Cloudinary) |
 | Desktop home LCP was lazy YT thumb | `FeaturedVideoSection` main thumb `eager` + `fetchpriority=high`; CreativeHero drops high so only one high per page |
 | `discord-virtual-office` cover `fit=crop?w=` CLS | Strip query from imgix `image:` paths; replace literal second `?` with `&` in ogImage URLs |
+| Prose Unsplash → Netlify CDN 400 | ProseImg only Nuxt-optimizes `remote_images` hosts; Unsplash/YouTube stay plain `<img>` |
 
 ## SVG
 

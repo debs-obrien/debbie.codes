@@ -20,10 +20,9 @@ const isAllowedExternal = computed(() => {
   const src = props.src || ''
   try {
     const host = new URL(src, 'https://debbie.codes').hostname
+    // Only hosts listed in netlify.toml `remote_images` — others 400 via
+    // /.netlify/images. Unsplash/YouTube stay as plain <img> (or imgix covers).
     return [
-      'images.unsplash.com',
-      'i.ytimg.com',
-      'img.youtube.com',
       'dev-to-uploads.s3.amazonaws.com',
       'raw.githubusercontent.com',
       'theaiplatform.app',
