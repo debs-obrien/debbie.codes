@@ -5,8 +5,7 @@ const { data: featuredPodcast } = await useAsyncData('featured-podcast', () =>
     .select(...podcastPreviewFields)
     .where('featured', '=', true)
     .order('date', 'DESC')
-    .first()
-)
+    .first())
 </script>
 
 <template>
@@ -22,11 +21,14 @@ const { data: featuredPodcast } = await useAsyncData('featured-podcast', () =>
         <div class="flex flex-col md:flex-row">
           <!-- Image -->
           <div class="md:w-1/3">
-            <NuxtImg 
-              class="h-48 w-full object-cover md:h-full" 
-              provider="cloudinary"
-              :src="featuredPodcast.image" 
+            <NuxtImg
+              class="h-48 w-full object-cover md:h-full"
+              :provider="featuredPodcast.image?.includes('/image/upload/') ? 'cloudinary' : undefined"
+              :src="featuredPodcast.image"
               :alt="`${featuredPodcast.host} cover art`"
+              width="800"
+              height="450"
+              sizes="100vw md:33vw"
             />
           </div>
 
