@@ -23,11 +23,12 @@ const { data: featuredPodcast } = await useAsyncData('featured-podcast', () =>
           <div class="md:w-1/3">
             <NuxtImg
               class="h-48 w-full object-cover md:h-full"
-              src="/images/podcasts/alexusadays-future-of-testing.webp"
+              :provider="featuredPodcast.image?.includes('/image/upload/') ? 'cloudinary' : undefined"
+              :src="featuredPodcast.image"
               :alt="`${featuredPodcast.host} cover art`"
               width="800"
               height="450"
-              sizes="(max-width: 768px) 100vw, 33vw"
+              sizes="100vw md:33vw"
             />
           </div>
 
