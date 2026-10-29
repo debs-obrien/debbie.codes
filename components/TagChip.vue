@@ -20,7 +20,9 @@ withDefaults(defineProps<{
       variant === 'pill' ? 'tag-chip--pill' : 'tag-chip--text',
       active && 'tag-chip--active',
     ]"
-  >{{ hash ? `#${label}` : label }}</NuxtLink>
+  >
+    {{ hash ? `#${label}` : label }}
+  </NuxtLink>
 </template>
 
 <style scoped>

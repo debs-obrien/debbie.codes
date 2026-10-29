@@ -1,10 +1,3 @@
-<template>
-  <pre
-    :class="$props.class"
-    tabindex="0"
-  ><slot /></pre>
-</template>
-
 <script setup>
 defineProps({
   code: {
@@ -33,6 +26,13 @@ defineProps({
   },
 })
 </script>
+
+<template>
+  <pre
+    :class="$props.class"
+    tabindex="0"
+  ><slot /></pre>
+</template>
 
 <style>
 pre code .line { display: block; }
