@@ -76,7 +76,7 @@ async function loadRoutes(baseURL: string | undefined): Promise<string[]> {
   return parseSitemapXml(await res.text());
 }
 
-async function scrollAndAwaitImages(page: import('@playwright/test').Page) {
+async function scrollAndAwaitImagesOnce(page: import('@playwright/test').Page) {
   // Self-deadline inside the page so evaluate always settles (no abandoned CDP calls).
   await page.evaluate(async () => {
     const sleep = (ms: number) => new Promise(r => setTimeout(r, ms));
@@ -118,6 +118,20 @@ async function scrollAndAwaitImages(page: import('@playwright/test').Page) {
       sleep(perImg)
     ])));
   });
+}
+
+async function scrollAndAwaitImages(page: import('@playwright/test').Page) {
+  try {
+    await scrollAndAwaitImagesOnce(page);
+  }
+  catch (err) {
+    // Preview/SPA navigations mid-scroll destroy the evaluate context — retry once.
+    const msg = err instanceof Error ? err.message : String(err);
+    if (!/Execution context was destroyed|Target closed/i.test(msg))
+      throw err;
+    await page.waitForLoadState('domcontentloaded').catch(() => undefined);
+    await scrollAndAwaitImagesOnce(page).catch(() => undefined);
+  }
 }
 
 test.describe('No Cloudinary crawl', () => {
