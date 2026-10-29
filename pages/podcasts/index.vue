@@ -69,7 +69,10 @@ useHead({
     </section>
 
     <!-- Featured Podcast Section -->
-    <section class="animated-section mb-16">
+    <section class="animated-section mb-16" aria-labelledby="featured-podcast-heading">
+      <h2 id="featured-podcast-heading" class="sr-only">
+        Featured episode
+      </h2>
       <FeaturedPodcast priority />
     </section>
 

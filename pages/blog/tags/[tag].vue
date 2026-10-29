@@ -157,12 +157,22 @@ useHead({
     </section>
 
     <!-- Posts List — use taggedArticles when idle so SSR/hydration match (filteredArticles starts []). -->
-    <FeaturedSection
+    <section
       v-if="(isSearchActive ? filteredArticles : taggedArticles).length > 0"
-      :items="isSearchActive ? filteredArticles : taggedArticles"
-      :section="section"
-      lead
-    />
+      aria-labelledby="tagged-posts-heading"
+    >
+      <h2
+        id="tagged-posts-heading"
+        class="text-2xl font-bold text-gray-900 dark:text-white mb-6 max-w-4xl mx-auto"
+      >
+        {{ isSearchActive ? `Search Results (${filteredArticles.length})` : `${displayTag} Posts` }}
+      </h2>
+      <FeaturedSection
+        :items="isSearchActive ? filteredArticles : taggedArticles"
+        :section="section"
+        lead
+      />
+    </section>
 
     <!-- No Results -->
     <div v-else class="text-center py-8">

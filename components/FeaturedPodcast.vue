@@ -53,9 +53,9 @@ const { data: featuredPodcast } = await useAsyncData('featured-podcast', () =>
                   Featured Episode
                 </span>
               </div>
-              <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-2 leading-tight">
+              <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2 leading-tight">
                 {{ featuredPodcast.title }}
-              </h2>
+              </h3>
               <p class="text-md text-gray-600 dark:text-gray-300">
                 {{ featuredPodcast.host }}
               </p>

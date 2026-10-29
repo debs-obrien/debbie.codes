@@ -75,7 +75,7 @@ function isLead(index: number) {
           <div :class="item.image ? 'min-w-0 sm:flex-1' : ''">
             <NuxtLink :to="item.path" class="block text-left">
               <!-- Arrow is absolute so title shares the same left edge as excerpt/meta. -->
-              <h2 class="relative text-left text-lg sm:text-2xl font-semibold mb-2 text-gray-800 dark:text-white leading-tight group-hover:text-primary transition-colors">
+              <h3 class="relative text-left text-lg sm:text-2xl font-semibold mb-2 text-gray-800 dark:text-white leading-tight group-hover:text-primary transition-colors">
                 <svg
                   class="pointer-events-none absolute -left-6 top-1 w-5 h-5 text-primary transition-all duration-300 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0"
                   fill="none"
@@ -87,7 +87,7 @@ function isLead(index: number) {
                   <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
                 <span class="line-clamp-2">{{ item.title }}</span>
-              </h2>
+              </h3>
               <p class="mb-3 text-left text-base line-clamp-2 text-gray-600 dark:text-gray-400">
                 {{ item.description }}
               </p>
@@ -131,7 +131,7 @@ function isLead(index: number) {
           </div>
           <div :class="item.image ? 'min-w-0 sm:flex-1' : ''">
             <!-- Arrow is absolute so title shares the same left edge as excerpt. -->
-            <h2 class="relative font-bold text-xl mb-2 text-gray-800 dark:text-white leading-tight group-hover:text-primary transition-colors">
+            <h3 class="relative font-bold text-xl mb-2 text-gray-800 dark:text-white leading-tight group-hover:text-primary transition-colors">
               <svg
                 class="pointer-events-none absolute -left-6 top-1 w-5 h-5 text-primary transition-all duration-300 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0"
                 fill="none"
@@ -143,7 +143,7 @@ function isLead(index: number) {
                 <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
               <span>{{ item.title }}</span>
-            </h2>
+            </h3>
             <p class="mb-3 text-sm text-gray-600 dark:text-gray-400">
               {{ item.description }}
             </p>
