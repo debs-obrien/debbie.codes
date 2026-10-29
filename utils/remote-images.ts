@@ -16,13 +16,13 @@ function escapeRemoteImageHost(host: string): string {
 
 /**
  * Anchored Netlify Image CDN allowlist patterns (docs: single-quoted regex).
- * Shape: `https://host\.tld/.*` — requires the `https://` scheme so a bare
- * hostname substring in a query string cannot match.
+ * Shape: `^https://host\.tld/.*$` — full-string match so an allowed host
+ * nested in another URL's query cannot match.
  */
 export function netlifyRemoteImagePatterns(
   hosts: readonly string[] = NETLIFY_REMOTE_IMAGE_HOSTS,
 ): string[] {
-  return hosts.map(host => `https://${escapeRemoteImageHost(host)}/.*`)
+  return hosts.map(host => `^https://${escapeRemoteImageHost(host)}/.*$`)
 }
 
 /** True when `url` matches at least one Netlify `remote_images` pattern. */

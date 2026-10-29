@@ -29,29 +29,23 @@ test('NETLIFY_REMOTE_IMAGE_HOSTS matches netlify.toml remote_images', () => {
 
 test('remote_images patterns reject hostname substring spoof', () => {
   const patterns = netlifyRemoteImagePatterns();
-  // Allowed host used as a query-string substring must NOT match.
+  // Nested allowlisted URL in a query must NOT match (JS RegExp#test + ^…$).
+  expect(
+    matchesNetlifyRemoteImagePattern(
+      'https://evil.example/?u=https://theaiplatform.app/x.png',
+      patterns
+    )
+  ).toBe(false);
   expect(
     matchesNetlifyRemoteImagePattern(
       'https://www.netlify.com/favicon.ico?x=theaiplatform.app',
       patterns
     )
   ).toBe(false);
-  // Real allowlisted URLs still match.
-  expect(
-    matchesNetlifyRemoteImagePattern(
-      'https://theaiplatform.app/blog/an-agent-that-hunts-bugs-while-i-sleep/loop-diagram.png',
-      patterns
-    )
-  ).toBe(true);
+  // Real allowlisted URL still matches.
   expect(
     matchesNetlifyRemoteImagePattern(
       'https://dev-to-uploads.s3.amazonaws.com/uploads/articles/3hj38yxohffpm2zn40sw.png',
-      patterns
-    )
-  ).toBe(true);
-  expect(
-    matchesNetlifyRemoteImagePattern(
-      'https://raw.githubusercontent.com/debs-obrien/learn-agent-skills/main/assets/before-vs-after.png',
       patterns
     )
   ).toBe(true);

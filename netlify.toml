@@ -33,9 +33,9 @@ Cache-Control = "public, max-age=604800, must-revalidate"
 [images]
 # Anchored regex (single-quoted). Keep in sync with utils/remote-images.ts.
 remote_images = [
-  'https://dev-to-uploads\.s3\.amazonaws\.com/.*',
-  'https://raw\.githubusercontent\.com/.*',
-  'https://theaiplatform\.app/.*'
+  '^https://dev-to-uploads\.s3\.amazonaws\.com/.*$',
+  '^https://raw\.githubusercontent\.com/.*$',
+  '^https://theaiplatform\.app/.*$'
 ]
 
 [build.environment]
