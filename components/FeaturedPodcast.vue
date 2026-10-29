@@ -63,7 +63,7 @@ const { data: featuredPodcast } = await useAsyncData('featured-podcast', () =>
 
             <!-- Listen Now Button -->
             <div class="mt-6">
-              <div class="inline-flex items-center gap-3 bg-primary text-white font-bold py-3 px-6 rounded-lg transition-colors group-hover:bg-primary/90">
+              <div class="inline-flex items-center gap-3 bg-primary-fill text-white font-bold py-3 px-6 rounded-lg transition-colors group-hover:bg-primary-fill/90">
                 <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
                 <span>Listen Now</span>
               </div>

@@ -42,7 +42,7 @@ const courseTags = computed(() => {
 
 const topic: string = replaceHyphen(slug as string)
 const title: string = `Courses on ${topic}`
-const description: string = ''
+const description: string = `Courses tagged ${topic} — Playwright, AI agents, MCP, Vue, and Nuxt.`
 const section: Sections = 'courses'
 
 useHead({

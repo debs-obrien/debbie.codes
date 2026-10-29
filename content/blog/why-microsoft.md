@@ -98,7 +98,7 @@ I appeared on MS Create with Wassim Chegham and Burke Holland talking about [why
 
 ### One Dev Question
 
-I created a mini Twitter video series for [Microsoft's One Dev Question on Nuxt.js](https://twitter.com/i/events/1364046892556976129?s=20). All recorded remotely on the many reasons to use Nuxt and Azure Static Web Apps. ![me at home with mvp award in background and microsoft logo on screen](/images/content/blog/2022/microsoft-one-dev-question_2x_ljwwp1.webp){width="1640" height="921"}
+I created a mini Twitter video series for Microsoft's One Dev Question on Nuxt.js. All recorded remotely on the many reasons to use Nuxt and Azure Static Web Apps. ![me at home with mvp award in background and microsoft logo on screen](/images/content/blog/2022/microsoft-one-dev-question_2x_ljwwp1.webp){width="1640" height="921"}
 
 ### Microsoft Startup Developers
 

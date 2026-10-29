@@ -64,7 +64,7 @@ const useNuxtImg = computed(() => {
           {{ item.title }}
         </h2>
         <p
-          class="mt-0 lg:mt-3 mb-3 text-base lg:text-base text-gray-500 dark:text-gray-300 md:text-sm overflow-hidden md:overflow-visible whitespace-nowrap md:whitespace-normal text-ellipsis"
+          class="mt-0 lg:mt-3 mb-3 text-base lg:text-base text-gray-600 dark:text-gray-300 md:text-sm overflow-hidden md:overflow-visible whitespace-nowrap md:whitespace-normal text-ellipsis"
         >
           {{ item.description }}
         </p>

@@ -72,7 +72,7 @@ useHead({
 
     <p class="text-gray-600 dark:text-gray-300">
       Past talks live on the
-      <NuxtLink to="/videos/tags/conference-talk" class="text-primary hover:underline">
+      <NuxtLink to="/videos/tags/conference-talk" class="text-primary underline">
         conference videos
       </NuxtLink>
       page; you can find my
@@ -80,10 +80,10 @@ useHead({
         href="https://github.com/debs-obrien/decks"
         target="_blank"
         rel="noopener noreferrer"
-        class="text-primary hover:underline"
+        class="text-primary underline"
       >slide decks on GitHub</a>.
       For anything else,
-      <a :href="PUBLIC_MAILTO" class="text-primary hover:underline">email me</a>.
+      <a :href="PUBLIC_MAILTO" class="text-primary underline">email me</a>.
     </p>
   </main>
 </template>
