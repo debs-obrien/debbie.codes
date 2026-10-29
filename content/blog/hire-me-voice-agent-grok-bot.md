@@ -8,7 +8,7 @@ image: /images/blog/covers/hire-me-voice-agent-grok-bot.png
 ogImage: /images/blog/covers/hire-me-voice-agent-grok-bot.png
 ---
 
-My Hire me page can talk. Recruiters can ask it questions about my work, out loud or by text. I built it with my Grok Bot in one morning, and you can [try it here](https://debbie.codes/hire-me).
+My Hire me page can talk. Recruiters can ask it questions about my work, out loud or by text. I built it in one morning with my [Grok Bot](https://x.ai/bot) (I make videos about Grok Bot on my [YouTube channel](https://www.youtube.com/@DebbieOBrien)), and you can [try it here](https://debbie.codes/hire-me).
 
 If a recruiter has an agent reviewing candidates, and I have an agent answering for me, one agent is talking to the other. It sounds crazy, but it saves time, and the human call can focus on their questions, their doubts and the process.
 
@@ -21,7 +21,7 @@ I also teach AI agents. So it made sense for the page itself to show an agent bu
 **At a glance**
 
 - A voice agent on my [Hire me page](https://debbie.codes/hire-me) that answers questions about my work, out loud or by text.
-- Built with my Grok Bot and ElevenAgents, the ElevenLabs platform for voice agents.
+- Built with my Grok Bot and [ElevenAgents](https://elevenlabs.io/agents), the ElevenLabs platform for voice agents.
 - It only answers from the facts on the page and my CV, never makes up a number, and says it's an AI assistant.
 - Tested with ElevenLabs agent tests, with the built-in guardrails turned on.
 - 111 conversations in the first day and a half.
