@@ -81,7 +81,7 @@ Check out the video to see it in action.
 
 <!-- <a href="/images/content/blog/2022/playwright-trace-viewer_kx8uws.mp4" title="video showing trace viewer"><img src="/images/content/blog/2022/trace-viewer-play_2x_xydmoo.webp" alt="Video showing trace viewer" width="1640" height="1027"></a> -->
 
-<video   controls preload="none" playsinline width="1280" height="720" poster="/images/content/blog/2022/playwright-trace-viewer_kx8uws-poster.jpg">
+<video aria-label="video showing trace viewer" controls preload="none" playsinline width="1280" height="720" poster="/images/content/blog/2022/playwright-trace-viewer_kx8uws-poster.jpg">
   <source src="/images/content/blog/2022/playwright-trace-viewer_kx8uws.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
@@ -92,7 +92,7 @@ The really cool thing about this is that the snapshot of your site in the middle
 
 <!-- <a href="/images/content/blog/2022/playwright-trace-inspect_wvfjb9.mp4" title="video showing trace viewer inspecting dev tools"><img src="/images/content/blog/2022/trace-viewer-inspect-play_2x_scmhm4.webp" alt="Video showing trace viewer inspecting dev tools" width="1640" height="1019"></a> -->
 
-<video   controls preload="none" playsinline width="1280" height="720" poster="/images/content/blog/2022/playwright-trace-inspect_wvfjb9-poster.jpg">
+<video aria-label="video showing trace viewer inspecting dev tools" controls preload="none" playsinline width="1280" height="720" poster="/images/content/blog/2022/playwright-trace-inspect_wvfjb9-poster.jpg">
   <source src="/images/content/blog/2022/playwright-trace-inspect_wvfjb9.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>

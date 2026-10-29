@@ -23,7 +23,7 @@ Once you have generated your code using codegen and pasted it into your test fil
 
 <!-- <a href="/images/content/blog/2022/running-tests_l4uye7.mp4" title="video showing tests running in vscode"><img src="/images/content/blog/2022/runing-tests_2x_mzi8ng.webp" alt="Video showing tests running in vs code" / width="1640" height="921"></a> -->
 
-<video   controls preload="none" playsinline width="1280" height="720" poster="/images/content/blog/2022/running-tests_l4uye7-poster.jpg">
+<video aria-label="video showing tests running in vscode" controls preload="none" playsinline width="1280" height="720" poster="/images/content/blog/2022/running-tests_l4uye7-poster.jpg">
   <source src="/images/content/blog/2022/running-tests_l4uye7.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
@@ -48,7 +48,7 @@ As we have written a perfect test it is no fun, as the test passes. Lets make th
 
 <!-- <a href="/images/content/blog/2022/failing-tests_nz5bkj.mp4" title="video showing tests failing in vscode"><img src="/images/content/blog/2022/tests-failing_2x_ue6rrj.webp" alt="Video showing tests failing in vs code" / width="1640" height="925"></a> -->
 
-<video   controls preload="none" playsinline width="1280" height="720" poster="/images/content/blog/2022/failing-tests_nz5bkj-poster.jpg">
+<video aria-label="video showing tests failing in vscode" controls preload="none" playsinline width="1280" height="720" poster="/images/content/blog/2022/failing-tests_nz5bkj-poster.jpg">
   <source src="/images/content/blog/2022/failing-tests_nz5bkj.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
@@ -75,7 +75,7 @@ In this example it will show us that the test has issues with the text 'Men' as 
 
 <!-- <a href="/images/content/blog/2022/debugging-tests_mze1rs.mp4" title="video showing debugging tests in vscode"><img src="/images/content/blog/2022/debugging-tests_2x_up8f32.webp" alt="Video showing debugging tests in vs code" / width="1640" height="925"></a> -->
 
-<video   controls preload="none" playsinline width="1280" height="720" poster="/images/content/blog/2022/debugging-tests_mze1rs-poster.jpg">
+<video aria-label="video showing debugging tests in vscode" controls preload="none" playsinline width="1280" height="720" poster="/images/content/blog/2022/debugging-tests_mze1rs-poster.jpg">
   <source src="/images/content/blog/2022/debugging-tests_mze1rs.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>

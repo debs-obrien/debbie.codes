@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { isAllowedNetlifyRemoteSrc } from '~/utils/remote-images'
+
 const props = withDefaults(defineProps<{
   src?: string
   alt?: string
@@ -16,24 +18,12 @@ const isLocal = computed(() => {
   return src.startsWith('/') || src.startsWith('./')
 })
 
-const isAllowedExternal = computed(() => {
+const useNuxt = computed(() => {
   const src = props.src || ''
-  try {
-    const host = new URL(src, 'https://debbie.codes').hostname
-    // Only hosts listed in netlify.toml `remote_images` — others 400 via
-    // /.netlify/images. Unsplash/YouTube stay as plain <img> (or imgix covers).
-    return [
-      'dev-to-uploads.s3.amazonaws.com',
-      'raw.githubusercontent.com',
-      'theaiplatform.app',
-    ].includes(host)
-  }
-  catch {
+  if (!src)
     return false
-  }
+  return isLocal.value || isAllowedNetlifyRemoteSrc(src)
 })
-
-const useNuxt = computed(() => isLocal.value || isAllowedExternal.value)
 
 const imgWidth = computed(() => props.width ? Number(props.width) : undefined)
 const imgHeight = computed(() => props.height ? Number(props.height) : undefined)

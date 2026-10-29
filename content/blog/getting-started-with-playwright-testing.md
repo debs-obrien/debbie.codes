@@ -69,7 +69,7 @@ This will open two windows for you. The first one is the browser window that you
 
 <!-- <a href="/images/content/blog/2022/playwright-codegen_drluzl.mp4" title="Open codegen video"><img src="/images/content/blog/2022/codegen-img-play-button_2x_nyokdz.webp" alt="Video showing codegen in action" / width="1640" height="801"></a> -->
 
-<video   controls preload="none" playsinline width="1280" height="720" poster="/images/content/blog/2022/playwright-codegen_drluzl-poster.jpg">
+<video aria-label="Open codegen video" controls preload="none" playsinline width="1280" height="720" poster="/images/content/blog/2022/playwright-codegen_drluzl-poster.jpg">
   <source src="/images/content/blog/2022/playwright-codegen_drluzl.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>

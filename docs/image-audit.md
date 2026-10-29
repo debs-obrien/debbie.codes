@@ -11,12 +11,12 @@ Audit of every asset under `public/images/**` plus OG cards, Nuxt Image usage, l
 | Media (mp4/mp3) | 27.31 MB | 21.97 MB | -5.34 MB |
 | Asset counts | 320 img / 11 media | 321 img / 11 media | |
 
-## Budgets (content tree)
+## Budgets
 
-| | Old | New (measured + ~10%) |
-|---|---:|---:|
-| Images | 25 MB | **23.5 MB** |
-| Media | 40 MB | **24.2 MB** |
+| | Scope | Budget (measured + ~10%) |
+|---|---|---:|
+| Images | `public/images/**` + OG JPEGs | **26 MB** |
+| Media | `public/images/content/**` mp4/mp3/… | **24.2 MB** |
 
 Enforced by `scripts/check-image-budgets.mjs` (CI content-check) and `scripts/cloudinary/convert.mjs`.
 
@@ -121,9 +121,9 @@ All 10 MP4s: H.264, no audio, faststart, `preload="none"` (or metadata) off-scre
 - **`debbie_ewgkaa.mp3` (~17 MB)** — podcast audio sample, not a video; re-encoding would change fidelity without helping LCP.
 - **Portrait photos still >200 KB after q75** — already at max useful width (1640 = 2× ~820 CSS body); further quality cuts softens faces/landscapes with little CLS/LCP gain.
 - **Screenshot WebPs kept lossy q82** when lossless was larger.
-- **Original `x-card.png` / `twitter-card.png`** left on disk for any external bookmarks; site defaults now point at the JPEGs.
 - **Unsplash/imgix covers** still remote (out of Cloudinary migration scope). Cover `image:` paths keep the photo id only (no `?…` query) so the imgix provider can append `?w=` without producing `fit=crop?w=` CLS bugs.
 - **Raster favicons / PWA icons** under `public/*.png` — platform requirements; not content masters.
+- **`scripts/cloudinary/`** kept on purpose as the migration audit trail (download/convert reports, ID maps). Delivery no longer uses Cloudinary; do not delete these scripts/reports.
 
 ## Main merge follow-up (post-`e2f5a66`)
 
@@ -134,6 +134,21 @@ All 10 MP4s: H.264, no audio, faststart, `preload="none"` (or metadata) off-scre
 | Desktop home LCP was lazy YT thumb | `FeaturedVideoSection` main thumb `eager` + `fetchpriority=high`; CreativeHero drops high so only one high per page |
 | `discord-virtual-office` cover `fit=crop?w=` CLS | Strip query from imgix `image:` paths; replace literal second `?` with `&` in ogImage URLs |
 | Prose Unsplash → Netlify CDN 400 | ProseImg only Nuxt-optimizes `remote_images` hosts; Unsplash/YouTube stay plain `<img>` |
+
+## Review follow-up (post-`4fa0d54`)
+
+| Issue | Fix |
+|---|---|
+| Crawl skipped `/.netlify/images?url=…unsplash…` | Skip only hostname `images.unsplash.com`; never skip CDN URLs; never skip cover/og |
+| Soft vs hard media failures | Fail 404/410 (and other 4xx except soft); warn only on 403/429/5xx |
+| Flaky 150 ms settle | Scroll to bottom + await image load/decode before asserts |
+| Missing dims on `/images/blog/` prose | Real width/height on 17 masters; crawl checks blog + podcasts paths |
+| Course thumbs via Netlify 400 (`i.ytimg.com`) | Shared `utils/remote-images.ts` allowlist; `Item.vue` plain `<img>` when host not allowed |
+| Unused OG PNGs | Deleted `public/x-card.png`, `twitter-card.png`, `x-card-blog.png` (JPEG defaults remain) |
+| Honest `og:image:width/height` | Emit 1200×630 only when URL is truly that size; Unsplash OG get `w=1200&h=630&fit=crop&fm=jpg&q=80` |
+| Click-to-play a11y | `aria-label` on 7 videos from commented titles; color-mode video gets real 960×622 height |
+| Cloudinary scan gaps | `check-no-cloudinary.mjs` also scans `server/`, `composables/`, `plugins/`, `app.vue` |
+| Audit trail | Leave `scripts/cloudinary/` in place (see Intentionally unchanged) |
 
 ## SVG
 

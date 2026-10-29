@@ -28,6 +28,42 @@ export function netlifyOgImageUrl(localPath: string): string {
   return `${SITE_ORIGIN}/.netlify/images?${params.toString()}`
 }
 
+/** Force Unsplash OG URLs to a real 1200×630 crop so og:image:width/height stay honest. */
+export function unsplashOgImageUrl(urlOrPath: string): string {
+  const absolute = /^https?:\/\//i.test(urlOrPath)
+    ? urlOrPath
+    : `${UNSPLASH_BASE}${urlOrPath.replace(/^\//, '')}`
+  const u = new URL(absolute)
+  u.searchParams.set('w', '1200')
+  u.searchParams.set('h', '630')
+  u.searchParams.set('fit', 'crop')
+  u.searchParams.set('fm', 'jpg')
+  u.searchParams.set('q', '80')
+  return u.toString()
+}
+
+/**
+ * True when `url` is known to be a 1200×630 social card (Netlify crop, site JPEG, or sized Unsplash).
+ * Callers should only emit og:image:width/height when this returns true.
+ */
+export function isStandardOgSize(url: string): boolean {
+  if (!url)
+    return false
+  if (
+    url === DEFAULT_OG_IMAGE
+    || /\/x-card\.jpg(?:$|\?)/.test(url)
+    || /\/twitter-card\.jpg(?:$|\?)/.test(url)
+    || /\/x-card-blog\.jpg(?:$|\?)/.test(url)
+  ) {
+    return true
+  }
+  if (url.includes('/.netlify/images') && /[?&]w=1200\b/.test(url) && /[?&]h=630\b/.test(url))
+    return true
+  if (url.includes('images.unsplash.com') && /[?&]w=1200\b/.test(url) && /[?&]h=630\b/.test(url))
+    return true
+  return false
+}
+
 function localPathFor(value: string): string | undefined {
   const match = LOCAL_BY_PUBLIC_ID.find(({ id }) => value.includes(id))
   return match?.path
@@ -55,7 +91,9 @@ export function resolveOgImage(
         if (path.startsWith('/images/'))
           return netlifyOgImageUrl(path)
       }
-      // Leave third-party absolute URLs (Unsplash, YouTube, …) alone.
+      if (/images\.unsplash\.com/i.test(value))
+        return unsplashOgImageUrl(value)
+      // Leave other third-party absolute URLs alone (no guaranteed 1200×630).
       if (!/res\.cloudinary\.com/i.test(value))
         return value
       // Stale Cloudinary absolute URL — try public-id mapping, else skip.
@@ -72,9 +110,8 @@ export function resolveOgImage(
     }
 
     // Unsplash / imgix photo paths stored without the host
-    if (value.startsWith('photo-') || value.startsWith('reserve/')) {
-      return `${UNSPLASH_BASE}${value}`
-    }
+    if (value.startsWith('photo-') || value.startsWith('reserve/'))
+      return unsplashOgImageUrl(value)
   }
 
   return DEFAULT_OG_IMAGE

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Fail if components/pages/utils/config still reference Cloudinary delivery.
+ * Fail if app code still references Cloudinary delivery.
  * Usage: node scripts/check-no-cloudinary.mjs
  */
 import { readdirSync, readFileSync } from 'node:fs'
@@ -9,8 +9,8 @@ import process from 'node:process'
 import { fileURLToPath } from 'node:url'
 
 const root = fileURLToPath(new URL('..', import.meta.url))
-const roots = ['components', 'pages', 'utils']
-const files = ['nuxt.config.ts', 'netlify.toml', 'content.config.ts']
+const roots = ['components', 'pages', 'utils', 'server', 'composables', 'plugins']
+const files = ['nuxt.config.ts', 'netlify.toml', 'content.config.ts', 'app.vue']
 
 function walk(dir) {
   try {

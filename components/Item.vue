@@ -1,12 +1,23 @@
 <script setup lang="ts">
 import type { BlogPostPreview, CoursePreview, PodcastPreview, Sections } from '~/types'
 import { calculateReadingTime, formatReadingTime } from '~/utils/reading-time'
+import { isAllowedNetlifyRemoteSrc } from '~/utils/remote-images'
 
-defineProps<{
+const props = defineProps<{
   item: BlogPostPreview | CoursePreview | PodcastPreview
   section: Sections
   showImages?: boolean
 }>()
+
+/** Local paths use NuxtImg/Netlify CDN; non-allowlisted remotes (e.g. i.ytimg.com) stay plain <img>. */
+const useNuxtImg = computed(() => {
+  const src = props.item.image || ''
+  if (!src)
+    return false
+  if (src.startsWith('/') || src.startsWith('./'))
+    return true
+  return isAllowedNetlifyRemoteSrc(src)
+})
 </script>
 
 <template>
@@ -17,6 +28,7 @@ defineProps<{
         :target="item.url ? '_blank' : '_self'"
       >
         <NuxtImg
+          v-if="useNuxtImg"
           :src="item.image"
           :alt="item.title"
           width="272"
@@ -28,6 +40,16 @@ defineProps<{
           densities="x1 x2"
           class="scale-90 transition-all duration-400 hover:scale-100 rounded"
         />
+        <img
+          v-else
+          :src="item.image"
+          :alt="item.title"
+          width="272"
+          height="272"
+          loading="lazy"
+          decoding="async"
+          class="scale-90 transition-all duration-400 hover:scale-100 rounded object-cover"
+        >
       </NuxtLink>
     </div>
 
