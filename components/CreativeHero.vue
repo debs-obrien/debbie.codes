@@ -16,8 +16,7 @@ import { PUBLIC_MAILTO } from '~/utils/site-contact'
 
     <div class="relative z-10 flex flex-col items-center justify-center text-center px-6 sm:px-10 pt-[7.5rem] pb-12 sm:pb-14">
       <NuxtImg
-        provider="cloudinary"
-        src="v1589118478/debbie.codes/debbie-thumb_clt00n"
+        src="/images/debbie-thumb.webp"
         alt="Debbie O'Brien"
         width="160"
         height="160"
