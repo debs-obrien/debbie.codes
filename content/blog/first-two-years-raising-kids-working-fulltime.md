@@ -2,9 +2,8 @@
 title: First Two Years of Raising Kids and Working Fulltime
 date: 2026-01-11
 description: I now have two year old twins yet I also work fulltime and manage to raise my kids with no daycare or family help. Many people ask me how I do it and sometimes I even wonder myself! In this post, I want to share my experiences, challenges, and strategies for balancing work and parenthood over the past two years.
-image: v1640965793/debbie.codes/blog/2026/family-microsoft
-ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1640965793/debbie.codes/blog/2026/family-microsoft
-provider: cloudinary
+image: /images/content/blog/2026/family-microsoft.webp
+ogImage: /images/content/blog/2026/family-microsoft.webp
 tags: [personal]
 published: true
 loading: eager

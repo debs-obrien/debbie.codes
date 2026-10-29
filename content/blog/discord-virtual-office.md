@@ -29,7 +29,7 @@ On a normal working day everyone should join a room. This makes it easy for ever
 
 So if you can imagine 15 different voice channels set up and you start your day and jump into one. Now you might think, that's going to be very noisy, and it might be depending on the room you join. But you can jump to another room and if that one has too much going on, you can also just deafen the server so you don't hear anything cause maybe you are not at your desk cause you need to hang the washing out or make a coffee or whatever so that means someone knows you are working, you are around but if someone wants to talk to you you're not listening. This is when messages come in.
 
-![Discord Virtual Office](https://res.cloudinary.com/debsobrien/image/upload/q_auto,f_auto/v1617526504/debbie.codes/blog/discord-virtual-office_gdebzt.png)
+![Discord Virtual Office](/images/content/blog/discord-virtual-office_gdebzt.webp){width="1640" height="989"}
 
 ## Slack for Messages
 
@@ -47,7 +47,7 @@ Same goes for the dining room. This is not a room we go to to have lunch and tal
 
 We have a daily meeting in one of the Big meeting rooms and admins have the power of actually virtually kidnapping you from whatever room you are in and dropping you into the meeting room so there are no excuses for missing it at all. This is a great feature and of course if you happen to be on an external call you will have the server deafened and therefore won't hear things which is probably what you want. On the daily you can turn on video if you want to or share a screen to showcase something. Having a daily with the team is really beneficial as you get to keep up with what is happening as well as be able to ask someone for help on a specific topic.
 
-![Virtual Office Daily](https://res.cloudinary.com/debsobrien/image/upload/q_auto,f_auto/v1617546733/debbie.codes/blog/discord-virtual-office-daily_2x_hwpicw.png)
+![Virtual Office Daily](/images/content/blog/discord-virtual-office-daily_2x_hwpicw.webp){width="1640" height="1106"}
 
 ## Recording Studio
 
@@ -57,7 +57,7 @@ When it comes to the recording studio, the mic is not activated so you can't tal
 
 We also have an external meeting room for when we need to invite people who are not part of our team. This is great for when we don't want to use another platform or setup a zoom call just to get someone involved in a conversation for help and debugging. Recently we had a webpack issue we needed to solve so we invited one of the webpack maintainers who wasn't part of our team to join the call and help us debug our webpack loaders issues, when trying to migrate to webpack 5. The external meeting room allows us to easily invite people in, to collaborate with other people, debug code together and at the same time network and get to meet other people.
 
-![external meeting room](https://res.cloudinary.com/debsobrien/image/upload/q_auto,f_auto/v1617874852/debbie.codes/blog/external-room-discord_2x_yoi7kh.png)
+![external meeting room](/images/content/blog/external-room-discord_2x_yoi7kh.webp){width="1640" height="959"}
 
 It is starting to become one of my favorite rooms and I look forward to seeing who else we will invite in there and what other pair programming sessions and networking we will do.
 

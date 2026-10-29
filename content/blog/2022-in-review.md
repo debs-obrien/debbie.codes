@@ -2,9 +2,8 @@
 title: 2022 Recap - Achieving your dreams Debbie
 date: 2022-12-31
 description: And there it is, another year gone but when you look back at all you have achieved then really there is no more to say than; what a year. From Google interviews to being hired by Microsoft, speaking at conferences and traveling to so many conferences and lots of sport, 2022 was a great year.
-image: v1673861872/debbie.codes/blog/2022/microsoft-running_gztjdu.jpg
-ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1651559990/debbie.codes/blog/2022/microsoft-running_gztjdu.jpg
-provider: cloudinary
+image: /images/content/blog/2022/microsoft-running_gztjdu.webp
+ogImage: /images/content/blog/2022/microsoft-running_gztjdu.webp
 tags: [personal]
 published: true
 ---
@@ -19,11 +18,11 @@ So many achievements, from numerous [conference talks](/videos) to [podcast inte
 
 I started the year with a beautiful scenic, muddy run with my brother along the Wicklow coast. It's not just about the running but the chats on the way reflecting on the last year and looking forward to the new one with new goals, hopes and dreams.
 
-![Wicklow Coast Run](https://res.cloudinary.com/debsobrien/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1673858048/debbie.codes/blog/2022/wicklow-running_fptw0q.jpg)
+![Wicklow Coast Run](/images/content/blog/2022/wicklow-running_fptw0q--w_1000-ar_16-9-c_fill-g_auto.webp){width="1000" height="563"}
 
 Ski holidays were back, with masks on chair lifts even though we were out in the open but sure, ok. We had a great few days skiing with amazing snow.
 
-![ski holiday](https://res.cloudinary.com/debsobrien/image/upload/v1673858280/debbie.codes/blog/2022/skiing_ezzxth.jpg)
+![ski holiday](/images/content/blog/2022/skiing_ezzxth.webp){width="1640" height="1230"}
 
 Things were not going to well in my job and I wasn't allowed to do what I do best or make any decisions. Managers didn't turn up for 1-1 meetings and it made me feel unvalued and unimportant. The company were simply not ready to push dev rel to the next stage and I needed to do more. So I started interviewing with a few companies which opened my eyes to new opportunities. It also helped me see what I didn't want. 
 
@@ -31,13 +30,13 @@ I started the interview process for Google after a let down from Facebook. I had
 
 At the end of January I traveled to Menorca, one of the smaller islands of the Balearic chain where I gave my talk on Imposter Syndrome. Due to covid fears the Government decided against the college students attending in person and most of our audience was therefore online and we remained fully masked for the whole event, even when giving my talk. But we had a nice small audience and it was still good fun and I got to spend the weekend visiting the rest of the island with my husband.
 
-![menorca conf](https://res.cloudinary.com/debsobrien/image/upload/v1673858389/debbie.codes/blog/2022/menorca_g1qaan.jpg)
+![menorca conf](/images/content/blog/2022/menorca_g1qaan.webp){width="640" height="311"}
 
 ## Feb: Sport and more interviews
 
 February was a great month for cycling and running, playing padel, studying and more interviews. I studied lots but when it came to taking the main Google whiteboard Interviewed I failed. I knew I failed straight away as I just didn't do my best. The whole process through me off and I blanked out on things I know, things I have made video courses on and taught at workshops. My brain just didn't function the way it should have. And there is nothing more than a failed coding challenge to make you feel very useless.
 
-![running in mountains](https://res.cloudinary.com/debsobrien/image/upload/v1673858752/debbie.codes/blog/2022/running-trail_qjlb9h.jpg)
+![running in mountains](/images/content/blog/2022/running-trail_qjlb9h.webp){width="1640" height="1230"}
 
 However it did set me up for my next challenge. My first interview with Microsoft. Now having experienced the Google process I was terrified that the Microsoft one would be the same. Yet it was not and instead of having to study algorithms and data structures I had to instead study the product itself, Playwright.
 
@@ -46,7 +45,7 @@ However it did set me up for my next challenge. My first interview with Microsof
 
 March was a trip to the Canaries for a friends wedding. I had never been to the Canary islands and they got married in a banana plantation which was very cool. We also traveled the island by car, plus lots of running of course, and got to see some amazing mountain views and incredible sand dunes.
 
-![canary islands](https://res.cloudinary.com/debsobrien/image/upload/v1673858975/debbie.codes/blog/2022/canaries_dkkzgg.jpg)
+![canary islands](/images/content/blog/2022/canaries_dkkzgg.webp){width="1640" height="1230"}
 
 I spent so much time studying and preparing for my Microsoft interview that I didn't celebrate Saint Patrick's day at all. Not even a single beer. I just knew that I had to give it my all so every second I had to spare was spent studying and preparing for the interview. And it was worth it cause the interview went really well and I was offered the job a few weeks later much to my disbelief.
 
@@ -58,7 +57,7 @@ I gave a remote talk from the hotel on Components, for a company conference in G
 
 It snowed in Amsterdam. It was so beautiful. I gave my talk at React Conf that morning and it was so nice to be back on that big stage. I also got interviewed for a podcast while there. I had to leave by lunch time to get a flight to Belfast to attend a hen party for my sister-in-law. We spent the weekend in Belfast out drinking and celebrating as well as lots of running. Yes I was the only one who got up in the morning and went for run.
 
-![react amsterdam](https://res.cloudinary.com/debsobrien/image/upload/v1673859211/debbie.codes/blog/2022/react-amsterdam_zsqn44.jpg)
+![react amsterdam](/images/content/blog/2022/react-amsterdam_zsqn44.webp){width="1640" height="1230"}
 
 I then traveled down to my home town in County Wicklow in Ireland to stay with family and work remotely for a week so I could get to meet the newest member of my family, my new niece as well as spend my birthday with my family. Weather was fantastic so I got to have plenty of country runs.
 
@@ -66,13 +65,13 @@ It was here that I took the call for my offer for Microsoft, right in my dads ba
 
 GitHub sent me out my year in 2021 GitHub contributions in 3d format with a thank you note and a congratulations on what I brought to 2021. It was so cool to compare it to last year and see how much more I have contributed in code.
 
-![github skyline](https://res.cloudinary.com/debsobrien/image/upload/v1673861661/debbie.codes/blog/2022/github-skyline_wsewwn.jpg)
+![github skyline](/images/content/blog/2022/github-skyline_wsewwn.webp){width="1640" height="1230"}
 
 There was also lots of running and cycling in April as well as padel as my goal to do 3 hours of sport a day was becoming a reality.
 
 I then traveled to Verona, in Italy to give a talk at a conference I have been to before but is one I love very much. I was surprised at the lack of diversity in the audience and brought it up at the start of my talk and got a huge clap in support from the guys. Then a lovely long run around Verona.
 
-![js verona](https://res.cloudinary.com/debsobrien/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1673859608/debbie.codes/blog/2022/js-verona_mxwqjt.jpg)
+![js verona](/images/content/blog/2022/js-verona_mxwqjt--w_1000-ar_16-9-c_fill-g_auto.webp){width="1000" height="563"}
 
 On the last day of April I flew to Barcelona to take Natalia Venditto out for lunch, as she was the one who told me about the job in Microsoft and had recommended that I apply. We met up with Alvaro while there and then I flew home that evening. 
 
@@ -82,11 +81,11 @@ May was playing a padel tournament with a torn ligament which was not ideal. Res
 
 Then it was my last conference talk from my previous job at BeJS Brussels. This is a great local conference where I wrote about diversity in a post as I was pleasantly surprised at how diverse the conference was. I got to meet some great people there and had a lovely tour around the Belgian cities. 
 
-![me and speakers panel at BEJS](https://res.cloudinary.com/debsobrien/image/upload/v1673859773/debbie.codes/blog/2022/bejs-panel_surbtt.jpg)
+![me and speakers panel at BEJS](/images/content/blog/2022/bejs-panel_surbtt.webp){width="1640" height="1230"}
 
 I stared work for Microsoft on the 16th of May as the 15th was a Sunday and on the 21st of May I got to fly to Seattle to meet the team and visit the Microsoft offices. You can not even imagine how excited I was. It was incredible, especially when I found there was a running track around the campus. I literally went for a run every single day. 
 
-![microsoft campus](https://res.cloudinary.com/debsobrien/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1673861981/debbie.codes/blog/2022/microsoft-sign_kieb6v.jpg)
+![microsoft campus](/images/content/blog/2022/microsoft-sign_kieb6v--w_1000-ar_16-9-c_fill-g_auto.webp){width="1000" height="563"}
 
 It was so nice to meet my team and hang out and get to know each other and also to meet and hangout with Scott Hanselman, whom I had always looked up to and was now someone I worked for. He is such a nice person in real life and not just saying that cause I work for him. I also met other people from different teams and spent time enjoying the campus from the offices to the studios, shops and the tree houses. I sat in those tree houses for ages just thinking how lucky I was to be here and wondering if it was really just all a big dream.
 
@@ -96,19 +95,19 @@ In June I went to Budapest for a meetup and a conference in a railway museum whi
 
 Then it was Miami for Vue conf where I got to fly to Miami for a week to give a Nuxt workshop. I managed to through some testing onto the end of the workshop and I gave a lightening talk on Playwright. I also got to meet up with some friends from the Vue community and hang out with them. Of course there was more running even though it was so hot.
 
-![nuxt workshop](https://res.cloudinary.com/debsobrien/image/upload/v1673860104/debbie.codes/blog/2022/nuxt-workshop_xflqgh.jpg)
+![nuxt workshop](/images/content/blog/2022/nuxt-workshop_xflqgh.webp){width="1640" height="1230"}
 
 I got to attend my first music festival. Yes I am new to music festivals. It was great and I really enjoyed it especially Franz Ferdinand and Cristina Aguilera. 
 
 My first .NET conference was in Madrid where I gave my talk on Playwright and worked on the Microsoft booth telling the world about Playwright and how cool it is.
 
-![dotnet madrid conference](https://res.cloudinary.com/debsobrien/image/upload/v1673856374/debbie.codes/blog/2022/dotnet-madrid_agwxxy.jpg)
+![dotnet madrid conference](/images/content/blog/2022/dotnet-madrid_agwxxy.webp){width="1640" height="1230"}
 
 ## July: Conferences and sport
 
 In June I got to visit the Microsoft offices in Barcelona and collect my badge before attending Vue Road trip where I gave my talk on Playwright and got to hang out with more members of the Vue community. Of course running in Barcelona followed by breakfast with speaker friends.
 
-![my with by micorsoft badge](https://res.cloudinary.com/debsobrien/image/upload/v1673856285/debbie.codes/blog/2022/microsoft-offices-bcn_cui5eh.png)
+![my with by micorsoft badge](/images/content/blog/2022/microsoft-offices-bcn_cui5eh.webp){width="1640" height="1107"}
 
 July in general was a quiet month and therefore I got to spend more time improving my skills and working on documentation.
 
@@ -118,7 +117,7 @@ And of course lots of sport from padel to cycling and swimming again trying to k
 
 August was sport and holiday month. I worked the first few weeks of the month and then flew to Greece for my brothers wedding. I took a few days to do a road trip on the mainland visiting Meteora and then flew to the island of Corfu where I had a fantastic time with my family from parents, brothers, sisters, nieces, nephews, cousins, aunts, uncles and friends. We all had such a great time and the first time we had all been together since covid times. And yes lots of running of course as well as swims and a boat trip which was epic.
 
-![meteora greece](https://res.cloudinary.com/debsobrien/image/upload/v1673860520/debbie.codes/blog/2022/meteora-greece_wqumec.jpg)
+![meteora greece](/images/content/blog/2022/meteora-greece_wqumec.webp){width="1640" height="1230"}
 
 ## September: Conferences and the gran fondo
 
@@ -128,13 +127,13 @@ Next was off to Croatia for Inforbip Shift conference. This was an amazing confe
 
 I also got to do tons of networking and showing people Playwright and chatting all things testing with Kent C. Dodds over lunches and swims in the sea. And I got to do lots of running by the Croatian coastline as the hotel was set in such a beautiful area. I can't mention all the amazing people I met as there were just too many and I can't explain to you how beautiful the stars were as it has to be seen to be believed.
 
-![me and Kent C. Dodds](https://res.cloudinary.com/debsobrien/image/upload/v1673856445/debbie.codes/blog/2022/me-kent-c-dodds_yj4cnn.jpg)
+![me and Kent C. Dodds](/images/content/blog/2022/me-kent-c-dodds_yj4cnn.webp){width="1640" height="1230"}
 
 Next up was Oslo for NDC. It was so good to be back for this conference where I gave my talk on Playwright and again worked on the booth to show Playwright off to everyone that came by the booth and give away Playwright stickers. Lots of networking with other speakers and got a few runs in too plus got to hang out with Jayme one of my work colleagues.
 
 September was also the month of the Gran Fondo. I cycled 200km in one day round the island of Mallorca. This was an amazing challenge for me. It was very tough and I cycled most of it on my own as couldn't keep up with the others making it even more rewarding. It was an incredible experience.
 
-![gran fondo mallorca](https://res.cloudinary.com/debsobrien/image/upload/v1673860709/debbie.codes/blog/2022/gran-fondo_dmnecs.jpg)
+![gran fondo mallorca](/images/content/blog/2022/gran-fondo_dmnecs.webp){width="828" height="1371"}
 
 ## October: Conferences and family time
 
@@ -142,25 +141,25 @@ October was a busy month for traveling and conferences. I planned things so that
 
 I flew from Ireland to Berlin where I got to not just meet and hang out with Max Schmitt from the Playwright team. We got to have lunch, dinner, coffee and even go for an amazing run around the city of Berlin. Then the next day I spoke at the Vue Conf and gave my talk on Playwright.
 
-![Max and I running around Berlin](https://res.cloudinary.com/debsobrien/image/upload/v1673856210/debbie.codes/blog/2022/max-me-berlin_wx5q4a.png)
+![Max and I running around Berlin](/images/content/blog/2022/max-me-berlin_wx5q4a.webp){width="1640" height="1171"}
 
 I had been double booked as the conference had changed its dates so I ended up leaving the conference at lunch time and flew to Stockholm for Nordic JS where I arrived right at speaker dinner which was kinda surreal. But I got to hangout and network with some great speakers.
 
 I gave my Playwright talk to over 1,000 people. It was a great conference and the audience were so much fun. I had taken advice from a good speaker friend on how I could improve as a speaker and I was starting to apply it and getting great results and was super happy with how my talk went giving me more confidence as a speaker. Sweeden was great fun and networked and chatted Playwright with so many people and it was here I went for a run around Stockholm and before I knew it had run 24km. It was just such a beautiful city. I will for sure be back.
 
-![Nordic JS](https://res.cloudinary.com/debsobrien/image/upload/v1673856555/debbie.codes/blog/2022/nordic-js_tycyhz.jpg)
+![Nordic JS](/images/content/blog/2022/nordic-js_tycyhz.webp){width="1640" height="1094"}
 
 Next up was Technorama Conference in Utrecht. Here I got to hang out with my boss James Montemagno as well as other amazing speakers. It was a multi track conference but was happy to know that my room was full and that they had to turn people away. I had a small crowd who were great fun and asked so many questions during and after my talk making it very dynamic and engaging. I also got to work on the Microsoft booth telling everyone about Playwright and how awesome it was. And of course got to go on some amazing runs by the canals and through the town.
 
 From Utrecht I took a train to Belgium to give my talk at React Belgium. It was nice to be back in Brussels and give my Playwright talk here and help out on the Microsoft booth. And of course more running, this time I managed to get some other speakers to come along too. Lots of nice dinners with speaker friends and chocolates. Who doesn't love Belgian chocolates.
 
-![React Brussels](https://res.cloudinary.com/debsobrien/image/upload/v1673856494/debbie.codes/blog/2022/react-brussels_esunrb.jpg)
+![React Brussels](/images/content/blog/2022/react-brussels_esunrb.webp){width="1640" height="738"}
 
 October was also Vite conf where I had pre-recorded my talk on Playwright and how Playwright uses Vite for component testing. This conference was on discord and had a huge amount of viewers.
 
 I got to fly home to Mallorca for a few days to then pack again and fly to Nantes in France to give my talk on Playwright to a massive audience and also work on the Microsoft booth. This is such a fun conference with most talks in French. They put a lot of work into theming the booths which makes it so much fun. 
 
-![dev fest nantes Microsoft booth](https://res.cloudinary.com/debsobrien/image/upload/v1673856525/debbie.codes/blog/2022/devfest-france_avnfzf.jpg)
+![dev fest nantes Microsoft booth](/images/content/blog/2022/devfest-france_avnfzf.webp){width="1640" height="923"}
 
 ## November: Online conferences and podcasts
 
@@ -175,7 +174,7 @@ December was a great month. I had holidays to take so we booked a cruise on the 
 Then we went to Saudi Arabia which was so nice to see and meet the local people there especially as Saudi only opened to tourism in 2019 so it's all very new to lots of people there and they are so welcoming and friendly. 
 
 Then the Pyramids which are out of this world and I recommend everyone should visit. Just so big, still there after all these years and the fact that they even considered building these just to bury someone is actually just incredible.
-![pyramids Egypt](https://res.cloudinary.com/debsobrien/image/upload/v1673861294/debbie.codes/blog/2022/pyramids_fzo4p9.jpg)
+![pyramids Egypt](/images/content/blog/2022/pyramids_fzo4p9.webp){width="1640" height="1230"}
 
 I would have loved to go for runs in all these countries but it just wasn't possible. I did manage to run on the cruise ship though which was still nice even though it was just running in a straight line and back again and again.
 
@@ -183,7 +182,7 @@ More podcast interviews in December on Playwright which was a lot of fun.
 
 And then Christmas holidays back in Ireland with more family time, switch off from computer time and running in the countryside making for a great way to end the year. The day after Christmas I ran my second race ever. A family 5k race where I got to run with my brother and nieces in Wicklow town. It was a great experience.
 
-![race in ireland](https://res.cloudinary.com/debsobrien/image/upload/v1673861438/debbie.codes/blog/2022/race-ireland_amyqrb.jpg)
+![race in ireland](/images/content/blog/2022/race-ireland_amyqrb.webp){width="1640" height="2187"}
 
 ## It's a wrap
 

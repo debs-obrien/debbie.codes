@@ -2,8 +2,7 @@
 title: Building an ecommerce Product details component
 date: 2021-12-23
 description: Where do you start when building a product page for an e-commerce store? How do you think about naming the components and how much to break down the components? What do you start building first and why?
-image: v1640267556/debbie.codes/blog/product-details-component_2x_isk5aj
-provider: cloudinary
+image: /images/content/blog/product-details-component_2x_isk5aj.webp
 tags: [react]
 ---
 
@@ -13,7 +12,7 @@ It was time to enhance the shoe store and add the detail page for when you click
 
 ## So where do we start?
 
-<nuxt-img provider="cloudinary" src="debbie.codes/blog/product-details-component_2x_isk5aj" format="auto" quality="100"  fit="cover" alt="Product Details component in Bit" loading="lazy"> </nuxt-img>
+<img src="/images/content/blog/product-details-component_2x_isk5aj.webp" alt="Product Details component in Bit" loading="lazy" width="1610" height="796"> 
 
 First of all we have a design that shows us what the page should look like. From this design we can break things up into components starting with the biggest component first which is the page component. Then we need to ask ourselves where does this page live? To which scope does it belong to or which team is responsible for it? As we are building a page in the shoe store it was pretty obvious that this page component should belong to the shoe-store scope.
 
@@ -78,7 +77,7 @@ I also used [Bit.dev](http://Bit.dev) to build my components but this is not ess
 
 We start by building the product-details component in the ecommerce scope. The next component we need is the Image component and we already have one created in the base-ui scope so we can just go to that and install it into our project using bit, npm or yarn.
 
-<nuxt-img provider="cloudinary" src="debbie.codes/blog/Img-component_2x_uxxmep" format="auto" quality="100"  fit="cover" alt="Image Component in Bit" loading="lazy"> </nuxt-img>
+<img src="/images/content/blog/Img-component_2x_uxxmep.webp" alt="Image Component in Bit" loading="lazy" width="1640" height="852"> 
 
 ```bash
 bit install @learn-bit-react/base-ui.ui.img
@@ -98,7 +97,7 @@ export type ProductDetailsProps = {} & React.HTMLAttributes<HTMLDivElement>
 export function ProductDetails() {
   return (
     <div className={styles.productDetails}>
-      <Img className={styles.img} src="some-img-url" alt="alt" />
+      <img className={styles.img} src="some-img-url" alt="alt" />
     </div>
   )
 }
@@ -127,7 +126,7 @@ export type ProductDetailsProps = {
 export function ProductDetails() {
   return (
     <div className={styles.productDetails}>
-      <Img className={styles.img} src={src} alt={alt} />
+      <img className={styles.img} src={src} alt={alt} />
     </div>
   )
 }
@@ -171,7 +170,7 @@ const {
 export function ProductDetails({ product }: ProductDetailsProps) {
   return (
     <div className={styles.productDetails}>
-      <Img className={styles.img} src={src} alt={alt} />
+      <img className={styles.img} src={src} alt={alt} />
       ...
     </div>
   )
@@ -196,7 +195,7 @@ Use whatever method works best when building the component depending on who you 
 
 The next component we need is the heading component to show the name of the shoe. As we already have this component we can simply install it
 
-<nuxt-img provider="cloudinary" src="debbie.codes/blog/heading-component_2x_abv6ps" format="auto" quality="100"  fit="cover" alt="Heading Component in Bit" loading="lazy"> </nuxt-img>
+<img src="/images/content/blog/heading-component_2x_abv6ps.webp" alt="Heading Component in Bit" loading="lazy" width="1640" height="862"> 
 
 ```bash
 bit install @learn-bit-react/base-ui.ui.heading
@@ -215,7 +214,7 @@ export type ProductDetailsProps = {} & React.HTMLAttributes<HTMLDivElement>
 export function ProductDetails() {
   return (
     <div className={styles.productDetails}>
-      <Img className={styles.img} src="some-img-url" alt="alt" />
+      <img className={styles.img} src="some-img-url" alt="alt" />
       <Heading element="h1">Product Name</Heading>
     </div>
   )
@@ -230,19 +229,19 @@ Personally I used a placeholder so I could more or less get the product details 
 
 To build the rating component I created the component in the ecommerce scope and started building it completely in isolation from the product details component. Once it was working how it should be, I then imported it into my product details component the same way I imported the Image and Heading component using the full package name and then used it in the product details component passing in the necessary values to the props to make it work.
 
-<nuxt-img provider="cloudinary" src="debbie.codes/blog/rating-component_2x_unane9" format="auto" quality="100"  fit="cover" alt="Rating Component in Bit" loading="lazy"> </nuxt-img>
+<img src="/images/content/blog/rating-component_2x_unane9.webp" alt="Rating Component in Bit" loading="lazy" width="1640" height="908"> 
 
 ## The Finished Product
 
 Once we have finished going through all components we should now have a very decent looking product details component that now needs to make sure the mock data is working correctly and that it is styled as per the design. Of course documenting the component is important so others know how to use the component and what props are available. Proving a live playground makes it much more fun for others to be able to test your component out. And of course adding tests to your components are very important and should be added when possible. That is something I am still working on and trying to improve. With more testing knowledge this of course becomes much easier.
 
-<nuxt-img provider="cloudinary" src="debbie.codes/blog/product-details_2x_fziqbi" format="auto" quality="100"  fit="cover" alt="Product Details component in Bit" loading="lazy"> </nuxt-img>
+<img src="/images/content/blog/product-details_2x_fziqbi.webp" alt="Product Details component in Bit" loading="lazy" width="1640" height="854"> 
 
 ## Dependency Graph
 
 We now have a product details component with a dependency graph showing all the components we used as well as the name and scope of that component and its version. It is also easy to see which component depends on which such as the select-size component from the ecommerce scope which depends on the select component from the base-ui scope.
 
-<nuxt-img provider="cloudinary" src="debbie.codes/blog/dependency-graph-product-details_2x_d657gn" format="auto" quality="100"  fit="cover" alt="Dependency Graph for Product details component in Bit" loading="lazy"> </nuxt-img>
+<img src="/images/content/blog/dependency-graph-product-details_2x_d657gn.webp" alt="Dependency Graph for Product details component in Bit" loading="lazy" width="1572" height="1044"> 
 
 ## Adding our component to our page
 
@@ -367,7 +366,7 @@ We can now use this component just like any other but we will not be able to wri
 
 We can then continue to build the next component of this page which is the reviews component following the same workflow as we did above and so on until we have the page fully complete.
 
-<nuxt-img provider="cloudinary" src="debbie.codes/blog/shoe-store-app_2x_xbftk9" format="auto" quality="100"  fit="cover" alt="Shoe store app in Bit" loading="lazy"> </nuxt-img>
+<img src="/images/content/blog/shoe-store-app_2x_xbftk9.webp" alt="Shoe store app in Bit" loading="lazy" width="1640" height="856"> 
 
 Of course our work is still not done here. We have only added the design component for the add to cart button and at the moment this is not going to add anything to a cart. For now it looks good and can pass the design inspection while we work on the next stage of the project. The cart page including the add to cart functionality.
 
@@ -398,7 +397,7 @@ That means I can now build in one workspace yet also build components that belon
 
 With Bit there is a cool feature called import which you can use to import any component into your workspace from another workspace should you want to modify them. This might be the case when wanting to improve the API of a component or even just a bug fix. For example when building the available colors component I needed to make changes to it so that it would work with state and being able to just import it into my workspace and work on it without having to clone another repo, tag it and then export it made such a difference.
 
-<nuxt-img provider="cloudinary" src="debbie.codes/blog/import-component-in-bit_2x_a9p1qs" format="auto" quality="100"  fit="cover" alt="Import component box in Bit" loading="lazy"> </nuxt-img>
+<img src="/images/content/blog/import-component-in-bit_2x_a9p1qs.webp" alt="Import component box in Bit" loading="lazy" width="1640" height="848"> 
 
 So what about your GitHub repo? GitHub is important for me to be able to go back in time incase something isn't working that was working before. While building I pushed all components into the shoe store repo and once I have finished I can use the eject command from bit to eject the components that I do not want in this workspace and repo.
 
@@ -406,7 +405,7 @@ When someone wants to work on the ecommerce repo all they have to do is run the 
 
 And of course tagging becomes easy with Bit as it auto tags any dependents. Here by changing the product component the shoe store which uses the product page component also gets a new version, once of course all tests are passing and then running the export command will export both of these components. This means I can easily tag and export components without having to worry about updating components that use the changed component.
 
-<nuxt-img provider="cloudinary" src="debbie.codes/blog/CleanShot_2021-12-15_at_14.59.47_2x_jrfex8" format="auto" quality="90"  fit="cover" alt="terminal showing tagging of components" loading="lazy"> </nuxt-img>
+<img src="/images/content/blog/CleanShot_2021-12-15_at_14.59.47_2x_jrfex8.webp" alt="terminal showing tagging of components" loading="lazy" width="914" height="304"> 
 
 ## Demo Project
 

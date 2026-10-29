@@ -2,9 +2,8 @@
 title: Interviewing with the Big Tech Companies
 date: 2022-05-19
 description: When a recruiter from Meta, from America, had called me, it just opened my eyes to the possibility that maybe just maybe I was actually good enough to work for the big tech companies.
-image: v1651679092/debbie.codes/blog/2022/data-structures_2x_kvks59.png
-ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1651679092/debbie.codes/blog/2022/data-structures_2x_kvks59.png
-provider: cloudinary
+image: /images/content/blog/2022/data-structures_2x_kvks59.webp
+ogImage: /images/content/blog/2022/data-structures_2x_kvks59.webp
 tags: [personal]
 published: true
 ---
@@ -23,7 +22,7 @@ On the 24th of January, on LinkedIn I saw a role for a developer advocate positi
 
 On the 25th January I got an email from Google recruiter asking me when I was available for a call to have a chat about my work history and experience. On the 26th January I had the call. The call went really well and shortly after it they sent me an email asking me to give them some dates that I would be available between the 7th and 18th of February. The email contained a very long list of how to prepare for the interview and what I should study, read, watch etc.
 
-![email of list of things to stud](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1651654531/debbie.codes/blog/2022/email-google-coding_2x_tq5mnm.png)
+![email of list of things to stud](/images/content/blog/2022/email-google-coding_2x_tq5mnm.webp){width="1550" height="1328"}
 
 I sent them a few dates and they chose the 14th of February, Valentines day. I now had just over 2 weeks to learn everything about data structures, algorithms, and all sorts of things I had no idea about. People spend 6 months preparing for an interview at Google and I began to see why.
 
@@ -33,7 +32,7 @@ So I created a plan. First I took everything from the email and added it to a no
 
 I started by watching some of the [videos from Google on interviewing there](https://www.youtube.com/watch?v=XKu_SEDAykw) and the whiteboard interview. I realised I was way over my head and there was no way I could just read the material that was sent to me and be able to do the interview. I tried some of the leet code challenges but I really had no idea how to tackle them. This is when you begin to wish you had studied a computer science degree.
 
-![a man being interviewed by a women and using the whiteboard to write the solution to the coding challenge](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1651677846/debbie.codes/blog/2022/google-interview_2x_jzrje9.png)
+![a man being interviewed by a women and using the whiteboard to write the solution to the coding challenge](/images/content/blog/2022/google-interview_2x_jzrje9.webp){width="1640" height="736"}
 
 I needed a new plan. Something that was going to get me up to speed fast. I needed to understand how things worked before I could start doing challenges. I was missing a lot of the basics around data structures and algorithms.
 
@@ -43,7 +42,7 @@ I started by doing the [Complete Intro to Computer Science course on Frontend Ma
 
 At the same time I also enrolled in [Harvard's online CS50's Introduction to Computer Science](https://www.edx.org/course/introduction-computer-science-harvardx-cs50x). Although I found everything a little overwhelming I was also really enjoying learning all this and understanding how sorts work under the hood and when to choose one over the other.
 
-![David J. Malan on stage at Harvard teaching Linear Search using lockers and numbers](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1651677615/debbie.codes/blog/2022/linear-search-harvard_2x_ejhpgf.png)
+![David J. Malan on stage at Harvard teaching Linear Search using lockers and numbers](/images/content/blog/2022/linear-search-harvard_2x_ejhpgf.webp){width="1640" height="949"}
 
 I also think this is one of the most amazing courses I have ever taken and am so glad I signed up for it. David J. Malan, the instructor, has a way of explaining the concepts in such a way that you fully understand why and even remember it.
 
@@ -91,7 +90,7 @@ On the 4th of February a friend told me about a position at Microsoft and encour
 
 Also I didn't feel I was good enough for the role or had enough knowledge or experience and even asked my fellow Microsoft friends if they thought I was good enough to work for Microsoft. Yes [imposter-syndrome](https://debbie.codes/blog/being-an-imposter), is a nightmare.
 
-![tweets messages about me doubting im good enough to join Microsoft and being told I have everything I need](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1651654301/debbie.codes/blog/2022/twitter-messages-wasim_2x_tum5f7.png)
+![tweets messages about me doubting im good enough to join Microsoft and being told I have everything I need](/images/content/blog/2022/twitter-messages-wasim_2x_tum5f7.webp){width="1160" height="644"}
 
 On February the 10th I finished completing the form and at the end it asked if I was able to work in America, which I answered no, and it said the position was only open to US. I had no idea if it was even going to be a possibility but to be honest the Google one was the same. I had been told that sometimes they just need to add a location because the system requires it and as always you have nothing to lose by just applying and giving these things a go.
 
@@ -107,7 +106,7 @@ At this stage I had stopped studying data structures and algorithms and was now 
 
 On the 12th March I received a recruiter email asking me some questions and what was the best phone number to reach me on. Then on the 15th March I received a system email from the Action Centre which was so nice to receive especially reading the words "We were impressed by your background". It really was very exciting.
 
-![email from Microsoft saying they were impressed with my background](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1651662171/debbie.codes/blog/2022/action-centre-email_2x_agidoq.png)
+![email from Microsoft saying they were impressed with my background](/images/content/blog/2022/action-centre-email_2x_agidoq.webp){width="1176" height="708"}
 
 That same day a recruiter reached out asking me for 2-3 preferred dates and time zone for the interview and they requested interviews take place within the next two weeks if possible. Now things were happening fast.
 
@@ -179,7 +178,7 @@ The Microsoft team were very quick to get back to me thanking me for the documen
 
 I could now hand in my notice at my job and get my actual starting date.
 
-![admin portal showing that I am hired](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1651677083/debbie.codes/blog/2022/hired-microsoft_2x_ipaos9.png)
+![admin portal showing that I am hired](/images/content/blog/2022/hired-microsoft_2x_ipaos9.webp){width="1640" height="634"}
 
 I started the process on the 4th of February. All in all it is not a long process when you think about what is involved but for someone who has never been through such a process it feels like forever and was by far the longest process I have ever had to go through.
 

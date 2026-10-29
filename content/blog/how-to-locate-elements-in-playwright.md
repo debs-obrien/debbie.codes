@@ -2,10 +2,9 @@
 title: How to locate elements in Playwright
 date: 2022-11-30
 description: How can we locate a link click on it in our e2e tests. In this article we will learn how to locate elements in Playwright using the test generator to generate your tets based on user actions or pick a locator by clicking on an element
-image: v1669817488/debbie.codes/blog/2022/vs-code-codegen_gxf58x.png
+image: /images/content/blog/2022/vs-code-codegen_gxf58x.webp
 alt: browser window showing highlighted element and inspector window with explore showing the locator highlighted
-ogImage: https://res.cloudinary.com/debsobrien/image/upload/v1669817488/debbie.codes/blog/2022/vs-code-codegen_gxf58x.png
-provider: cloudinary
+ogImage: /images/content/blog/2022/vs-code-codegen_gxf58x.webp
 tags: [testing, playwright]
 published: true
 ---
@@ -97,7 +96,7 @@ When you are writing your tests it can be quite difficult to know which accessib
 
 You can generate code right from VS Code when using the [VS Code extension](https://playwright.dev/docs/getting-started-vscode#installation) by clicking the 'record new' link from the testing sidebar. 
 
-![test generator in vs code editor](https://res.cloudinary.com/debsobrien/image/upload/v1669817488/debbie.codes/blog/2022/vs-code-codegen_gxf58x.png)
+![test generator in vs code editor](/images/content/blog/2022/vs-code-codegen_gxf58x.webp){width="1640" height="815"}
 
 As you click on an element on your website, the generator will look at your page and figure out the best locator for you, prioritizing role, text and test id locators. If the generator finds multiple elements matching the locator, it will improve the locator to make it resilient and uniquely identify the target element, so you don't have to worry about failing tests due to locators. For example, it could chain locators to narrow down the scope, or use the [`filter()`](https://playwright.dev/docs/locators#filtering-locators) method to select between multiple elements.
 
@@ -107,13 +106,13 @@ If you are not using the VS Code extension, Playwright comes with a standalone t
 npx playwright codegen
 ```
 
-![Codegen](https://res.cloudinary.com/debsobrien/image/upload/v1669647195/debbie.codes/blog/2022/codegen_qykizt.png)
+![Codegen](/images/content/blog/2022/codegen_qykizt.webp){width="1640" height="732"}
 
 ### Pick a locator
 
 You can pick a locator by clicking the [pick locator](https://playwright.dev/docs/next/getting-started-vscode#picking-a-locator) button from the testing sidebar when using the VS Code Extension. 
 
-![pick locator from vs code highlighting the locator in browser window](https://res.cloudinary.com/debsobrien/image/upload/v1669817100/debbie.codes/blog/2022/pick-locator-vscode_xrcdkc.png)
+![pick locator from vs code highlighting the locator in browser window](/images/content/blog/2022/pick-locator-vscode_xrcdkc.webp){width="1640" height="664"}
 
 When you hover over any element in the browser window the locator for that element will be highlighted under your cursor. If you click on the element the locator will appear in the 'pick locator' box. You can then copy it to your clipboard and paste it into your test.
 
@@ -123,7 +122,7 @@ You can also pick a locator when using the standalone test generator by clicking
 npx playwright open
 ```
 
-![test generator generating a getByRole locator for a link](https://res.cloudinary.com/debsobrien/image/upload/v1669795104/debbie.codes/blog/2022/locator-link_hz7icx.png)
+![test generator generating a getByRole locator for a link](/images/content/blog/2022/locator-link_hz7icx.webp){width="1640" height="622"}
 
 ### Chaining locators
 
@@ -133,7 +132,7 @@ If your site contains duplicate links, for example two about links, one in the h
 getByRole('navigation').getByRole('link', { name: 'About' })
 ```
 
-![test generator highlighting the about link in the header](https://res.cloudinary.com/debsobrien/image/upload/v1669795104/debbie.codes/blog/2022/locator-chaining-header_hacas1.png)
+![test generator highlighting the about link in the header](/images/content/blog/2022/locator-chaining-header_hacas1.webp){width="1640" height="541"}
 
 
 For the about link in the footer the test generator again looks for an ancestor and chains the two [`getByRole()`](https://playwright.dev/docs/locators#locate-by-role) locators ensuring that there is only one element matching this locator.
@@ -142,7 +141,7 @@ For the about link in the footer the test generator again looks for an ancestor 
 getByRole('contentinfo').getByRole('link', { name: 'About' })
 ```
 
-![test generator highlighting the footer link](https://res.cloudinary.com/debsobrien/image/upload/v1669795104/debbie.codes/blog/2022/locator-chaining-footer_ogczv7.png)
+![test generator highlighting the footer link](/images/content/blog/2022/locator-chaining-footer_ogczv7.webp){width="1640" height="852"}
 
 ### Filtering locators
 
@@ -154,7 +153,7 @@ getByRole('list')
   .getByRole('link', { name: 'architecture' })
 ```
 
-![test generator generating a list locator with filter method](https://res.cloudinary.com/debsobrien/image/upload/v1669795104/debbie.codes/blog/2022/locator-filtering_hvlbco.png)
+![test generator generating a list locator with filter method](/images/content/blog/2022/locator-filtering_hvlbco.webp){width="1640" height="688"}
 
 ### Improving your locators
 
@@ -183,7 +182,7 @@ The test generator will now use this aria-label and locate by the role of list w
 getByRole('list', { name: 'topics' }).getByRole('link', { name: 'architecture' })
 ```
 
-![test generator generating a list locator with aria-label](https://res.cloudinary.com/debsobrien/image/upload/v1669795104/debbie.codes/blog/2022/locator-filtering-aria-label_xkdrep.png)
+![test generator generating a list locator with aria-label](/images/content/blog/2022/locator-filtering-aria-label_xkdrep.webp){width="1640" height="630"}
 
 ## Conclusion
 

@@ -2,9 +2,8 @@
 title: Finding Motivation as a Developer
 date: 2022-05-06
 description: Many people keep asking me where I get my motivation from, how do I find so much time and energy to do so much? I certainly don't have all the answers but I do think it is something you teach yourself.
-image: v1651832018/debbie.codes/blog/2022/inspiring-books_2x_ey0xyw.png
-ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1651832018/debbie.codes/blog/2022/inspiring-books_2x_ey0xyw.png
-provider: cloudinary
+image: /images/content/blog/2022/inspiring-books_2x_ey0xyw.webp
+ogImage: /images/content/blog/2022/inspiring-books_2x_ey0xyw.webp
 tags: [personal, motivation]
 published: true
 loading: eager
@@ -14,7 +13,7 @@ Many people keep asking me where I get my motivation from, how do I find so much
 
 I certainly don't have all the answers but I do think it is something you teach yourself. Life experiences, books, talks etc help you figure out what it is you want and then once you have goals it's all about how to apply your time to achieve those goals. Sounds easy right!
 
-![collection of inspiring books](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1651832018/debbie.codes/blog/2022/inspiring-books_2x_ey0xyw.png)
+![collection of inspiring books](/images/content/blog/2022/inspiring-books_2x_ey0xyw.webp){width="1640" height="866"}
 
 ## Me at 16 years old
 
@@ -58,7 +57,7 @@ To be honest Life motivates me right now. I enjoy living. Believe me there was a
 
 As you get older in life you also realise that your days are numbered. You are not going to be around forever. As much as my goal is to live till at least 100, it might not happen. We have no idea how long we have left so my goal is to live each day like there is no tomorrow. To enjoy life to the full and to not let the little things worry you. Although sometimes they do, believe me controlling that is sometimes hard. But I have a big sign on my wall that says "Do more of what makes you happy". And that is what I strive to do.
 
-![do more of what makes you happy](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1651831378/debbie.codes/blog/2022/more-what-makes-happy_2x_h1ixha.png)
+![do more of what makes you happy](/images/content/blog/2022/more-what-makes-happy_2x_h1ixha.webp){width="1118" height="1278"}
 
 I am very very lucky to have such an amazing career, something that I had to work very hard to achieve. But it means that I get paid to do something I love doing and is something many people don't have. People at the gym moan on a Monday morning about how it's Monday and they can't wait for the weekend.
 
@@ -68,7 +67,7 @@ I love Mondays. It's the start to another amazing week. Don't get me wrong. I kn
 
 Choosing to do more of what makes you happy is important. Choosing to see the positive side of things is important. We all get to make these choices. There will always be people who have it better and easier than you and there will always be people who have it worse and harder than you.
 
-![change your thoughts and you and you can change your world](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1651831376/debbie.codes/blog/2022/change-your-thoughts_2x_miwv05.png)
+![change your thoughts and you and you can change your world](/images/content/blog/2022/change-your-thoughts_2x_miwv05.webp){width="1034" height="1170"}
 
 Life itself is one big challenge. But it can be an amazing one if you let it. Figure out what your goals are, small goals, big goals and start working towards them. They could be learning a new language, studying something, giving a talk, writing a blog post, getting an new job etc. Then once you know what your goals are create small habits so that you can achieve those goals. And remember that we are not going to be here forever so stop putting things off and start working towards your goals today.
 

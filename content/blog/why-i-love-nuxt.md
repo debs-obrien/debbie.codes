@@ -2,8 +2,7 @@
 title: Why I Love Nuxt
 date: 2021-01-30
 description: I have been using Nuxt in all of my recent tech jobs but why did I start using it? What problems did I have trying to convince the team and more important the clients. And why should you use Nuxt?
-image: f_auto,q_auto/v1599991772/debbie.codes/vue_amsterdam_2_vkc631
-provider: cloudinary
+image: /images/content/vue_amsterdam_2_vkc631.webp
 tags: [nuxt, personal]
 ---
 
@@ -57,7 +56,7 @@ But Nuxt also lets you take it the the next level by creating your own plugins a
 
 If you want to get started with Nuxt you can check out my [free course on getting Started with Nuxt](https://explorers.netlify.com/learn/get-started-with-nuxt) or check out my [YouTube Channel](https://www.youtube.com/channel/UCrNvYFsT1L3WczE8AizDQ6g) for free content on Nuxt. Have fun.
 
-![Are you Nuxt](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1599991772/debbie.codes/vue_amsterdam_2_vkc631.jpg)
+![Are you Nuxt](/images/content/vue_amsterdam_2_vkc631.webp){width="1024" height="768"}
 
 ## Useful Links
 

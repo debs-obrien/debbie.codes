@@ -2,8 +2,7 @@
 title: 2021 - climbing higher and higher
 date: 2021-12-31
 description: A look back at yet again another amazing year even though times were hard. From lockdowns to in person conferences, to changing jobs and learning a new library, as well as mentoring, teaching workshops, doing lots of sport and so much more.
-image: v1640964235/debbie.codes/blog/cycling-sa-colobra_mvtntg.jpg
-provider: cloudinary
+image: /images/content/blog/cycling-sa-colobra_mvtntg.webp
 tags: [personal]
 published: true
 ---
@@ -18,7 +17,7 @@ So many achievements, from numerous [conference talks](https://debbie.codes/reso
 
 I started January in Ireland in one lockdown but still I managed to get some epic runs in.
 
-![me running in wicklow mountains](https://res.cloudinary.com/debsobrien/image/upload/v1640971055/debbie.codes/blog/running-wicklow-mountains_c_n7mvet.jpg)
+![me running in wicklow mountains](/images/content/blog/running-wicklow-mountains_c_n7mvet.webp){width="1024" height="768"}
 
 Podcast on [Speaking to an online audience](https://podcasts.apple.com/us/podcast/2-debbie-obrien-speaking-to-an-online-audience/id1544906363?i=1000503628662) was released as well as my free course on [Learning Nuxt for the JamStack explorers site](https://explorers.netlify.com/learn/get-started-with-nuxt).
 
@@ -38,7 +37,7 @@ I was headhunted and ended up having many hours of interviews as I tried to conv
 
 I created a [series of YouTube videos called 'Devs in the Forest'](https://youtu.be/UBXWhmlSV-s) where I ran for hours in the forest recording advice for myself and for others.
 
-![Me running in the Forest](https://res.cloudinary.com/debsobrien/image/upload/v1640965793/debbie.codes/blog/devs-in-the-forest_c_gctzoz.jpg)
+![Me running in the Forest](/images/content/blog/devs-in-the-forest_c_gctzoz.webp){width="1024" height="768"}
 
 I got to take part in the Vue Contributors days which was great fun and so good to hang out with all my Vue friends online.
 
@@ -58,7 +57,7 @@ CityJs Conf was in march and was lots of fun especially for a virtual conference
 
 And I also spoke at the meetup series of Ask the Expert on [Going Static in a Dynamic World with Hasura and Nuxt.js](https://youtu.be/Spt4j_Xq79w).
 
-And I received a fantastic gift from GitHub for my contributions to the community in 2020. ![GitHub 2020 Skyline award](https://res.cloudinary.com/debsobrien/image/upload/v1640966325/debbie.codes/blog/GitHub-2020-skyline_c_h8b9na.jpg)
+And I received a fantastic gift from GitHub for my contributions to the community in 2020. ![GitHub 2020 Skyline award](/images/content/blog/GitHub-2020-skyline_c_h8b9na.webp){width="1024" height="768"}
 
 ## April
 
@@ -66,7 +65,7 @@ Easter holidays were in April and I just worked the whole holidays cause you kno
 
 I became a mentor for the Google Program of Road to GDE and I successfully mentored Julia for 3 months who then went on to be a Google Developer Expert.
 
-![GDE Mentor gift](https://res.cloudinary.com/debsobrien/image/upload/v1640967712/debbie.codes/blog/road-to-gde_jn0deb.jpg)
+![GDE Mentor gift](/images/content/blog/road-to-gde_jn0deb.webp){width="1024" height="768"}
 
 Vue Conf US was virtual and I gave a Nuxt workshop online which was a crazy experience. Great cause we had so much fun with people from all over the world in a zoom room and I managed to make it extremely hands on and fun for a virtual workshop but I was pretty much very zoomed out by the end of the day.
 
@@ -76,7 +75,7 @@ I got interviewed by Marc Backes on [What is a Developer Advocate](https://youtu
 
 I received my GitHub Stars award which was amazing and made me feel like I had one the oscars. So proud to be part of this program.
 
-![GitHub Stars award](https://res.cloudinary.com/debsobrien/image/upload/v1640966732/debbie.codes/blog/GitHub-stars-award_c_zymmvu.jpg)
+![GitHub Stars award](/images/content/blog/GitHub-stars-award_c_zymmvu.webp){width="1024" height="768"}
 
 ## May
 
@@ -86,7 +85,7 @@ I was interviewed by Santosh on [Bit - A better way to build with modern compone
 
 I then got invited to be part of the React Contributors day where I got to digitally meet some of my React heros.
 
-![zoom call for react contributors day](https://res.cloudinary.com/debsobrien/image/upload/v1640967021/debbie.codes/blog/react-contributors-day_c_rirpnn.jpg)
+![zoom call for react contributors day](/images/content/blog/react-contributors-day_c_rirpnn.webp){width="956" height="821"}
 
 I started with a new cycling club with the intentions to improve my cycling and perhaps make new friends and just mingle with people outside of my digital and virtual life.
 
@@ -96,7 +95,7 @@ I also got to be interviewed by Margo McCabe for a podcast on [Developer Advocac
 
 I got to go to a hotel for the weekend in June which was kinda nice as it had been a while since I had been away. It was just in the north of Mallorca and was for a cycling race. Yes I got to compete in my first ever cycling competition. It was so much fun. I did so badly, I was eliminated for being so slow but I kept going even though they opened the road and I had to watch out for traffic. I managed to overtake some of the girls and made it to the finish line and ended up being back in the race. I think I came 5th last but I was so proud I had managed to finish it.
 
-![me finishing the cycling race](https://res.cloudinary.com/debsobrien/image/upload/v1640967559/debbie.codes/blog/cycling-race-2_c_bgxsgr.jpg)
+![me finishing the cycling race](/images/content/blog/cycling-race-2_c_bgxsgr.webp){width="768" height="1024"}
 
 I was invited to appear on the women of React event which was super cool and very scary as I was so new to React. I then got invited to be a member of the React 18 working group which was very incredible indeed. We got to have meetings with the React team as well as a discord chat open for us to ask questions to the team. I spent a lot of time reading through the many GitHub discussions on React 18.
 
@@ -104,7 +103,7 @@ I was invited to appear on the women of React event which was super cool and ver
 
 July was the month where my cycling improved so much and I even managed to go on a 3 day event cycling with a small bag on my back with the bare minimum needed to stay the night and continue cycling the next day. After a 7 and a half hour day of cycling in 40 degree heat I was absolutely wrecked but wow, 157km, what an achievement. And then we had 2 more days of cycling to be done.
 
-![map showing cycling route of 157km](https://res.cloudinary.com/debsobrien/image/upload/v1640967938/debbie.codes/blog/cycling-157km_mlczr6.jpg)
+![map showing cycling route of 157km](/images/content/blog/cycling-157km_mlczr6.webp){width="685" height="1148"}
 
 I got to be part of the Hasura Con Topic table for GraphQL with the founder of Hasura and Natalie from the Vue Core team. I also got my MVP award renewed for another year for all my contributions to the community in 2020.
 
@@ -122,7 +121,7 @@ I also had my first visitor in person who came to stay with me in. The wonderful
 
 But I also received my Microsoft Most Valuable Professional award for second year running.
 
-![MPV award](https://res.cloudinary.com/debsobrien/image/upload/v1640968277/debbie.codes/blog/mvp-award_c_n2nl02.jpg)
+![MPV award](/images/content/blog/mvp-award_c_n2nl02.webp){width="1024" height="768"}
 
 ## September
 
@@ -130,7 +129,7 @@ In September I got to speak at the Nuxt Nation conference on Nuxtifying your Ima
 
 The most incredible swag arrived from GitHub to prepare us for the Nova conference in October. A conferences specifically for GitHub stars and staff. Love being a GitHub Star.
 
-![GitHub Star swag](https://res.cloudinary.com/debsobrien/image/upload/v1640968461/debbie.codes/blog/github-star-swag_c_evp3ng.jpg)
+![GitHub Star swag](/images/content/blog/github-star-swag_c_evp3ng.webp){width="1024" height="768"}
 
 My speaker friend Hannes from Belgium came to visit and again so nice to see people in real life.
 
@@ -144,23 +143,23 @@ In October I got to speak virtually at the JetBrains conf on Scaling Team Delive
 
 I also got to not just attend but speak at the GitHub Nova conference where I spoke on Building a community with GitHub Discussions. I was terrified to speak in front of so many stars but I had great encouragement from Anisha of the GitHub Stars team who helped me overcome my imposter syndrome and just go for it. And I am so glad I did. I also got to virtually meet a real Astronaut and experience my first virtual DJ session which was so much fun. And the swag we received for the Nova conference was just incredible. Love being a GitHub Star.
 
-![zoom call with an astronaut](https://res.cloudinary.com/debsobrien/image/upload/v1640968883/debbie.codes/blog/github-nova-astronaut_c_snwb4g.jpg)
+![zoom call with an astronaut](/images/content/blog/github-nova-astronaut_c_snwb4g.webp){width="1024" height="768"}
 
 I became a mentor for the Google Women Developer academy and mentored the amazing Liangda Wang who really has an incredible career ahead of herself. I also got to have 1-1 calls with vaious amazing women from around the world and help them overcome imposter syndrome and perhaps become speakers but mainly just believe in themselves more and let them know that we all believe we are not good enough and not ready. Sometimes I really need to listen to my own advice.
 
-![Women TechMakers thank you note](https://res.cloudinary.com/debsobrien/image/upload/v1640964318/debbie.codes/blog/women-techmakers_jha4ip.jpg)
+![Women TechMakers thank you note](/images/content/blog/women-techmakers_jha4ip.webp){width="1024" height="768"}
 
 [Podcast interview on Frontend Heros](https://frontendheroes.transistor.fm/episodes/ant-man-and-the-wasp-w-debbie-obrien) with Ant-man and the Wasp, Scott Francis and Evan Payne on Bit.
 
 Real life conferences are back. Oh yea. I got to fly to Nantes in France for my first in person conference with a massive room with lots of people to give a talk on Component Driven Repo for Component Driven World. All with masks on but I could see their eyes and hear their claps and they asked questions in person and it was so nice to be back on the stage.
 
-![on stage at Dev Fest Nantes conf](https://res.cloudinary.com/debsobrien/image/upload/v1640969179/debbie.codes/blog/devfest-nantes_c_yqcsew.jpg)
+![on stage at Dev Fest Nantes conf](/images/content/blog/devfest-nantes_c_yqcsew.webp){width="1182" height="665"}
 
 I finally took a few days off work and actually went on holidays. I went to Ireland with my husband for my dads birthday but also hired a car and travelled to parts of my country I had never been to, co Kerry. It was so remote, so safe and just so beautiful and quite nice to actually have some time away from the computer.
 
 And when I got home I was welcomed with a lovely gift from GitHub for the work I do for the community. Now this is just amazing and so nice to receive things like this.
 
-![github stars gift](https://res.cloudinary.com/debsobrien/image/upload/v1640969399/debbie.codes/blog/github-stars-gift_c_ksh6n1.jpg)
+![github stars gift](/images/content/blog/github-stars-gift_c_ksh6n1.webp){width="1024" height="768"}
 
 ## November
 
@@ -170,21 +169,21 @@ I was interviewed on Composing Modern Applications with Bit with Alex Patterson,
 
 I had a film crew follow me around while cycling the mountains of Mallorca so as to create a [promotional video for the Vue Toronto Conf](https://www.youtube.com/watch?v=jf8NbVt4yRg&feature=youtu.be). This was such an amazing experience.
 
-![camera man and me while cycling](https://res.cloudinary.com/debsobrien/image/upload/v1640969579/debbie.codes/blog/cycling-film-crew_c_tiiubz.jpg)
+![camera man and me while cycling](/images/content/blog/cycling-film-crew_c_tiiubz.webp){width="1024" height="768"}
 
 I did however travel to Lithuania for the Build Stuff Conf which was a hybrid conference with some speakers in person and some remote. Masks and limited attendees made it a smaller conference but to get to hang out with my amazing speaker friends after such a long time was just amazing. My talk Component Driven Repo for a Component Driven World was about architecture in the Frontend world.
 
-![speaking on stage at build stuff conf](https://res.cloudinary.com/debsobrien/image/upload/v1640970058/debbie.codes/blog/buildstuff-conf_c_bpgvzh.jpg)
+![speaking on stage at build stuff conf](/images/content/blog/buildstuff-conf_c_bpgvzh.webp){width="1182" height="665"}
 
 I then flew to Toronto to MC the Vue Conf Toronto with Henri Helvetica. The conference was online but we were in person in the studio and it was a very long and tiring day but so much fun with some speakers being live online meaning we could talk to them and ask them questions which made it more real. And I have to say Jilson and the organizers looked after me so much and I enjoyed many meals out including one at the CN revolving Tower restaurant which was a cool experience. I also gave an online Nuxt workshop while in Toronto which again was a lot of fun.
 
-![vue conf toronto studio](https://res.cloudinary.com/debsobrien/image/upload/v1640970168/debbie.codes/blog/vue-conf-studio_c_hsbqdc.jpg)
+![vue conf toronto studio](/images/content/blog/vue-conf-studio_c_hsbqdc.webp){width="1024" height="768"}
 
 I was asked to speak at the React Conf and had the pleasure of not only working with Rachael Nabors and Ricky Hanlon from the React team but I also got to virtually meet Dan Abramov on a feedback call for my talk where we discussed how I could change it to make it an even better talk. This did mean that while I was travelling I was also working on my talk for the React conf and constantly getting feedback from the team which was very cool and just a great experience.
 
 I then recorded my talk, Things I learnt from the New React Docs between travelling from one Conference to another. This was by far my best experience for virtual conferences as the React team had sent out a suitcase of recording material and they had a professional team call me and help setup everything and then record the talk which we recorded about 4 times cause you know you always just want it to be better.
 
-![speaking virtually at react conf](https://res.cloudinary.com/debsobrien/image/upload/v1640970262/debbie.codes/blog/react-conf_c_po1euk.jpg)
+![speaking virtually at react conf](/images/content/blog/react-conf_c_po1euk.webp){width="1024" height="768"}
 
 I then flew to Alicante to catch up with Alex Jover from [Vue Dose](https://vuedose.tips/) before setting off to Oslo.
 
@@ -192,11 +191,11 @@ I then flew to Alicante to catch up with Alex Jover from [Vue Dose](https://vued
 
 I flew to Oslo and got to speak at my first NDC conference which was out of this world. 1,200 attendees spread over 7 rooms including an overflow room where you can watch all talks at once with headphones on and just switch to hear the one you want. I gave my talk on a floating stage separated by noise reducing curtains in a venue that holds almost 10,000 people. It was very cool indeed. The conference was amazing, so well organized with free food all day long. But after I gave my talk new restrictions kicked in from the Norwegian government and the final day of the conference was limited to 100 people only. Ah well.
 
-![me at ndc conf](https://res.cloudinary.com/debsobrien/image/upload/v1640970413/debbie.codes/blog/ndc-conf_c_msgccn.jpg)
+![me at ndc conf](/images/content/blog/ndc-conf_c_msgccn.webp){width="1024" height="768"}
 
 A few speaker friends had arranged a cabin in the mountains and for the weekend we headed to this amazing cabin that sleeps 15 people with its own sauna and so much snow. We had so much fun just chatting and hanging out and even got to go skiing together. It was a lovely finish to an amazing few weeks of traveling and events.
 
-![skiing with speaker friends](https://res.cloudinary.com/debsobrien/image/upload/v1640970440/debbie.codes/blog/skiing-norway_c_ggj5hu.jpg)
+![skiing with speaker friends](/images/content/blog/skiing-norway_c_ggj5hu.webp){width="1024" height="768"}
 
 The React conf was live and it was so nice to see my talk at the conf and answer the questions in the chat but most of all just receive the amazing feedback that I got. The fact that a few months ago I had just started learning React and now I was speaking at the React Conference and getting amazing feedback from Dan Abramov was just an amazing achievement for me.
 
@@ -218,7 +217,7 @@ Last year I said I wanted to do more sport and I certainly did that. I took more
 
 And as I went for my last run of the year in shorts and t-shirt because it was so hot I thought to myself how this year had been a pretty good year even though there were obstacles to overcome and different paths to choose from and to be honest I think it's better that way. I love being challenged, it means I am pushing myself, growing and becoming better at what I do, be that in tech, in sport or in anything else.
 
-![me running in Ireland](https://res.cloudinary.com/debsobrien/image/upload/v1640970637/debbie.codes/blog/running-in-ireland_c_drlsge.jpg)
+![me running in Ireland](/images/content/blog/running-in-ireland_c_drlsge.webp){width="1024" height="768"}
 
 ## Next year
 
