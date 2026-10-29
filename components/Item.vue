@@ -17,13 +17,15 @@ defineProps<{
         :target="item.url ? '_blank' : '_self'"
       >
         <NuxtImg
-          :provider="item.provider"
           :src="item.image"
           :alt="item.title"
           width="272"
           height="272"
-          fit="thumb"
+          fit="cover"
           format="webp"
+          loading="lazy"
+          sizes="272px"
+          densities="x1 x2"
           class="scale-90 transition-all duration-400 hover:scale-100 rounded"
         />
       </NuxtLink>

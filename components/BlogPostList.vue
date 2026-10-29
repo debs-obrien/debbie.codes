@@ -56,7 +56,6 @@ function isLead(index: number) {
             <!-- Duplicate of the title link; hidden from AT and tab order so it is not an unnamed link. -->
             <NuxtLink :to="item.path" class="block h-full w-full" tabindex="-1" aria-hidden="true">
               <NuxtImg
-                :provider="item.provider"
                 :src="item.image"
                 alt=""
                 width="600"
@@ -67,6 +66,7 @@ function isLead(index: number) {
                 fetchpriority="high"
                 decoding="async"
                 sizes="xs:100vw sm:320px"
+                densities="x1 x2"
                 class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
               />
             </NuxtLink>
@@ -114,16 +114,16 @@ function isLead(index: number) {
             class="overflow-hidden rounded-lg aspect-[2/1] bg-gray-100 dark:bg-slate-700 mb-4 w-full sm:w-56 sm:shrink-0 sm:mb-0"
           >
             <NuxtImg
-              :provider="item.provider"
               :src="item.image"
               alt=""
               width="600"
               height="300"
               fit="cover"
               format="webp"
-              loading="lazy"
+              :loading="index < 3 ? 'eager' : 'lazy'"
               decoding="async"
               sizes="xs:400px sm:224px"
+              densities="x1 x2"
               class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
             />
           </div>

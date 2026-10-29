@@ -83,6 +83,9 @@ useHead({
       property: 'og:image',
       content: socialImage,
     },
+    { property: 'og:image:width', content: '1200' },
+    { property: 'og:image:height', content: '630' },
+    { property: 'og:image:alt', content: title },
     // Test on: https://cards-dev.twitter.com/validator or https://socialsharepreview.com/
     { name: 'twitter:site', content: '@debs_obrien' },
     { name: 'twitter:card', content: 'summary_large_image' },
@@ -157,13 +160,18 @@ useHead({
       </header>
       <div v-if="article.image" class="rounded mb-4 sm:mb-6 overflow-hidden object-cover object-center max-w-xl mx-auto">
         <NuxtImg
-          :provider="article.provider"
           :src="article.image"
           :alt="article.title"
           width="600"
           height="300"
           fit="cover"
           format="webp"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+          :preload="{ fetchPriority: 'high' }"
+          sizes="100vw sm:576px"
+          densities="x1 x2"
           class="rounded center mx-auto w-full"
         />
       </div>
