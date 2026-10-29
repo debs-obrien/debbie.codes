@@ -2,8 +2,7 @@
 title: Testing a Button Component
 date: 2022-01-07
 description: Testing a button component with React Testing Library. What to test and how to test your button component when building multiple compositions of the button.
-image: v1612443662/debbie.codes/blog/button-testing_2x_oliu20
-provider: cloudinary
+image: /images/content/blog/button-testing_2x_oliu20.webp
 tags: [react, testing]
 published: true
 ---
@@ -28,7 +27,7 @@ npm install --save-dev @testing-library/react
 
 I have created a load of different compositions for my button which I will need to test. Compositions allow me to see the button in different states such as primary, secondary, disabled etc.
 
-![buttons in different states](https://res.cloudinary.com/debsobrien/image/upload/v1641577214/debbie.codes/blog/button-testing_2x_oliu20.png)
+![buttons in different states](/images/content/blog/button-testing_2x_oliu20.webp){width="1640" height="789"}
 
 ### Importing React, Testing Library and Compositions
 

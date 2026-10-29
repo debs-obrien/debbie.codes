@@ -6,8 +6,8 @@ tags: [playwright, testing, mcp, ai]
 published: true
 loading: eager
 canonical: https://dev.to/debs_obrien/letting-playwright-mcp-explore-your-site-and-write-your-tests-mf1
-image: /images/blog/covers/letting-playwright-mcp-explore-your-site.png
-ogImage: /images/blog/covers/letting-playwright-mcp-explore-your-site.png
+image: /images/blog/covers/letting-playwright-mcp-explore-your-site.webp
+ogImage: /images/blog/covers/letting-playwright-mcp-explore-your-site.webp
 ---
 
 What if your tests could write themselves — just by using your app like a real user?

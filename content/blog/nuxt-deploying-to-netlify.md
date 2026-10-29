@@ -2,8 +2,7 @@
 title: Deploying your Nuxt app to Netlify
 date: 2021-02-07
 description: If you are building a Nuxt static site and want to deploy it easily and for free then Netlify is a great choice. Let me show you how easy it is.
-image: c_scale,fl_lossy,f_auto,q_auto,,w_600/v1612716320/debbie.codes/blog/new-site-from-netlify_fx4zmm
-provider: cloudinary
+image: /images/content/blog/new-site-from-netlify_fx4zmm.webp
 tags: [nuxt]
 ---
 
@@ -25,43 +24,43 @@ On top of that Netlify can do so much more than the simple things and you can ea
 
 To get started with Netlify you need to create an account by signing up using your email or better still directly with your GitHub account, GitLab or BitBucket.
 
-![Sign Up to Netlify](https://res.cloudinary.com/debsobrien/image/upload/c_scale,fl_lossy,f_auto,q_auto/v1612716320/debbie.codes/blog/netlify-sign-up_ba3ruv.png)
+![Sign Up to Netlify](/images/content/blog/netlify-sign-up_ba3ruv.webp){width="1640" height="1050"}
 
 Of course if you don't already have one of these then I highly recommend setting up a [GitHub account](https://github.com/) so you can publish your code. GitHub is great and it is also free.
 
-![GitHub](https://res.cloudinary.com/debsobrien/image/upload/c_scale,fl_lossy,f_auto,q_auto/v1612716321/debbie.codes/blog/github_i2gvim.png)
+![GitHub](/images/content/blog/github_i2gvim.webp){width="1640" height="895"}
 
 ## Adding your site
 
 Once your app is in a GitHub repo you can easily add it to Netlify by pressing the button 'New Site from Git' and selecting GitHub.
 
-![new site from Netlify](https://res.cloudinary.com/debsobrien/image/upload/c_scale,fl_lossy,f_auto,q_auto/v1612716320/debbie.codes/blog/new-site-from-netlify_fx4zmm.png)
+![new site from Netlify](/images/content/blog/new-site-from-netlify_fx4zmm.webp){width="1640" height="900"}
 
 This will check you are authorized and then show you a list of your repos. From there you can choose the one you want to deploy. You will need to choose the branch. You may only want to deploy the feature or dev branch for example but generally you will want the main or master branch. Then you need to set the commands in order to build your static site. For a Nuxt static site you use the generate command and folder to be published is the dist folder.
 
-![Netlify deploy setup](https://res.cloudinary.com/debsobrien/image/upload/c_scale,fl_lossy,f_auto,q_auto/v1612716324/debbie.codes/blog/netlify-publish-settings_o6bm32.png)
+![Netlify deploy setup](/images/content/blog/netlify-publish-settings_o6bm32.webp){width="1486" height="746"}
 
 ## Variables
 
 If you have environment variables that you need to use then you can click the advanced button and add them in here. If you forget then don't worry. You can always add them in later.
 
-![environment variables](https://res.cloudinary.com/debsobrien/image/upload/c_scale,fl_lossy,f_auto,q_auto/v1612716320/debbie.codes/blog/variables_xrgiwz.png)
+![environment variables](/images/content/blog/variables_xrgiwz.webp){width="1466" height="574"}
 
 ## Start Deploying
 
 Once you click on 'Deploy Site' Netlify will start the deployment. In a matter of minutes your app will be deployed using a random url that is auto generated for you. While waiting for the site to deploy you can click on the link under Step 1 and check out the deploy log to see what is going on. This is a great place to look at if for some reason your deploy fails.
 
-![site deploy in progress](https://res.cloudinary.com/debsobrien/image/upload/c_scale,fl_lossy,f_auto,q_auto/v1612716320/debbie.codes/blog/netlify-step1_zd7rhk.png)
+![site deploy in progress](/images/content/blog/netlify-step1_zd7rhk.webp){width="1640" height="752"}
 
 The steps are quite clear and after your site is deployed step 1 will be complete and step 2 is highlighted. You can click the link under the number 2 to Setup a custom domain. Here is where you can add your real domain that you want to use. You can then follow on to step 3 to setup HTTPS.
 
-![custom domain setup](https://res.cloudinary.com/debsobrien/image/upload/c_scale,fl_lossy,f_auto,q_auto/v1612716320/debbie.codes/blog/netlify-step2_t3coia.png)
+![custom domain setup](/images/content/blog/netlify-step2_t3coia.webp){width="1640" height="415"}
 
 ## I don't have a domain
 
 If you don't have a domain or perhaps for this project don't need one but don't want to have the silly url that Netlify auto generates for you then no worries. Click on the site settings button and then click on 'Change site name'. In the input box you can add anything you like and if it is available then it is yours. This domain is free and will have '.netlify.app' at the end but sometimes it is more than enough.
 
-![change the site name](https://res.cloudinary.com/debsobrien/image/upload/c_scale,fl_lossy,f_auto,q_auto/v1612716320/debbie.codes/blog/change-site-name_noeelw.png)
+![change the site name](/images/content/blog/change-site-name_noeelw.webp){width="1592" height="1040"}
 
 ## Deploying a dev branch
 
@@ -69,13 +68,13 @@ If you want to deploy a main/master branch and a dev branch then you can still d
 
 Now we want the same thing to happen for the dev branch too. In 'Deploy Contexts' click on 'Edit Settings'. Here you can select 'Let me add individual branches' and then choose the branch you want also to be deployed, for example 'dev'. Now anytime you push to the dev branch your app will be deployed meaning you can see it and share it with others before merging to master.
 
-![Deploy Contexts](https://res.cloudinary.com/debsobrien/image/upload/c_scale,fl_lossy,f_auto,q_auto/v1612716321/debbie.codes/blog/deploy-contexts_gxrs7z.png)
+![Deploy Contexts](/images/content/blog/deploy-contexts_gxrs7z.webp){width="1640" height="750"}
 
 ## Previewing a Previous Deploy
 
 At any time you can preview a previous deploy, retry a deploy and even lock publishing to a certain deploy. This is a great feature for if you break something and don't have time to fix it. Just go back to a previous deploy that was good and lock it to that one until you have time to fix and redeploy.
 
-![lock a deploy](https://res.cloudinary.com/debsobrien/image/upload/c_scale,fl_lossy,f_auto,q_auto/v1612716319/debbie.codes/blog/lock-deploy_yc0tra.png)
+![lock a deploy](/images/content/blog/lock-deploy_yc0tra.webp){width="1304" height="226"}
 
 These are just some of the basics you can do with Netlify and there is so much more you can explore. But hopefully this post will show you how easy it is to deploy to Netlify. However if you are still not convinced there there is an even easier way by just dragging and dropping.
 
@@ -83,7 +82,7 @@ These are just some of the basics you can do with Netlify and there is so much m
 
 Once you have generated your dist folder in VSCode using the 'generate' Command. Click on sites in Netlify and scroll to the end where you will see a box that says 'Want to deploy a new site to Netlify without connecting to Git?'. Right click the dist folder and choose 'open in finder' and then drag it and drop it into this box.
 
-![Drag and Dropt to Netlify](https://res.cloudinary.com/debsobrien/image/upload/c_scale,fl_lossy,f_auto,q_auto/v1612716319/debbie.codes/blog/netlify-drag-drop_jkk8ba.png)
+![Drag and Dropt to Netlify](/images/content/blog/netlify-drag-drop_jkk8ba.webp){width="1640" height="293"}
 
 Your app is now deployed. This is a simple and fast way of deploying a site but if you need to make any changes you will need to locally generate it again and drag and drop it again. But still it is a cool feature.
 

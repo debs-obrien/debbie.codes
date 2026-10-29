@@ -2,9 +2,8 @@
 title: Testing a Sites Color Mode with Playwright
 date: 2022-09-03
 description: My site has a color mode option to change from light theme to dark theme or sepia theme or use the system preference. So how can we write a test to make sure this all works?
-image: v1662280533/debbie.codes/blog/2022/testing-color-mode_j9i7sj.png
-ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1662280533/debbie.codes/blog/2022/testing-color-mode_j9i7sj.png
-provider: cloudinary
+image: /images/content/blog/2022/testing-color-mode_j9i7sj.webp
+ogImage: /images/content/blog/2022/testing-color-mode_j9i7sj.webp
 tags: [testing, playwright]
 published: true
 loading: eager
@@ -168,7 +167,7 @@ test.describe('Color Picker', () => {
 
 You can run the tests to see if the tests fail but if you want to see the page open while tests are running to visually see the color mode change then I suggest using the VS Code Extension. From there you can select to show browsers and then run the tests from VS Code. Then modify the test to change the color scheme and run the test again to see the page in the browser with the new color scheme.
 
-<video width="100%" height="auto" controls preload="none" playsinline poster="https://res.cloudinary.com/debsobrien/video/upload/so_0,w_1280,c_limit,f_jpg,q_auto/v1662282584/debbie.codes/blog/2022/color-mode-demo_vsikkn.jpg">
-  <source src="https://res.cloudinary.com/debsobrien/video/upload/w_1280,c_limit,q_auto,vc_auto,f_mp4/v1662282584/debbie.codes/blog/2022/color-mode-demo_vsikkn" type="video/mp4">
+<video aria-label="Video showing color mode demo" width="960" height="622" controls preload="none" playsinline poster="/images/content/blog/2022/color-mode-demo_vsikkn.webp">
+  <source src="/images/content/blog/2022/color-mode-demo_vsikkn.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>

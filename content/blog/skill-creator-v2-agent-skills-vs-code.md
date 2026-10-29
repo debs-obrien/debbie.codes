@@ -5,8 +5,8 @@ description: "I just published a video showing how I used Skill Creator v2 to im
 tags: [ai, githubcopilot, webdev]
 published: true
 canonical: https://dev.to/debs_obrien/i-used-skill-creator-v2-to-improve-one-of-my-agent-skills-in-vs-code-fhd
-image: /images/blog/covers/skill-creator-v2-agent-skills-vs-code.png
-ogImage: /images/blog/covers/skill-creator-v2-agent-skills-vs-code.png
+image: /images/blog/covers/skill-creator-v2-agent-skills-vs-code.webp
+ogImage: /images/blog/covers/skill-creator-v2-agent-skills-vs-code.webp
 ---
 
 I just published a video showing how I used Skill Creator v2 to improve an existing AI skill inside VS Code, and honestly, I was seriously surprised at how much this thing does.

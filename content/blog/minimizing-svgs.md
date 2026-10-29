@@ -2,9 +2,8 @@
 title: Minimizing SVGs
 date: 2022-05-09
 description: When working with SVG's sometimes we just put the svg into our code and think nothing more of it. But do we always need all that code that the SVG gives us? Perhaps not. SVGO is a tool that can take an SVG and compress it down to a smaller size ensuring your site is more performant.
-image: v1652107148/debbie.codes/blog/2022/dev-logo-svgomg_2x_ljbh5t.png
-ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1652107148/debbie.codes/blog/2022/dev-logo-svgomg_2x_ljbh5t.png
-provider: cloudinary
+image: /images/content/blog/2022/dev-logo-svgomg_2x_ljbh5t.webp
+ogImage: /images/content/blog/2022/dev-logo-svgomg_2x_ljbh5t.webp
 tags: [performance]
 published: true
 loading: eager
@@ -67,11 +66,11 @@ But the problem is that this SVG is quite big and comes with a lot of code. If w
 
 We certainly don't need access to everything in the SVG and don't intend on modifying it so how can we get a lighter version of this SVG? Have you heard of of [SVGOMG BY Jake Archibald](https://jakearchibald.github.io/svgomg/). I have been using it for years and it really is a great tool.
 
-![SVGOMG app showing open svg and paste markup options](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1652107151/debbie.codes/blog/2022/svgomg-tool_2x_ilp1yt.png)
+![SVGOMG app showing open svg and paste markup options](/images/content/blog/2022/svgomg-tool_2x_ilp1yt.webp){width="1504" height="754"}
 
 You can either open the SVG directly or you can paste the SVG code and it will start converting the SVG to a lightweight version. You can choose what you want to remove and what you want to keep. Looking at our SVG you can see the difference in size with a saving of 71.73%.
 
-![dev logo in svgomg app showing what was removed and savings in size](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1652107148/debbie.codes/blog/2022/dev-logo-svgomg_2x_ljbh5t.png)
+![dev logo in svgomg app showing what was removed and savings in size](/images/content/blog/2022/dev-logo-svgomg_2x_ljbh5t.webp){width="1640" height="877"}
 
 You can then download the file or just copy the code directly and paste it into the SVG. You can see below the difference in code and not only how it is minified but also how it removes all the unnecessary code we don't need.
 

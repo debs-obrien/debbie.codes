@@ -4,6 +4,7 @@
  */
 import { copyFileSync, cpSync, existsSync, lstatSync, mkdirSync, realpathSync } from 'node:fs'
 import { dirname, join } from 'node:path'
+import process from 'node:process'
 import { fileURLToPath } from 'node:url'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
@@ -42,7 +43,14 @@ if (!samePath(publicDir, distTarget)) {
   cpSync(publicDir, distTarget, { recursive: true })
 }
 
-for (const required of ['sitemap.xml', '_redirects']) {
+for (const required of [
+  'sitemap.xml',
+  '_redirects',
+  // OG / social cards — must be on every deploy preview (Playwright asserts 200).
+  'x-card.jpg',
+  'twitter-card.jpg',
+  'x-card-blog.jpg',
+]) {
   const from = join(publicDir, required)
   const to = join(distTarget, required)
   if (!existsSync(from)) {
@@ -56,7 +64,7 @@ for (const required of ['sitemap.xml', '_redirects']) {
   }
 }
 
+const symlinkNote = distStat.isSymbolicLink() ? ' (dist is symlink to build output)' : ''
 console.log(
-  `Ensured dist/sitemap.xml and dist/_redirects for Netlify publish`
-  + (distStat.isSymbolicLink() ? ' (dist is symlink to build output)' : ''),
+  `Ensured dist/{sitemap.xml,_redirects,x-card.jpg,twitter-card.jpg,x-card-blog.jpg} for Netlify publish${symlinkNote}`,
 )

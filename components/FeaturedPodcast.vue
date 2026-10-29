@@ -1,4 +1,11 @@
 <script setup lang="ts">
+withDefaults(defineProps<{
+  /** Mark the cover as the page LCP image (podcasts index). Leave off on home. */
+  priority?: boolean
+}>(), {
+  priority: false,
+})
+
 // Fetch the featured podcast dynamically
 const { data: featuredPodcast } = await useAsyncData('featured-podcast', () =>
   queryCollection('podcasts')
@@ -23,12 +30,17 @@ const { data: featuredPodcast } = await useAsyncData('featured-podcast', () =>
           <div class="md:w-1/3">
             <NuxtImg
               class="h-48 w-full object-cover md:h-full"
-              :provider="featuredPodcast.image?.includes('/image/upload/') ? 'cloudinary' : undefined"
               :src="featuredPodcast.image"
               :alt="`${featuredPodcast.host} cover art`"
               width="800"
               height="450"
-              sizes="100vw md:33vw"
+              sizes="xs:100vw md:400px"
+              densities="x1"
+              fit="cover"
+              format="webp"
+              :loading="priority ? 'eager' : 'lazy'"
+              :fetchpriority="priority ? 'high' : undefined"
+              decoding="async"
             />
           </div>
 

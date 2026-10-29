@@ -16,7 +16,6 @@ defineProps<{
         class="block"
       >
         <NuxtImg
-          :provider="item.image?.includes('/image/upload/') ? (item.provider || 'cloudinary') : undefined"
           :src="item.image"
           :alt="item.title"
           width="400"
@@ -24,6 +23,9 @@ defineProps<{
           fit="cover"
           format="webp"
           loading="lazy"
+          decoding="async"
+          sizes="xs:50vw md:280px"
+          densities="x1 x2"
           class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
         />
         <!-- Overlay with play icon -->

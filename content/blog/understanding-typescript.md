@@ -2,7 +2,7 @@
 title: Understanding TypeScript
 date: 2021-10-06
 description: TypeScript is a superset of JavaScript. Any types that are added are not part of the final bundle so really TypeScript is there to make your life easier as a developer.
-image: reserve/uZYSV4nuQeyq64azfVIn_15130980706_64134efc6e_o.jpg?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80
+image: reserve/uZYSV4nuQeyq64azfVIn_15130980706_64134efc6e_o.jpg
 provider: imgix
 tags: [typescript, react]
 ---

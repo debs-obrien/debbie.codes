@@ -2,9 +2,8 @@
 title: Playwright Reports and Traces
 date: 2022-03-25
 description: Playwright will serve up a HTML report on your local server so you can easily walk through the steps of your test. You can also open a trace file which gives you even more powerful options of viewing, reporting, interacting and even debugging your tests.
-image: v1648219793/debbie.codes/blog/2022/trace-viewer-broswer_jqoim0.png
-ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1648219793/debbie.codes/blog/2022/trace-viewer-broswer_jqoim0.png
-provider: cloudinary
+image: /images/content/blog/2022/trace-viewer-broswer_jqoim0.webp
+ogImage: /images/content/blog/2022/trace-viewer-broswer_jqoim0.webp
 tags: [testing, playwright]
 published: true
 loading: eager
@@ -24,7 +23,7 @@ npx playwright show-report
 
 This will open up a browser window with a report of your tests. It will show you what browsers where used to run your tests, how long each test took and it will report each step of the test. The steps are collapsible meaning you can click on it and expand it to see the code ran for that particular part of the test.
 
-![test report showing list of steps test made](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1648215659/debbie.codes/blog/2022/test-report_dio73s.png)
+![test report showing list of steps test made](/images/content/blog/2022/test-report_dio73s.webp){width="1640" height="1394"}
 
 ## Trace Viewer
 
@@ -62,13 +61,13 @@ npx playwright show-report
 
 Just like before the html report will open for you with a report of your test. But now at the very bottom you will see a Trace section with an image and a link to your trace. Clicking this link will open up your trace.
 
-![report showing trace file zip](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1648220070/debbie.codes/blog/2022/trace-viewer-zip_ebyd2q.png)
+![report showing trace file zip](/images/content/blog/2022/trace-viewer-zip_ebyd2q.webp){width="1640" height="792"}
 
 ## Viewing the Trace File
 
 Once you have clicked on the trace link you will see a new browser window with your test' trace. This is a locally hosted PWA where you can play around with your test trace.
 
-![trace viewer in browser window showing all the features it gives you](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1648219793/debbie.codes/blog/2022/trace-viewer-broswer_jqoim0.png)
+![trace viewer in browser window showing all the features it gives you](/images/content/blog/2022/trace-viewer-broswer_jqoim0.webp){width="1640" height="945"}
 
 At the top is the timeline where you can scroll across and see your page at different states depending on the action. Each action has a different color such as green for clicks and red for selects.
 
@@ -80,10 +79,10 @@ On the right hand side you can see the call for this action showing what the sel
 
 Check out the video to see it in action.
 
-<!-- <a href="https://res.cloudinary.com/debsobrien/video/upload/f_auto,q_auto/v1648220640/debbie.codes/blog/2022/playwright-trace-viewer_kx8uws.mp4" title="video showing trace viewer"><img src="https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1648220818/debbie.codes/blog/2022/trace-viewer-play_2x_xydmoo.png" alt="Video showing trace viewer /></a> -->
+<!-- <a href="/images/content/blog/2022/playwright-trace-viewer_kx8uws.mp4" title="video showing trace viewer"><img src="/images/content/blog/2022/trace-viewer-play_2x_xydmoo.webp" alt="Video showing trace viewer" width="1640" height="1027"></a> -->
 
-<video width="auto" height="auto" controls>
-  <source src="https://res.cloudinary.com/debsobrien/video/upload/f_auto,q_auto/v1648220640/debbie.codes/blog/2022/playwright-trace-viewer_kx8uws.mp4" type="video/mp4">
+<video aria-label="video showing trace viewer" controls preload="none" playsinline width="1280" height="720" poster="/images/content/blog/2022/playwright-trace-viewer_kx8uws-poster.jpg">
+  <source src="/images/content/blog/2022/playwright-trace-viewer_kx8uws.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 
@@ -91,10 +90,10 @@ Your browser does not support the video tag.
 
 The really cool thing about this is that the snapshot of your site in the middle is actually a DOM snapshot meaning it is fully interactive. You can scroll it, click user events and even open the browser dev tools inside this dev tool. Very cool.
 
-<!-- <a href="https://res.cloudinary.com/debsobrien/video/upload/f_auto,q_auto/v1648220649/debbie.codes/blog/2022/playwright-trace-inspect_wvfjb9.mp4" title="video showing trace viewer inspecting dev tools"><img src="https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1648220924/debbie.codes/blog/2022/trace-viewer-inspect-play_2x_scmhm4.png" alt="Video showing trace viewer inspecting dev tools" /></a> -->
+<!-- <a href="/images/content/blog/2022/playwright-trace-inspect_wvfjb9.mp4" title="video showing trace viewer inspecting dev tools"><img src="/images/content/blog/2022/trace-viewer-inspect-play_2x_scmhm4.webp" alt="Video showing trace viewer inspecting dev tools" width="1640" height="1019"></a> -->
 
-<video width="auto" height="auto" controls>
-  <source src="https://res.cloudinary.com/debsobrien/video/upload/f_auto,q_auto/v1648220649/debbie.codes/blog/2022/playwright-trace-inspect_wvfjb9.mp4" type="video/mp4">
+<video aria-label="video showing trace viewer inspecting dev tools" controls preload="none" playsinline width="1280" height="720" poster="/images/content/blog/2022/playwright-trace-inspect_wvfjb9-poster.jpg">
+  <source src="/images/content/blog/2022/playwright-trace-inspect_wvfjb9.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 

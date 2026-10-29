@@ -2,9 +2,8 @@
 title: Design Tokens and Theming
 date: 2022-03-24
 description: As frontend developers we are normally given a design from Figma or similar tools that we then need to turn into code. So where do we start? What are the first steps we should take when converting our design into code?
-image: v1648117439/debbie.codes/blog/2022/pink-theme_2x_iyuccs.png
-ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1648117439/debbie.codes/blog/2022/pink-theme_2x_iyuccs.png
-provider: cloudinary
+image: /images/content/blog/2022/pink-theme_2x_iyuccs.webp
+ogImage: /images/content/blog/2022/pink-theme_2x_iyuccs.webp
 tags: [react]
 published: true
 loading: eager
@@ -57,7 +56,7 @@ There is of course still a missing connection between the designer and the devel
 
 Allowing the designer to own the theme component makes it easier for them to really keep the design system alive and current modifying token values and adding new ones and developers just have to use the theme component to get all these changes and can always see the rendered design tokens that are available to them.
 
-![design tokens of base theme showing properties and values for colors and borer radius](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1648117557/debbie.codes/blog/2022/base-theme_2x_xhbxgc.png)
+![design tokens of base theme showing properties and values for colors and borer radius](/images/content/blog/2022/base-theme_2x_xhbxgc.webp){width="1640" height="812"}
 
 ## The Base Theme Component
 
@@ -87,7 +86,7 @@ Then we just need to create our theme and use our provider. This complete versio
 
 The Theme provider comes with an overrides property so that we can add in any theme and it will merge with our base theme and override any duplicated design tokens. This means we can create a pink theme where only the colors change. However if we wanted to also change the font families then we would just add a design tokens file for font families inside our [pink theme component](https://bit.cloud/learn-bit-react/base-ui/themes/pink-theme).
 
-![design tokens for a pink theme showing the colors and var names](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1648117439/debbie.codes/blog/2022/pink-theme_2x_iyuccs.png)
+![design tokens for a pink theme showing the colors and var names](/images/content/blog/2022/pink-theme_2x_iyuccs.webp){width="1310" height="870"}
 
 ## Build Components or Build your Design System?
 
@@ -97,7 +96,7 @@ We have just built our theming and design tokens so now it's time to build some 
 
 We haven't started with the task at hand yet so lets do that. Again lets talk to our designers and make sure we are on the same page when it comes to naming.
 
-![wire frame of how cart page should look](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1648117081/debbie.codes/blog/2022/cart-wire-frame_jwitru.png)
+![wire frame of how cart page should look](/images/content/blog/2022/cart-wire-frame_jwitru.webp){width="1376" height="736"}
 
 When building out the wire frames it is a good idea to sit down with the designer and think about the components that are being designed. We start with a page component called cart and we even think about where this component lives, in which folder or in which scope or to which team it belongs to. The cart component contains the heading component, which is a base-ui component that will be used throughout the site.
 
@@ -129,7 +128,7 @@ Our heading component should contain an `element` prop which allows the consumer
 
 A button component should be a basic button component that may accept props for adding styles so as to have primary or secondary buttons for example. It should also allow an `onClick` prop so it can be used in different circumstances.
 
-![properties of a button component](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1648121414/debbie.codes/blog/2022/button-props_2x_rwq5ea.png)
+![properties of a button component](/images/content/blog/2022/button-props_2x_rwq5ea.webp){width="1640" height="973"}
 
 A remove from cart component should have the functionality of removing a component from a cart and include the button component. This means consistency will be kept across all apps as the button component which contains the styling is used inside these wrapper components that add the functionality needed.
 
@@ -163,7 +162,7 @@ In order to make sure my component stays true to the design I like to import the
 
 I have done this by creating a [Figma Embed component](https://bit.cloud/learn-bit-react/base-ui/figma/figma-embed) and adding it to the doc file of my component.
 
-![figma embed showing a button component from figma](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1648130745/debbie.codes/blog/2022/figma-embed_2x_yn5u0p.png)
+![figma embed showing a button component from figma](/images/content/blog/2022/figma-embed_2x_yn5u0p.webp){width="1640" height="484"}
 
 We can then go ahead and start building the next biggest component that the cart page component needs. In our case it is the cart component that contains all the elements of the cart. You may ask why we should even create this as a component and instead just render it in the page component?
 
@@ -171,7 +170,7 @@ The reason is that the cart component, containing all the items of the cart, mig
 
 Continuing on with our components the next one is the heading component so we start building that working with the API we have defined to allow different heading elements to be passed in. We then import that component into our page component adding the element of h1. And we continue with this process until our cart page is complete.
 
-![image of a cart page with various items in the cart](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1648116916/debbie.codes/blog/2022/cart-design_qrgd17.png)
+![image of a cart page with various items in the cart](/images/content/blog/2022/cart-design_qrgd17.webp){width="1640" height="1180"}
 
 ## Working as a Team
 
@@ -181,7 +180,7 @@ If there is more than one person working on building out this page then there is
 
 More importantly making sure your components are easy to use and understand with great documentation and examples is key if you want your components to be adopted by other developers. Creating compositions of your component with different use cases will help developers see how it can be used and writing tests for these components is extremely important so developers can really trust your components.
 
-![tests for a button component](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1648122803/debbie.codes/blog/2022/button-tests_2x_j7a35h.png)
+![tests for a button component](/images/content/blog/2022/button-tests_2x_j7a35h.webp){width="1464" height="1056"}
 
 ## Conclusion
 

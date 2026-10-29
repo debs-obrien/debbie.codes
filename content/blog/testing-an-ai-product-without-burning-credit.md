@@ -5,8 +5,8 @@ description: "Every message in an AI product is a paid model call. Here is how w
 tags: [ai, testing, playwright]
 published: true
 canonical: https://theaiplatform.app/blog/testing-an-ai-product-without-burning-credit/
-image: /images/blog/covers/testing-an-ai-product-without-burning-credit.png
-ogImage: /images/blog/covers/testing-an-ai-product-without-burning-credit.png
+image: /images/blog/covers/testing-an-ai-product-without-burning-credit.webp
+ogImage: /images/blog/covers/testing-an-ai-product-without-burning-credit.webp
 ---
 
 Most tests are cheap. You click a button, you assert something changed, you run it a thousand times and nobody notices. Testing an AI product is different, because the interesting behavior comes from a model, and every time you trigger it you pay for it.

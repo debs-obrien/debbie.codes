@@ -4,8 +4,8 @@ date: 2026-09-25
 description: First gym session in three years after twins started school in Spain — celebrating the milestone and choosing me time again.
 tags: [personal]
 published: true
-image: /images/blog/covers/back-to-the-gym-after-three-years.png
-ogImage: /images/blog/covers/back-to-the-gym-after-three-years.png
+image: /images/blog/covers/back-to-the-gym-after-three-years.webp
+ogImage: /images/blog/covers/back-to-the-gym-after-three-years.webp
 ---
 
 Hey all, today was an interesting day. Today I went to the gym for the first time in three years, which is insane, especially for someone like me who has always done so much sport and always been involved in the gym. But the last three years of my life have been so intense with raising my twins, not sending them to any kind of daycare or childcare, and basically just working full time and, between me and my husband, looking after them as well. And I look back now and I think, how on earth did we do it? It’s absolutely insane. Plus getting promoted and doing so well in work and everything that went on. It’s just crazy. It’s crazy that we did it, and it’s so worth celebrating. And sometimes you have to look back and kind of go, wow, wow, wow, look at everything I did, and look at everything you did, and really just celebrate the things in life that you’ve accomplished. And today I’m celebrating.

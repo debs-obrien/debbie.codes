@@ -2,9 +2,8 @@
 title: Finding the Right Work Life Balance
 date: 2022-05-10
 description: To many people it might look like I have it all worked out and to be honest I do think I have a pretty good work life balance. But it wasn't always that way. I am probably older than most people who will read this and therefore I have had more time to make mistakes and learn from them.
-image: v1640965793/debbie.codes/blog/devs-in-the-forest_c_gctzoz.jpg
-ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1640965793/debbie.codes/blog/devs-in-the-forest_c_gctzoz.jpg
-provider: cloudinary
+image: /images/content/blog/devs-in-the-forest_c_gctzoz.webp
+ogImage: /images/content/blog/devs-in-the-forest_c_gctzoz.webp
 tags: [personal]
 published: true
 loading: eager
@@ -12,7 +11,7 @@ loading: eager
 
 Before you start reading this I want you to all know that I do not have all the answers and we do not all live with the same circumstances so these are just my views and experiences on how I have managed my work life balance. To many people it might look like I have it all worked out and to be honest I do think I have a pretty good work life balance. But it wasn't always that way. I am probably older than most people who will read this and therefore I have had more time to make mistakes and learn from them.
 
-![me running in the forest](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1640965793/debbie.codes/blog/devs-in-the-forest_c_gctzoz.jpg)
+![me running in the forest](/images/content/blog/devs-in-the-forest_c_gctzoz.webp){width="1024" height="768"}
 
 ## Burn out at 21
 
@@ -46,7 +45,7 @@ I lived for my 8pm balcony party where we would clap for the healthcare workers 
 
 That's when I started doing sport on the roof terrace. I tried to run 10km round in circles, changing direction every kilometer to not hurt my ankles. 7 weeks of no sport. No way. I had to do something. I even did Taekwondo classes online. Not ideal but it was fun at the time.
 
-![me doing taekwondo on the roof with the computer showing the zoom call for training](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1652185008/debbie.codes/blog/2022/taekwondo-on-roof_pfj7k3)
+![me doing taekwondo on the roof with the computer showing the zoom call for training](/images/content/blog/2022/taekwondo-on-roof_pfj7k3.webp){width="1640" height="2187"}
 
 During lockdown I just worked. Pretty much all day, every day. Even at weekends. I needed something to keep my mind off the world around me so I didn't look at the news until after 8pm. I just pretended the world was normal until then. And I literally just worked.
 
@@ -64,7 +63,7 @@ So that's when I decided to change how I live. I decided to do sport in the morn
 
 I work much better when I get up in the morning and go for a 60km cycle or a 15km run or play a few padel matches. The morning sun helps me appreciate things, clears the mind and sets me up for the day. My sport is normally outdoors and surrounded by nature. Then I know I can go to work and not have to try to stop work to do sport. Cause for some reason I simply keep saying 5 more minutes to myself and then hours pass and it becomes too late to do sport. There are days when I can enjoy an evening run but it doesn't always happen. Morning just works so much better for me.
 
-![me cycling with other female cyclists](https://res.cloudinary.com/debsobrien/image/upload/c_limit,w_1200,f_auto,q_auto/v1652182298/debbie.codes/blog/2022/cycling-with-girls_nh2k0q.heic)
+![me cycling with other female cyclists](/images/content/blog/2022/cycling-with-girls_nh2k0q.webp){width="1640" height="1230"}
 
 In order to make sure I kept to my routine I would block time in my calendar for these activities, either the cycles or padel matches etc. If it is set in my calendar then I won't forget to do it even if it's something I love. Once it becomes routine it becomes a new habit that you are simply used to doing.
 
@@ -78,7 +77,7 @@ I then either study, or work for an hour if there is anything urgent, but normal
 
 Then at about 9am I head to the gym, sometimes a bit earlier or sometimes a bit later depending on if I have a class or match or a cycle. I run to the gym every day and run home which is only a 1km run but it was a habit I made and have kept for almost 2 years now. I can't believe I used to drive to the gym.
 
-![me running in the forest](https://res.cloudinary.com/debsobrien/image/upload/c_limit,w_1200,f_auto,q_auto/v1652182229/debbie.codes/blog/2022/me_running_q64fvs)
+![me running in the forest](/images/content/blog/2022/me_running_q64fvs.webp){width="1640" height="1230"}
 
 I then stay in the gym for about 3 hours. I play padel which is similar to tennis and we play outdoors and as a team so not only am I in the fresh air but I am also mixing with people. People and sport give me energy. Sometimes I might go for a 3-4 hour cycle with the club and sometimes I might just go for a 10-15km run.
 
@@ -86,13 +85,13 @@ I then stay in the gym for about 3 hours. I play padel which is similar to tenni
 
 At about 12 o'clock I am back home and normally work for an hour. I then start to cook lunch which I actually really enjoy. I get to have lunch with my husband which is something I could never do before. Lunch in Spain is more like a dinner as in a hot meal so it's really nice to cook for two and eat together. At 2pm my husband goes to work and so I head back to my office. I will then work straight through until 9pm or 9:15 rather when my husband gets home and makes sure I am not on the computer.
 
-![me in my home office with all my screens](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1640970262/debbie.codes/blog/react-conf_c_po1euk.jpg)
+![me in my home office with all my screens](/images/content/blog/react-conf_c_po1euk.webp){width="1024" height="768"}
 
 In the summer it is a lot easier to take breaks cause it is so hot and we have a community pool, so I will often take a 15 minute pool break which is really nice. But outside of summer I am really terrible at taking breaks so I try to do things like stop for a few minutes and empty the dishwasher or hang out the clothes or clean the kitchen. Just taking 5 minutes away from the screen is extremely beneficial.
 
 Although I say this I am still working on improving this. Now that the days are getting nicer I also try to work some hours on the roof terrace. Sometimes changing scenery helps and even just getting up and going to the roof is at least some form of movement. I do have a standing desk though and try to do all my meetings standing so that I am not sitting in the same position for too long.
 
-![me working in my egg chair on the roof](https://res.cloudinary.com/debsobrien/image/upload/c_limit,w_1200,f_auto,q_auto/v1652182266/debbie.codes/blog/2022/IMG_2873_qxkes9)
+![me working in my egg chair on the roof](/images/content/blog/2022/IMG_2873_qxkes9.webp){width="1640" height="2187"}
 
 ### Evening Routine
 
@@ -104,7 +103,7 @@ Obviously sometimes things change. I might not have a match and therefore I migh
 
 At the weekends I don't work. Or at least I try not to. I tend to get up in the mornings and do sport, normally cycling for about 4 hours or running or I may have a padel tournament.
 
-![padel tournament](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1652185183/debbie.codes/blog/2022/padel-tournament_i58mmb.jpg)
+![padel tournament](/images/content/blog/2022/padel-tournament_i58mmb.webp){width="1024" height="768"}
 
 Then I have lunch and then I normally spend a few hours studying or just programming for fun, improving my site or trying out new things.
 
@@ -140,7 +139,7 @@ I'm not a big fan of food shopping but it does have to be done so I find time. N
 
 And that's pretty much my day to day, my work life balance. It took me a long time to figure this stuff out and you will too. Just try to do the things you love and prioritise them and then create small habits to make sure you get them done. I am not really sure I am doing things right or if this will change in the future but for now this really works for me.
 
-![me in a swimming pool](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1652185509/debbie.codes/blog/2022/min-in-pool_mcdqya)
+![me in a swimming pool](/images/content/blog/2022/min-in-pool_mcdqya.webp){width="1640" height="1230"}
 
 I used to start work as early as possible and try to finish as early as possible but always end up working more. And now I do the complete opposite and the only time I work later than 9pm is when there is football on the TV. Much prefer to work than watch football.
 

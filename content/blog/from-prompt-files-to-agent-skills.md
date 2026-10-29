@@ -4,8 +4,8 @@ date: 2026-02-18
 description: How I migrated from three separate VS Code prompt files to a single portable agent skill that handles videos, podcasts, and blog posts — with browser verification and automatic PR creation built in.
 tags: [ai, mcp, playwright]
 published: true
-image: /images/blog/covers/from-prompt-files-to-agent-skills.png
-ogImage: /images/blog/covers/from-prompt-files-to-agent-skills.png
+image: /images/blog/covers/from-prompt-files-to-agent-skills.webp
+ogImage: /images/blog/covers/from-prompt-files-to-agent-skills.webp
 ---
 
 A few weeks ago I wrote about [how I use AI agents and MCP to automate my website's content](/blog/ai-agents-mcp-automate-content). That post covered the *why* — I create a lot of content and keeping my site up to date was tedious. This post is about what happened next: how I took those initial prompt files and evolved them into something much more powerful.

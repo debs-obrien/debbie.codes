@@ -3,7 +3,7 @@ title: "Testing Made Easy: Debbie O'Brien Explains Playwright and its Game-Chang
 date: 2025-09-15
 description: "Debbie O'Brien discussed her experience with Playwright and its MCP Server. She highlighted the importance of keeping up with technology and not getting complacent, as new tools and features are constantly emerging. Debbie shared her own journey from being a JavaScript developer to becoming more comfortable working in .NET, citing AI's role in facilitating this transition."
 url: https://dotnetcore.show/season-8/testing-made-easy-debbie-obrien-explains-playwright-and-its-game-changing-mcp-server/
-image: https://res.cloudinary.com/debsobrien/image/upload/c_thumb,w_200/v1633724388/debbie.codes/podcasts/dotnet-rocks_ui02cg
+image: /images/content/podcasts/dotnet-rocks_ui02cg--c_thumb-w_800.webp
 tags: [playwright, testing, mcp]
 host: The Modern .NET Show
 ---

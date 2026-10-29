@@ -67,6 +67,7 @@ function isLead(index: number) {
                 fetchpriority="high"
                 decoding="async"
                 sizes="xs:100vw sm:320px"
+                densities="x1 x2"
                 class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
               />
             </NuxtLink>
@@ -124,6 +125,7 @@ function isLead(index: number) {
               loading="lazy"
               decoding="async"
               sizes="xs:400px sm:224px"
+              densities="x1 x2"
               class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
             />
           </div>

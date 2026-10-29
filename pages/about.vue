@@ -98,6 +98,11 @@ useHead({
           width="200"
           height="200"
           sizes="160px"
+          densities="x1 x2"
+          format="webp"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
           class="rounded-full mx-auto mb-10 border-2 border-white/20 w-40 h-40 object-cover"
         />
 

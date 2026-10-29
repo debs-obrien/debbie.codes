@@ -21,6 +21,10 @@ import { PUBLIC_MAILTO } from '~/utils/site-contact'
         width="160"
         height="160"
         sizes="112px"
+        densities="x1 x2"
+        format="webp"
+        loading="eager"
+        decoding="async"
         class="hero-animate hero-animate-1 rounded-full mb-6 w-28 h-28 object-cover border-2 border-white/20"
       />
 

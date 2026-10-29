@@ -5,8 +5,8 @@ description: How I use AI agents and MCP tools to automate publishing and updati
 tags: [mcp, ai]
 canonical: https://dev.to/debs_obrien/how-i-use-ai-agents-mcp-to-fully-automate-my-websites-content-3ekj
 published: true
-image: /images/blog/covers/ai-agents-mcp-automate-content.png
-ogImage: /images/blog/covers/ai-agents-mcp-automate-content.png
+image: /images/blog/covers/ai-agents-mcp-automate-content.webp
+ogImage: /images/blog/covers/ai-agents-mcp-automate-content.webp
 ---
 
 Recently I have been playing with a lot of tools to help automate simple tasks just so I can keep my website up to date. As I create a lot of content from videos to blog posts and appear as guests on many podcasts I want to have this reflected on my site as it's good to have all this info in one place to easily share with others and it's also great to look back on. But it is tedious and it takes time, time that I have very little of. So this is a perfect use case for AI to take over this task. So where do I start?

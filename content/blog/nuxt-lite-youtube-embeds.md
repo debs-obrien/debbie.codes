@@ -2,8 +2,7 @@
 title: Lite YouTube Embeds
 date: 2021-01-29
 description: If you are adding YouTube videos to your site you might notice that they can load quite slowly especially when loading iframes. However this is a better way. With this library your YouTube videos will load super fast and your site will be more performant because of it.
-image: f_auto,q_auto/v1611939855/debbie.codes/blog/Screenshot_2021-01-29_at_18.03.52_yuqsr3
-provider: cloudinary
+image: /images/content/blog/Screenshot_2021-01-29_at_18.03.52_yuqsr3.webp
 tags: [nuxt, performance]
 ---
 
@@ -13,15 +12,15 @@ We normally like to add YouTube embeds to our site so that users can easily clic
 
 For those of you who regularly run a lighthouse test you might have come across this warning:
 
-![lighthouse test facade warning](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1611938884/debbie.codes/blog/Screenshot_2021-01-29_at_10.37.43_meeyhu.png)
+![lighthouse test facade warning](/images/content/blog/Screenshot_2021-01-29_at_10.37.43_meeyhu.webp){width="1520" height="772"}
 
 Also you will see when testing on mobile how this page which has many YouTube embeds was giving a poor performance score with the Largest Contentful Paint of 8.8 seconds and time to interactive of 6.3 seconds.
 
-![lighthouse test scores](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1611939169/debbie.codes/blog/Screenshot_2021-01-29_at_16.34.14_jcv8ok.png)
+![lighthouse test scores](/images/content/blog/Screenshot_2021-01-29_at_16.34.14_jcv8ok.webp){width="1640" height="963"}
 
 ## Performance Tab with iframe
 
-And if we investigate a little further we can see in the Performance tab how long it is taking for the video frame to load meaning our user is getting this black empty box for quite a while until the video is ready. ![Chrome performance test](https://res.cloudinary.com/debsobrien/image/upload/c_scale,f_auto,q_auto,w_1400/v1611938884/debbie.codes/blog/Screenshot_2021-01-29_at_16.36.35_fa339w.png)
+And if we investigate a little further we can see in the Performance tab how long it is taking for the video frame to load meaning our user is getting this black empty box for quite a while until the video is ready. ![Chrome performance test](/images/content/blog/Screenshot_2021-01-29_at_16.36.35_fa339w.webp){width="1640" height="1720"}
 
 ## Solution
 
@@ -35,20 +34,20 @@ Instead of adding the third-party embed direct in our HTML, we load the page wit
 
 ## Lighthouse Tests with a facade
 
-Running a Lighthouse test using a facade we can see a huge difference especially in our Largest Contentful Paint which is in orange instead of red and with 3.8 seconds versus 8.8 seconds from the previous test. Also the time to Interactive has dropped from 6.3s to 3.3s and is now in green. This is a massive increase in performance with very little work needed. ![Lighthouse test scores](https://res.cloudinary.com/debsobrien/image/upload/c_scale,f_auto,q_auto,w_1400/v1611939855/debbie.codes/blog/Screenshot_2021-01-29_at_18.03.19_tlqdpj.png)
+Running a Lighthouse test using a facade we can see a huge difference especially in our Largest Contentful Paint which is in orange instead of red and with 3.8 seconds versus 8.8 seconds from the previous test. Also the time to Interactive has dropped from 6.3s to 3.3s and is now in green. This is a massive increase in performance with very little work needed. ![Lighthouse test scores](/images/content/blog/Screenshot_2021-01-29_at_18.03.19_tlqdpj.webp){width="1640" height="855"}
 
 ## Performance Tab with a facade
 
 And if we check in our performance tab in the Chrome dev tools we can see how our image for our video has loaded so much earlier in the timeline and the total blocking time is also reduced from 1366ms to 567ms.
 
-![Chrome performance tab](https://res.cloudinary.com/debsobrien/image/upload/c_scale,f_auto,q_auto,w_1400/v1611939855/debbie.codes/blog/Screenshot_2021-01-29_at_18.03.52_yuqsr3.png)
+![Chrome performance tab](/images/content/blog/Screenshot_2021-01-29_at_18.03.52_yuqsr3.webp){width="1640" height="1496"}
 
 ## Watch the difference
 
 In order to really see the difference in load times you just have to watch this video which shows the YouTube videos loaded with an iframe first followed by the YouTube videos loaded with a facade. The difference really is insane.
 
-<video width="100%" height="auto" controls muted playsinline preload="none" poster="https://res.cloudinary.com/debsobrien/video/upload/so_0,w_800,c_limit,f_jpg,q_auto/v1611941119/debbie.codes/blog/facade_upiufl.jpg" aria-label="Difference between iframe and facade">
-  <source src="https://res.cloudinary.com/debsobrien/video/upload/w_800,c_limit,q_auto,vc_auto,f_mp4/v1611941119/debbie.codes/blog/facade_upiufl.gif" type="video/mp4">
+<video width="100%"  controls muted playsinline preload="none" poster="/images/content/blog/facade_upiufl.webp" aria-label="Difference between iframe and facade">
+  <source src="/images/content/blog/facade_upiufl.mp4" type="video/mp4">
 </video>
 
 ## Lite YouTube Embed library
@@ -97,11 +96,11 @@ export default {
 
 ## Behind the Scenes
 
-Your video will now appear on your page and if you inspect the `HTML` you will see the following: ![rendered html from library](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1611942696/debbie.codes/blog/Screenshot_2021-01-29_at_18.50.42_bdctou.png)
+Your video will now appear on your page and if you inspect the `HTML` you will see the following: ![rendered html from library](/images/content/blog/Screenshot_2021-01-29_at_18.50.42_bdctou.webp){width="1252" height="186"}
 
-And as you can see a background image was added, which looks the same as the video, without you even having to create it. This is how a facade works. ![background image](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1611942698/debbie.codes/blog/Screenshot_2021-01-29_at_18.51.18_ifwfgr.png)
+And as you can see a background image was added, which looks the same as the video, without you even having to create it. This is how a facade works. ![background image](/images/content/blog/Screenshot_2021-01-29_at_18.51.18_ifwfgr.webp){width="622" height="316"}
 
-As soon as the user clicks on the video the famous iframe is loaded and the video plays straight away. The user has no idea you used a facade. All they know is that it loaded super fast and therefore they had a very good user experience. ![html showing iframe](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1611943517/debbie.codes/blog/Screenshot_2021-01-29_at_19.04.47_bhero2.png)
+As soon as the user clicks on the video the famous iframe is loaded and the video plays straight away. The user has no idea you used a facade. All they know is that it loaded super fast and therefore they had a very good user experience. ![html showing iframe](/images/content/blog/Screenshot_2021-01-29_at_19.04.47_bhero2.webp){width="1144" height="318"}
 
 I encourage you to give it a try or at least investigate more about it in the links below.
 

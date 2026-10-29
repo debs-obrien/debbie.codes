@@ -4,8 +4,8 @@ date: 2026-08-16
 description: "I ran out of gluten-free beer on a Sunday night and asked my Grok Bot chief of staff to buy more. Amazon rolls bought from my phone, an Alcampo login that would not click, a morning podcast, and a delivery slot I can keep adding to."
 tags: [ai, agents, grok-bot]
 published: true
-image: /images/blog/covers/i-sent-grok-bot-to-buy-my-gluten-free-beer.png
-ogImage: /images/blog/covers/i-sent-grok-bot-to-buy-my-gluten-free-beer.png
+image: /images/blog/covers/i-sent-grok-bot-to-buy-my-gluten-free-beer.webp
+ogImage: /images/blog/covers/i-sent-grok-bot-to-buy-my-gluten-free-beer.webp
 ---
 
 I literally have a couple of minutes just to talk you through what I've done over the last couple of days, or just today actually, to be honest, because it is pretty cool. I've written a couple of tweets about it, but I just thought I'd walk you through it.

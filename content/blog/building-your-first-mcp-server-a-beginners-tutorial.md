@@ -7,8 +7,8 @@ published: true
 featured: true
 loading: eager
 canonical: https://dev.to/debs_obrien/building-your-first-mcp-server-a-beginners-tutorial-5fag
-image: /images/blog/covers/building-your-first-mcp-server-a-beginners-tutorial.png
-ogImage: /images/blog/covers/building-your-first-mcp-server-a-beginners-tutorial.png
+image: /images/blog/covers/building-your-first-mcp-server-a-beginners-tutorial.webp
+ogImage: /images/blog/covers/building-your-first-mcp-server-a-beginners-tutorial.webp
 ---
 
 Have you ever wanted your AI assistant to access real-time data? Model Context Protocol (MCP) servers make this possible, and they're surprisingly simple to build and use!
