@@ -2,7 +2,7 @@
 title: Adding a PWA in Nuxt.js
 date: 2020-06-28
 description: Most people don't realise how easy it really is to add a PWA with Nuxt.js. Progressive Web Apps (PWA) deliver native-like capabilities, reliability, and installability while reaching anyone, anywhere, on any device with a single codebase.
-image: photo-1511804074-5e57bc14db9f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop
+image: photo-1511804074-5e57bc14db9f
 provider: imgix
 tags: [nuxt, performance]
 ---

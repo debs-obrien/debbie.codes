@@ -24,7 +24,8 @@ const otherVideos = computed(() => props.list.slice(1))
             :alt="mainVideo.title"
             width="640"
             height="360"
-            loading="lazy"
+            loading="eager"
+            fetchpriority="high"
             decoding="async"
             class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
           >

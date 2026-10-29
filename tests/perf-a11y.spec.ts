@@ -38,4 +38,22 @@ test.describe('performance and accessibility guards', () => {
     await expect(leadCoverLink).toHaveAttribute('aria-hidden', 'true');
     await expect(leadCoverLink).toHaveAttribute('tabindex', '-1');
   });
+
+  test('home featured YouTube thumb is the sole high-priority image; blog covers stay lazy', async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 800 });
+    await page.goto('/');
+    const high = page.locator('img[fetchpriority="high"]');
+    await expect(high).toHaveCount(1);
+    const yt = high.first();
+    await expect(yt).toHaveAttribute('src', /ytimg\.com/);
+    await expect(yt).not.toHaveAttribute('loading', 'lazy');
+    const covers = page.getByTestId('blog-card-cover').locator('img');
+    await expect(covers.first()).toHaveAttribute('loading', 'lazy');
+    await expect(covers.first()).not.toHaveAttribute('fetchpriority', 'high');
+
+    // Mobile: still only one high-priority image.
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto('/');
+    await expect(page.locator('img[fetchpriority="high"]')).toHaveCount(1);
+  });
 });

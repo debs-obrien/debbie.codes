@@ -3,7 +3,7 @@ title: The JavaScript Array.at() method
 date: 2022-05-12
 description: Often we want to return a single item from an array. There are a few methods of doing this including the `at(index)` method which returns the item at a given index.
 published: true
-image: photo-1562755524-cb3e786bee18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fGF0fGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=800&q=60
+image: photo-1562755524-cb3e786bee18
 provider: imgix
 ogImage: https://images.unsplash.com/photo-1562755524-cb3e786bee18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fGF0fGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=800&q=60
 tags: [javascript]

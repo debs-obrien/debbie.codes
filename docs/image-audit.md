@@ -92,7 +92,7 @@ Enforced by `scripts/check-image-budgets.mjs` (CI content-check) and `scripts/cl
 
 | Page | LCP image | `loading` / `fetchpriority` | Notes |
 |---|---|---|---|
-| `/` | CreativeHero avatar | eager + high | TopBar avatar eager without high; home blog covers + FeaturedVideo thumb are lazy (below fold) |
+| `/` | Featured YT thumb (desktop LCP) | eager + high | CreativeHero avatar eager without high (one `fetchpriority=high` on the page); home blog covers lazy |
 | `/blog` | Lead cover | eager + high + preload | Imgix `provider` restored for remaining hostless covers; compact covers lazy |
 | `/blog/[slug]` | Article cover | eager + high + preload | `provider` restored; `sizes="xs:100vw sm:576px"` |
 | `/videos` | Featured YT thumb | preload + high | Plain `<img>` (YouTube) keeps native `sizes` |
@@ -107,7 +107,7 @@ Enforced by `scripts/check-image-budgets.mjs` (CI content-check) and `scripts/cl
 | Issue | Fix |
 |---|---|
 | MAB #19 `i.ytimg.com` → Netlify Image CDN 400 | Local WebP `mab-podcast-19-hqdefault.webp`; crawl fails on any `/.netlify/images` 4xx |
-| Home mobile eager blog covers + YT `fetchpriority=high` | Compact `BlogPostList` covers always lazy; `FeaturedVideoSection` lazy, no fetchpriority |
+| Home mobile eager blog covers + YT competing with hero | Compact covers lazy; Featured YT is the sole `fetchpriority=high` (desktop LCP); hero stays eager without high |
 | Junk `1w`/`2w` srcset on prose + FeaturedPodcast | Prefix bare `100vw` with `xs:`; FeaturedPodcast `densities="x1"` |
 | `/podcasts` mobile LCP ~800px | FeaturedPodcast sizes + x1 densities → ~320–400w |
 | Coffee logo tighter crop | Re-encoded square master with `contain` pad (white) so `object-cover` shows full logo |
@@ -122,8 +122,17 @@ All 10 MP4s: H.264, no audio, faststart, `preload="none"` (or metadata) off-scre
 - **Portrait photos still >200 KB after q75** — already at max useful width (1640 = 2× ~820 CSS body); further quality cuts softens faces/landscapes with little CLS/LCP gain.
 - **Screenshot WebPs kept lossy q82** when lossless was larger.
 - **Original `x-card.png` / `twitter-card.png`** left on disk for any external bookmarks; site defaults now point at the JPEGs.
-- **Unsplash/imgix covers** still remote (out of Cloudinary migration scope).
+- **Unsplash/imgix covers** still remote (out of Cloudinary migration scope). Cover `image:` paths keep the photo id only (no `?…` query) so the imgix provider can append `?w=` without producing `fit=crop?w=` CLS bugs.
 - **Raster favicons / PWA icons** under `public/*.png` — platform requirements; not content masters.
+
+## Main merge follow-up (post-`e2f5a66`)
+
+| Issue | Fix |
+|---|---|
+| Merge `main` (#680 privacy + #677 hire-me post) | Normal merge commit; `blog-card-covers` keeps dynamic `leadSlug` + lazy home covers |
+| #677 local images | Cover + inline screenshots converted PNG→WebP under `public/images/blog/` (already local, no Cloudinary) |
+| Desktop home LCP was lazy YT thumb | `FeaturedVideoSection` main thumb `eager` + `fetchpriority=high`; CreativeHero drops high so only one high per page |
+| `discord-virtual-office` cover `fit=crop?w=` CLS | Strip query from imgix `image:` paths; replace literal second `?` with `&` in ogImage URLs |
 
 ## SVG
 

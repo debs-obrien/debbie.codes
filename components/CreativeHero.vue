@@ -24,7 +24,6 @@ import { PUBLIC_MAILTO } from '~/utils/site-contact'
         densities="x1 x2"
         format="webp"
         loading="eager"
-        fetchpriority="high"
         decoding="async"
         class="hero-animate hero-animate-1 rounded-full mb-6 w-28 h-28 object-cover border-2 border-white/20"
       />
