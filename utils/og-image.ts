@@ -1,20 +1,36 @@
 /** Site-wide default social/OG card (1200×630). Used when a page has no cover image. */
 export const DEFAULT_OG_IMAGE = 'https://debbie.codes/x-card.png'
 
-const CLOUDINARY_UPLOAD_BASE = 'https://res.cloudinary.com/debsobrien/image/upload/'
 const UNSPLASH_BASE = 'https://images.unsplash.com/'
 const SITE_ORIGIN = 'https://debbie.codes'
 
 /** Migrated hard-coded assets — match public-id fragment, ignore transforms. */
-const LOCAL_OG_BY_PUBLIC_ID: Array<{ id: string, path: string }> = [
+const LOCAL_BY_PUBLIC_ID: Array<{ id: string, path: string }> = [
   { id: 'debbie.codes/debbie-thumb_clt00n', path: '/images/debbie-thumb.webp' },
   { id: 'debbie.codes/broken_vktobk', path: '/images/broken-connection.webp' },
   { id: 'debbie.codes/podcasts/alexusadays-future-of-testing', path: '/images/podcasts/alexusadays-future-of-testing.webp' },
 ]
 
-function localOgUrlFor(value: string): string | undefined {
-  const match = LOCAL_OG_BY_PUBLIC_ID.find(({ id }) => value.includes(id))
-  return match ? `${SITE_ORIGIN}${match.path}` : undefined
+/**
+ * Map a local image path to an absolute Netlify Image CDN JPEG suitable for OG crawlers.
+ * 1200×630 cover crop, JPEG q85.
+ */
+export function netlifyOgImageUrl(localPath: string): string {
+  const path = localPath.startsWith('/') ? localPath : `/${localPath}`
+  const params = new URLSearchParams({
+    url: path,
+    w: '1200',
+    h: '630',
+    fit: 'cover',
+    fm: 'jpg',
+    q: '85',
+  })
+  return `${SITE_ORIGIN}/.netlify/images?${params.toString()}`
+}
+
+function localPathFor(value: string): string | undefined {
+  const match = LOCAL_BY_PUBLIC_ID.find(({ id }) => value.includes(id))
+  return match?.path
 }
 
 /**
@@ -29,25 +45,30 @@ export function resolveOgImage(
     if (!value)
       continue
 
-    const local = localOgUrlFor(value)
-    if (local)
-      return local
+    const mapped = localPathFor(value)
+    if (mapped)
+      return netlifyOgImageUrl(mapped)
 
     if (/^https?:\/\//i.test(value)) {
-      return value
+      if (value.startsWith(SITE_ORIGIN) && value.includes('/images/')) {
+        const path = value.slice(SITE_ORIGIN.length).split('?')[0]
+        if (path.startsWith('/images/'))
+          return netlifyOgImageUrl(path)
+      }
+      // Leave third-party absolute URLs (Unsplash, YouTube, …) alone.
+      if (!/res\.cloudinary\.com/i.test(value))
+        return value
+      // Stale Cloudinary absolute URL — try public-id mapping, else skip.
+      const fromCloud = localPathFor(value)
+      if (fromCloud)
+        return netlifyOgImageUrl(fromCloud)
+      continue
     }
 
     if (value.startsWith('/')) {
+      if (value.startsWith('/images/'))
+        return netlifyOgImageUrl(value)
       return `${SITE_ORIGIN}${value}`
-    }
-
-    // Cloudinary public IDs used across blog frontmatter (with or without transforms)
-    if (
-      value.includes('debbie.codes/')
-      || /^v\d+\//.test(value)
-      || /^(?:f_|c_|fl_|e_|g_|q_|w_|h_)/.test(value)
-    ) {
-      return `${CLOUDINARY_UPLOAD_BASE}${value.replace(/^\//, '')}`
     }
 
     // Unsplash / imgix photo paths stored without the host
