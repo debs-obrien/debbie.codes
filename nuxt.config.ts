@@ -97,6 +97,16 @@ export default defineNuxtConfig({
 
   compatibilityDate: '2025-03-13',
 
+  // Prefer interaction prefetch over visibility — listing pages otherwise
+  // fire dozens of payload prefetches for every in-viewport NuxtLink.
+  experimental: {
+    defaults: {
+      nuxtLink: {
+        prefetchOn: { visibility: false, interaction: true },
+      },
+    },
+  },
+
   runtimeConfig: {
     public: {
       // /hire-me voice widget (public agent id; origin-allowlisted for debbie.codes).

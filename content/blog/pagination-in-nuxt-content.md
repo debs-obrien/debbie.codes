@@ -222,6 +222,6 @@ I could create a middleware that intercepts this route and brings me to the all 
 My code is fully open source so clone, copy, or use whatever you like. Have fun.
 
 - [Code on GitHub](https://github.com/debs-obrien/debbie.codes/tree/master/pages/blog)
-- [Blog Page](https://debbie.codes/blog)
+- [Blog Page](/blog)
 - Nuxt Content API Endpoint
 - [Crate a Blog with Nuxt Content](https://nuxtjs.org/tutorials/creating-blog-with-nuxt-content)

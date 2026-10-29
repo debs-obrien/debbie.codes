@@ -1,9 +1,13 @@
 <script setup lang="ts">
 import type { PodcastPreview } from '~/types'
 
-defineProps<{
+withDefaults(defineProps<{
   item: PodcastPreview
-}>()
+  /** First visible card: LCP cover loads eagerly. */
+  priority?: boolean
+}>(), {
+  priority: false,
+})
 </script>
 
 <template>
@@ -22,7 +26,8 @@ defineProps<{
           height="400"
           fit="cover"
           format="webp"
-          loading="lazy"
+          :loading="priority ? 'eager' : 'lazy'"
+          :fetchpriority="priority ? 'high' : undefined"
           decoding="async"
           sizes="xs:50vw md:280px"
           densities="x1 x2"

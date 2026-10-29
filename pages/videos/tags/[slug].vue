@@ -25,7 +25,7 @@ const allVideos = computed(() => filterVisibleVideos(allVideosRaw.value))
 
 const topic: string = getTagDisplayName(slug as string)
 const title: string = `Videos: ${topic}`
-const description: string = ''
+const description: string = `Videos tagged ${topic} — talks, tutorials, and interviews.`
 const section: Sections = 'videos'
 
 useHead({

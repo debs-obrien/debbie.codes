@@ -16,10 +16,10 @@ The team behind it:
 
 - **Building my site:** an engineer bot that ships [debbie.codes](https://debbie.codes), a designer, a QA bot that tests it with Playwright, and a site scout that patrols the live site and proposes fixes.
 - **Content:** a blog post bot that publishes to [debbie.codes](https://debbie.codes) and [Dev.to](https://dev.to), bots for LinkedIn, X and YouTube, and a video editor bot that recuts my screen recordings.
-- **Life admin:** a [coach bot](https://debbie.codes/blog/i-created-an-ai-fitness-coach-with-grok-bot/) for gym, nutrition and habits, a [shopping bot](https://debbie.codes/blog/grok-bot-does-my-shopping/) for groceries, a travel agent bot for trips and talks, and a home bot for my twins' school calendar, bags and doctor appointments.
+- **Life admin:** a [coach bot](/blog/i-created-an-ai-fitness-coach-with-grok-bot/) for gym, nutrition and habits, a [shopping bot](/blog/grok-bot-does-my-shopping/) for groceries, a travel agent bot for trips and talks, and a home bot for my twins' school calendar, bags and doctor appointments.
 - **Thinking:** a research bot, and a stage bot for talk ideas and slides.
 
-(I've also written about how [Grok Bot can watch videos](https://debbie.codes/blog/did-you-know-grok-bot-can-watch-videos/).)
+(I've also written about how [Grok Bot can watch videos](/blog/did-you-know-grok-bot-can-watch-videos/).)
 
 Because everything starts with chief of staff, that's the bot I wanted to reach hands-free, without picking up my phone. Just say "Alexa, ask chief bot what's on my calendar tomorrow", or what time an appointment is, or what my engineer bot is working on, and have it get on with it.
 

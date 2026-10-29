@@ -4,7 +4,7 @@ date: 2025-04-16
 description: The GitHub MCP (Model Context Protocol) Server is a powerful tool that provides seamless integration with GitHub APIs, enabling advanced automation and interaction capabilities. This guide will walk you through how to set up and use the official GitHub MCP Server.
 image: /images/content/blog/2025/GitHub_MCP_server_2x_1_jizwlw.webp
 ogImage: /images/content/blog/2025/GitHub_MCP_server_2x_1_jizwlw.webp
-tags: [MCP, AI]
+tags: [mcp, ai]
 published: true
 ---
 

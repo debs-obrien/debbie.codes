@@ -23,7 +23,7 @@ That distinction matters. It is not clicking through a mockup or hitting an API.
 
 There are really two agents, running on their own schedules.
 
-![The loop: one agent hunts and files, a second reproduces and fixes, and a human reviews the pull request](https://theaiplatform.app/blog/an-agent-that-hunts-bugs-while-i-sleep/loop-diagram.png)
+![The loop: one agent hunts and files, a second reproduces and fixes, and a human reviews the pull request](https://theaiplatform.app/blog/an-agent-that-hunts-bugs-while-i-sleep/loop-diagram.png){width="1280" height="720"}
 
 The first one **hunts**. It explores routes, opens dialogs, fills forms, and watches how the app responds. When it finds something, it writes a proper bug report with reproduction steps and a screenshot, and files it as a GitHub issue.
 
@@ -66,7 +66,7 @@ Weeks later, the same hunter came back around and found a new problem: that guar
 
 Then the fixer picked it up, reproduced it, traced it to a save that navigated before React had re-rendered, patched it, and opened the pull request that closed it.
 
-![After the fix: the workflow saves cleanly with no spurious dialog](https://theaiplatform.app/blog/an-agent-that-hunts-bugs-while-i-sleep/bug-after.png)
+![After the fix: the workflow saves cleanly with no spurious dialog](https://theaiplatform.app/blog/an-agent-that-hunts-bugs-while-i-sleep/bug-after.png){width="1280" height="900"}
 
 An agent flagged the absence of a feature, we built it, and the same agent later caught the bug that feature introduced, and another agent fixed it. A full circle, and I barely touched it. That is the moment this went from a fun experiment to something we can actually use.
 

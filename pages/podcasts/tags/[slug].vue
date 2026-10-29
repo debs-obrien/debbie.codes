@@ -42,7 +42,7 @@ const podcastTags = computed(() => {
 
 const topic: string = replaceHyphen(slug as string)
 const title: string = `Podcasts: ${topic}`
-const description: string = ''
+const description: string = `Podcasts tagged ${topic} — web development, testing, and technology conversations.`
 const section: Sections = 'podcasts'
 
 useHead({
@@ -82,7 +82,10 @@ useHead({
       <h2 v-else class="text-2xl font-bold text-gray-900 dark:text-white mb-6 max-w-4xl mx-auto">
         Search Results ({{ filteredPodcasts.length }})
       </h2>
-      <PodcastGrid :list="(isSearchActive ? filteredPodcasts : podcasts) || []" />
+      <PodcastGrid
+        :list="(isSearchActive ? filteredPodcasts : podcasts) || []"
+        priority-first
+      />
     </section>
 
     <!-- No results found -->

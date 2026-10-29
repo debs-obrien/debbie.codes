@@ -11,7 +11,7 @@ loading: eager
 
 Have you ever had to test something in an iframe on your page with end to end testing? Even testing the play button of an embedded video used to be difficult but then along came [Playwright](https://playwright.dev/), reliable end-to-end testing for modern web apps. Let's take a look at how Playwright can help you test iframes.
 
-If you are new to testing with Playwright, you might want to check out my previous post [Getting Started with Playwright](https://debbie.codes/blog/getting-started-with-playwright-testing) to get a better understanding of how Playwright works and how to easily get started with this amazing tool.
+If you are new to testing with Playwright, you might want to check out my previous post [Getting Started with Playwright](/blog/getting-started-with-playwright-testing) to get a better understanding of how Playwright works and how to easily get started with this amazing tool.
 
 ## Locators
 
@@ -103,4 +103,4 @@ And thats how you can use locators and frame locators to test iframes on a page.
 - [Codegen](https://playwright.dev/docs/codegen)
 - [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright)
 - [FrameLocator](https://playwright.dev/docs/api/class-framelocator)
-- [Getting Started with Playwright](https://debbie.codes/blog/getting-started-with-playwright-testing)
+- [Getting Started with Playwright](/blog/getting-started-with-playwright-testing)

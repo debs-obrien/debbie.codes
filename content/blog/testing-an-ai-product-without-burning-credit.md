@@ -52,7 +52,7 @@ These tests drive the actual desktop app with Playwright, the same app a learner
 
 When a test mentions a specialist, the harness answers with a scripted reply instead of calling a model. When the evaluator runs, it returns a fixed rubric result. Everything else, the messages, the timeline, the avatars, the rubric bars, still goes through the real code and renders exactly as a learner would see it.
 
-![Diagram: the real chat UI talks to the harness, which intercepts model calls and returns scripted specialist and evaluator replies, while messages still save through the real API](https://theaiplatform.app/blog/testing-an-ai-product-without-burning-credit/harness-diagram.png)
+![Diagram: the real chat UI talks to the harness, which intercepts model calls and returns scripted specialist and evaluator replies, while messages still save through the real API](https://theaiplatform.app/blog/testing-an-ai-product-without-burning-credit/harness-diagram.png){width="1200" height="640"}
 
 The messages are still saved through the real chat API. So we are testing the genuine product experience end to end. The only thing missing is the invoice.
 

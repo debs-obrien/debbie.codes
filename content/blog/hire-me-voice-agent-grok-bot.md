@@ -8,7 +8,7 @@ image: /images/blog/covers/hire-me-voice-agent-grok-bot.webp
 ogImage: /images/blog/covers/hire-me-voice-agent-grok-bot.webp
 ---
 
-My Hire me page can talk. Recruiters can ask it questions about my work, out loud or by text. I built it in one morning with my [Grok Bot](https://x.ai/bot) (I make videos about Grok Bot on my [YouTube channel](https://www.youtube.com/@DebbieOBrien)), and you can [try it here](https://debbie.codes/hire-me).
+My Hire me page can talk. Recruiters can ask it questions about my work, out loud or by text. I built it in one morning with my [Grok Bot](https://x.ai/bot) (I make videos about Grok Bot on my [YouTube channel](https://www.youtube.com/@DebbieOBrien)), and you can [try it here](/hire-me).
 
 If a recruiter has an agent reviewing candidates, and I have an agent answering for me, one agent is talking to the other. It sounds crazy, but it saves time, and the human call can focus on their questions, their doubts and the process.
 
@@ -20,7 +20,7 @@ I also teach AI agents. So it made sense for the page itself to show an agent bu
 
 **At a glance**
 
-- A voice agent on my [Hire me page](https://debbie.codes/hire-me) that answers questions about my work, out loud or by text.
+- A voice agent on my [Hire me page](/hire-me) that answers questions about my work, out loud or by text.
 - Built with my Grok Bot and [ElevenAgents](https://elevenlabs.io/agents), the ElevenLabs platform for voice agents.
 - It only answers from the facts on the page and my CV, never makes up a number, and says it's an AI assistant.
 - Tested with ElevenLabs agent tests, with the built-in guardrails turned on.
@@ -199,4 +199,4 @@ The [ElevenAgents quickstart](https://elevenlabs.io/docs/eleven-agents/quickstar
 
 ## Try it
 
-Go to [debbie.codes/hire-me](https://debbie.codes/hire-me), press "Start a call" and ask one of the suggested questions. I'm still testing things out, so [tell me what you think](https://debbie.codes/contact), and if you'd like to talk to the real me, reach out.
+Go to [debbie.codes/hire-me](/hire-me), press "Start a call" and ask one of the suggested questions. I'm still testing things out, so [tell me what you think](/contact), and if you'd like to talk to the real me, reach out.

@@ -156,11 +156,12 @@ useHead({
       </div>
     </section>
 
-    <!-- Posts List -->
+    <!-- Posts List — use taggedArticles when idle so SSR/hydration match (filteredArticles starts []). -->
     <FeaturedSection
-      v-if="filteredArticles.length > 0"
-      :items="filteredArticles"
+      v-if="(isSearchActive ? filteredArticles : taggedArticles).length > 0"
+      :items="isSearchActive ? filteredArticles : taggedArticles"
       :section="section"
+      lead
     />
 
     <!-- No Results -->
