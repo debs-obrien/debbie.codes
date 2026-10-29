@@ -1,0 +1,13 @@
+{
+  "migratedAssets": 259,
+  "imageWebp": 248,
+  "videoMp4": 10,
+  "audioMp3": 1,
+  "cropFrozen": 27,
+  "youtubeThumbDirect": 1,
+  "imageBytes": 24019012,
+  "mediaBytes": 29318102,
+  "deviations": [
+    "WebP masters at q82 (plan default q90) and max width 1640 (plan 1800) to meet 25MB image budget"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "generatedAt": "2026-10-29",
+  "baseCommit": null,
+  "summary": {
+    "uniqueFullUrls": {
+      "imageUpload": 0,
+      "videoUpload": 0,
+      "fetch": 0,
+      "total": 0
+    },
+    "frontmatter": {
+      "fields": 0,
+      "occurrences": 0
+    },
+    "body": {
+      "occurrences": 0,
+      "files": 0
+    },
+    "assets": {
+      "total": 0,
+      "image": 0,
+      "video": 0
+    },
+    "pairs": {
+      "total": 0,
+      "crop": 0
+    },
+    "skippedFence": 2
+  },
+  "pairs": [],
+  "assets": [],
+  "occurrences": [],
+  "skippedFence": [
+    {
+      "file": "content/blog/migrating-nuxt2-nuxt3.md",
+      "match": "https://res.cloudinary.com/debsobrien/image/upload/",
+      "publicId": null
+    },
+    {
+      "file": "content/blog/nuxt-image.md",
+      "match": "https://res.cloudinary.com/your-account-name/image/upload/",
+      "publicId": null
+    }
+  ]
+}

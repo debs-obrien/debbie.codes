@@ -8,7 +8,12 @@ export default antfu(
   {
     // Fenced code samples in blog posts are prose, not project code, and
     // mostly fail to parse.
-    ignores: ['/.github/workflows/playwright.yml', 'content/**'],
+    ignores: [
+      '/.github/workflows/playwright.yml',
+      'content/**',
+      // One-shot Cloudinary migration tooling (not runtime app code).
+      'scripts/cloudinary/**',
+    ],
   },
   {
     // Specs (and the spec examples in the Playwright instructions) use
