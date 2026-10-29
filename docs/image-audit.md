@@ -118,4 +118,3 @@ All 10 MP4s: H.264, no audio, faststart, `preload="none"` (or metadata) off-scre
 ## SVG
 
 No new logo/icon rasters found that should be SVG; existing site icons remain as required PNGs for PWA/favicon. No SVGO candidates in `public/images/content/`.
-
