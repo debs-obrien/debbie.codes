@@ -9,7 +9,7 @@ tags: [nuxt]
 
 Nuxt.js, which uses `vue-router`, can easily tell what route you are on and therefore can add a class to that link when the user is on that page. By default this class is called `nuxt-link-active`.
 
-![nuxt-link-active](https://user-images.githubusercontent.com/13063165/84566699-9328f280-ad73-11ea-8697-d1e08b5bd0f2.png)
+![nuxt-link-active](https://user-images.githubusercontent.com/13063165/84566699-9328f280-ad73-11ea-8697-d1e08b5bd0f2.png){width="470" height="78"}
 
 In order to style your active links the only thing you have to do to is add the `nuxt-link-active` class to your styles and then you can style it as you wish.
 
@@ -21,7 +21,7 @@ In order to style your active links the only thing you have to do to is add the 
 
 Sometimes this will also add styles to other links such as the parent routes or the home page. In order to fix this we use the exact active class. By default this class is called `nuxt-link-exact-active`.
 
-![nuxt-link-exact-active](https://user-images.githubusercontent.com/13063165/84566719-b6ec3880-ad73-11ea-9a5d-47e7e23de987.png) The only thing you have to do to is add the `nuxt-link-exact-active` class to your styles and then you can style it as you wish.
+![nuxt-link-exact-active](https://user-images.githubusercontent.com/13063165/84566719-b6ec3880-ad73-11ea-9a5d-47e7e23de987.png){width="786" height="84"} The only thing you have to do to is add the `nuxt-link-exact-active` class to your styles and then you can style it as you wish.
 
 ```css
 .nuxt-link-exact-active {
@@ -53,7 +53,7 @@ export default {
 }
 ```
 
-![nuxt-link-active text-primary](https://user-images.githubusercontent.com/13063165/84566760-f2870280-ad73-11ea-8173-826ad4572478.png)
+![nuxt-link-active text-primary](https://user-images.githubusercontent.com/13063165/84566760-f2870280-ad73-11ea-8173-826ad4572478.png){width="682" height="80"}
 
 Although adding your tailwind class to the config is a great method it will cause you problems if you don't want all your active links across all pages to be that colour. If you want more control then you should use the default class name or a custom one and use scoped styling.
 

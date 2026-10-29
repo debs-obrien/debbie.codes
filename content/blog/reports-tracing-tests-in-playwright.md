@@ -11,7 +11,7 @@ loading: eager
 
 Playwright will serve up a HTML report on your local server so you can easily walk through the steps of your test. You can also open a trace file which gives you even more powerful options of viewing, reporting, interacting and even debugging your tests.
 
-If you are new to testing with Playwright, you might want to check out my previous post [Getting Started with Playwright](https://debbie.codes/blog/getting-started-with-playwright-testing) to get a better understanding of how Playwright works and how to easily get started with this amazing tool.
+If you are new to testing with Playwright, you might want to check out my previous post [Getting Started with Playwright](/blog/getting-started-with-playwright-testing) to get a better understanding of how Playwright works and how to easily get started with this amazing tool.
 
 ## Serving the Html Report
 
@@ -109,4 +109,4 @@ There is so much more cool things you can do with Playwright and I highly encour
 - [Codegen](https://playwright.dev/docs/codegen)
 - [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright)
 - [Trace Viewer](https://playwright.dev/docs/trace-viewer)
-- [Getting Started with Playwright](https://debbie.codes/blog/getting-started-with-playwright-testing)
+- [Getting Started with Playwright](/blog/getting-started-with-playwright-testing)

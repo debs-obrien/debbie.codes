@@ -2,6 +2,20 @@
   "items": [
     {
       "type": "blog",
+      "title": "My Hire Me Page Can Talk: How I Built and Tested a Voice Agent",
+      "date": "2026-10-27",
+      "tags": [
+        "ai",
+        "agents",
+        "grok-bot",
+        "testing"
+      ],
+      "url": "https://debbie.codes/blog/hire-me-voice-agent-grok-bot",
+      "path": "/blog/hire-me-voice-agent-grok-bot",
+      "description": "My Hire me page can talk. Recruiters can ask it about my work by voice or text. Here's how I built it with my Grok Bot and ElevenLabs in one morning, and how I tested it."
+    },
+    {
+      "type": "blog",
       "title": "Grok Bot Uploads My YouTube Videos For Me (Beginner Walkthrough)",
       "date": "2026-10-17",
       "tags": [
@@ -9895,21 +9909,6 @@
           "title": "Be proud of your code"
         }
       ]
-    },
-    {
-      "type": "video",
-      "title": "Static generated sites === great performance. What are you waiting for?",
-      "date": "2019-10-16",
-      "tags": [
-        "conference-talk",
-        "nuxt",
-        "jamstack",
-        "performance"
-      ],
-      "url": "https://www.youtube.com/watch?v=H793eyVM_04",
-      "video": "H793eyVM_04",
-      "description": "Statically generated sites are the future. Seriously. With frameworks like Nuxt we can build really cool sites that look and feel like a single page application but are actually static generated. That means no need for a server but most importantly performance is amazing. Everything is generated at build time.",
-      "conference": "Jamstack Conf"
     },
     {
       "type": "video",

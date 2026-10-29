@@ -106,7 +106,7 @@ I encourage you to give it a try or at least investigate more about it in the li
 
 ## Recommended Links
 
-- [Page using a facade on this site](https://debbie.codes/resources/interviews)
+- [Page using a facade on this site](/videos/tags/interviews)
 - [Third Party Facades from Web.dev](https://web.dev/third-party-facades/)
 - [Lite YouTube Embed by Paul Irish](https://www.npmjs.com/package/lite-youtube-embed)
 - [Demo from Paula Irish](https://paulirish.github.io/lite-youtube-embed/)

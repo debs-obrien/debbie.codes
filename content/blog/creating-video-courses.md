@@ -63,6 +63,6 @@ Overall I am pretty happy with how I am recording content now and I for sure wil
 ## Useful Links
 
 - [Descript](https://www.descript.com/)
-- [Courses I have Created](https://debbie.codes/resources/courses)
+- [Courses I have Created](/courses)
 - [My YouTube Channel](https://www.youtube.com/channel/UCrNvYFsT1L3WczE8AizDQ6g)
 - [Screenflow](https://www.telestream.net/screenflow/)

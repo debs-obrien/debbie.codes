@@ -11,7 +11,7 @@ loading: eager
 
 Playwright scripts work with existing debugging tools, like Node.js debuggers and browser developer tools. Playwright also introduces new debugging features for browser automation.
 
-If you are new to testing with Playwright, you might want to check out my previous post [Getting Started with Playwright](https://debbie.codes/blog/getting-started-with-playwright-testing) to get a better understanding of how Playwright works and how to easily get started with this amazing tool.
+If you are new to testing with Playwright, you might want to check out my previous post [Getting Started with Playwright](/blog/getting-started-with-playwright-testing) to get a better understanding of how Playwright works and how to easily get started with this amazing tool.
 
 Let's take a look at some of the ways you can debug your tests should they fail.
 
@@ -57,7 +57,7 @@ The error messaging from VS Code is very clear and it is telling us exactly why 
 
 ![error message for broken tests](/images/content/blog/2022/running-tests_2x_twjt1c.webp){width="1640" height="924"}
 
-The reason is strict mode, which we looked at in a [previous post](https://debbie.codes/blog/testing-iframes-with-playwright). With strict mode you can only have one instance and as the word Men can also be found in the word Women. Playwright doesn't know which one to select and so fails.
+The reason is strict mode, which we looked at in a [previous post](/blog/testing-iframes-with-playwright). With strict mode you can only have one instance and as the word Men can also be found in the word Women. Playwright doesn't know which one to select and so fails.
 
 VS Code gives us two options to solve this which are, to use the word Women, or to use selectors and select the first child of the element that has the text Men. In our case the Text men is the first instance of the nav bar and therefore it will select that.
 
@@ -92,4 +92,4 @@ Being able to interact directly with your code and see the selectors highlighted
 - [Codegen](https://playwright.dev/docs/codegen)
 - [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright)
 - [Debugging in Playwright](https://playwright.dev/docs/debug)
-- [Getting Started with Playwright](https://debbie.codes/blog/getting-started-with-playwright-testing)
+- [Getting Started with Playwright](/blog/getting-started-with-playwright-testing)

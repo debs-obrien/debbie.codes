@@ -64,7 +64,7 @@ useHead({
       </div>
     </section>
 
-    <!-- Courses Grid Section -->
+    <!-- Courses Grid Section — use allCourses when idle so SSR/hydration match (filteredCourses starts []). -->
     <section class="animated-section mb-16">
       <h2 v-if="!isSearchActive" class="text-2xl font-bold text-gray-900 dark:text-white mb-6 max-w-4xl mx-auto">
         All Courses
@@ -72,7 +72,11 @@ useHead({
       <h2 v-else class="text-2xl font-bold text-gray-900 dark:text-white mb-6 max-w-4xl mx-auto">
         Search Results ({{ filteredCourses.length }})
       </h2>
-      <ItemList v-if="filteredCourses.length > 0" :list="filteredCourses" :section="section" />
+      <ItemList
+        v-if="(isSearchActive ? filteredCourses : allCourses)?.length"
+        :list="(isSearchActive ? filteredCourses : allCourses) || []"
+        :section="section"
+      />
       <div v-else class="text-center text-gray-500 dark:text-gray-400 py-8">
         No courses found
       </div>

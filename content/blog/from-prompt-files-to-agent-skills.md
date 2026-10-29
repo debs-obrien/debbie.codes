@@ -64,7 +64,7 @@ But over time I started noticing the cracks.
 
 I decided to convert these prompts into [agent skills](https://goose-docs.ai/docs/guides/context-engineering/using-skills) — portable instruction sets that work across AI coding agents. Skills live in `.agents/skills/` and follow a standard format with a `SKILL.md` file that any compatible agent can discover and use.
 
-I started with the video prompt since that was the one I used most. Instead of the Playwright MCP server (which requires a specific MCP configuration), I used [`playwright-cli`](https://www.npmjs.com/package/@anthropic-ai/playwright-cli) — a standalone CLI tool for browser automation that works through regular shell commands. This meant any agent with shell access could use it.
+I started with the video prompt since that was the one I used most. Instead of the Playwright MCP server (which requires a specific MCP configuration), I used [`playwright-cli`](https://www.npmjs.com/package/@playwright/cli) — a standalone CLI tool for browser automation that works through regular shell commands. This meant any agent with shell access could use it.
 
 The first version was straightforward — translate the 15-line prompt into a detailed skill with actual steps:
 

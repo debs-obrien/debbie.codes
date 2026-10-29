@@ -60,7 +60,7 @@ If you want to get started with Nuxt you can check out my [free course on gettin
 
 ## Useful Links
 
-- [Previous conference Talks](https://debbie.codes/resources/conference-talks)
+- [Previous conference Talks](/videos/tags/conference-talk)
 - [Why static sites are back](https://dev.to/azure/why-static-sites-are-back-6jh)
 - [Nuxt Static Improvements](https://nuxtjs.org/blog/nuxt-static-improvements)
 - [Going Full Static](https://nuxtjs.org/blog/going-full-static)

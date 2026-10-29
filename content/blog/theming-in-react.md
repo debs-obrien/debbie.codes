@@ -11,7 +11,7 @@ published: true
 
 Theming is a fascinating topic and a really important one these days as more and more people add light and dark mode to their sites and companies change the theme of their site or part of their site on specific dates to celebrate occasions such as christmas, pride week etc.
 
-![color cards showing different colors and tones](https://images.unsplash.com/photo-1595446472721-4b7aa63a2bc7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80)
+![color cards showing different colors and tones](https://images.unsplash.com/photo-1595446472721-4b7aa63a2bc7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80){width="2370" height="1580"}
 
 But where do we start when it comes to creating themes? It all starts with the designers. They are the ones who are creating the themes. Each theme should have a list of design tokens that show the theme colors, paddings, margins, fonts, etc. These tokens can be exported from tools such as Figma and then used in a theme component.
 

@@ -1,13 +1,20 @@
 <script setup lang="ts">
 import type { VideoPreview } from '~/types'
 
-defineProps<{
+withDefaults(defineProps<{
   item: VideoPreview
-}>()
+  /** First visible card: skip content-visibility so the poster paints immediately. */
+  priority?: boolean
+}>(), {
+  priority: false,
+})
 </script>
 
 <template>
-  <article class="flex flex-col overflow-hidden flex-1 max-width h-full">
+  <article
+    class="flex flex-col overflow-hidden flex-1 max-width h-full"
+    :class="{ 'video-card--lazy': !priority }"
+  >
     <div
       class="h-full rounded-xl bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 overflow-hidden"
     >
@@ -34,3 +41,11 @@ defineProps<{
     </div>
   </article>
 </template>
+
+<style scoped>
+/* Defer painting (and background poster fetch) for offscreen cards. */
+.video-card--lazy {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 360px;
+}
+</style>

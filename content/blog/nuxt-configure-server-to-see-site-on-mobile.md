@@ -23,7 +23,7 @@ export default {
 
 By assigning the string value of '0' which is short for '0.0.0.0' Nuxt.js will give you your local IP address.
 
-![Alt Text](https://dev-to-uploads.s3.amazonaws.com/i/gve0ynnj783dtm5hbmw4.png)
+![Alt Text](https://dev-to-uploads.s3.amazonaws.com/i/gve0ynnj783dtm5hbmw4.png){width="796" height="268"}
 
 Now instead of typing localhost to see your application you will type your local IP address. In this example mine is http://192.168.0.199:3000/
 
@@ -41,7 +41,7 @@ export default {
 
 If this port is already in use, Nuxt.js will give you a random port.
 
-![Alt Text](https://dev-to-uploads.s3.amazonaws.com/i/46fajq67md7nvt9qaoyj.png)
+![Alt Text](https://dev-to-uploads.s3.amazonaws.com/i/46fajq67md7nvt9qaoyj.png){width="876" height="416"}
 
 Although you can modify this in the nuxt.config.js file it is not advised to as it might cause you issues when hosting your site. It is much better to modify the host direct in the dev command.
 

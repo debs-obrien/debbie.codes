@@ -26,9 +26,9 @@ The site publishes videos, blog posts, podcasts, and courses. Agents on a page w
 - [nuxt posts](https://debbie.codes/blog/tags/nuxt): Blog tagged nuxt
 - [testing posts](https://debbie.codes/blog/tags/testing): Blog tagged testing
 - [grok-bot posts](https://debbie.codes/blog/tags/grok-bot): Blog tagged grok-bot
+- [My Hire Me Page Can Talk: How I Built and Tested a Voice Agent](https://debbie.codes/blog/hire-me-voice-agent-grok-bot): Blog, 2026-10-27
 - [Grok Bot Uploads My YouTube Videos For Me (Beginner Walkthrough)](https://debbie.codes/blog/grok-bot-uploads-my-youtube-videos): Blog, 2026-10-17
 - [Grok Bot Explained: Your Bots Get a Cloud Computer, Browser & Email](https://debbie.codes/blog/grok-bot-explained): Blog, 2026-10-14
-- [How Grok Bot turned 133 family photos into a 50th birthday video with zero editing](https://debbie.codes/blog/grok-bot-50th-birthday-photo-video): Blog, 2026-10-13
 
 ## Podcasts
 

@@ -20,7 +20,7 @@ Instead of another tiny example, I want to show you what a practical skill looks
 
 We are going to take the idea of a skill and use it to turn rough project READMEs into polished docs that are consistent, accurate, and reusable across repos. I picked README generation because the output is easy to judge, it comes up again and again, and once you get it right for one project you want the same quality bar everywhere.
 
-![Before vs After](https://raw.githubusercontent.com/debs-obrien/learn-agent-skills/main/assets/before-vs-after.png)
+![Before vs After](https://raw.githubusercontent.com/debs-obrien/learn-agent-skills/main/assets/before-vs-after.png){width="2340" height="1230"}
 
 ## The problem with one-off README prompts
 
