@@ -44,6 +44,38 @@ for (const file of files) {
   }
 }
 
+// Cloudinary ban (outside CommonMark fences / inline code)
+for (const file of files.filter(f => f.endsWith('.md'))) {
+  const rel = relative(root, file)
+  const text = readFileSync(file, 'utf8')
+  if (/^provider:\s*cloudinary\s*$/m.test(text))
+    errors.push(`${rel}: provider: cloudinary is no longer allowed in frontmatter`)
+
+  const lines = text.split('\n')
+  let fence = null
+  let fenceQuoted = false
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i]
+    const marker = line.match(/^(?:\s*>)*\s*(?:(?:[-*+]|\d+[.)])\s+)?(`{3,}|~{3,})/)
+    const quoted = /^\s*>/.test(line)
+    if (fence && fenceQuoted && !quoted)
+      fence = null
+    if (fence) {
+      if (marker && marker[1][0] === fence[0] && marker[1].length >= fence.length && !line.slice(marker[0].length).trim())
+        fence = null
+      continue
+    }
+    if (marker && !(marker[1][0] === '`' && line.slice(marker[0].length).includes('`'))) {
+      fence = marker[1]
+      fenceQuoted = quoted
+      continue
+    }
+    const live = line.replace(/`[^`]*`/g, '')
+    if (/res\.cloudinary\.com/i.test(live))
+      errors.push(`${rel}:${i + 1}: res.cloudinary.com link outside code fence`)
+  }
+}
+
 const knownVideoIds = new Set(
   files
     .filter(file => file.startsWith(join(contentDir, 'videos')))

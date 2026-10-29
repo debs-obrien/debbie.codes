@@ -40,13 +40,6 @@ export default defineNuxtConfig({
   ],
 
   image: {
-    cloudinary: {
-      baseURL: 'https://res.cloudinary.com/debsobrien/image/upload/',
-      modifiers: {
-        format: 'webp',
-        quality: '80',
-      },
-    },
     imgix: {
       baseURL: 'https://images.unsplash.com/',
     },
@@ -59,7 +52,7 @@ export default defineNuxtConfig({
         },
       },
     },
-    domains: ['res.cloudinary.com', 'images.unsplash.com', 'dev-to-uploads.s3.amazonaws.com', 'raw.githubusercontent.com', 'theaiplatform.app', 'i.ytimg.com', 'img.youtube.com'],
+    domains: ['images.unsplash.com', 'dev-to-uploads.s3.amazonaws.com', 'raw.githubusercontent.com', 'theaiplatform.app', 'i.ytimg.com', 'img.youtube.com'],
     format: ['webp'],
     quality: 80,
     screens: {
