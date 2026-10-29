@@ -11,7 +11,7 @@ published: true
 
 ## Achievements:
 
-So many achievements, from numerous [conference talks](/resources/conference-talks) to [podcast interviews](/resources/podcasts), to improving my coding skills, being renewed for MVP, changing jobs and learning a new library, reaching more than 10k followers of Twitter and 3.5k subscribers on YouTube. This year has been amazing in so many ways.
+So many achievements, from numerous [conference talks](/videos/tags/conference-talk) to [podcast interviews](/podcasts), to improving my coding skills, being renewed for MVP, changing jobs and learning a new library, reaching more than 10k followers of Twitter and 3.5k subscribers on YouTube. This year has been amazing in so many ways.
 
 ## Where it all began:
 
