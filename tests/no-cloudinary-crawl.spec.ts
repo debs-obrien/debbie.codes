@@ -4,27 +4,14 @@ import { expect, isCloudinaryBandwidthRequest, test } from './fixtures';
 
 /**
  * Crawl sitemap routes and assert zero Cloudinary bandwidth requests,
- * no broken image/media responses, and width+height on local <img>s.
+ * no broken image/media responses, and width+height on migrated <img>s.
  *
- * Split into parallel batches so each test stays well under the default
- * 30s Playwright timeout (a single 213-route loop exceeds it in CI).
+ * Uses a **fixed** number of parallel shard tests (stable Playwright test IDs
+ * for Endform). Each shard loads the sitemap at runtime — from disk when
+ * present, otherwise from `${baseURL}/sitemap.xml` on the deploy preview.
  */
 
-function sitemapRoutes(): string[] {
-  const sitemapPath = join(process.cwd(), 'public/sitemap.xml');
-  if (!existsSync(sitemapPath))
-    return [];
-  const xml = readFileSync(sitemapPath, 'utf8');
-  const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]);
-  return locs.map((loc) => {
-    try {
-      return new URL(loc).pathname;
-    }
-    catch {
-      return loc.replace(/^https?:\/\/[^/]+/, '') || '/';
-    }
-  });
-}
+const SHARD_COUNT = 8;
 
 /** Decode Netlify CDN query params (`url=%2Fimages%2F…`) before path checks. */
 function decodeSrc(src: string): string {
@@ -46,29 +33,50 @@ function isLocalImageSrc(src: string): boolean {
   );
 }
 
-function chunk<T>(items: T[], size: number): T[][] {
-  const out: T[][] = [];
-  for (let i = 0; i < items.length; i += size)
-    out.push(items.slice(i, i + size));
-  return out;
+function parseSitemapXml(xml: string): string[] {
+  const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]);
+  return locs.map((loc) => {
+    try {
+      return new URL(loc).pathname;
+    }
+    catch {
+      return loc.replace(/^https?:\/\/[^/]+/, '') || '/';
+    }
+  });
 }
 
-const allRoutes = sitemapRoutes();
-// Cap local runs; full set on CI / deploy preview
-const limit = process.env.CI || process.env.PLAYWRIGHT_TEST_BASE_URL
-  ? allRoutes.length
-  : Math.min(allRoutes.length, 40);
-const sample = allRoutes.slice(0, limit);
-const BATCH_SIZE = 12;
-const batches = chunk(sample, BATCH_SIZE);
+async function loadRoutes(baseURL: string | undefined): Promise<string[]> {
+  const sitemapPath = join(process.cwd(), 'public/sitemap.xml');
+  if (existsSync(sitemapPath))
+    return parseSitemapXml(readFileSync(sitemapPath, 'utf8'));
+
+  const origin = (baseURL || 'http://127.0.0.1:8000').replace(/\/$/, '');
+  const res = await fetch(`${origin}/sitemap.xml`);
+  if (!res.ok)
+    throw new Error(`Failed to fetch sitemap.xml: ${res.status}`);
+  return parseSitemapXml(await res.text());
+}
 
 test.describe('No Cloudinary crawl', () => {
   test.use({ blockCloudinary: false });
 
-  test.skip(allRoutes.length === 0, 'public/sitemap.xml missing');
+  for (let shard = 0; shard < SHARD_COUNT; shard++) {
+    test(`sitemap shard ${shard + 1}/${SHARD_COUNT}`, async ({ page, baseURL }) => {
+      const allRoutes = await loadRoutes(baseURL);
+      expect(allRoutes.length).toBeGreaterThan(10);
 
-  for (const [batchIndex, routes] of batches.entries()) {
-    test(`sitemap batch ${batchIndex + 1}/${batches.length} (${routes.length} routes)`, async ({ page, baseURL }) => {
+      // Cap local runs; full set on CI / deploy preview / Endform
+      const full = Boolean(
+        process.env.CI
+        || process.env.PLAYWRIGHT_TEST_BASE_URL
+        || process.env.BASE_URL
+        || process.env.ENDFORM === 'true'
+      );
+      const sample = full ? allRoutes : allRoutes.slice(0, Math.min(allRoutes.length, 40));
+      const routes = sample.filter((_, i) => i % SHARD_COUNT === shard);
+      if (routes.length === 0)
+        return;
+
       // ~2–3s per route worst case; keep headroom for cold preview.
       test.setTimeout(Math.max(60_000, routes.length * 8_000));
 
@@ -86,11 +94,8 @@ test.describe('No Cloudinary crawl', () => {
           // Flag broken local / Netlify Image CDN assets. Pre-existing Unsplash
           // IPX 403s are out of scope for this migration.
           if ((type === 'image' || type === 'media') && res.status() >= 400) {
-            if (isLocalImageSrc(url) || url.includes('/.netlify/images') || url.includes('/_ipx/')) {
-              // Only fail when the proxied source is a local /images/ asset.
-              if (isLocalImageSrc(url))
-                badMedia.push(`${res.status()} ${url}`);
-            }
+            if (isLocalImageSrc(url))
+              badMedia.push(`${res.status()} ${url}`);
           }
         };
         page.on('response', onResponse);

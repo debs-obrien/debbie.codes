@@ -9,5 +9,7 @@ export default defineEndformConfig({
   additionalFiles: [
     'scripts/check-content.mjs',
     'utils/videos.ts',
+    // Optional local sitemap; crawl also fetches /sitemap.xml from the preview.
+    'public/sitemap.xml',
   ],
 })
