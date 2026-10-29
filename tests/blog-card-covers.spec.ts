@@ -26,8 +26,8 @@ async function expectCardCover(page: import('@playwright/test').Page, slug: stri
   return { withCoverCard, cover, box };
 }
 
-// On /blog this post is the lead card, whose cover is the LCP image and loads eagerly.
-for (const [path, loading] of [['/', 'lazy'], ['/blog', 'eager']] as const) {
+// First few list covers load eagerly (above the fold); lead on /blog is also eager/high.
+for (const [path, loading] of [['/', 'eager'], ['/blog', 'eager']] as const) {
   test(`blog cards on ${path} show a ${loading} 2:1 cover for posts with an image`, async ({ page }) => {
     await page.goto(path);
     await expectCardCover(page, COVER_POST, /224px|400px|640px|896px|320px/, loading);
@@ -88,5 +88,6 @@ test('compact cards on /blog flush title with excerpt (no arrow indent)', async 
 
 test('home recent posts include a 2:1 cover for the birthday post', async ({ page }) => {
   await page.goto('/');
-  await expectCardCover(page, HOME_COVER_POST, /224px|400px/);
+  await expectCardCover(page, HOME_COVER_POST, /224px|400px/, 'eager');
 });
+

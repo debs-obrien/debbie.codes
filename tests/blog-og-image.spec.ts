@@ -17,16 +17,19 @@ test.describe('Blog OG / Twitter images', () => {
     expect(ogImage).toMatch(/^https:\/\//);
     expect(twitterImage).toMatch(/^https:\/\//);
     expect(ogImage).not.toBe(DEFAULT_OG_IMAGE);
+    expect(ogImage).not.toMatch(/res\.cloudinary\.com/);
     expect(ogImage).toContain('devs-in-the-forest');
-    // Do not request.get the Cloudinary OG URL — CI/request traffic shows up as
-    // the "node" client in Cloudinary bandwidth reports. Meta tags are enough.
+    expect(ogImage).toMatch(/\/.netlify\/images\?/);
+    await expect(page.locator('meta[property="og:image:width"]')).toHaveAttribute('content', '1200');
+    await expect(page.locator('meta[property="og:image:height"]')).toHaveAttribute('content', '630');
   });
   test('Grok Bot 50th birthday post uses its local share image and shows a header cover', async ({ page }) => {
     await page.goto('/blog/grok-bot-50th-birthday-photo-video');
-    const expected = 'https://debbie.codes/images/blog/covers/grok-bot-50th-birthday-photo-video.png';
-    await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', expected);
-    await expect(page.locator('meta[name="twitter:image"]')).toHaveAttribute('content', expected);
-    // image frontmatter also drives the in-article cover below the title (ogImage alone does not)
+    const ogImage = await page.locator('meta[property="og:image"]').getAttribute('content');
+    expect(ogImage).toMatch(/^https:\/\/debbie\.codes\/\.netlify\/images\?/);
+    expect(ogImage).toContain('grok-bot-50th-birthday-photo-video');
+    expect(ogImage).not.toMatch(/res\.cloudinary\.com/);
+    await expect(page.locator('meta[name="twitter:image"]')).toHaveAttribute('content', ogImage!);
     const headerCover = page.locator('article img[alt*="50th birthday"]').first();
     await expect(headerCover).toBeVisible();
     await expect(headerCover).toHaveAttribute('src', /grok-bot-50th-birthday-photo-video/);
