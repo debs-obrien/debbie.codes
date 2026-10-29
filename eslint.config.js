@@ -13,6 +13,7 @@ export default antfu(
       'content/**',
       // One-shot Cloudinary migration tooling (not runtime app code).
       'scripts/cloudinary/**',
+      'scripts/optimize-images.mjs',
     ],
   },
   {

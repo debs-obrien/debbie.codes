@@ -4,8 +4,8 @@ date: 2026-10-14
 description: "Your Grok Bot account comes with a cloud computer, browser and email that all your bots share. Here's what that looks like and why it changes how the bots work."
 tags: [ai, agents, grok-bot]
 published: true
-image: /images/blog/covers/grok-bot-explained.png
-ogImage: /images/blog/covers/grok-bot-explained.png
+image: /images/blog/covers/grok-bot-explained.webp
+ogImage: /images/blog/covers/grok-bot-explained.webp
 ---
 
 At the weekend I showed Grok Bot to some family and friends. They were blown away, but they were also like, "what the hell is Grok Bot? What are you talking about?" Nobody had heard of it. Everybody had heard of ChatGPT, though, and practically all of them are quite happily using it and know what it does.
@@ -25,7 +25,7 @@ In the app you can wake that computer up and look at it. You don't have to. Most
 
 When I press take control, I'm in control. I can open Google Chrome, scroll around and click around just like on my own laptop. You don't need to do that, but this is the computer your bots use.
 
-![Grok Bot cloud computer desktop with Google Chrome open after taking control](/images/blog/grok-bot-explained/01-take-control-chrome-0350.png)
+![Grok Bot cloud computer desktop with Google Chrome open after taking control](/images/blog/grok-bot-explained/01-take-control-chrome-0350.webp)
 
 ## What's on the computer
 
@@ -35,7 +35,7 @@ There's also a terminal. That's for people who know how to code, and you'll prob
 
 So the bot goes off and does things on your Grok Bot computer, then tells you what it found, or how it logged in, or what it bought. That's basically how it works.
 
-![File manager on the Grok Bot cloud computer showing files the bots have been working with](/images/blog/grok-bot-explained/02-file-manager-0430.png)
+![File manager on the Grok Bot cloud computer showing files the bots have been working with](/images/blog/grok-bot-explained/02-file-manager-0430.webp)
 
 ## Creating a bot and setting up routines
 
@@ -55,7 +55,7 @@ I didn't have to find out where any of these events were. It just got it done. I
 
 Again, you don't have to watch any of this. I was only showing you what happens behind the scenes. Normally you'd keep it closed and just carry on chatting.
 
-![Grok Bot browser showing Luma event search results for upcoming Grok Bot sessions](/images/blog/grok-bot-explained/03-luma-events-0825.png)
+![Grok Bot browser showing Luma event search results for upcoming Grok Bot sessions](/images/blog/grok-bot-explained/03-luma-events-0825.webp)
 
 ## Your account even has its own email
 

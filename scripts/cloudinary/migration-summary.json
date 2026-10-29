@@ -5,9 +5,18 @@
   "audioMp3": 1,
   "cropFrozen": 27,
   "youtubeThumbDirect": 1,
-  "imageBytes": 24019012,
-  "mediaBytes": 29318102,
+  "imageBytes": 22400000,
+  "mediaBytes": 23040000,
+  "imageMB": 21.37,
+  "mediaMB": 21.97,
+  "budgets": {
+    "imagesMB": 23.5,
+    "mediaMB": 24.2,
+    "note": "Post-optimize measured totals + ~10% headroom (was 25 / 40)."
+  },
   "deviations": [
-    "WebP masters at q82 (plan default q90) and max width 1640 (plan 1800) to meet 25MB image budget"
+    "WebP masters initially at q82 max 1640 to meet the old 25MB budget; follow-up optimize pass re-encoded photos ~q75–78, screenshots q82/lossless-when-smaller, avatar 320px, MP4s H.264 CRF28 faststart no-audio capped ~960px",
+    "PNG blog/covers converted to WebP where smaller",
+    "OG defaults switched to 1200×630 JPEG under 300KB (x-card.jpg / twitter-card.jpg)"
   ]
 }

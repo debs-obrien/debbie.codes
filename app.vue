@@ -2,12 +2,13 @@
 const description = 'Debbie O\'Brien, Developer Educator focused on AI agents, Playwright & testing, with over 15 years experience in Frontend development. Google Developer Expert in web technologies, Former Microsoft Most Valuable Professional in developer technologies, GitHub Star Alumni, Nuxt Ambassador and Cloudinary Media Developer Expert.'
 const ogTitle = 'Debbie codes and helps others learn AI agents, Playwright, testing, React, Nuxt and more'
 const twitterDescription = 'My website of where I play around with AI agents, Playwright, Nuxt and more and showcase my blog, resources etc'
-const twitterCard = 'https://debbie.codes/x-card.png'
+const twitterCard = 'https://debbie.codes/x-card.jpg'
 const mySite = 'https://debbie.codes'
 
 const { path } = useRoute()
-const canonical = computed(()=> {
-  if (path === '/') return mySite
+const canonical = computed(() => {
+  if (path === '/')
+    return mySite
   const { href: canonical } = new URL(path, mySite)
   return canonical
 })
@@ -41,8 +42,7 @@ useHead({
     },
     {
       property: 'og:title',
-      content: ogTitle
-      ,
+      content: ogTitle,
     },
     {
       property: 'og:description',

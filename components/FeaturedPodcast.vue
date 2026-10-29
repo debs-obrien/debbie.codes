@@ -1,4 +1,11 @@
 <script setup lang="ts">
+withDefaults(defineProps<{
+  /** Mark the cover as the page LCP image (podcasts index). Leave off on home. */
+  priority?: boolean
+}>(), {
+  priority: false,
+})
+
 // Fetch the featured podcast dynamically
 const { data: featuredPodcast } = await useAsyncData('featured-podcast', () =>
   queryCollection('podcasts')
@@ -31,7 +38,8 @@ const { data: featuredPodcast } = await useAsyncData('featured-podcast', () =>
               densities="x1 x2"
               fit="cover"
               format="webp"
-              loading="lazy"
+              :loading="priority ? 'eager' : 'lazy'"
+              :fetchpriority="priority ? 'high' : undefined"
               decoding="async"
             />
           </div>

@@ -5,8 +5,8 @@ description: "Every hour, an agent opens our real app, clicks around like a test
 tags: [ai, agents, testing, playwright]
 published: true
 canonical: https://theaiplatform.app/blog/an-agent-that-hunts-bugs-while-i-sleep/
-image: /images/blog/covers/an-agent-that-hunts-bugs-while-i-sleep.png
-ogImage: /images/blog/covers/an-agent-that-hunts-bugs-while-i-sleep.png
+image: /images/blog/covers/an-agent-that-hunts-bugs-while-i-sleep.webp
+ogImage: /images/blog/covers/an-agent-that-hunts-bugs-while-i-sleep.webp
 ---
 
 I have a teammate who never sleeps, never gets bored, and spends every hour poking at our app trying to break it. It is an agent. Every hour it opens the real app, clicks around like a tester would, and files a bug report for anything that looks off.

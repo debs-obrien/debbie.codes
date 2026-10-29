@@ -70,7 +70,7 @@ useHead({
 
     <!-- Featured Podcast Section -->
     <section class="animated-section mb-16">
-      <FeaturedPodcast />
+      <FeaturedPodcast priority />
     </section>
 
     <!-- Podcasts Grid Section -->

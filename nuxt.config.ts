@@ -53,16 +53,17 @@ export default defineNuxtConfig({
       },
     },
     domains: ['images.unsplash.com', 'dev-to-uploads.s3.amazonaws.com', 'raw.githubusercontent.com', 'theaiplatform.app', 'i.ytimg.com', 'img.youtube.com'],
+    // Prefer WebP; Netlify Image CDN negotiates AVIF when the client accepts it.
     format: ['webp'],
     quality: 80,
+    // Keep screens aligned with real layout breakpoints used in `sizes`.
+    // Drop unused ultra-wide widths that only inflate srcset.
     screens: {
-      'xs': 320,
-      'sm': 640,
-      'md': 768,
-      'lg': 1024,
-      'xl': 1280,
-      'xxl': 1536,
-      '2xl': 1536,
+      xs: 320,
+      sm: 640,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
     },
   },
 

@@ -19,13 +19,14 @@ import {
 const root = fileURLToPath(new URL('../..', import.meta.url))
 const manifestPath = join(root, 'scripts/cloudinary/manifest.json')
 const outRoot = join(root, 'public/images/content')
-const IMAGE_BUDGET = 25 * 1024 * 1024
-const MEDIA_BUDGET = 40 * 1024 * 1024
+/** Post-optimize totals (~21.4 / ~22.0 MB) + ~10% headroom. */
+const IMAGE_BUDGET = Math.round(23.5 * 1024 * 1024)
+const MEDIA_BUDGET = Math.round(24.2 * 1024 * 1024)
 /** 2× body column (818px) with a little headroom; plan default was 1800. */
 const MAX_IMAGE_W = 1640
-const MAX_VIDEO_W = 1280
-/** Photo quality. Plan default q90 blew the 25MB image budget (~37MB). q82 is documented. */
-const WEBP_QUALITY = 82
+const MAX_VIDEO_W = 960
+/** Photos re-encoded around q75–78 in the follow-up optimize pass; convert default kept conservative. */
+const WEBP_QUALITY = 78
 
 mkdirSync(outRoot, { recursive: true })
 
@@ -400,8 +401,8 @@ manifest.totals = {
 }
 writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`)
 
-console.log(`Images: ${manifest.totals.imageMB} MB (budget 25)`)
-console.log(`Video+audio: ${manifest.totals.mediaMB} MB (budget 40)`)
+console.log(`Images: ${manifest.totals.imageMB} MB (budget ${(IMAGE_BUDGET / 1024 / 1024).toFixed(1)})`)
+console.log(`Video+audio: ${manifest.totals.mediaMB} MB (budget ${(MEDIA_BUDGET / 1024 / 1024).toFixed(1)})`)
 
 if (imageBytes > IMAGE_BUDGET || mediaBytes > MEDIA_BUDGET) {
   console.error('BUDGET EXCEEDED — top 10 by size:')

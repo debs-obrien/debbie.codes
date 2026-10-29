@@ -1,5 +1,5 @@
 /** Site-wide default social/OG card (1200×630). Used when a page has no cover image. */
-export const DEFAULT_OG_IMAGE = 'https://debbie.codes/x-card.png'
+export const DEFAULT_OG_IMAGE = 'https://debbie.codes/x-card.jpg'
 
 const UNSPLASH_BASE = 'https://images.unsplash.com/'
 const SITE_ORIGIN = 'https://debbie.codes'

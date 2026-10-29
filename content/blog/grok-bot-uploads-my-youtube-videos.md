@@ -4,8 +4,8 @@ date: 2026-10-17
 description: "Grok Bot can use your own computer too. I asked it by voice to find a video on my laptop, fix the audio and hand it to my other bots to get it ready for YouTube, with nothing going public until I say yes."
 tags: [ai, agents, grok-bot]
 published: true
-image: /images/blog/covers/grok-bot-uploads-my-youtube-videos.png
-ogImage: /images/blog/covers/grok-bot-uploads-my-youtube-videos.png
+image: /images/blog/covers/grok-bot-uploads-my-youtube-videos.webp
+ogImage: /images/blog/covers/grok-bot-uploads-my-youtube-videos.webp
 ---
 
 <lite-youtube
@@ -25,7 +25,7 @@ I also said don't do this work yourself. Find the bot that does this work and ha
 
 That was it. Sent off to the bot.
 
-![Asking Grok Bot by voice to find my video and upload it to YouTube](/images/blog/grok-bot-uploads-my-youtube-videos/01-voice-request.png)
+![Asking Grok Bot by voice to find my video and upload it to YouTube](/images/blog/grok-bot-uploads-my-youtube-videos/01-voice-request.webp)
 
 ## It found the video on my computer
 
@@ -49,7 +49,7 @@ If you're ever unsure, you can just ask, "How are we getting on?" Then you get a
 
 And this is where it got good. The audio was too quiet and lopsided. The right channel was much quieter than the left. I actually had my microphone turned the wrong way, so that's good to know. My video editor bot cleaned it up and brought it to normal YouTube loudness without changing the video. I didn't have to open an editor at all.
 
-![The update: the audio was too quiet and lopsided, so the video editor bot fixed it](/images/blog/grok-bot-uploads-my-youtube-videos/02-audio-fixed.png)
+![The update: the audio was too quiet and lopsided, so the video editor bot fixed it](/images/blog/grok-bot-uploads-my-youtube-videos/02-audio-fixed.webp)
 
 ## Adding a bot to the Publish channel
 
@@ -59,7 +59,7 @@ So I added it. In the Publish channel you go to Members, and you can add a membe
 
 Normally I'd do all this through my chief of staff bot, but because I was recording, I used my on-camera bot.
 
-![The Publish channel and its members](/images/blog/grok-bot-uploads-my-youtube-videos/03-publish-members.png)
+![The Publish channel and its members](/images/blog/grok-bot-uploads-my-youtube-videos/03-publish-members.webp)
 
 ## The YouTube bot waits for my OK
 
@@ -67,7 +67,7 @@ My YouTube bot had the title, description and tags ready, and was waiting for my
 
 And when you see it on YouTube, you'll think I spent lots of time on titles, descriptions, good SEO names, chapters and all that kind of stuff. It's all done by my bot. If you're running a YouTube channel, or thinking about starting one, this is going to save you so much time.
 
-![The YouTube bot has the metadata ready and asks before uploading as private](/images/blog/grok-bot-uploads-my-youtube-videos/04-youtube-waits.png)
+![The YouTube bot has the metadata ready and asks before uploading as private](/images/blog/grok-bot-uploads-my-youtube-videos/04-youtube-waits.webp)
 
 ## It blurs private stuff for you
 
@@ -85,7 +85,7 @@ I write all my blog post drafts in Notion. You can connect Notion to Grok Bot, o
 
 Then my designer bot came back with some thumbnail options for the "What the Hell is Grokbot?" video. And I didn't really like any of them. They tied in nicely with my blog post covers, but I think they were missing the point. My face was a bit too in your face. What are we trying to show in this video? How Grok Bot works and what it is. So I asked for some more ideas.
 
-![The first thumbnail options from my designer bot](/images/blog/grok-bot-uploads-my-youtube-videos/05-thumbnail-options.png)
+![The first thumbnail options from my designer bot](/images/blog/grok-bot-uploads-my-youtube-videos/05-thumbnail-options.webp)
 
 Design is really hard sometimes. And something you can do is ask other bots for their ideas too, like engineer or the YouTube bot. You can ask bots to ask other bots to get ideas and perspectives, which is kind of funky.
 

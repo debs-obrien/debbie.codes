@@ -4,8 +4,8 @@ date: 2026-10-13
 description: "How I connected Alexa to my Grok Bot chief of staff with a small Cloudflare Worker, and learned the Amazon developer console by calling my engineer bot in Grok Bot and having it talk me through each screen."
 tags: [ai, personal, grok-bot]
 published: true
-image: /images/blog/covers/talk-to-my-bots-through-alexa.png
-ogImage: /images/blog/covers/talk-to-my-bots-through-alexa.png
+image: /images/blog/covers/talk-to-my-bots-through-alexa.webp
+ogImage: /images/blog/covers/talk-to-my-bots-through-alexa.webp
 ---
 
 ## Why I wanted this
@@ -158,11 +158,11 @@ Here's my skill ID: [skill ID]. Set it as SKILL_APPLICATION_ID so only this skil
 
 **3. Set the invocation name.** This is where my bot's name changed. I wanted "chief of staff", but Amazon has rules for invocation names: no launch words like "ask" or "open", no connecting words like "to", "for", "by" or "with", and small words like "the", "a" or "of" can trip it up too. So "chief of staff" became **chief bot**: short, easy to say, and clear of all those rules. Tell your bot the name you pick, because it goes in the interaction model too. Amazon's [invocation name rules](https://developer.amazon.com/en-US/docs/alexa/custom-skills/choose-the-invocation-name-for-a-custom-skill.html) list them all.
 
-![The invocation name page. Mine is "chief bot".](/images/blog/alexa-chief-bot/01-invocation-name.png)
+![The invocation name page. Mine is "chief bot".](/images/blog/alexa-chief-bot/01-invocation-name.webp)
 
 **4. Language settings.** Turn on **Sync Locales** and tick the other versions of English you want.
 
-![Language settings with Sync Locales on: English (UK) as primary, US, Australia, Canada and India synced.](/images/blog/alexa-chief-bot/03-language-settings.png)
+![Language settings with Sync Locales on: English (UK) as primary, US, Australia, Canada and India synced.](/images/blog/alexa-chief-bot/03-language-settings.webp)
 
 **5. Paste in the interaction model.** This is the list of things you can say to your skill. You don't write it yourself: my engineer bot wrote it along with the Worker and gave it to me to paste. Ask yours for it:
 
@@ -172,7 +172,7 @@ Give me the interaction model JSON for the skill, ready to paste into the JSON E
 
 Paste it into the **JSON Editor**, click **Save**, then **Build**, and wait for the build to finish. Until you build, Amazon's Hello World starter model is still the live one.
 
-![The JSON Editor with my model: one AskIntent and a query slot of type AMAZON.SearchQuery.](/images/blog/alexa-chief-bot/02-json-editor-intent-slot.png)
+![The JSON Editor with my model: one AskIntent and a query slot of type AMAZON.SearchQuery.](/images/blog/alexa-chief-bot/02-json-editor-intent-slot.webp)
 
 **6. Set the endpoint.** This is where Alexa sends what you say, so it points at your Worker. Use the address your bot gave you in Step 3, with `/alexa` on the end. Choose **HTTPS** and paste it in. My bot also told me which SSL certificate option to pick, because `workers.dev` addresses use a wildcard certificate: "My development endpoint is a sub-domain of a domain that has a wildcard certificate from a certificate authority". Check every region, not just Default. If you didn't save the address, ask:
 
@@ -180,7 +180,7 @@ Paste it into the **JSON Editor**, click **Save**, then **Build**, and wait for 
 What's the full HTTPS endpoint I should paste into the Alexa console, and which SSL certificate option do I pick?
 ```
 
-![The endpoint page: HTTPS with the wildcard certificate option. URLs blurred.](/images/blog/alexa-chief-bot/04-endpoint-wildcard-ssl.png)
+![The endpoint page: HTTPS with the wildcard certificate option. URLs blurred.](/images/blog/alexa-chief-bot/04-endpoint-wildcard-ssl.webp)
 
 **7. Turn on testing.** The **Test** tab starts as Off. Set it to **Development**, and set the simulator's language dropdown to your locale, for example English (GB).
 
@@ -188,7 +188,7 @@ What's the full HTTPS endpoint I should paste into the Alexa console, and which 
 
 Try the simulator on the Test tab first.
 
-![The Alexa simulator in English (GB): "ask chief bot do I have any new emails" and the reply "On it — I've woken chief of staff."](/images/blog/alexa-chief-bot/05-test-simulator-on-it.png)
+![The Alexa simulator in English (GB): "ask chief bot do I have any new emails" and the reply "On it — I've woken chief of staff."](/images/blog/alexa-chief-bot/05-test-simulator-on-it.webp)
 
 Then try a real Echo signed in to the same Amazon account. Make sure the Echo's language is one you built the skill for, and say:
 
@@ -213,7 +213,7 @@ Things to check in the console or tell your agent:
 
 ## How it works today
 
-![Chief of staff answering in its chat after I asked Alexa: what my engineer bot is doing, and what is left on my calendar today.](/images/blog/alexa-chief-bot/06-cos-answer-in-chat.png)
+![Chief of staff answering in its chat after I asked Alexa: what my engineer bot is doing, and what is left on my calendar today.](/images/blog/alexa-chief-bot/06-cos-answer-in-chat.webp)
 
 It works. I asked about new emails, the Worker got the query, the webhook confirmed chief of staff had woken, and Alexa said "on it".
 

@@ -23,3 +23,5 @@ jobs:
         run: node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/check-content.mjs
       - name: Check app code has no Cloudinary refs
         run: node scripts/check-no-cloudinary.mjs
+      - name: Check image/media budgets
+        run: node scripts/check-image-budgets.mjs

@@ -81,8 +81,11 @@ watch(() => route.fullPath, (to) => {
                 width="96"
                 height="96"
                 sizes="50px"
+                densities="x1 x2"
                 quality="80"
                 format="webp"
+                loading="eager"
+                decoding="async"
               />
               <span class="self-center text-white"> Debbie O'Brien </span>
             </NuxtLink>

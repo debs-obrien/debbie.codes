@@ -22,7 +22,11 @@
       alt="broken connection"
       width="444"
       height="256"
-      sizes="sm:355px md:320px lg:480px block"
+      sizes="sm:355px md:320px lg:480px"
+      densities="x1 x2"
+      format="webp"
+      loading="eager"
+      decoding="async"
     />
   </div>
 </template>

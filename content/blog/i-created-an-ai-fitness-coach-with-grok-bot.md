@@ -4,8 +4,8 @@ date: 2026-09-08
 description: "I created a Grok Bot coach for gym, nutrition, and accountability after having twins. Home gym photos, 130g protein, workout critiques, and a garage playlist on my iPad."
 tags: [ai, agents, grok-bot]
 published: true
-image: /images/blog/covers/i-created-an-ai-fitness-coach-with-grok-bot.png
-ogImage: /images/blog/covers/i-created-an-ai-fitness-coach-with-grok-bot.png
+image: /images/blog/covers/i-created-an-ai-fitness-coach-with-grok-bot.webp
+ogImage: /images/blog/covers/i-created-an-ai-fitness-coach-with-grok-bot.webp
 ---
 
 Hey all. Today I wanted to show you what I'm doing with Grok Bot, which is CoachBot. Yes, I created a bot that's going to be my coach for gym and nutrition and all that kind of stuff.

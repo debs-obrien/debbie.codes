@@ -4,8 +4,8 @@ date: 2026-10-13
 description: "How I made a photo video for my brother Ken's 50th birthday with my Grok Bots: scanned prints, photos from my Mac and family, music, pacing, and an intro and outro."
 tags: [ai, personal, grok-bot]
 published: true
-image: /images/blog/covers/grok-bot-50th-birthday-photo-video.png
-ogImage: /images/blog/covers/grok-bot-50th-birthday-photo-video.png
+image: /images/blog/covers/grok-bot-50th-birthday-photo-video.webp
+ogImage: /images/blog/covers/grok-bot-50th-birthday-photo-video.webp
 ---
 
 ## Why I made it
@@ -59,9 +59,9 @@ The designer bot made the intro and the ending card. The theme was easy: my brot
 
 The real cards have Ken's photo on them, so for this post the designer bot made versions with a cartoon face instead:
 
-![The intro card: Ken from the Barbie movie, with a cartoon face for this post.](/images/blog/ken-50th-birthday-video/intro-card.png){width="1920" height="1080"}
+![The intro card: Ken from the Barbie movie, with a cartoon face for this post.](/images/blog/ken-50th-birthday-video/intro-card.webp){width="1280" height="720"}
 
-![The ending card: Kenough! Cartoon face for this post.](/images/blog/ken-50th-birthday-video/ending-card.png){width="1920" height="1080"}
+![The ending card: Kenough! Cartoon face for this post.](/images/blog/ken-50th-birthday-video/ending-card.webp){width="1280" height="720"}
 
 ## Keeping every version
 

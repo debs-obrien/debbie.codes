@@ -5,8 +5,8 @@ description: "I have been trying to build a Learning Hub App for a good few mont
 tags: [ai, mcp, playwright]
 published: true
 canonical: https://dev.to/debs_obrien/i-needed-an-app-to-track-my-learning-journey-ai-built-it-in-less-than-half-an-hour-with-a-single-31c4
-image: /images/blog/covers/app-to-track-my-learning-journey.png
-ogImage: /images/blog/covers/app-to-track-my-learning-journey.png
+image: /images/blog/covers/app-to-track-my-learning-journey.webp
+ogImage: /images/blog/covers/app-to-track-my-learning-journey.webp
 ---
 
 I have been trying to build a Learning Hub App for a good few months using various tools and have had many iterations back and forth on trying to get it to work and ended up going round in circles fixing one thing and breaking another. 

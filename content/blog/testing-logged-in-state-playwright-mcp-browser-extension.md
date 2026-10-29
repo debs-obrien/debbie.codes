@@ -5,8 +5,8 @@ description: If you've ever needed to test an application that requires authenti
 tags: [playwright, mcp, testing, ai]
 canonical: https://dev.to/debs_obrien/testing-in-a-logged-in-state-with-the-playwright-mcp-browser-extension-4cmg
 published: true
-image: /images/blog/covers/testing-logged-in-state-playwright-mcp-browser-extension.png
-ogImage: /images/blog/covers/testing-logged-in-state-playwright-mcp-browser-extension.png
+image: /images/blog/covers/testing-logged-in-state-playwright-mcp-browser-extension.webp
+ogImage: /images/blog/covers/testing-logged-in-state-playwright-mcp-browser-extension.webp
 ---
 
 If you've ever needed to test an application that requires authentication, you know the pain: logging in every time or, worse, handing over your credentials to an LLM.
