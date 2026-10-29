@@ -27,7 +27,10 @@ export default <Partial<Config>>{
         },
       },
       colors: {
-        primary: '#d8002d',
+        // Text, borders, icons — switches to #ff5a73 in .dark
+        primary: 'rgb(var(--color-primary) / <alpha-value>)',
+        // Solid fills with white/light text — stays #d8002d in dark mode
+        'primary-fill': 'rgb(var(--color-primary-fill) / <alpha-value>)',
         secondary: '#333',
         dark: '#091a28',
         elevated: '#dfe8ef',

@@ -105,7 +105,7 @@ useHead({
         href="https://www.linkedin.com/in/debbie-obrien"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-primary/90 transition-colors"
+        class="inline-flex items-center px-6 py-3 bg-primary-fill text-white font-medium rounded-lg hover:bg-primary-fill/90 transition-colors"
       >
         Get in touch
       </a>

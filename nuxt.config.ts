@@ -29,6 +29,10 @@ export default defineNuxtConfig({
     '@nuxt/content',
   ],
 
+  robots: {
+    sitemap: 'https://debbie.codes/sitemap.xml',
+  },
+
   colorMode: {
     classSuffix: '',
     preference: 'system', // default value of $colorMode.preference
