@@ -24,7 +24,7 @@ defineProps<{
           format="webp"
           loading="lazy"
           decoding="async"
-          sizes="(max-width: 768px) 50vw, 280px"
+          sizes="xs:50vw md:280px"
           densities="x1 x2"
           class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
         />

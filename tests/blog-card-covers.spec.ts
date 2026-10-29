@@ -90,4 +90,3 @@ test('home recent posts include a 2:1 cover for the birthday post', async ({ pag
   await page.goto('/');
   await expectCardCover(page, HOME_COVER_POST, /224px|400px/, 'eager');
 });
-

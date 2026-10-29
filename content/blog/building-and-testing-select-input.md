@@ -314,7 +314,7 @@ it('checks value changes when user chooses a new size', () => {
 
 And that's it. We now have a select component that works as we would expect and can now be used in the component where it should be used knowing that it will work correctly. Compositions are a great way of seeing the different states of our components and we can then use the composition file to understand what we need to do to make our component work when using it in our next component/app.
 
-<video autoplay muted loop playsinline width="416" height="240" poster="/images/content/blog/2022/select-on-change_bvkj1x-poster.jpg" preload="none">
+<video aria-label="select element changing size on click" autoplay muted loop playsinline width="416" height="240" poster="/images/content/blog/2022/select-on-change_bvkj1x-poster.jpg" preload="none">
   <source src="/images/content/blog/2022/select-on-change_bvkj1x.mp4" type="video/mp4">
 </video>
 

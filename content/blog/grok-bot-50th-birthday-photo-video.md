@@ -59,9 +59,9 @@ The designer bot made the intro and the ending card. The theme was easy: my brot
 
 The real cards have Ken's photo on them, so for this post the designer bot made versions with a cartoon face instead:
 
-![The intro card: Ken from the Barbie movie, with a cartoon face for this post.](/images/blog/ken-50th-birthday-video/intro-card.png)
+![The intro card: Ken from the Barbie movie, with a cartoon face for this post.](/images/blog/ken-50th-birthday-video/intro-card.png){width="1920" height="1080"}
 
-![The ending card: Kenough! Cartoon face for this post.](/images/blog/ken-50th-birthday-video/ending-card.png)
+![The ending card: Kenough! Cartoon face for this post.](/images/blog/ken-50th-birthday-video/ending-card.png){width="1920" height="1080"}
 
 ## Keeping every version
 

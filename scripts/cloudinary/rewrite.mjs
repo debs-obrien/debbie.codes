@@ -168,7 +168,8 @@ function rewriteBody(body, file, hasHeroImage) {
     if (entry.outFormat === 'mp4' && /gif-to-mp4/.test(entry.conversion || '')) {
       changes++
       const poster = entry.posterPath || path.replace(/\.mp4$/, '-poster.jpg')
-      return `<video autoplay muted loop playsinline width="${entry.outWidth}" height="${entry.outHeight}" poster="${poster}">\n  <source src="${path}" type="video/mp4">\n</video>`
+      const label = alt ? ` aria-label="${alt.replace(/"/g, '&quot;')}"` : ''
+      return `<video${label} autoplay muted loop playsinline width="${entry.outWidth}" height="${entry.outHeight}" poster="${poster}" preload="none">\n  <source src="${path}" type="video/mp4">\n</video>`
     }
     if (attrs)
       return full
@@ -176,8 +177,9 @@ function rewriteBody(body, file, hasHeroImage) {
     return `![${alt}](${path}){width="${entry.outWidth}" height="${entry.outHeight}"}`
   })
 
-  // Raw <img ... provider="cloudinary" ...>
-  text = text.replace(/<img\b([^>]*)>/gi, (full, attrs) => {
+  // Raw <img ... provider="cloudinary" ...> — lowercase tag only so fenced
+  // JSX `<Img />` component examples are left untouched.
+  text = text.replace(/<img\b([^>]*)>/g, (full, attrs) => {
     let next = attrs
     let changed = false
     if (/\bprovider\s*=/.test(next)) {

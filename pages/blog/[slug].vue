@@ -160,6 +160,7 @@ useHead({
       </header>
       <div v-if="article.image" class="rounded mb-4 sm:mb-6 overflow-hidden object-cover object-center max-w-xl mx-auto">
         <NuxtImg
+          :provider="article.provider"
           :src="article.image"
           :alt="article.title"
           width="600"

@@ -17,7 +17,7 @@ test.describe('Local hard-coded images (Cloudinary offload)', () => {
     for (const [input, fragment] of [
       ['v1589118478/debbie.codes/debbie-thumb_clt00n', 'debbie-thumb'],
       ['v1668347473/debbie.codes/broken_vktobk.png', 'broken-connection'],
-      ['https://res.cloudinary.com/debsobrien/image/upload/c_thumb,w_200/v1768895680/debbie.codes/podcasts/alexusadays-future-of-testing', 'alexusadays-future-of-testing'],
+      ['https://res.cloudinary.com/debsobrien/image/upload/c_thumb,w_200/v1768895680/debbie.codes/podcasts/alexusadays-future-of-testing', 'alexusadays-future-of-testing']
     ] as const) {
       const url = resolveOgImage(input);
       expect(url).toMatch(/^https:\/\/debbie\.codes\/\.netlify\/images\?/);
@@ -26,4 +26,3 @@ test.describe('Local hard-coded images (Cloudinary offload)', () => {
     }
   });
 });
-

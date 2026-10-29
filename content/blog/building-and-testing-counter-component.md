@@ -380,7 +380,7 @@ it('should not decrease to less than 1', () => {
 
 And that's it. We now have a counter component that works as we would expect and can now be used in the component where it should be used knowing that it will work correctly. Compositions are a great way of seeing the different states of our components and we can then use the composition file to understand what we need to do to make our component work when using it in our next component/app.
 
-<video autoplay muted loop playsinline width="332" height="140" poster="/images/content/blog/2022/counter-couting_zn9mcw-poster.jpg" preload="none">
+<video aria-label="counter component changing on click" autoplay muted loop playsinline width="332" height="140" poster="/images/content/blog/2022/counter-couting_zn9mcw-poster.jpg" preload="none">
   <source src="/images/content/blog/2022/counter-couting_zn9mcw.mp4" type="video/mp4">
 </video>
 

@@ -39,4 +39,3 @@ test.describe('performance and accessibility guards', () => {
     await expect(leadCoverLink).toHaveAttribute('tabindex', '-1');
   });
 });
-

@@ -97,7 +97,7 @@ export type ProductDetailsProps = {} & React.HTMLAttributes<HTMLDivElement>
 export function ProductDetails() {
   return (
     <div className={styles.productDetails}>
-      <img className={styles.img} src="some-img-url" alt="alt" />
+      <Img className={styles.img} src="some-img-url" alt="alt" />
     </div>
   )
 }
@@ -126,7 +126,7 @@ export type ProductDetailsProps = {
 export function ProductDetails() {
   return (
     <div className={styles.productDetails}>
-      <img className={styles.img} src={src} alt={alt} />
+      <Img className={styles.img} src={src} alt={alt} />
     </div>
   )
 }
@@ -170,7 +170,7 @@ const {
 export function ProductDetails({ product }: ProductDetailsProps) {
   return (
     <div className={styles.productDetails}>
-      <img className={styles.img} src={src} alt={alt} />
+      <Img className={styles.img} src={src} alt={alt} />
       ...
     </div>
   )
@@ -214,7 +214,7 @@ export type ProductDetailsProps = {} & React.HTMLAttributes<HTMLDivElement>
 export function ProductDetails() {
   return (
     <div className={styles.productDetails}>
-      <img className={styles.img} src="some-img-url" alt="alt" />
+      <Img className={styles.img} src="some-img-url" alt="alt" />
       <Heading element="h1">Product Name</Heading>
     </div>
   )
