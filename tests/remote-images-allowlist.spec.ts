@@ -3,13 +3,11 @@ import { join } from 'node:path';
 import { NETLIFY_REMOTE_IMAGE_HOSTS } from '../utils/remote-images';
 import { expect, test } from './fixtures';
 
+const tomlPath = join(process.cwd(), 'netlify.toml');
+
 test('NETLIFY_REMOTE_IMAGE_HOSTS matches netlify.toml remote_images', () => {
-  const tomlPath = join(process.cwd(), 'netlify.toml');
-  // Endform runners only stage the test bundle — no repo checkout / netlify.toml.
-  test.skip(
-    process.env.ENDFORM === 'true' || !existsSync(tomlPath),
-    'netlify.toml is not available on Endform runners (no repo checkout)'
-  );
+  // Endform stages netlify.toml via endform.config.ts additionalFiles; skip if absent.
+  test.skip(!existsSync(tomlPath), 'netlify.toml not staged on this runner');
 
   const toml = readFileSync(tomlPath, 'utf8');
   const block = toml.match(/remote_images\s*=\s*\[([\s\S]*?)\]/);
