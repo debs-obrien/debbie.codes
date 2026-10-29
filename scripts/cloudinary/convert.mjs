@@ -39,7 +39,7 @@ function ensureDir(p) {
 function fileTypeHint(entry, cachePath) {
   const ext = (entry.originalFormat || entry.ext || cachePath.split('.').pop() || '').toLowerCase()
   const id = entry.publicId.toLowerCase()
-  if (entry.conversion === 'youtube-thumb-direct')
+  if (entry.conversion === 'youtube-thumb-direct' || entry.conversion === 'youtube-thumb-local')
     return 'skip'
   if (ext === 'mp3' || id.endsWith('.mp3'))
     return 'audio'
@@ -350,8 +350,12 @@ function addUniqueBytes(relPath, bytes, kind) {
 }
 
 for (const entry of manifest.entries) {
-  if (entry.skipDownload || entry.conversion === 'youtube-thumb-direct') {
-    updated.push({ ...entry, localPath: entry.sourceUrl || entry.localPath, conversion: 'youtube-thumb-direct' })
+  if (entry.skipDownload || entry.conversion === 'youtube-thumb-direct' || entry.conversion === 'youtube-thumb-local') {
+    updated.push({
+      ...entry,
+      localPath: entry.localPath?.startsWith('/') ? entry.localPath : (entry.sourceUrl || entry.localPath),
+      conversion: entry.conversion === 'youtube-thumb-local' ? 'youtube-thumb-local' : 'youtube-thumb-direct',
+    })
     continue
   }
   if (!entry.cachePath || !existsSync(entry.cachePath)) {

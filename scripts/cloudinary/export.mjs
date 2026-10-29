@@ -123,10 +123,11 @@ function probeDims(filePath, resourceType, ext) {
 // Build work list
 const jobs = []
 for (const pair of inventory.pairs) {
-  // Fetch → YouTube thumb: do not download from Cloudinary
+  // Fetch → YouTube thumb: local WebP master (not a remote_images host)
   if (pair.deliveryType === 'fetch') {
-    const yt = pair.fetchTarget?.includes('J3djzf5bMEs')
-      ? 'https://i.ytimg.com/vi/J3djzf5bMEs/hqdefault.jpg'
+    const isMab = pair.fetchTarget?.includes('J3djzf5bMEs')
+    const localPath = isMab
+      ? '/images/content/podcasts/mab-podcast-19-hqdefault.webp'
       : pair.fetchTarget
     byKey.set(pair.key, {
       key: pair.key,
@@ -134,19 +135,19 @@ for (const pair of inventory.pairs) {
       transform: pair.transform,
       resourceType: pair.resourceType,
       deliveryType: 'fetch',
-      sourceUrl: yt,
+      sourceUrl: isMab ? 'https://i.ytimg.com/vi/J3djzf5bMEs/hqdefault.jpg' : pair.fetchTarget,
       originalBytes: 0,
-      originalFormat: 'jpg',
+      originalFormat: isMab ? 'webp' : 'jpg',
       originalWidth: 480,
       originalHeight: 360,
       sha256: null,
       cachePath: null,
-      localPath: yt.startsWith('http') ? yt : null,
-      outBytes: null,
-      outWidth: null,
-      outHeight: null,
-      outFormat: null,
-      conversion: 'youtube-thumb-direct',
+      localPath,
+      outBytes: isMab ? 20658 : null,
+      outWidth: isMab ? 480 : null,
+      outHeight: isMab ? 360 : null,
+      outFormat: isMab ? 'webp' : null,
+      conversion: isMab ? 'youtube-thumb-local' : 'youtube-thumb-direct',
       skipDownload: true,
     })
     continue

@@ -171,7 +171,7 @@ useHead({
           fetchpriority="high"
           decoding="async"
           :preload="{ fetchPriority: 'high' }"
-          sizes="100vw sm:576px"
+          sizes="xs:100vw sm:576px"
           densities="x1 x2"
           class="rounded center mx-auto w-full"
         />

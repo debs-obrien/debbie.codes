@@ -7,9 +7,9 @@ Audit of every asset under `public/images/**` plus OG cards, Nuxt Image usage, l
 | Bucket | Before | After | Δ |
 |---|---:|---:|---:|
 | All images (`public/images/**`) | 31.63 MB | 23.15 MB | -8.48 MB |
-| Content images (`…/content/`) | 23.56 MB | 21.37 MB | -2.19 MB |
+| Content images (`…/content/`) | 23.56 MB | 21.39 MB | -2.17 MB |
 | Media (mp4/mp3) | 27.31 MB | 21.97 MB | -5.34 MB |
-| Asset counts | 320 img / 11 media | 320 img / 11 media | |
+| Asset counts | 320 img / 11 media | 321 img / 11 media | |
 
 ## Budgets (content tree)
 
@@ -92,15 +92,25 @@ Enforced by `scripts/check-image-budgets.mjs` (CI content-check) and `scripts/cl
 
 | Page | LCP image | `loading` / `fetchpriority` | Notes |
 |---|---|---|---|
-| `/` | CreativeHero avatar | eager + high | TopBar avatar eager without high; blog covers first-3 eager without high |
-| `/blog` | Lead cover | eager + high + preload | Imgix `provider` restored for remaining hostless covers |
-| `/blog/[slug]` | Article cover | eager + high + preload | `provider` restored |
+| `/` | CreativeHero avatar | eager + high | TopBar avatar eager without high; home blog covers + FeaturedVideo thumb are lazy (below fold) |
+| `/blog` | Lead cover | eager + high + preload | Imgix `provider` restored for remaining hostless covers; compact covers lazy |
+| `/blog/[slug]` | Article cover | eager + high + preload | `provider` restored; `sizes="xs:100vw sm:576px"` |
 | `/videos` | Featured YT thumb | preload + high | Plain `<img>` (YouTube) keeps native `sizes` |
-| `/podcasts` | FeaturedPodcast | eager + high via `priority` | Grid cards lazy |
+| `/podcasts` | FeaturedPodcast | eager + high via `priority` | `sizes="xs:100vw md:400px"` + `densities="x1"` (mobile ~320–400w); grid cards lazy |
 | `/hire-me` | (no local hero image) | — | Voice widget only |
 | `/about` | Avatar | eager + high | |
 
-`sizes` uses Nuxt breakpoint syntax everywhere on `NuxtImg` (PodcastCard → `50vw md:280px`). Screens config dropped unused `xxl`/`2xl`. Densities stay `x1 x2`.
+`sizes` must use Nuxt breakpoint keys (`xs:100vw …`). A bare `100vw` is parsed as screen `1px` and emits junk `1w`/`2w` srcset candidates with densities. ProseImg → `xs:100vw lg:820px`. Screens config dropped unused `xxl`/`2xl`. FeaturedPodcast uses `densities="x1"` so LCP is not forced to 800w.
+
+## Deploy-preview follow-up (post-`ddaa0b1`)
+
+| Issue | Fix |
+|---|---|
+| MAB #19 `i.ytimg.com` → Netlify Image CDN 400 | Local WebP `mab-podcast-19-hqdefault.webp`; crawl fails on any `/.netlify/images` 4xx |
+| Home mobile eager blog covers + YT `fetchpriority=high` | Compact `BlogPostList` covers always lazy; `FeaturedVideoSection` lazy, no fetchpriority |
+| Junk `1w`/`2w` srcset on prose + FeaturedPodcast | Prefix bare `100vw` with `xs:`; FeaturedPodcast `densities="x1"` |
+| `/podcasts` mobile LCP ~800px | FeaturedPodcast sizes + x1 densities → ~320–400w |
+| Coffee logo tighter crop | Re-encoded square master with `contain` pad (white) so `object-cover` shows full logo |
 
 ## Videos
 

@@ -29,8 +29,8 @@ test.describe('performance and accessibility guards', () => {
     const lead = covers.first();
     await expect(lead).not.toHaveAttribute('loading', 'lazy');
     await expect(lead).toHaveAttribute('fetchpriority', 'high');
-    // First three list covers are eager (above the fold); the rest stay lazy.
-    await expect(covers.nth(1)).toHaveAttribute('loading', 'eager');
+    // Only the lead is LCP; compact covers below the fold stay lazy.
+    await expect(covers.nth(1)).toHaveAttribute('loading', 'lazy');
     await expect(covers.nth(1)).not.toHaveAttribute('fetchpriority', 'high');
     await expect(covers.nth(3)).toHaveAttribute('loading', 'lazy');
     // The lead cover's link duplicates the title link, so it stays out of the a11y tree and tab order.

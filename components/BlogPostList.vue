@@ -122,7 +122,7 @@ function isLead(index: number) {
               height="300"
               fit="cover"
               format="webp"
-              :loading="index < 3 ? 'eager' : 'lazy'"
+              loading="lazy"
               decoding="async"
               sizes="xs:400px sm:224px"
               densities="x1 x2"

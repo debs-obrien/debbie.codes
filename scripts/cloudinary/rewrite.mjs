@@ -37,14 +37,14 @@ function resolveLocal(raw) {
     return null
   const trimmed = raw.trim()
 
-  // Special: fetch → YouTube thumb
+  // Special: fetch → local WebP master (avoid Netlify remote_images for i.ytimg.com)
   if (/image\/fetch/.test(trimmed) && /J3djzf5bMEs/.test(trimmed)) {
     return {
-      localPath: 'https://i.ytimg.com/vi/J3djzf5bMEs/hqdefault.jpg',
+      localPath: '/images/content/podcasts/mab-podcast-19-hqdefault.webp',
       outWidth: 480,
       outHeight: 360,
-      outFormat: 'jpg',
-      conversion: 'youtube-thumb-direct',
+      outFormat: 'webp',
+      conversion: 'youtube-thumb-local',
     }
   }
 

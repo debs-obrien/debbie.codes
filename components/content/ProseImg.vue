@@ -47,7 +47,7 @@ const imgHeight = computed(() => props.height ? Number(props.height) : undefined
     :alt="alt"
     :width="imgWidth"
     :height="imgHeight"
-    sizes="100vw lg:820px"
+    sizes="xs:100vw lg:820px"
     densities="x1 x2"
     :loading="loading"
     decoding="async"
