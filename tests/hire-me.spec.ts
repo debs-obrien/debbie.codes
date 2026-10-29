@@ -32,7 +32,6 @@ const companyNamesInQuestions = [
 ];
 
 const pageWideBanned = [
-  'ElevenLabs',
   'salary'
 ];
 
