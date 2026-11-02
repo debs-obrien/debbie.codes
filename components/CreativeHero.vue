@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import { PUBLIC_MAILTO } from '~/utils/site-contact'
+</script>
+
 <template>
   <section
     class="hero-spotlight relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] -mt-top-bar w-screen bg-dark text-white overflow-hidden"
@@ -12,12 +16,15 @@
 
     <div class="relative z-10 flex flex-col items-center justify-center text-center px-6 sm:px-10 pt-[7.5rem] pb-12 sm:pb-14">
       <NuxtImg
-        provider="cloudinary"
-        src="v1589118478/debbie.codes/debbie-thumb_clt00n"
+        src="/images/debbie-thumb.webp"
         alt="Debbie O'Brien"
         width="160"
         height="160"
         sizes="112px"
+        densities="x1 x2"
+        format="webp"
+        loading="eager"
+        decoding="async"
         class="hero-animate hero-animate-1 rounded-full mb-6 w-28 h-28 object-cover border-2 border-white/20"
       />
 
@@ -43,7 +50,7 @@
         <NuxtLink to="/now" class="hero-cta">
           See what I’m working on
         </NuxtLink>
-        <a href="mailto:dobriendev@gmail.com" class="hero-cta">
+        <a :href="PUBLIC_MAILTO" class="hero-cta">
           Say hello
         </a>
       </div>

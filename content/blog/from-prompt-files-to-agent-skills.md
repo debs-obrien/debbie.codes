@@ -4,8 +4,8 @@ date: 2026-02-18
 description: How I migrated from three separate VS Code prompt files to a single portable agent skill that handles videos, podcasts, and blog posts — with browser verification and automatic PR creation built in.
 tags: [ai, mcp, playwright]
 published: true
-image: /images/blog/covers/from-prompt-files-to-agent-skills.png
-ogImage: /images/blog/covers/from-prompt-files-to-agent-skills.png
+image: /images/blog/covers/from-prompt-files-to-agent-skills.webp
+ogImage: /images/blog/covers/from-prompt-files-to-agent-skills.webp
 ---
 
 A few weeks ago I wrote about [how I use AI agents and MCP to automate my website's content](/blog/ai-agents-mcp-automate-content). That post covered the *why* — I create a lot of content and keeping my site up to date was tedious. This post is about what happened next: how I took those initial prompt files and evolved them into something much more powerful.
@@ -64,7 +64,7 @@ But over time I started noticing the cracks.
 
 I decided to convert these prompts into [agent skills](https://goose-docs.ai/docs/guides/context-engineering/using-skills) — portable instruction sets that work across AI coding agents. Skills live in `.agents/skills/` and follow a standard format with a `SKILL.md` file that any compatible agent can discover and use.
 
-I started with the video prompt since that was the one I used most. Instead of the Playwright MCP server (which requires a specific MCP configuration), I used [`playwright-cli`](https://www.npmjs.com/package/@anthropic-ai/playwright-cli) — a standalone CLI tool for browser automation that works through regular shell commands. This meant any agent with shell access could use it.
+I started with the video prompt since that was the one I used most. Instead of the Playwright MCP server (which requires a specific MCP configuration), I used [`playwright-cli`](https://www.npmjs.com/package/@playwright/cli) — a standalone CLI tool for browser automation that works through regular shell commands. This meant any agent with shell access could use it.
 
 The first version was straightforward — translate the 15-line prompt into a detailed skill with actual steps:
 

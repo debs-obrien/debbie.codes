@@ -2,8 +2,7 @@
 title: Building and Testing a Select Component
 date: 2022-01-10
 description: Building a Select component with a Composition to see the component render in isolation as well as Tests using React Testing Library to test the select works on change and shows a new value.
-image: v1641812664/debbie.codes/blog/2022/select_2x_g2mbjj
-provider: cloudinary
+image: /images/content/blog/2022/select_2x_g2mbjj.webp
 tags: [react, testing]
 published: true
 ---
@@ -12,7 +11,7 @@ I have created a component that is actually made up of 2 smaller components, a S
 
 ## Building the Select Component
 
-![select-size](https://res.cloudinary.com/debsobrien/image/upload/v1641812664/debbie.codes/blog/2022/select_2x_g2mbjj)
+![select-size](/images/content/blog/2022/select_2x_g2mbjj.webp){width="636" height="432"}
 
 ### Importing React, Testing Library and Components
 
@@ -315,7 +314,9 @@ it('checks value changes when user chooses a new size', () => {
 
 And that's it. We now have a select component that works as we would expect and can now be used in the component where it should be used knowing that it will work correctly. Compositions are a great way of seeing the different states of our components and we can then use the composition file to understand what we need to do to make our component work when using it in our next component/app.
 
-![select element changing size on click](https://res.cloudinary.com/debsobrien/video/upload/f_auto,q_auto/v1641812321/debbie.codes/blog/2022/select-on-change_bvkj1x.gif)
+<video aria-label="select element changing size on click" autoplay muted loop playsinline width="416" height="240" poster="/images/content/blog/2022/select-on-change_bvkj1x-poster.jpg" preload="none">
+  <source src="/images/content/blog/2022/select-on-change_bvkj1x.mp4" type="video/mp4">
+</video>
 
 We should also document our component so that it contains clear instructions and examples which makes it even easier for our consumer to understand what the component does and how to use it. And of course tests make sure our component not only works as expected but also that if we do make any changes to it our tests ensure that it can not be exported if our tests are broken meaning if we do have any breaking changes we can fix our tests and release a new major version of our component.
 

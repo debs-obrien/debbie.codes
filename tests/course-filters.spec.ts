@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './fixtures';
 
 const topics = ['apollo', 'graphql', 'i18n', 'nuxt', 'react', 'router', 'vue'];
 
@@ -9,7 +9,7 @@ for (const topic of topics) {
 
       // Click on the topic tag link directly (they appear within course articles)
       await page.getByRole('link', { name: `#${topic}` }).first().click();
-      
+
       // Check that we navigated to the correct URL instead of checking heading text
       await expect(page).toHaveURL(new RegExp(`/courses/tags/${topic}`));
 

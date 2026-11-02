@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './fixtures';
 
 test.describe('Home Page Featured Content', () => {
   test.beforeEach(async ({ page }) => {

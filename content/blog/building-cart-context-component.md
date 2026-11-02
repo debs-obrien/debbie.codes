@@ -2,8 +2,7 @@
 title: Building a Cart Context Component
 date: 2022-02-02
 description: Creating a generic cart component that can add and remove a product from the cart using React Context. This component can then be used in any other component or app to create more specific cart components.
-image: v1643820029/debbie.codes/blog/2022/cart-context_2x_qlqg5q
-provider: cloudinary
+image: /images/content/blog/2022/cart-context_2x_qlqg5q.webp
 tags: [react]
 ---
 
@@ -11,7 +10,7 @@ When I was first asked to create a [shopping cart component](https://bit-shoe-st
 
 In this article I will go through the process of building a cart context component as a generic component that can then be used by any other component so as to create a shoe cart component for a shoe store or a different type of cart component for a different type of store. In a future post I will show you how I then used this context to do that but for now let's concentrate on getting the generic context created.
 
-![Cart Context Component](https://res.cloudinary.com/debsobrien/image/upload/v1643820029/debbie.codes/blog/2022/cart-context_2x_qlqg5q.png)
+![Cart Context Component](/images/content/blog/2022/cart-context_2x_qlqg5q.webp){width="372" height="450"}
 
 To start off with we need to think about what we are trying to create. We want to have a context component that is a generic cart context using generic products with functionality to add and remove a product from the cart. Sounds simple enough and that is exactly what we should build.
 

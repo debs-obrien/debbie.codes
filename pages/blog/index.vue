@@ -158,7 +158,7 @@ useHead({
       <div v-if="!isSearchActive" class="text-center mt-8">
         <NuxtLink
           to="/blog/page/1"
-          class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-primary/90 transition-colors"
+          class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-fill hover:bg-primary-fill/90 transition-colors"
         >
           Older posts
         </NuxtLink>

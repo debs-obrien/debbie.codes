@@ -2,9 +2,8 @@
 title: Challenging Yourself
 date: 2022-09-11
 description: Cycle all around the island of Mallorca for a total of 235km with an expected cycling time of 9.5 hours at a speed of 25km per hour. Just the thoughts of that is scary enough. Was I able for it? Had I trained enough for it? Probably not. But I was determined to give it a go.
-image: v1648376409/debbie.codes/blog/2022/IMG_5391_pp2gha
-ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1648376409/debbie.codes/blog/2022/IMG_5391_pp2gha
-provider: cloudinary
+image: /images/content/blog/2022/IMG_5391_pp2gha.webp
+ogImage: /images/content/blog/2022/IMG_5391_pp2gha.webp
 tags: [personal, motivation]
 loading: eager
 ---
@@ -17,7 +16,7 @@ Looking back, I for sure didn't eat enough the night before. In general I probab
 
 I checked my tyres and filled them up a bit more plus oiled the chain. Then I changed my shoes, put my helmet on, grabbed my sunglasses and went outside. The sun was still rising so I had to put my sunglasses on my helmet as couldn't wear them yet. I cycled the 2km to the meeting point outside the Rapha Cafe feeling both nervous and excited at the same time. There were more than 20 of us signed up for the ride. There were four ride leaders including 2 women but apart from the ride leaders I was the only girl in the group. Guys are always stronger than me so I knew this was going to be tough if I wanted to keep up.
 
-![in cycling gear outside Rapha club](https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80/v1648376409/debbie.codes/blog/2022/IMG_5372_ckb78i)
+![in cycling gear outside Rapha club](/images/content/blog/2022/IMG_5372_ckb78i.webp){width="1640" height="1230"}
 
 ## Off we go
 
@@ -27,13 +26,13 @@ We hit the road with me near the front of the peloton. This meant I wouldn't get
 
 I made it to the supermarket stop and went in to buy an energy drink and a 1.5 litre bottle of water. I had drank the energy drink before I had reached the till. I ate an energy bar, refilled my bottles of water and drank another energy drink. The ride lead asked me what I wanted to do and I said I wanted to continue but if I got more cramps they would have to go with out me and I would stop or go at my pace. I asked him if he could share his live location through whatsapp so I could see where they were incase I did drop off.
 
-![at the supermarket in cycling gear in front of lots of bikes](https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80/v1648376409/debbie.codes/blog/2022/IMG_5374_mfqmx7)
+![at the supermarket in cycling gear in front of lots of bikes](/images/content/blog/2022/IMG_5374_mfqmx7.webp){width="1640" height="1230"}
 
 ## On my own
 
 At km 87 going up a hill my leg started to cramp and I just couldn't push to keep up with the guys. I dropped gears and took it really slow up the hill and decided to just keep going for as long as I could. I stopped at 100km to take a photo and make the milestone. I had one water bottle left so was feeling good and decided to continue and try to get to 150km. At the half way mark I stopped again and took another selfie. I had some minor cramps and it was starting to get really hot.
 
-![me in cycling gear on a road smiling](https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80/v1648376409/debbie.codes/blog/2022/IMG_5375_evklrv)
+![me in cycling gear on a road smiling](/images/content/blog/2022/IMG_5375_evklrv.webp){width="1640" height="923"}
 
 ## Second stop
 
@@ -47,7 +46,7 @@ I set off with the aim of doing another 25km to make it to 150km. For some reaso
 
 After 165km I caught up with the guys who were just finishing paying for their lunch. They had done 150km and had stopped for a sandwiches. As a celiac I can't eat in places like this so there was no point in me stopping. The lads were so impressed to see me and said wow did you just do all that on your own. I said "yeh. The live location really helped as I knew you were all not too far away." So now they were all getting up to go again and I hadn't even stopped but I decided to continue with them and see how far I could make it. We stopped at the supermarket to refill water and energy drinks and I bought some walnuts and ate another energy bar. Not the best meal but hey as a celiac I really am limited in what I can buy especially for quick carbs.
 
-![me in cycling gear at a cafe with other cyclists getting ready to leave](https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80/v1648376409/debbie.codes/blog/2022/IMG_5385_dintlt)
+![me in cycling gear at a cafe with other cyclists getting ready to leave](/images/content/blog/2022/IMG_5385_dintlt.webp){width="1640" height="1230"}
 
 ## Getting tired
 
@@ -55,7 +54,7 @@ I kept in the peloton as much as I could but going round roundabouts I was taili
 
 I stopped for 5 minutes and re-accessed the situation. I had now down 187km, just under 7 and a half hours of cycling and I had only eaten 2 energy bars, some chocolate and some jellys. It was hot and my body was sweating so much salt that my cycling gear was practically white. I decided the best thing to do was to call it a day after 200km. I called my husband and asked him to come pick me up so I didn't have to wait for the train which was another valid option if needed. And off I went on my last few kms.
 
-![me in cycling gear in the countryside](https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80/v1648376409/debbie.codes/blog/2022/IMG_5386_rp8hwx)
+![me in cycling gear in the countryside](/images/content/blog/2022/IMG_5386_rp8hwx.webp){width="1640" height="923"}
 
 ## 200km
 
@@ -63,7 +62,7 @@ At 200km I put my arm up in the arm as if I had won a race. The cars going by pr
 
 I was feeling tired, excited, happy, hungry, sweaty, soar but most of all proud. My husband was also so proud of me. Neither I nor him actually thought I would get so far.
 
-![in cycling gear with my hand in the air smiling](https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80/v1648376409/debbie.codes/blog/2022/IMG_5390_ehxpyo)
+![in cycling gear with my hand in the air smiling](/images/content/blog/2022/IMG_5390_ehxpyo.webp){width="1640" height="1230"}
 
 ## Comparing yourself to others
 
@@ -71,7 +70,7 @@ If I compare myself to the group I was the worst and the only person who dropped
 
 One thing I loved while doing this route was sharing my journey over twitter. I was checking my phone, and seeing the messages of support really helped. The fact that everyone thought it was incredible that I had done 200km really helped me see my achievement. Also one of the ride leaders at lunch time told me that it was so impressive that I had kept going on my own for such a long distance and caught up with them. And at that point none of us had realised that I had actually done an extra 15km so I guess it was pretty impressive.
 
-![map of mallorca showing my route and times, 8 hours, 200km](https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80/v1648376409/debbie.codes/blog/2022/IMG_5393_e07zrv)
+![map of mallorca showing my route and times, 8 hours, 200km](/images/content/blog/2022/IMG_5393_e07zrv.webp){width="828" height="1371"}
 
 ## What I learned
 

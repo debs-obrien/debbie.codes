@@ -52,6 +52,10 @@ export default defineConfig({
      * 'on-first-retry' a test that fails without retrying produces no trace.
      * See https://playwright.dev/docs/trace-viewer */
     trace: 'retain-on-failure',
+
+    /* Cloudinary is blocked by default via tests/fixtures.ts (res.cloudinary.com
+     * plus /_ipx/ and /.netlify/images proxies). Import { test } from './fixtures'
+     * in specs — do not pull real media in CI. Opt out: test.use({ blockCloudinary: false }). */
   },
 
   /* Configure projects for major browsers */

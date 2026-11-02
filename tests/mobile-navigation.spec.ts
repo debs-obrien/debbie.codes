@@ -1,5 +1,5 @@
 import type { Page } from '@playwright/test';
-import { expect, test } from '@playwright/test';
+import { expect, test } from './fixtures';
 
 test.describe('Mobile Navigation', () => {
   const getOpenMenuButton = (page: Page) => page.getByRole('button', { name: 'Open menu' });
@@ -157,7 +157,7 @@ test.describe('Mobile Navigation', () => {
               - img
           - listitem:
             - link "linkedIn":
-              - /url: https://www.linkedin.com/in/debbie-o-brien-1a199975/
+              - /url: https://www.linkedin.com/in/debbie-obrien
               - img
           - listitem:
             - link "github":

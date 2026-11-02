@@ -2,8 +2,7 @@
 title: Why Live Streams Scare me
 date: 2021-02-05
 description: What its like to do a live stream, why it scares me and why I know the only way to get over fear is to keep doing it again and again.
-image: fl_lossy,f_auto/v1609438516/debbie.codes/blog/livestreams_mg6ulm
-provider: cloudinary
+image: /images/content/blog/livestreams_mg6ulm.webp
 tags: [personal,]
 ---
 

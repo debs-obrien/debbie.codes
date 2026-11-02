@@ -5,8 +5,8 @@ description: A beginner's guide to AI agent skills — what they are, how they w
 tags: [ai, webdev]
 published: true
 canonical: https://dev.to/debs_obrien/what-are-agent-skills-beginners-guide-e2n
-image: /images/blog/covers/what-are-agent-skills-beginners-guide.png
-ogImage: /images/blog/covers/what-are-agent-skills-beginners-guide.png
+image: /images/blog/covers/what-are-agent-skills-beginners-guide.webp
+ogImage: /images/blog/covers/what-are-agent-skills-beginners-guide.webp
 ---
 
 AI agents are smart. But they're generic. Your agent is trained on a ton of general knowledge, but it doesn't have your specific domain knowledge. It doesn't know your preferences, your team's conventions, or how you personally want things done.

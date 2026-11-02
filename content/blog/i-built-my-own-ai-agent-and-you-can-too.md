@@ -5,8 +5,8 @@ description: I recently built my own AI agent. Not because I needed one, but bec
 tags: [ai]
 canonical: https://dev.to/debs_obrien/i-built-my-own-ai-agent-and-you-can-too-56l1
 published: true
-image: /images/blog/covers/i-built-my-own-ai-agent-and-you-can-too.png
-ogImage: /images/blog/covers/i-built-my-own-ai-agent-and-you-can-too.png
+image: /images/blog/covers/i-built-my-own-ai-agent-and-you-can-too.webp
+ogImage: /images/blog/covers/i-built-my-own-ai-agent-and-you-can-too.webp
 ---
 
 I recently built my own AI agent. Not because I needed one, but because I wanted to see how far I could take the current tools available. It turned out to be surprisingly straightforward, extremely flexible, and genuinely useful.

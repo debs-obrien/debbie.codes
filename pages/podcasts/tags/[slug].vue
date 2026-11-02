@@ -42,7 +42,7 @@ const podcastTags = computed(() => {
 
 const topic: string = replaceHyphen(slug as string)
 const title: string = `Podcasts: ${topic}`
-const description: string = ''
+const description: string = `Podcasts tagged ${topic} — web development, testing, and technology conversations.`
 const section: Sections = 'podcasts'
 
 useHead({
@@ -82,7 +82,10 @@ useHead({
       <h2 v-else class="text-2xl font-bold text-gray-900 dark:text-white mb-6 max-w-4xl mx-auto">
         Search Results ({{ filteredPodcasts.length }})
       </h2>
-      <PodcastGrid :list="(isSearchActive ? filteredPodcasts : podcasts) || []" />
+      <PodcastGrid
+        :list="(isSearchActive ? filteredPodcasts : podcasts) || []"
+        priority-first
+      />
     </section>
 
     <!-- No results found -->
@@ -99,10 +102,10 @@ useHead({
         I'm always open to interesting podcast conversations about web development, testing, and technology.
       </p>
       <a
-        href="https://www.linkedin.com/in/debbie-o-brien-1a199975/"
+        href="https://www.linkedin.com/in/debbie-obrien"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-primary/90 transition-colors"
+        class="inline-flex items-center px-6 py-3 bg-primary-fill text-white font-medium rounded-lg hover:bg-primary-fill/90 transition-colors"
       >
         Get in touch
       </a>

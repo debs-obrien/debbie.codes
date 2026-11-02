@@ -13,7 +13,7 @@ useScrollReveal(homeBody)
 </script>
 
 <template>
-  <div>
+  <main>
     <CreativeHero />
     <div ref="homeBody" class="home-body relative pb-12 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900">
       <div class="home-fade absolute inset-x-0 top-0 h-16 pointer-events-none" aria-hidden="true" />
@@ -69,7 +69,7 @@ useScrollReveal(homeBody)
         </div>
       </div>
     </div>
-  </div>
+  </main>
 </template>
 
 <style scoped>

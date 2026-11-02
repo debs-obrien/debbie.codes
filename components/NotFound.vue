@@ -12,18 +12,21 @@
       </p>
       <NuxtLink
         to="/"
-        class="sm:w-full lg:w-auto my-2 border rounded md py-4 px-8 text-center bg-primary text-white hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50"
+        class="sm:w-full lg:w-auto my-2 border rounded md py-4 px-8 text-center bg-primary-fill text-white hover:bg-primary-fill/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50"
       >
         Take me there!
       </NuxtLink>
     </div>
     <NuxtImg
-      provider="cloudinary"
-      src="v1668347473/debbie.codes/broken_vktobk.png"
+      src="/images/broken-connection.webp"
       alt="broken connection"
       width="444"
       height="256"
-      sizes="sm:355px md:320px lg:480px block"
+      sizes="sm:355px md:320px lg:480px"
+      densities="x1 x2"
+      format="webp"
+      loading="eager"
+      decoding="async"
     />
   </div>
 </template>

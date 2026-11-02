@@ -2,6 +2,7 @@ import process from 'node:process'
 import { generateContentIndex } from './scripts/generate-content-index.mjs'
 import { generateSitemap } from './scripts/generate-sitemap.mjs'
 import { DEFAULT_WEBMCP_OT_CHROME, DEFAULT_WEBMCP_OT_EDGE } from './utils/origin-trial'
+import { NETLIFY_REMOTE_IMAGE_HOSTS } from './utils/remote-images'
 
 // Static public/sitemap.xml — avoids Netlify Function/SQLite 500s for /sitemap.xml.
 generateSitemap()
@@ -28,6 +29,10 @@ export default defineNuxtConfig({
     '@nuxt/content',
   ],
 
+  robots: {
+    sitemap: 'https://debbie.codes/sitemap.xml',
+  },
+
   colorMode: {
     classSuffix: '',
     preference: 'system', // default value of $colorMode.preference
@@ -40,13 +45,6 @@ export default defineNuxtConfig({
   ],
 
   image: {
-    cloudinary: {
-      baseURL: 'https://res.cloudinary.com/debsobrien/image/upload/',
-      modifiers: {
-        format: 'webp',
-        quality: '80',
-      },
-    },
     imgix: {
       baseURL: 'https://images.unsplash.com/',
     },
@@ -59,17 +57,20 @@ export default defineNuxtConfig({
         },
       },
     },
-    domains: ['res.cloudinary.com', 'images.unsplash.com', 'dev-to-uploads.s3.amazonaws.com', 'raw.githubusercontent.com', 'theaiplatform.app', 'i.ytimg.com', 'img.youtube.com'],
+    // IPX local-dev allowlist — match Netlify `remote_images` hosts (utils/remote-images.ts).
+    // Unsplash uses the imgix provider (not domains). YouTube thumbs stay plain <img>.
+    domains: [...NETLIFY_REMOTE_IMAGE_HOSTS],
+    // Force WebP via fm=webp on Netlify Image CDN (no Accept-based AVIF negotiation).
     format: ['webp'],
     quality: 80,
+    // Keep screens aligned with real layout breakpoints used in `sizes`.
+    // Drop unused ultra-wide widths that only inflate srcset.
     screens: {
-      'xs': 320,
-      'sm': 640,
-      'md': 768,
-      'lg': 1024,
-      'xl': 1280,
-      'xxl': 1536,
-      '2xl': 1536,
+      xs: 320,
+      sm: 640,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
     },
   },
 
@@ -100,6 +101,16 @@ export default defineNuxtConfig({
 
   compatibilityDate: '2025-03-13',
 
+  // Prefer interaction prefetch over visibility — listing pages otherwise
+  // fire dozens of payload prefetches for every in-viewport NuxtLink.
+  experimental: {
+    defaults: {
+      nuxtLink: {
+        prefetchOn: { visibility: false, interaction: true },
+      },
+    },
+  },
+
   runtimeConfig: {
     public: {
       // /hire-me voice widget (public agent id; origin-allowlisted for debbie.codes).
@@ -111,6 +122,9 @@ export default defineNuxtConfig({
       webmcpOtEdge: process.env.NUXT_PUBLIC_WEBMCP_OT_EDGE || DEFAULT_WEBMCP_OT_EDGE,
       webmcpOtRender: process.env.NUXT_PUBLIC_WEBMCP_OT_RENDER
         ?? (process.env.CONTEXT === 'production' ? '1' : '0'),
+      // Same Netlify production gate as webmcpOtRender — bake at generate so
+      // deploy previews and local dev never emit the Cloudflare beacon.
+      cfWebAnalytics: process.env.CONTEXT === 'production' ? '1' : '0',
     },
   },
 

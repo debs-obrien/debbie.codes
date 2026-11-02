@@ -8,7 +8,8 @@ const { data: allPodcasts } = await useAsyncData('podcasts', () => queryCollecti
 
 // Filter out featured podcasts from the main list (podcasts with featured: true)
 const podcasts = computed(() => {
-  if (!allPodcasts.value) return []
+  if (!allPodcasts.value)
+    return []
   return allPodcasts.value.filter(podcast => !podcast.featured)
 })
 
@@ -68,8 +69,11 @@ useHead({
     </section>
 
     <!-- Featured Podcast Section -->
-    <section class="animated-section mb-16">
-      <FeaturedPodcast />
+    <section class="animated-section mb-16" aria-labelledby="featured-podcast-heading">
+      <h2 id="featured-podcast-heading" class="sr-only">
+        Featured episode
+      </h2>
+      <FeaturedPodcast priority />
     </section>
 
     <!-- Podcasts Grid Section -->
@@ -92,10 +96,10 @@ useHead({
         I'm always open to interesting podcast conversations about web development, testing, and technology.
       </p>
       <a
-        href="https://www.linkedin.com/in/debbie-o-brien-1a199975/"
+        href="https://www.linkedin.com/in/debbie-obrien"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-primary/90 transition-colors"
+        class="inline-flex items-center px-6 py-3 bg-primary-fill text-white font-medium rounded-lg hover:bg-primary-fill/90 transition-colors"
       >
         Get in touch
       </a>

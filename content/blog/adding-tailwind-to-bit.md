@@ -2,15 +2,14 @@
 title: Adding TailwindCSS to Bit
 date: 2021-12-30
 description: Adding TailwindCSS to your Bit components by adding it to the env that is used by your components. This way the the component compositions will show the TailwindCSS classes.
-image: v1640962583/debbie.codes/blog/tailwindcss-button_2x_gtcqu9
-provider: cloudinary
+image: /images/content/blog/tailwindcss-button_2x_gtcqu9.webp
 tags: [react]
 published: true
 ---
 
 When using Bit we are working with Components in isolation. The consuming app is what would normally have TailwindCSS installed and therefore just adding the classes to the component will work when consuming the component in an app that has Tailwind installed. However when working with Bit we work in isolation meaning we build a component separate to the app. The component is like a mini app and therefore we can see what it looks like with the Bit dev server.
 
-![Bit and Tailwind](https://res.cloudinary.com/debsobrien/image/upload/v1640961761/debbie.codes/blog/tailwindCSS-bit_eimfbh.png)
+![Bit and Tailwind](/images/content/blog/tailwindCSS-bit_eimfbh.webp){width="1640" height="477"}
 
 We can then build our component, build different compositions of what our component would look like with different states for example. We can also write tests for our component as well as documentation to make it easier for others to consume our components. Our components can then be easily installed and used in any of our apps or in other components.
 
@@ -91,7 +90,7 @@ Note: Make sure postcss has been installed and is in your workspace.json. If not
 bit install postcss
 ```
 
-![Bit and Tailwind](https://res.cloudinary.com/debsobrien/image/upload/v1640961761/debbie.codes/blog/tailwindCSS-bit_eimfbh.png)
+![Bit and Tailwind](/images/content/blog/tailwindCSS-bit_eimfbh.webp){width="1640" height="477"}
 
 Note that this only works for Tailwind version 2. Due to the JIT compile used in Tailwind 3 more work needs to be done to be able to get this working in Bit so for now only Tailwind version 2 is supported.
 

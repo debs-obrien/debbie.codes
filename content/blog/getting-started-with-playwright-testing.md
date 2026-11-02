@@ -2,9 +2,8 @@
 title: Getting Started with Playwright Testing
 date: 2022-03-24
 description: How can we get more developers to write tests? We can create better tools that makes testing easier. Let's take a look at Playwright and it's amazing features including codegen which writes your tests for you.
-image: v1648106423/debbie.codes/blog/2022/codegen_2x_psrpgk.png
-ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1648106423/debbie.codes/blog/2022/codegen_2x_psrpgk.png
-provider: cloudinary
+image: /images/content/blog/2022/codegen_2x_psrpgk.webp
+ogImage: /images/content/blog/2022/codegen_2x_psrpgk.webp
 tags: [testing, playwright]
 published: true
 ---
@@ -15,7 +14,7 @@ Mainly it is because developers do not have the time. They need time to learn th
 
 So what if we could make it easier for developers, soften the learning curve when it comes to writing tests so they can at least get started, and then help them build their tests along the way without just telling them to go read the docs. This is exactly what Playwright has done.
 
-![browser window with shoe store app and another window showing tests being generated](https://res.cloudinary.com/debsobrien/image/upload/v1648106423/debbie.codes/blog/2022/codegen_2x_psrpgk.png)
+![browser window with shoe store app and another window showing tests being generated](/images/content/blog/2022/codegen_2x_psrpgk.webp){width="1640" height="679"}
 
 Playwright is an Open Source Testing Tool, maintained by Microsoft, and is completely free to use. It enables reliable end-to-end testing for modern web apps. It supports multi languages including JavaScript, TypeScript, Python, Java and .NET.
 
@@ -38,15 +37,15 @@ npm init playwright@latest new-project
 
 Alternatively my favorite way to get started is by using the VS Code extension to create a new project. In VSCode open the extensions and search for Playwright. Make sure you choose the one that is verified by Microsoft.
 
-![vs code extension for playwright](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1648065035/debbie.codes/blog/2022/vscode-playwright_mqzmnu.png)
+![vs code extension for playwright](/images/content/blog/2022/vscode-playwright_mqzmnu.webp){width="1282" height="444"}
 
 Once the extension is installed you can then install Playwright in your project using the command bar in VS Code. Use `CMD+Shift+P` and then type `>playwright`.
 
-![command bar in vs code ](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1648065351/debbie.codes/blog/2022/vscode-ext1_g7xogh.png)
+![command bar in vs code ](/images/content/blog/2022/vscode-ext1_g7xogh.webp){width="890" height="173"}
 
 You can then choose if you want the tests to run on Chromium, WebKit or Firefox and you can also decide if you want to add a GitHub action. You can always add or remove these later on through the Playwright config file.
 
-![dropdown menu of browsers available](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1648065599/debbie.codes/blog/2022/choose-browser_pdxd4o.png)
+![dropdown menu of browsers available](/images/content/blog/2022/choose-browser_pdxd4o.webp){width="1159" height="435"}
 
 ## What you get after Installing
 
@@ -68,10 +67,10 @@ npm playwright codegen
 
 This will open two windows for you. The first one is the browser window that you will use to navigate to your site that you want to test and the second window is the where the test code will be saved. Check out the video to see it in action.
 
-<!-- <a href="https://res.cloudinary.com/debsobrien/video/upload/f_auto,q_auto/v1648066315/debbie.codes/blog/2022/playwright-codegen_drluzl.mp4" title="Open codegen video"><img src="https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1648107080/debbie.codes/blog/2022/codegen-img-play-button_2x_nyokdz.png" alt="Video showing codegen in action" /></a> -->
+<!-- <a href="/images/content/blog/2022/playwright-codegen_drluzl.mp4" title="Open codegen video"><img src="/images/content/blog/2022/codegen-img-play-button_2x_nyokdz.webp" alt="Video showing codegen in action" / width="1640" height="801"></a> -->
 
-<video width="auto" height="auto" controls>
-  <source src="https://res.cloudinary.com/debsobrien/video/upload/f_auto,q_auto/v1648066315/debbie.codes/blog/2022/playwright-codegen_drluzl.mp4" type="video/mp4">
+<video aria-label="Open codegen video" controls preload="none" playsinline width="1280" height="720" poster="/images/content/blog/2022/playwright-codegen_drluzl-poster.jpg">
+  <source src="/images/content/blog/2022/playwright-codegen_drluzl.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 

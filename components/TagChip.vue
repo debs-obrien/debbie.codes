@@ -20,7 +20,9 @@ withDefaults(defineProps<{
       variant === 'pill' ? 'tag-chip--pill' : 'tag-chip--text',
       active && 'tag-chip--active',
     ]"
-  >{{ hash ? `#${label}` : label }}</NuxtLink>
+  >
+    {{ hash ? `#${label}` : label }}
+  </NuxtLink>
 </template>
 
 <style scoped>
@@ -42,9 +44,9 @@ withDefaults(defineProps<{
 }
 
 .tag-chip--pill:hover {
-  border-color: #d8002d;
-  color: #d8002d;
-  background: rgba(216, 0, 45, 0.06);
+  border-color: rgb(var(--color-primary));
+  color: rgb(var(--color-primary));
+  background: rgb(var(--color-primary) / 0.06);
 }
 
 .dark .tag-chip--pill {
@@ -54,15 +56,16 @@ withDefaults(defineProps<{
 }
 
 .dark .tag-chip--pill:hover {
-  border-color: #d8002d;
+  border-color: rgb(var(--color-primary));
   color: #fff;
-  background: rgba(216, 0, 45, 0.15);
+  background: rgb(var(--color-primary) / 0.15);
 }
 
+/* Active chip is a solid fill with white text — keep brand red */
 .tag-chip--pill.tag-chip--active,
 .tag-chip--pill.router-link-exact-active {
-  border-color: #d8002d;
-  background: #d8002d;
+  border-color: rgb(var(--color-primary-fill));
+  background: rgb(var(--color-primary-fill));
   color: #fff;
 }
 
@@ -72,7 +75,7 @@ withDefaults(defineProps<{
 }
 
 .tag-chip--text:hover {
-  color: #d8002d;
+  color: rgb(var(--color-primary));
 }
 
 .dark .tag-chip--text {
@@ -80,11 +83,11 @@ withDefaults(defineProps<{
 }
 
 .dark .tag-chip--text:hover {
-  color: #fd213b;
+  color: rgb(var(--color-primary));
 }
 
 .tag-chip--text.tag-chip--active,
 .tag-chip--text.router-link-exact-active {
-  color: #d8002d;
+  color: rgb(var(--color-primary));
 }
 </style>

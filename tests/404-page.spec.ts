@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './fixtures';
 
 test.describe('404 Error Page', () => {
   test.beforeEach(async ({ page }) => {

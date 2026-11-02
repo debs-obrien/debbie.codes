@@ -1,12 +1,23 @@
 <script setup lang="ts">
 import type { BlogPostPreview, CoursePreview, PodcastPreview, Sections } from '~/types'
 import { calculateReadingTime, formatReadingTime } from '~/utils/reading-time'
+import { isAllowedNetlifyRemoteSrc } from '~/utils/remote-images'
 
-defineProps<{
+const props = defineProps<{
   item: BlogPostPreview | CoursePreview | PodcastPreview
   section: Sections
   showImages?: boolean
 }>()
+
+/** Local paths use NuxtImg/Netlify CDN; non-allowlisted remotes (e.g. i.ytimg.com) stay plain <img>. */
+const useNuxtImg = computed(() => {
+  const src = props.item.image || ''
+  if (!src)
+    return false
+  if (src.startsWith('/') || src.startsWith('./'))
+    return true
+  return isAllowedNetlifyRemoteSrc(src)
+})
 </script>
 
 <template>
@@ -17,15 +28,28 @@ defineProps<{
         :target="item.url ? '_blank' : '_self'"
       >
         <NuxtImg
-          :provider="item.provider"
+          v-if="useNuxtImg"
           :src="item.image"
           :alt="item.title"
           width="272"
           height="272"
-          fit="thumb"
+          fit="cover"
           format="webp"
+          loading="lazy"
+          sizes="272px"
+          densities="x1 x2"
           class="scale-90 transition-all duration-400 hover:scale-100 rounded"
         />
+        <img
+          v-else
+          :src="item.image"
+          :alt="item.title"
+          width="272"
+          height="272"
+          loading="lazy"
+          decoding="async"
+          class="scale-90 transition-all duration-400 hover:scale-100 rounded object-cover"
+        >
       </NuxtLink>
     </div>
 
@@ -40,7 +64,7 @@ defineProps<{
           {{ item.title }}
         </h2>
         <p
-          class="mt-0 lg:mt-3 mb-3 text-base lg:text-base text-gray-500 dark:text-gray-300 md:text-sm overflow-hidden md:overflow-visible whitespace-nowrap md:whitespace-normal text-ellipsis"
+          class="mt-0 lg:mt-3 mb-3 text-base lg:text-base text-gray-600 dark:text-gray-300 md:text-sm overflow-hidden md:overflow-visible whitespace-nowrap md:whitespace-normal text-ellipsis"
         >
           {{ item.description }}
         </p>

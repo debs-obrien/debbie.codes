@@ -2,7 +2,7 @@
 title: Formatting a date in JavaScript
 date: 2020-10-09
 description: How to format a date in JavaScript without using any libraries so you easily display dates in your Vue or Nuxt application
-image: photo-1595437037073-edcf5af767dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop
+image: photo-1595437037073-edcf5af767dd
 provider: imgix
 tags: [javascript]
 ---

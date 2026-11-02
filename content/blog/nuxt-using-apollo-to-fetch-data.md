@@ -2,8 +2,8 @@
 title: Using Apollo to Fetch Data
 date: 2020-07-17
 description: Using Apollo to Fetch Data from a GraphQL API
-image: /images/blog/covers/nuxt-using-apollo-to-fetch-data.png
-ogImage: /images/blog/covers/nuxt-using-apollo-to-fetch-data.png
+image: /images/blog/covers/nuxt-using-apollo-to-fetch-data.webp
+ogImage: /images/blog/covers/nuxt-using-apollo-to-fetch-data.webp
 tags: [nuxt]
 ---
 

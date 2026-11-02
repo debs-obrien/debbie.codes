@@ -1,5 +1,5 @@
-import { Feed } from 'feed'
 import { queryCollection } from '@nuxt/content/server'
+import { Feed } from 'feed'
 
 export default defineEventHandler(async (event) => {
   const siteUrl = 'https://debbie.codes'
@@ -15,7 +15,7 @@ export default defineEventHandler(async (event) => {
     id: siteUrl,
     link: siteUrl,
     language: 'en',
-    image: `${siteUrl}/twitter-card.png`,
+    image: `${siteUrl}/twitter-card.jpg`,
     favicon: `${siteUrl}/favicon.ico`,
     copyright: `All rights reserved ${new Date().getFullYear()}, Debbie O'Brien`,
     feedLinks: {

@@ -4,8 +4,8 @@ date: 2026-08-14
 description: "Grok Bot just dropped. I downloaded it on a Mac the same day and recorded myself setting it up. Not a feature list. What I actually clicked, what worked, and which bots I would create."
 tags: [ai, agents, grok-bot]
 published: true
-image: /images/blog/covers/how-to-get-started-with-grok-bot.png
-ogImage: /images/blog/covers/how-to-get-started-with-grok-bot.png
+image: /images/blog/covers/how-to-get-started-with-grok-bot.webp
+ogImage: /images/blog/covers/how-to-get-started-with-grok-bot.webp
 ---
 
 Grok Bot just dropped. I downloaded it on a Mac the same day and recorded myself setting it up. This is the getting started version of that. Not a feature list. What I actually clicked, what worked, and which bots I would create if I were you.

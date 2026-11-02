@@ -4,7 +4,7 @@ export const webmcpTools = {
   listVideos: {
     name: 'list-videos',
     title: 'List videos',
-    description: 'Lists Debbie\'s videos, newest first. Use when browsing her talks, interviews, or tutorials by topic, conference, or host.',
+    description: 'Lists Debbie\'s videos, newest first. Returns videos plus total (full match count before limit). Use total for "how many" questions; use filters when browsing by topic, conference, or host.',
     inputSchema: {
       type: 'object',
       properties: {

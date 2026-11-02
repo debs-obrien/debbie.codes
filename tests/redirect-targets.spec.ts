@@ -1,7 +1,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import process from 'node:process';
-import { expect, test } from '@playwright/test';
+import { expect, test } from './fixtures';
 
 const externalBaseURL = (process.env.PLAYWRIGHT_TEST_BASE_URL || process.env.BASE_URL)?.trim();
 const isEndform = process.env.ENDFORM === 'true';

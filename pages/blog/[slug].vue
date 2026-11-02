@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { buildArticleJsonLd } from '~/utils/article-json-ld'
-import { resolveOgImage } from '~/utils/og-image'
+import { isStandardOgSize, resolveOgImage } from '~/utils/og-image'
 import { calculateReadingTime, extractTextFromContent, formatReadingTime } from '~/utils/reading-time'
 
 const route = useRoute()
@@ -26,6 +26,7 @@ const ogImageField: string
     || (article.value as { meta?: { ogImage?: string } } | null)?.meta?.ogImage
     || ''
 const socialImage = resolveOgImage(ogImageField, image)
+const socialImageHasStandardSize = isStandardOgSize(socialImage)
 const canonicalUrl = article.value?.canonical || `https://debbie.codes${path}`
 // Pass the raw frontmatter date so <time datetime> stays ISO (YYYY-MM-DD).
 const articleDate = String(article.value?.date || '')
@@ -83,6 +84,13 @@ useHead({
       property: 'og:image',
       content: socialImage,
     },
+    ...(socialImageHasStandardSize
+      ? [
+          { property: 'og:image:width', content: '1200' },
+          { property: 'og:image:height', content: '630' },
+        ]
+      : []),
+    { property: 'og:image:alt', content: title },
     // Test on: https://cards-dev.twitter.com/validator or https://socialsharepreview.com/
     { name: 'twitter:site', content: '@debs_obrien' },
     { name: 'twitter:card', content: 'summary_large_image' },
@@ -164,6 +172,12 @@ useHead({
           height="300"
           fit="cover"
           format="webp"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+          :preload="{ fetchPriority: 'high' }"
+          sizes="xs:100vw sm:576px"
+          densities="x1 x2"
           class="rounded center mx-auto w-full"
         />
       </div>

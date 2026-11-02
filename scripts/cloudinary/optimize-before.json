@@ -1,0 +1,228 @@
+{
+  "allImagesMB": 31.63,
+  "allMediaMB": 27.31,
+  "contentImagesMB": 23.56,
+  "contentMediaMB": 27.31,
+  "imageCount": 320,
+  "mediaCount": 11,
+  "top30": [
+    {
+      "path": "public/images/blog/covers/app-to-track-my-learning-journey.png",
+      "kb": 1144.6
+    },
+    {
+      "path": "public/images/blog/ken-50th-birthday-video/intro-card.png",
+      "kb": 1024.3
+    },
+    {
+      "path": "public/images/content/blog/2022/race-ireland_amyqrb.webp",
+      "kb": 780.3
+    },
+    {
+      "path": "public/images/content/blog/2022/cycling-with-girls_nh2k0q.webp",
+      "kb": 762.9
+    },
+    {
+      "path": "public/images/content/blog/2022/running-trail_qjlb9h.webp",
+      "kb": 759.1
+    },
+    {
+      "path": "public/images/blog/covers/skill-creator-v2-agent-skills-vs-code.png",
+      "kb": 722.5
+    },
+    {
+      "path": "public/images/content/blog/2022/meteora-greece_wqumec.webp",
+      "kb": 566.3
+    },
+    {
+      "path": "public/images/blog/grok-bot-uploads-my-youtube-videos/01-voice-request.png",
+      "kb": 513.4
+    },
+    {
+      "path": "public/images/content/blog/2026/family-microsoft.webp",
+      "kb": 512.2
+    },
+    {
+      "path": "public/images/content/blog/2022/IMG_2873_qxkes9.webp",
+      "kb": 499.6
+    },
+    {
+      "path": "public/images/content/blog/2022/me_running_q64fvs.webp",
+      "kb": 454.6
+    },
+    {
+      "path": "public/images/blog/ken-50th-birthday-video/ending-card.png",
+      "kb": 406.3
+    },
+    {
+      "path": "public/images/blog/grok-bot-uploads-my-youtube-videos/05-thumbnail-options.png",
+      "kb": 366.5
+    },
+    {
+      "path": "public/images/content/blog/2022/microsoft-running_gztjdu.webp",
+      "kb": 365.0
+    },
+    {
+      "path": "public/images/content/blog/2022/IMG_5391_pp2gha.webp",
+      "kb": 360.4
+    },
+    {
+      "path": "public/images/blog/grok-bot-uploads-my-youtube-videos/04-youtube-waits.png",
+      "kb": 352.4
+    },
+    {
+      "path": "public/images/blog/grok-bot-uploads-my-youtube-videos/03-publish-members.png",
+      "kb": 345.0
+    },
+    {
+      "path": "public/images/content/blog/Screenshot_2020-12-31_at_18.14.59_sbfsen.webp",
+      "kb": 338.4
+    },
+    {
+      "path": "public/images/content/blog/2022/pyramids_fzo4p9.webp",
+      "kb": 335.0
+    },
+    {
+      "path": "public/images/content/blog/2022/min-in-pool_mcdqya.webp",
+      "kb": 333.9
+    },
+    {
+      "path": "public/images/blog/grok-bot-uploads-my-youtube-videos/02-audio-fixed.png",
+      "kb": 332.8
+    },
+    {
+      "path": "public/images/content/blog/2022/IMG_5386_rp8hwx.webp",
+      "kb": 329.0
+    },
+    {
+      "path": "public/images/content/blog/2022/4AD3BD54-DC34-4CDB-B746-39CC9323765D_blkyz5.webp",
+      "kb": 328.2
+    },
+    {
+      "path": "public/images/blog/covers/grok-bot-uploads-my-youtube-videos.png",
+      "kb": 292.3
+    },
+    {
+      "path": "public/images/content/blog/2022/speakers-ghent_r9bdnv.webp",
+      "kb": 287.4
+    },
+    {
+      "path": "public/images/content/blog/2022/canaries_dkkzgg.webp",
+      "kb": 267.7
+    },
+    {
+      "path": "public/images/content/blog/IMG_8227_bav9rh.webp",
+      "kb": 263.3
+    },
+    {
+      "path": "public/images/content/blog/devs-in-the-forest_c_gctzoz.webp",
+      "kb": 254.0
+    },
+    {
+      "path": "public/images/content/blog/2022/IMG_5374_mfqmx7.webp",
+      "kb": 248.9
+    },
+    {
+      "path": "public/images/content/blog/2025/GitHub_MCP_server_2x_1_jizwlw.webp",
+      "kb": 244.5
+    }
+  ],
+  "webpOver200": [
+    {
+      "path": "public/images/content/blog/2022/race-ireland_amyqrb.webp",
+      "kb": 780.3
+    },
+    {
+      "path": "public/images/content/blog/2022/cycling-with-girls_nh2k0q.webp",
+      "kb": 762.9
+    },
+    {
+      "path": "public/images/content/blog/2022/running-trail_qjlb9h.webp",
+      "kb": 759.1
+    },
+    {
+      "path": "public/images/content/blog/2022/meteora-greece_wqumec.webp",
+      "kb": 566.3
+    },
+    {
+      "path": "public/images/content/blog/2026/family-microsoft.webp",
+      "kb": 512.2
+    },
+    {
+      "path": "public/images/content/blog/2022/IMG_2873_qxkes9.webp",
+      "kb": 499.6
+    },
+    {
+      "path": "public/images/content/blog/2022/me_running_q64fvs.webp",
+      "kb": 454.6
+    },
+    {
+      "path": "public/images/content/blog/2022/microsoft-running_gztjdu.webp",
+      "kb": 365.0
+    },
+    {
+      "path": "public/images/content/blog/2022/IMG_5391_pp2gha.webp",
+      "kb": 360.4
+    },
+    {
+      "path": "public/images/content/blog/Screenshot_2020-12-31_at_18.14.59_sbfsen.webp",
+      "kb": 338.4
+    },
+    {
+      "path": "public/images/content/blog/2022/pyramids_fzo4p9.webp",
+      "kb": 335.0
+    },
+    {
+      "path": "public/images/content/blog/2022/min-in-pool_mcdqya.webp",
+      "kb": 333.9
+    },
+    {
+      "path": "public/images/content/blog/2022/IMG_5386_rp8hwx.webp",
+      "kb": 329.0
+    },
+    {
+      "path": "public/images/content/blog/2022/4AD3BD54-DC34-4CDB-B746-39CC9323765D_blkyz5.webp",
+      "kb": 328.2
+    },
+    {
+      "path": "public/images/content/blog/2022/speakers-ghent_r9bdnv.webp",
+      "kb": 287.4
+    },
+    {
+      "path": "public/images/content/blog/2022/canaries_dkkzgg.webp",
+      "kb": 267.7
+    },
+    {
+      "path": "public/images/content/blog/IMG_8227_bav9rh.webp",
+      "kb": 263.3
+    },
+    {
+      "path": "public/images/content/blog/devs-in-the-forest_c_gctzoz.webp",
+      "kb": 254.0
+    },
+    {
+      "path": "public/images/content/blog/2022/IMG_5374_mfqmx7.webp",
+      "kb": 248.9
+    },
+    {
+      "path": "public/images/content/blog/2025/GitHub_MCP_server_2x_1_jizwlw.webp",
+      "kb": 244.5
+    },
+    {
+      "path": "public/images/content/blog/2022/microsoft-offices-bcn_cui5eh.webp",
+      "kb": 210.7
+    },
+    {
+      "path": "public/images/content/blog/2022/me-kent-c-dodds_yj4cnn.webp",
+      "kb": 207.8
+    },
+    {
+      "path": "public/images/content/blog/bad-waterfall-view_xlgw0k.webp",
+      "kb": 206.2
+    },
+    {
+      "path": "public/images/content/blog/2022/IMG_5385_dintlt.webp",
+      "kb": 206.1
+    }
+  ]
+}

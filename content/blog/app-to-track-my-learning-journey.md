@@ -5,8 +5,8 @@ description: "I have been trying to build a Learning Hub App for a good few mont
 tags: [ai, mcp, playwright]
 published: true
 canonical: https://dev.to/debs_obrien/i-needed-an-app-to-track-my-learning-journey-ai-built-it-in-less-than-half-an-hour-with-a-single-31c4
-image: /images/blog/covers/app-to-track-my-learning-journey.png
-ogImage: /images/blog/covers/app-to-track-my-learning-journey.png
+image: /images/blog/covers/app-to-track-my-learning-journey.webp
+ogImage: /images/blog/covers/app-to-track-my-learning-journey.webp
 ---
 
 I have been trying to build a Learning Hub App for a good few months using various tools and have had many iterations back and forth on trying to get it to work and ended up going round in circles fixing one thing and breaking another. 
@@ -17,11 +17,11 @@ And it did. The plan was great. It started off with: What a great idea! Let me p
 
 I got a Core Features Overview, Tech Stack Recommendation, Data Structure,  UI Layout Concept, Build phases and some extra nice to have stuff for future improvements. 
 
-![layout of a site design in goose](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/3hj38yxohffpm2zn40sw.png)
+![layout of a site design in goose](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/3hj38yxohffpm2zn40sw.png){width="1834" height="1574"}
 
 I asked it to change two things and then off it went. In less than half an hour it was not just built but tested before my eyes by using the Playwright MCP. I watched as it added links tested out the filters and used the site like a user would ensuring everything worked. 
 
-![goose using Playwright MCP to verify its work](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/oodhfu2u1ai94wo8cb30.png)
+![goose using Playwright MCP to verify its work](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/oodhfu2u1ai94wo8cb30.png){width="1854" height="1564"}
 
 ## AI Learning Hub - Complete!
 
@@ -40,7 +40,7 @@ Password protection: ✅ Environment variable based
 Netlify ready: ✅ Config file created
 
 
-![ai learning hub site](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/8aa8jn48sfj1c3jxwbc3.png)
+![ai learning hub site](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/8aa8jn48sfj1c3jxwbc3.png){width="2782" height="1486"}
 
 And how do I add the URLs of the sites I want to add, easy. Just paste them into goose and it will use the Playwright MCP which I already configured and it will populate them all for me so I don't have to.
 

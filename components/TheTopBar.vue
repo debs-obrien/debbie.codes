@@ -75,15 +75,17 @@ watch(() => route.fullPath, (to) => {
           <div class="w-auto text-white">
             <NuxtLink to="/" class="hover:no-underline flex">
               <NuxtImg
-                provider="cloudinary"
-                class="rounded-full mr-4 profile-pic border-white border"
-                src="v1589118478/debbie.codes/debbie-thumb_clt00n"
+                class="rounded-full mr-4 profile-pic border-white border object-cover"
+                src="/images/debbie-thumb.webp"
                 alt=""
                 width="96"
                 height="96"
                 sizes="50px"
+                densities="x1 x2"
                 quality="80"
                 format="webp"
+                loading="eager"
+                decoding="async"
               />
               <span class="self-center text-white"> Debbie O'Brien </span>
             </NuxtLink>

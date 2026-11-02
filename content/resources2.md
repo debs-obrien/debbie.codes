@@ -90,12 +90,12 @@ List of all my courses, podcasts, opensource projects and blog posts
 
 ### OpenClassrooms
 
-[What it's like to work after studying online](https://blog.openclassrooms.com/en/2017/11/30/like-works-study-online/)
+[What it's like to work after studying online](https://web.archive.org/web/20250114232050/https://blog.openclassrooms.com/en/2017/11/30/like-works-study-online/)
 
 ### Blog Posts that include me
 
 - [CityJSConf talks to Debbie O'Brien](https://medium.com/cityjsconf/cityjsconf-talks-to-debbie-obrien-3a3a2cb9a5cd)
-- [Meet Debbie: It took her only 8 months to become a Frontend Architect](https://blog.openclassrooms.com/en/2017/12/27/success-story-8-months-front-end-architect-bluekiri/)
+- [Meet Debbie: It took her only 8 months to become a Frontend Architect](https://web.archive.org/web/20250121152859/https://blog.openclassrooms.com/en/2017/12/27/success-story-8-months-front-end-architect-bluekiri/)
 - [JavaScript workshop with Kyle Simpson](https://tech.trivago.com/2018/10/15/javascript-workshop-with-kyle-simpson/)
 
 ## My Videos

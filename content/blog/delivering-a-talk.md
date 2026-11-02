@@ -2,9 +2,8 @@
 title: Delivering a Talk
 date: 2023-10-20
 description: How can we walk on that stage with more confidence, deliver a great talk and not only own the stage but also connect with the audience. It’s not easy, but like everything it does get easier with practice. Let’s go over a few ways you can improve your public speaking skills, either for the big stage or for remote talks, and let’s discuss what is holding you back from becoming an amazing tech speaker.
-image: v1673861872/debbie.codes/blog/2023/vue-amsterdam_i3hjbi.jpg
-ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1651559990/debbie.codes/blog/2023/vue-amsterdam_i3hjbi.jpg
-provider: cloudinary
+image: /images/content/blog/2023/vue-amsterdam_i3hjbi.webp
+ogImage: /images/content/blog/2023/vue-amsterdam_i3hjbi.webp
 tags: [personal, mentoring, motivation]
 published: true
 ---
@@ -29,7 +28,7 @@ Now fast forward many few years and I am at a conference and I see some talks on
 
 Now this is where my first mistake comes from. Who said the room was full of experts. Who decided that everyone had more knowledge than me. That's the imposter syndrome kicking in. 
 
-![me on stage](https://res.cloudinary.com/debsobrien/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1673858048/debbie.codes/blog/2023/my-first-conference_gheazh.jpg)
+![me on stage](/images/content/blog/2023/my-first-conference_gheazh--w_1000-ar_16-9-c_fill-g_auto.webp){width="1000" height="563"}
 
 Truth is we have no idea of what level everyone in the audience is but when they come to watch a talk they have decided to sit in the room and watch that talk and everyone will have a different knowledge range and more than likely everyone will learn something from your talk because the way I tell a story and the way someone else tells a story is completely different and we need people to tell things in different ways.
 
@@ -49,7 +48,7 @@ I get mega nervous before any talk. No matter how many years of experience or ta
 
 Now the first thing I do when I get on the stage is I talk about me. My first slide is about me. I have a picture of me doing sport and I tell people what sports I do and I spend a good few minutes on who I am. I do this for various reasons. The audience get to know who I am helping to connect with me better. And I don't need to rehearse anything to talk about me, I know this material so it helps stabilize my nerves so when I do go into the tech stuff I feel more in control and more comfortable with myself and the audience.
 
-![me on stage](https://res.cloudinary.com/debsobrien/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1673858048/debbie.codes/blog/2023/speaking-on-stage_jco3ft.jpg)
+![me on stage](/images/content/blog/2023/speaking-on-stage_jco3ft--w_1000-ar_16-9-c_fill-g_auto.webp){width="1000" height="563"}
 
 ## Connecting with the Audience
 
@@ -72,7 +71,7 @@ So how do you connect with the audience? First of all say hello to them. Ask the
 
 Once you start presenting your slides it is so easy to go into slide mode and just talk for 30 minutes without breathing and forgetting completely that you have a few hundred people looking at you. This is where it is important to think of how you can connect back to the audience. It can be as simple as adding a funny gif to make them laugh and get a reaction from them or asking them if they liked the demo or what they thought about a feature which will encourage them to clap and that always gives you more energy.
 
-![me on stage](https://res.cloudinary.com/debsobrien/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1673858048/debbie.codes/blog/2023/me-on-stage_ttc3ho.jpg)
+![me on stage](/images/content/blog/2023/me-on-stage_ttc3ho--w_1000-ar_16-9-c_fill-g_auto.webp){width="1000" height="563"}
 
 As you get more confident you can start to ask questions such as what do you think is going to happen next or why is something working a certain way. People will always shout out an answer, and they love it when they are right, so use that to your advantage. The more you engage the audience during the talk the more they will enjoy it and remember it.
 
@@ -98,7 +97,7 @@ If you do get to give a talk to a live online audience then I like to leave the 
 
 That really is about it. Giving talks can be scary but really it is so much fun. Sharing your knowledge with others and helping them learn something new is so rewarding. Remember everyone is different and has a different story to tell so don't be afraid to get up on that stage and tell your story of how you learnt something or how you solved a problem.
 
-![person leaping over a mountain](https://res.cloudinary.com/debsobrien/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1673858048/debbie.codes/blog/2023/leaping-over-mountain_i5kxvo.jpg)
+![person leaping over a mountain](/images/content/blog/2023/leaping-over-mountain_i5kxvo--w_1000-ar_16-9-c_fill-g_auto.webp){width="1000" height="563"}
 
 ## Few things to remember
 - everyone is different and will deliver talks differently
