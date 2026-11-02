@@ -3,7 +3,7 @@ title: "One Tool Call Instead of Four Pages: Adding WebMCP to My Site"
 date: 2026-10-27
 description: "AI agents that open debbie.codes in a browser can now call four small WebMCP tools to find my videos, posts, podcasts and courses, instead of reading pages and guessing."
 tags: [ai, mcp, agents, grok-bot]
-published: true
+published: false
 image: /images/blog/covers/webmcp-on-my-site.png
 ogImage: /images/blog/covers/webmcp-on-my-site.png
 ---

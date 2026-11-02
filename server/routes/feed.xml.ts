@@ -24,13 +24,13 @@ export default defineEventHandler(async (event) => {
     author,
   })
 
-  // Query all published blog posts
+  // Query all blog posts, then keep anything that is not explicitly unpublished.
+  // Missing `published` (legacy posts) must stay in the feed — same as lists.
   const posts = await queryCollection(event, 'blog')
     .select('path', 'title', 'description', 'date', 'tags', 'canonical', 'published')
     .order('date', 'DESC')
     .all()
 
-  // Filter to only published posts and add to feed
   const publishedPosts = posts.filter((post: any) => post.published !== false)
 
   for (const post of publishedPosts) {
