@@ -119,6 +119,6 @@ I spend half my time experimenting with agents now, and it makes me better at De
 
 Not just agent friendly. I'd make sure non-developers can be successful with it too.
 
-I really want to find a role where I can help developers and non-developers build or work with AI agents, whether that's for personal use, a small business or a large enterprise. I'm not sure if I'll find this role or which company it will be for, but for now I'll keep searching until the right position comes along.
+What I really want is to help developers and non-developers build and work with AI agents, whether that's for personal use, a small business or a large enterprise. I don't know yet which company that will be with, but I'll keep going until the right one comes along.
 
 After a hard year with multiple layoffs, I'm looking for my next role in DevRel around AI agents, testing and MCP. Something that excites me and ignites my passion. Oh, and just so you know, I don't do coding challenges.
