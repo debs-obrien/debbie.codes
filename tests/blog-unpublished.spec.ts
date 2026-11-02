@@ -22,10 +22,10 @@ test.describe('Unpublished blog posts', () => {
 
     await page.goto(UNPUBLISHED_PATH);
     await expect(page.getByRole('heading', {
-      name: /Ooops looks like that page doesn't exist/i,
+      name: /Ooops looks like that page doesn't exist/i
     })).toBeVisible();
     await expect(page.getByRole('heading', {
-      name: /Adding WebMCP to My Site/i,
+      name: /Adding WebMCP to My Site/i
     })).toHaveCount(0);
   });
 });

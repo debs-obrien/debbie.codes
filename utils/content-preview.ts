@@ -11,11 +11,10 @@
  * SQL: AND (published = true OR published IS NULL)
  */
 export function onlyPublished<T extends {
+  where: (field: string, operator: string, value?: unknown) => T
   orWhere: (groupFactory: (query: T) => unknown) => T
 }>(query: T): T {
-  return query.orWhere(q => (q as T & {
-    where: (field: string, operator: string, value?: unknown) => T
-  }).where('published', '=', true).where('published', 'IS NULL'))
+  return query.orWhere(q => q.where('published', '=', true).where('published', 'IS NULL'))
 }
 
 export const blogPreviewFields = [
