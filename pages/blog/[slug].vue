@@ -7,12 +7,21 @@ const route = useRoute()
 const path = route.path.replace(/\/$/, '')
 const slug = path.split('/').pop() || ''
 
-const { data: article } = await useAsyncData(`blog-article-${path}`, () => queryCollection('blog')
+const { data: article } = await useAsyncData(`blog-article-${path}`, () => onlyPublished(queryCollection('blog'))
   .where('path', '=', path)
   .first())
 
+// Match pages/[...slug].vue: HTTP 404 + shared NotFound UI (unpublished or missing).
+if (!article.value) {
+  const event = useRequestEvent()
+  if (event)
+    setResponseStatus(event, 404, 'Page Not Found')
+}
+
 const { data } = await useAsyncData(`blog-surround-${path}`, () => {
-  return queryCollectionItemSurroundings('blog', path)
+  if (!article.value)
+    return Promise.resolve([null, null] as const)
+  return onlyPublished(queryCollectionItemSurroundings('blog', path))
     .order('date', 'DESC')
 })
 
@@ -60,81 +69,84 @@ const articleJsonLd = computed(() => {
   })
 })
 
-useHead({
-  title: article.value?.title || '',
-  meta: [
-    { name: 'description', content: description },
-    // Test on: https://developers.facebook.com/tools/debug/ or https://socialsharepreview.com/
-    { property: 'og:site_name', content: 'Debbie Codes' },
-    // Article (not website) — matches the JSON-LD @type and helps link previews.
-    { property: 'og:type', content: 'article' },
-    {
-      property: 'og:url',
-      content: `https://debbie.codes/blog/${slug}`,
-    },
-    {
-      property: 'og:title',
-      content: title,
-    },
-    {
-      property: 'og:description',
-      content: description,
-    },
-    {
-      property: 'og:image',
-      content: socialImage,
-    },
-    ...(socialImageHasStandardSize
-      ? [
-          { property: 'og:image:width', content: '1200' },
-          { property: 'og:image:height', content: '630' },
-        ]
-      : []),
-    { property: 'og:image:alt', content: title },
-    // Test on: https://cards-dev.twitter.com/validator or https://socialsharepreview.com/
-    { name: 'twitter:site', content: '@debs_obrien' },
-    { name: 'twitter:card', content: 'summary_large_image' },
-    {
-      name: 'twitter:url',
-      content: `https://debbie.codes/blog/${slug}`,
-    },
-    {
-      name: 'twitter:title',
-      content: title,
-    },
-    {
-      name: 'twitter:description',
-      content: description,
-    },
-    {
-      name: 'twitter:image',
-      content: socialImage,
-    },
-  ],
-  link: [
-    {
-      rel: 'canonical',
-      href: canonicalUrl,
-    },
-  ],
-  script: computed(() => {
-    if (!articleJsonLd.value)
-      return []
-    return [
+if (article.value) {
+  useHead({
+    title: article.value.title || '',
+    meta: [
+      { name: 'description', content: description },
+      // Test on: https://developers.facebook.com/tools/debug/ or https://socialsharepreview.com/
+      { property: 'og:site_name', content: 'Debbie Codes' },
+      // Article (not website) — matches the JSON-LD @type and helps link previews.
+      { property: 'og:type', content: 'article' },
       {
-        key: 'article-json-ld',
-        type: 'application/ld+json',
-        // children (not innerHTML) is the Nuxt/unhead-safe way to emit JSON-LD
-        children: JSON.stringify(articleJsonLd.value),
+        property: 'og:url',
+        content: `https://debbie.codes/blog/${slug}`,
       },
-    ]
-  }),
-})
+      {
+        property: 'og:title',
+        content: title,
+      },
+      {
+        property: 'og:description',
+        content: description,
+      },
+      {
+        property: 'og:image',
+        content: socialImage,
+      },
+      ...(socialImageHasStandardSize
+        ? [
+            { property: 'og:image:width', content: '1200' },
+            { property: 'og:image:height', content: '630' },
+          ]
+        : []),
+      { property: 'og:image:alt', content: title },
+      // Test on: https://cards-dev.twitter.com/validator or https://socialsharepreview.com/
+      { name: 'twitter:site', content: '@debs_obrien' },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      {
+        name: 'twitter:url',
+        content: `https://debbie.codes/blog/${slug}`,
+      },
+      {
+        name: 'twitter:title',
+        content: title,
+      },
+      {
+        name: 'twitter:description',
+        content: description,
+      },
+      {
+        name: 'twitter:image',
+        content: socialImage,
+      },
+    ],
+    link: [
+      {
+        rel: 'canonical',
+        href: canonicalUrl,
+      },
+    ],
+    script: computed(() => {
+      if (!articleJsonLd.value)
+        return []
+      return [
+        {
+          key: 'article-json-ld',
+          type: 'application/ld+json',
+          // children (not innerHTML) is the Nuxt/unhead-safe way to emit JSON-LD
+          children: JSON.stringify(articleJsonLd.value),
+        },
+      ]
+    }),
+  })
+}
 </script>
 
 <template>
-  <main class="container mx-auto px-4 sm:px-6 max-w-5xl">
-    <article v-if="article !== null">
+  <NotFound v-if="!article" />
+  <main v-else class="container mx-auto px-4 sm:px-6 max-w-5xl">
+    <article>
       <div class="max-w-4xl mx-auto pt-4 sm:pt-6">
         <NuxtLink
           to="/blog"
@@ -144,7 +156,7 @@ useHead({
         </NuxtLink>
       </div>
 
-      <header v-if="article" class="py-4 sm:py-6 text-center">
+      <header class="py-4 sm:py-6 text-center">
         <h1 class="font-extrabold text-2xl sm:text-3xl lg:text-5xl mb-2 sm:mb-3">
           {{ article.title }}
         </h1>

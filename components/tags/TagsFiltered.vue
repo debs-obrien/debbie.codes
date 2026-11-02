@@ -23,9 +23,11 @@ function flatten(tags: Array<any>, key = 'tags') {
   return _tags
 }
 
-const { data } = await useAsyncData(`tags-${props.section}`, () => queryCollection(props.section)
-  .select('tags')
-  .all())
+const { data } = await useAsyncData(`tags-${props.section}`, () => {
+  const base = queryCollection(props.section)
+  const query = props.section === 'blog' ? onlyPublished(base) : base
+  return query.select('tags').all()
+})
 
 // Count occurrences of each tag
 const tagCounts = new Map<string, number>()

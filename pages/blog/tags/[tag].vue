@@ -6,7 +6,7 @@ const { tag } = useRoute().params
 // Normalize the URL tag parameter
 const normalizedUrlTag = (tag as string).toLowerCase().replace(/\s+/g, '-')
 
-const { data: articles } = await useAsyncData('articles', () => queryCollection('blog')
+const { data: articles } = await useAsyncData('articles', () => onlyPublished(queryCollection('blog'))
   .select(...blogPreviewFields)
   .order('date', 'DESC')
   .all())

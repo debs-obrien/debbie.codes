@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const { data: articles } = await useAsyncData('articles-home', () =>
-  queryCollection('blog').select(...blogPreviewFields).order('date', 'DESC').limit(6).all())
+  onlyPublished(queryCollection('blog')).select(...blogPreviewFields).order('date', 'DESC').limit(6).all())
 
 const { data: videos } = await useAsyncData('videos-home', () =>
   queryCollection('videos').select(...videoPreviewFields).order('date', 'DESC').limit(5).all())

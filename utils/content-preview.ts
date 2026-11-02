@@ -3,6 +3,21 @@
  * Search only matches title, description, and tags — never fetch full markdown bodies.
  */
 
+/**
+ * Posts with `published: false` stay in the repo but must not appear in lists,
+ * search, tags, surrounds, RSS, or the post route. Missing `published` means
+ * published (legacy posts) — same rule as feed/sitemap (`!== false`).
+ *
+ * SQL: AND (published = true OR published IS NULL)
+ */
+export function onlyPublished<T extends {
+  orWhere: (groupFactory: (query: T) => unknown) => T
+}>(query: T): T {
+  return query.orWhere(q => (q as T & {
+    where: (field: string, operator: string, value?: unknown) => T
+  }).where('published', '=', true).where('published', 'IS NULL'))
+}
+
 export const blogPreviewFields = [
   'path',
   'title',
