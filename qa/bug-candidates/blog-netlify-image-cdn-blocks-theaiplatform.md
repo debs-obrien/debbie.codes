@@ -23,7 +23,7 @@ Inline article images load and display.
 
 ## Actual
 
-Images have `naturalWidth: 0`. Console:
+**2026-08-07:** Images had `naturalWidth: 0`. Console:
 
 ```text
 Failed to load resource: 400 @ https://debbie.codes/.netlify/images?q=80&url=https://theaiplatform.app/blog/.../loop-diagram.png
@@ -35,15 +35,16 @@ CDN response body:
 {"code":400,"msg":"url (https://theaiplatform.app/blog/.../loop-diagram.png) is not an allowed pattern"}
 ```
 
-Source images on `theaiplatform.app` return HTTP 200 when fetched directly — the block is the Netlify allowlist, not missing files.
+**2026-09-07 recheck:** **appears fixed**. Same URLs return HTTP 200 via `/.netlify/images`; both figures report `naturalWidth: 1280`; console clean. Keep this file for talk history / regression awareness.
 
 ## Evidence
 
 - Viewport: 1280×800
 - Notes: hunt session 2026-08-07; `.playwright-cli/console-2026-08-07T06-36-15-611Z.log`
+- Recheck 2026-09-07: images healthy on production
 
 ## Suggested next step
 
-- [x] Fix via site-bugfix — host images on Cloudinary / `public/` or allowlist `theaiplatform.app` in Netlify Image CDN remote patterns
+- [x] Fix via site-bugfix — resolved on production as of 2026-09-07
 - [ ] Needs human
 - [ ] Defer
