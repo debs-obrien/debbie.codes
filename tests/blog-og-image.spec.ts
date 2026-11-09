@@ -1,8 +1,8 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import process from 'node:process'
-import { expect, test } from '@playwright/test'
-import { DEFAULT_OG_IMAGE } from '../utils/og-image'
+import { DEFAULT_OG_IMAGE, resolveOgImage } from '../utils/og-image'
+import { expect, test } from './fixtures'
 
 const isEndform = process.env.ENDFORM === 'true'
 const blogDir = join('content', 'blog')
@@ -47,34 +47,44 @@ function sampleBlogSlugs(): string[] {
   return [...new Set([...newest, mid, older])]
 }
 
-/** Fetch site-hosted OG assets from the test base URL so unpublished local covers resolve. */
-function fetchableImageUrl(absoluteHttps: string, baseURL: string | undefined): string {
-  if (!baseURL || !absoluteHttps.startsWith(SITE_ORIGIN))
+/**
+ * Map an absolute OG URL to something the local/preview base URL can serve.
+ * Netlify Image CDN (`/.netlify/images`) is not available under `nuxt dev`, so
+ * for those cards we fetch the underlying local `/images/...` source instead.
+ * Third-party hosts (e.g. Unsplash) are left unchanged — callers skip fetching them.
+ */
+function fetchableImageUrl(absoluteHttps: string, baseURL: string | undefined): string | null {
+  if (/images\.unsplash\.com/i.test(absoluteHttps) || !absoluteHttps.startsWith(SITE_ORIGIN))
+    return null
+
+  if (!baseURL)
     return absoluteHttps
-  return absoluteHttps.replace(SITE_ORIGIN, baseURL.replace(/\/$/, ''))
+
+  const origin = baseURL.replace(/\/$/, '')
+
+  if (absoluteHttps.includes('/.netlify/images')) {
+    try {
+      const u = new URL(absoluteHttps)
+      const src = u.searchParams.get('url')
+      if (src?.startsWith('/'))
+        return `${origin}${src}`
+    }
+    catch {
+      // fall through
+    }
+  }
+
+  return absoluteHttps.replace(SITE_ORIGIN, origin)
 }
 
 test.describe('Blog OG / Twitter images', () => {
-  test('posts without a cover image fall back to the site default card', async ({ page, request }) => {
-    // laid-off-what-now intentionally has no image/ogImage (excluded from cover batches)
-    await page.goto('/blog/laid-off-what-now')
-
-    const ogImage = await page.locator('meta[property="og:image"]').getAttribute('content')
-    const twitterImage = await page.locator('meta[name="twitter:image"]').getAttribute('content')
-
-    expect(ogImage, 'og:image must not be empty').toBeTruthy()
-    expect(twitterImage, 'twitter:image must not be empty').toBeTruthy()
-    expect(ogImage).toMatch(/^https:\/\//)
-    expect(twitterImage).toMatch(/^https:\/\//)
-    expect(ogImage).toBe(DEFAULT_OG_IMAGE)
-    expect(twitterImage).toBe(DEFAULT_OG_IMAGE)
-
-    const imageResponse = await request.get(ogImage!)
-    expect(imageResponse.status(), `${ogImage} should return 200`).toBe(200)
-    expect(imageResponse.headers()['content-type'] ?? '').toMatch(/image\//i)
+  test('posts without a cover image fall back to the site default card', () => {
+    // Every blog post has a cover now, so check the fallback in resolveOgImage directly.
+    expect(resolveOgImage('', undefined)).toBe(DEFAULT_OG_IMAGE)
+    expect(resolveOgImage(null, '  ')).toBe(DEFAULT_OG_IMAGE)
   })
 
-  test('posts with ogImage frontmatter emit an absolute https URL', async ({ page, request }) => {
+  test('posts with ogImage frontmatter emit an absolute https URL', async ({ page }) => {
     await page.goto('/blog/work-life-balance')
 
     const ogImage = await page.locator('meta[property="og:image"]').getAttribute('content')
@@ -83,16 +93,20 @@ test.describe('Blog OG / Twitter images', () => {
     expect(ogImage).toMatch(/^https:\/\//)
     expect(twitterImage).toMatch(/^https:\/\//)
     expect(ogImage).not.toBe(DEFAULT_OG_IMAGE)
+    expect(ogImage).not.toMatch(/res\.cloudinary\.com/)
     expect(ogImage).toContain('devs-in-the-forest')
-
-    const imageResponse = await request.get(ogImage!)
-    expect(imageResponse.status(), `${ogImage} should return 200`).toBe(200)
+    expect(ogImage).toMatch(/\/.netlify\/images\?/)
+    await expect(page.locator('meta[property="og:image:width"]')).toHaveAttribute('content', '1200')
+    await expect(page.locator('meta[property="og:image:height"]')).toHaveAttribute('content', '630')
   })
+
   test('Grok Bot 50th birthday post uses its local share image and shows a header cover', async ({ page }) => {
     await page.goto('/blog/grok-bot-50th-birthday-photo-video')
-    const expected = 'https://debbie.codes/images/blog/covers/grok-bot-50th-birthday-photo-video.png'
-    await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', expected)
-    await expect(page.locator('meta[name="twitter:image"]')).toHaveAttribute('content', expected)
+    const ogImage = await page.locator('meta[property="og:image"]').getAttribute('content')
+    expect(ogImage).toMatch(/^https:\/\/debbie\.codes\/\.netlify\/images\?/)
+    expect(ogImage).toContain('grok-bot-50th-birthday-photo-video')
+    expect(ogImage).not.toMatch(/res\.cloudinary\.com/)
+    await expect(page.locator('meta[name="twitter:image"]')).toHaveAttribute('content', ogImage!)
     // image frontmatter also drives the in-article cover below the title (ogImage alone does not)
     const headerCover = page.locator('article img[alt*="50th birthday"]').first()
     await expect(headerCover).toBeVisible()
@@ -116,9 +130,14 @@ test.describe('Blog OG / Twitter images', () => {
       expect(twitterImage, `${slug} twitter:image`).toMatch(/^https:\/\//)
       expect(ogImage, `${slug} og:image empty`).toBeTruthy()
       expect(twitterImage, `${slug} twitter:image empty`).toBeTruthy()
+      expect(ogImage, `${slug} must not use Cloudinary`).not.toMatch(/res\.cloudinary\.com/)
 
       for (const url of [ogImage!, twitterImage!]) {
         const fetchUrl = fetchableImageUrl(url, baseURL)
+        if (!fetchUrl) {
+          // External host (e.g. Unsplash) — shape assertion only; no third-party fetch.
+          continue
+        }
         const imageResponse = await request.get(fetchUrl)
         expect(imageResponse.status(), `${slug} ${fetchUrl} should return 200`).toBe(200)
         expect(

@@ -5,4 +5,23 @@ description: Modern web applications demand robust testing and rapid debugging p
 video: zyOJfGtJ3Rw
 tags: [conference-talk, playwright, testing, ai]
 host: Microsoft Build
+chapters:
+  - time: 0
+    title: "Introduction to MCP's Test Generation"
+  - time: 51
+    title: "Max Demonstrates Debugging Techniques"
+  - time: 152
+    title: "Explanation of the Playwright Prompt"
+  - time: 365
+    title: "Contextual Switching in Debugging"
+  - time: 393
+    title: "Remote Debugging Capabilities"
+  - time: 437
+    title: "Overview of test generation using Copilot"
+  - time: 615
+    title: "Successful identification of movie using AI in demo"
+  - time: 650
+    title: "Test Case Created and Passed"
+  - time: 677
+    title: "Discussion on Playwright MCP Capabilities"
 ---

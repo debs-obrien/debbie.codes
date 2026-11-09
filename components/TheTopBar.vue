@@ -3,8 +3,10 @@ const isOpen = ref(false)
 const route = useRoute()
 const dialogRef = ref<HTMLDialogElement | null>(null)
 const openMenuButtonRef = ref<HTMLButtonElement | null>(null)
-/** Path where the menu was opened (browser URL), so a late Vue route
- *  catch-up after SPA navigation does not immediately re-close it. */
+/**
+ * Path where the menu was opened (browser URL), so a late Vue route
+ *  catch-up after SPA navigation does not immediately re-close it.
+ */
 const pathWhenOpened = ref<string | null>(null)
 
 function clientPath() {
@@ -73,15 +75,17 @@ watch(() => route.fullPath, (to) => {
           <div class="w-auto text-white">
             <NuxtLink to="/" class="hover:no-underline flex">
               <NuxtImg
-                provider="cloudinary"
-                class="rounded-full mr-4 profile-pic border-white border"
-                src="v1589118478/debbie.codes/debbie-thumb_clt00n"
-                alt="Debbie O'Brien"
+                class="rounded-full mr-4 profile-pic border-white border object-cover"
+                src="/images/debbie-thumb.webp"
+                alt=""
                 width="96"
                 height="96"
                 sizes="50px"
+                densities="x1 x2"
                 quality="80"
                 format="webp"
+                loading="eager"
+                decoding="async"
               />
               <span class="self-center text-white"> Debbie O'Brien </span>
             </NuxtLink>

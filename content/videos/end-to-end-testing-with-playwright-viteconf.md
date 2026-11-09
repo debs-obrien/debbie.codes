@@ -5,4 +5,23 @@ description: Lets’ take a look at how to test across iframes and different bro
 video: kqJSrSU9DPY
 tags: [conference-talk, playwright, testing]
 host: Vite Conf
+chapters:
+  - time: 0
+    title: "Introduction"
+  - time: 47
+    title: "Playwright overview"
+  - time: 141
+    title: "Setting up the demo"
+  - time: 196
+    title: "Recording the test"
+  - time: 359
+    title: "Running in UI mode"
+  - time: 473
+    title: "Testing user isolation"
+  - time: 634
+    title: "Adding assertions"
+  - time: 784
+    title: "Debugging and final test"
+  - time: 868
+    title: "Conclusion and resources"
 ---

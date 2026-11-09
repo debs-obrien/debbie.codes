@@ -5,4 +5,37 @@ description: The frontend is a great place to be in these days and as apps get b
 video: 6mjDrGPF3P8
 tags: [conference-talk, architecture]
 conference: Shop Apotheke
+chapters:
+  - time: 489
+    title: "Component Driven"
+  - time: 633
+    title: "Composable"
+  - time: 1057
+    title: "It all starts with the designers"
+  - time: 1203
+    title: "Design Tokens"
+  - time: 1336
+    title: "Base Theme"
+  - time: 1348
+    title: "Theme Provider"
+  - time: 1397
+    title: "Pink Theme"
+  - time: 1430
+    title: "Cart Page"
+  - time: 1600
+    title: "Heading Component"
+  - time: 1624
+    title: "Image Component"
+  - time: 1653
+    title: "Text Component"
+  - time: 1659
+    title: "Button Component"
+  - time: 1699
+    title: "Remove From Cart Component"
+  - time: 1733
+    title: "Component Library"
+  - time: 1757
+    title: "Keep Building"
+  - time: 1887
+    title: "Reuse Components in any App"
 ---

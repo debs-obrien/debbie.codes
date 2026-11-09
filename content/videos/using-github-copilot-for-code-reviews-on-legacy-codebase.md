@@ -5,6 +5,19 @@ description: "See how GitHub Copilot can transform code reviews on legacy codeba
 video: 85NM9EGnNx0
 tags: [ai]
 host: Debbie's youtube channel
+chapters:
+  - time: 0
+    title: "Reviewing PR with Copilot"
+  - time: 172
+    title: "Fixing hardcoded input name"
+  - time: 184
+    title: "Improving component semantics"
+  - time: 217
+    title: "Resolving autofill issues"
+  - time: 286
+    title: "Verifying fix semantic changes"
+  - time: 313
+    title: "Finalizing PR and testing"
 ---
 
 See how GitHub Copilot can transform code reviews on legacy codebases! This video demonstrates practical techniques for using AI to understand, analyze, and review older code. Learn how Copilot can help identify issues, suggest improvements, and make legacy code review more efficient and thorough.

@@ -10,7 +10,7 @@ const datetime = computed(() => toIsoDate(props.date))
 <template>
   <time
     :datetime="datetime || undefined"
-    class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1 block"
+    class="tracking-widest text-xs title-font font-medium text-gray-600 dark:text-gray-400 mb-1 block"
   >
     {{ formatDate(date) }}
   </time>

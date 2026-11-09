@@ -6,4 +6,15 @@ video: BUDAS6E4xyY
 tags: [ai]
 host: Debbie O'Brien
 image: https://img.youtube.com/vi/BUDAS6E4xyY/sddefault.jpg
+chapters:
+  - time: 0
+    title: "Introduction to AI building"
+  - time: 56
+    title: "Using Gemini Canvas for games"
+  - time: 147
+    title: "Iterating and adding features"
+  - time: 265
+    title: "Building websites with AI"
+  - time: 386
+    title: "Sharing and final thoughts"
 ---

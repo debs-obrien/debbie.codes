@@ -5,14 +5,14 @@ const filteredBlogPosts = ref<any[]>([])
 const isSearchActive = ref(false)
 
 // Fetch recent blog posts (latest 8)
-const { data: recentPosts } = await useAsyncData('recent-blog-posts', () => queryCollection('blog')
+const { data: recentPosts } = await useAsyncData('recent-blog-posts', () => onlyPublished(queryCollection('blog'))
   .select(...blogPreviewFields)
   .order('date', 'DESC')
   .limit(8)
   .all())
 
 // Get all unique tags with counts for "Browse by Topic" section and years
-const { data: allPosts } = await useAsyncData('all-blog-posts-for-tags', () => queryCollection('blog')
+const { data: allPosts } = await useAsyncData('all-blog-posts-for-tags', () => onlyPublished(queryCollection('blog'))
   .select(...blogPreviewFields)
   .all())
 
@@ -133,7 +133,7 @@ useHead({
         />
         <NuxtLink
           to="/blog/page/1"
-          class="text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-primary transition-colors"
+          class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
         >
           Archive
         </NuxtLink>
@@ -158,7 +158,7 @@ useHead({
       <div v-if="!isSearchActive" class="text-center mt-8">
         <NuxtLink
           to="/blog/page/1"
-          class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-primary/90 transition-colors"
+          class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-fill hover:bg-primary-fill/90 transition-colors"
         >
           Older posts
         </NuxtLink>

@@ -4,8 +4,8 @@ date: 2026-08-11
 description: "Grok Bot just dropped. A team of bots on your computer for LinkedIn, GitHub, email, and content publishing. Here is my raw first look."
 tags: [ai, agents, grok-bot]
 published: true
-image: /images/blog/covers/grok-bot-just-dropped.png
-ogImage: /images/blog/covers/grok-bot-just-dropped.png
+image: /images/blog/covers/grok-bot-just-dropped.webp
+ogImage: /images/blog/covers/grok-bot-just-dropped.webp
 ---
 
 Grok Bot just dropped and I had to try it. It's basically a team of bots on your computer that do the stuff you'd normally hand to a teammate — LinkedIn, GitHub, email, the lot.

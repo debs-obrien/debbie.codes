@@ -2,20 +2,19 @@
 title: Building and Testing a Counter Component
 date: 2022-01-12
 description: We want to build and test a counter component built with React and TypeScript. So where do we start? Which components do we need to build to create this component and what do we test?
-image: v1642010879/debbie.codes/blog/2022/counter_2x_ma1ik6
-provider: cloudinary
+image: /images/content/blog/2022/counter_2x_ma1ik6.webp
 tags: [react, testing]
 ---
 
-We want to build and test a [counter component](https://bit.dev/learn-bit-react/ecommerce/ui/product/counter/~code/counter.tsx) built with React and TypeScript. So where do we start? First of all looking at the component I can see it is made up of 2 [button components](https://bit.dev/learn-bit-react/base-ui/ui/button) that increase and decrease the count and an [input component](https://bit.dev/learn-bit-react/base-ui/ui/forms/input) that shows the value of the count.
+We want to build and test a counter component built with React and TypeScript. So where do we start? First of all looking at the component I can see it is made up of 2 button components that increase and decrease the count and an input component that shows the value of the count.
 
 ## Building a Counter Component
 
-![counter component](https://res.cloudinary.com/debsobrien/image/upload/v1642010879/debbie.codes/blog/2022/counter_2x_ma1ik6)
+![counter component](/images/content/blog/2022/counter_2x_ma1ik6.webp){width="396" height="244"}
 
 ### Importing our Components
 
-As we already have a [button component](https://bit.dev/learn-bit-react/base-ui/ui/button) and [input component](https://bit.dev/learn-bit-react/base-ui/ui/forms/input) already created I will just import them as well as import React and useState and the styles.
+As we already have a button component and input component already created I will just import them as well as import React and useState and the styles.
 
 ```js
 import React, { useState } from 'react'
@@ -381,14 +380,16 @@ it('should not decrease to less than 1', () => {
 
 And that's it. We now have a counter component that works as we would expect and can now be used in the component where it should be used knowing that it will work correctly. Compositions are a great way of seeing the different states of our components and we can then use the composition file to understand what we need to do to make our component work when using it in our next component/app.
 
-![counter component changing on click](https://res.cloudinary.com/debsobrien/image/upload/v1642011045/debbie.codes/blog/2022/counter-couting_zn9mcw.gif)
+<video aria-label="counter component changing on click" autoplay muted loop playsinline width="332" height="140" poster="/images/content/blog/2022/counter-couting_zn9mcw-poster.jpg" preload="none">
+  <source src="/images/content/blog/2022/counter-couting_zn9mcw.mp4" type="video/mp4">
+</video>
 
 We should also document our component so that it contains clear instructions and examples which makes it even easier for our consumer to understand what the component does and how to use it. And of course tests make sure our component not only works as expected but also that if we do make any changes to it our tests ensure that it can not be exported if our tests are broken meaning if we do have any breaking changes we can fix our tests and release a new major version of our component.
 
 ## Useful Links
 
-- [Counter Component](https://bit.dev/learn-bit-react/ecommerce/ui/product/counter)
-- [Counter Component Code](https://bit.dev/learn-bit-react/ecommerce/ui/product/counter/~code/counter.tsx)
-- [Counter Component Composition](https://bit.dev/learn-bit-react/ecommerce/ui/product/counter/~code/counter.composition.tsx)
-- [Counter Component Tests](https://bit.dev/learn-bit-react/ecommerce/ui/product/counter/~code/counter.spec.tsx)
+- Counter Component
+- Counter Component Code
+- Counter Component Composition
+- Counter Component Tests
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)

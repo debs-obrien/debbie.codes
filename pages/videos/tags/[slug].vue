@@ -25,12 +25,27 @@ const allVideos = computed(() => filterVisibleVideos(allVideosRaw.value))
 
 const topic: string = getTagDisplayName(slug as string)
 const title: string = `Videos: ${topic}`
-const description: string = ''
+const description: string = `Videos tagged ${topic} — talks, tutorials, and interviews.`
 const section: Sections = 'videos'
+
+const firstPoster = computed(() => {
+  const first = videos.value[0]
+  return first?.video ? youtubeThumbnail(first.video, 'mqdefault') : ''
+})
 
 useHead({
   title,
   meta: [{ name: 'description', content: description }],
+  link: computed(() => {
+    if (!firstPoster.value)
+      return []
+    return [{
+      rel: 'preload',
+      as: 'image',
+      href: firstPoster.value,
+      fetchpriority: 'high',
+    }]
+  }),
 })
 </script>
 

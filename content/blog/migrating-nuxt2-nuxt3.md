@@ -2,10 +2,9 @@
 title: Migrating from Nuxt 2 to Nuxt 3
 date: 2022-11-27
 description: My personal website was built many years ago and had collected quite a large amount of code as I used my site to play around and experiment new features of Nuxt. It took me ages to finally decide to migrate cause lets face it, we all hate migrations. But I finally did it and I'm so glad I did. I'm going to share with you the steps I took to migrate my site from Nuxt 2 to Nuxt 3.
-image: v1640965793/debbie.codes/blog/2022/nuxt3_q10xtr.png
+image: /images/content/blog/2022/nuxt3_q10xtr.webp
 alt: Nuxt logo with text of Migration to Nuxt 3
-ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1640965793/debbie.codes/blog/2022/nuxt3_q10xtr.png
-provider: cloudinary
+ogImage: /images/content/blog/2022/nuxt3_q10xtr.webp
 tags: [nuxt]
 published: true
 ---
@@ -63,7 +62,7 @@ I decided to focus on adding all content to the index page as this page containe
 
 ## Nuxt Content Module
 
-I decided to work on getting content rendered first. All my content comes from markdown files which are located in a content folder. The Nuxt content module works like a git based CMS making it really easy to write blog posts in markdown or use yaml to create content for video or podcast cards and easily render them throughout the site. The module has a great feature for querying so you can get back only what you need just like if it were stored in a database. I started by copying the content folder from my nuxt 2 folder and pasted it at root level of. I then [installed the Nuxt Content Module](https://content.nuxtjs.org/get-started#add-to-a-project). 
+I decided to work on getting content rendered first. All my content comes from markdown files which are located in a content folder. The Nuxt content module works like a git based CMS making it really easy to write blog posts in markdown or use yaml to create content for video or podcast cards and easily render them throughout the site. The module has a great feature for querying so you can get back only what you need just like if it were stored in a database. I started by copying the content folder from my nuxt 2 folder and pasted it at root level of. I then [installed the Nuxt Content Module](https://content.nuxt.com/docs/getting-started/installation). 
 
 ```bash
 npm install -D @nuxt/content

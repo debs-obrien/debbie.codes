@@ -5,8 +5,8 @@ description: If you've ever needed to test an application that requires authenti
 tags: [playwright, mcp, testing, ai]
 canonical: https://dev.to/debs_obrien/testing-in-a-logged-in-state-with-the-playwright-mcp-browser-extension-4cmg
 published: true
-image: /images/blog/covers/testing-logged-in-state-playwright-mcp-browser-extension.png
-ogImage: /images/blog/covers/testing-logged-in-state-playwright-mcp-browser-extension.png
+image: /images/blog/covers/testing-logged-in-state-playwright-mcp-browser-extension.webp
+ogImage: /images/blog/covers/testing-logged-in-state-playwright-mcp-browser-extension.webp
 ---
 
 If you've ever needed to test an application that requires authentication, you know the pain: logging in every time or, worse, handing over your credentials to an LLM.
@@ -32,13 +32,9 @@ This opens up more realistic testing workflows for QA engineers, especially when
 
 The extension is available for **Chrome, Edge, or any Chromium-based browser**.
 
-- Download the [Playwright MCP extension](https://github.com/microsoft/playwright-mcp/blob/main/extension/README.md).
-- Unzip the file.
-- Open `chrome://extensions` or `edge://extensions` in your browser.
-- Enable **Developer Mode**.
-- Click **Load unpacked** and select the extension folder.
+- Install the [Playwright Extension](https://chromewebstore.google.com/detail/playwright-extension/mmlmfjhmonkocbjadbfplnigmagldckm) from the Chrome Web Store.
 
-You'll now see the **Playwright MCP Bridge** in your extensions list.
+You'll now see the **Playwright Extension** in your extensions list.
 
 ## Configuring the MCP Server
 
@@ -91,7 +87,7 @@ For testers, this means **faster setup, more realistic tests, and improved secur
 
 ## Get Started
 
-👉 Check out the [Playwright MCP Browser Extension docs](https://github.com/microsoft/playwright-mcp/blob/main/extension/README.md) and try it out for yourself.
+👉 Check out the [Playwright MCP Browser Extension docs](https://github.com/microsoft/playwright/tree/main/packages/extension#readme) and try it out for yourself.
 
 I'd love to hear how you use logged-in profiles in your testing workflows. Drop a comment and share your scenarios!
 

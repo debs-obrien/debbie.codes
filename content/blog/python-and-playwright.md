@@ -3,7 +3,7 @@ title: Getting Started with Python and Playwright
 date: 2023-09-07
 description: For those new to Python here is a quick beginners guide on how to setup Python and Pytest and install Playwright. We then create an example test and run it in both headed and headless mode meaning with and without a browser window.
 published: true
-image: photo-1528158222524-d4d912d2e208?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80
+image: photo-1528158222524-d4d912d2e208
 provider: imgix
 tags: [playwright, testing]
 ---

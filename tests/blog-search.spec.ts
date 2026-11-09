@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './fixtures';
 
 /**
  * Helper: fill the search input and wait for Vue search to activate.
@@ -32,7 +32,7 @@ test.describe('Blog Search Functionality', () => {
       const articles = page.getByRole('article');
       const firstArticle = articles.first();
       // Use the heading only — the card link wraps title + description
-      const firstArticleTitle = (await firstArticle.getByRole('heading').innerText()).trim();
+      const firstArticleTitle = (await firstArticle.getByRole('heading').textContent() ?? '').trim();
 
       await searchFor(page, firstArticleTitle);
       await expect(articles.filter({ hasText: firstArticleTitle })).not.toHaveCount(0);

@@ -37,9 +37,24 @@ const title: string = 'Videos'
 const description: string = 'Conference talks, interviews, and live streams on Playwright, testing, and AI agents.'
 const section: Sections = 'videos'
 
+const featuredPoster = computed(() => {
+  const id = featuredVideos.value[0]?.video
+  return id ? youtubeThumbnail(id) : ''
+})
+
 useHead({
   title,
   meta: [{ name: 'description', content: description }],
+  link: computed(() => {
+    if (!featuredPoster.value)
+      return []
+    return [{
+      rel: 'preload',
+      as: 'image',
+      href: featuredPoster.value,
+      fetchpriority: 'high',
+    }]
+  }),
 })
 </script>
 

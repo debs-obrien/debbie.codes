@@ -2,9 +2,8 @@
 title: Not One but Two
 date: 2023-08-11
 description: On our 9th attempt at fertility treatment, we were super excited when the doctor called us 10 days after the transfer to tell us that we were pregnant. It had worked. I asked him if he was sure and he said "yes, very sure. But then when we had the first scan, we got a big surprise.
-image: v1691829487/debbie.codes/blog/2023/scan-twins-2_iwmfs3.jpg
-ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1651559990/debbie.codes/blog/2023/scan-twins-2_iwmfs3.jpg
-provider: cloudinary
+image: /images/content/blog/2023/scan-twins-2_iwmfs3.webp
+ogImage: /images/content/blog/2023/scan-twins-2_iwmfs3.webp
 tags: [personal]
 ---
 

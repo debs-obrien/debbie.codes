@@ -1,5 +1,5 @@
-import { test, expect } from '@playwright/test';
 import type { Page } from '@playwright/test';
+import { expect, test } from './fixtures';
 
 test.describe('Mobile Navigation', () => {
   const getOpenMenuButton = (page: Page) => page.getByRole('button', { name: 'Open menu' });
@@ -121,7 +121,7 @@ test.describe('Mobile Navigation', () => {
             - listitem:
               - link "Blog"
             - listitem:
-              - link "Now"
+              - link "Hire me"
       `);
     });
   });
@@ -141,7 +141,7 @@ test.describe('Mobile Navigation', () => {
     });
   });
 
-  // Mobile navigation menu is not rendering the navigation element properly after clicking hamburger  
+  // Mobile navigation menu is not rendering the navigation element properly after clicking hamburger
   test.fixme('Mobile Navigation - Social media links work from mobile menu', async ({ page }) => {
     await test.step('Open mobile menu', async () => {
       await getOpenMenuButton(page).click();
@@ -157,7 +157,7 @@ test.describe('Mobile Navigation', () => {
               - img
           - listitem:
             - link "linkedIn":
-              - /url: https://www.linkedin.com/in/debbie-o-brien-1a199975/
+              - /url: https://www.linkedin.com/in/debbie-obrien
               - img
           - listitem:
             - link "github":
@@ -177,7 +177,7 @@ test.describe('Mobile Navigation', () => {
       await openMenu.click();
       // Wait for the navigation to become visible
       await expect(page.getByRole('banner').getByRole('navigation')).toBeVisible();
-      
+
       await page.getByRole('banner').getByRole('navigation').getByRole('link', { name: 'About' }).click();
       await expect(page).toHaveURL(/.*\/about/);
     });
@@ -199,7 +199,7 @@ test.describe('Mobile Navigation', () => {
     const dialog = getMenuDialog(page);
     const videosLink = dialog.getByRole('link', { name: 'Videos', exact: true });
     const aboutLink = dialog.getByRole('link', { name: 'About', exact: true });
-    
+
     await test.step('Open mobile menu and click Videos', async () => {
       await openMobileMenu(page);
       await videosLink.click();

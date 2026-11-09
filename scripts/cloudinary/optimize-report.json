@@ -1,0 +1,1046 @@
+{
+  "before": {
+    "allImagesMB": 31.63,
+    "allMediaMB": 27.31,
+    "contentImagesMB": 23.56,
+    "contentMediaMB": 27.31,
+    "imageCount": 320,
+    "mediaCount": 11,
+    "webpOver200": [
+      {
+        "path": "public/images/content/blog/2022/race-ireland_amyqrb.webp",
+        "kb": 780.3
+      },
+      {
+        "path": "public/images/content/blog/2022/cycling-with-girls_nh2k0q.webp",
+        "kb": 762.9
+      },
+      {
+        "path": "public/images/content/blog/2022/running-trail_qjlb9h.webp",
+        "kb": 759.1
+      },
+      {
+        "path": "public/images/content/blog/2022/meteora-greece_wqumec.webp",
+        "kb": 566.3
+      },
+      {
+        "path": "public/images/content/blog/2026/family-microsoft.webp",
+        "kb": 512.2
+      },
+      {
+        "path": "public/images/content/blog/2022/IMG_2873_qxkes9.webp",
+        "kb": 499.6
+      },
+      {
+        "path": "public/images/content/blog/2022/me_running_q64fvs.webp",
+        "kb": 454.6
+      },
+      {
+        "path": "public/images/content/blog/2022/microsoft-running_gztjdu.webp",
+        "kb": 365.0
+      },
+      {
+        "path": "public/images/content/blog/2022/IMG_5391_pp2gha.webp",
+        "kb": 360.4
+      },
+      {
+        "path": "public/images/content/blog/Screenshot_2020-12-31_at_18.14.59_sbfsen.webp",
+        "kb": 338.4
+      },
+      {
+        "path": "public/images/content/blog/2022/pyramids_fzo4p9.webp",
+        "kb": 335.0
+      },
+      {
+        "path": "public/images/content/blog/2022/min-in-pool_mcdqya.webp",
+        "kb": 333.9
+      },
+      {
+        "path": "public/images/content/blog/2022/IMG_5386_rp8hwx.webp",
+        "kb": 329.0
+      },
+      {
+        "path": "public/images/content/blog/2022/4AD3BD54-DC34-4CDB-B746-39CC9323765D_blkyz5.webp",
+        "kb": 328.2
+      },
+      {
+        "path": "public/images/content/blog/2022/speakers-ghent_r9bdnv.webp",
+        "kb": 287.4
+      },
+      {
+        "path": "public/images/content/blog/2022/canaries_dkkzgg.webp",
+        "kb": 267.7
+      },
+      {
+        "path": "public/images/content/blog/IMG_8227_bav9rh.webp",
+        "kb": 263.3
+      },
+      {
+        "path": "public/images/content/blog/devs-in-the-forest_c_gctzoz.webp",
+        "kb": 254.0
+      },
+      {
+        "path": "public/images/content/blog/2022/IMG_5374_mfqmx7.webp",
+        "kb": 248.9
+      },
+      {
+        "path": "public/images/content/blog/2025/GitHub_MCP_server_2x_1_jizwlw.webp",
+        "kb": 244.5
+      },
+      {
+        "path": "public/images/content/blog/2022/microsoft-offices-bcn_cui5eh.webp",
+        "kb": 210.7
+      },
+      {
+        "path": "public/images/content/blog/2022/me-kent-c-dodds_yj4cnn.webp",
+        "kb": 207.8
+      },
+      {
+        "path": "public/images/content/blog/bad-waterfall-view_xlgw0k.webp",
+        "kb": 206.2
+      },
+      {
+        "path": "public/images/content/blog/2022/IMG_5385_dintlt.webp",
+        "kb": 206.1
+      }
+    ]
+  },
+  "after": {
+    "allImagesMB": 23.15,
+    "allMediaMB": 21.97,
+    "contentImagesMB": 21.37,
+    "contentMediaMB": 21.97,
+    "imageCount": 320,
+    "mediaCount": 11
+  },
+  "actions": [
+    {
+      "type": "avatar-resize",
+      "file": "public/images/debbie-thumb.webp",
+      "beforeKB": 36.1,
+      "afterKB": 14.3,
+      "dims": "512\u2192320"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/race-ireland_amyqrb.webp",
+      "beforeKB": 780.3,
+      "afterKB": 630.4,
+      "quality": 75,
+      "dims": "1640x2187",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/cycling-with-girls_nh2k0q.webp",
+      "beforeKB": 762.9,
+      "afterKB": 629.6,
+      "quality": 75,
+      "dims": "1640x1230",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/running-trail_qjlb9h.webp",
+      "beforeKB": 759.1,
+      "afterKB": 626.7,
+      "quality": 75,
+      "dims": "1640x1230",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/meteora-greece_wqumec.webp",
+      "beforeKB": 566.3,
+      "afterKB": 465.9,
+      "quality": 75,
+      "dims": "1640x1230",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2026/family-microsoft.webp",
+      "beforeKB": 512.2,
+      "afterKB": 417.4,
+      "quality": 75,
+      "dims": "1640x1230",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/IMG_2873_qxkes9.webp",
+      "beforeKB": 499.6,
+      "afterKB": 382.1,
+      "quality": 75,
+      "dims": "1640x2187",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/me_running_q64fvs.webp",
+      "beforeKB": 454.6,
+      "afterKB": 370.4,
+      "quality": 75,
+      "dims": "1640x1230",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/microsoft-running_gztjdu.webp",
+      "beforeKB": 365,
+      "afterKB": 324.6,
+      "quality": 78,
+      "dims": "1640x1230",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/IMG_5391_pp2gha.webp",
+      "beforeKB": 360.4,
+      "afterKB": 314.8,
+      "quality": 78,
+      "dims": "1640x1230",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/Screenshot_2020-12-31_at_18.14.59_sbfsen.webp",
+      "beforeKB": 338.4,
+      "afterKB": 322.9,
+      "quality": 82,
+      "dims": "1386x1838",
+      "kind": "screenshot"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/pyramids_fzo4p9.webp",
+      "beforeKB": 335,
+      "afterKB": 303.6,
+      "quality": 78,
+      "dims": "1640x1230",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/min-in-pool_mcdqya.webp",
+      "beforeKB": 333.9,
+      "afterKB": 284,
+      "quality": 78,
+      "dims": "1640x1230",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/IMG_5386_rp8hwx.webp",
+      "beforeKB": 329,
+      "afterKB": 294.1,
+      "quality": 78,
+      "dims": "1640x923",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/4AD3BD54-DC34-4CDB-B746-39CC9323765D_blkyz5.webp",
+      "beforeKB": 328.2,
+      "afterKB": 238.3,
+      "quality": 78,
+      "dims": "1640x2187",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/speakers-ghent_r9bdnv.webp",
+      "beforeKB": 287.4,
+      "afterKB": 257.1,
+      "quality": 78,
+      "dims": "1640x1230",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/canaries_dkkzgg.webp",
+      "beforeKB": 267.7,
+      "afterKB": 233.8,
+      "quality": 78,
+      "dims": "1640x1230",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/IMG_8227_bav9rh.webp",
+      "beforeKB": 263.3,
+      "afterKB": 220.7,
+      "quality": 78,
+      "dims": "1640x1230",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/devs-in-the-forest_c_gctzoz.webp",
+      "beforeKB": 254,
+      "afterKB": 230.3,
+      "quality": 78,
+      "dims": "1024x768",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/IMG_5374_mfqmx7.webp",
+      "beforeKB": 248.9,
+      "afterKB": 213.7,
+      "quality": 78,
+      "dims": "1640x1230",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/microsoft-offices-bcn_cui5eh.webp",
+      "beforeKB": 210.7,
+      "afterKB": 180,
+      "quality": 78,
+      "dims": "1640x1107",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/me-kent-c-dodds_yj4cnn.webp",
+      "beforeKB": 207.8,
+      "afterKB": 173.3,
+      "quality": 78,
+      "dims": "1640x1230",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/IMG_5385_dintlt.webp",
+      "beforeKB": 206.1,
+      "afterKB": 170.7,
+      "quality": 78,
+      "dims": "1640x1230",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/taekwondo-on-roof_pfj7k3.webp",
+      "beforeKB": 193.5,
+      "afterKB": 151.1,
+      "quality": 78,
+      "dims": "1640x2187",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/inspiring-books_2x_ey0xyw.webp",
+      "beforeKB": 193.3,
+      "afterKB": 180.8,
+      "quality": 82,
+      "dims": "1640x866",
+      "kind": "screenshot"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/cycling-race-2_c_bgxsgr.webp",
+      "beforeKB": 188.4,
+      "afterKB": 170.2,
+      "quality": 78,
+      "dims": "768x1024",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/running-in-ireland_c_drlsge.webp",
+      "beforeKB": 181,
+      "afterKB": 163.8,
+      "quality": 78,
+      "dims": "1024x768",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/IMG_8224_pe76ma.webp",
+      "beforeKB": 180.7,
+      "afterKB": 139.1,
+      "quality": 78,
+      "dims": "1640x1230",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/max-me-berlin_wx5q4a.webp",
+      "beforeKB": 173.1,
+      "afterKB": 145.4,
+      "quality": 78,
+      "dims": "1640x1171",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/padel-tournament_i58mmb.webp",
+      "beforeKB": 170.5,
+      "afterKB": 153.9,
+      "quality": 78,
+      "dims": "1024x768",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/microsoft-offices-boston_vhzguu.webp",
+      "beforeKB": 163.4,
+      "afterKB": 129.1,
+      "quality": 78,
+      "dims": "1640x1230",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/devfest-france_avnfzf.webp",
+      "beforeKB": 163.3,
+      "afterKB": 138.4,
+      "quality": 78,
+      "dims": "1640x923",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/IMG_5372_ckb78i.webp",
+      "beforeKB": 162.8,
+      "afterKB": 126.5,
+      "quality": 78,
+      "dims": "1640x1230",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/building-chatbots-at-bluekiri_jyd3a5.webp",
+      "beforeKB": 160.6,
+      "afterKB": 128.3,
+      "quality": 78,
+      "dims": "1640x1230",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/nuxt-workshop_xflqgh.webp",
+      "beforeKB": 160.3,
+      "afterKB": 127.5,
+      "quality": 78,
+      "dims": "1640x1230",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/IMG_5375_evklrv.webp",
+      "beforeKB": 154.2,
+      "afterKB": 130.8,
+      "quality": 78,
+      "dims": "1640x923",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/skiing_ezzxth.webp",
+      "beforeKB": 150.8,
+      "afterKB": 122.6,
+      "quality": 78,
+      "dims": "1640x1230",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/bejs-panel_surbtt.webp",
+      "beforeKB": 147.5,
+      "afterKB": 126.4,
+      "quality": 78,
+      "dims": "1640x1230",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/react-amsterdam_zsqn44.webp",
+      "beforeKB": 146.7,
+      "afterKB": 116.2,
+      "quality": 78,
+      "dims": "1640x1230",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/artctica_speakers_kvfixk.webp",
+      "beforeKB": 140.1,
+      "afterKB": 117.9,
+      "quality": 78,
+      "dims": "815x963",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/vue-conf-studio_c_hsbqdc.webp",
+      "beforeKB": 140,
+      "afterKB": 123.2,
+      "quality": 78,
+      "dims": "1024x768",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/speakers-brussels_dneluw.webp",
+      "beforeKB": 139.5,
+      "afterKB": 101.2,
+      "quality": 78,
+      "dims": "1640x1230",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2024/GWQjxLBW0AEuweB_eulios.webp",
+      "beforeKB": 137.1,
+      "afterKB": 105,
+      "quality": 78,
+      "dims": "1640x1230",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/dotnet-madrid_agwxxy.webp",
+      "beforeKB": 134.7,
+      "afterKB": 111.4,
+      "quality": 78,
+      "dims": "1640x1230",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/vs-code-codegen_gxf58x.webp",
+      "beforeKB": 133.5,
+      "afterKB": 126.5,
+      "quality": 82,
+      "dims": "1640x815",
+      "kind": "screenshot"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/github-skyline_wsewwn.webp",
+      "beforeKB": 131.4,
+      "afterKB": 111.6,
+      "quality": 78,
+      "dims": "1640x1230",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/mvp-award_c_n2nl02.webp",
+      "beforeKB": 130.2,
+      "afterKB": 113.7,
+      "quality": 78,
+      "dims": "1024x768",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/trace-viewer-inspect-play_2x_scmhm4.webp",
+      "beforeKB": 124.6,
+      "afterKB": 119.9,
+      "quality": 82,
+      "dims": "1640x1019",
+      "kind": "screenshot"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/cycling-sa-colobra_mvtntg.webp",
+      "beforeKB": 124.3,
+      "afterKB": 107.4,
+      "quality": 78,
+      "dims": "1024x768",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/trace-viewer-broswer_jqoim0.webp",
+      "beforeKB": 122.4,
+      "afterKB": 110.5,
+      "quality": 78,
+      "dims": "1640x945",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2023/scan-twins-2_iwmfs3.webp",
+      "beforeKB": 119.5,
+      "afterKB": 104.2,
+      "quality": 78,
+      "dims": "1080x757",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/cloud-skills-show_hijswh.webp",
+      "beforeKB": 118.9,
+      "afterKB": 106.2,
+      "quality": 78,
+      "dims": "1640x948",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/ndc-conf_c_msgccn.webp",
+      "beforeKB": 116.6,
+      "afterKB": 101.6,
+      "quality": 78,
+      "dims": "1024x768",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/A26430C9-6959-45BF-83B7-EB0086E85E6A_1_105_c_occakl.webp",
+      "beforeKB": 110.4,
+      "afterKB": 94.7,
+      "quality": 78,
+      "dims": "1024x768",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/testing-color-mode_j9i7sj.webp",
+      "beforeKB": 109.7,
+      "afterKB": 99.9,
+      "quality": 78,
+      "dims": "1640x1060",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/podcasts/unhandled-exception-podcast.webp",
+      "beforeKB": 109.3,
+      "afterKB": 101.3,
+      "quality": 78,
+      "dims": "1640x655",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/blog/covers/skill-creator-v2-agent-skills-vs-code.webp",
+      "beforeKB": 108.6,
+      "afterKB": 96.7,
+      "quality": 78,
+      "dims": "1200x630",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/buildDebbie_c7q789.webp",
+      "beforeKB": 108.6,
+      "afterKB": 87.3,
+      "quality": 78,
+      "dims": "1640x1010",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/github-star-swag_c_evp3ng.webp",
+      "beforeKB": 108.1,
+      "afterKB": 92.7,
+      "quality": 78,
+      "dims": "1024x768",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/codegen_qykizt.webp",
+      "beforeKB": 108,
+      "afterKB": 98.5,
+      "quality": 82,
+      "dims": "1640x732",
+      "kind": "screenshot"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/nordic-js_tycyhz.webp",
+      "beforeKB": 107.3,
+      "afterKB": 89.8,
+      "quality": 78,
+      "dims": "1640x1094",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/github-stars-gift_c_ksh6n1.webp",
+      "beforeKB": 105.7,
+      "afterKB": 88,
+      "quality": 78,
+      "dims": "1024x768",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/GitHub-2020-skyline_c_h8b9na.webp",
+      "beforeKB": 104.3,
+      "afterKB": 91.6,
+      "quality": 78,
+      "dims": "1024x768",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/bejs-team_om4aqb.webp",
+      "beforeKB": 103.6,
+      "afterKB": 88.3,
+      "quality": 78,
+      "dims": "1640x690",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/react-contributors-day_c_rirpnn.webp",
+      "beforeKB": 101.5,
+      "afterKB": 88.8,
+      "quality": 78,
+      "dims": "956x821",
+      "kind": "photo"
+    },
+    {
+      "type": "webp-reencode",
+      "file": "public/images/content/blog/2022/color-mode-demo_vsikkn.webp",
+      "beforeKB": 100.5,
+      "afterKB": 91.6,
+      "quality": 78,
+      "dims": "1640x1060",
+      "kind": "photo"
+    },
+    {
+      "type": "video-reencode",
+      "file": "public/images/content/blog/2022/color-mode-demo_vsikkn.mp4",
+      "beforeKB": 1358,
+      "afterKB": 710.8
+    },
+    {
+      "type": "video-reencode",
+      "file": "public/images/content/blog/2022/counter-couting_zn9mcw.mp4",
+      "beforeKB": 39.9,
+      "afterKB": 24.8
+    },
+    {
+      "type": "video-reencode",
+      "file": "public/images/content/blog/2022/debugging-tests_mze1rs.mp4",
+      "beforeKB": 1285.2,
+      "afterKB": 539.3
+    },
+    {
+      "type": "video-reencode",
+      "file": "public/images/content/blog/2022/failing-tests_nz5bkj.mp4",
+      "beforeKB": 630.3,
+      "afterKB": 306.7
+    },
+    {
+      "type": "video-reencode",
+      "file": "public/images/content/blog/2022/playwright-codegen_drluzl.mp4",
+      "beforeKB": 2697,
+      "afterKB": 1292.4
+    },
+    {
+      "type": "video-reencode",
+      "file": "public/images/content/blog/2022/playwright-trace-inspect_wvfjb9.mp4",
+      "beforeKB": 1442.9,
+      "afterKB": 636.4
+    },
+    {
+      "type": "video-reencode",
+      "file": "public/images/content/blog/2022/playwright-trace-viewer_kx8uws.mp4",
+      "beforeKB": 1589.1,
+      "afterKB": 803.6
+    },
+    {
+      "type": "video-reencode",
+      "file": "public/images/content/blog/2022/running-tests_l4uye7.mp4",
+      "beforeKB": 312.8,
+      "afterKB": 142.4
+    },
+    {
+      "type": "video-reencode",
+      "file": "public/images/content/blog/2022/select-on-change_bvkj1x.mp4",
+      "beforeKB": 41.7,
+      "afterKB": 27.7
+    },
+    {
+      "type": "video-reencode",
+      "file": "public/images/content/blog/facade_upiufl.mp4",
+      "beforeKB": 912,
+      "afterKB": 357.7
+    },
+    {
+      "type": "og-jpeg",
+      "file": "public/x-card.png",
+      "out": "public/x-card.jpg",
+      "beforeKB": null,
+      "afterKB": 45.4,
+      "quality": 82
+    },
+    {
+      "type": "og-jpeg",
+      "file": "public/twitter-card.png",
+      "out": "public/twitter-card.jpg",
+      "beforeKB": null,
+      "afterKB": 45.4,
+      "quality": 82
+    },
+    {
+      "type": "og-jpeg",
+      "file": "public/x-card-blog.png",
+      "out": "public/x-card-blog.jpg",
+      "beforeKB": null,
+      "afterKB": 73.2,
+      "quality": 82
+    }
+  ],
+  "webpOver200Reasons": [
+    {
+      "file": "public/images/content/blog/2022/race-ireland_amyqrb.webp",
+      "kb": 630.4,
+      "dims": "1640x2187",
+      "why": "Tall portrait photo at full content width (\u22641640); detail-heavy subject"
+    },
+    {
+      "file": "public/images/content/blog/2022/cycling-with-girls_nh2k0q.webp",
+      "kb": 629.6,
+      "dims": "1640x1230",
+      "why": "Wide photo master at max content width (\u22641640 = 2\u00d7 ~820 CSS)"
+    },
+    {
+      "file": "public/images/content/blog/2022/running-trail_qjlb9h.webp",
+      "kb": 626.7,
+      "dims": "1640x1230",
+      "why": "Wide photo master at max content width (\u22641640 = 2\u00d7 ~820 CSS)"
+    },
+    {
+      "file": "public/images/content/blog/2022/meteora-greece_wqumec.webp",
+      "kb": 465.9,
+      "dims": "1640x1230",
+      "why": "Wide photo master at max content width (\u22641640 = 2\u00d7 ~820 CSS)"
+    },
+    {
+      "file": "public/images/content/blog/2026/family-microsoft.webp",
+      "kb": 417.4,
+      "dims": "1640x1230",
+      "why": "Wide photo master at max content width (\u22641640 = 2\u00d7 ~820 CSS)"
+    },
+    {
+      "file": "public/images/content/blog/2022/IMG_2873_qxkes9.webp",
+      "kb": 382.1,
+      "dims": "1640x2187",
+      "why": "Tall portrait photo at full content width (\u22641640); detail-heavy subject"
+    },
+    {
+      "file": "public/images/content/blog/2022/me_running_q64fvs.webp",
+      "kb": 370.4,
+      "dims": "1640x1230",
+      "why": "Wide photo master at max content width (\u22641640 = 2\u00d7 ~820 CSS)"
+    },
+    {
+      "file": "public/images/content/blog/2022/microsoft-running_gztjdu.webp",
+      "kb": 324.6,
+      "dims": "1640x1230",
+      "why": "Wide photo master at max content width (\u22641640 = 2\u00d7 ~820 CSS)"
+    },
+    {
+      "file": "public/images/content/blog/Screenshot_2020-12-31_at_18.14.59_sbfsen.webp",
+      "kb": 322.9,
+      "dims": "1386x1838",
+      "why": "UI/screenshot with text \u2014 kept sharper quality; further loss would soft-edge type"
+    },
+    {
+      "file": "public/images/content/blog/2022/IMG_5391_pp2gha.webp",
+      "kb": 314.8,
+      "dims": "1640x1230",
+      "why": "Wide photo master at max content width (\u22641640 = 2\u00d7 ~820 CSS)"
+    },
+    {
+      "file": "public/images/content/blog/2022/pyramids_fzo4p9.webp",
+      "kb": 303.6,
+      "dims": "1640x1230",
+      "why": "Wide photo master at max content width (\u22641640 = 2\u00d7 ~820 CSS)"
+    },
+    {
+      "file": "public/images/content/blog/2022/IMG_5386_rp8hwx.webp",
+      "kb": 294.1,
+      "dims": "1640x923",
+      "why": "Wide photo master at max content width (\u22641640 = 2\u00d7 ~820 CSS)"
+    },
+    {
+      "file": "public/images/content/blog/2022/min-in-pool_mcdqya.webp",
+      "kb": 284,
+      "dims": "1640x1230",
+      "why": "Wide photo master at max content width (\u22641640 = 2\u00d7 ~820 CSS)"
+    },
+    {
+      "file": "public/images/content/blog/2022/speakers-ghent_r9bdnv.webp",
+      "kb": 257.1,
+      "dims": "1640x1230",
+      "why": "Wide photo master at max content width (\u22641640 = 2\u00d7 ~820 CSS)"
+    },
+    {
+      "file": "public/images/content/blog/2025/GitHub_MCP_server_2x_1_jizwlw.webp",
+      "kb": 244.5,
+      "dims": "1024x1024",
+      "why": "UI/screenshot with text \u2014 kept sharper quality; further loss would soft-edge type"
+    },
+    {
+      "file": "public/images/content/blog/2022/4AD3BD54-DC34-4CDB-B746-39CC9323765D_blkyz5.webp",
+      "kb": 238.3,
+      "dims": "1640x2187",
+      "why": "Tall portrait photo at full content width (\u22641640); detail-heavy subject"
+    },
+    {
+      "file": "public/images/content/blog/2022/canaries_dkkzgg.webp",
+      "kb": 233.8,
+      "dims": "1640x1230",
+      "why": "Wide photo master at max content width (\u22641640 = 2\u00d7 ~820 CSS)"
+    },
+    {
+      "file": "public/images/content/blog/devs-in-the-forest_c_gctzoz.webp",
+      "kb": 230.3,
+      "dims": "1024x768",
+      "why": "Wide photo master at max content width (\u22641640 = 2\u00d7 ~820 CSS)"
+    },
+    {
+      "file": "public/images/content/blog/IMG_8227_bav9rh.webp",
+      "kb": 220.7,
+      "dims": "1640x1230",
+      "why": "Wide photo master at max content width (\u22641640 = 2\u00d7 ~820 CSS)"
+    },
+    {
+      "file": "public/images/content/blog/2022/IMG_5374_mfqmx7.webp",
+      "kb": 213.7,
+      "dims": "1640x1230",
+      "why": "Wide photo master at max content width (\u22641640 = 2\u00d7 ~820 CSS)"
+    },
+    {
+      "file": "public/images/content/blog/bad-waterfall-view_xlgw0k.webp",
+      "kb": 206.2,
+      "dims": "1640x1579",
+      "why": "UI/screenshot with text \u2014 kept sharper quality; further loss would soft-edge type"
+    }
+  ],
+  "skipped": [
+    {
+      "file": "public/images/content/blog/2025/GitHub_MCP_server_2x_1_jizwlw.webp",
+      "reason": "reencode not smaller",
+      "beforeKB": 244.5
+    },
+    {
+      "file": "public/images/content/blog/bad-waterfall-view_xlgw0k.webp",
+      "reason": "reencode not smaller",
+      "beforeKB": 206.2
+    },
+    {
+      "file": "public/images/content/blog/Screenshot_2021-01-29_at_16.36.35_fa339w.webp",
+      "reason": "reencode not smaller",
+      "beforeKB": 161.3
+    },
+    {
+      "file": "public/images/content/blog/Screenshot_2021-01-29_at_18.03.52_yuqsr3.webp",
+      "reason": "reencode not smaller",
+      "beforeKB": 141.8
+    },
+    {
+      "file": "public/images/content/blog/good-waterfall-view_cynn46.webp",
+      "reason": "reencode not smaller",
+      "beforeKB": 131.5
+    },
+    {
+      "file": "public/images/content/blog/2022/iframe_2x_qqetp2.webp",
+      "reason": "reencode not smaller",
+      "beforeKB": 125.2
+    }
+  ],
+  "top20After": [
+    {
+      "file": "public/images/content/blog/2022/race-ireland_amyqrb.webp",
+      "kb": 630.4
+    },
+    {
+      "file": "public/images/content/blog/2022/cycling-with-girls_nh2k0q.webp",
+      "kb": 629.6
+    },
+    {
+      "file": "public/images/content/blog/2022/running-trail_qjlb9h.webp",
+      "kb": 626.7
+    },
+    {
+      "file": "public/images/content/blog/2022/meteora-greece_wqumec.webp",
+      "kb": 465.9
+    },
+    {
+      "file": "public/images/content/blog/2026/family-microsoft.webp",
+      "kb": 417.4
+    },
+    {
+      "file": "public/images/content/blog/2022/IMG_2873_qxkes9.webp",
+      "kb": 382.1
+    },
+    {
+      "file": "public/images/content/blog/2022/me_running_q64fvs.webp",
+      "kb": 370.4
+    },
+    {
+      "file": "public/images/content/blog/2022/microsoft-running_gztjdu.webp",
+      "kb": 324.6
+    },
+    {
+      "file": "public/images/content/blog/Screenshot_2020-12-31_at_18.14.59_sbfsen.webp",
+      "kb": 322.9
+    },
+    {
+      "file": "public/images/content/blog/2022/IMG_5391_pp2gha.webp",
+      "kb": 314.8
+    },
+    {
+      "file": "public/images/content/blog/2022/pyramids_fzo4p9.webp",
+      "kb": 303.6
+    },
+    {
+      "file": "public/images/content/blog/2022/IMG_5386_rp8hwx.webp",
+      "kb": 294.1
+    },
+    {
+      "file": "public/images/content/blog/2022/min-in-pool_mcdqya.webp",
+      "kb": 284.0
+    },
+    {
+      "file": "public/images/content/blog/2022/speakers-ghent_r9bdnv.webp",
+      "kb": 257.1
+    },
+    {
+      "file": "public/images/content/blog/2025/GitHub_MCP_server_2x_1_jizwlw.webp",
+      "kb": 244.5
+    },
+    {
+      "file": "public/images/content/blog/2022/4AD3BD54-DC34-4CDB-B746-39CC9323765D_blkyz5.webp",
+      "kb": 238.3
+    },
+    {
+      "file": "public/images/content/blog/2022/canaries_dkkzgg.webp",
+      "kb": 233.8
+    },
+    {
+      "file": "public/images/content/blog/devs-in-the-forest_c_gctzoz.webp",
+      "kb": 230.3
+    },
+    {
+      "file": "public/images/content/blog/IMG_8227_bav9rh.webp",
+      "kb": 220.7
+    },
+    {
+      "file": "public/images/content/blog/2022/IMG_5374_mfqmx7.webp",
+      "kb": 213.7
+    }
+  ],
+  "pngPassNote": "First pass converted 59 blog/cover PNGs to WebP and deleted the PNGs (~6.3 MB saved across public/images).",
+  "budgets": {
+    "imagesMB": 23.5,
+    "mediaMB": 24.2
+  },
+  "og": {
+    "x-card.jpg": 45.4,
+    "twitter-card.jpg": 45.4,
+    "x-card-blog.jpg": 73.2
+  }
+}

@@ -4,8 +4,8 @@ date: 2026-08-22
 description: "I need to look for a job, so I made a Job Hunt bot on Grok Bot. It looked me up online, found roles, and can even do interview prep."
 tags: [ai, agents, grok-bot]
 published: true
-image: /images/blog/covers/job-hunt-with-a-bot.png
-ogImage: /images/blog/covers/job-hunt-with-a-bot.png
+image: /images/blog/covers/job-hunt-with-a-bot.webp
+ogImage: /images/blog/covers/job-hunt-with-a-bot.webp
 ---
 
 Hi everyone. Unfortunately I am now in a position where I need to look for a job. I do not want to go into the whys. I want to show you how I am searching for a job in times like this.

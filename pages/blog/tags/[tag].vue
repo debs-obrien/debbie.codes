@@ -6,7 +6,7 @@ const { tag } = useRoute().params
 // Normalize the URL tag parameter
 const normalizedUrlTag = (tag as string).toLowerCase().replace(/\s+/g, '-')
 
-const { data: articles } = await useAsyncData('articles', () => queryCollection('blog')
+const { data: articles } = await useAsyncData('articles', () => onlyPublished(queryCollection('blog'))
   .select(...blogPreviewFields)
   .order('date', 'DESC')
   .all())
@@ -149,19 +149,30 @@ useHead({
         />
         <NuxtLink
           to="/blog/page/1"
-          class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary transition-colors"
+          class="text-sm text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
         >
           Archive
         </NuxtLink>
       </div>
     </section>
 
-    <!-- Posts List -->
-    <FeaturedSection
-      v-if="filteredArticles.length > 0"
-      :items="filteredArticles"
-      :section="section"
-    />
+    <!-- Posts List — use taggedArticles when idle so SSR/hydration match (filteredArticles starts []). -->
+    <section
+      v-if="(isSearchActive ? filteredArticles : taggedArticles).length > 0"
+      aria-labelledby="tagged-posts-heading"
+    >
+      <h2
+        id="tagged-posts-heading"
+        class="text-2xl font-bold text-gray-900 dark:text-white mb-6 max-w-4xl mx-auto"
+      >
+        {{ isSearchActive ? `Search Results (${filteredArticles.length})` : `${displayTag} Posts` }}
+      </h2>
+      <FeaturedSection
+        :items="isSearchActive ? filteredArticles : taggedArticles"
+        :section="section"
+        lead
+      />
+    </section>
 
     <!-- No Results -->
     <div v-else class="text-center py-8">

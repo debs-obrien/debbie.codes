@@ -2,9 +2,8 @@
 title: Being an Imposter
 date: 2022-03-27
 description: If you ever look at the home page of my site or the intro slide of my talks you will probably think I am the biggest show off in the world. However, really I am an imposter. I doubt my abilities and find it difficult to accept my accomplishments and wonder if I deserve them.
-image: v1648376409/debbie.codes/blog/2022/A26430C9-6959-45BF-83B7-EB0086E85E6A_1_105_c_occakl.jpg
-ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1648376409/debbie.codes/blog/2022/A26430C9-6959-45BF-83B7-EB0086E85E6A_1_105_c_occakl.jpg
-provider: cloudinary
+image: /images/content/blog/2022/A26430C9-6959-45BF-83B7-EB0086E85E6A_1_105_c_occakl.webp
+ogImage: /images/content/blog/2022/A26430C9-6959-45BF-83B7-EB0086E85E6A_1_105_c_occakl.webp
 tags: [personal, motivation]
 published: true
 loading: eager
@@ -40,7 +39,7 @@ Now 21 years later and I have achieved so much in tech and yet for some reason I
 
 I had been let go of many companies, I had failed to get a job that lasted more than a year. I really believed that I was bad luck and that any start up that hired me was going to be a failure because of me. My CV was full of companies that did not exist anymore. No trace of them. Was I just making it up? Sure looked that way to potential employers.
 
-![me launching site at a festival](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1648378431/debbie.codes/blog/2022/E4654BC5-6FB7-48DE-9B57-8D2569E7AA2E_1_105_c_crkcyc.jpg)
+![me launching site at a festival](/images/content/blog/2022/E4654BC5-6FB7-48DE-9B57-8D2569E7AA2E_1_105_c_crkcyc.webp){width="1024" height="768"}
 
 My freelance work started with knocking on restaurant doors asking for work to create their website, their menus, whatever. And I created some amazing sites in Flash, a technology that now no longer exists, can't put that on the CV.
 
@@ -56,7 +55,7 @@ I studied and struggled to pay the bills for about 8 months. I had no idea if it
 
 But I really wanted to make it. As much as it was hard I really enjoyed it. I was studying 12 hours a day, even while running on the running machine at the gym. I needed to succeed. I didn't want to go back to the life I had. I didn't want to struggle anymore and have to work weekends to pay the bills. I wanted to love my job and be challenged each day and coding gave me that. If only I could learn JavaScript.
 
-![me studying while running at gym](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1648377845/debbie.codes/blog/2022/DF5378DD-E525-4B02-A898-F7EAF836C910_1_105_c_ddsr6y.jpg)
+![me studying while running at gym](/images/content/blog/2022/DF5378DD-E525-4B02-A898-F7EAF836C910_1_105_c_ddsr6y.webp){width="768" height="713"}
 
 Both tech degrees I did were extremely challenging and come with real life projects. I was building things constantly. I was pair programming with others to solve problems together. And I had a mentor who not just went over my code and showed me how I could improve it, but was there for me to remind me of how well I was doing and that I was good enough, that it isn't easy but that I can do it and I was going to learn JavaScript.
 
@@ -82,7 +81,7 @@ I then got my MVP Award and again I thought, wow, is this for real. I had been r
 
 When I got my GitHub star I was in shock. People had voted for me. They thought I was a star. They knew I existed. Wow. Now I was freaking out even more. I am not a star. I know way less than anyone else. Everyone else is way more clever than me. They are going to soon find out and kick me out of the program. I am sure of it.
 
-![my and my awards](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1619366231/debbie.codes/blog/IMG_8224_pe76ma.jpg)
+![my and my awards](/images/content/blog/IMG_8224_pe76ma.webp){width="1640" height="1230"}
 
 ## Overcoming Imposter Syndrome
 
@@ -92,7 +91,7 @@ I have all my awards behind me in my office. They are my reminder that I got thi
 
 Sometimes before an interview or a talk I literally read through them all, some of them twice, and then I say come on Debbie, you can do this. And the best thing I ever did was program Alexa to tell me I am amazing. She never fails.
 
-![signs in my entrance with positive messages](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1648378993/debbie.codes/blog/2022/4AD3BD54-DC34-4CDB-B746-39CC9323765D_blkyz5.heic)
+![signs in my entrance with positive messages](/images/content/blog/2022/4AD3BD54-DC34-4CDB-B746-39CC9323765D_blkyz5.webp){width="1640" height="2187"}
 
 ## Comparing yourself to others
 
@@ -100,7 +99,7 @@ As we get more successful in tech we become even more imposters. If I compare my
 
 This is the great thing about martial arts, and the great thing about tech. There is so much to learn that you will never know it all, never perfect it all. You can't get your black belt just by training for a year, no matter how good you are at your kicks for example. It takes time. A lot of hard work and time.
 
-![me doing a spinning kick in front of Cathedral](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1648376409/debbie.codes/blog/2022/A26430C9-6959-45BF-83B7-EB0086E85E6A_1_105_c_occakl.jpg)
+![me doing a spinning kick in front of Cathedral](/images/content/blog/2022/A26430C9-6959-45BF-83B7-EB0086E85E6A_1_105_c_occakl.webp){width="1024" height="768"}
 
 To go from 3rd degree to 4th degree I had to wait 4 years. I had to train hard, study, practice and then grade. My grading was 7 hours long. I flew to London to grade with one of the Grand Masters, a 9th degree and one of the best in the world. He told us that we would go through everything from patterns, to breaking with flying kicks, sparring, theory etc and that he was going to push us so hard that we will want to give up. That, he said, is when the grading really begins. And he was not joking.
 
@@ -114,4 +113,4 @@ And remember the majority of us in tech suffer from imposter syndrome so you are
 
 You got this!
 
-![me running up a mountain](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1640971055/debbie.codes/blog/running-wicklow-mountains_c_n7mvet.jpg)
+![me running up a mountain](/images/content/blog/running-wicklow-mountains_c_n7mvet.webp){width="1024" height="768"}

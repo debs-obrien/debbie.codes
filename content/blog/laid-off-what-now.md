@@ -2,7 +2,10 @@
 title: Laid off from my dream job, what now?
 date: 2025-12-10
 description: It’s time to say goodbye. Unfortunately I have been the latest victim of layoffs due to reorgs in Microsoft Spain. I have taken some time to process but I won’t lie, It has been really hard to deal with. This wasn’t just a job. This was my dream. And my dream came true. But unfortunately all dreams must come to an end at some point. So what now?
+image: /images/blog/covers/laid-off-what-now.webp
+ogImage: /images/blog/covers/laid-off-what-now.webp
 tags: [personal]
+published: true
 ---
 
 It’s time to say goodbye. Unfortunately I have been the latest victim of layoffs due to reorgs in Microsoft Spain. I have taken some time to process but I won’t lie, It has been really hard to deal with. This wasn’t just a job. This was my dream. And my dream came true. It was a 5 year plan that I managed to achieve in 4. I got to work with some of the best people in the industry and I learnt a ton. I was pushed to my limits and grew in so many ways. 

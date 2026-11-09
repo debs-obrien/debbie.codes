@@ -5,4 +5,11 @@ description: Learn how to configure Copilot usage and completion settings in VS 
 video: 9Ar-6qQzk8o
 tags: [ai]
 host: Debbie's youtube channel
+chapters:
+  - time: 0
+    title: "GitHub Copilot usage anxiety"
+  - time: 26
+    title: "Monitoring premium usage"
+  - time: 59
+    title: "Managing code completions"
 ---

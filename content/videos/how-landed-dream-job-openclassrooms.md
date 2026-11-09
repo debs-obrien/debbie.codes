@@ -5,4 +5,11 @@ description: I was initially turned away for may roles because I didn't have the
 video: Be3N_i4bC34
 tags: [interviews, learning-to-code]
 host: OpenClassrooms
+chapters:
+  - time: 139
+    title: "Front-End Architect"
+  - time: 167
+    title: "Nice Working Environment"
+  - time: 190
+    title: "Best Practices for Developers"
 ---

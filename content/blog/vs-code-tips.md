@@ -2,7 +2,7 @@
 title: VS Code Tips
 date: 2021-05-13
 description: Tips, shortcuts and extensions to make working with VS Code easier so you can developer faster and let the tools do the job for you.
-image: photo-1510751007277-36932aac9ebd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop
+image: photo-1510751007277-36932aac9ebd
 tags: [vs-code]
 provider: imgix
 loading: eager
@@ -78,7 +78,7 @@ The [Material Icon Theme extension](https://marketplace.visualstudio.com/items?i
 
 ## Bracket Pair Colorizer
 
-The [Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer) makes it so much easier to see where your brackets start and end by showing them in different colors so much easier to see when things are going wrong.
+The Bracket Pair Colorizer makes it so much easier to see where your brackets start and end by showing them in different colors so much easier to see when things are going wrong.
 
 ### Formatting Toggle
 

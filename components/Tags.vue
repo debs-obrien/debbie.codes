@@ -22,9 +22,11 @@ function flatten(tags: Array<any>, key = 'tags') {
   return _tags
 }
 
-const { data } = await useAsyncData(`tags-${props.section}`, () => queryCollection(props.section)
-  .select('tags')
-  .all())
+const { data } = await useAsyncData(`tags-${props.section}`, () => {
+  const base = queryCollection(props.section)
+  const query = props.section === 'blog' ? onlyPublished(base) : base
+  return query.select('tags').all()
+})
 
 const articleTags = Array.isArray(data.value) ? [...new Set(flatten(data.value, 'tags'))] : []
 const sortedArticleTags = articleTags.sort()

@@ -5,4 +5,41 @@ description: We think in monorepos when we want to share components across many 
 video: nuDwgjkRNSI
 tags: [conference-talk, architecture]
 conference: GDG DevFest Nantes
+chapters:
+  - time: 219
+    title: "HOW IT'S GOING"
+  - time: 495
+    title: "Duplicating Components"
+  - time: 554
+    title: "Packaging Components"
+  - time: 771
+    title: "Scaling one large app"
+  - time: 851
+    title: "Product Team"
+  - time: 917
+    title: "What's a Scope?"
+  - time: 941
+    title: "Every Scope can have it's own Repo"
+  - time: 1059
+    title: "But how do we even do that?"
+  - time: 1280
+    title: "Team Ownership"
+  - time: 1434
+    title: "View Component Props"
+  - time: 1465
+    title: "Visibility and Discoverability"
+  - time: 1539
+    title: "Use your Component Anywhere"
+  - time: 1573
+    title: "Independent Versions"
+  - time: 1658
+    title: "View Component Dependencies"
+  - time: 1701
+    title: "Consistent and Standardised Tooling"
+  - time: 1989
+    title: "Import Component to change code from any repo"
+  - time: 2275
+    title: "Build Component Driven Build with Bit"
+  - time: 2429
+    title: "Demo Projects"
 ---

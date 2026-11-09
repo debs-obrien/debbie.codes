@@ -1,7 +1,7 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import process from 'node:process'
-import { expect, test } from '@playwright/test'
+import { expect, test } from './fixtures'
 
 const isEndform = process.env.ENDFORM === 'true'
 const blogDir = join('content', 'blog')

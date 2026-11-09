@@ -1,9 +1,13 @@
 <script setup lang="ts">
 import type { PodcastPreview } from '~/types'
 
-defineProps<{
+withDefaults(defineProps<{
   item: PodcastPreview
-}>()
+  /** First visible card: LCP cover loads eagerly. */
+  priority?: boolean
+}>(), {
+  priority: false,
+})
 </script>
 
 <template>
@@ -16,14 +20,17 @@ defineProps<{
         class="block"
       >
         <NuxtImg
-          :provider="item.provider || 'cloudinary'"
           :src="item.image"
           :alt="item.title"
           width="400"
           height="400"
           fit="cover"
           format="webp"
-          loading="lazy"
+          :loading="priority ? 'eager' : 'lazy'"
+          :fetchpriority="priority ? 'high' : undefined"
+          decoding="async"
+          sizes="xs:50vw md:280px"
+          densities="x1 x2"
           class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
         />
         <!-- Overlay with play icon -->

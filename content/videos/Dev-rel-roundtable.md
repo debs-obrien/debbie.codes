@@ -5,4 +5,23 @@ description: Welcome to the second episode of the DevRel roundtable series where
 video: lSxU_q-8Rrc
 tags: [interviews, dev-rel]
 host: Tim Benniks
+chapters:
+  - time: 0
+    title: "Intro"
+  - time: 24
+    title: "Meet Lucie and Debbie"
+  - time: 55
+    title: "Lucies job"
+  - time: 171
+    title: "Death rail"
+  - time: 303
+    title: "School"
+  - time: 320
+    title: "Why DevRel"
+  - time: 611
+    title: "Debbies role at DevRel"
+  - time: 813
+    title: "Career path of DevRel"
+  - time: 1130
+    title: "Outro"
 ---

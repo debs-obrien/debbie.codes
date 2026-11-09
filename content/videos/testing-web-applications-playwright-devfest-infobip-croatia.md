@@ -5,4 +5,17 @@ description: Testing is hard, testing takes time to learn and to write, and time
 video: _1vQ4Wj9KtA
 tags: [conference-talk, testing, playwright]
 conference: Infobip Shift Croatia
+chapters:
+  - time: 335
+    title: "Running Tests"
+  - time: 464
+    title: "Picking Selectors"
+  - time: 542
+    title: "Codegen"
+  - time: 651
+    title: "Web First Assertions"
+  - time: 830
+    title: "Component Testing"
+  - time: 1103
+    title: "Configure Test for Mobile Safari"
 ---

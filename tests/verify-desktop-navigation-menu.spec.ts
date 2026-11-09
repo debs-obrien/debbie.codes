@@ -1,7 +1,7 @@
 // spec: specs/test-plan.md
 // seed: tests/seed.spec.ts
 
-import { test, expect } from '@playwright/test';
+import { expect, test } from './fixtures';
 
 test.describe('Navigation Functionality', { tag: ['@agent', '@smoke'] }, () => {
   test('Verify Desktop Navigation Menu', async ({ page }) => {
@@ -33,11 +33,11 @@ test.describe('Navigation Functionality', { tag: ['@agent', '@smoke'] }, () => {
           - link "Blog":
             - /url: /blog
         - listitem:
-          - link "Now":
-            - /url: /now
+          - link "Hire me":
+            - /url: /hire-me
     `);
 
     // Logo/name link navigates back to home
-    await expect(page.getByRole('link', { name: 'Debbie O\'Brien Debbie O\'Brien' })).toBeVisible();
+    await expect(page.getByRole('banner').getByRole('link', { name: 'Debbie O\'Brien', exact: true })).toBeVisible();
   });
 });

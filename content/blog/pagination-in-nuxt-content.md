@@ -2,9 +2,8 @@
 title: Pagination in Nuxt Content
 date: 2022-03-26
 description: My blog was getting bigger and bigger and so time to add pagination. I am using Nuxt Content to manage my blog posts. So how do I add pagination to my blog? Let me show you how I did it.
-image: v1648296331/debbie.codes/blog/2022/pagination_2x_ppog9g.png
-ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_webp,q_80,c_fit,w_480/v1648296331/debbie.codes/blog/2022/pagination_2x_ppog9g.png
-provider: cloudinary
+image: /images/content/blog/2022/pagination_2x_ppog9g.webp
+ogImage: /images/content/blog/2022/pagination_2x_ppog9g.webp
 tags: [nuxt]
 published: true
 loading: eager
@@ -223,6 +222,6 @@ I could create a middleware that intercepts this route and brings me to the all 
 My code is fully open source so clone, copy, or use whatever you like. Have fun.
 
 - [Code on GitHub](https://github.com/debs-obrien/debbie.codes/tree/master/pages/blog)
-- [Blog Page](https://debbie.codes/blog)
-- [Nuxt Content API Endpoint](https://content.nuxtjs.org/advanced#api-endpoint)
+- [Blog Page](/blog)
+- Nuxt Content API Endpoint
 - [Crate a Blog with Nuxt Content](https://nuxtjs.org/tutorials/creating-blog-with-nuxt-content)

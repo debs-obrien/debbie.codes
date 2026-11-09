@@ -2,8 +2,8 @@
 title: Learning about Developer Advocates
 date: 2022-02-06
 description: Being a Developer Advocate is by far the best job in the world, at least in my opinion and for me. It isn't for everyone and that's ok too. In this post I am going to share a bit about what I do as a Developer Advocate and what I love about it.
-image: photo-1560155016-bd4879ae8f21?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1364&q=80
-ogImage: https://images.unsplash.com/photo-1560155016-bd4879ae8f21?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1364&q=80?fm=webp&fit=crop&q=80&w=480
+image: photo-1560155016-bd4879ae8f21
+ogImage: https://images.unsplash.com/photo-1560155016-bd4879ae8f21?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1364&q=80&fm=webp&fit=crop&q=80&w=480
 provider: imgix
 tags: [personal, dev-rel]
 ---
@@ -74,7 +74,7 @@ Promoting myself here but checkout our DevRel Round table discussion with myself
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/lSxU_q-8Rrc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Also I have another interview with [Marc Backes](https://twitter.com/themarcba), who has now become a Developer Advocate since hosting this interview.
+Also I have another interview with Marc Backes, who has now become a Developer Advocate since hosting this interview.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/WlpHiYQGG6k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

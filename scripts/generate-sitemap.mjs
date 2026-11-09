@@ -5,6 +5,7 @@
  */
 import { mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
+import process from 'node:process'
 import { fileURLToPath } from 'node:url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
@@ -20,6 +21,7 @@ const staticRoutes = [
   '/courses',
   '/blog',
   '/now',
+  '/hire-me',
   '/contact',
 ]
 
@@ -102,7 +104,7 @@ export function generateSitemap() {
   const podcasts = listMarkdown(join(root, 'content/podcasts')).map(({ raw }) => parseFrontmatter(raw))
   const courses = listMarkdown(join(root, 'content/courses')).map(({ raw }) => parseFrontmatter(raw))
 
-  for (const tag of collectTags(posts))
+  for (const tag of collectTags(posts.filter(post => post.published !== false)))
     urls.add(`/blog/tags/${tag}`)
   for (const tag of collectTags(videos))
     urls.add(`/videos/tags/${tag}`)

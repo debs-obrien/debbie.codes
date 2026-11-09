@@ -5,4 +5,13 @@ description: Maria Lamardo interviews Debbie after her talk at Vue Global on all
 video: hWtlp3nhicQ
 tags: [interviews, nuxt]
 host: VueJS Global
+chapters:
+  - time: 60
+    title: "Q: If you wish to go full code, even for content. But how do you convince clients?"
+  - time: 212
+    title: "Debbie's new hobbies during the pandemic.."
+  - time: 335
+    title: "New things coming to Nuxt.."
+  - time: 399
+    title: "Debbie's favorite Nuxt thing coming out.."
 ---

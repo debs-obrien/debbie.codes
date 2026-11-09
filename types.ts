@@ -15,6 +15,7 @@ export interface Video extends BaseContent {
   start?: number
   host?: string
   conference?: string
+  chapters?: { time: number, title: string }[]
   featured?: boolean
   featuredOrder?: number
 }
@@ -51,4 +52,6 @@ export interface PrevNext {
 export interface Navigation {
   url: string
   link: string
+  /** When true, omit from header/footer/mobile nav. Page + sitemap stay as-is. */
+  hidden?: boolean
 }

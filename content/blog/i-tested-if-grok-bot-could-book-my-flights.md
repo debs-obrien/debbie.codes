@@ -4,8 +4,8 @@ date: 2026-08-13
 description: "I asked a Grok Bot to act as my travel agent and book flights. Close, but missing the last step. Here is the video of what worked and what didn't."
 tags: [ai, agents, grok-bot]
 published: true
-image: /images/blog/covers/i-tested-if-grok-bot-could-book-my-flights.png
-ogImage: /images/blog/covers/i-tested-if-grok-bot-could-book-my-flights.png
+image: /images/blog/covers/i-tested-if-grok-bot-could-book-my-flights.webp
+ogImage: /images/blog/covers/i-tested-if-grok-bot-could-book-my-flights.webp
 ---
 
 I tested out if Grok Bot could actually be my travel agent and book my flights for me. There is a huge market for bots that actually work both from a company perspective and for the individual. I think this is the closest to a great experience but just missing the part at the end. But I know this or another product will get there very soon because people will pay for something like this.

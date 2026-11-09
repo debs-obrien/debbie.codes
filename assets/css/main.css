@@ -1,6 +1,8 @@
 :root {
   --color: #243746;
-  --color-primary: #d8002d;
+  /* Channel form so Tailwind opacity modifiers (bg-primary/90) keep working. */
+  --color-primary: 216 0 45; /* #d8002d */
+  --color-primary-fill: 216 0 45; /* solid fills with light text */
   --color-secondary: #333333;
   --color-dark: #091a28;
   --bg: #f3f5f4;
@@ -10,7 +12,10 @@
 
 .dark {
   --color: #ebf4f1;
-  --color-primary: #d8002d;
+  /* #ff5a73 — ≥4.85:1 on dark surfaces for text/borders/icons */
+  --color-primary: 255 90 115;
+  /* Keep solid fills at brand red; white on #ff5a73 is ~3.3:1 */
+  --color-primary-fill: 216 0 45;
   --color-secondary: #d1d5db;
   --color-dark: #091a28;
   --bg: #091a28;

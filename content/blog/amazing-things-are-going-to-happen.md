@@ -2,8 +2,7 @@
 title: Amazing Things are Going to Happen
 date: 2021-04-26
 description: Believing in yourself is hard, especially when for so long people have put you down or not believed in you. Getting those voices out of your head is not easy but I think I have finally done it and now I can finally grow and just be a star.
-image: v1619366231/debbie.codes/blog/IMG_8227_bav9rh
-provider: cloudinary
+image: /images/content/blog/IMG_8227_bav9rh.webp
 loading: eager
 tags: [personal, motivation]
 ---
@@ -11,7 +10,7 @@ tags: [personal, motivation]
 _Listen to the Audio:_
 
 <audio controls>
-  <source src="https://res.cloudinary.com/debsobrien/video/upload/f_auto,q_auto/v1619364201/debbie.codes/blog/debbie_ewgkaa.mp3" type="audio/mp3">
+  <source src="/images/content/blog/debbie_ewgkaa.mp3" type="audio/mp3">
 Your browser does not support the audio element.
 </audio>
 
@@ -111,4 +110,4 @@ It's taken me a year and a few months to get here. So it's not an easy process, 
 
 I don't even know what, I just know it and I'm just really excited and I'm just like, yeah, let's do this together. Let's build a better world. So people don't have to go through what I went through. Let's do it together.
 
-![my awards](https://res.cloudinary.com/debsobrien/image/upload/f_auto/v1619366231/debbie.codes/blog/IMG_8224_pe76ma.webp)
+![my awards](/images/content/blog/IMG_8224_pe76ma.webp){width="1640" height="1230"}

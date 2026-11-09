@@ -2,9 +2,8 @@
 title: Fixing Diversity in Tech
 date: 2022-05-15
 description: When you step back from the nationality, the color, the religion the sex etc you just get a bunch of people who become a great bunch of friends. This is tech. This is what tech should be like always, for everyone.
-image: v1652876872/debbie.codes/blog/2022/bejs-team_om4aqb.jpg
-ogImage: https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1652876872/debbie.codes/blog/2022/bejs-team_om4aqb.jpg
-provider: cloudinary
+image: /images/content/blog/2022/bejs-team_om4aqb.webp
+ogImage: /images/content/blog/2022/bejs-team_om4aqb.webp
 tags: [personal]
 published: true
 loading: eager
@@ -14,7 +13,7 @@ As I fly home after an amazing conference at BeJs in Belgium, I look back on the
 
 At this conference we got to give our talk in front of people and have a panel discussion involving the audience which was so much fun and then network after the talks. And as speakers we got to not just have dinner together but also hang out for a full day on a tour of Belgian cities with beer and chocolate. We got to know each other, spend a day together doing non tech things and we got to know the person behind the code.
 
-![group of speakers in front of beautiful buildings in the city of Ghent](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1652638324/debbie.codes/blog/2022/speakers-ghent_r9bdnv)
+![group of speakers in front of beautiful buildings in the city of Ghent](/images/content/blog/2022/speakers-ghent_r9bdnv.webp){width="1640" height="1230"}
 
 The speakers tour was very diverse with people from India, Tunisia, Morocco, Israel, Ireland, England, Greece, Lithuania, Bulgaria, Germany and Italy. People of different nationalities, different religions, different skin color, men, women, straight and gay. Nobody felt like the odd one out because we were all different, all unique, all special in our own way.
 
@@ -32,7 +31,7 @@ Unfortunately the world is not perfect. We as humans can be selfish, jealous and
 
 I spent a lot of time with very talented developers, some who were almost half my age. They are our future and they are the ones who can ensure that this world is inclusive and diverse. As awareness is created and we begin to hear other peoples stories, we start to see that we still have a long way to go. But the young people of today want to help fix it and I think they really can and will achieve this.
 
-![group of speakers hanging out together and having fun](https://res.cloudinary.com/debsobrien/image/upload/f_auto,q_auto/v1652638321/debbie.codes/blog/2022/speakers-brussels_dneluw)
+![group of speakers hanging out together and having fun](/images/content/blog/2022/speakers-brussels_dneluw.webp){width="1640" height="1230"}
 
 ## Fixing the minority gap
 

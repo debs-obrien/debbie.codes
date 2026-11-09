@@ -2,7 +2,7 @@
 title: Let's Analyze your webpack bundles with Nuxt
 date: 2020-04-16
 description: As we add so many third party libraries to our site sometimes we forget that perhaps they are going to have an impact on our performance or sometimes we just don't read the install instructions and install the whole library instead of only what we need.
-image: photo-1434626881859-194d67b2b86f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop
+image: photo-1434626881859-194d67b2b86f
 provider: imgix
 tags: [nuxt, performance]
 ---
@@ -38,10 +38,10 @@ Personally I prefer the shorthand version which is -a
 yarn build -a
 ```
 
-Then the webpack analyzer should launch in your browser window. ![Alt Text](https://dev-to-uploads.s3.amazonaws.com/i/zirur7w11fkojij92hn9.png)
+Then the webpack analyzer should launch in your browser window. ![Alt Text](https://dev-to-uploads.s3.amazonaws.com/i/zirur7w11fkojij92hn9.png){width="1862" height="1996"}
 
-The navigation bar on the left allows you to choose which chunks to show. You can see all of them or just select the ones you want. And at a quick glance you can see the size of all your chunks. ![Alt Text](https://dev-to-uploads.s3.amazonaws.com/i/29oo6639ua5z4om34lp9.png)
+The navigation bar on the left allows you to choose which chunks to show. You can see all of them or just select the ones you want. And at a quick glance you can see the size of all your chunks. ![Alt Text](https://dev-to-uploads.s3.amazonaws.com/i/29oo6639ua5z4om34lp9.png){width="536" height="330"}
 
-You can also double click on the boxes, hover over them for more details and right click on a chunk to easily hide it or to hide all other chunks. ![Alt Text](https://dev-to-uploads.s3.amazonaws.com/i/q4epyrbb8b51v2wwuxoq.png)
+You can also double click on the boxes, hover over them for more details and right click on a chunk to easily hide it or to hide all other chunks. ![Alt Text](https://dev-to-uploads.s3.amazonaws.com/i/q4epyrbb8b51v2wwuxoq.png){width="728" height="292"}
 
 I hope you have fun analyzing your bundles but please do not deploy bundles built with "analyze" mode, they are for analysis purposes only.

@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './fixtures';
 
 test.describe('404 Error Page', () => {
   test.beforeEach(async ({ page }) => {
@@ -13,6 +13,11 @@ test.describe('404 Error Page', () => {
         - /url: /
       - img "broken connection"
     `);
+  });
+
+  test('unknown route returns HTTP 404 status (not 200)', async ({ request }) => {
+    const res = await request.get('/non-existent-page-http-status-check');
+    expect(res.status(), 'unknown routes should return HTTP 404').toBe(404);
   });
 
   test('404 page maintains header and footer navigation', async ({ page }) => {
@@ -38,10 +43,10 @@ test.describe('404 Error Page', () => {
             - link "Blog":
               - /url: /blog
           - listitem:
-            - link "Now":
-              - /url: /now
+            - link "Hire me":
+              - /url: /hire-me
     `);
-    
+
     await expect(page.getByRole('contentinfo').getByRole('list').first()).toMatchAriaSnapshot(`
       - list:
         - listitem:
@@ -63,8 +68,8 @@ test.describe('404 Error Page', () => {
           - link "Blog":
             - /url: /blog
         - listitem:
-          - link "Now":
-            - /url: /now
+          - link "Hire me":
+            - /url: /hire-me
     `);
   });
 });

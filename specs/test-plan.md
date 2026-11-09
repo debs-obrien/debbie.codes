@@ -730,7 +730,7 @@
 **Expected Results:**
 - Social links list in header contains:
   - X/Twitter (x.com/debs_obrien)
-  - LinkedIn (linkedin.com/in/debbie-o-brien-1a199975/)
+  - LinkedIn (linkedin.com/in/debbie-obrien)
   - GitHub (github.com/debs-obrien)
   - YouTube (youtube.com/c/DebbieOBrien)
 - Each link has an icon/image

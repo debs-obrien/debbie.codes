@@ -1,7 +1,7 @@
 // spec: specs/test-plan.md
 // seed: tests/seed.spec.ts
 
-import { test, expect } from '@playwright/test';
+import { expect, test } from './fixtures';
 
 test.describe('Navigation Functionality', { tag: '@agent' }, () => {
   test('Verify Footer Navigation', async ({ page }) => {
@@ -34,8 +34,8 @@ test.describe('Navigation Functionality', { tag: '@agent' }, () => {
             - link "Blog":
               - /url: /blog
           - listitem:
-            - link "Now":
-              - /url: /now
+            - link "Hire me":
+              - /url: /hire-me
         - list:
           - listitem:
             - link "x":
@@ -43,7 +43,7 @@ test.describe('Navigation Functionality', { tag: '@agent' }, () => {
               - img
           - listitem:
             - link "LinkedIn":
-              - /url: https://www.linkedin.com/in/debbie-o-brien-1a199975/
+              - /url: https://www.linkedin.com/in/debbie-obrien
               - img
           - listitem:
             - link "YouTube":

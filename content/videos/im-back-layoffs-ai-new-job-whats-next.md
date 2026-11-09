@@ -5,6 +5,23 @@ description: "I'm back ❤️ After a few very quiet months, layoffs, big life c
 video: zaFJ2E70jUo
 tags: [ai]
 host: Debbie's youtube channel
+chapters:
+  - time: 0
+    title: "Returning after layoffs"
+  - time: 21
+    title: "Starting a new job"
+  - time: 65
+    title: "The scary hiring process"
+  - time: 107
+    title: "Navigating industry layoffs"
+  - time: 171
+    title: "Reflecting on Microsoft"
+  - time: 283
+    title: "Finding structure again"
+  - time: 380
+    title: "Building tools with AI"
+  - time: 628
+    title: "Taking time to step back"
 ---
 
 I'm back ❤️ After a few very quiet months, layoffs, big life changes, and a lot of reflection — I'm starting a brand new chapter at Block, diving deep into AI… and I wanted to share the journey with you. In this video I talk honestly about:

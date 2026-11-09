@@ -1,12 +1,18 @@
 <script setup lang="ts">
+withDefaults(defineProps<{
+  /** Mark the cover as the page LCP image (podcasts index). Leave off on home. */
+  priority?: boolean
+}>(), {
+  priority: false,
+})
+
 // Fetch the featured podcast dynamically
 const { data: featuredPodcast } = await useAsyncData('featured-podcast', () =>
   queryCollection('podcasts')
     .select(...podcastPreviewFields)
     .where('featured', '=', true)
     .order('date', 'DESC')
-    .first()
-)
+    .first())
 </script>
 
 <template>
@@ -22,11 +28,19 @@ const { data: featuredPodcast } = await useAsyncData('featured-podcast', () =>
         <div class="flex flex-col md:flex-row">
           <!-- Image -->
           <div class="md:w-1/3">
-            <NuxtImg 
-              class="h-48 w-full object-cover md:h-full" 
-              provider="cloudinary"
-              :src="featuredPodcast.image" 
+            <NuxtImg
+              class="h-48 w-full object-cover md:h-full"
+              :src="featuredPodcast.image"
               :alt="`${featuredPodcast.host} cover art`"
+              width="800"
+              height="450"
+              sizes="xs:100vw md:400px"
+              densities="x1"
+              fit="cover"
+              format="webp"
+              :loading="priority ? 'eager' : 'lazy'"
+              :fetchpriority="priority ? 'high' : undefined"
+              decoding="async"
             />
           </div>
 
@@ -49,7 +63,7 @@ const { data: featuredPodcast } = await useAsyncData('featured-podcast', () =>
 
             <!-- Listen Now Button -->
             <div class="mt-6">
-              <div class="inline-flex items-center gap-3 bg-primary text-white font-bold py-3 px-6 rounded-lg transition-colors group-hover:bg-primary/90">
+              <div class="inline-flex items-center gap-3 bg-primary-fill text-white font-bold py-3 px-6 rounded-lg transition-colors group-hover:bg-primary-fill/90">
                 <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
                 <span>Listen Now</span>
               </div>

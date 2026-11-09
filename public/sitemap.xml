@@ -37,6 +37,9 @@
     <loc>https://debbie.codes/blog/api-mocking-for-your-playwright-tests</loc>
   </url>
   <url>
+    <loc>https://debbie.codes/blog/app-to-track-my-learning-journey</loc>
+  </url>
+  <url>
     <loc>https://debbie.codes/blog/ask-engineers-anything</loc>
   </url>
   <url>
@@ -74,9 +77,6 @@
   </url>
   <url>
     <loc>https://debbie.codes/blog/building-cart-context-component</loc>
-  </url>
-  <url>
-    <loc>https://debbie.codes/blog/building-your-first-mcp-server</loc>
   </url>
   <url>
     <loc>https://debbie.codes/blog/building-your-first-mcp-server-a-beginners-tutorial</loc>
@@ -179,6 +179,9 @@
   </url>
   <url>
     <loc>https://debbie.codes/blog/grok-bot-uploads-my-youtube-videos</loc>
+  </url>
+  <url>
+    <loc>https://debbie.codes/blog/hire-me-voice-agent-grok-bot</loc>
   </url>
   <url>
     <loc>https://debbie.codes/blog/how-i-used-ai-to-fix-our-e2e-test-architecture</loc>
@@ -350,6 +353,9 @@
   </url>
   <url>
     <loc>https://debbie.codes/blog/sharing-react-components-across-multiple-applications</loc>
+  </url>
+  <url>
+    <loc>https://debbie.codes/blog/skill-creator-v2-agent-skills-vs-code</loc>
   </url>
   <url>
     <loc>https://debbie.codes/blog/tags/agents</loc>
@@ -532,6 +538,9 @@
     <loc>https://debbie.codes/courses/tags/vue</loc>
   </url>
   <url>
+    <loc>https://debbie.codes/hire-me</loc>
+  </url>
+  <url>
     <loc>https://debbie.codes/now</loc>
   </url>
   <url>
@@ -545,6 +554,9 @@
   </url>
   <url>
     <loc>https://debbie.codes/podcasts/tags/jamstack</loc>
+  </url>
+  <url>
+    <loc>https://debbie.codes/podcasts/tags/mcp</loc>
   </url>
   <url>
     <loc>https://debbie.codes/podcasts/tags/mentoring</loc>
@@ -593,9 +605,6 @@
   </url>
   <url>
     <loc>https://debbie.codes/videos/tags/imposter-syndrome</loc>
-  </url>
-  <url>
-    <loc>https://debbie.codes/videos/tags/interview</loc>
   </url>
   <url>
     <loc>https://debbie.codes/videos/tags/interviews</loc>

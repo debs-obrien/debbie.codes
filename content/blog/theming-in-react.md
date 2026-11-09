@@ -2,8 +2,8 @@
 title: Theming in React
 date: 2022-03-10
 description: Theming is a fascinating topic and a really important one these days as more and more people add light and dark mode to their sites and companies change the theme of their site or part of their site on specific dates to celebrate occasions such as christmas, pride week etc.
-image: photo-1595446472721-4b7aa63a2bc7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80
-ogImage: https://images.unsplash.com/photo-1595446472721-4b7aa63a2bc7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80?fm=webp&fit=crop&q=80&w=480
+image: photo-1595446472721-4b7aa63a2bc7
+ogImage: https://images.unsplash.com/photo-1595446472721-4b7aa63a2bc7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80&fm=webp&fit=crop&q=80&w=480
 provider: imgix
 tags: [react]
 published: true
@@ -11,7 +11,7 @@ published: true
 
 Theming is a fascinating topic and a really important one these days as more and more people add light and dark mode to their sites and companies change the theme of their site or part of their site on specific dates to celebrate occasions such as christmas, pride week etc.
 
-![color cards showing different colors and tones](https://images.unsplash.com/photo-1595446472721-4b7aa63a2bc7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80)
+![color cards showing different colors and tones](https://images.unsplash.com/photo-1595446472721-4b7aa63a2bc7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80){width="2370" height="1580"}
 
 But where do we start when it comes to creating themes? It all starts with the designers. They are the ones who are creating the themes. Each theme should have a list of design tokens that show the theme colors, paddings, margins, fonts, etc. These tokens can be exported from tools such as Figma and then used in a theme component.
 
@@ -73,7 +73,7 @@ export const Theme = createTheme({
 
 You supply the design tokens directly to the createTheme function and it does the rest for you to convert the tokens to usable css (both in modules and directly in your css).
 
-6. Add [compositions](https://bit.dev/learn-bit-react/theming/themes/theme-provider/~code/theme-provider.composition.tsx), [tests](https://bit.dev/learn-bit-react/theming/themes/theme-provider/~code/theme-provider.spec.tsx) and [docs](https://bit.dev/learn-bit-react/theming/themes/theme-provider/~code/theme-provider.docs.mdx).
+6. Add compositions, tests and docs.
 
 ## Step 2: Use your Theme Provider
 
@@ -150,7 +150,7 @@ export { DarkTheme } from './dark-theme';
 export { darkTheme } from './dark-theme-tokens';
 ```
 
-5. Add [compositions](https://bit.dev/learn-bit-react/theming/themes/dark-theme/~code/dark-theme.composition.tsx), [tests](https://bit.dev/learn-bit-react/theming/themes/dark-theme/~code/dark-theme.spec.tsx) and [docs](https://bit.dev/learn-bit-react/theming/themes/dark-theme/~code/dark-theme.docs.mdx).
+5. Add compositions, tests and docs.
 
 ## Step 4: Use your Theme in a Component
 
@@ -211,8 +211,8 @@ export const MyApp = () => {
 
 And thats how you do theming in React. For more info on how the components work or to learn more on theming and React context check out:
 
-- [Theming in Bit](https://bit.dev/learn-bit-react/theming/readme)
-- [Example Button Component](https://bit.dev/learn-bit-react/theming/example/button)
-- [Theme Provider Component](https://bit.dev/learn-bit-react/theming/themes/theme-provider)
-- [Dark Theme](https://bit.dev/learn-bit-react/theming/themes/dark-theme).
-- [React Docs Theming](https://beta.reactjs.org/apis/usecontext)
+- Theming in Bit
+- Example Button Component
+- Theme Provider Component
+- Dark Theme.
+- [React Docs Theming](https://react.dev/reference/react/useContext)

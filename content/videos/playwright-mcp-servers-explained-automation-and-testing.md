@@ -5,6 +5,21 @@ description: "Model Context Protocol (MCP) meets Playwright! In this video, we e
 video: U5Hsa6s2EqE
 tags: [playwright, mcp, testing, ai]
 host: Debbie's youtube channel
+chapters:
+  - time: 0
+    title: "Two Playwright MCP servers?"
+  - time: 64
+    title: "Playwright MCP server tools"
+  - time: 165
+    title: "Demo: an agent browses the web"
+  - time: 398
+    title: "Playwright Test MCP server"
+  - time: 570
+    title: "Working with the test agents"
+  - time: 829
+    title: "Comparing the two MCP servers"
+  - time: 1038
+    title: "Running and analyzing tests"
 ---
 
 Model Context Protocol (MCP) meets Playwright! In this video, we explore how MCP servers bridge the gap between AI and browser automation, enabling intelligent testing workflows. Learn how to set up Playwright MCP servers, understand their architecture, and see real-world examples of AI-powered testing in action.

@@ -5,8 +5,8 @@ description: "How I used Goose, an open-source AI agent, to write 55 pages of do
 tags: [ai, webdev]
 published: true
 canonical: https://theaiplatform.app/blog/documenting-product-with-ai-agent/
-image: /images/blog/covers/documenting-product-with-ai-agent.png
-ogImage: /images/blog/covers/documenting-product-with-ai-agent.png
+image: /images/blog/covers/documenting-product-with-ai-agent.webp
+ogImage: /images/blog/covers/documenting-product-with-ai-agent.webp
 ---
 
 I had 55 pages of documentation to write, 59 screenshots to capture, and a product that was still shipping features and being rebranded weeks before release. I did it in four days with [Goose](https://github.com/aaif-goose/goose), an open-source AI agent by Block, part of the Linux Foundation, and I want to walk you through exactly how. Not the polished version. The real one: how I built it, how it works, everything that broke along the way, and what I learned from it.
@@ -150,7 +150,7 @@ The skill stamps that out. It pipes the build output to a log file and re-greps 
 
 There is an important distinction in this workflow. Peekaboo automates the desktop app to capture screenshots. But who verifies that the documentation pages themselves render correctly?
 
-That is where [Playwright CLI](https://github.com/nichochar/playwright-cli) comes in. It is a command-line tool that wraps Playwright's browser automation into simple terminal commands. The agent uses it to open the built documentation site in a real browser, take a DOM snapshot, and verify that headings and images rendered correctly.
+That is where Playwright CLI comes in. It is a command-line tool that wraps Playwright's browser automation into simple terminal commands. The agent uses it to open the built documentation site in a real browser, take a DOM snapshot, and verify that headings and images rendered correctly.
 
 The verification flow looks like this. After the agent writes a page, it runs `playwright-cli snapshot` to get the full DOM tree and checks that the H1 matches, all images loaded, the sidebar navigation includes the new page, and the table of contents lists the right H2 headings. If something is missing or broken, it fixes the page and rebuilds.
 

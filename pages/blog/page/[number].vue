@@ -9,7 +9,7 @@ const postsPerPage = 12
 const offset = (page - 1) * postsPerPage
 
 // Fetch paginated posts
-const { data: posts } = await useAsyncData(`blog-page-${page}`, () => queryCollection('blog')
+const { data: posts } = await useAsyncData(`blog-page-${page}`, () => onlyPublished(queryCollection('blog'))
   .select(...blogPreviewFields)
   .order('date', 'DESC')
   .limit(postsPerPage)
@@ -17,11 +17,11 @@ const { data: posts } = await useAsyncData(`blog-page-${page}`, () => queryColle
   .all())
 
 // Get total count for pagination
-const { data: totalCount } = await useAsyncData('blog-total-count', () => queryCollection('blog')
+const { data: totalCount } = await useAsyncData('blog-total-count', () => onlyPublished(queryCollection('blog'))
   .count())
 
 // Fetch all posts for search functionality
-const { data: allPosts } = await useAsyncData('all-blog-posts', () => queryCollection('blog')
+const { data: allPosts } = await useAsyncData('all-blog-posts', () => onlyPublished(queryCollection('blog'))
   .select(...blogPreviewFields)
   .order('date', 'DESC')
   .all())

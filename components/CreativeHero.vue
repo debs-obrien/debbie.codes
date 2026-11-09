@@ -1,9 +1,14 @@
+<script setup lang="ts">
+import { PUBLIC_MAILTO } from '~/utils/site-contact'
+</script>
+
 <template>
   <section
     class="hero-spotlight relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] -mt-top-bar w-screen bg-dark text-white overflow-hidden"
     aria-label="Introduction"
   >
-    <div class="hero-atmosphere absolute inset-0 pointer-events-none" aria-hidden="true">
+    <div class="hero-atmosphere absolute inset-0 pointer-events-none" aria-hidden="true" data-testid="hero-css-motion">
+      <div class="hero-drift" />
       <div class="hero-glow hero-glow-main" />
       <div class="hero-glow hero-glow-soft" />
       <div class="hero-grid-lines" />
@@ -11,12 +16,15 @@
 
     <div class="relative z-10 flex flex-col items-center justify-center text-center px-6 sm:px-10 pt-[7.5rem] pb-12 sm:pb-14">
       <NuxtImg
-        provider="cloudinary"
-        src="v1589118478/debbie.codes/debbie-thumb_clt00n"
+        src="/images/debbie-thumb.webp"
         alt="Debbie O'Brien"
         width="160"
         height="160"
         sizes="112px"
+        densities="x1 x2"
+        format="webp"
+        loading="eager"
+        decoding="async"
         class="hero-animate hero-animate-1 rounded-full mb-6 w-28 h-28 object-cover border-2 border-white/20"
       />
 
@@ -42,7 +50,7 @@
         <NuxtLink to="/now" class="hero-cta">
           See what I’m working on
         </NuxtLink>
-        <a href="mailto:dobriendev@gmail.com" class="hero-cta">
+        <a :href="PUBLIC_MAILTO" class="hero-cta">
           Say hello
         </a>
       </div>
@@ -105,13 +113,29 @@
   inset: 0;
 }
 
+/* One-shot CSS motion (no video): a soft navy-to-red gradient drifts into
+   place while the glow and grid fade in. Everything animates transform and
+   opacity only, runs once and finishes within 5 s (WCAG 2.2.2), then rests. */
+.hero-drift {
+  position: absolute;
+  inset: -8%;
+  background: linear-gradient(
+    120deg,
+    rgba(18, 48, 72, 0.9) 0%,
+    rgba(9, 26, 40, 0) 48%,
+    rgba(216, 0, 45, 0.07) 100%
+  );
+  will-change: transform, opacity;
+  animation: hero-drift 4.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
 .hero-glow-main {
   background: radial-gradient(
     ellipse 70% 55% at 50% 35%,
     rgba(216, 0, 45, 0.22),
     transparent 68%
   );
-  animation: hero-breathe 8s ease-in-out infinite;
+  animation: hero-glow-in 2.6s ease-out 0.2s both;
 }
 
 .hero-glow-soft {
@@ -131,6 +155,7 @@
     linear-gradient(90deg, rgba(255, 255, 255, 0.55) 1px, transparent 1px);
   background-size: 48px 48px;
   mask-image: radial-gradient(ellipse 65% 55% at 50% 40%, black, transparent 75%);
+  animation: hero-grid-in 2.4s ease-out 0.6s both;
 }
 
 .hero-rule {
@@ -206,14 +231,38 @@
   }
 }
 
-@keyframes hero-breathe {
-  0%, 100% { opacity: 0.85; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.04); }
+@keyframes hero-drift {
+  from {
+    opacity: 0;
+    transform: translate3d(-5%, 3%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes hero-glow-in {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes hero-grid-in {
+  from { opacity: 0; }
+  to { opacity: 0.07; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .hero-animate,
-  .hero-glow-main {
+  .hero-drift,
+  .hero-glow-main,
+  .hero-grid-lines {
     animation: none;
   }
 }

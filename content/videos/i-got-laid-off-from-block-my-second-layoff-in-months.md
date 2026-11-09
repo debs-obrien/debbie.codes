@@ -6,4 +6,23 @@ video: WxhqmxDW770
 tags: [dev-rel]
 host: Debbie's youtube channel
 image: https://img.youtube.com/vi/WxhqmxDW770/sddefault.jpg
+chapters:
+  - time: 0
+    title: "Introduction and thank you"
+  - time: 28
+    title: "The day of the layoff"
+  - time: 158
+    title: "Processing the news"
+  - time: 224
+    title: "Spanish law and severance"
+  - time: 290
+    title: "Working with AI at Block"
+  - time: 425
+    title: "Reflections on the layoff"
+  - time: 522
+    title: "Is any job in tech stable now?"
+  - time: 635
+    title: "Advice if you've been laid off"
+  - time: 798
+    title: "Looking ahead"
 ---

@@ -5,8 +5,8 @@ description: I've been playing around with a few things recently and wanted to s
 canonical: https://dev.to/debs_obrien/debugging-my-zsh-config-with-goose-and-why-agentic-ai-actually-helped-1noh
 tags: [ai, webdev]
 published: true
-image: /images/blog/covers/debugging-my-zsh-config-with-goose-and-why-agentic-ai-actually-helped.png
-ogImage: /images/blog/covers/debugging-my-zsh-config-with-goose-and-why-agentic-ai-actually-helped.png
+image: /images/blog/covers/debugging-my-zsh-config-with-goose-and-why-agentic-ai-actually-helped.webp
+ogImage: /images/blog/covers/debugging-my-zsh-config-with-goose-and-why-agentic-ai-actually-helped.webp
 ---
 
 I've been playing around with a few things recently and wanted to share a real experience that genuinely surprised me.
@@ -94,5 +94,5 @@ That's it. Have fun experimenting with AI.
 
 ### Useful Links:
 
-- [Goose](https://block.github.io/goose/docs/getting-started/installation/)
+- [Goose](https://goose-docs.ai/docs/getting-started/installation)
 - [Linux Foudation](https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation)

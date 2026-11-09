@@ -2,8 +2,7 @@
 title: 2020 - my most successful year (career wise)
 date: 2020-12-30
 description: A look back at what we could say has been an interesting year, challenging in many ways yet somehow has been my most successful year to date.
-image: v1609438516/debbie.codes/blog/Screenshot_2020-12-31_at_18.14.59_sbfsen
-provider: cloudinary
+image: /images/content/blog/Screenshot_2020-12-31_at_18.14.59_sbfsen.webp
 tags: [personal]
 ---
 
@@ -12,7 +11,7 @@ We all know that 2020 has been a hard year especially family wise and it has of 
 ## Achievements:
 
 - [Microsoft MVP](https://mvp.microsoft.com/en-us/PublicProfile/5003613?fullName=Debbie%20O%27Brien)
-- [Github Star](https://stars.github.com/profiles/debs-obrien/)
+- Github Star
 - 26 talks
 - 10 blog posts
 - 52 videos and podcasts
