@@ -59,7 +59,7 @@ function firstRssItemTitle(xml: string): string | null {
 }
 
 test.describe('RSS feed', () => {
-  test('/feed.xml is RSS 2.0 with newest published post first', { tag: '@smoke' }, async ({ request }) => {
+  test('/feed.xml is RSS 2.0 with newest published post first', { tag: '@smoke' }, async ({ request, page }) => {
     const res = await request.get('/feed.xml');
     expect(res.status()).toBe(200);
 
@@ -67,12 +67,40 @@ test.describe('RSS feed', () => {
     expect(contentType, `content-type was "${contentType}"`).toMatch(/xml/i);
 
     const body = await res.text();
-    expect(body).toMatch(/<rss\s[^>]*version\s*=\s*["']2\.0["']/i);
-    expect(body).toMatch(/<channel[\s>]/i);
-    expect(body).toMatch(/<channel[\s\S]*?<title>[\s\S]*?<\/title>/i);
-    expect(body).toMatch(/<item[\s>]/i);
 
-    const firstTitle = firstRssItemTitle(body);
+    // Browser DOMParser rejects truncated/malformed XML that regex fragment checks miss.
+    const parsed = await page.evaluate((xml) => {
+      const doc = new DOMParser().parseFromString(xml, 'application/xml');
+      const err = doc.querySelector('parsererror')?.textContent ?? null;
+      if (err)
+        return { ok: false as const, error: err };
+
+      const rss = doc.querySelector('rss');
+      const channel = rss?.querySelector(':scope > channel') ?? null;
+      const item = channel?.querySelector(':scope > item') ?? null;
+      const channelTitle = channel?.querySelector(':scope > title')?.textContent?.trim() ?? null;
+      const firstItemTitle = item?.querySelector(':scope > title')?.textContent?.trim() ?? null;
+
+      return {
+        ok: true as const,
+        version: rss?.getAttribute('version') ?? null,
+        hasChannel: !!channel,
+        hasChannelTitle: !!channelTitle,
+        hasItem: !!item,
+        firstItemTitle
+      };
+    }, body);
+
+    expect(parsed.ok, `feed.xml must be well-formed XML: ${'error' in parsed ? parsed.error : ''}`).toBe(true);
+    if (!parsed.ok)
+      return;
+
+    expect(parsed.version).toBe('2.0');
+    expect(parsed.hasChannel).toBe(true);
+    expect(parsed.hasChannelTitle).toBe(true);
+    expect(parsed.hasItem).toBe(true);
+
+    const firstTitle = parsed.firstItemTitle || firstRssItemTitle(body);
     expect(firstTitle, 'feed should have a first <item><title>').toBeTruthy();
 
     const expectedTitles = newestPublishedBlogTitles();

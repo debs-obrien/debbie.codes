@@ -47,11 +47,23 @@ function sampleBlogSlugs(): string[] {
   return [...new Set([...newest, mid, older])];
 }
 
+/** True for local Playwright webServer base URLs (CDN unavailable under nuxt dev). */
+function isLocalDevBaseURL(baseURL: string): boolean {
+  try {
+    const host = new URL(baseURL).hostname;
+    return host === '127.0.0.1' || host === 'localhost';
+  }
+  catch {
+    return false;
+  }
+}
+
 /**
- * Map an absolute OG URL to something the local/preview base URL can serve.
- * Netlify Image CDN (`/.netlify/images`) is not available under `nuxt dev`, so
- * for those cards we fetch the underlying local `/images/...` source instead.
- * Third-party hosts (e.g. Unsplash) are left unchanged — callers skip fetching them.
+ * Map an absolute OG URL to something the test base URL can serve.
+ * Under local `nuxt dev`, Netlify Image CDN (`/.netlify/images`) is unavailable,
+ * so we fetch the underlying `/images/...` source instead. On deploy previews /
+ * production bases, keep the CDN path so a broken transform still fails.
+ * Third-party hosts (e.g. Unsplash) return null — callers skip fetching them.
  */
 function fetchableImageUrl(absoluteHttps: string, baseURL: string | undefined): string | null {
   if (/images\.unsplash\.com/i.test(absoluteHttps) || !absoluteHttps.startsWith(SITE_ORIGIN))
@@ -62,7 +74,7 @@ function fetchableImageUrl(absoluteHttps: string, baseURL: string | undefined): 
 
   const origin = baseURL.replace(/\/$/, '');
 
-  if (absoluteHttps.includes('/.netlify/images')) {
+  if (absoluteHttps.includes('/.netlify/images') && isLocalDevBaseURL(origin)) {
     try {
       const u = new URL(absoluteHttps);
       const src = u.searchParams.get('url');
@@ -70,7 +82,7 @@ function fetchableImageUrl(absoluteHttps: string, baseURL: string | undefined): 
         return `${origin}${src}`;
     }
     catch {
-      // fall through
+      // fall through to host rewrite
     }
   }
 
@@ -130,7 +142,8 @@ test.describe('Blog OG / Twitter images', () => {
       expect(twitterImage, `${slug} twitter:image`).toMatch(/^https:\/\//);
       expect(ogImage, `${slug} og:image empty`).toBeTruthy();
       expect(twitterImage, `${slug} twitter:image empty`).toBeTruthy();
-      expect(ogImage, `${slug} must not use Cloudinary`).not.toMatch(/res\.cloudinary\.com/);
+      expect(ogImage, `${slug} og:image must not use Cloudinary`).not.toMatch(/res\.cloudinary\.com/);
+      expect(twitterImage, `${slug} twitter:image must not use Cloudinary`).not.toMatch(/res\.cloudinary\.com/);
 
       for (const url of [ogImage!, twitterImage!]) {
         const fetchUrl = fetchableImageUrl(url, baseURL);
