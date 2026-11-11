@@ -68,7 +68,8 @@ body {
 
 /* Code block styling */
 .prose pre {
-  --scrollbar-thumb: #c1c1c1;
+  /* Thumb ≥3:1 against track and code-block background (WCAG 1.4.11). */
+  --scrollbar-thumb: #6b7280;
   --scrollbar-track: #f1f1f1;
   background-color: #f8f9fa;
   border: 1px solid #e9ecef;
@@ -101,7 +102,7 @@ body {
 
 /* Dark mode code block styling */
 .dark .prose pre {
-  --scrollbar-thumb: #4b5563;
+  --scrollbar-thumb: #9ca3af;
   --scrollbar-track: #2d2d2d;
   background-color: #1e1e1e;
   border-color: #2d2d2d;
@@ -137,6 +138,12 @@ body {
 
 /* Legacy WebKit scrollbar fallback when standard scrollbar-color is unavailable */
 @supports not (scrollbar-color: auto) {
+  /* Safari 18.2–26.1 supports scrollbar-width without scrollbar-color; reset so
+     thin does not suppress the WebKit thumb/track colors below. */
+  .prose pre {
+    scrollbar-width: auto;
+  }
+
   .prose pre::-webkit-scrollbar {
     height: 8px;
   }
@@ -154,11 +161,11 @@ body {
   }
 
   .prose pre::-webkit-scrollbar-thumb:hover {
-    background: #a8a8a8;
+    background: #4b5563;
   }
 
   .dark .prose pre::-webkit-scrollbar-thumb:hover {
-    background: #6b7280;
+    background: #d1d5db;
   }
 }
 
