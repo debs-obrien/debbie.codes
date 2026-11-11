@@ -11,6 +11,9 @@ export default antfu(
     ignores: [
       '/.github/workflows/playwright.yml',
       'content/**',
+      // Agent skill packs (Markdown guides + lockfile, not runtime app code).
+      '.agents/skills/**',
+      'skills-lock.json',
       // One-shot Cloudinary migration tooling (not runtime app code).
       'scripts/cloudinary/**',
       'scripts/optimize-images.mjs',
