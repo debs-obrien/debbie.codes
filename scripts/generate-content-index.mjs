@@ -381,7 +381,7 @@ function renderLlms(items) {
     '',
     '> Debbie O\'Brien is a developer educator focused on AI agents, Playwright, and testing.',
     '',
-    'The site publishes videos, blog posts, podcasts, and courses. Agents on a page with document.modelContext can call the WebMCP tools list-videos, topic-brief, search-content, and get-current-page.',
+    'The site publishes videos, blog posts, podcasts, and courses. Agents on a page with document.modelContext can call the WebMCP tools list-videos, topic-brief, search-content, get-video, and get-current-page.',
     '',
   ]
   for (const section of SECTIONS) {

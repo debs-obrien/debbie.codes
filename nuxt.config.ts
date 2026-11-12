@@ -93,6 +93,22 @@ export default defineNuxtConfig({
     transpile: ['lite-youtube'],
   },
 
+  hooks: {
+    // Dynamic import stays behind document.modelContext, but Nuxt still emits
+    // prefetch for async plugin chunks. Disable prefetch/preload for WebMCP utils.
+    // Do not use manualChunks for utils/webmcp: that pulled shared homepage modules
+    // into the tools chunk and made / statically import it for every visitor.
+    'build:manifest': (manifest) => {
+      for (const item of Object.values(manifest)) {
+        const src = item.src || ''
+        if (src.includes('utils/webmcp')) {
+          item.prefetch = false
+          item.preload = false
+        }
+      }
+    },
+  },
+
   vue: {
     compilerOptions: {
       isCustomElement: tag => ['lite-youtube', 'elevenlabs-convai'].includes(tag),
