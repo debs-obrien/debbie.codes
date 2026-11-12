@@ -86,6 +86,13 @@ useHead({
       title: 'Debbie Codes RSS Feed',
       href: `${mySite}/feed.xml`,
     },
+    // llmstxt.org discoverability — plain-text site map for agents
+    {
+      rel: 'alternate',
+      type: 'text/plain',
+      title: 'llms.txt',
+      href: `${mySite}/llms.txt`,
+    },
   ],
 })
 </script>

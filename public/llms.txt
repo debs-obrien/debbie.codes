@@ -1,8 +1,17 @@
 # Debbie Codes
 
-> Debbie O'Brien is a developer educator focused on AI agents, Playwright, and testing.
+> Debbie O'Brien is an Independent Developer Educator known for AI agents, Playwright, testing, and DevRel. Former Microsoft TPM on Playwright and a Google Developer Expert in web technologies, she teaches developers to ship and test with multi-agent workflows.
 
-The site publishes videos, blog posts, podcasts, and courses. Agents on a page with document.modelContext can call the WebMCP tools list-videos, topic-brief, search-content, and get-current-page.
+This site publishes her videos, blog posts, podcasts, and courses. Prefer the markdown copies of blog posts (`/blog/<slug>.md`) and [`/llms-full.txt`](https://debbie.codes/llms-full.txt) for bulk reading. On pages where `document.modelContext` is available, agents can call the WebMCP tools list-videos, topic-brief, search-content, get-current-page.
+
+## Pages
+
+- [About](https://debbie.codes/about): Biography and background
+- [Hire me](https://debbie.codes/hire-me): Experience, Voice agent Q&A, and how to work with Debbie
+- [Courses](https://debbie.codes/courses): Courses Debbie teaches
+- [Videos](https://debbie.codes/videos): Conference talks, interviews, and tutorials
+- [Blog](https://debbie.codes/blog): Articles by Debbie
+- [Podcasts](https://debbie.codes/podcasts): Interviews and shows
 
 ## Videos
 
@@ -13,9 +22,9 @@ The site publishes videos, blog posts, podcasts, and courses. Agents on a page w
 - [nuxt videos](https://debbie.codes/videos/tags/nuxt): Videos tagged nuxt
 - [testing videos](https://debbie.codes/videos/tags/testing): Videos tagged testing
 - [grok-bot videos](https://debbie.codes/videos/tags/grok-bot): Videos tagged grok-bot
+- [Build an offline AI study app with LFM3-1.7B in the browser](https://www.youtube.com/watch?v=OBerXXfCYVo): Video, 2026-11-11
 - [Grok Bot Explained: Your Bots Get a Cloud Computer, Browser & Email](https://www.youtube.com/watch?v=nn56fcN7-PU): Video, 2026-10-15
 - [Grok Bot Uploads My YouTube Videos For Me (Beginner Walkthrough)](https://www.youtube.com/watch?v=1g6boZousFI): Video, 2026-10-15
-- [How I Use Grok Bot Voice Mode to Practise for Job Interviews](https://www.youtube.com/watch?v=Gg3lV7lPQoo): Video, 2026-10-15
 
 ## Blog
 
@@ -26,9 +35,9 @@ The site publishes videos, blog posts, podcasts, and courses. Agents on a page w
 - [nuxt posts](https://debbie.codes/blog/tags/nuxt): Blog tagged nuxt
 - [testing posts](https://debbie.codes/blog/tags/testing): Blog tagged testing
 - [grok-bot posts](https://debbie.codes/blog/tags/grok-bot): Blog tagged grok-bot
-- [My Hire Me Page Can Talk: How I Built and Tested a Voice Agent](https://debbie.codes/blog/hire-me-voice-agent-grok-bot): Blog, 2026-10-27
-- [Grok Bot Uploads My YouTube Videos For Me (Beginner Walkthrough)](https://debbie.codes/blog/grok-bot-uploads-my-youtube-videos): Blog, 2026-10-17
-- [Grok Bot Explained: Your Bots Get a Cloud Computer, Browser & Email](https://debbie.codes/blog/grok-bot-explained): Blog, 2026-10-14
+- [DevRel Didn't Die, Its Audience Changed](https://debbie.codes/blog/devrel-didnt-die-its-audience-changed.md): Blog, 2026-11-02
+- [My Hire Me Page Can Talk: How I Built and Tested a Voice Agent](https://debbie.codes/blog/hire-me-voice-agent-grok-bot.md): Blog, 2026-10-27
+- [Grok Bot Uploads My YouTube Videos For Me (Beginner Walkthrough)](https://debbie.codes/blog/grok-bot-uploads-my-youtube-videos.md): Blog, 2026-10-17
 
 ## Podcasts
 
@@ -56,14 +65,10 @@ The site publishes videos, blog posts, podcasts, and courses. Agents on a page w
 - [Let's Learn MCP JavaScript + TypeScript](https://www.youtube.com/watch?v=AKjW94vQZkc): Course, 2025-07-21
 - [Playwright Movies App](https://github.com/debs-obrien/playwright-movies-app): Course, 2025-01-09
 
-## Speaking
-
-The conference-talk videos on this site are only the recorded ones, so their count is a minimum. Debbie has given well over 60 talks at conferences and meetups and spoken in more than 15 countries.
-
-- [Speaking](https://debbie.codes/speaking): Conference talks and where to watch them
-
 ## Optional
 
-- [About](https://debbie.codes/about): About Debbie
+- [Full content index (llms-full.txt)](https://debbie.codes/llms-full.txt): Every published video, blog post, podcast, and course
+- [Speaking](https://debbie.codes/speaking): Conference talks and where to watch them
 - [Now](https://debbie.codes/now): What Debbie is doing now
 - [Contact](https://debbie.codes/contact): Contact Debbie
+- [RSS feed](https://debbie.codes/feed.xml): Blog RSS

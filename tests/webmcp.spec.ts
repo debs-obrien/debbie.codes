@@ -523,21 +523,29 @@ test('llms.txt lists the main sections and WebMCP tools', async ({ request }) =>
   expect(response.headers()['content-type'] ?? '').toContain('text/plain');
   const body = await response.text();
   expect(body).toContain('# Debbie Codes');
+  expect(body).toContain('## Pages');
   expect(body).toContain('## Videos');
   expect(body).toContain('## Blog');
   expect(body).toContain('## Podcasts');
   expect(body).toContain('## Courses');
+  expect(body).toContain('## Optional');
   expect(body).toContain('WebMCP');
   expect(body).toContain('list-videos');
   expect(body).toContain('topic-brief');
   expect(body).toContain('search-content');
   expect(body).toContain('get-current-page');
   expect(body).toContain('https://debbie.codes/videos/tags/mcp');
+  expect(body).toContain('https://debbie.codes/hire-me');
+  expect(body).toContain('https://debbie.codes/llms-full.txt');
 });
 
-test('the home page does not link llms.txt', async ({ page }) => {
+test('the home page has no body <a> to llms.txt (discoverability is via head link)', async ({ page }) => {
   await page.goto('/', { waitUntil: 'domcontentloaded' });
   await expect(page.locator('a[href*="llms.txt"]')).toHaveCount(0);
+  await expect(page.locator('link[rel="alternate"][title="llms.txt"]')).toHaveAttribute(
+    'href',
+    'https://debbie.codes/llms.txt',
+  );
 });
 
 test('origin-trial meta is absent on the local (non-production) home page', async ({ page }) => {
