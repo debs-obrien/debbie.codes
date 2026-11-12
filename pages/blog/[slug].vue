@@ -126,6 +126,11 @@ if (article.value) {
         rel: 'canonical',
         href: canonicalUrl,
       },
+      {
+        rel: 'alternate',
+        type: 'text/markdown',
+        href: `https://debbie.codes/blog/${slug}.md`,
+      },
     ],
     script: computed(() => {
       if (!articleJsonLd.value)

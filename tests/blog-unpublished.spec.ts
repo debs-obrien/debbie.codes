@@ -28,4 +28,16 @@ test.describe('Unpublished blog posts', () => {
       name: /Adding WebMCP to My Site/i
     })).toHaveCount(0);
   });
+
+  test('are absent from llms files and have no markdown copy', async ({ request }) => {
+    for (const path of ['/llms.txt', '/llms-full.txt']) {
+      const res = await request.get(path);
+      expect(res.status()).toBe(200);
+      const body = await res.text();
+      expect(body, path).not.toContain('webmcp-on-my-site');
+      expect(body, path).not.toContain('Adding WebMCP to My Site');
+    }
+    const md = await request.get(`${UNPUBLISHED_PATH}.md`);
+    expect(md.status(), 'unpublished markdown copy must 404').toBe(404);
+  });
 });

@@ -105,8 +105,14 @@ export default defineConfig({
   webServer: (externalBaseURL || isEndform)
     ? undefined
     : {
-        command: 'npm run dev',
+        // CI/non-interactive: skip Nuxt telemetry + Tailwind nesting prompts.
+        command: 'NUXT_TELEMETRY_DISABLED=1 npm run dev',
         url: 'http://127.0.0.1:8000',
         reuseExistingServer: !process.env.CI,
+        env: {
+          ...process.env,
+          CI: process.env.CI || 'true',
+          NUXT_TELEMETRY_DISABLED: '1',
+        },
       },
 })
