@@ -4,19 +4,19 @@ date: 2026-10-27
 description: "AI agents that open debbie.codes in a browser can now call four small WebMCP tools to find my videos, posts, podcasts and courses, instead of reading pages and guessing."
 tags: [ai, mcp, agents, grok-bot]
 published: false
-image: /images/blog/covers/webmcp-on-my-site.png
-ogImage: /images/blog/covers/webmcp-on-my-site.png
+image: /images/blog/covers/webmcp-on-my-site.webp
+ogImage: /images/blog/covers/webmcp-on-my-site.webp
 ---
 
 I asked an agent what I've published about MCP. It opened four pages, read about 240 KB of HTML, and still had to count everything by hand. Now it makes one tool call and gets the answer back in about 383 tokens.
 
 This post is about how I added WebMCP to debbie.codes, what it is, how you can try it, and how it compares to the other ways agents read websites.
 
-I built it with Cursor cloud agents, coordinated by my Grok Bot site lead. I reviewed and merged the changes.
+I built it with Cursor cloud agents, coordinated by my Grok Bot site lead. I reviewed and merged the changes. It uses `document.modelContext`, runs for real visitors through the Chrome and Edge WebMCP origin trials, and I test it in the DevTools WebMCP panel.
 
 ## What is WebMCP
 
-WebMCP is a proposed web standard. A page registers tools with the browser. Each tool has a name, a description, a JSON Schema for its inputs and an `execute` function. An agent working in the browser can then find those tools and call them, instead of clicking around and reading the page. On my site that's `document.modelContext.registerTool()`. Older examples use `navigator.modelContext`, but the spec puts it on `document` now. You can read more in the [Chrome WebMCP docs](https://developer.chrome.com/docs/ai/webmcp).
+WebMCP is a proposed web standard. A page registers tools with the browser. Each tool has a name, a description, a JSON Schema for its inputs and an `execute` function. An agent working in the browser can then find those tools and call them, instead of clicking around and reading the page. On my site that's `document.modelContext.registerTool()`. Older examples use `navigator.modelContext`, but the spec puts it on `document` now. Playwright's [WebMCP docs](https://playwright.dev/docs/api/class-webmcp) still use `navigator.modelContext`. You can read more in the [Chrome WebMCP docs](https://developer.chrome.com/docs/ai/webmcp).
 
 A few things worth knowing:
 
@@ -24,7 +24,7 @@ A few things worth knowing:
 - There are two ways to add tools: an imperative JavaScript API, which is what I used, and a declarative API using HTML forms.
 - WebMCP doesn't replace MCP. Chrome describes MCP as the backend and WebMCP as the frontend. An MCP server works anywhere, while WebMCP tools only exist while the page is open in a tab. Chrome explains the difference in [WebMCP vs MCP](https://developer.chrome.com/docs/ai/webmcp/compare-mcp).
 - Right now it's available through an origin trial, in [Chrome from version 149](https://developer.chrome.com/blog/ai-webmcp-origin-trial) and in [Edge](https://developer.microsoft.com/en-us/microsoft-edge/origin-trials/trials/0b76fe60-b266-458e-a285-04e375c0c31a). For local work Chrome has a flag, `chrome://flags/#enable-webmcp-testing`.
-- Chrome's docs say it's designed for a human in the loop, not for headless use, and agents have to visit the page to discover its tools.
+- Chrome's docs say it's mainly designed for browser workflows with a human in the loop rather than headless use, and agents have to visit the page to discover its tools.
 
 ## Why I wanted it
 
@@ -42,7 +42,7 @@ It worked, but the first call had to load the site's content database in the bro
 
 In [PR #673](https://github.com/debs-obrien/debbie.codes/pull/673) I changed the approach. Instead of a database in the browser, the site now builds one JSON index of all my content when it's generated, and four small tools read from it:
 
-- `list-videos` lists my videos, filtered by tag.
+- `list-videos` lists my videos, newest first, filtered by tag, conference or host.
 - `topic-brief` sums up how much I've published on one topic across videos, posts, podcasts and courses, with counts, dates and a few highlights.
 - `search-content` searches across everything.
 - `get-current-page` tells the agent what the page it's on is about and what's related.
@@ -90,7 +90,7 @@ The same build step also writes [/llms.txt](https://debbie.codes/llms.txt), a pl
 
 Origin trials let normal Chrome and Edge users get the API on my site without turning on a flag. The site adds two origin trial meta tags, one for Chrome and one for Edge.
 
-The tokens only work on debbie.codes, so the tags are only added to the production build. A small `check:origin-trial` script runs in CI, builds the production site and fails if both tags aren't in the HTML.
+The tokens only work on debbie.codes, so the tags are only added to the production build. A small `check:origin-trial` script runs in CI, builds the production site and fails unless both tags are in the HTML.
 
 ## Try it yourself
 
@@ -100,8 +100,16 @@ On debbie.codes you don't need any flag. The origin trial switches the API on. I
 
 1. Use Chrome 149 or newer, or a current version of Edge.
 2. Open [debbie.codes](https://debbie.codes) and view the source. You should see two `<meta http-equiv="origin-trial">` tags.
-3. Open the DevTools console and run `await document.modelContext.getTools()`. You should see all four tools. When I ran `topic-brief` with `mcp` it took 19 ms. Try the same on example.com and `document.modelContext` doesn't exist, because there's no origin trial there.
-4. The tools are also visible to DevTools. The [DevTools WebMCP docs](https://developer.chrome.com/docs/devtools/application/webmcp) explain how to inspect and run them.
+3. Open the DevTools console and run `await document.modelContext.getTools()`. You should see all four tools. To call one, run:
+
+   ```js
+   const tools = await document.modelContext.getTools()
+   const brief = tools.find(t => t.name === 'topic-brief')
+   await document.modelContext.executeTool(brief, { topic: 'mcp' })
+   ```
+
+   When I ran `topic-brief` with `mcp` it took 19 ms. Try the same on example.com and `document.modelContext` doesn't exist, because there's no origin trial there.
+4. Open DevTools, go to the Application panel and select WebMCP. The Available Tools list shows all four tools with their descriptions. Click `topic-brief`, enter `mcp` and click Run tool. The call then shows up in the Invoked Tools log with its input and output. The [DevTools WebMCP panel docs](https://developer.chrome.com/docs/devtools/application/webmcp) have more.
 5. To ask in plain English instead, install the [Model Context Tool Inspector](https://chromewebstore.google.com/detail/model-context-tool-inspec/gbpdfapgefenggkahomfgkhfehlcenpd) extension. It needs a Gemini API key. Try "What has Debbie published about MCP?" or "Find where she explains the Playwright healer agent".
 
 **On localhost or a preview site**
@@ -128,14 +136,14 @@ Read [debbie.codes/llms.txt](https://debbie.codes/llms.txt).
 
 ## The numbers
 
-These were measured on 27 October 2026. Token counts use OpenAI's `o200k_base` tokenizer, so other models will count a little differently.
+I re-measured the index numbers on 12 November 2026. Everything else below was measured on 27 October 2026. Token counts use OpenAI's `o200k_base` tokenizer, so other models will count a little differently.
 
 **The index**
 
-- 342 items: 157 videos, 137 blog posts, 38 podcasts and 10 courses.
-- 121 of the 157 videos have chapters, 1,517 chapters in total.
-- The index file is 333,989 bytes, or about 66 KB over the wire with brotli. Agents don't read it whole. The tools do.
-- `llms.txt` is 4,394 bytes, about 1,288 tokens.
+- 348 items: 161 videos, 139 blog posts, 38 podcasts and 10 courses.
+- 124 of the 161 videos have chapters, 1,534 chapters in total.
+- The index file is 338,920 bytes, or about 66 KB over the wire with brotli. Agents don't read it whole. The tools do.
+- `llms.txt` is 4,558 bytes, about 1,324 tokens.
 
 **Asking "what has Debbie published on MCP?"**
 
@@ -178,7 +186,7 @@ I haven't measured how long a full task takes with a real agent, or how much a s
 | A remote MCP server | The agent connects to a server | Works without the site open, but it's another service to host, secure and keep in sync, and the user has to set it up |
 | llms.txt | Read one text file | Great for discovery, and I ship one, but it's static, can't be queried, lists only a few items per section and has no chapters. See [llmstxt.org](https://llmstxt.org/) |
 | Web search | Search engine results | Depends on the search index, returns pages not answers, and needs more fetches |
-| WebMCP tools | One call to a typed tool in the open tab | About 280 to 430 tokens for a full answer, about 18 for an error and about 39 for get-current-page on a tag page, checked inputs, chapter links, read only. Only works while the page is open, in a browser that supports it |
+| WebMCP tools | One call to a typed tool in the open tab | About 280 to 383 tokens for a full answer, about 18 for an error and about 39 for get-current-page on a tag page, checked inputs, chapter links, read only. Only works while the page is open, in a browser that supports it |
 
 I did both. `llms.txt` is for any agent, and the WebMCP tools are for agents in the browser. Both come from the same build time index, so they can't drift apart.
 
@@ -212,3 +220,5 @@ I did both. `llms.txt` is for any agent, and the WebMCP tools are for agents in 
 - [Model Context Protocol](https://modelcontextprotocol.io/)
 - [llms.txt](https://llmstxt.org/)
 - [PR #652](https://github.com/debs-obrien/debbie.codes/pull/652) and [PR #673](https://github.com/debs-obrien/debbie.codes/pull/673)
+
+After a hard year with multiple layoffs, I'm looking for my next role in DevRel around AI agents, testing and MCP. Something that excites me and ignites my passion. Oh, and just so you know, I don't do coding challenges.
