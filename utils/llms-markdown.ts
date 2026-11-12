@@ -13,7 +13,7 @@ export function parseBlogFrontmatter(raw: string): Record<string, unknown> {
     return {}
   const out: Record<string, unknown> = {}
   for (const line of match[1].split(/\r?\n/)) {
-    const key = line.match(/^(\w+):\s*(.*)$/)
+    const key = line.match(/^(\w+):(.*)$/)
     if (!key)
       continue
     const rest = key[2].trim()
@@ -50,12 +50,18 @@ export function cleanBlogMarkdownBody(rawBody: string) {
   })
 
   text = text.replace(
-    /<lite-youtube\b[^>]*?\bvideoid=["']([^"']+)["'][^>]*?(?:\/>|>\s*<\/lite-youtube>)/gi,
-    (_match, id: string) => `[Watch on YouTube](https://www.youtube.com/watch?v=${id})`,
+    /<lite-youtube\b[\s\S]*?<\/lite-youtube>|<lite-youtube\b[^/]*\/>/gi,
+    (tag) => {
+      const id = tag.match(/\bvideoid=["']([^"']+)["']/i)?.[1]
+      return id ? `[Watch on YouTube](https://www.youtube.com/watch?v=${id})` : ''
+    },
   )
   text = text.replace(
-    /::youtube\{[^}]*?\bid=["']([^"']+)["'][^}]*\}\s*(?:::\s*)?/g,
-    (_match, id: string) => `[Watch on YouTube](https://www.youtube.com/watch?v=${id})`,
+    /::youtube\{[^}]*\}[ \t]*(?:::[ \t]*)?/g,
+    (block) => {
+      const id = block.match(/\bid=["']([^"']+)["']/)?.[1]
+      return id ? `[Watch on YouTube](https://www.youtube.com/watch?v=${id})` : ''
+    },
   )
   text = text.replace(/^::[\w-]+(\{[^}]*\})?\s*$/gm, '')
   text = text.replace(/^::\s*$/gm, '')

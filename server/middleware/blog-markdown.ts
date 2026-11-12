@@ -1,5 +1,6 @@
 import { existsSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
+import process from 'node:process'
 import { createError, defineEventHandler, getRequestURL, setHeader } from 'h3'
 import { parseBlogFrontmatter, renderBlogMarkdownFile } from '../../utils/llms-markdown'
 

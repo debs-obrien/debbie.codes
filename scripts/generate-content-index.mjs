@@ -476,7 +476,6 @@ function renderLlmsFull(items) {
   return lines.join('\n')
 }
 
-
 function writeAtomic(file, text) {
   mkdirSync(dirname(file), { recursive: true })
   const tmp = `${file}.${process.pid}.tmp`

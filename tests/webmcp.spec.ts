@@ -544,7 +544,7 @@ test('the home page has no body <a> to llms.txt (discoverability is via head lin
   await expect(page.locator('a[href*="llms.txt"]')).toHaveCount(0);
   await expect(page.locator('link[rel="alternate"][title="llms.txt"]')).toHaveAttribute(
     'href',
-    'https://debbie.codes/llms.txt',
+    'https://debbie.codes/llms.txt'
   );
 });
 
