@@ -684,34 +684,35 @@ test('chapterMatch requires every query word and prefers full-phrase chapters', 
 });
 
 test('get-video returns chapters and rejects unknown or banned ids', () => {
-  const index = parseContentIndex(loadCatalogFromDisk());
-  const candidates = index.items.filter(item =>
-    item.type === 'video' && (item.chapters?.length ?? 0) >= 3 && (item.chapters?.length ?? 0) <= 12
-  );
-  let known = candidates[0];
-  for (const item of candidates) {
-    if (item.type !== 'video')
-      continue;
-    const probe: any = getVideo(index, item.video);
-    if (!probe.trimmed && probe.chapters?.length === item.chapters!.length) {
-      known = item;
-      break;
-    }
-  }
-  expect(known?.type).toBe('video');
-  if (known?.type !== 'video')
-    return;
+  // In-memory fixture: Endform runners do not ship public/content-index.json.
+  const known = {
+    type: 'video' as const,
+    title: 'Playwright MCP Servers Explained',
+    date: '2025-11-17',
+    tags: ['playwright', 'mcp'],
+    url: 'https://www.youtube.com/watch?v=U5Hsa6s2EqE',
+    description: 'Model Context Protocol meets Playwright',
+    video: 'U5Hsa6s2EqE',
+    chapters: [
+      { time: 0, title: 'Two Playwright MCP servers?' },
+      { time: 64, title: 'Playwright MCP server tools' },
+      { time: 165, title: 'Demo: an agent browses the web' },
+      { time: 398, title: 'Playwright Test MCP server' }
+    ]
+  };
+  const index = { items: [known] };
   const result: any = getVideo(index, known.video);
   expect(result.error).toBeUndefined();
   expect(result.id).toBe(known.video);
   expect(result.chaptersAvailable).toBe(true);
   expect(result.trimmed).toBeUndefined();
-  expect(result.chapters.length).toBe(known.chapters!.length);
+  expect(result.chapters.length).toBe(known.chapters.length);
   expect(result.chapters[0]).toEqual(expect.objectContaining({
-    startSeconds: expect.any(Number),
-    title: expect.any(String),
-    url: expect.stringMatching(/^https:\/\/www\.youtube\.com\/watch\?v=/)
+    startSeconds: 0,
+    title: 'Two Playwright MCP servers?',
+    url: 'https://www.youtube.com/watch?v=U5Hsa6s2EqE'
   }));
+  expect(result.chapters[1].url).toBe('https://www.youtube.com/watch?v=U5Hsa6s2EqE&t=64s');
   expect(result).not.toHaveProperty('transcriptAvailable');
   expect(JSON.stringify(result).length).toBeLessThanOrEqual(MAX_OUTPUT_CHARS);
 
