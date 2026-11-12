@@ -64,6 +64,11 @@ export interface SearchContentInput {
   offset?: number
 }
 
+export interface GetVideoInput {
+  id: string
+  offset?: number
+}
+
 function clip(value: string, max: number) {
   const text = value.trim()
   if (text.length <= max)
@@ -367,9 +372,13 @@ function wordHits(hay: string, words: string[]) {
   return words.filter(word => lower.includes(word)).length
 }
 
-const MATCHED_IN_PRIORITY: MatchedIn[] = ['title', 'chapter', 'tags', 'description']
+const FALLBACK_MATCHED_IN: Exclude<MatchedIn, 'chapter'>[] = ['title', 'tags', 'description']
 
-/** Prefer a single field that covers every word; otherwise attribute to the field with the most hits. */
+/**
+ * Prefer a single field that covers every word.
+ * "chapter" is returned ONLY when chapterMatch finds a real chapter (never from
+ * joined chapter-title word counts). Mixed-field hits fall back to title/tags/description.
+ */
 export function resolveMatchedIn(item: ContentItem, words: string[], query: string): MatchedIn {
   if (wordsInTitle(item.title, words))
     return 'title'
@@ -380,18 +389,14 @@ export function resolveMatchedIn(item: ContentItem, words: string[], query: stri
   if (wordsInDescription(item.description, words))
     return 'description'
 
-  const chapterHay = item.type === 'video'
-    ? (item.chapters ?? []).map(chapter => chapter.title).join(' ')
-    : ''
-  const hits: Record<MatchedIn, number> = {
+  const hits: Record<Exclude<MatchedIn, 'chapter'>, number> = {
     title: wordHits(item.title, words),
-    chapter: wordHits(chapterHay, words),
     tags: words.filter(word => item.tags.some(tag => tag.toLowerCase().includes(word))).length,
     description: wordHits(item.description, words),
   }
-  let best: MatchedIn = 'description'
+  let best: Exclude<MatchedIn, 'chapter'> = 'description'
   let bestHits = -1
-  for (const field of MATCHED_IN_PRIORITY) {
+  for (const field of FALLBACK_MATCHED_IN) {
     const score = hits[field]
     if (score > bestHits) {
       best = field
@@ -454,6 +459,7 @@ export function searchContent(index: ContentIndex, input: SearchContentInput) {
 
   const buildRow = ({ item }: { item: ContentItem }) => {
     const chapter = chapterMatch(item, words, input.query)
+    // "chapter" only when chapterMatch succeeds; then always include fields + &t= URL.
     const matchedIn = resolveMatchedIn(item, words, input.query)
     const result: {
       type: ContentKind
@@ -499,8 +505,9 @@ export function searchContent(index: ContentIndex, input: SearchContentInput) {
   return result
 }
 
-export function getVideo(index: ContentIndex, id: string) {
-  const videoId = id.trim()
+export function getVideo(index: ContentIndex, input: GetVideoInput | string) {
+  const raw = typeof input === 'string' ? { id: input } : input
+  const videoId = (raw.id ?? '').trim()
   if (!videoId)
     return { error: 'Provide a YouTube video id from list-videos or search-content.' }
   const shown = clip(videoId, 40)
@@ -517,15 +524,16 @@ export function getVideo(index: ContentIndex, id: string) {
     title: clip(chapter.title, 80),
     url: youtubeWatchUrl(item.video, chapter.time),
   }))
-  const totalChapters = allChapters.length
-  let count = totalChapters
+  const total = allChapters.length
+  const offset = boundOffset(raw.offset, total)
+  let take = Math.max(0, total - offset)
   let trimmed = false
 
   const clipTags = (tags: string[], maxTags: number, maxTag: number) =>
     tags.slice(0, maxTags).map(tag => clip(tag, maxTag))
 
   const build = () => {
-    const chapters = allChapters.slice(0, count)
+    const chapters = allChapters.slice(offset, offset + take)
     return {
       id: item.video,
       title: clip(item.title, 200),
@@ -535,20 +543,15 @@ export function getVideo(index: ContentIndex, id: string) {
       conference: item.conference ? clip(item.conference, 80) : null,
       host: item.host ? clip(item.host, 80) : null,
       link: youtubeWatchUrl(item.video, item.start),
-      chaptersAvailable: totalChapters > 0,
+      chaptersAvailable: total > 0,
       chapters,
-      ...(trimmed
-        ? {
-            trimmed: true as const,
-            note: `Returned ${chapters.length} of ${totalChapters} chapters to fit the size limit.`,
-          }
-        : {}),
+      ...pageMeta(total, offset, chapters.length, trimmed),
     }
   }
 
   let result = build()
-  while (jsonSize(result) > MAX_OUTPUT_CHARS && count > 0) {
-    count -= 1
+  while (jsonSize(result) > MAX_OUTPUT_CHARS && take > 0) {
+    take -= 1
     trimmed = true
     result = build()
   }
@@ -562,10 +565,9 @@ export function getVideo(index: ContentIndex, id: string) {
       conference: item.conference ? clip(item.conference, 40) : null,
       host: item.host ? clip(item.host, 40) : null,
       link: youtubeWatchUrl(item.video, item.start),
-      chaptersAvailable: totalChapters > 0,
+      chaptersAvailable: total > 0,
       chapters: [] as { startSeconds: number, title: string, url: string }[],
-      trimmed: true as const,
-      note: `Returned 0 of ${totalChapters} chapters to fit the size limit.`,
+      ...pageMeta(total, offset, 0, true),
     }
     if (jsonSize(fallback) > MAX_OUTPUT_CHARS)
       return { error: `Video '${shown}' details are too long to return. Open it on debbie.codes.` }

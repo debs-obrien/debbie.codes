@@ -54,11 +54,12 @@ export const webmcpTools = {
   getVideo: {
     name: 'get-video',
     title: 'Get video',
-    description: 'Returns one video by YouTube id (the id from list-videos or search-content): title, date, clipped description, tags, conference or host, link, chaptersAvailable, and chapters with startSeconds and timestamped URLs.',
+    description: 'Returns one video by YouTube id (from list-videos or search-content): title, date, clipped description, tags, conference or host, link, chaptersAvailable, and chapters with startSeconds and timestamped URLs. Pass offset to page chapters; response includes total, returned, hasMore, and nextOffset.',
     inputSchema: {
       type: 'object',
       properties: {
         id: { type: 'string', maxLength: 40, description: 'YouTube video id from list-videos or search-content.' },
+        offset: { type: 'integer', minimum: 0, maximum: 500, default: 0, description: 'Skip this many chapters before the next page.' },
       },
       required: ['id'],
       additionalProperties: false,

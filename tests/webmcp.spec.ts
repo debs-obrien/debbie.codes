@@ -425,11 +425,23 @@ function saveSample(name: string, value: unknown) {
   });
 }
 
-function isWebmcpPayload(url: string) {
-  return /\/utils\/webmcp\/(?:register|tools|query|content-index)/.test(url)
-    || url.includes('/webmcp/content-index.json')
+function isWebmcpIndexOrDump(url: string) {
+  return url.includes('/webmcp/content-index.json')
     || /sql_dump/.test(url)
     || url.includes('__nuxt_content');
+}
+
+async function responseLooksLikeWebmcpTools(response: import('@playwright/test').Response) {
+  const url = response.url();
+  if (!/\.js(?:\?|$)/.test(url) || !url.includes('/_nuxt/'))
+    return false;
+  try {
+    const body = await response.text();
+    return /registerWebMCPTools|list-videos|get-video|content-index\.json/.test(body);
+  }
+  catch {
+    return false;
+  }
 }
 
 test('page load without document.modelContext fetches no WebMCP code or index', async ({ context, baseURL }) => {
@@ -450,8 +462,13 @@ test('page load without document.modelContext fetches no WebMCP code or index', 
   });
 
   const urls: string[] = [];
+  const toolChunkUrls: string[] = [];
   page.on('request', (req) => {
     urls.push(req.url());
+  });
+  page.on('response', async (response) => {
+    if (await responseLooksLikeWebmcpTools(response))
+      toolChunkUrls.push(response.url());
   });
 
   await page.goto(baseURL || 'http://127.0.0.1:8000/', { waitUntil: 'networkidle' });
@@ -462,9 +479,13 @@ test('page load without document.modelContext fetches no WebMCP code or index', 
   });
   expect(hasDocumentModelContext).toBe(false);
 
-  // The tiny client plugin still loads (it performs the feature-detect).
-  // register, tools, the content index, and the content dump must not.
-  expect(urls.filter(isWebmcpPayload)).toEqual([]);
+  // Tiny detect plugin may load; hashed tool chunk, content index, and dump must not.
+  expect(urls.filter(isWebmcpIndexOrDump)).toEqual([]);
+  expect(toolChunkUrls).toEqual([]);
+  const prefetch = await page.locator('link[rel="prefetch"], link[rel="modulepreload"]').evaluateAll(nodes =>
+    nodes.map(node => (node as HTMLLinkElement).href)
+  );
+  expect(prefetch.filter(href => /webmcp-tools/i.test(href))).toEqual([]);
 
   await page.close();
 });
@@ -488,6 +509,7 @@ test('tool catalog stays inside the WebMCP size limits', () => {
   }
   expect(webmcpTools.listVideos.inputSchema.properties).toHaveProperty('offset');
   expect(webmcpTools.searchContent.inputSchema.properties).toHaveProperty('offset');
+  expect(webmcpTools.getVideo.inputSchema.properties).toHaveProperty('offset');
   expect(webmcpTools.getVideo.inputSchema.required).toEqual(['id']);
 });
 
@@ -683,6 +705,53 @@ test('chapterMatch requires every query word and prefers full-phrase chapters', 
   expect(mixedSearch.results[0].matchedIn).not.toBe('description');
 });
 
+test('matchedIn chapter requires a real chapterMatch and never uses joined chapter titles', () => {
+  // Repro shape: words appear across different chapters + description, but no single
+  // chapter title contains every query word (xDNLKLg7Ib8 / What is Playwright?).
+  const flights = {
+    type: 'video' as const,
+    title: 'Can Grok Bot Book My Flights? Let\'s Find Out',
+    date: '2026-03-01',
+    tags: ['grok-bot', 'ai'],
+    url: 'https://www.youtube.com/watch?v=xDNLKLg7Ib8',
+    description: 'What happens when an agent tries booking flights with Playwright tools.',
+    video: 'xDNLKLg7Ib8',
+    chapters: [
+      { time: 0, title: 'Intro: Grok Bot as a travel agent' },
+      { time: 120, title: 'Is the setup ready?' },
+      { time: 263, title: 'Comparison: Playwright MCP buying a table' }
+    ]
+  };
+  const realChapter = {
+    type: 'video' as const,
+    title: 'Supercharged Testing with Playwright + MCP',
+    date: '2026-02-11',
+    tags: ['playwright', 'mcp'],
+    url: 'https://www.youtube.com/watch?v=Numb52aJkJw',
+    description: 'A conference talk',
+    video: 'Numb52aJkJw',
+    chapters: [
+      { time: 317, title: 'What is Playwright?' },
+      { time: 400, title: 'The Planner Agent' }
+    ]
+  };
+  const found: any = searchContent({ items: [flights, realChapter] }, { query: 'What is Playwright?' });
+  expect(found.error).toBeUndefined();
+  const flightHit = found.results.find((row: { id?: string }) => row.id === 'xDNLKLg7Ib8');
+  expect(flightHit).toBeTruthy();
+  expect(flightHit.matchedIn).not.toBe('chapter');
+  expect(flightHit.chapter).toBeUndefined();
+  expect(flightHit.startSeconds).toBeUndefined();
+  expect(flightHit.url).not.toMatch(/[?&]t=/);
+  expect(flightHit.matchedIn).toMatch(/^(title|tags|description)$/);
+
+  const chapterHit = found.results.find((row: { id?: string }) => row.id === 'Numb52aJkJw');
+  expect(chapterHit.matchedIn).toBe('chapter');
+  expect(chapterHit.chapter).toBe('What is Playwright?');
+  expect(chapterHit.startSeconds).toBe(317);
+  expect(chapterHit.url).toBe('https://www.youtube.com/watch?v=Numb52aJkJw&t=317s');
+});
+
 test('get-video returns chapters and rejects unknown or banned ids', () => {
   // In-memory fixture: Endform runners do not ship public/content-index.json.
   const known = {
@@ -701,11 +770,15 @@ test('get-video returns chapters and rejects unknown or banned ids', () => {
     ]
   };
   const index = { items: [known] };
-  const result: any = getVideo(index, known.video);
+  const result: any = getVideo(index, { id: known.video });
   expect(result.error).toBeUndefined();
   expect(result.id).toBe(known.video);
   expect(result.chaptersAvailable).toBe(true);
   expect(result.trimmed).toBeUndefined();
+  expect(result.total).toBe(known.chapters.length);
+  expect(result.returned).toBe(known.chapters.length);
+  expect(result.hasMore).toBe(false);
+  expect(result.nextOffset).toBeNull();
   expect(result.chapters.length).toBe(known.chapters.length);
   expect(result.chapters[0]).toEqual(expect.objectContaining({
     startSeconds: 0,
@@ -716,9 +789,53 @@ test('get-video returns chapters and rejects unknown or banned ids', () => {
   expect(result).not.toHaveProperty('transcriptAvailable');
   expect(JSON.stringify(result).length).toBeLessThanOrEqual(MAX_OUTPUT_CHARS);
 
-  expect((getVideo(index, 'missing-id-zzzz') as any).error).toMatch(/No video found for id 'missing-id-zzzz'/);
-  expect((getVideo(index, 'A8Gu-ayw6dM') as any).error).toMatch(/No video found for id 'A8Gu-ayw6dM'/);
-  expect((getVideo(index, 'yi8b55MLLlg') as any).error).toMatch(/No video found for id 'yi8b55MLLlg'/);
+  expect((getVideo(index, { id: 'missing-id-zzzz' }) as any).error).toMatch(/No video found for id 'missing-id-zzzz'/);
+  expect((getVideo(index, { id: 'A8Gu-ayw6dM' }) as any).error).toMatch(/No video found for id 'A8Gu-ayw6dM'/);
+  expect((getVideo(index, { id: 'yi8b55MLLlg' }) as any).error).toMatch(/No video found for id 'yi8b55MLLlg'/);
+});
+
+test('get-video pages chapters with nextOffset and no gaps or duplicates', () => {
+  const chapters = Array.from({ length: 40 }, (_, index) => ({
+    time: index * 30,
+    title: `Chapter ${String(index + 1).padStart(2, '0')}: ${'detail '.repeat(12)}`
+  }));
+  const item = {
+    type: 'video' as const,
+    title: 'Long chapter list for paging',
+    date: '2026-04-01',
+    tags: ['playwright', 'mcp', 'testing'],
+    url: 'https://www.youtube.com/watch?v=chapterpage0001',
+    description: 'A long description '.repeat(20),
+    video: 'chapterpage0001',
+    chapters
+  };
+  const index = { items: [item] };
+  const seen = new Set<string>();
+  let offset = 0;
+  let pages = 0;
+  while (true) {
+    const page: any = getVideo(index, { id: 'chapterpage0001', offset });
+    expect(page.error).toBeUndefined();
+    expect(page.total).toBe(40);
+    expect(page.returned).toBe(page.chapters.length);
+    expect(JSON.stringify(page).length).toBeLessThanOrEqual(MAX_OUTPUT_CHARS);
+    for (const chapter of page.chapters) {
+      const key = `${chapter.startSeconds}:${chapter.title}`;
+      expect(seen.has(key)).toBe(false);
+      seen.add(key);
+    }
+    pages += 1;
+    if (!page.hasMore) {
+      expect(page.nextOffset).toBeNull();
+      break;
+    }
+    expect(page.nextOffset).toBe(offset + page.returned);
+    if (page.trimmed)
+      expect(page.note).toMatch(/trimmed|nextOffset/i);
+    offset = page.nextOffset;
+    expect(pages).toBeLessThan(40);
+  }
+  expect(seen.size).toBe(40);
 });
 
 test('get-video reports when chapters are trimmed to the size cap', () => {
@@ -736,11 +853,15 @@ test('get-video reports when chapters are trimmed to the size cap', () => {
     video: 'hugechapters01',
     chapters
   };
-  const result: any = getVideo({ items: [item] }, 'hugechapters01');
+  const result: any = getVideo({ items: [item] }, { id: 'hugechapters01' });
   expect(result.error).toBeUndefined();
   expect(result.trimmed).toBe(true);
+  expect(result.total).toBe(80);
+  expect(result.returned).toBe(result.chapters.length);
   expect(result.chapters.length).toBeLessThan(80);
-  expect(result.note).toMatch(/Returned \d+ of 80 chapters/);
+  expect(result.hasMore).toBe(true);
+  expect(result.nextOffset).toBe(result.returned);
+  expect(result.note).toMatch(/trimmed|nextOffset/i);
   expect(JSON.stringify(result).length).toBeLessThanOrEqual(MAX_OUTPUT_CHARS);
 });
 
@@ -758,7 +879,7 @@ test('get-video fallback bounds tags and stays under the size cap', () => {
       title: `Chapter ${index + 1} ${'z'.repeat(120)}`
     }))
   };
-  const result: any = getVideo({ items: [item] }, 'hugetags000001');
+  const result: any = getVideo({ items: [item] }, { id: 'hugetags000001' });
   expect(JSON.stringify(result).length).toBeLessThanOrEqual(MAX_OUTPUT_CHARS);
   if (result.error) {
     expect(result.error).toMatch(/too long to return/);

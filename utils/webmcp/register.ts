@@ -103,7 +103,10 @@ async function executeGetVideo(raw: unknown) {
   try {
     const record = isRecord(raw) ? raw : {}
     const index = await loadContentIndex()
-    return getVideo(index, text(record.id, 40) ?? '')
+    return getVideo(index, {
+      id: text(record.id, 40) ?? '',
+      offset: readOffset(record.offset),
+    })
   }
   catch (error) {
     return failure(error)
