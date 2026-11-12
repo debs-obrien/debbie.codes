@@ -57,11 +57,13 @@ export default defineEventHandler((event) => {
   if (!title || !date)
     return notFound()
 
+  const localUrl = `${SITE}/blog/${slug}`
+  const canonical = asString(fm.canonical) || localUrl
   const body = renderBlogMarkdownFile({
     title,
     date,
     description: asString(fm.description),
-    url: `${SITE}/blog/${slug}`,
+    url: canonical,
     tags: asTags(fm.tags),
     raw,
   })

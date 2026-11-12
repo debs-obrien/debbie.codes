@@ -96,6 +96,15 @@ test.describe('llms.txt / llms-full.txt / blog markdown', () => {
     expect(body).not.toMatch(/\{width=["']?\d+["']?\s+height=["']?\d+["']?\}/);
   });
 
+  test('blog markdown prefers frontmatter canonical URL', async ({ request }) => {
+    const response = await request.get('/blog/an-agent-that-hunts-bugs-while-i-sleep.md');
+    expect(response.status()).toBe(200);
+    const body = await response.text();
+    expect(body).toContain(
+      'Canonical: https://theaiplatform.app/blog/an-agent-that-hunts-bugs-while-i-sleep/'
+    );
+  });
+
   test('every page head links to llms.txt', async ({ page }) => {
     await page.goto('/', { waitUntil: 'domcontentloaded' });
     const link = page.locator('link[rel="alternate"][type="text/plain"][title="llms.txt"]');
