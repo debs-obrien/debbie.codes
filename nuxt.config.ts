@@ -32,11 +32,12 @@ export default defineNuxtConfig({
 
   robots: {
     sitemap: 'https://debbie.codes/sitemap.xml',
-    // Comment line for agents; keep a normal * group so nuxt-robots output stays valid.
+    // Comment for agents + empty Disallow (same shape as production robots.txt).
     groups: [
       {
         userAgent: '*',
         comment: ['LLM context: https://debbie.codes/llms.txt'],
+        disallow: [''],
       },
     ],
   },
@@ -99,6 +100,22 @@ export default defineNuxtConfig({
 
   build: {
     transpile: ['lite-youtube'],
+  },
+
+  hooks: {
+    // Dynamic import stays behind document.modelContext, but Nuxt still emits
+    // prefetch for async plugin chunks. Disable prefetch/preload for WebMCP utils.
+    // Do not use manualChunks for utils/webmcp: that pulled shared homepage modules
+    // into the tools chunk and made / statically import it for every visitor.
+    'build:manifest': (manifest) => {
+      for (const item of Object.values(manifest)) {
+        const src = item.src || ''
+        if (src.includes('utils/webmcp')) {
+          item.prefetch = false
+          item.preload = false
+        }
+      }
+    },
   },
 
   vue: {

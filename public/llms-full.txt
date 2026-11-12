@@ -2,7 +2,7 @@
 
 > Complete catalog of published videos, blog posts, podcasts, and courses on debbie.codes, newest first. Blog entries link to both the HTML page and a clean markdown copy.
 
-WebMCP tools (when document.modelContext is available): list-videos, topic-brief, search-content, get-current-page.
+WebMCP tools (when document.modelContext is available): list-videos, topic-brief, search-content, get-video, get-current-page.
 
 ## Videos
 

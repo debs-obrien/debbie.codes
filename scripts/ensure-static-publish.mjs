@@ -46,6 +46,7 @@ if (!samePath(publicDir, distTarget)) {
 for (const required of [
   'sitemap.xml',
   '_redirects',
+  '_headers',
   'llms.txt',
   'llms-full.txt',
   // OG / social cards — must be on every deploy preview (Playwright asserts 200).
@@ -68,5 +69,5 @@ for (const required of [
 
 const symlinkNote = distStat.isSymbolicLink() ? ' (dist is symlink to build output)' : ''
 console.log(
-  `Ensured dist/{sitemap.xml,_redirects,llms.txt,llms-full.txt,x-card.jpg,twitter-card.jpg,x-card-blog.jpg} for Netlify publish${symlinkNote}`,
+  `Ensured dist/{sitemap.xml,_redirects,_headers,llms.txt,llms-full.txt,x-card.jpg,twitter-card.jpg,x-card-blog.jpg} for Netlify publish${symlinkNote}`,
 )

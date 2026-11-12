@@ -6,6 +6,7 @@
   },
   "scripts": {
     "build": "nuxt build",
+    "prebuild": "node scripts/generate-sitemap.mjs && node scripts/generate-content-index.mjs",
     "dev": "nuxt dev",
     "pregenerate": "node scripts/generate-sitemap.mjs && node scripts/generate-content-index.mjs",
     "generate": "nuxt generate; node scripts/ensure-static-publish.mjs",

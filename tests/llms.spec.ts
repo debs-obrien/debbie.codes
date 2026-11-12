@@ -84,6 +84,16 @@ test.describe('llms.txt / llms-full.txt / blog markdown', () => {
   test('unpublished blog markdown route is absent', async ({ request }) => {
     const response = await request.get(`/blog/${UNPUBLISHED_SLUG}.md`);
     expect(response.status(), 'unpublished .md must not be published').toBe(404);
+    const contentType = response.headers()['content-type'] ?? '';
+    expect(contentType, `404 must not advertise markdown: ${contentType}`).not.toMatch(/text\/markdown/i);
+  });
+
+  test('blog markdown strips Nuxt image size attrs', async ({ request }) => {
+    const response = await request.get('/blog/nuxt-deploying-to-netlify.md');
+    expect(response.status()).toBe(200);
+    const body = await response.text();
+    expect(body).toContain('![Sign Up to Netlify](');
+    expect(body).not.toMatch(/\{width=["']?\d+["']?\s+height=["']?\d+["']?\}/);
   });
 
   test('every page head links to llms.txt', async ({ page }) => {
@@ -104,6 +114,7 @@ test.describe('llms.txt / llms-full.txt / blog markdown', () => {
     expect(response.status()).toBe(200);
     const body = await response.text();
     expect(body).toMatch(/#\s*LLM context:\s*https:\/\/debbie\.codes\/llms\.txt/i);
+    expect(body).toMatch(/^Disallow:\s*$/m);
     expect(body).toContain('Sitemap: https://debbie.codes/sitemap.xml');
   });
 });

@@ -65,6 +65,8 @@ export function cleanBlogMarkdownBody(rawBody: string) {
   )
   text = text.replace(/^::[\w-]+(\{[^}]*\})?\s*$/gm, '')
   text = text.replace(/^::\s*$/gm, '')
+  // Nuxt Content / @nuxt/image size attrs: ![alt](src){width="1640" height="815"}
+  text = text.replace(/(!\[[^\]]*\]\([^)]+\))\{[^}\n]*\}/g, '$1')
 
   text = text.replace(/\0FENCE(\d+)\0/g, (_match, index: string) => fences[Number(index)] ?? '')
   return `${text.replace(/\n{3,}/g, '\n\n').trim()}\n`

@@ -34,22 +34,28 @@ export default defineEventHandler((event) => {
     return
 
   const slug = match[1]
-  if (!slug || slug.includes('..'))
+  const notFound = () => {
+    // Avoid advertising text/markdown on missing/unpublished copies (Netlify
+    // glob headers are replaced by per-file public/_headers for published posts).
+    setHeader(event, 'Content-Type', 'text/plain; charset=utf-8')
     throw createError({ statusCode: 404, statusMessage: 'Page Not Found' })
+  }
+  if (!slug || slug.includes('..'))
+    return notFound()
 
   const file = join(process.cwd(), 'content/blog', `${slug}.md`)
   if (!existsSync(file))
-    throw createError({ statusCode: 404, statusMessage: 'Page Not Found' })
+    return notFound()
 
   const raw = readFileSync(file, 'utf8')
   const fm = parseBlogFrontmatter(raw)
   if (fm.published === false)
-    throw createError({ statusCode: 404, statusMessage: 'Page Not Found' })
+    return notFound()
 
   const title = asString(fm.title)
   const date = asString(fm.date)
   if (!title || !date)
-    throw createError({ statusCode: 404, statusMessage: 'Page Not Found' })
+    return notFound()
 
   const body = renderBlogMarkdownFile({
     title,

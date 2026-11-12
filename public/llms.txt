@@ -2,7 +2,7 @@
 
 > Debbie O'Brien is an Independent Developer Educator known for AI agents, Playwright, testing, and DevRel. Former Microsoft TPM on Playwright and a Google Developer Expert in web technologies, she teaches developers to ship and test with multi-agent workflows.
 
-This site publishes her videos, blog posts, podcasts, and courses. Prefer the markdown copies of blog posts (`/blog/<slug>.md`) and [`/llms-full.txt`](https://debbie.codes/llms-full.txt) for bulk reading. On pages where `document.modelContext` is available, agents can call the WebMCP tools list-videos, topic-brief, search-content, get-current-page.
+This site publishes her videos, blog posts, podcasts, and courses. Prefer the markdown copies of blog posts (`/blog/<slug>.md`) and [`/llms-full.txt`](https://debbie.codes/llms-full.txt) for bulk reading. On pages where `document.modelContext` is available, agents can call the WebMCP tools list-videos, topic-brief, search-content, get-video, get-current-page.
 
 ## Pages
 

@@ -34,11 +34,8 @@ for = "/llms-full.txt"
 [headers.values]
 Content-Type = "text/plain; charset=utf-8"
 
-[[headers]]
-for = "/blog/*.md"
-
-[headers.values]
-Content-Type = "text/markdown; charset=utf-8"
+# /blog/*.md Content-Type is set per published file in public/_headers
+# (generated) so missing/unpublished .md 404s are not forced to text/markdown.
 
 [[headers]]
 for = "/images/*"

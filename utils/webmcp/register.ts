@@ -1,7 +1,7 @@
 import type { ContentKind } from './content-index'
 import { loadContentIndex } from './content-index'
-import { currentPage, listVideos, searchContent, topicBrief } from './query'
-import { webmcpTools } from './tools'
+import { currentPage, getVideo, listVideos, searchContent, topicBrief } from './query'
+import { MAX_OFFSET, webmcpTools } from './tools'
 
 let controller: AbortController | undefined
 
@@ -23,6 +23,10 @@ function failure(error: unknown) {
 
 function readLimit(value: unknown) {
   return Math.min(Math.max(Math.trunc(Number(value ?? 5)) || 5, 1), 10)
+}
+
+function readOffset(value: unknown) {
+  return Math.min(Math.max(Math.trunc(Number(value ?? 0)) || 0, 0), MAX_OFFSET)
 }
 
 function readKind(value: unknown): ContentKind | 'invalid' | undefined {
@@ -56,6 +60,7 @@ async function executeListVideos(raw: unknown) {
       conference: text(record.conference, 80),
       host: text(record.host, 80),
       limit: readLimit(record.limit),
+      offset: readOffset(record.offset),
     })
   }
   catch (error) {
@@ -86,6 +91,21 @@ async function executeSearchContent(raw: unknown) {
     return searchContent(index, {
       query: text(record.query, 200) ?? '',
       ...(kind ? { type: kind } : {}),
+      offset: readOffset(record.offset),
+    })
+  }
+  catch (error) {
+    return failure(error)
+  }
+}
+
+async function executeGetVideo(raw: unknown) {
+  try {
+    const record = isRecord(raw) ? raw : {}
+    const index = await loadContentIndex()
+    return getVideo(index, {
+      id: text(record.id, 40) ?? '',
+      offset: readOffset(record.offset),
     })
   }
   catch (error) {
@@ -111,6 +131,7 @@ export async function registerWebMCPTools(mc: { registerTool: (tool: object, opt
     [webmcpTools.listVideos, executeListVideos],
     [webmcpTools.topicBrief, executeTopicBrief],
     [webmcpTools.searchContent, executeSearchContent],
+    [webmcpTools.getVideo, executeGetVideo],
     [webmcpTools.getCurrentPage, executeGetCurrentPage],
   ] as const
   for (const [tool, execute] of tools)
