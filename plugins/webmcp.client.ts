@@ -13,7 +13,8 @@ export default defineNuxtPlugin(() => {
   if (!mc || typeof mc.registerTool !== 'function')
     return
 
+  const api = { registerTool: mc.registerTool.bind(mc) }
   import('~/utils/webmcp/register')
-    .then(({ registerWebMCPTools }) => registerWebMCPTools(mc))
+    .then(({ registerWebMCPTools }) => registerWebMCPTools(api))
     .catch(() => {})
 })

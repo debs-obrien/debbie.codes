@@ -2,7 +2,7 @@
 
 > Debbie O'Brien is a developer educator focused on AI agents, Playwright, and testing.
 
-The site publishes videos, blog posts, podcasts, and courses. Agents on a page with document.modelContext can call the WebMCP tools list-videos, topic-brief, search-content, and get-current-page.
+The site publishes videos, blog posts, podcasts, and courses. Agents on a page with document.modelContext can call the WebMCP tools list-videos, topic-brief, search-content, get-video, and get-current-page.
 
 ## Videos
 
@@ -26,9 +26,9 @@ The site publishes videos, blog posts, podcasts, and courses. Agents on a page w
 - [nuxt posts](https://debbie.codes/blog/tags/nuxt): Blog tagged nuxt
 - [testing posts](https://debbie.codes/blog/tags/testing): Blog tagged testing
 - [grok-bot posts](https://debbie.codes/blog/tags/grok-bot): Blog tagged grok-bot
+- [DevRel Didn't Die, Its Audience Changed](https://debbie.codes/blog/devrel-didnt-die-its-audience-changed): Blog, 2026-11-02
 - [My Hire Me Page Can Talk: How I Built and Tested a Voice Agent](https://debbie.codes/blog/hire-me-voice-agent-grok-bot): Blog, 2026-10-27
 - [Grok Bot Uploads My YouTube Videos For Me (Beginner Walkthrough)](https://debbie.codes/blog/grok-bot-uploads-my-youtube-videos): Blog, 2026-10-17
-- [Grok Bot Explained: Your Bots Get a Cloud Computer, Browser & Email](https://debbie.codes/blog/grok-bot-explained): Blog, 2026-10-14
 
 ## Podcasts
 

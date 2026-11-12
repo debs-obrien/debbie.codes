@@ -1,14 +1,16 @@
 import type { ContentIndex, ContentItem, ContentKind, VideoItem } from './content-index'
 import type { VideoRow } from './response'
+import { isVisibleVideo } from '../videos'
 import { youtubeWatchUrl } from '../youtube'
 import { indexTags } from './content-index'
 import { buildVideosResponse } from './response'
-import { MAX_OUTPUT_CHARS } from './tools'
+import { MAX_OFFSET, MAX_OUTPUT_CHARS } from './tools'
 
 const SITE = 'https://debbie.codes'
 const MAX_HIGHLIGHTS = 8
 const MAX_RESULTS = 6
 const MAX_RELATED = 4
+const MAX_DESCRIPTION = 280
 
 const SECTION_PATH: Record<ContentKind, string> = {
   video: 'videos',
@@ -19,7 +21,7 @@ const SECTION_PATH: Record<ContentKind, string> = {
 
 const SECTION_PREFERENCE: ContentKind[] = ['video', 'blog', 'podcast', 'course']
 
-const TOOL_HINT = 'Use list-videos to browse talks, topic-brief for one topic, or search-content to find a specific piece.'
+const TOOL_HINT = 'Use list-videos to browse talks, get-video for one video and its chapters, topic-brief for one topic, or search-content to find a specific piece.'
 
 const PAGE_NAMES: Record<string, string> = {
   '/': 'Home',
@@ -46,11 +48,20 @@ const TOPIC_ALIASES: Record<string, string> = {
   'grokbot': 'grok-bot',
 }
 
+export type MatchedIn = 'title' | 'chapter' | 'tags' | 'description'
+
 export interface ListVideosInput {
   tag?: string
   conference?: string
   host?: string
   limit: number
+  offset?: number
+}
+
+export interface SearchContentInput {
+  query: string
+  type?: ContentKind
+  offset?: number
 }
 
 function clip(value: string, max: number) {
@@ -79,6 +90,25 @@ function countByType(items: ContentItem[]) {
   return counts
 }
 
+function boundOffset(value: number | undefined, total: number) {
+  const raw = Math.trunc(Number(value ?? 0)) || 0
+  return Math.min(Math.max(raw, 0), Math.min(MAX_OFFSET, total))
+}
+
+function pageMeta(total: number, offset: number, returned: number, trimmed: boolean) {
+  const end = offset + returned
+  const hasMore = end < total
+  return {
+    total,
+    returned,
+    hasMore,
+    nextOffset: hasMore ? end : null,
+    ...(trimmed
+      ? { trimmed: true as const, note: 'Page trimmed to fit the size limit; use nextOffset to continue.' }
+      : {}),
+  }
+}
+
 export function normalizeTopic(raw: string) {
   return raw.trim().toLowerCase().replace(/[_-]+/g, ' ').replace(/\s+/g, ' ')
 }
@@ -97,11 +127,14 @@ function levenshtein(a: string, b: string) {
   for (let i = 1; i <= a.length; i++) {
     curr[0] = i
     for (let j = 1; j <= b.length; j++) {
-      const cost = a[i - 1] === b[j - 1] ? 0 : 1
-      curr[j] = Math.min(curr[j - 1] + 1, prev[j] + 1, prev[j - 1] + cost)
+      const cost = a.charAt(i - 1) === b.charAt(j - 1) ? 0 : 1
+      const insert = (curr[j - 1] ?? 0) + 1
+      const remove = (prev[j] ?? 0) + 1
+      const replace = (prev[j - 1] ?? 0) + cost
+      curr[j] = Math.min(insert, remove, replace)
     }
     for (let j = 0; j < prev.length; j++)
-      prev[j] = curr[j]
+      prev[j] = curr[j] ?? 0
   }
   return prev[b.length] ?? 0
 }
@@ -169,6 +202,7 @@ function toVideoRow(item: VideoItem): VideoRow {
     tags: item.tags,
     conference: item.conference,
     host: item.host,
+    chaptersAvailable: Boolean(item.chapters?.length),
   }
 }
 
@@ -188,7 +222,7 @@ export function listVideos(index: ContentIndex, input: ListVideosInput) {
   }).sort(byDateDesc)
   if (!rows.length)
     return noVideoMatch(input)
-  return buildVideosResponse(rows.map(toVideoRow), input.limit)
+  return buildVideosResponse(rows.map(toVideoRow), input.limit, input.offset ?? 0)
 }
 
 function listingUrl(tag: string, items: ContentItem[]) {
@@ -245,21 +279,34 @@ export function topicBrief(index: ContentIndex, topic: string) {
     listing: listingUrl(resolved.tag, matched),
   }
   let chapterBudget = 2
-  let count = Math.min(MAX_HIGHLIGHTS, newest.length)
+  const maxHighlights = Math.min(MAX_HIGHLIGHTS, newest.length)
+  let count = maxHighlights
+  let trimmed = false
   const build = () => ({
     ...base,
     highlights: newest.slice(0, count).map(item => toHighlight(item, chapterBudget)),
+    returned: count,
+    ...(trimmed
+      ? {
+          trimmed: true as const,
+          note: `Returned ${count} of ${matched.length} highlights to fit the size limit.`,
+        }
+      : {}),
   })
   let result = build()
   while (jsonSize(result) > MAX_OUTPUT_CHARS && count > 1) {
     count -= 1
+    trimmed = true
     result = build()
   }
   while (jsonSize(result) > MAX_OUTPUT_CHARS && chapterBudget > 0) {
     chapterBudget -= 1
+    trimmed = true
     result = build()
   }
   if (jsonSize(result) > MAX_OUTPUT_CHARS) {
+    trimmed = true
+    count = 1
     result = {
       ...base,
       highlights: newest.slice(0, 1).map(item => ({
@@ -268,6 +315,9 @@ export function topicBrief(index: ContentIndex, topic: string) {
         date: item.date,
         url: item.url,
       })),
+      returned: 1,
+      trimmed: true as const,
+      note: `Returned 1 of ${matched.length} highlights to fit the size limit.`,
     }
   }
   if (jsonSize(result) > MAX_OUTPUT_CHARS)
@@ -279,19 +329,42 @@ function tokenize(query: string) {
   return query.toLowerCase().match(/[a-z0-9]+/g)?.filter(token => token.length > 1) ?? []
 }
 
-function chapterMatch(item: ContentItem, words: string[]) {
-  if (item.type !== 'video' || !item.chapters?.length)
+/** Only report a chapter when every query word (or the full phrase) is in its title. */
+export function chapterMatch(item: ContentItem, words: string[], query = '') {
+  if (item.type !== 'video' || !item.chapters?.length || !words.length)
     return undefined
+  const phrase = normalizeTopic(query)
   let best: { time: number, title: string, score: number } | undefined
   for (const chapter of item.chapters) {
     const title = chapter.title.toLowerCase()
-    const score = words.filter(word => title.includes(word)).length
-    if (!score)
+    const phraseHit = Boolean(phrase) && title.includes(phrase)
+    const allWords = words.every(word => title.includes(word))
+    if (!phraseHit && !allWords)
       continue
+    const score = phraseHit ? words.length + 1 : words.length
     if (!best || score > best.score || (score === best.score && chapter.time < best.time))
       best = { time: chapter.time, title: chapter.title, score }
   }
   return best
+}
+
+function wordsInTitle(title: string, words: string[]) {
+  const hay = title.toLowerCase()
+  return words.every(word => hay.includes(word))
+}
+
+function wordsInTags(tags: string[], words: string[]) {
+  return words.every(word => tags.some(tag => tag.toLowerCase().includes(word)))
+}
+
+export function resolveMatchedIn(item: ContentItem, words: string[], query: string): MatchedIn {
+  if (wordsInTitle(item.title, words))
+    return 'title'
+  if (chapterMatch(item, words, query))
+    return 'chapter'
+  if (wordsInTags(item.tags, words))
+    return 'tags'
+  return 'description'
 }
 
 function searchScore(item: ContentItem, words: string[]) {
@@ -326,7 +399,7 @@ function searchError(query: string, tags: string[]) {
   return { error: `No content matched '${shown}'. Closest tags: ${hints.join(', ')}.` }
 }
 
-export function searchContent(index: ContentIndex, input: { query: string, type?: ContentKind }) {
+export function searchContent(index: ContentIndex, input: SearchContentInput) {
   const words = tokenize(input.query)
   if (!words.length)
     return { error: 'Provide keywords to search Debbie\'s videos, posts, podcasts, or courses.' }
@@ -339,34 +412,125 @@ export function searchContent(index: ContentIndex, input: { query: string, type?
   }).sort((a, b) => b.score - a.score || byDateDesc(a.item, b.item))
   if (!ranked.length)
     return searchError(input.query, indexTags(index))
-  let count = Math.min(MAX_RESULTS, ranked.length)
+
+  const total = ranked.length
+  const offset = boundOffset(input.offset, total)
+  let take = Math.min(MAX_RESULTS, Math.max(0, total - offset))
+  let trimmed = false
+
+  const buildRow = ({ item }: { item: ContentItem }) => {
+    const chapter = chapterMatch(item, words, input.query)
+    const matchedIn = resolveMatchedIn(item, words, input.query)
+    const result: {
+      type: ContentKind
+      title: string
+      date: string
+      url: string
+      matchedIn: MatchedIn
+      id?: string
+      chaptersAvailable?: boolean
+      chapter?: string
+      startSeconds?: number
+    } = {
+      type: item.type,
+      title: clip(item.title, 140),
+      date: item.date,
+      url: chapter && item.type === 'video' ? youtubeWatchUrl(item.video, chapter.time) : item.url,
+      matchedIn,
+    }
+    if (item.type === 'video') {
+      result.id = item.video
+      result.chaptersAvailable = Boolean(item.chapters?.length)
+    }
+    if (chapter && item.type === 'video') {
+      result.chapter = clip(chapter.title, 80)
+      result.startSeconds = chapter.time
+    }
+    return result
+  }
+
   const build = () => ({
-    results: ranked.slice(0, count).map(({ item }) => {
-      const chapter = chapterMatch(item, words)
-      const result: {
-        type: ContentKind
-        title: string
-        date: string
-        url: string
-        chapter?: string
-      } = {
-        type: item.type,
-        title: clip(item.title, 140),
-        date: item.date,
-        url: chapter && item.type === 'video' ? youtubeWatchUrl(item.video, chapter.time) : item.url,
-      }
-      if (chapter)
-        result.chapter = clip(chapter.title, 80)
-      return result
-    }),
+    results: ranked.slice(offset, offset + take).map(buildRow),
+    ...pageMeta(total, offset, take, trimmed),
   })
+
   let result = build()
-  while (jsonSize(result) > MAX_OUTPUT_CHARS && count > 1) {
-    count -= 1
+  while (jsonSize(result) > MAX_OUTPUT_CHARS && take > 1) {
+    take -= 1
+    trimmed = true
     result = build()
   }
   if (jsonSize(result) > MAX_OUTPUT_CHARS)
     return { error: 'That search is too long to return. Try a shorter query on debbie.codes.' }
+  return result
+}
+
+export function getVideo(index: ContentIndex, id: string) {
+  const videoId = id.trim()
+  if (!videoId)
+    return { error: 'Provide a YouTube video id from list-videos or search-content.' }
+  const shown = clip(videoId, 40)
+  if (!isVisibleVideo({ video: videoId }))
+    return { error: `No video found for id '${shown}'.` }
+  const item = index.items.find((entry): entry is VideoItem =>
+    entry.type === 'video' && entry.video === videoId,
+  )
+  if (!item)
+    return { error: `No video found for id '${shown}'.` }
+
+  const allChapters = (item.chapters ?? []).map(chapter => ({
+    startSeconds: chapter.time,
+    title: clip(chapter.title, 80),
+    url: youtubeWatchUrl(item.video, chapter.time),
+  }))
+  const totalChapters = allChapters.length
+  let count = totalChapters
+  let trimmed = false
+
+  const build = () => {
+    const chapters = allChapters.slice(0, count)
+    return {
+      id: item.video,
+      title: clip(item.title, 200),
+      date: item.date,
+      description: clip(item.description, MAX_DESCRIPTION),
+      tags: item.tags.slice(0, 12),
+      conference: item.conference ? clip(item.conference, 80) : null,
+      host: item.host ? clip(item.host, 80) : null,
+      link: youtubeWatchUrl(item.video, item.start),
+      chaptersAvailable: totalChapters > 0,
+      chapters,
+      ...(trimmed
+        ? {
+            trimmed: true as const,
+            note: `Returned ${chapters.length} of ${totalChapters} chapters to fit the size limit.`,
+          }
+        : {}),
+    }
+  }
+
+  let result = build()
+  while (jsonSize(result) > MAX_OUTPUT_CHARS && count > 0) {
+    count -= 1
+    trimmed = true
+    result = build()
+  }
+  if (jsonSize(result) > MAX_OUTPUT_CHARS) {
+    return {
+      id: item.video,
+      title: clip(item.title, 120),
+      date: item.date,
+      description: clip(item.description, 120),
+      tags: item.tags.slice(0, 6),
+      conference: item.conference ? clip(item.conference, 40) : null,
+      host: item.host ? clip(item.host, 40) : null,
+      link: youtubeWatchUrl(item.video, item.start),
+      chaptersAvailable: totalChapters > 0,
+      chapters: [],
+      trimmed: true as const,
+      note: `Returned 0 of ${totalChapters} chapters to fit the size limit.`,
+    }
+  }
   return result
 }
 

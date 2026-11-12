@@ -10,7 +10,7 @@ import {
   shouldRenderOriginTrial
 } from '../utils/origin-trial';
 import { parseContentIndex } from '../utils/webmcp/content-index';
-import { currentPage, searchContent, topicBrief } from '../utils/webmcp/query';
+import { chapterMatch, currentPage, getVideo, listVideos as runListVideos, searchContent, topicBrief } from '../utils/webmcp/query';
 import { buildVideosResponse } from '../utils/webmcp/response';
 import { MAX_OUTPUT_CHARS, webmcpTools } from '../utils/webmcp/tools';
 import { youtubeWatchUrl } from '../utils/youtube';
@@ -65,18 +65,23 @@ test.describe('WebMCP tools', () => {
     expect(result.error).toBeUndefined();
     expect(result.videos.length).toBeGreaterThan(0);
     expect(result.videos.length).toBeLessThanOrEqual(3);
-    expect(JSON.stringify(result).length).toBeLessThanOrEqual(1500);
+    expect(result.returned).toBe(result.videos.length);
+    expect(typeof result.hasMore).toBe('boolean');
+    expect(JSON.stringify(result).length).toBeLessThanOrEqual(MAX_OUTPUT_CHARS);
 
     for (const video of result.videos) {
       expect(video).toEqual(expect.objectContaining({
+        id: expect.any(String),
         title: expect.any(String),
         date: expect.any(String),
         link: expect.stringMatching(/^https:\/\/www\.youtube\.com\/watch\?v=/),
-        tags: expect.any(Array)
+        tags: expect.any(Array),
+        chaptersAvailable: expect.any(Boolean)
       }));
       expect(video).toHaveProperty('conference');
       expect(video).toHaveProperty('host');
       expect(video.tags.map((t: string) => t.toLowerCase())).toContain('playwright');
+      expect(video).not.toHaveProperty('transcriptAvailable');
     }
 
     await page.goto('/videos', { waitUntil: 'domcontentloaded' });
@@ -94,9 +99,12 @@ test.describe('WebMCP tools', () => {
     const result: any = await page.webmcp.callTool('list-videos', { tag: 'conference-talk', limit: 5 });
     expect(result.error).toBeUndefined();
     expect(result.videos.length).toBe(5);
+    expect(result.returned).toBe(5);
     expect(result.total).toBeGreaterThan(5);
     expect(result.total).toBe(conferenceTalkCount);
-    expect(JSON.stringify(result).length).toBeLessThanOrEqual(1500);
+    expect(result.hasMore).toBe(true);
+    expect(result.nextOffset).toBe(5);
+    expect(JSON.stringify(result).length).toBeLessThanOrEqual(MAX_OUTPUT_CHARS);
   });
 
   test('bad input returns an error sentence, not an exception', async ({ page }) => {
@@ -111,11 +119,17 @@ test.describe('WebMCP tools', () => {
     expect(result.videos.length).toBe(2);
   });
 
-  test('output stays under about 1,500 characters', async ({ page }) => {
+  test('output stays under the WebMCP size cap', async ({ page }) => {
     const result: any = await page.webmcp.callTool('list-videos', { limit: 10 });
     expect(result.error).toBeUndefined();
     expect(result.videos.length).toBeGreaterThan(0);
-    expect(JSON.stringify(result).length).toBeLessThanOrEqual(1500);
+    expect(result.returned).toBe(result.videos.length);
+    expect(JSON.stringify(result).length).toBeLessThanOrEqual(MAX_OUTPUT_CHARS);
+    if (result.trimmed) {
+      expect(result.note).toMatch(/trimmed|nextOffset/i);
+      expect(result.hasMore).toBe(true);
+      expect(result.nextOffset).toBe(result.returned);
+    }
   });
 
   test('links keep a video\'s start offset', async ({ page }) => {
@@ -140,7 +154,7 @@ test.describe('WebMCP tools', () => {
     const counts = { blog: 0, video: 0, podcast: 0, course: 0 };
     for (const item of tagged) {
       if (item.type === 'blog' || item.type === 'video' || item.type === 'podcast' || item.type === 'course')
-        counts[item.type] += 1;
+        counts[item.type as keyof typeof counts] += 1;
     }
     const sectionPath = { video: 'videos', blog: 'blog', podcast: 'podcasts', course: 'courses' } as const;
     let best: keyof typeof sectionPath = 'video';
@@ -160,7 +174,8 @@ test.describe('WebMCP tools', () => {
     expect(direct.listing).toBe(`https://debbie.codes/${sectionPath[best]}/tags/mcp`);
     expect(direct.highlights.length).toBeGreaterThan(0);
     expect(direct.highlights.length).toBeLessThanOrEqual(8);
-    expect(JSON.stringify(direct).length).toBeLessThanOrEqual(1500);
+    expect(direct.returned).toBe(direct.highlights.length);
+    expect(JSON.stringify(direct).length).toBeLessThanOrEqual(MAX_OUTPUT_CHARS);
     for (const highlight of direct.highlights) {
       expect(highlight).toEqual(expect.objectContaining({
         type: expect.stringMatching(/^(blog|video|podcast|course)$/),
@@ -187,7 +202,7 @@ test.describe('WebMCP tools', () => {
     expect(result.error).toMatch(/No content matched topic 'definitely-not-a-topic'/);
     expect(result.error).toMatch(/playwright|mcp|ai|nuxt/);
     expect(result.highlights).toBeUndefined();
-    expect(JSON.stringify(result).length).toBeLessThanOrEqual(1500);
+    expect(JSON.stringify(result).length).toBeLessThanOrEqual(MAX_OUTPUT_CHARS);
   });
 
   test('topic-brief mcp first and second call', async ({ page }) => {
@@ -214,16 +229,24 @@ test.describe('WebMCP tools', () => {
     expect(found.error).toBeUndefined();
     expect(found.results.length).toBeGreaterThan(0);
     expect(found.results.length).toBeLessThanOrEqual(6);
-    expect(JSON.stringify(found).length).toBeLessThanOrEqual(1500);
+    expect(found.total).toBeGreaterThanOrEqual(found.results.length);
+    expect(found.returned).toBe(found.results.length);
+    expect(JSON.stringify(found).length).toBeLessThanOrEqual(MAX_OUTPUT_CHARS);
     expect(found.results.some((result: { title: string }) => /playwright/i.test(result.title) && /agent/i.test(result.title))).toBe(true);
     for (const result of found.results) {
       expect(result).toEqual(expect.objectContaining({
         type: expect.stringMatching(/^(blog|video|podcast|course)$/),
         title: expect.any(String),
         date: expect.any(String),
-        url: expect.any(String)
+        url: expect.any(String),
+        matchedIn: expect.stringMatching(/^(title|chapter|tags|description)$/)
       }));
       expect(result).not.toHaveProperty('description');
+      expect(result).not.toHaveProperty('transcriptAvailable');
+      if (result.type === 'video') {
+        expect(result.id).toEqual(expect.any(String));
+        expect(typeof result.chaptersAvailable).toBe('boolean');
+      }
     }
     saveSample('search-content-playwright-agents', found);
 
@@ -244,7 +267,9 @@ test.describe('WebMCP tools', () => {
     const hit = deep.results.find((result: { url: string }) => result.url.includes(`t=${chapter.time}s`));
     expect(hit?.url).toBe(youtubeWatchUrl(video.video, chapter.time));
     expect(hit?.chapter).toBe(chapter.title);
-    expect(JSON.stringify(deep).length).toBeLessThanOrEqual(1500);
+    expect(hit?.startSeconds).toBe(chapter.time);
+    expect(hit?.matchedIn).toMatch(/^(title|chapter)$/);
+    expect(JSON.stringify(deep).length).toBeLessThanOrEqual(MAX_OUTPUT_CHARS);
   });
 
   test('search-content returns an error when nothing matches', async ({ page }) => {
@@ -252,7 +277,7 @@ test.describe('WebMCP tools', () => {
     expect(result.error).toMatch(/zzzz-not-real-content/);
     expect(result.error).toMatch(/playwright|mcp|ai|nuxt/);
     expect(result.results).toBeUndefined();
-    expect(JSON.stringify(result).length).toBeLessThanOrEqual(1500);
+    expect(JSON.stringify(result).length).toBeLessThanOrEqual(MAX_OUTPUT_CHARS);
   });
 
   test('search-content can limit results to courses', async ({ page }) => {
@@ -260,7 +285,37 @@ test.describe('WebMCP tools', () => {
     expect(result.error).toBeUndefined();
     expect(result.results.length).toBeGreaterThan(0);
     expect(result.results.every((item: { type: string }) => item.type === 'course')).toBe(true);
-    expect(JSON.stringify(result).length).toBeLessThanOrEqual(1500);
+    expect(result.total).toBeGreaterThanOrEqual(result.results.length);
+    expect(JSON.stringify(result).length).toBeLessThanOrEqual(MAX_OUTPUT_CHARS);
+  });
+
+  test('get-video returns chapters for a listed id', async ({ page }) => {
+    const listed: any = await page.webmcp.callTool('list-videos', { tag: 'playwright', limit: 5 });
+    const withChapters = listed.videos.find((video: { chaptersAvailable: boolean }) => video.chaptersAvailable);
+    expect(withChapters?.id).toEqual(expect.any(String));
+    const result: any = await page.webmcp.callTool('get-video', { id: withChapters.id });
+    expect(result.error).toBeUndefined();
+    expect(result.id).toBe(withChapters.id);
+    expect(result.chaptersAvailable).toBe(true);
+    expect(result.chapters.length).toBeGreaterThan(0);
+    expect(result).not.toHaveProperty('transcriptAvailable');
+    for (const chapter of result.chapters) {
+      expect(chapter).toEqual(expect.objectContaining({
+        startSeconds: expect.any(Number),
+        title: expect.any(String),
+        url: expect.stringMatching(/^https:\/\/www\.youtube\.com\/watch\?v=/)
+      }));
+    }
+    expect(JSON.stringify(result).length).toBeLessThanOrEqual(MAX_OUTPUT_CHARS);
+    saveSample('get-video-playwright', result);
+  });
+
+  test('get-video errors for unknown and banned ids', async ({ page }) => {
+    const missing: any = await page.webmcp.callTool('get-video', { id: 'not-a-real-video-id' });
+    expect(missing.error).toMatch(/No video found for id 'not-a-real-video-id'/);
+    const banned: any = await page.webmcp.callTool('get-video', { id: 'A8Gu-ayw6dM' });
+    expect(banned.error).toMatch(/No video found for id 'A8Gu-ayw6dM'/);
+    expect(banned.chapters).toBeUndefined();
   });
 
   test('get-current-page on a blog post returns that post and related items', async ({ page }) => {
@@ -285,7 +340,7 @@ test.describe('WebMCP tools', () => {
       }));
       expect(related).not.toHaveProperty('description');
     }
-    expect(JSON.stringify(result).length).toBeLessThanOrEqual(1500);
+    expect(JSON.stringify(result).length).toBeLessThanOrEqual(MAX_OUTPUT_CHARS);
     saveSample('get-current-page-blog', result);
   });
 
@@ -294,10 +349,11 @@ test.describe('WebMCP tools', () => {
     expect(result.error).toBeUndefined();
     expect(result.page).toBe('Home');
     expect(result.hint).toMatch(/list-videos/);
+    expect(result.hint).toMatch(/get-video/);
     expect(result.hint).toMatch(/topic-brief/);
     expect(result.hint).toMatch(/search-content/);
     expect(result.title).toBeUndefined();
-    expect(JSON.stringify(result).length).toBeLessThanOrEqual(1500);
+    expect(JSON.stringify(result).length).toBeLessThanOrEqual(MAX_OUTPUT_CHARS);
   });
 
   test('tool calls do not query the content database', async ({ page }) => {
@@ -328,11 +384,17 @@ test.describe('list-videos response size', () => {
     }
   });
 
-  test('a response just under the cap counts the videos wrapper too', () => {
-    const rows = Array.from({ length: 10 }, (_, i) => ({ title: long(110), date: '2026-01-01', video: `id${i}`, tags: ['playwright'] }));
+  test('a response just under the cap counts the videos wrapper too and reports trimming', () => {
+    const rows = Array.from({ length: 10 }, (_, i) => ({ title: long(110), date: '2026-01-01', video: `id${i}`, tags: ['playwright'], chaptersAvailable: true }));
     const result: any = buildVideosResponse(rows, 10);
     expect(JSON.stringify(result).length).toBeLessThanOrEqual(MAX_OUTPUT_CHARS);
     expect(result.videos.length).toBeLessThan(10);
+    expect(result.total).toBe(10);
+    expect(result.returned).toBe(result.videos.length);
+    expect(result.trimmed).toBe(true);
+    expect(result.hasMore).toBe(true);
+    expect(result.nextOffset).toBe(result.returned);
+    expect(result.note).toMatch(/trimmed|nextOffset/i);
   });
 });
 
@@ -410,6 +472,7 @@ test('page load without document.modelContext fetches no WebMCP code or index', 
 test('tool catalog stays inside the WebMCP size limits', () => {
   expect(Object.values(webmcpTools).map(tool => tool.name).sort()).toEqual([
     'get-current-page',
+    'get-video',
     'list-videos',
     'search-content',
     'topic-brief'
@@ -423,6 +486,9 @@ test('tool catalog stays inside the WebMCP size limits', () => {
         expect(prop.description.length).toBeLessThanOrEqual(150);
     }
   }
+  expect(webmcpTools.listVideos.inputSchema.properties).toHaveProperty('offset');
+  expect(webmcpTools.searchContent.inputSchema.properties).toHaveProperty('offset');
+  expect(webmcpTools.getVideo.inputSchema.required).toEqual(['id']);
 });
 
 test('content index omits banned videos and keeps chapter timestamps', async ({ request, baseURL }) => {
@@ -463,17 +529,20 @@ test('topic-brief clips oversized titles and resolves the mcp alias', () => {
     video: `video${index}xxxx`,
     chapters: Array.from({ length: 6 }, (__, chapter) => ({ time: chapter * 30 + 1, title: 'z'.repeat(400) }))
   }));
-  const result = topicBrief({ items }, 'model context protocol');
+  const result: any = topicBrief({ items }, 'model context protocol');
   expect(result.error).toBeUndefined();
   expect(result.topic).toBe('mcp');
   expect(result.total).toBe(12);
+  expect(result.returned).toBe(result.highlights.length);
   expect(JSON.stringify(result).length).toBeLessThanOrEqual(MAX_OUTPUT_CHARS);
-  const missing = topicBrief({ items }, 'definitely-not-a-topic');
+  if (result.returned < result.total)
+    expect(result.trimmed).toBe(true);
+  const missing: any = topicBrief({ items }, 'definitely-not-a-topic');
   expect(missing.error).toMatch(/definitely-not-a-topic/);
   expect(missing.error).toMatch(/mcp/);
 });
 
-test('search-content and get-current-page stay within 1500 characters', () => {
+test('search-content and get-current-page stay within the size cap', () => {
   const items = Array.from({ length: 10 }, (_, index) => ({
     type: 'blog' as const,
     title: 'playwright agents '.repeat(80),
@@ -483,16 +552,179 @@ test('search-content and get-current-page stay within 1500 characters', () => {
     path: index === 0 ? '/blog/post-0' : undefined,
     description: 'playwright agents '.repeat(80)
   }));
-  const found = searchContent({ items }, { query: 'playwright agents' });
+  const found: any = searchContent({ items }, { query: 'playwright agents' });
   expect(found.error).toBeUndefined();
   expect(found.results.length).toBeGreaterThan(0);
   expect(found.results.length).toBeLessThanOrEqual(6);
+  expect(found.total).toBe(10);
+  expect(found.returned).toBe(found.results.length);
   expect(JSON.stringify(found).length).toBeLessThanOrEqual(MAX_OUTPUT_CHARS);
-  const page = currentPage({ items }, '/blog/post-0');
+  const page: any = currentPage({ items }, '/blog/post-0');
   expect(page.error).toBeUndefined();
   expect(page.type).toBe('blog');
   expect(JSON.stringify(page).length).toBeLessThanOrEqual(MAX_OUTPUT_CHARS);
-  expect(searchContent({ items }, { query: 'zzzz-not-real-content' }).error).toMatch(/zzzz-not-real-content/);
+  expect((searchContent({ items }, { query: 'zzzz-not-real-content' }) as any).error).toMatch(/zzzz-not-real-content/);
+});
+
+test('list-videos and search-content paginate a 27-match set with no gaps or duplicates', () => {
+  const items = Array.from({ length: 27 }, (_, index) => ({
+    type: 'video' as const,
+    title: `Playwright tip ${String(index + 1).padStart(2, '0')}`,
+    date: `2026-03-${String((index % 28) + 1).padStart(2, '0')}`,
+    tags: ['playwright'],
+    url: `https://www.youtube.com/watch?v=page${String(index).padStart(4, '0')}`,
+    description: 'Playwright tips for agents',
+    video: `page${String(index).padStart(4, '0')}`,
+    chapters: [{ time: 10, title: 'Introducing Playwright MCP for agents' }]
+  }));
+  const index = { items };
+  const seen = new Set<string>();
+  let offset = 0;
+  let pages = 0;
+  while (true) {
+    const page: any = runListVideos(index, { tag: 'playwright', limit: 5, offset });
+    expect(page.error).toBeUndefined();
+    expect(page.total).toBe(27);
+    expect(page.returned).toBe(page.videos.length);
+    expect(page.returned).toBeGreaterThan(0);
+    for (const video of page.videos) {
+      expect(seen.has(video.id)).toBe(false);
+      seen.add(video.id);
+      expect(video.chaptersAvailable).toBe(true);
+    }
+    pages += 1;
+    if (!page.hasMore) {
+      expect(page.nextOffset).toBeNull();
+      break;
+    }
+    expect(page.nextOffset).toBe(offset + page.returned);
+    offset = page.nextOffset;
+    expect(pages).toBeLessThan(20);
+  }
+  expect(seen.size).toBe(27);
+
+  const searchSeen = new Set<string>();
+  offset = 0;
+  pages = 0;
+  while (true) {
+    const page: any = searchContent(index, { query: 'playwright tip', offset });
+    expect(page.error).toBeUndefined();
+    expect(page.total).toBe(27);
+    expect(page.returned).toBe(page.results.length);
+    for (const result of page.results) {
+      expect(searchSeen.has(result.id)).toBe(false);
+      searchSeen.add(result.id);
+      expect(result.matchedIn).toBeTruthy();
+    }
+    pages += 1;
+    if (!page.hasMore) {
+      expect(page.nextOffset).toBeNull();
+      break;
+    }
+    expect(page.nextOffset).toBe(offset + page.returned);
+    offset = page.nextOffset;
+    expect(pages).toBeLessThan(20);
+  }
+  expect(searchSeen.size).toBe(27);
+});
+
+test('chapterMatch requires every query word and prefers full-phrase chapters', () => {
+  const item = {
+    type: 'video' as const,
+    title: 'Playwright Live',
+    date: '2026-01-01',
+    tags: ['playwright', 'mcp'],
+    url: 'https://www.youtube.com/watch?v=chapterdemo01',
+    description: 'A Playwright stream',
+    video: 'chapterdemo01',
+    chapters: [
+      { time: 0, title: 'What is Playwright?' },
+      { time: 120, title: 'Introducing Playwright MCP' },
+      { time: 240, title: 'Playwright MCP deep dive' }
+    ]
+  };
+  const words = ['playwright', 'mcp'];
+  expect(chapterMatch(item, words, 'Playwright MCP')?.title).toMatch(/Playwright MCP/);
+  expect(chapterMatch(item, words, 'Playwright MCP')?.title).not.toBe('What is Playwright?');
+  const partial: any = searchContent({ items: [item] }, { query: 'Playwright MCP' });
+  expect(partial.error).toBeUndefined();
+  expect(partial.results[0].chapter).not.toBe('What is Playwright?');
+  expect(partial.results[0].chapter).toMatch(/Playwright MCP/);
+  expect(partial.results[0].startSeconds).toBeGreaterThanOrEqual(0);
+  expect(partial.results[0].url).toContain('t=');
+  expect(partial.results[0].matchedIn).toMatch(/^(title|chapter|tags)$/);
+
+  const onlyPlaywrightChapter = {
+    ...item,
+    title: 'Some other talk',
+    tags: ['testing'],
+    description: 'mentions playwright mcp in the description only',
+    chapters: [{ time: 15, title: 'What is Playwright?' }]
+  };
+  const noFalseChapter: any = searchContent({ items: [onlyPlaywrightChapter] }, { query: 'Playwright MCP' });
+  expect(noFalseChapter.error).toBeUndefined();
+  expect(noFalseChapter.results[0].chapter).toBeUndefined();
+  expect(noFalseChapter.results[0].matchedIn).toBe('description');
+});
+
+test('get-video returns chapters and rejects unknown or banned ids', () => {
+  const index = parseContentIndex(loadCatalogFromDisk());
+  const candidates = index.items.filter(item =>
+    item.type === 'video' && (item.chapters?.length ?? 0) >= 3 && (item.chapters?.length ?? 0) <= 12
+  );
+  let known = candidates[0];
+  for (const item of candidates) {
+    if (item.type !== 'video')
+      continue;
+    const probe: any = getVideo(index, item.video);
+    if (!probe.trimmed && probe.chapters?.length === item.chapters!.length) {
+      known = item;
+      break;
+    }
+  }
+  expect(known?.type).toBe('video');
+  if (known?.type !== 'video')
+    return;
+  const result: any = getVideo(index, known.video);
+  expect(result.error).toBeUndefined();
+  expect(result.id).toBe(known.video);
+  expect(result.chaptersAvailable).toBe(true);
+  expect(result.trimmed).toBeUndefined();
+  expect(result.chapters.length).toBe(known.chapters!.length);
+  expect(result.chapters[0]).toEqual(expect.objectContaining({
+    startSeconds: expect.any(Number),
+    title: expect.any(String),
+    url: expect.stringMatching(/^https:\/\/www\.youtube\.com\/watch\?v=/)
+  }));
+  expect(result).not.toHaveProperty('transcriptAvailable');
+  expect(JSON.stringify(result).length).toBeLessThanOrEqual(MAX_OUTPUT_CHARS);
+
+  expect((getVideo(index, 'missing-id-zzzz') as any).error).toMatch(/No video found for id 'missing-id-zzzz'/);
+  expect((getVideo(index, 'A8Gu-ayw6dM') as any).error).toMatch(/No video found for id 'A8Gu-ayw6dM'/);
+  expect((getVideo(index, 'yi8b55MLLlg') as any).error).toMatch(/No video found for id 'yi8b55MLLlg'/);
+});
+
+test('get-video reports when chapters are trimmed to the size cap', () => {
+  const chapters = Array.from({ length: 80 }, (_, index) => ({
+    time: index * 30,
+    title: `Chapter ${index + 1}: ${'detail '.repeat(20)}`
+  }));
+  const item = {
+    type: 'video' as const,
+    title: 'Huge chapter list',
+    date: '2026-04-01',
+    tags: ['playwright'],
+    url: 'https://www.youtube.com/watch?v=hugechapters01',
+    description: 'A long description '.repeat(40),
+    video: 'hugechapters01',
+    chapters
+  };
+  const result: any = getVideo({ items: [item] }, 'hugechapters01');
+  expect(result.error).toBeUndefined();
+  expect(result.trimmed).toBe(true);
+  expect(result.chapters.length).toBeLessThan(80);
+  expect(result.note).toMatch(/Returned \d+ of 80 chapters/);
+  expect(JSON.stringify(result).length).toBeLessThanOrEqual(MAX_OUTPUT_CHARS);
 });
 
 test('origin-trial meta is present only for non-empty tokens', () => {
@@ -531,6 +763,7 @@ test('llms.txt lists the main sections and WebMCP tools', async ({ request }) =>
   expect(body).toContain('list-videos');
   expect(body).toContain('topic-brief');
   expect(body).toContain('search-content');
+  expect(body).toContain('get-video');
   expect(body).toContain('get-current-page');
   expect(body).toContain('https://debbie.codes/videos/tags/mcp');
 });
