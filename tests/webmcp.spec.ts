@@ -10,7 +10,7 @@ import {
   shouldRenderOriginTrial
 } from '../utils/origin-trial';
 import { parseContentIndex } from '../utils/webmcp/content-index';
-import { chapterMatch, currentPage, getVideo, listVideos as runListVideos, searchContent, topicBrief } from '../utils/webmcp/query';
+import { chapterMatch, currentPage, getVideo, resolveMatchedIn, listVideos as runListVideos, searchContent, topicBrief } from '../utils/webmcp/query';
 import { buildVideosResponse } from '../utils/webmcp/response';
 import { MAX_OUTPUT_CHARS, webmcpTools } from '../utils/webmcp/tools';
 import { youtubeWatchUrl } from '../utils/youtube';
@@ -665,6 +665,22 @@ test('chapterMatch requires every query word and prefers full-phrase chapters', 
   expect(noFalseChapter.error).toBeUndefined();
   expect(noFalseChapter.results[0].chapter).toBeUndefined();
   expect(noFalseChapter.results[0].matchedIn).toBe('description');
+
+  const mixed = {
+    type: 'video' as const,
+    title: 'Playwright Live',
+    date: '2026-01-02',
+    tags: ['mcp'],
+    url: 'https://www.youtube.com/watch?v=mixedmatch0001',
+    description: '',
+    video: 'mixedmatch0001',
+    chapters: [] as { time: number, title: string }[]
+  };
+  expect(resolveMatchedIn(mixed, ['playwright', 'mcp'], 'Playwright MCP')).toBe('title');
+  const mixedSearch: any = searchContent({ items: [mixed] }, { query: 'Playwright MCP' });
+  expect(mixedSearch.error).toBeUndefined();
+  expect(mixedSearch.results[0].matchedIn).toBe('title');
+  expect(mixedSearch.results[0].matchedIn).not.toBe('description');
 });
 
 test('get-video returns chapters and rejects unknown or banned ids', () => {
@@ -725,6 +741,32 @@ test('get-video reports when chapters are trimmed to the size cap', () => {
   expect(result.chapters.length).toBeLessThan(80);
   expect(result.note).toMatch(/Returned \d+ of 80 chapters/);
   expect(JSON.stringify(result).length).toBeLessThanOrEqual(MAX_OUTPUT_CHARS);
+});
+
+test('get-video fallback bounds tags and stays under the size cap', () => {
+  const item = {
+    type: 'video' as const,
+    title: 'x'.repeat(400),
+    date: '2026-04-02',
+    tags: Array.from({ length: 6 }, () => 't'.repeat(500)),
+    url: 'https://www.youtube.com/watch?v=hugetags000001',
+    description: 'y'.repeat(800),
+    video: 'hugetags000001',
+    chapters: Array.from({ length: 40 }, (_, index) => ({
+      time: index * 10,
+      title: `Chapter ${index + 1} ${'z'.repeat(120)}`
+    }))
+  };
+  const result: any = getVideo({ items: [item] }, 'hugetags000001');
+  expect(JSON.stringify(result).length).toBeLessThanOrEqual(MAX_OUTPUT_CHARS);
+  if (result.error) {
+    expect(result.error).toMatch(/too long to return/);
+    return;
+  }
+  expect(result.tags.length).toBeLessThanOrEqual(6);
+  for (const tag of result.tags)
+    expect(tag.length).toBeLessThanOrEqual(40);
+  expect(result.chapters.length).toBeLessThanOrEqual(40);
 });
 
 test('origin-trial meta is present only for non-empty tokens', () => {
