@@ -431,13 +431,19 @@ function isWebmcpIndexOrDump(url: string) {
     || url.includes('__nuxt_content');
 }
 
+function bodyLooksLikeWebmcpTools(body: string) {
+  // Entry/plugin loader mentions registerWebMCPTools + the dynamic import path.
+  // The tools chunk is the one that defines the catalog names together.
+  return ['list-videos', 'get-video', 'search-content', 'topic-brief']
+    .every(name => body.includes(name));
+}
+
 async function responseLooksLikeWebmcpTools(response: import('@playwright/test').Response) {
   const url = response.url();
   if (!/\.js(?:\?|$)/.test(url) || !url.includes('/_nuxt/'))
     return false;
   try {
-    const body = await response.text();
-    return /registerWebMCPTools|list-videos|get-video|content-index\.json/.test(body);
+    return bodyLooksLikeWebmcpTools(await response.text());
   }
   catch {
     return false;
@@ -485,7 +491,11 @@ test('page load without document.modelContext fetches no WebMCP code or index', 
   const prefetch = await page.locator('link[rel="prefetch"], link[rel="modulepreload"]').evaluateAll(nodes =>
     nodes.map(node => (node as HTMLLinkElement).href)
   );
-  expect(prefetch.filter(href => /webmcp-tools/i.test(href))).toEqual([]);
+  const nuxtPrefetchJs = prefetch.filter(href => href.includes('/_nuxt/') && /\.js(?:\?|$)/.test(href));
+  for (const href of nuxtPrefetchJs) {
+    const res = await page.request.get(href);
+    expect(bodyLooksLikeWebmcpTools(await res.text()), `prefetch must not point at tools: ${href}`).toBe(false);
+  }
 
   await page.close();
 });
