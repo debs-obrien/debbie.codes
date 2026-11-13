@@ -1,11 +1,12 @@
 import { expect, test } from './fixtures';
 
 /**
- * content/blog/webmcp-on-my-site.md is intentionally unpublished
- * (published: false) until Debbie reviews it. These assertions guard the
- * published filter: unpublished posts stay out of /blog and 404 at their URL.
+ * content/blog/unpublished-filter-fixture.md is a test-only post kept at
+ * published: false. These assertions guard the published filter: unpublished
+ * posts stay out of /blog and 404 at their URL.
  */
-const UNPUBLISHED_PATH = '/blog/webmcp-on-my-site';
+const UNPUBLISHED_PATH = '/blog/unpublished-filter-fixture';
+const UNPUBLISHED_TITLE = /Unpublished Filter Fixture \(Do Not Publish\)/i;
 
 test.describe('Unpublished blog posts', () => {
   test('are not listed on /blog', async ({ page }) => {
@@ -13,7 +14,7 @@ test.describe('Unpublished blog posts', () => {
     await expect(page.getByRole('article').first()).toBeVisible();
 
     await expect(page.locator(`a[href="${UNPUBLISHED_PATH}"]`)).toHaveCount(0);
-    await expect(page.getByRole('link', { name: /Adding WebMCP to My Site/i })).toHaveCount(0);
+    await expect(page.getByRole('link', { name: UNPUBLISHED_TITLE })).toHaveCount(0);
   });
 
   test('return HTTP 404 at their URL and do not render the post', async ({ page, request }) => {
@@ -25,7 +26,7 @@ test.describe('Unpublished blog posts', () => {
       name: /Ooops looks like that page doesn't exist/i
     })).toBeVisible();
     await expect(page.getByRole('heading', {
-      name: /Adding WebMCP to My Site/i
+      name: UNPUBLISHED_TITLE
     })).toHaveCount(0);
   });
 
@@ -34,8 +35,8 @@ test.describe('Unpublished blog posts', () => {
       const res = await request.get(path);
       expect(res.status()).toBe(200);
       const body = await res.text();
-      expect(body, path).not.toContain('webmcp-on-my-site');
-      expect(body, path).not.toContain('Adding WebMCP to My Site');
+      expect(body, path).not.toContain('unpublished-filter-fixture');
+      expect(body, path).not.toContain('Unpublished Filter Fixture (Do Not Publish)');
     }
     const md = await request.get(`${UNPUBLISHED_PATH}.md`);
     expect(md.status(), 'unpublished markdown copy must 404').toBe(404);
