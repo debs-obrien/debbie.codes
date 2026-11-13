@@ -2,12 +2,17 @@ import { expect, test } from './fixtures';
 
 // A post with a cover that stays on home recent posts.
 const COVER_POST = 'grok-bot-uploads-my-youtube-videos';
-/** Newest home recent post with a cover (published WebMCP post). */
-const HOME_COVER_POST = 'webmcp-on-my-site';
 
 /** Slug of the lead (newest) card on /blog, so new posts don't break these tests. */
 async function leadSlug(page: import('@playwright/test').Page) {
   const href = await page.locator('article').first().locator('a[href^="/blog/"]').first().getAttribute('href');
+  return href!.replace('/blog/', '');
+}
+
+/** First home recent-post card that already has a cover image. */
+async function homeCoverSlug(page: import('@playwright/test').Page) {
+  const card = page.locator('article').filter({ has: page.getByTestId('blog-card-cover') }).first();
+  const href = await card.locator('a[href^="/blog/"]').first().getAttribute('href');
   return href!.replace('/blog/', '');
 }
 
@@ -93,7 +98,7 @@ test('compact cards on /blog flush title with excerpt (no arrow indent)', async 
   expect(Math.abs(titleBox!.x - excerptBox!.x)).toBeLessThan(2);
 });
 
-test('home recent posts include a 2:1 cover for the WebMCP post', async ({ page }) => {
+test('home recent posts which have an image show a 2:1 cover', async ({ page }) => {
   await page.goto('/');
-  await expectCardCover(page, HOME_COVER_POST, /224px|400px/, 'lazy');
+  await expectCardCover(page, await homeCoverSlug(page), /224px|400px/, 'lazy');
 });
