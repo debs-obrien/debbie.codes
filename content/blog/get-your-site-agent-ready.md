@@ -4,6 +4,8 @@ date: 2026-11-13
 description: "How to give AI agents a short map of your site, a full index, and clean markdown copies of your posts, and why that helps even if the big crawlers do not use the file yet."
 tags: [ai, agents, mcp, webdev]
 published: true
+image: /images/blog/covers/get-your-site-agent-ready.webp
+ogImage: /images/blog/covers/get-your-site-agent-ready.webp
 ---
 
 To find everything I've published about MCP, an agent has to open four tag pages, one each for blog posts, videos, podcasts and courses. Together that's about 257 KB of HTML, and it still has to count everything by hand.

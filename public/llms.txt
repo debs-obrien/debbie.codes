@@ -36,21 +36,21 @@ This site publishes her videos, blog posts, podcasts, and courses. Prefer the ma
 - [testing posts](https://debbie.codes/blog/tags/testing): Blog tagged testing
 - [grok-bot posts](https://debbie.codes/blog/tags/grok-bot): Blog tagged grok-bot
 - [Build an Offline AI Study App with Local Models (Liquid AI LFM3-1.7B)](https://debbie.codes/blog/offline-ai-study-app-local-models-lfm3.md): Blog, 2026-11-13
+- [Get your site agent-ready](https://debbie.codes/blog/get-your-site-agent-ready.md): Blog, 2026-11-13
 - [One Tool Call Instead of Four Pages: Adding WebMCP to My Site](https://debbie.codes/blog/webmcp-on-my-site.md): Blog, 2026-11-13
-- [DevRel Didn't Die, Its Audience Changed](https://debbie.codes/blog/devrel-didnt-die-its-audience-changed.md): Blog, 2026-11-02
 
 ## Podcasts
 
 - [Podcasts](https://debbie.codes/podcasts): Interviews and shows
 - [playwright episodes](https://debbie.codes/podcasts/tags/playwright): Podcasts tagged playwright
 - [mcp episodes](https://debbie.codes/podcasts/tags/mcp): Podcasts tagged mcp
+- [ai episodes](https://debbie.codes/podcasts/tags/ai): Podcasts tagged ai
 - [nuxt episodes](https://debbie.codes/podcasts/tags/nuxt): Podcasts tagged nuxt
 - [testing episodes](https://debbie.codes/podcasts/tags/testing): Podcasts tagged testing
 - [bit episodes](https://debbie.codes/podcasts/tags/bit): Podcasts tagged bit
-- [dev-rel episodes](https://debbie.codes/podcasts/tags/dev-rel): Podcasts tagged dev-rel
+- [From Automation to Delegation: Learning to Work with AI Agents](https://open.spotify.com/episode/1ziud0DI4bzKLsa3uClZZm): Podcast, 2026-11-11
 - [The Role of AI in Testing with Debbie O'Brien](https://www.dotnetrocks.com/details/2011): Podcast, 2026-07-16
 - [Coffee and Open Source Conversation - Debbie O'Brien](https://www.coffeeandopensource.com/guest/debbie-o-brien.html): Podcast, 2026-05-19
-- [Future of Testing | Debbie O'Brien on Playwright, MCP, and AI-Driven Testing](https://www.youtube.com/watch?v=j2n58sSZheo): Podcast, 2026-01-19
 
 ## Courses
 
