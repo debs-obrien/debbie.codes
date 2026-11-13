@@ -76,7 +76,9 @@ const postYears = computed(() => {
   const yearCounts = new Map<string, number>()
   allPosts.value.forEach((post: any) => {
     if (post.date) {
-      const year = new Date(post.date).getFullYear().toString()
+      const year = calendarYear(post.date)
+      if (!year)
+        return
       yearCounts.set(year, (yearCounts.get(year) || 0) + 1)
     }
   })

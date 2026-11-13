@@ -10,6 +10,7 @@ generateSitemap()
 // Static public/webmcp/content-index.json and public/llms*.txt.
 const contentIndex = generateContentIndex()
 const blogMarkdownRoutes = contentIndex.markdownRoutes || []
+const blogYearRoutes = contentIndex.yearRoutes || []
 
 export default defineNuxtConfig({
   srcDir: '.',
@@ -173,8 +174,9 @@ export default defineNuxtConfig({
       // sitemap.xml + _redirects) over failing the whole generate on
       // unrelated IPX image fetch errors during crawl.
       failOnError: false,
-      // /feed.xml plus clean markdown copies of every published blog post.
-      routes: ['/feed.xml', ...blogMarkdownRoutes],
+      // /feed.xml, markdown copies of every published blog post, and every
+      // year archive that has posts (crawl alone only reaches recent-year chips).
+      routes: ['/feed.xml', ...blogMarkdownRoutes, ...blogYearRoutes],
       // Write /blog.html instead of /blog/index.html so Netlify serves the
       // canonical no-slash URL (used by canonical tags, sitemap and links)
       // directly instead of 301-redirecting /blog -> /blog/ first.

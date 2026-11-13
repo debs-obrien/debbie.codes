@@ -521,6 +521,16 @@ export function generateContentIndex() {
   writeAtomic(llmsFullPath, llmsFullText)
   const blogMarkdown = items.filter(item => item.type === 'blog' && item.path)
   const markdownRoutes = blogMarkdown.map(item => `${item.path}.md`)
+  // Explicit year archive routes for static generate. Crawl only discovers the
+  // recent-years chips (slice of 4), so older years would otherwise 404 on Netlify.
+  const yearRoutes = [...new Set(
+    blogMarkdown
+      .map((item) => {
+        const match = String(item.date || '').match(/^(\d{4})/)
+        return match ? `/blog/year/${match[1]}` : null
+      })
+      .filter(Boolean),
+  )].sort()
   // Per-file Content-Type so missing /blog/*.md 404s are not forced to text/markdown
   // by a Netlify glob header. Also set Link + X-Robots-Tag on published copies only.
   const headersPath = join(root, 'public/_headers')
@@ -542,6 +552,7 @@ export function generateContentIndex() {
     llmsFullPath,
     headersPath,
     markdownRoutes,
+    yearRoutes,
     items,
     bytes: Buffer.byteLength(indexText),
     count: items.length,
@@ -562,4 +573,5 @@ if (isDirectRun) {
   console.log(`Wrote ${result.llmsPath}`)
   console.log(`Wrote ${result.llmsFullPath}`)
   console.log(`Blog markdown routes to prerender: ${result.markdownRoutes.length}`)
+  console.log(`Blog year routes to prerender: ${result.yearRoutes.length}`)
 }
