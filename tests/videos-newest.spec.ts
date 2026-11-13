@@ -90,10 +90,10 @@ test.describe('Videos newest entries from content', () => {
       .sort((a, b) => b.date.localeCompare(a.date));
 
     await page.goto('/videos');
-    await expect(page.getByRole('heading', { name: 'Latest', level: 2 })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Latest', level: 2, exact: true })).toBeVisible();
 
-    const featuredRegion = page.getByRole('region', { name: 'Featured' });
-    const latestRegion = page.getByRole('region', { name: 'Latest' });
+    const featuredRegion = page.getByRole('region', { name: 'Latest and featured' });
+    const latestRegion = page.getByRole('region', { name: 'Latest', exact: true });
 
     await test.step('Top row: newest with Latest label, then featured in order', async () => {
       const cards = featuredRegion.getByRole('article');
@@ -108,7 +108,7 @@ test.describe('Videos newest entries from content', () => {
       await expect(cards.nth(2).getByText('Latest', { exact: true })).toHaveCount(0);
     });
 
-    await test.step('Amsterdam talk is not in Featured but appears in Latest', async () => {
+    await test.step('Amsterdam talk is not in top row but appears in Latest', async () => {
       await expect(
         featuredRegion.getByRole('heading', { name: amsterdamTitle })
       ).toHaveCount(0);

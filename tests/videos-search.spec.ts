@@ -106,8 +106,8 @@ async function searchFor(page: import('@playwright/test').Page, term: string) {
 test.describe('Videos Search Functionality', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/videos');
-    await expect(page.getByRole('heading', { name: 'Latest', level: 2 })).toBeVisible();
-    await expect(page.getByRole('region', { name: 'Latest' }).getByRole('article').first()).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Latest', level: 2, exact: true })).toBeVisible();
+    await expect(page.getByRole('region', { name: 'Latest', exact: true }).getByRole('article').first()).toBeVisible();
   });
 
   test('matching term filters Latest results', async ({ page, isMobile }) => {
@@ -153,14 +153,14 @@ test.describe('Videos Search Functionality', () => {
   test('clearing search restores Latest', async ({ page, isMobile }) => {
     test.skip(isMobile, 'Videos search UI is desktop-only in these specs');
 
-    const initialCount = await page.getByRole('region', { name: 'Latest' }).getByRole('article').count();
+    const initialCount = await page.getByRole('region', { name: 'Latest', exact: true }).getByRole('article').count();
 
     await searchFor(page, 'playwright');
     await expect(page.getByRole('heading', { name: /Search Results/ })).toBeVisible();
 
     const searchInput = page.getByPlaceholder('Search...');
     await searchInput.clear();
-    await expect(page.getByRole('heading', { name: 'Latest', level: 2 })).toBeVisible();
-    await expect(page.getByRole('region', { name: 'Latest' }).getByRole('article')).toHaveCount(initialCount);
+    await expect(page.getByRole('heading', { name: 'Latest', level: 2, exact: true })).toBeVisible();
+    await expect(page.getByRole('region', { name: 'Latest', exact: true }).getByRole('article')).toHaveCount(initialCount);
   });
 });

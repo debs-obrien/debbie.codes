@@ -23,7 +23,7 @@ Preconditions:
 - Desktop viewport for tag chips / search (mobile layout differs; existing specs often skip mobile for filters).
 
 - **Open videos.** Run `node .cursor/skills/verify-debbie-codes/control-debbie-codes.mjs goto /videos`.
-- **Structure visible.** Run `expect --role heading --name Featured`, then `expect --role heading --name Latest` (or Search Results when searching). At least one `article` appears (poll if hydrating).
+- **Structure visible.** Run `expect --role heading --name "Latest and featured"`, then `expect --role heading --name Latest` (or Search Results when searching). At least one `article` appears (poll if hydrating).
 - **One-shot recipe.** Run `node .cursor/skills/verify-debbie-codes/control-debbie-codes.mjs drive videos --json`. Evidence: `videos-proof.png`, `videos-proof.aria.txt`, `videos-proof.json` with `articleCount > 0`.
 - **Tag (manual compose).** `click --role link --name Playwright` then `expect-url "/\\/videos\\/tags\\/playwright/"`. Articles remain present. Curated chips do not use the `#` prefix.
 - **Proof.** Screenshot shows Featured → chips → Latest; JSON records a positive article count.

@@ -31,7 +31,7 @@ withDefaults(defineProps<{
       <div class="p-6">
         <p
           v-if="label"
-          class="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400"
+          class="mb-2 text-xs font-semibold uppercase tracking-wide text-[#d8002d] dark:text-[#ff5a73]"
         >
           {{ label }}
         </p>
