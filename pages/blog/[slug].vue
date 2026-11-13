@@ -43,6 +43,9 @@ const articleDate = String(article.value?.date || '')
 const readingMinutes = computed(() => {
   if (!article.value)
     return 0
+  // Same build-time value list cards select via blogPreviewFields.readingMinutes.
+  if (typeof article.value.readingMinutes === 'number' && article.value.readingMinutes > 0)
+    return article.value.readingMinutes
   const text = extractTextFromContent(article.value.body) || article.value.description || ''
   if (!text)
     return 0

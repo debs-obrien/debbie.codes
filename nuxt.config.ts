@@ -2,6 +2,7 @@ import process from 'node:process'
 import { generateContentIndex } from './scripts/generate-content-index.mjs'
 import { generateSitemap } from './scripts/generate-sitemap.mjs'
 import { DEFAULT_WEBMCP_OT_CHROME, DEFAULT_WEBMCP_OT_EDGE } from './utils/origin-trial'
+import { calculateReadingTime, extractTextFromContent } from './utils/reading-time'
 import { NETLIFY_REMOTE_IMAGE_HOSTS } from './utils/remote-images'
 
 // Static public/sitemap.xml — avoids Netlify Function/SQLite 500s for /sitemap.xml.
@@ -103,6 +104,16 @@ export default defineNuxtConfig({
   },
 
   hooks: {
+    // Store whole minutes on blog items so list queries can select readingMinutes
+    // without loading full bodies (cards were falling back to description → 1 min).
+    'content:file:afterParse': (ctx) => {
+      if (ctx.collection?.name !== 'blog')
+        return
+      const text = extractTextFromContent(ctx.content.body)
+        || (typeof ctx.content.description === 'string' ? ctx.content.description : '')
+        || ''
+      ctx.content.readingMinutes = calculateReadingTime(text)
+    },
     // Dynamic import stays behind document.modelContext, but Nuxt still emits
     // prefetch for async plugin chunks. Disable prefetch/preload for WebMCP utils.
     // Do not use manualChunks for utils/webmcp: that pulled shared homepage modules

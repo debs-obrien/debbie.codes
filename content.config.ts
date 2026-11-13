@@ -17,6 +17,8 @@ export default defineContentConfig({
         published: z.boolean(),
         canonical: z.string().url().optional(),
         featured: z.boolean().optional(),
+        /** Whole minutes; set at parse time (see content:file:afterParse). */
+        readingMinutes: z.number().optional(),
       }),
     }),
     courses: defineCollection({
