@@ -69,6 +69,8 @@ export default defineEventHandler((event) => {
   })
 
   setHeader(event, 'Content-Type', 'text/markdown; charset=utf-8')
+  setHeader(event, 'Link', `<${canonical}>; rel="canonical"`)
+  setHeader(event, 'X-Robots-Tag', 'noindex')
   setHeader(event, 'Cache-Control', 'public, max-age=3600')
   return body
 })
