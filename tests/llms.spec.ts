@@ -87,7 +87,7 @@ test.describe('llms.txt / llms-full.txt / blog markdown', () => {
   test('generated _headers sets markdown Content-Type, Link canonical, and noindex', () => {
     test.skip(
       isEndform || !existsSync(headersPath),
-      'public/_headers is not available on Endform runners (no repo checkout)',
+      'public/_headers is not available on Endform runners (no repo checkout)'
     );
     const headersText = readFileSync(headersPath, 'utf8');
     expect(headersText.split(/\r?\n/, 1)[0]).not.toContain('\u2014');
@@ -98,18 +98,18 @@ test.describe('llms.txt / llms-full.txt / blog markdown', () => {
       expect(block, `missing _headers block for ${path}`).toBeTruthy();
       expect(block!).toMatch(/Content-Type:\s*text\/markdown;\s*charset=utf-8/i);
       expect(block!).toContain(
-        `Link: <https://debbie.codes/blog/${slug}>; rel="canonical"`,
+        `Link: <https://debbie.codes/blog/${slug}>; rel="canonical"`
       );
       expect(block!).toMatch(/X-Robots-Tag:\s*noindex/i);
     }
 
     const externalBlock = headersBlockFor(
       headersText,
-      `/blog/${EXTERNAL_CANONICAL_SLUG}.md`,
+      `/blog/${EXTERNAL_CANONICAL_SLUG}.md`
     );
     expect(externalBlock, 'missing _headers for external-canonical post').toBeTruthy();
     expect(externalBlock!).toContain(
-      `Link: <${EXTERNAL_CANONICAL_URL}>; rel="canonical"`,
+      `Link: <${EXTERNAL_CANONICAL_URL}>; rel="canonical"`
     );
 
     expect(headersText).not.toContain(`/blog/${UNPUBLISHED_SLUG}.md`);
