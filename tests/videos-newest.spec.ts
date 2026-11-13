@@ -110,10 +110,10 @@ test.describe('Videos newest entries from content', () => {
 
     await test.step('Amsterdam talk is not in Featured but appears in Latest', async () => {
       await expect(
-        featuredRegion.getByRole('heading', { name: amsterdamTitle }),
+        featuredRegion.getByRole('heading', { name: amsterdamTitle })
       ).toHaveCount(0);
       await expect(
-        latestRegion.getByRole('heading', { name: amsterdamTitle }),
+        latestRegion.getByRole('heading', { name: amsterdamTitle })
       ).toBeVisible();
     });
 

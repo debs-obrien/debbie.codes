@@ -29,7 +29,7 @@ export function filterVisibleVideos<T extends { video?: string }>(videos: T[] | 
   return videos.filter(isVisibleVideo)
 }
 
-type TopRowVideo = {
+interface TopRowVideo {
   video?: string
   date?: string
   featured?: boolean
