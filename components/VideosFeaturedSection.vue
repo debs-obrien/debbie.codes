@@ -20,10 +20,14 @@ defineProps<{
     </h2>
     <ul class="mt-8 grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
       <li
-        v-for="video of list"
+        v-for="(video, index) of list"
         :key="video.video"
       >
-        <VideoCard :item="video" />
+        <VideoCard
+          :item="video"
+          :priority="index === 0"
+          :label="index === 0 ? 'Latest' : undefined"
+        />
       </li>
     </ul>
   </section>

@@ -6,6 +6,4 @@ video: PbC5m-4P4hU
 tags: [ai, mcp, conference-talk, vue]
 conference: Vue Amsterdam
 image: https://img.youtube.com/vi/PbC5m-4P4hU/sddefault.jpg
-featured: true
-featuredOrder: 2
 ---

@@ -16,16 +16,12 @@ const { data: allVideosRaw } = await useAsyncData('all-videos-for-pages', () => 
 
 const allVideos = computed(() => filterVisibleVideos(allVideosRaw.value))
 
-const featuredVideoIds = computed(() => {
-  return new Set(
-    allVideos.value
-      .filter(video => video.featured)
-      .map(video => video.video),
-  )
+const topRowVideoIds = computed(() => {
+  return new Set(buildVideosTopRow(allVideos.value, 3).map(video => video.video))
 })
 
 const latestPool = computed(() => {
-  return allVideos.value.filter(video => !featuredVideoIds.value.has(video.video))
+  return allVideos.value.filter(video => !topRowVideoIds.value.has(video.video))
 })
 
 const pageVideos = computed(() => latestPool.value.slice(offset, offset + videosPerPage))

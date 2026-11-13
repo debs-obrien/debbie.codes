@@ -1,7 +1,7 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import process from 'node:process';
-import { HIDDEN_YOUTUBE_VIDEO_IDS } from '../utils/videos';
+import { buildVideosTopRow, HIDDEN_YOUTUBE_VIDEO_IDS } from '../utils/videos';
 import { expect, test } from './fixtures';
 
 const isEndform = process.env.ENDFORM === 'true';
@@ -58,7 +58,7 @@ function loadVisibleVideosFromContent(): VideoFrontmatter[] {
 }
 
 test.describe('Videos newest entries from content', () => {
-  test('Featured and Latest reflect newest content dates', async ({ page }) => {
+  test('Featured top row is Latest + featured; list has no duplicates', async ({ page }) => {
     test.skip(
       isEndform || !existsSync(videosDir),
       'content/videos is not available on Endform runners (no repo checkout)'
@@ -68,13 +68,25 @@ test.describe('Videos newest entries from content', () => {
     expect(all.length, 'expected video markdown under content/videos').toBeGreaterThan(0);
 
     // Same selection rules as pages/videos/index.vue
+    const topRow = buildVideosTopRow(all, 3);
+    expect(topRow.length).toBe(3);
+
     const featured = [...all]
       .filter(v => v.featured)
-      .sort((a, b) => a.featuredOrder - b.featuredOrder)
-      .slice(0, 3);
-    const featuredIds = new Set(featured.map(v => v.video));
+      .sort((a, b) => a.featuredOrder - b.featuredOrder);
+    const newest = [...all].sort((a, b) => b.date.localeCompare(a.date))[0]!;
+    expect(topRow[0]?.video).toBe(newest.video);
+
+    const remainingFeatured = featured.filter(v => v.video !== newest.video);
+    expect(topRow[1]?.video).toBe(remainingFeatured[0]?.video);
+    expect(topRow[2]?.video).toBe(remainingFeatured[1]?.video);
+
+    const amsterdamTitle = 'The Agentic Developer: Orchestrating AI Workflows with MCPs';
+    expect(topRow.map(v => v.title)).not.toContain(amsterdamTitle);
+
+    const topRowIds = new Set(topRow.map(v => v.video));
     const latestPool = all
-      .filter(v => !featuredIds.has(v.video))
+      .filter(v => !topRowIds.has(v.video))
       .sort((a, b) => b.date.localeCompare(a.date));
 
     await page.goto('/videos');
@@ -83,16 +95,35 @@ test.describe('Videos newest entries from content', () => {
     const featuredRegion = page.getByRole('region', { name: 'Featured' });
     const latestRegion = page.getByRole('region', { name: 'Latest' });
 
-    await test.step('Featured shows content featured videos in featuredOrder', async () => {
-      await expect(featuredRegion.getByRole('article')).toHaveCount(3);
-      for (let i = 0; i < featured.length; i++) {
-        await expect(featuredRegion.getByRole('article').nth(i).getByRole('heading')).toHaveText(
-          featured[i].title
-        );
-      }
+    await test.step('Top row: newest with Latest label, then featured in order', async () => {
+      const cards = featuredRegion.getByRole('article');
+      await expect(cards).toHaveCount(3);
+
+      await expect(cards.nth(0).getByText('Latest', { exact: true })).toBeVisible();
+      await expect(cards.nth(0).getByRole('heading')).toHaveText(topRow[0]!.title);
+      await expect(cards.nth(1).getByRole('heading')).toHaveText(topRow[1]!.title);
+      await expect(cards.nth(2).getByRole('heading')).toHaveText(topRow[2]!.title);
+
+      await expect(cards.nth(1).getByText('Latest', { exact: true })).toHaveCount(0);
+      await expect(cards.nth(2).getByText('Latest', { exact: true })).toHaveCount(0);
     });
 
-    await test.step('Latest leads with newest non-featured content by date', async () => {
+    await test.step('Amsterdam talk is not in Featured but appears in Latest', async () => {
+      await expect(
+        featuredRegion.getByRole('heading', { name: amsterdamTitle }),
+      ).toHaveCount(0);
+      await expect(
+        latestRegion.getByRole('heading', { name: amsterdamTitle }),
+      ).toBeVisible();
+    });
+
+    await test.step('No video title appears twice on the page', async () => {
+      const headings = page.locator('article h3');
+      const texts = (await headings.allTextContents()).map(t => t.trim()).filter(Boolean);
+      expect(new Set(texts).size).toBe(texts.length);
+    });
+
+    await test.step('Latest list excludes top-row picks and is newest-first', async () => {
       const latestArticles = latestRegion.getByRole('article');
       await expect(latestArticles).toHaveCount(24);
 
@@ -100,14 +131,12 @@ test.describe('Videos newest entries from content', () => {
       expect(newestDate).toBeTruthy();
       const newestTitles = latestPool.filter(v => v.date === newestDate).map(v => v.title);
 
-      // All same-date newest entries appear at the top of Latest (order among ties may vary).
       const topTitles: string[] = [];
       for (let i = 0; i < newestTitles.length; i++) {
         topTitles.push((await latestArticles.nth(i).getByRole('heading').textContent() ?? '').trim());
       }
       expect(new Set(topTitles)).toEqual(new Set(newestTitles));
 
-      // Datetimes in Latest are non-increasing (newest first).
       const datetimes: string[] = [];
       const sample = Math.min(8, await latestArticles.count());
       for (let i = 0; i < sample; i++) {
