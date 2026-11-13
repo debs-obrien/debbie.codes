@@ -37,6 +37,8 @@ export interface BlogPost extends BaseContent {
   canonical?: string
   body?: string
   content?: string
+  /** Whole minutes from content:file:afterParse; list queries select this instead of body. */
+  readingMinutes?: number
 }
 
 export type BlogPostPreview = BlogPost
