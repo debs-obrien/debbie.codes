@@ -14,6 +14,13 @@ WebMCP lets a site offer tools in the browser, so an agent can ask the page a qu
 
 I built it with Cursor cloud agents, coordinated by my Grok Bot site lead, and I reviewed and merged the changes. It already runs for real visitors in Chrome and Edge.
 
+Prefer to watch? Here's the video, where I show the tools in the Chrome DevTools WebMCP panel.
+
+<lite-youtube
+        videoid="AS6k-1uFp-0"
+        playlabel="What is WebMCP? Add tools to your site for AI agents">
+</lite-youtube>
+
 ## What is WebMCP
 
 WebMCP is a proposed web standard. A page registers tools with the browser. Each tool has a name, a description, a JSON Schema for its inputs and an `execute` function. An agent working in the browser can then find those tools and call them, instead of clicking around and reading the page. On my site that's `document.modelContext.registerTool()`. Older examples use `navigator.modelContext`, but the spec puts it on `document` now. Playwright's [WebMCP docs](https://playwright.dev/docs/api/class-webmcp) still use `navigator.modelContext`. You can read more in the [Chrome WebMCP docs](https://developer.chrome.com/docs/ai/webmcp).

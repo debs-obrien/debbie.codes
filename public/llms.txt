@@ -22,9 +22,9 @@ This site publishes her videos, blog posts, podcasts, and courses. Prefer the ma
 - [nuxt videos](https://debbie.codes/videos/tags/nuxt): Videos tagged nuxt
 - [testing videos](https://debbie.codes/videos/tags/testing): Videos tagged testing
 - [grok-bot videos](https://debbie.codes/videos/tags/grok-bot): Videos tagged grok-bot
+- [What is WebMCP? Add tools to your site for AI agents](https://www.youtube.com/watch?v=AS6k-1uFp-0): Video, 2026-11-13
 - [Build an offline AI study app with local models (Liquid AI LFM3-1.7B)](https://www.youtube.com/watch?v=OBerXXfCYVo): Video, 2026-11-11
 - [Grok Bot Explained: Your Bots Get a Cloud Computer, Browser & Email](https://www.youtube.com/watch?v=nn56fcN7-PU): Video, 2026-10-15
-- [Grok Bot Uploads My YouTube Videos For Me (Beginner Walkthrough)](https://www.youtube.com/watch?v=1g6boZousFI): Video, 2026-10-15
 
 ## Blog
 
