@@ -18,11 +18,8 @@ const PLACEHOLDER_PNG = Buffer.from(
   'base64',
 )
 
-/** Response header set on fulfilled Cloudinary mocks so tests can ignore them. */
-export const CLOUDINARY_MOCK_HEADER = 'x-playwright-cloudinary-mock'
-
 /** True when the request would pull bytes from res.cloudinary.com (directly or via a local/edge image proxy). */
-export function isCloudinaryBandwidthRequest(url: string): boolean {
+function isCloudinaryBandwidthRequest(url: string): boolean {
   if (url.includes('res.cloudinary.com'))
     return true
   // Local Nuxt Image IPX proxy (User-Agent "node" in Cloudinary reports)
@@ -58,7 +55,6 @@ export const test = base.extend<CloudinaryFixtures>({
         await route.fulfill({
           status: 200,
           contentType: 'image/png',
-          headers: { [CLOUDINARY_MOCK_HEADER]: '1' },
           body: PLACEHOLDER_PNG,
         })
       })

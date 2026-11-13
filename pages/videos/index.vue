@@ -12,17 +12,12 @@ const { data: allVideosRaw } = await useAsyncData('all-videos-for-pages', () => 
 
 const allVideos = computed(() => filterVisibleVideos(allVideosRaw.value))
 
-const featuredVideos = computed(() => {
-  return allVideos.value
-    .filter(video => video.featured)
-    .sort((a, b) => (a.featuredOrder ?? 99) - (b.featuredOrder ?? 99))
-    .slice(0, 3)
-})
+const topRowVideos = computed(() => buildVideosTopRow(allVideos.value, 3))
 
-const featuredVideoIds = computed(() => new Set(featuredVideos.value.map(video => video.video)))
+const topRowVideoIds = computed(() => new Set(topRowVideos.value.map(video => video.video)))
 
 const latestPool = computed(() => {
-  return allVideos.value.filter(video => !featuredVideoIds.value.has(video.video))
+  return allVideos.value.filter(video => !topRowVideoIds.value.has(video.video))
 })
 
 const pageVideos = computed(() => latestPool.value.slice(0, videosPerPage))
@@ -37,8 +32,8 @@ const title: string = 'Videos'
 const description: string = 'Conference talks, interviews, and live streams on Playwright, testing, and AI agents.'
 const section: Sections = 'videos'
 
-const featuredPoster = computed(() => {
-  const id = featuredVideos.value[0]?.video
+const topPoster = computed(() => {
+  const id = topRowVideos.value[0]?.video
   return id ? youtubeThumbnail(id) : ''
 })
 
@@ -46,12 +41,12 @@ useHead({
   title,
   meta: [{ name: 'description', content: description }],
   link: computed(() => {
-    if (!featuredPoster.value)
+    if (!topPoster.value)
       return []
     return [{
       rel: 'preload',
       as: 'image',
-      href: featuredPoster.value,
+      href: topPoster.value,
       fetchpriority: 'high',
     }]
   }),
@@ -60,7 +55,7 @@ useHead({
 
 <template>
   <PageLayout :title="title" :description="description" :section="section">
-    <VideosFeaturedSection :list="featuredVideos" />
+    <VideosFeaturedSection :list="topRowVideos" />
 
     <VideosFilterChips />
 

@@ -5,8 +5,11 @@ withDefaults(defineProps<{
   item: VideoPreview
   /** First visible card: skip content-visibility so the poster paints immediately. */
   priority?: boolean
+  /** Optional small label on the card (e.g. Latest on the /videos top-row lead). */
+  label?: string
 }>(), {
   priority: false,
+  label: undefined,
 })
 </script>
 
@@ -26,6 +29,12 @@ withDefaults(defineProps<{
       />
 
       <div class="p-6">
+        <p
+          v-if="label"
+          class="mb-2 text-xs font-semibold uppercase tracking-wide text-[#d8002d] dark:text-[#ff5a73]"
+        >
+          {{ label }}
+        </p>
         <Date :date="item.date" />
 
         <p class="text-base font-medium text-gray-600 dark:text-gray-300 mb-3">

@@ -21,7 +21,6 @@
     "package.json",
     "package-lock.json",
     "playwright.config.*",
-    "playwright.service.config.*",
     "tests/**",
     ".github/workflows/**",
     "endform.config.*",

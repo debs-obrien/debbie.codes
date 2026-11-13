@@ -7,7 +7,7 @@ tags: [ai, grok-bot]
 host: Debbie O'Brien
 image: https://img.youtube.com/vi/kiDvQnoCveU/sddefault.jpg
 featured: true
-featuredOrder: 3
+featuredOrder: 2
 chapters:
   - time: 0
     title: "Intro – what Grok Bot is"

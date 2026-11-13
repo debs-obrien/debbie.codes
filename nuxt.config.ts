@@ -6,8 +6,9 @@ import { NETLIFY_REMOTE_IMAGE_HOSTS } from './utils/remote-images'
 
 // Static public/sitemap.xml — avoids Netlify Function/SQLite 500s for /sitemap.xml.
 generateSitemap()
-// Static public/webmcp/content-index.json and public/llms.txt.
-generateContentIndex()
+// Static public/webmcp/content-index.json and public/llms*.txt.
+const contentIndex = generateContentIndex()
+const blogMarkdownRoutes = contentIndex.markdownRoutes || []
 
 export default defineNuxtConfig({
   srcDir: '.',
@@ -31,6 +32,14 @@ export default defineNuxtConfig({
 
   robots: {
     sitemap: 'https://debbie.codes/sitemap.xml',
+    // Comment for agents + empty Disallow (same shape as production robots.txt).
+    groups: [
+      {
+        userAgent: '*',
+        comment: ['LLM context: https://debbie.codes/llms.txt'],
+        disallow: [''],
+      },
+    ],
   },
 
   colorMode: {
@@ -93,6 +102,22 @@ export default defineNuxtConfig({
     transpile: ['lite-youtube'],
   },
 
+  hooks: {
+    // Dynamic import stays behind document.modelContext, but Nuxt still emits
+    // prefetch for async plugin chunks. Disable prefetch/preload for WebMCP utils.
+    // Do not use manualChunks for utils/webmcp: that pulled shared homepage modules
+    // into the tools chunk and made / statically import it for every visitor.
+    'build:manifest': (manifest) => {
+      for (const item of Object.values(manifest)) {
+        const src = item.src || ''
+        if (src.includes('utils/webmcp')) {
+          item.prefetch = false
+          item.preload = false
+        }
+      }
+    },
+  },
+
   vue: {
     compilerOptions: {
       isCustomElement: tag => ['lite-youtube', 'elevenlabs-convai'].includes(tag),
@@ -137,7 +162,8 @@ export default defineNuxtConfig({
       // sitemap.xml + _redirects) over failing the whole generate on
       // unrelated IPX image fetch errors during crawl.
       failOnError: false,
-      routes: ['/feed.xml'],
+      // /feed.xml plus clean markdown copies of every published blog post.
+      routes: ['/feed.xml', ...blogMarkdownRoutes],
       // Write /blog.html instead of /blog/index.html so Netlify serves the
       // canonical no-slash URL (used by canonical tags, sitemap and links)
       // directly instead of 301-redirecting /blog -> /blog/ first.

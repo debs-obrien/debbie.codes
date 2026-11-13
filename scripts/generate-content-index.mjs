@@ -1,11 +1,13 @@
 /**
- * Build-time WebMCP catalog and llms.txt.
+ * Build-time WebMCP catalog, llms.txt, and llms-full.txt.
  *
  * Rerun:
  *   node scripts/generate-content-index.mjs
  *
  * nuxt.config.ts and `npm run pregenerate` call this too.
- * The file is committed so dev and agents can read it without a content query.
+ * content-index.json and llms*.txt are committed so dev and agents can read
+ * them without a content query. Blog markdown copies are served by
+ * server/routes/blog/[slug].md.get.ts and prerendered at generate time.
  */
 import { Buffer } from 'node:buffer'
 import { mkdirSync, readdirSync, readFileSync, renameSync, writeFileSync } from 'node:fs'
@@ -69,6 +71,15 @@ function hiddenYouTubeIds() {
   if (ids.length === 0)
     throw new Error('HIDDEN_YOUTUBE_VIDEO_IDS is empty')
   return new Set(ids)
+}
+
+/** Registered WebMCP tool names from utils/webmcp/tools.ts (not hardcoded). */
+export function webmcpToolNames() {
+  const src = readFileSync(join(root, 'utils/webmcp/tools.ts'), 'utf8')
+  const names = [...src.matchAll(/^\s+name:\s*'([a-z0-9-]+)',\s*$/gm)].map(match => match[1])
+  if (names.length === 0)
+    throw new Error('utils/webmcp/tools.ts has no tool name fields')
+  return names
 }
 
 function youtubeWatchUrl(videoId, start) {
@@ -280,13 +291,19 @@ function indexBlog(entry) {
   if (!title || !date)
     throw new Error(`${entry.file} is missing title or date`)
   const path = `/blog/${entry.slug}`
+  const markdownPath = `${path}.md`
+  const localUrl = `${SITE}${path}`
+  // Same value as the markdown copy's Canonical: line (frontmatter wins).
+  const canonical = asString(fm.canonical) || localUrl
   return withDescription({
     type: 'blog',
     title,
     date,
     tags: asTags(fm.tags),
-    url: `${SITE}${path}`,
+    url: localUrl,
     path,
+    markdownUrl: `${SITE}${markdownPath}`,
+    canonical,
   }, asString(fm.description))
 }
 
@@ -375,13 +392,32 @@ function topTags(items, type) {
   return [...featured, ...rest].slice(0, 6)
 }
 
+function itemNote(item, kind) {
+  const bits = [kind, item.date]
+  if (item.description)
+    bits.push(item.description.replace(/\s+/g, ' ').trim())
+  if (item.tags.length)
+    bits.push(`tags: ${item.tags.join(', ')}`)
+  return bits.join(' · ')
+}
+
 function renderLlms(items) {
+  const tools = webmcpToolNames().join(', ')
   const lines = [
     '# Debbie Codes',
     '',
-    '> Debbie O\'Brien is a developer educator focused on AI agents, Playwright, and testing.',
+    '> Debbie O\'Brien is an Independent Developer Educator known for AI agents, Playwright, testing, and DevRel. Former Microsoft TPM on Playwright and a Google Developer Expert in web technologies, she teaches developers to ship and test with multi-agent workflows.',
     '',
-    'The site publishes videos, blog posts, podcasts, and courses. Agents on a page with document.modelContext can call the WebMCP tools list-videos, topic-brief, search-content, and get-current-page.',
+    `This site publishes her videos, blog posts, podcasts, and courses. Prefer the markdown copies of blog posts (\`/blog/<slug>.md\`) and [\`/llms-full.txt\`](${SITE}/llms-full.txt) for bulk reading. On pages where \`document.modelContext\` is available, agents can call the WebMCP tools ${tools}.`,
+    '',
+    '## Pages',
+    '',
+    mdLink('About', `${SITE}/about`, 'Biography and background'),
+    mdLink('Hire me', `${SITE}/hire-me`, 'Experience, Voice agent Q&A, and how to work with Debbie'),
+    mdLink('Courses', `${SITE}/courses`, 'Courses Debbie teaches'),
+    mdLink('Videos', `${SITE}/videos`, 'Conference talks, interviews, and tutorials'),
+    mdLink('Blog', `${SITE}/blog`, 'Articles by Debbie'),
+    mdLink('Podcasts', `${SITE}/podcasts`, 'Interviews and shows'),
     '',
   ]
   for (const section of SECTIONS) {
@@ -400,24 +436,47 @@ function renderLlms(items) {
       .slice(0, 3)
     for (const item of newest) {
       const kind = section.heading.endsWith('s') ? section.heading.slice(0, -1) : section.heading
-      lines.push(mdLink(item.title, item.url, `${kind}, ${item.date}`))
+      const href = item.markdownUrl || item.url
+      lines.push(mdLink(item.title, href, `${kind}, ${item.date}`))
     }
     lines.push('')
   }
   lines.push(
-    '## Speaking',
-    '',
-    'The conference-talk videos on this site are only the recorded ones, so their count is a minimum. Debbie has given well over 60 talks at conferences and meetups and spoken in more than 15 countries.',
-    '',
-    mdLink('Speaking', `${SITE}/speaking`, 'Conference talks and where to watch them'),
-    '',
     '## Optional',
     '',
-    mdLink('About', `${SITE}/about`, 'About Debbie'),
+    mdLink('Full content index (llms-full.txt)', `${SITE}/llms-full.txt`, 'Every published video, blog post, podcast, and course'),
+    mdLink('Speaking', `${SITE}/speaking`, 'Conference talks and where to watch them'),
     mdLink('Now', `${SITE}/now`, 'What Debbie is doing now'),
     mdLink('Contact', `${SITE}/contact`, 'Contact Debbie'),
+    mdLink('RSS feed', `${SITE}/feed.xml`, 'Blog RSS'),
     '',
   )
+  return lines.join('\n')
+}
+
+function renderLlmsFull(items) {
+  const tools = webmcpToolNames().join(', ')
+  const lines = [
+    '# Debbie Codes: Full content index',
+    '',
+    '> Complete catalog of published videos, blog posts, podcasts, and courses on debbie.codes, newest first. Blog entries link to both the HTML page and a clean markdown copy.',
+    '',
+    `WebMCP tools (when document.modelContext is available): ${tools}.`,
+    '',
+  ]
+  for (const section of SECTIONS) {
+    lines.push(`## ${section.heading}`, '')
+    const sectionItems = items
+      .filter(item => item.type === section.type)
+      .sort((a, b) => b.date.localeCompare(a.date) || a.title.localeCompare(b.title))
+    for (const item of sectionItems) {
+      const kind = section.heading.endsWith('s') ? section.heading.slice(0, -1) : section.heading
+      lines.push(mdLink(item.title, item.url, itemNote(item, kind)))
+      if (item.markdownUrl)
+        lines.push(mdLink(`${item.title} (markdown)`, item.markdownUrl, `Markdown copy, ${item.date}`))
+    }
+    lines.push('')
+  }
   return lines.join('\n')
 }
 
@@ -453,13 +512,37 @@ export function generateContentIndex() {
 
   const indexPath = join(root, 'public/webmcp/content-index.json')
   const llmsPath = join(root, 'public/llms.txt')
+  const llmsFullPath = join(root, 'public/llms-full.txt')
   const indexText = `${JSON.stringify({ items }, null, 2)}\n`
   const llmsText = renderLlms(items)
+  const llmsFullText = renderLlmsFull(items)
   writeAtomic(indexPath, indexText)
   writeAtomic(llmsPath, llmsText)
+  writeAtomic(llmsFullPath, llmsFullText)
+  const blogMarkdown = items.filter(item => item.type === 'blog' && item.path)
+  const markdownRoutes = blogMarkdown.map(item => `${item.path}.md`)
+  // Per-file Content-Type so missing /blog/*.md 404s are not forced to text/markdown
+  // by a Netlify glob header. Also set Link + X-Robots-Tag on published copies only.
+  const headersPath = join(root, 'public/_headers')
+  const headersText = [
+    '# Generated by scripts/generate-content-index.mjs: do not edit by hand.',
+    '# Published blog markdown copies only (avoids text/markdown on 404 bodies).',
+    ...blogMarkdown.flatMap(item => [
+      `${item.path}.md`,
+      '  Content-Type: text/markdown; charset=utf-8',
+      `  Link: <${item.canonical || item.url}>; rel="canonical"`,
+      '  X-Robots-Tag: noindex',
+      '',
+    ]),
+  ].join('\n')
+  writeAtomic(headersPath, `${headersText.trimEnd()}\n`)
   return {
     indexPath,
     llmsPath,
+    llmsFullPath,
+    headersPath,
+    markdownRoutes,
+    items,
     bytes: Buffer.byteLength(indexText),
     count: items.length,
     counts: {
@@ -477,4 +560,6 @@ if (isDirectRun) {
   console.log(`Wrote ${result.count} items (${result.bytes} bytes) to ${result.indexPath}`)
   console.log(`counts ${JSON.stringify(result.counts)}`)
   console.log(`Wrote ${result.llmsPath}`)
+  console.log(`Wrote ${result.llmsFullPath}`)
+  console.log(`Blog markdown routes to prerender: ${result.markdownRoutes.length}`)
 }
