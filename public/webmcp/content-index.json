@@ -13,6 +13,7 @@
       "url": "https://debbie.codes/blog/devrel-didnt-die-its-audience-changed",
       "path": "/blog/devrel-didnt-die-its-audience-changed",
       "markdownUrl": "https://debbie.codes/blog/devrel-didnt-die-its-audience-changed.md",
+      "canonical": "https://debbie.codes/blog/devrel-didnt-die-its-audience-changed",
       "description": "Most evenings I put my agents to the test. I'm literally taking products I'm curious about and building something with them. This is how I learn and experiment with a new product."
     },
     {
@@ -28,6 +29,7 @@
       "url": "https://debbie.codes/blog/hire-me-voice-agent-grok-bot",
       "path": "/blog/hire-me-voice-agent-grok-bot",
       "markdownUrl": "https://debbie.codes/blog/hire-me-voice-agent-grok-bot.md",
+      "canonical": "https://debbie.codes/blog/hire-me-voice-agent-grok-bot",
       "description": "My Hire me page can talk. Recruiters can ask it about my work by voice or text. Here's how I built it with my Grok Bot and ElevenLabs in one morning, and how I tested it."
     },
     {
@@ -42,6 +44,7 @@
       "url": "https://debbie.codes/blog/grok-bot-uploads-my-youtube-videos",
       "path": "/blog/grok-bot-uploads-my-youtube-videos",
       "markdownUrl": "https://debbie.codes/blog/grok-bot-uploads-my-youtube-videos.md",
+      "canonical": "https://debbie.codes/blog/grok-bot-uploads-my-youtube-videos",
       "description": "Grok Bot can use your own computer too. I asked it by voice to find a video on my laptop, fix the audio and hand it to my other bots to get it ready for YouTube, with nothing going public until I say yes."
     },
     {
@@ -56,6 +59,7 @@
       "url": "https://debbie.codes/blog/grok-bot-explained",
       "path": "/blog/grok-bot-explained",
       "markdownUrl": "https://debbie.codes/blog/grok-bot-explained.md",
+      "canonical": "https://debbie.codes/blog/grok-bot-explained",
       "description": "Your Grok Bot account comes with a cloud computer, browser and email that all your bots share. Here's what that looks like and why it changes how the bots work."
     },
     {
@@ -70,6 +74,7 @@
       "url": "https://debbie.codes/blog/grok-bot-50th-birthday-photo-video",
       "path": "/blog/grok-bot-50th-birthday-photo-video",
       "markdownUrl": "https://debbie.codes/blog/grok-bot-50th-birthday-photo-video.md",
+      "canonical": "https://debbie.codes/blog/grok-bot-50th-birthday-photo-video",
       "description": "How I made a photo video for my brother Ken's 50th birthday with my Grok Bots: scanned prints, photos from my Mac and family, music, pacing, and an intro and outro."
     },
     {
@@ -84,6 +89,7 @@
       "url": "https://debbie.codes/blog/talk-to-my-bots-through-alexa",
       "path": "/blog/talk-to-my-bots-through-alexa",
       "markdownUrl": "https://debbie.codes/blog/talk-to-my-bots-through-alexa.md",
+      "canonical": "https://debbie.codes/blog/talk-to-my-bots-through-alexa",
       "description": "How I connected Alexa to my Grok Bot chief of staff with a small Cloudflare Worker, and learned the Amazon developer console by calling my engineer bot in Grok Bot and having it talk me through each screen."
     },
     {
@@ -96,6 +102,7 @@
       "url": "https://debbie.codes/blog/back-to-the-gym-after-three-years",
       "path": "/blog/back-to-the-gym-after-three-years",
       "markdownUrl": "https://debbie.codes/blog/back-to-the-gym-after-three-years.md",
+      "canonical": "https://debbie.codes/blog/back-to-the-gym-after-three-years",
       "description": "First gym session in three years after twins started school in Spain — celebrating the milestone and choosing me time again."
     },
     {
@@ -110,6 +117,7 @@
       "url": "https://debbie.codes/blog/i-created-an-ai-fitness-coach-with-grok-bot",
       "path": "/blog/i-created-an-ai-fitness-coach-with-grok-bot",
       "markdownUrl": "https://debbie.codes/blog/i-created-an-ai-fitness-coach-with-grok-bot.md",
+      "canonical": "https://debbie.codes/blog/i-created-an-ai-fitness-coach-with-grok-bot",
       "description": "I created a Grok Bot coach for gym, nutrition, and accountability after having twins. Home gym photos, 130g protein, workout critiques, and a garage playlist on my iPad."
     },
     {
@@ -124,6 +132,7 @@
       "url": "https://debbie.codes/blog/did-you-know-grok-bot-can-watch-videos",
       "path": "/blog/did-you-know-grok-bot-can-watch-videos",
       "markdownUrl": "https://debbie.codes/blog/did-you-know-grok-bot-can-watch-videos.md",
+      "canonical": "https://debbie.codes/blog/did-you-know-grok-bot-can-watch-videos",
       "description": "I created a CoachBot for nutrition and training. It watched my workout video and told me my five kilo dumbbells were not enough."
     },
     {
@@ -138,6 +147,7 @@
       "url": "https://debbie.codes/blog/grok-bot-does-my-shopping",
       "path": "/blog/grok-bot-does-my-shopping",
       "markdownUrl": "https://debbie.codes/blog/grok-bot-does-my-shopping.md",
+      "canonical": "https://debbie.codes/blog/grok-bot-does-my-shopping",
       "description": "Quick walk-through of how I did my full shop with Grok Bot from my phone, while out with the twins."
     },
     {
@@ -152,6 +162,7 @@
       "url": "https://debbie.codes/blog/job-hunt-with-a-bot",
       "path": "/blog/job-hunt-with-a-bot",
       "markdownUrl": "https://debbie.codes/blog/job-hunt-with-a-bot.md",
+      "canonical": "https://debbie.codes/blog/job-hunt-with-a-bot",
       "description": "I need to look for a job, so I made a Job Hunt bot on Grok Bot. It looked me up online, found roles, and can even do interview prep."
     },
     {
@@ -166,6 +177,7 @@
       "url": "https://debbie.codes/blog/i-sent-grok-bot-to-buy-my-gluten-free-beer",
       "path": "/blog/i-sent-grok-bot-to-buy-my-gluten-free-beer",
       "markdownUrl": "https://debbie.codes/blog/i-sent-grok-bot-to-buy-my-gluten-free-beer.md",
+      "canonical": "https://debbie.codes/blog/i-sent-grok-bot-to-buy-my-gluten-free-beer",
       "description": "I ran out of gluten-free beer on a Sunday night and asked my Grok Bot chief of staff to buy more. Amazon rolls bought from my phone, an Alcampo login that would not click, a morning podcast, and a delivery slot I can keep adding to."
     },
     {
@@ -180,6 +192,7 @@
       "url": "https://debbie.codes/blog/how-to-get-started-with-grok-bot",
       "path": "/blog/how-to-get-started-with-grok-bot",
       "markdownUrl": "https://debbie.codes/blog/how-to-get-started-with-grok-bot.md",
+      "canonical": "https://debbie.codes/blog/how-to-get-started-with-grok-bot",
       "description": "Grok Bot just dropped. I downloaded it on a Mac the same day and recorded myself setting it up. Not a feature list. What I actually clicked, what worked, and which bots I would create."
     },
     {
@@ -194,6 +207,7 @@
       "url": "https://debbie.codes/blog/i-tested-if-grok-bot-could-book-my-flights",
       "path": "/blog/i-tested-if-grok-bot-could-book-my-flights",
       "markdownUrl": "https://debbie.codes/blog/i-tested-if-grok-bot-could-book-my-flights.md",
+      "canonical": "https://debbie.codes/blog/i-tested-if-grok-bot-could-book-my-flights",
       "description": "I asked a Grok Bot to act as my travel agent and book flights. Close, but missing the last step. Here is the video of what worked and what didn't."
     },
     {
@@ -208,6 +222,7 @@
       "url": "https://debbie.codes/blog/grok-bot-just-dropped",
       "path": "/blog/grok-bot-just-dropped",
       "markdownUrl": "https://debbie.codes/blog/grok-bot-just-dropped.md",
+      "canonical": "https://debbie.codes/blog/grok-bot-just-dropped",
       "description": "Grok Bot just dropped. A team of bots on your computer for LinkedIn, GitHub, email, and content publishing. Here is my raw first look."
     },
     {
@@ -223,6 +238,7 @@
       "url": "https://debbie.codes/blog/an-agent-that-hunts-bugs-while-i-sleep",
       "path": "/blog/an-agent-that-hunts-bugs-while-i-sleep",
       "markdownUrl": "https://debbie.codes/blog/an-agent-that-hunts-bugs-while-i-sleep.md",
+      "canonical": "https://theaiplatform.app/blog/an-agent-that-hunts-bugs-while-i-sleep/",
       "description": "Every hour, an agent opens our real app, clicks around like a tester, and files honest bug reports. A second agent fixes them. Here is how it works."
     },
     {
@@ -237,6 +253,7 @@
       "url": "https://debbie.codes/blog/testing-an-ai-product-without-burning-credit",
       "path": "/blog/testing-an-ai-product-without-burning-credit",
       "markdownUrl": "https://debbie.codes/blog/testing-an-ai-product-without-burning-credit.md",
+      "canonical": "https://theaiplatform.app/blog/testing-an-ai-product-without-burning-credit/",
       "description": "Every message in an AI product is a paid model call. Here is how we test the full chat flow end to end and spend nothing doing it."
     },
     {
@@ -250,6 +267,7 @@
       "url": "https://debbie.codes/blog/documenting-product-with-ai-agent",
       "path": "/blog/documenting-product-with-ai-agent",
       "markdownUrl": "https://debbie.codes/blog/documenting-product-with-ai-agent.md",
+      "canonical": "https://theaiplatform.app/blog/documenting-product-with-ai-agent/",
       "description": "How I used Goose, an open-source AI agent, to write 55 pages of documentation, capture 59 screenshots, and build three reusable skills in just four days."
     },
     {
@@ -264,6 +282,7 @@
       "url": "https://debbie.codes/blog/how-i-used-ai-to-fix-our-e2e-test-architecture",
       "path": "/blog/how-i-used-ai-to-fix-our-e2e-test-architecture",
       "markdownUrl": "https://debbie.codes/blog/how-i-used-ai-to-fix-our-e2e-test-architecture.md",
+      "canonical": "https://dev.to/debs_obrien/how-i-used-ai-to-fix-our-e2e-test-architecture-444a",
       "description": "AI-led analysis of a 6% local pass rate — from tracer bullet planning to building an agent skill that transformed 38 spec files with measurable benchmarks."
     },
     {
@@ -276,6 +295,7 @@
       "url": "https://debbie.codes/blog/claude-code-commands-and-shortcuts",
       "path": "/blog/claude-code-commands-and-shortcuts",
       "markdownUrl": "https://debbie.codes/blog/claude-code-commands-and-shortcuts.md",
+      "canonical": "https://debbie.codes/blog/claude-code-commands-and-shortcuts",
       "description": "A guide to Claude Code's slash commands, keyboard shortcuts, and tips for a smoother workflow in the terminal."
     },
     {
@@ -290,6 +310,7 @@
       "url": "https://debbie.codes/blog/built-agent-skill-readme-wizard",
       "path": "/blog/built-agent-skill-readme-wizard",
       "markdownUrl": "https://debbie.codes/blog/built-agent-skill-readme-wizard.md",
+      "canonical": "https://debbie.codes/blog/built-agent-skill-readme-wizard",
       "description": "How I turned a single-file agent skill into a maintainable README workflow with scripts, references, and evals."
     },
     {
@@ -304,6 +325,7 @@
       "url": "https://debbie.codes/blog/skill-creator-v2-agent-skills-vs-code",
       "path": "/blog/skill-creator-v2-agent-skills-vs-code",
       "markdownUrl": "https://debbie.codes/blog/skill-creator-v2-agent-skills-vs-code.md",
+      "canonical": "https://dev.to/debs_obrien/i-used-skill-creator-v2-to-improve-one-of-my-agent-skills-in-vs-code-fhd",
       "description": "I just published a video showing how I used Skill Creator v2 to improve an existing AI skill inside VS Code, and honestly, I was seriously surprised at how much this thing does."
     },
     {
@@ -317,6 +339,7 @@
       "url": "https://debbie.codes/blog/build-websites-games-and-teaching-resources-with-google-gemini",
       "path": "/blog/build-websites-games-and-teaching-resources-with-google-gemini",
       "markdownUrl": "https://debbie.codes/blog/build-websites-games-and-teaching-resources-with-google-gemini.md",
+      "canonical": "https://dev.to/debs_obrien/build-websites-games-and-teaching-resources-with-google-gemini-for-free-no-coding-required-3gld",
       "description": "Discover how Google Gemini's Canvas lets anyone build websites, games, and interactive teaching resources for free — no coding skills required."
     },
     {
@@ -330,6 +353,7 @@
       "url": "https://debbie.codes/blog/what-are-agent-skills-beginners-guide",
       "path": "/blog/what-are-agent-skills-beginners-guide",
       "markdownUrl": "https://debbie.codes/blog/what-are-agent-skills-beginners-guide.md",
+      "canonical": "https://dev.to/debs_obrien/what-are-agent-skills-beginners-guide-e2n",
       "description": "A beginner's guide to AI agent skills — what they are, how they work, and how to build your first skill in minutes."
     },
     {
@@ -344,6 +368,7 @@
       "url": "https://debbie.codes/blog/from-prompt-files-to-agent-skills",
       "path": "/blog/from-prompt-files-to-agent-skills",
       "markdownUrl": "https://debbie.codes/blog/from-prompt-files-to-agent-skills.md",
+      "canonical": "https://debbie.codes/blog/from-prompt-files-to-agent-skills",
       "description": "How I migrated from three separate VS Code prompt files to a single portable agent skill that handles videos, podcasts, and blog posts — with browser verification and automatic PR creation built in."
     },
     {
@@ -358,6 +383,7 @@
       "url": "https://debbie.codes/blog/app-to-track-my-learning-journey",
       "path": "/blog/app-to-track-my-learning-journey",
       "markdownUrl": "https://debbie.codes/blog/app-to-track-my-learning-journey.md",
+      "canonical": "https://dev.to/debs_obrien/i-needed-an-app-to-track-my-learning-journey-ai-built-it-in-less-than-half-an-hour-with-a-single-31c4",
       "description": "I have been trying to build a Learning Hub App for a good few months using various tools and have had many iterations back and forth on trying to get it to work and ended up going round in circles fixing one thing and breaking another."
     },
     {
@@ -371,6 +397,7 @@
       "url": "https://debbie.codes/blog/ai-agents-mcp-automate-content",
       "path": "/blog/ai-agents-mcp-automate-content",
       "markdownUrl": "https://debbie.codes/blog/ai-agents-mcp-automate-content.md",
+      "canonical": "https://dev.to/debs_obrien/how-i-use-ai-agents-mcp-to-fully-automate-my-websites-content-3ekj",
       "description": "How I use AI agents and MCP tools to automate publishing and updating podcasts, videos, and other content on my website."
     },
     {
@@ -383,6 +410,7 @@
       "url": "https://debbie.codes/blog/first-two-years-raising-kids-working-fulltime",
       "path": "/blog/first-two-years-raising-kids-working-fulltime",
       "markdownUrl": "https://debbie.codes/blog/first-two-years-raising-kids-working-fulltime.md",
+      "canonical": "https://debbie.codes/blog/first-two-years-raising-kids-working-fulltime",
       "description": "I now have two year old twins yet I also work fulltime and manage to raise my kids with no daycare or family help. Many people ask me how I do it and sometimes I even wonder myself! In this post, I want to share my experiences, challenges, and strategies for balancing work and parenthood over the past two years."
     },
     {
@@ -396,6 +424,7 @@
       "url": "https://debbie.codes/blog/debugging-my-zsh-config-with-goose-and-why-agentic-ai-actually-helped",
       "path": "/blog/debugging-my-zsh-config-with-goose-and-why-agentic-ai-actually-helped",
       "markdownUrl": "https://debbie.codes/blog/debugging-my-zsh-config-with-goose-and-why-agentic-ai-actually-helped.md",
+      "canonical": "https://dev.to/debs_obrien/debugging-my-zsh-config-with-goose-and-why-agentic-ai-actually-helped-1noh",
       "description": "I've been playing around with a few things recently and wanted to share a real experience that genuinely surprised me. When Goose CLI wouldn't run, the agent investigated my .zshrc file and found a subtle syntax error that would have taken me much longer to debug manually."
     },
     {
@@ -408,6 +437,7 @@
       "url": "https://debbie.codes/blog/laid-off-what-now",
       "path": "/blog/laid-off-what-now",
       "markdownUrl": "https://debbie.codes/blog/laid-off-what-now.md",
+      "canonical": "https://debbie.codes/blog/laid-off-what-now",
       "description": "It’s time to say goodbye. Unfortunately I have been the latest victim of layoffs due to reorgs in Microsoft Spain. I have taken some time to process but I won’t lie, It has been really hard to deal with. This wasn’t just a job. This was my dream. And my dream came true. But unfortunately all dreams must come to an end at some point. So what now?"
     },
     {
@@ -421,6 +451,7 @@
       "url": "https://debbie.codes/blog/how-i-vibe-code-improving-my-site-design-with-goose-and-gemini-3",
       "path": "/blog/how-i-vibe-code-improving-my-site-design-with-goose-and-gemini-3",
       "markdownUrl": "https://debbie.codes/blog/how-i-vibe-code-improving-my-site-design-with-goose-and-gemini-3.md",
+      "canonical": "https://dev.to/debs_obrien/how-i-vibe-code-improving-my-site-design-with-goose-and-gemini-3-2a3k",
       "description": "Having fun with Google's Gemini 3 and Goose coding agent to redesign my home page, creating dynamic hero components that change on refresh."
     },
     {
@@ -436,6 +467,7 @@
       "url": "https://debbie.codes/blog/playwright-mcp-servers-explained-automation-and-testing",
       "path": "/blog/playwright-mcp-servers-explained-automation-and-testing",
       "markdownUrl": "https://debbie.codes/blog/playwright-mcp-servers-explained-automation-and-testing.md",
+      "canonical": "https://dev.to/debs_obrien/playwright-mcp-servers-explained-automation-and-testing-4mo0",
       "description": "Did you know Playwright has two MCP servers? Learn about the Playwright MCP server for browser automation and the Playwright Test MCP server for testing, both designed to work with AI agents and GitHub Copilot."
     },
     {
@@ -450,6 +482,7 @@
       "url": "https://debbie.codes/blog/fixing-failing-tests-automatically-with-playwrights-new-healer-agent",
       "path": "/blog/fixing-failing-tests-automatically-with-playwrights-new-healer-agent",
       "markdownUrl": "https://debbie.codes/blog/fixing-failing-tests-automatically-with-playwrights-new-healer-agent.md",
+      "canonical": "https://dev.to/debs_obrien/fixing-failing-tests-automatically-with-playwrights-new-healer-agent-13ck",
       "description": "If you've ever returned to your test suite to find a sea of red, you're going to love this one. The Playwright Healer Agent is here — and it's changing how we think about test maintenance."
     },
     {
@@ -462,6 +495,7 @@
       "url": "https://debbie.codes/blog/i-built-my-own-ai-agent-and-you-can-too",
       "path": "/blog/i-built-my-own-ai-agent-and-you-can-too",
       "markdownUrl": "https://debbie.codes/blog/i-built-my-own-ai-agent-and-you-can-too.md",
+      "canonical": "https://dev.to/debs_obrien/i-built-my-own-ai-agent-and-you-can-too-56l1",
       "description": "I recently built my own AI agent. Not because I needed one, but because I wanted to see how far I could take the current tools available. It turned out to be surprisingly straightforward, extremely flexible, and genuinely useful."
     },
     {
@@ -476,6 +510,7 @@
       "url": "https://debbie.codes/blog/playwright-agents-planner-generator-and-healer-in-action",
       "path": "/blog/playwright-agents-planner-generator-and-healer-in-action",
       "markdownUrl": "https://debbie.codes/blog/playwright-agents-planner-generator-and-healer-in-action.md",
+      "canonical": "https://dev.to/playwright/playwright-agents-planner-generator-and-healer-in-action-5ajh",
       "description": "Playwright has introduced a powerful new feature: Playwright Agents. These agents can generate test plans, create tests based on those plans, and even debug and fix failing tests automatically."
     },
     {
@@ -490,6 +525,7 @@
       "url": "https://debbie.codes/blog/automate-your-screenshot-documentation-with-playwright-mcp",
       "path": "/blog/automate-your-screenshot-documentation-with-playwright-mcp",
       "markdownUrl": "https://debbie.codes/blog/automate-your-screenshot-documentation-with-playwright-mcp.md",
+      "canonical": "https://dev.to/debs_obrien/automate-your-screenshot-documentation-with-playwright-mcp-3gk4",
       "description": "Creating visual documentation has always been a time-consuming process. What if I told you there's a way to automate this entire workflow with a single prompt using Playwright MCP?"
     },
     {
@@ -505,6 +541,7 @@
       "url": "https://debbie.codes/blog/testing-logged-in-state-playwright-mcp-browser-extension",
       "path": "/blog/testing-logged-in-state-playwright-mcp-browser-extension",
       "markdownUrl": "https://debbie.codes/blog/testing-logged-in-state-playwright-mcp-browser-extension.md",
+      "canonical": "https://dev.to/debs_obrien/testing-in-a-logged-in-state-with-the-playwright-mcp-browser-extension-4cmg",
       "description": "If you've ever needed to test an application that requires authentication, you know the pain of logging in every time or, worse, handing over your credentials to an LLM. With the new Playwright MCP Browser Extension for Chrome and Edge, that's no longer necessary."
     },
     {
@@ -520,6 +557,7 @@
       "url": "https://debbie.codes/blog/install-playwright-mcp-server-in-vs-code",
       "path": "/blog/install-playwright-mcp-server-in-vs-code",
       "markdownUrl": "https://debbie.codes/blog/install-playwright-mcp-server-in-vs-code.md",
+      "canonical": "https://dev.to/debs_obrien/install-playwright-mcp-server-in-vs-code-4o91",
       "description": "Installing MCP(Model Context Protocol) servers in Visual Studio Code just got a major upgrade! Learn how to use the new MCP Servers section in the Extensions panel to easily browse, install, and manage MCP servers."
     },
     {
@@ -534,6 +572,7 @@
       "url": "https://debbie.codes/blog/automating-form-submissions-with-playwright-mcp-and-a-prompt-file",
       "path": "/blog/automating-form-submissions-with-playwright-mcp-and-a-prompt-file",
       "markdownUrl": "https://debbie.codes/blog/automating-form-submissions-with-playwright-mcp-and-a-prompt-file.md",
+      "canonical": "https://dev.to/debs_obrien/automating-form-submissions-with-playwright-mcp-and-a-prompt-file-43c3",
       "description": "Have you ever wished you could automate browser tasks — like filling out a form or uploading a file — without writing a full-blown test script? What if all you needed was a plain-text prompt written in natural language? Well now you can with Playwright's MCP server."
     },
     {
@@ -549,6 +588,7 @@
       "url": "https://debbie.codes/blog/building-your-first-mcp-server-a-beginners-tutorial",
       "path": "/blog/building-your-first-mcp-server-a-beginners-tutorial",
       "markdownUrl": "https://debbie.codes/blog/building-your-first-mcp-server-a-beginners-tutorial.md",
+      "canonical": "https://dev.to/debs_obrien/building-your-first-mcp-server-a-beginners-tutorial-5fag",
       "description": "Have you ever wanted your AI assistant to access real-time data? Model Context Protocol (MCP) servers make this possible, and they're surprisingly simple to build and use! Learn how to build an MCP server from scratch using TypeScript, connect it to a real weather API, and integrate it with VS Code and GitHub Copilot."
     },
     {
@@ -564,6 +604,7 @@
       "url": "https://debbie.codes/blog/vibe-coding-with-copilot-and-gemini",
       "path": "/blog/vibe-coding-with-copilot-and-gemini",
       "markdownUrl": "https://debbie.codes/blog/vibe-coding-with-copilot-and-gemini.md",
+      "canonical": "https://dev.to/debs_obrien/vibe-coding-with-copilot-and-gemini-25-pro-simplifying-my-blog-with-ai-assisted-refactoring-3033",
       "description": "I have been wanting to share more content on my blog, but ironically, the process of publishing has been slowing me down. In a recent vibe coding session, I decided to remove images from the blog entirely and explore a content-first approach with AI assistance."
     },
     {
@@ -579,6 +620,7 @@
       "url": "https://debbie.codes/blog/generate-playwright-tests-without-code-access",
       "path": "/blog/generate-playwright-tests-without-code-access",
       "markdownUrl": "https://debbie.codes/blog/generate-playwright-tests-without-code-access.md",
+      "canonical": "https://dev.to/debs_obrien/generate-playwright-tests-without-code-access-using-mcp-and-copilot-2m05",
       "description": "Discover how to use MCP (Model Context Protocol) and GitHub Copilot to generate Playwright tests without needing access to your application's source code, perfect for testing external sites or black-box testing scenarios."
     },
     {
@@ -594,6 +636,7 @@
       "url": "https://debbie.codes/blog/letting-playwright-mcp-explore-your-site",
       "path": "/blog/letting-playwright-mcp-explore-your-site",
       "markdownUrl": "https://debbie.codes/blog/letting-playwright-mcp-explore-your-site.md",
+      "canonical": "https://dev.to/debs_obrien/letting-playwright-mcp-explore-your-site-and-write-your-tests-mf1",
       "description": "Learn how to use Playwright MCP (Model Context Protocol) to explore your website and automatically generate comprehensive tests, making web testing more efficient and thorough."
     },
     {
@@ -607,6 +650,7 @@
       "url": "https://debbie.codes/blog/github-mcp-server",
       "path": "/blog/github-mcp-server",
       "markdownUrl": "https://debbie.codes/blog/github-mcp-server.md",
+      "canonical": "https://debbie.codes/blog/github-mcp-server",
       "description": "The GitHub MCP (Model Context Protocol) Server is a powerful tool that provides seamless integration with GitHub APIs, enabling advanced automation and interaction capabilities. This guide will walk you through how to set up and use the official GitHub MCP Server."
     },
     {
@@ -619,6 +663,7 @@
       "url": "https://debbie.codes/blog/brought-my-babies-to-a-conference",
       "path": "/blog/brought-my-babies-to-a-conference",
       "markdownUrl": "https://debbie.codes/blog/brought-my-babies-to-a-conference.md",
+      "canonical": "https://debbie.codes/blog/brought-my-babies-to-a-conference",
       "description": "But this time it was different. I brought my babies to the conference. I was really worried about doing this as what would people think? And the voices start going off in my head. But why should I care. Cause you know, I just do."
     },
     {
@@ -632,6 +677,7 @@
       "url": "https://debbie.codes/blog/testing-staging-production-envs-playwright",
       "path": "/blog/testing-staging-production-envs-playwright",
       "markdownUrl": "https://debbie.codes/blog/testing-staging-production-envs-playwright.md",
+      "canonical": "https://debbie.codes/blog/testing-staging-production-envs-playwright",
       "description": "When working with third party API's it is better to mock the API call rather than hit the API especially when they are API's that you do not control. Mocking the API allows you to finish developing your component or app and write the tests and then when the API is ready you can just swap out the mock for the real API call."
     },
     {
@@ -646,6 +692,7 @@
       "url": "https://debbie.codes/blog/delivering-a-talk",
       "path": "/blog/delivering-a-talk",
       "markdownUrl": "https://debbie.codes/blog/delivering-a-talk.md",
+      "canonical": "https://debbie.codes/blog/delivering-a-talk",
       "description": "How can we walk on that stage with more confidence, deliver a great talk and not only own the stage but also connect with the audience. It’s not easy, but like everything it does get easier with practice. Let’s go over a few ways you can improve your public speaking skills, either for the big stage or for remote talks, and let’s discuss what is holding you back from becoming an amazing tech speaker."
     },
     {
@@ -659,6 +706,7 @@
       "url": "https://debbie.codes/blog/python-and-playwright",
       "path": "/blog/python-and-playwright",
       "markdownUrl": "https://debbie.codes/blog/python-and-playwright.md",
+      "canonical": "https://debbie.codes/blog/python-and-playwright",
       "description": "For those new to Python here is a quick beginners guide on how to setup Python and Pytest and install Playwright. We then create an example test and run it in both headed and headless mode meaning with and without a browser window."
     },
     {
@@ -671,6 +719,7 @@
       "url": "https://debbie.codes/blog/not-one-but-two",
       "path": "/blog/not-one-but-two",
       "markdownUrl": "https://debbie.codes/blog/not-one-but-two.md",
+      "canonical": "https://debbie.codes/blog/not-one-but-two",
       "description": "On our 9th attempt at fertility treatment, we were super excited when the doctor called us 10 days after the transfer to tell us that we were pregnant. It had worked. I asked him if he was sure and he said \"yes, very sure. But then when we had the first scan, we got a big surprise."
     },
     {
@@ -684,6 +733,7 @@
       "url": "https://debbie.codes/blog/api-mocking-for-your-playwright-tests",
       "path": "/blog/api-mocking-for-your-playwright-tests",
       "markdownUrl": "https://debbie.codes/blog/api-mocking-for-your-playwright-tests.md",
+      "canonical": "https://debbie.codes/blog/api-mocking-for-your-playwright-tests",
       "description": "When working with third party API's it is better to mock the API call rather than hit the API especially when they are API's that you do not control. Mocking the API allows you to finish developing your component or app and write the tests and then when the API is ready you can just swap out the mock for the real API call."
     },
     {
@@ -697,6 +747,7 @@
       "url": "https://debbie.codes/blog/ui-mode-playwright",
       "path": "/blog/ui-mode-playwright",
       "markdownUrl": "https://debbie.codes/blog/ui-mode-playwright.md",
+      "canonical": "https://debbie.codes/blog/ui-mode-playwright",
       "description": "Are you looking for a more efficient way to execute and debug your end to end tests? Look no further than Playwright's UI Mode. In this guide, we'll explore the features of Playwright's UI Mode and show you how to take advantage of them for your test automation needs."
     },
     {
@@ -710,6 +761,7 @@
       "url": "https://debbie.codes/blog/playwright-global-setup",
       "path": "/blog/playwright-global-setup",
       "markdownUrl": "https://debbie.codes/blog/playwright-global-setup.md",
+      "canonical": "https://debbie.codes/blog/playwright-global-setup",
       "description": "When you use global setup, you don't see a trace for the setup part of your tests and the setup doesn't appear in the HTML report. This can make debugging difficult. It's also not possible to use fixtures in global setup. In order to fix this issue, project dependencies were created."
     },
     {
@@ -723,6 +775,7 @@
       "url": "https://debbie.codes/blog/playwright-local-dev-server",
       "path": "/blog/playwright-local-dev-server",
       "markdownUrl": "https://debbie.codes/blog/playwright-local-dev-server.md",
+      "canonical": "https://debbie.codes/blog/playwright-local-dev-server",
       "description": "Playwright comes with a webserver option in the config file which gives you the ability to launch a local dev server before running your tests. This is ideal for when writing your tests during development and when you don't have a staging or production url to test against."
     },
     {
@@ -736,6 +789,7 @@
       "url": "https://debbie.codes/blog/testing-menus-desktop-mobile",
       "path": "/blog/testing-menus-desktop-mobile",
       "markdownUrl": "https://debbie.codes/blog/testing-menus-desktop-mobile.md",
+      "canonical": "https://debbie.codes/blog/testing-menus-desktop-mobile",
       "description": "We can write a simple test to make sure that when a user clicks on an item in the menu it takes them to the correct page. To test my website I use Playwright which I already have installed. Let's take a look at how to test the menu on desktop and mobile."
     },
     {
@@ -748,6 +802,7 @@
       "url": "https://debbie.codes/blog/2022-in-review",
       "path": "/blog/2022-in-review",
       "markdownUrl": "https://debbie.codes/blog/2022-in-review.md",
+      "canonical": "https://debbie.codes/blog/2022-in-review",
       "description": "And there it is, another year gone but when you look back at all you have achieved then really there is no more to say than; what a year. From Google interviews to being hired by Microsoft, speaking at conferences and traveling to so many conferences and lots of sport, 2022 was a great year."
     },
     {
@@ -761,6 +816,7 @@
       "url": "https://debbie.codes/blog/locate-elements-playwright",
       "path": "/blog/locate-elements-playwright",
       "markdownUrl": "https://debbie.codes/blog/locate-elements-playwright.md",
+      "canonical": "https://debbie.codes/blog/locate-elements-playwright",
       "description": "In order to write end to end tests we need to first find elements on the webpage and then perform user actions on them. For example, find a link and click on it. But before we dive into how to use the test generator, first let's understand what a link element is and what exactly locators are."
     },
     {
@@ -774,6 +830,7 @@
       "url": "https://debbie.codes/blog/how-to-locate-elements-in-playwright",
       "path": "/blog/how-to-locate-elements-in-playwright",
       "markdownUrl": "https://debbie.codes/blog/how-to-locate-elements-in-playwright.md",
+      "canonical": "https://debbie.codes/blog/how-to-locate-elements-in-playwright",
       "description": "How can we locate a link click on it in our e2e tests. In this article we will learn how to locate elements in Playwright using the test generator to generate your tets based on user actions or pick a locator by clicking on an element"
     },
     {
@@ -786,6 +843,7 @@
       "url": "https://debbie.codes/blog/migrating-nuxt2-nuxt3",
       "path": "/blog/migrating-nuxt2-nuxt3",
       "markdownUrl": "https://debbie.codes/blog/migrating-nuxt2-nuxt3.md",
+      "canonical": "https://debbie.codes/blog/migrating-nuxt2-nuxt3",
       "description": "My personal website was built many years ago and had collected quite a large amount of code as I used my site to play around and experiment new features of Nuxt. It took me ages to finally decide to migrate cause lets face it, we all hate migrations. But I finally did it and I'm so glad I did. I'm going to share with you the steps I took to migrate my site from Nuxt 2 to Nuxt 3."
     },
     {
@@ -799,6 +857,7 @@
       "url": "https://debbie.codes/blog/challenging-yourself",
       "path": "/blog/challenging-yourself",
       "markdownUrl": "https://debbie.codes/blog/challenging-yourself.md",
+      "canonical": "https://debbie.codes/blog/challenging-yourself",
       "description": "Cycle all around the island of Mallorca for a total of 235km with an expected cycling time of 9.5 hours at a speed of 25km per hour. Just the thoughts of that is scary enough. Was I able for it? Had I trained enough for it? Probably not. But I was determined to give it a go."
     },
     {
@@ -812,6 +871,7 @@
       "url": "https://debbie.codes/blog/testing-color-mode",
       "path": "/blog/testing-color-mode",
       "markdownUrl": "https://debbie.codes/blog/testing-color-mode.md",
+      "canonical": "https://debbie.codes/blog/testing-color-mode",
       "description": "My site has a color mode option to change from light theme to dark theme or sepia theme or use the system preference. So how can we write a test to make sure this all works?"
     },
     {
@@ -824,6 +884,7 @@
       "url": "https://debbie.codes/blog/interviewing-with-the-big-tech-companies",
       "path": "/blog/interviewing-with-the-big-tech-companies",
       "markdownUrl": "https://debbie.codes/blog/interviewing-with-the-big-tech-companies.md",
+      "canonical": "https://debbie.codes/blog/interviewing-with-the-big-tech-companies",
       "description": "When a recruiter from Meta, from America, had called me, it just opened my eyes to the possibility that maybe just maybe I was actually good enough to work for the big tech companies."
     },
     {
@@ -836,6 +897,7 @@
       "url": "https://debbie.codes/blog/why-microsoft",
       "path": "/blog/why-microsoft",
       "markdownUrl": "https://debbie.codes/blog/why-microsoft.md",
+      "canonical": "https://debbie.codes/blog/why-microsoft",
       "description": "I just really liked the idea that Microsoft were willing to send people out to help others, to help them build better software with their products and I said to the two Microsoft guys, \"One day I will work for Microsoft\"."
     },
     {
@@ -848,6 +910,7 @@
       "url": "https://debbie.codes/blog/fixing-diversity-in-tech",
       "path": "/blog/fixing-diversity-in-tech",
       "markdownUrl": "https://debbie.codes/blog/fixing-diversity-in-tech.md",
+      "canonical": "https://debbie.codes/blog/fixing-diversity-in-tech",
       "description": "When you step back from the nationality, the color, the religion the sex etc you just get a bunch of people who become a great bunch of friends. This is tech. This is what tech should be like always, for everyone."
     },
     {
@@ -860,6 +923,7 @@
       "url": "https://debbie.codes/blog/js-array-at-method",
       "path": "/blog/js-array-at-method",
       "markdownUrl": "https://debbie.codes/blog/js-array-at-method.md",
+      "canonical": "https://debbie.codes/blog/js-array-at-method",
       "description": "Often we want to return a single item from an array. There are a few methods of doing this including the `at(index)` method which returns the item at a given index."
     },
     {
@@ -872,6 +936,7 @@
       "url": "https://debbie.codes/blog/js-array-filter-method",
       "path": "/blog/js-array-filter-method",
       "markdownUrl": "https://debbie.codes/blog/js-array-filter-method.md",
+      "canonical": "https://debbie.codes/blog/js-array-filter-method",
       "description": "The .filter() method in JavaScript creates a new array with all elements that pass the test implemented by the provided function."
     },
     {
@@ -884,6 +949,7 @@
       "url": "https://debbie.codes/blog/work-life-balance",
       "path": "/blog/work-life-balance",
       "markdownUrl": "https://debbie.codes/blog/work-life-balance.md",
+      "canonical": "https://debbie.codes/blog/work-life-balance",
       "description": "To many people it might look like I have it all worked out and to be honest I do think I have a pretty good work life balance. But it wasn't always that way. I am probably older than most people who will read this and therefore I have had more time to make mistakes and learn from them."
     },
     {
@@ -896,6 +962,7 @@
       "url": "https://debbie.codes/blog/courage-inspiration-developer-community",
       "path": "/blog/courage-inspiration-developer-community",
       "markdownUrl": "https://debbie.codes/blog/courage-inspiration-developer-community.md",
+      "canonical": "https://debbie.codes/blog/courage-inspiration-developer-community",
       "description": "How do we empower women in tech and equip them with the skills to help them become true leaders? One way is learning from others' successes and failures. Web GDEs—Debbie O'Brien, Julia Miocene, and Glafira Zhur—discuss the value of one to one mentoring and the impact it has made on their own professional and personal development."
     },
     {
@@ -908,6 +975,7 @@
       "url": "https://debbie.codes/blog/minimizing-svgs",
       "path": "/blog/minimizing-svgs",
       "markdownUrl": "https://debbie.codes/blog/minimizing-svgs.md",
+      "canonical": "https://debbie.codes/blog/minimizing-svgs",
       "description": "When working with SVG's sometimes we just put the svg into our code and think nothing more of it. But do we always need all that code that the SVG gives us? Perhaps not. SVGO is a tool that can take an SVG and compress it down to a smaller size ensuring your site is more performant."
     },
     {
@@ -921,6 +989,7 @@
       "url": "https://debbie.codes/blog/finding-motivation-as-a-developer",
       "path": "/blog/finding-motivation-as-a-developer",
       "markdownUrl": "https://debbie.codes/blog/finding-motivation-as-a-developer.md",
+      "canonical": "https://debbie.codes/blog/finding-motivation-as-a-developer",
       "description": "Many people keep asking me where I get my motivation from, how do I find so much time and energy to do so much? I certainly don't have all the answers but I do think it is something you teach yourself."
     },
     {
@@ -934,6 +1003,7 @@
       "url": "https://debbie.codes/blog/being-an-imposter",
       "path": "/blog/being-an-imposter",
       "markdownUrl": "https://debbie.codes/blog/being-an-imposter.md",
+      "canonical": "https://debbie.codes/blog/being-an-imposter",
       "description": "If you ever look at the home page of my site or the intro slide of my talks you will probably think I am the biggest show off in the world. However, really I am an imposter. I doubt my abilities and find it difficult to accept my accomplishments and wonder if I deserve them."
     },
     {
@@ -946,6 +1016,7 @@
       "url": "https://debbie.codes/blog/pagination-in-nuxt-content",
       "path": "/blog/pagination-in-nuxt-content",
       "markdownUrl": "https://debbie.codes/blog/pagination-in-nuxt-content.md",
+      "canonical": "https://debbie.codes/blog/pagination-in-nuxt-content",
       "description": "My blog was getting bigger and bigger and so time to add pagination. I am using Nuxt Content to manage my blog posts. So how do I add pagination to my blog? Let me show you how I did it."
     },
     {
@@ -959,6 +1030,7 @@
       "url": "https://debbie.codes/blog/debugging-tests-in-playwright",
       "path": "/blog/debugging-tests-in-playwright",
       "markdownUrl": "https://debbie.codes/blog/debugging-tests-in-playwright.md",
+      "canonical": "https://debbie.codes/blog/debugging-tests-in-playwright",
       "description": "Let's take a look at some of the ways you can debug your tests in Playwright should they fail. Playwright scripts work with existing debugging tools, like Node.js debuggers and browser developer tools. Playwright also introduces new debugging features for browser automation."
     },
     {
@@ -972,6 +1044,7 @@
       "url": "https://debbie.codes/blog/reports-tracing-tests-in-playwright",
       "path": "/blog/reports-tracing-tests-in-playwright",
       "markdownUrl": "https://debbie.codes/blog/reports-tracing-tests-in-playwright.md",
+      "canonical": "https://debbie.codes/blog/reports-tracing-tests-in-playwright",
       "description": "Playwright will serve up a HTML report on your local server so you can easily walk through the steps of your test. You can also open a trace file which gives you even more powerful options of viewing, reporting, interacting and even debugging your tests."
     },
     {
@@ -984,6 +1057,7 @@
       "url": "https://debbie.codes/blog/design-tokens-and-theming",
       "path": "/blog/design-tokens-and-theming",
       "markdownUrl": "https://debbie.codes/blog/design-tokens-and-theming.md",
+      "canonical": "https://debbie.codes/blog/design-tokens-and-theming",
       "description": "As frontend developers we are normally given a design from Figma or similar tools that we then need to turn into code. So where do we start? What are the first steps we should take when converting our design into code?"
     },
     {
@@ -997,6 +1071,7 @@
       "url": "https://debbie.codes/blog/getting-started-with-playwright-testing",
       "path": "/blog/getting-started-with-playwright-testing",
       "markdownUrl": "https://debbie.codes/blog/getting-started-with-playwright-testing.md",
+      "canonical": "https://debbie.codes/blog/getting-started-with-playwright-testing",
       "description": "How can we get more developers to write tests? We can create better tools that makes testing easier. Let's take a look at Playwright and it's amazing features including codegen which writes your tests for you."
     },
     {
@@ -1010,6 +1085,7 @@
       "url": "https://debbie.codes/blog/testing-iframes-with-playwright",
       "path": "/blog/testing-iframes-with-playwright",
       "markdownUrl": "https://debbie.codes/blog/testing-iframes-with-playwright.md",
+      "canonical": "https://debbie.codes/blog/testing-iframes-with-playwright",
       "description": "Have you ever had to test something in an iframe on your page with end to end testing? Even testing the play button of an embedded video used to be difficult but then along came Playwright. Let's take a look at how Playwright can help you test iframes."
     },
     {
@@ -1022,6 +1098,7 @@
       "url": "https://debbie.codes/blog/theming-in-react",
       "path": "/blog/theming-in-react",
       "markdownUrl": "https://debbie.codes/blog/theming-in-react.md",
+      "canonical": "https://debbie.codes/blog/theming-in-react",
       "description": "Theming is a fascinating topic and a really important one these days as more and more people add light and dark mode to their sites and companies change the theme of their site or part of their site on specific dates to celebrate occasions such as christmas, pride week etc."
     },
     {
@@ -1035,6 +1112,7 @@
       "url": "https://debbie.codes/blog/learning-about-developer-advocates",
       "path": "/blog/learning-about-developer-advocates",
       "markdownUrl": "https://debbie.codes/blog/learning-about-developer-advocates.md",
+      "canonical": "https://debbie.codes/blog/learning-about-developer-advocates",
       "description": "Being a Developer Advocate is by far the best job in the world, at least in my opinion and for me. It isn't for everyone and that's ok too. In this post I am going to share a bit about what I do as a Developer Advocate and what I love about it."
     },
     {
@@ -1047,6 +1125,7 @@
       "url": "https://debbie.codes/blog/building-cart-context-component",
       "path": "/blog/building-cart-context-component",
       "markdownUrl": "https://debbie.codes/blog/building-cart-context-component.md",
+      "canonical": "https://debbie.codes/blog/building-cart-context-component",
       "description": "Creating a generic cart component that can add and remove a product from the cart using React Context. This component can then be used in any other component or app to create more specific cart components."
     },
     {
@@ -1060,6 +1139,7 @@
       "url": "https://debbie.codes/blog/building-and-testing-counter-component",
       "path": "/blog/building-and-testing-counter-component",
       "markdownUrl": "https://debbie.codes/blog/building-and-testing-counter-component.md",
+      "canonical": "https://debbie.codes/blog/building-and-testing-counter-component",
       "description": "We want to build and test a counter component built with React and TypeScript. So where do we start? Which components do we need to build to create this component and what do we test?"
     },
     {
@@ -1073,6 +1153,7 @@
       "url": "https://debbie.codes/blog/typescript-and-children",
       "path": "/blog/typescript-and-children",
       "markdownUrl": "https://debbie.codes/blog/typescript-and-children.md",
+      "canonical": "https://debbie.codes/blog/typescript-and-children",
       "description": "What happens when we pass in children in React? Children is a special prop that allows us to pass in any type of element. It could be a number, a string, a boolean, an array of elements or even another component. So how can we check the types?"
     },
     {
@@ -1086,6 +1167,7 @@
       "url": "https://debbie.codes/blog/building-and-testing-select-input",
       "path": "/blog/building-and-testing-select-input",
       "markdownUrl": "https://debbie.codes/blog/building-and-testing-select-input.md",
+      "canonical": "https://debbie.codes/blog/building-and-testing-select-input",
       "description": "Building a Select component with a Composition to see the component render in isolation as well as Tests using React Testing Library to test the select works on change and shows a new value."
     },
     {
@@ -1099,6 +1181,7 @@
       "url": "https://debbie.codes/blog/testing-button-component",
       "path": "/blog/testing-button-component",
       "markdownUrl": "https://debbie.codes/blog/testing-button-component.md",
+      "canonical": "https://debbie.codes/blog/testing-button-component",
       "description": "Testing a button component with React Testing Library. What to test and how to test your button component when building multiple compositions of the button."
     },
     {
@@ -1111,6 +1194,7 @@
       "url": "https://debbie.codes/blog/2021-in-review",
       "path": "/blog/2021-in-review",
       "markdownUrl": "https://debbie.codes/blog/2021-in-review.md",
+      "canonical": "https://debbie.codes/blog/2021-in-review",
       "description": "A look back at yet again another amazing year even though times were hard. From lockdowns to in person conferences, to changing jobs and learning a new library, as well as mentoring, teaching workshops, doing lots of sport and so much more."
     },
     {
@@ -1123,6 +1207,7 @@
       "url": "https://debbie.codes/blog/adding-tailwind-to-bit",
       "path": "/blog/adding-tailwind-to-bit",
       "markdownUrl": "https://debbie.codes/blog/adding-tailwind-to-bit.md",
+      "canonical": "https://debbie.codes/blog/adding-tailwind-to-bit",
       "description": "Adding TailwindCSS to your Bit components by adding it to the env that is used by your components. This way the the component compositions will show the TailwindCSS classes."
     },
     {
@@ -1135,6 +1220,7 @@
       "url": "https://debbie.codes/blog/building-an-ecommerce-product-page",
       "path": "/blog/building-an-ecommerce-product-page",
       "markdownUrl": "https://debbie.codes/blog/building-an-ecommerce-product-page.md",
+      "canonical": "https://debbie.codes/blog/building-an-ecommerce-product-page",
       "description": "Where do you start when building a product page for an e-commerce store? How do you think about naming the components and how much to break down the components? What do you start building first and why?"
     },
     {
@@ -1148,6 +1234,7 @@
       "url": "https://debbie.codes/blog/understanding-typescript",
       "path": "/blog/understanding-typescript",
       "markdownUrl": "https://debbie.codes/blog/understanding-typescript.md",
+      "canonical": "https://debbie.codes/blog/understanding-typescript",
       "description": "TypeScript is a superset of JavaScript. Any types that are added are not part of the final bundle so really TypeScript is there to make your life easier as a developer."
     },
     {
@@ -1161,6 +1248,7 @@
       "url": "https://debbie.codes/blog/nuxt-image",
       "path": "/blog/nuxt-image",
       "markdownUrl": "https://debbie.codes/blog/nuxt-image.md",
+      "canonical": "https://debbie.codes/blog/nuxt-image",
       "description": "Showing the benefits of Nuxt image by analyzing the performance of my website before and after adding the Nuxt Image module."
     },
     {
@@ -1173,6 +1261,7 @@
       "url": "https://debbie.codes/blog/publish-multiple-components-to-npm",
       "path": "/blog/publish-multiple-components-to-npm",
       "markdownUrl": "https://debbie.codes/blog/publish-multiple-components-to-npm.md",
+      "canonical": "https://debbie.codes/blog/publish-multiple-components-to-npm",
       "description": "Sharing components across multiple projects or with other developers seems to be the most complicated thing, yet it really shouldn’t be. With package registries such as npm or GitHub packages surely we should easily be able to share our components by publishing them as packages."
     },
     {
@@ -1186,6 +1275,7 @@
       "url": "https://debbie.codes/blog/sharing-react-components-across-multiple-applications",
       "path": "/blog/sharing-react-components-across-multiple-applications",
       "markdownUrl": "https://debbie.codes/blog/sharing-react-components-across-multiple-applications.md",
+      "canonical": "https://debbie.codes/blog/sharing-react-components-across-multiple-applications",
       "description": "We have almost all been in a situation where we need to share a component between one app and another. Often we just decide to copy and paste it because it really is the quickest option. And sometimes it’s even ok, especially when it comes to those smaller components. But what if you wanted to share a big and more complex component?"
     },
     {
@@ -1198,6 +1288,7 @@
       "url": "https://debbie.codes/blog/vs-code-tips",
       "path": "/blog/vs-code-tips",
       "markdownUrl": "https://debbie.codes/blog/vs-code-tips.md",
+      "canonical": "https://debbie.codes/blog/vs-code-tips",
       "description": "Tips, shortcuts and extensions to make working with VS Code easier so you can developer faster and let the tools do the job for you."
     },
     {
@@ -1211,6 +1302,7 @@
       "url": "https://debbie.codes/blog/amazing-things-are-going-to-happen",
       "path": "/blog/amazing-things-are-going-to-happen",
       "markdownUrl": "https://debbie.codes/blog/amazing-things-are-going-to-happen.md",
+      "canonical": "https://debbie.codes/blog/amazing-things-are-going-to-happen",
       "description": "Believing in yourself is hard, especially when for so long people have put you down or not believed in you. Getting those voices out of your head is not easy but I think I have finally done it and now I can finally grow and just be a star."
     },
     {
@@ -1223,6 +1315,7 @@
       "url": "https://debbie.codes/blog/discord-virtual-office",
       "path": "/blog/discord-virtual-office",
       "markdownUrl": "https://debbie.codes/blog/discord-virtual-office.md",
+      "canonical": "https://debbie.codes/blog/discord-virtual-office",
       "description": "We use Discord as our virtual office at Bit and I have to tell you all about it as it really is a great way to work and collaborate with others especially when working in different time zones."
     },
     {
@@ -1235,6 +1328,7 @@
       "url": "https://debbie.codes/blog/learning-react",
       "path": "/blog/learning-react",
       "markdownUrl": "https://debbie.codes/blog/learning-react.md",
+      "canonical": "https://debbie.codes/blog/learning-react",
       "description": "Recently I started learning React for my new job. I basically went from being a coding ninja to being a coding newbie. But hey everything can be learnt so here is what I have learnt so far."
     },
     {
@@ -1247,6 +1341,7 @@
       "url": "https://debbie.codes/blog/ask-engineers-anything",
       "path": "/blog/ask-engineers-anything",
       "markdownUrl": "https://debbie.codes/blog/ask-engineers-anything.md",
+      "canonical": "https://debbie.codes/blog/ask-engineers-anything",
       "description": "For February’s Ask Engineers Anything event (aka office hours for our engineer community), I invited GitHub Star and community favorite, Debbie O’Brien, to share her experience as a woman in tech who is making a huge difference in the ecosystem."
     },
     {
@@ -1259,6 +1354,7 @@
       "url": "https://debbie.codes/blog/nuxt-middleware",
       "path": "/blog/nuxt-middleware",
       "markdownUrl": "https://debbie.codes/blog/nuxt-middleware.md",
+      "canonical": "https://debbie.codes/blog/nuxt-middleware",
       "description": "Middleware lets you define custom functions that can be run before rendering either a page or a group of pages which we call layouts."
     },
     {
@@ -1271,6 +1367,7 @@
       "url": "https://debbie.codes/blog/nuxt-loading",
       "path": "/blog/nuxt-loading",
       "markdownUrl": "https://debbie.codes/blog/nuxt-loading.md",
+      "canonical": "https://debbie.codes/blog/nuxt-loading",
       "description": "We can customize the Loading for our Client Side applications as well as the loading Progress bar for our server rendered applications and we can even customize this to create our own."
     },
     {
@@ -1283,6 +1380,7 @@
       "url": "https://debbie.codes/blog/nuxt-deploying-to-netlify",
       "path": "/blog/nuxt-deploying-to-netlify",
       "markdownUrl": "https://debbie.codes/blog/nuxt-deploying-to-netlify.md",
+      "canonical": "https://debbie.codes/blog/nuxt-deploying-to-netlify",
       "description": "If you are building a Nuxt static site and want to deploy it easily and for free then Netlify is a great choice. Let me show you how easy it is."
     },
     {
@@ -1295,6 +1393,7 @@
       "url": "https://debbie.codes/blog/why-livestreams-scare-me",
       "path": "/blog/why-livestreams-scare-me",
       "markdownUrl": "https://debbie.codes/blog/why-livestreams-scare-me.md",
+      "canonical": "https://debbie.codes/blog/why-livestreams-scare-me",
       "description": "What its like to do a live stream, why it scares me and why I know the only way to get over fear is to keep doing it again and again."
     },
     {
@@ -1308,6 +1407,7 @@
       "url": "https://debbie.codes/blog/progressive-web-apps",
       "path": "/blog/progressive-web-apps",
       "markdownUrl": "https://debbie.codes/blog/progressive-web-apps.md",
+      "canonical": "https://debbie.codes/blog/progressive-web-apps",
       "description": "Progressive web apps will really help your performance and you can install them on your home screen or desktop and have that app like feel for your website. Let's have a look at how they work."
     },
     {
@@ -1320,6 +1420,7 @@
       "url": "https://debbie.codes/blog/nuxt-add-vue-plugins",
       "path": "/blog/nuxt-add-vue-plugins",
       "markdownUrl": "https://debbie.codes/blog/nuxt-add-vue-plugins.md",
+      "canonical": "https://debbie.codes/blog/nuxt-add-vue-plugins",
       "description": "In Nuxt we can add Vue plugins to our application by creating a Nuxt plugin and then registering that plugin in the Nuxt Config file."
     },
     {
@@ -1332,6 +1433,7 @@
       "url": "https://debbie.codes/blog/creating-video-courses",
       "path": "/blog/creating-video-courses",
       "markdownUrl": "https://debbie.codes/blog/creating-video-courses.md",
+      "canonical": "https://debbie.codes/blog/creating-video-courses",
       "description": "Creating video courses can be very time consuming and for sure there is no one way to go about it. In this post I share what I have learnt and how I now find it easier to create courses."
     },
     {
@@ -1345,6 +1447,7 @@
       "url": "https://debbie.codes/blog/why-i-love-nuxt",
       "path": "/blog/why-i-love-nuxt",
       "markdownUrl": "https://debbie.codes/blog/why-i-love-nuxt.md",
+      "canonical": "https://debbie.codes/blog/why-i-love-nuxt",
       "description": "I have been using Nuxt in all of my recent tech jobs but why did I start using it? What problems did I have trying to convince the team and more important the clients. And why should you use Nuxt?"
     },
     {
@@ -1358,6 +1461,7 @@
       "url": "https://debbie.codes/blog/nuxt-lite-youtube-embeds",
       "path": "/blog/nuxt-lite-youtube-embeds",
       "markdownUrl": "https://debbie.codes/blog/nuxt-lite-youtube-embeds.md",
+      "canonical": "https://debbie.codes/blog/nuxt-lite-youtube-embeds",
       "description": "If you are adding YouTube videos to your site you might notice that they can load quite slowly especially when loading iframes. However this is a better way. With this library your YouTube videos will load super fast and your site will be more performant because of it."
     },
     {
@@ -1370,6 +1474,7 @@
       "url": "https://debbie.codes/blog/nuxt-analytics",
       "path": "/blog/nuxt-analytics",
       "markdownUrl": "https://debbie.codes/blog/nuxt-analytics.md",
+      "canonical": "https://debbie.codes/blog/nuxt-analytics",
       "description": "When you build your own site sometimes it's important to add analytics to see what is doing well, what your audience is spending time and perhaps find ways of improving your site"
     },
     {
@@ -1382,6 +1487,7 @@
       "url": "https://debbie.codes/blog/2020-in-review",
       "path": "/blog/2020-in-review",
       "markdownUrl": "https://debbie.codes/blog/2020-in-review.md",
+      "canonical": "https://debbie.codes/blog/2020-in-review",
       "description": "A look back at what we could say has been an interesting year, challenging in many ways yet somehow has been my most successful year to date."
     },
     {
@@ -1394,6 +1500,7 @@
       "url": "https://debbie.codes/blog/creating-a-nuxt-module",
       "path": "/blog/creating-a-nuxt-module",
       "markdownUrl": "https://debbie.codes/blog/creating-a-nuxt-module.md",
+      "canonical": "https://debbie.codes/blog/creating-a-nuxt-module",
       "description": "Modules are functions that are called sequentially when booting Nuxt. The framework waits for each module to finish before continuing. In this way, modules can customize almost any aspect of your project. Nuxt modules can be incorporated into npm packages. This makes them easy to reuse across projects and to share with the community."
     },
     {
@@ -1406,6 +1513,7 @@
       "url": "https://debbie.codes/blog/how-we-use-nuxt-at-the-nuxtjs-company",
       "path": "/blog/how-we-use-nuxt-at-the-nuxtjs-company",
       "markdownUrl": "https://debbie.codes/blog/how-we-use-nuxt-at-the-nuxtjs-company.md",
+      "canonical": "https://debbie.codes/blog/how-we-use-nuxt-at-the-nuxtjs-company",
       "description": "The first commit for Nuxt.js on Github was made on October 26th, 2016. Since then the Nuxt.js framework has grown from 2 creators in 2016 to having 10 full-time employees at the NuxtJS company, as well as the amazing Nuxt community with maintainers, ambassadors and contributors."
     },
     {
@@ -1419,6 +1527,7 @@
       "url": "https://debbie.codes/blog/vue-directives",
       "path": "/blog/vue-directives",
       "markdownUrl": "https://debbie.codes/blog/vue-directives.md",
+      "canonical": "https://debbie.codes/blog/vue-directives",
       "description": "Vue Directives are a great way of doing things like trimming your models or only showing something once. So many cool directives to make your life easier when coding in Vue."
     },
     {
@@ -1431,6 +1540,7 @@
       "url": "https://debbie.codes/blog/date-formatting",
       "path": "/blog/date-formatting",
       "markdownUrl": "https://debbie.codes/blog/date-formatting.md",
+      "canonical": "https://debbie.codes/blog/date-formatting",
       "description": "How to format a date in JavaScript without using any libraries so you easily display dates in your Vue or Nuxt application"
     },
     {
@@ -1444,6 +1554,7 @@
       "url": "https://debbie.codes/blog/advanced-i18n-in-nuxt-using-interpolations",
       "path": "/blog/advanced-i18n-in-nuxt-using-interpolations",
       "markdownUrl": "https://debbie.codes/blog/advanced-i18n-in-nuxt-using-interpolations.md",
+      "canonical": "https://debbie.codes/blog/advanced-i18n-in-nuxt-using-interpolations",
       "description": "That's where i18n interpolation comes into practice. With i18n, instead of using v-html we can instead use interpolation. How? i18n gives us an <i18n> component that we can use on any of our pages or inside our components."
     },
     {
@@ -1456,6 +1567,7 @@
       "url": "https://debbie.codes/blog/extrovert-in-virtual-world",
       "path": "/blog/extrovert-in-virtual-world",
       "markdownUrl": "https://debbie.codes/blog/extrovert-in-virtual-world.md",
+      "canonical": "https://debbie.codes/blog/extrovert-in-virtual-world",
       "description": "From being surrounded by amazing people to being locked up from the world. 2020 has been an interesting year and a very hard one for those who are extroverts and love being around people."
     },
     {
@@ -1468,6 +1580,7 @@
       "url": "https://debbie.codes/blog/cityjs-conf",
       "path": "/blog/cityjs-conf",
       "markdownUrl": "https://debbie.codes/blog/cityjs-conf.md",
+      "canonical": "https://debbie.codes/blog/cityjs-conf",
       "description": "“I guess you could say I love the buzz of the stage but also because my talks help people learn something new. Now the virtual world is not the same at all, but what can we do? I don’t dislike it — I would just prefer to see and talk to people. I am very much a people’s person.”"
     },
     {
@@ -1480,6 +1593,7 @@
       "url": "https://debbie.codes/blog/why-static-sites-are-back",
       "path": "/blog/why-static-sites-are-back",
       "markdownUrl": "https://debbie.codes/blog/why-static-sites-are-back.md",
+      "canonical": "https://debbie.codes/blog/why-static-sites-are-back",
       "description": "When we first built websites many years ago they were very static. It was all we knew. Html with some CSS and a tiny bit of JavaScript. A typical website from 1996, SpaceJam which really shows how static sites are."
     },
     {
@@ -1492,6 +1606,7 @@
       "url": "https://debbie.codes/blog/js-array-map-method",
       "path": "/blog/js-array-map-method",
       "markdownUrl": "https://debbie.codes/blog/js-array-map-method.md",
+      "canonical": "https://debbie.codes/blog/js-array-map-method",
       "description": "The .map() method in JavaScript lets you loop over every element in an array and modify or add to it and then return a different element to take that elements place"
     },
     {
@@ -1504,6 +1619,7 @@
       "url": "https://debbie.codes/blog/nuxt-cookie-consent",
       "path": "/blog/nuxt-cookie-consent",
       "markdownUrl": "https://debbie.codes/blog/nuxt-cookie-consent.md",
+      "canonical": "https://debbie.codes/blog/nuxt-cookie-consent",
       "description": "When in Europe and using cookies we need to show a cookie consent banner so our users are aware that we are using cookies on the site."
     },
     {
@@ -1516,6 +1632,7 @@
       "url": "https://debbie.codes/blog/nuxt-fetching-graphql-queries",
       "path": "/blog/nuxt-fetching-graphql-queries",
       "markdownUrl": "https://debbie.codes/blog/nuxt-fetching-graphql-queries.md",
+      "canonical": "https://debbie.codes/blog/nuxt-fetching-graphql-queries",
       "description": "How to fetch data from graphQL without having to use libraries such as apollo"
     },
     {
@@ -1528,6 +1645,7 @@
       "url": "https://debbie.codes/blog/nuxt-migrating-to-nuxt-content",
       "path": "/blog/nuxt-migrating-to-nuxt-content",
       "markdownUrl": "https://debbie.codes/blog/nuxt-migrating-to-nuxt-content.md",
+      "canonical": "https://debbie.codes/blog/nuxt-migrating-to-nuxt-content",
       "description": "If you already have documentation set up and would like to migrate to Nuxt Content then this guide should help you make migrate easily and take advantage of what the docs theme gives you."
     },
     {
@@ -1541,6 +1659,7 @@
       "url": "https://debbie.codes/blog/cypress-setup",
       "path": "/blog/cypress-setup",
       "markdownUrl": "https://debbie.codes/blog/cypress-setup.md",
+      "canonical": "https://debbie.codes/blog/cypress-setup",
       "description": "Let's take a look at how you setup Cypress in your Nuxt.js project, setup a github action for continuous integration so that Netlify will run the tests every time your application is building."
     },
     {
@@ -1553,6 +1672,7 @@
       "url": "https://debbie.codes/blog/nuxt-using-apollo-to-fetch-data",
       "path": "/blog/nuxt-using-apollo-to-fetch-data",
       "markdownUrl": "https://debbie.codes/blog/nuxt-using-apollo-to-fetch-data.md",
+      "canonical": "https://debbie.codes/blog/nuxt-using-apollo-to-fetch-data",
       "description": "Using Apollo to Fetch Data from a GraphQL API"
     },
     {
@@ -1565,6 +1685,7 @@
       "url": "https://debbie.codes/blog/create-a-blog-with-nuxt-content",
       "path": "/blog/create-a-blog-with-nuxt-content",
       "markdownUrl": "https://debbie.codes/blog/create-a-blog-with-nuxt-content.md",
+      "canonical": "https://debbie.codes/blog/create-a-blog-with-nuxt-content",
       "description": "The content module is a git files based headless CMS that provides powerful features when it comes to write blogs, documentation sites or just adding content to any regular website. In this post we will go through most of the benefits of this module and discover how we can create a blog with it."
     },
     {
@@ -1578,6 +1699,7 @@
       "url": "https://debbie.codes/blog/nuxt-adding-pwa",
       "path": "/blog/nuxt-adding-pwa",
       "markdownUrl": "https://debbie.codes/blog/nuxt-adding-pwa.md",
+      "canonical": "https://debbie.codes/blog/nuxt-adding-pwa",
       "description": "Most people don't realise how easy it really is to add a PWA with Nuxt.js. Progressive Web Apps (PWA) deliver native-like capabilities, reliability, and installability while reaching anyone, anywhere, on any device with a single codebase."
     },
     {
@@ -1590,6 +1712,7 @@
       "url": "https://debbie.codes/blog/nuxt-active-styles",
       "path": "/blog/nuxt-active-styles",
       "markdownUrl": "https://debbie.codes/blog/nuxt-active-styles.md",
+      "canonical": "https://debbie.codes/blog/nuxt-active-styles",
       "description": "Nuxt.js, which uses `vue-router`, can easily tell what route you are on and therefore can add a class to that link when the user is on that page. By default this class is called `nuxt-link-active`."
     },
     {
@@ -1602,6 +1725,7 @@
       "url": "https://debbie.codes/blog/autoload-vue-components-in-nuxt",
       "path": "/blog/autoload-vue-components-in-nuxt",
       "markdownUrl": "https://debbie.codes/blog/autoload-vue-components-in-nuxt.md",
+      "canonical": "https://debbie.codes/blog/autoload-vue-components-in-nuxt",
       "description": "With Nuxt components you can auto import your components really easily and even comes with support for dynamic imports otherwise known as lazy loading. That means you can just add your component in the template without having to add it to the script tag. This makes development much faster."
     },
     {
@@ -1614,6 +1738,7 @@
       "url": "https://debbie.codes/blog/moving-from-dontenv-to-runtime-config",
       "path": "/blog/moving-from-dontenv-to-runtime-config",
       "markdownUrl": "https://debbie.codes/blog/moving-from-dontenv-to-runtime-config.md",
+      "canonical": "https://debbie.codes/blog/moving-from-dontenv-to-runtime-config",
       "description": "In our frontend applications, we often use APIs and third-party integrations which require us to use configuration data which is usually provided by environment variables. These variables should not be exposed to the frontend as the browser environment is accessible by all visitors."
     },
     {
@@ -1626,6 +1751,7 @@
       "url": "https://debbie.codes/blog/going-dark-nuxt-color-mode",
       "path": "/blog/going-dark-nuxt-color-mode",
       "markdownUrl": "https://debbie.codes/blog/going-dark-nuxt-color-mode.md",
+      "canonical": "https://debbie.codes/blog/going-dark-nuxt-color-mode",
       "description": "The @nuxtjs/color-mode module is a cool way of adding dark mode to your site. But not only does it switch from dark to light but also any color theme (eg sepia mode). It even has auto detection so that it will choose the right mode depending on your system appearance."
     },
     {
@@ -1638,6 +1764,7 @@
       "url": "https://debbie.codes/blog/nuxt-ignoring-files-nuxt",
       "path": "/blog/nuxt-ignoring-files-nuxt",
       "markdownUrl": "https://debbie.codes/blog/nuxt-ignoring-files-nuxt.md",
+      "canonical": "https://debbie.codes/blog/nuxt-ignoring-files-nuxt",
       "description": "In Nuxt.js there are 3 different ways to ignore files during the build phase. This is great for static site generation which means you can still generate your site with a broken page as it will be ignored."
     },
     {
@@ -1650,6 +1777,7 @@
       "url": "https://debbie.codes/blog/nuxt-error-page",
       "path": "/blog/nuxt-error-page",
       "markdownUrl": "https://debbie.codes/blog/nuxt-error-page.md",
+      "canonical": "https://debbie.codes/blog/nuxt-error-page",
       "description": "An error page is the page you see when you arrive at a page that can't be found. These are typically called 404 pages. To create an error page all you need to do is create an `error.vue` file in your layouts folder. Layouts?"
     },
     {
@@ -1662,6 +1790,7 @@
       "url": "https://debbie.codes/blog/nuxt-configure-server-to-see-site-on-mobile",
       "path": "/blog/nuxt-configure-server-to-see-site-on-mobile",
       "markdownUrl": "https://debbie.codes/blog/nuxt-configure-server-to-see-site-on-mobile.md",
+      "canonical": "https://debbie.codes/blog/nuxt-configure-server-to-see-site-on-mobile",
       "description": "Sometimes you want to test out your site on your actual mobile device or tablet and not just in the dev tools. This is great when bug fixing or just to see how it looks in a real environment."
     },
     {
@@ -1674,6 +1803,7 @@
       "url": "https://debbie.codes/blog/nuxt-show-message-when-offline",
       "path": "/blog/nuxt-show-message-when-offline",
       "markdownUrl": "https://debbie.codes/blog/nuxt-show-message-when-offline.md",
+      "canonical": "https://debbie.codes/blog/nuxt-show-message-when-offline",
       "description": "Did you know that `$nuxt.isOffline` can be used to show your users content based on if they are online or not."
     },
     {
@@ -1686,6 +1816,7 @@
       "url": "https://debbie.codes/blog/nuxt-loading-progress-bar",
       "path": "/blog/nuxt-loading-progress-bar",
       "markdownUrl": "https://debbie.codes/blog/nuxt-loading-progress-bar.md",
+      "canonical": "https://debbie.codes/blog/nuxt-loading-progress-bar",
       "description": "Nuxt.js automatically gives you a loading progress bar component which is shown between routes. Did you know you can customise it, disable it or create your own component?"
     },
     {
@@ -1699,6 +1830,7 @@
       "url": "https://debbie.codes/blog/nuxt-analyze-webpack-bundles",
       "path": "/blog/nuxt-analyze-webpack-bundles",
       "markdownUrl": "https://debbie.codes/blog/nuxt-analyze-webpack-bundles.md",
+      "canonical": "https://debbie.codes/blog/nuxt-analyze-webpack-bundles",
       "description": "As we add so many third party libraries to our site sometimes we forget that perhaps they are going to have an impact on our performance or sometimes we just don't read the install instructions and install the whole library instead of only what we need."
     },
     {
@@ -1711,6 +1843,7 @@
       "url": "https://debbie.codes/blog/nuxt-page-and-layout-transitions",
       "path": "/blog/nuxt-page-and-layout-transitions",
       "markdownUrl": "https://debbie.codes/blog/nuxt-page-and-layout-transitions.md",
+      "canonical": "https://debbie.codes/blog/nuxt-page-and-layout-transitions",
       "description": "With Nuxt.js it is really easy to add transitions between your pages. You can create transitions for all your pages or layouts and you can even have different transitions for specific pages."
     },
     {
@@ -1723,6 +1856,7 @@
       "url": "https://debbie.codes/blog/build-counter-dropdown-accordion",
       "path": "/blog/build-counter-dropdown-accordion",
       "markdownUrl": "https://debbie.codes/blog/build-counter-dropdown-accordion.md",
+      "canonical": "https://debbie.codes/blog/build-counter-dropdown-accordion",
       "description": "Let’s dive into building some core main components that you might be tasked with when writing applications in Vue. Or, if you’re new to Vue, then these are definitely some great ways to get started understanding the more ‘common’ components that we might work with on a day-to-day basis. With that in mind, let’s get started right away with building a Counter, Dropdown and finally an Accordion with Vue!"
     },
     {
@@ -1735,6 +1869,7 @@
       "url": "https://debbie.codes/blog/finding-your-way-around-the-vue-ui",
       "path": "/blog/finding-your-way-around-the-vue-ui",
       "markdownUrl": "https://debbie.codes/blog/finding-your-way-around-the-vue-ui.md",
+      "canonical": "https://debbie.codes/blog/finding-your-way-around-the-vue-ui",
       "description": "Vue CLI is the fastest way to get your Vue project off the ground and it also comes with a really cool graphical user interface that allows you to easily modify your project’s configuration, run linters, search for and install plugins, analyse your bundle with webpack and more."
     },
     {
@@ -1747,6 +1882,7 @@
       "url": "https://debbie.codes/blog/javascript-workshop-with-kyle-simpson",
       "path": "/blog/javascript-workshop-with-kyle-simpson",
       "markdownUrl": "https://debbie.codes/blog/javascript-workshop-with-kyle-simpson.md",
+      "canonical": "https://debbie.codes/blog/javascript-workshop-with-kyle-simpson",
       "description": "It has been a couple of months since Kyle, author of the “You Don’t Know JS” series, visited our trivago headquarters and gave us a wonderful JavaScript workshop. It was such an enjoyable week, being able to meet Kyle in person and walk through his thinking behind the materials."
     },
     {
@@ -1759,6 +1895,7 @@
       "url": "https://debbie.codes/blog/how-learning-to-code-changed-my-life",
       "path": "/blog/how-learning-to-code-changed-my-life",
       "markdownUrl": "https://debbie.codes/blog/how-learning-to-code-changed-my-life.md",
+      "canonical": "https://debbie.codes/blog/how-learning-to-code-changed-my-life",
       "description": "A year ago, I was in a very different place. I had come to the end of a very long journey and I just didn’t know what to do next. I didn’t really have the interest or the strength to continue and I believed that I didn’t have a purpose anymore. I was in a deep, dark hole and I didn’t know how to get out of it."
     },
     {
@@ -1771,6 +1908,7 @@
       "url": "https://debbie.codes/blog/meet-debbie-8-months-to-frontend-architect",
       "path": "/blog/meet-debbie-8-months-to-frontend-architect",
       "markdownUrl": "https://debbie.codes/blog/meet-debbie-8-months-to-frontend-architect.md",
+      "canonical": "https://debbie.codes/blog/meet-debbie-8-months-to-frontend-architect",
       "description": "Each day we look forward to seeing our students around the world succeed as they grow and navigate within their chosen career path. We’re even more thrilled when our students become graduates and get a job in their dream role!"
     },
     {
@@ -1783,6 +1921,7 @@
       "url": "https://debbie.codes/blog/whats-it-like-to-work-after-studying-online",
       "path": "/blog/whats-it-like-to-work-after-studying-online",
       "markdownUrl": "https://debbie.codes/blog/whats-it-like-to-work-after-studying-online.md",
+      "canonical": "https://debbie.codes/blog/whats-it-like-to-work-after-studying-online",
       "description": "I was one of the first graduates from the Front-End Web Development course. I had played around with different online courses in coding before, but really found what I was looking for with OpenClassrooms. Fast forward 8 months, I had completed all projects and managed to get myself a job at Logitravel, a holiday booking site based in Palma, Mallorca."
     },
     {

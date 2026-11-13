@@ -93,6 +93,11 @@ useHead({
       title: 'llms.txt',
       href: `${mySite}/llms.txt`,
     },
+    // llmstxt.org v2 relation
+    {
+      rel: 'describedby',
+      href: '/llms.txt',
+    },
   ],
 })
 </script>
