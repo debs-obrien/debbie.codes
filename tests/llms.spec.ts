@@ -6,7 +6,7 @@ import { expect, test } from './fixtures';
 
 const TOOL_NAMES = Object.values(webmcpTools).map(tool => tool.name);
 const BANNED_VIDEO_IDS = ['A8Gu-ayw6dM', 'yi8b55MLLlg'];
-const UNPUBLISHED_SLUG = 'webmcp-on-my-site';
+const UNPUBLISHED_SLUG = 'unpublished-filter-fixture';
 const PUBLISHED_SLUGS = [
   'devrel-didnt-die-its-audience-changed',
   'hire-me-voice-agent-grok-bot'

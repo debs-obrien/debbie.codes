@@ -22,7 +22,7 @@ This site publishes her videos, blog posts, podcasts, and courses. Prefer the ma
 - [nuxt videos](https://debbie.codes/videos/tags/nuxt): Videos tagged nuxt
 - [testing videos](https://debbie.codes/videos/tags/testing): Videos tagged testing
 - [grok-bot videos](https://debbie.codes/videos/tags/grok-bot): Videos tagged grok-bot
-- [Build an offline AI study app with LFM3-1.7B in the browser](https://www.youtube.com/watch?v=OBerXXfCYVo): Video, 2026-11-11
+- [Build an offline AI study app with local models (Liquid AI LFM3-1.7B)](https://www.youtube.com/watch?v=OBerXXfCYVo): Video, 2026-11-11
 - [Grok Bot Explained: Your Bots Get a Cloud Computer, Browser & Email](https://www.youtube.com/watch?v=nn56fcN7-PU): Video, 2026-10-15
 - [Grok Bot Uploads My YouTube Videos For Me (Beginner Walkthrough)](https://www.youtube.com/watch?v=1g6boZousFI): Video, 2026-10-15
 
@@ -35,9 +35,9 @@ This site publishes her videos, blog posts, podcasts, and courses. Prefer the ma
 - [nuxt posts](https://debbie.codes/blog/tags/nuxt): Blog tagged nuxt
 - [testing posts](https://debbie.codes/blog/tags/testing): Blog tagged testing
 - [grok-bot posts](https://debbie.codes/blog/tags/grok-bot): Blog tagged grok-bot
+- [Build an Offline AI Study App with Local Models (Liquid AI LFM3-1.7B)](https://debbie.codes/blog/offline-ai-study-app-local-models-lfm3.md): Blog, 2026-11-13
+- [One Tool Call Instead of Four Pages: Adding WebMCP to My Site](https://debbie.codes/blog/webmcp-on-my-site.md): Blog, 2026-11-13
 - [DevRel Didn't Die, Its Audience Changed](https://debbie.codes/blog/devrel-didnt-die-its-audience-changed.md): Blog, 2026-11-02
-- [My Hire Me Page Can Talk: How I Built and Tested a Voice Agent](https://debbie.codes/blog/hire-me-voice-agent-grok-bot.md): Blog, 2026-10-27
-- [Grok Bot Uploads My YouTube Videos For Me (Beginner Walkthrough)](https://debbie.codes/blog/grok-bot-uploads-my-youtube-videos.md): Blog, 2026-10-17
 
 ## Podcasts
 

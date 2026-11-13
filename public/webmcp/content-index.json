@@ -2,6 +2,36 @@
   "items": [
     {
       "type": "blog",
+      "title": "Build an Offline AI Study App with Local Models (Liquid AI LFM3-1.7B)",
+      "date": "2026-11-13",
+      "tags": [
+        "ai",
+        "webdev"
+      ],
+      "url": "https://debbie.codes/blog/offline-ai-study-app-local-models-lfm3",
+      "path": "/blog/offline-ai-study-app-local-models-lfm3",
+      "markdownUrl": "https://debbie.codes/blog/offline-ai-study-app-local-models-lfm3.md",
+      "canonical": "https://debbie.codes/blog/offline-ai-study-app-local-models-lfm3",
+      "description": "I ran Liquid AI's LFM3-1.7B in the browser with WebGPU and built Grading Buddy, an offline study app that answers only from notes I've checked."
+    },
+    {
+      "type": "blog",
+      "title": "One Tool Call Instead of Four Pages: Adding WebMCP to My Site",
+      "date": "2026-11-13",
+      "tags": [
+        "ai",
+        "mcp",
+        "agents",
+        "grok-bot"
+      ],
+      "url": "https://debbie.codes/blog/webmcp-on-my-site",
+      "path": "/blog/webmcp-on-my-site",
+      "markdownUrl": "https://debbie.codes/blog/webmcp-on-my-site.md",
+      "canonical": "https://debbie.codes/blog/webmcp-on-my-site",
+      "description": "AI agents that open debbie.codes in a browser can now use tools on the page to find my videos, posts, podcasts and courses, instead of reading whole pages and guessing."
+    },
+    {
+      "type": "blog",
       "title": "DevRel Didn't Die, Its Audience Changed",
       "date": "2026-11-02",
       "tags": [
@@ -1926,7 +1956,7 @@
     },
     {
       "type": "video",
-      "title": "Build an offline AI study app with LFM3-1.7B in the browser",
+      "title": "Build an offline AI study app with local models (Liquid AI LFM3-1.7B)",
       "date": "2026-11-11",
       "tags": [
         "ai"
