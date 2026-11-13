@@ -8,7 +8,7 @@ const TOOL_NAMES = Object.values(webmcpTools).map(tool => tool.name);
 const BANNED_VIDEO_IDS = ['A8Gu-ayw6dM', 'yi8b55MLLlg'];
 const UNPUBLISHED_SLUG = 'unpublished-filter-fixture';
 const PUBLISHED_SLUGS = [
-  'devrel-didnt-die-its-audience-changed',
+  'get-your-site-agent-ready',
   'hire-me-voice-agent-grok-bot'
 ];
 const EXTERNAL_CANONICAL_SLUG = 'an-agent-that-hunts-bugs-while-i-sleep';
