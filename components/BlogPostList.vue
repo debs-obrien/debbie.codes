@@ -11,6 +11,9 @@ const props = withDefaults(defineProps<{
 })
 
 function readingTimeForItem(item: BlogPostPreview): string | null {
+  // Prefer build-time minutes from list payloads (no body). Fall back for older data.
+  if (typeof item.readingMinutes === 'number' && item.readingMinutes > 0)
+    return formatReadingTime(item.readingMinutes)
   const text = extractTextFromContent((item as any).body)
     || extractTextFromContent((item as any).content)
     || item.description

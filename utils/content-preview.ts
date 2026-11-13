@@ -27,6 +27,8 @@ export const blogPreviewFields = [
   'provider',
   'url',
   'canonical',
+  // Build-time minutes (content:file:afterParse) — avoid loading full bodies.
+  'readingMinutes',
 ] as const
 
 export const videoPreviewFields = [
