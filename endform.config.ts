@@ -10,8 +10,6 @@ export default defineEndformConfig({
     'scripts/check-content.mjs',
     'utils/videos.ts',
     'utils/remote-images.ts',
-    // Optional local sitemap; crawl also fetches /sitemap.xml from the preview.
-    'public/sitemap.xml',
     // Allowlist sync test reads this at runtime (not import-bundled).
     'netlify.toml',
   ],
