@@ -110,7 +110,7 @@ for (const [tool, execute] of tools)
 
 The signal comes from an `AbortController`, so the tools can be removed again later. If you're starting from scratch, Chrome's [Imperative API](https://developer.chrome.com/docs/ai/webmcp/imperative-api) guide has complete `registerTool` examples.
 
-The same build step also writes the site's [llms.txt files](https://debbie.codes/llms.txt). I go through those in Get your site agent-ready.
+The same build step also writes the site's [llms.txt files](https://debbie.codes/llms.txt). I go through those in [Get your site agent-ready](/blog/get-your-site-agent-ready), along with the markdown copies of each post.
 
 Origin trials let normal Chrome and Edge users get the API on my site without turning on a flag. The site adds two origin trial meta tags, one for Chrome and one for Edge. The origin trial keys in those tags only work on [debbie.codes](https://debbie.codes), so the tags are only added to the production build. A small `check:origin-trial` script runs in CI, builds the production site and fails unless both tags are in the HTML.
 
