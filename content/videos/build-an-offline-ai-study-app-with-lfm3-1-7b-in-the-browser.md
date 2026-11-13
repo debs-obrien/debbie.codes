@@ -1,5 +1,5 @@
 ---
-title: "Build an offline AI study app with LFM3-1.7B in the browser"
+title: "Build an offline AI study app with local models (Liquid AI LFM3-1.7B)"
 date: 2026-11-11
 description: "I run Liquid AI's LFM3-1.7B locally in a desktop browser with WebGPU and Transformers.js. No cloud API, no server, no API key, and it works offline once the model is downloaded. A minimal LFM3 chat, then Grading Buddy, a study app that answers from checked notes for a first Taekwon-Do grading."
 video: OBerXXfCYVo
