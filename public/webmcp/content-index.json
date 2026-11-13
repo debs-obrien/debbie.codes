@@ -2,6 +2,36 @@
   "items": [
     {
       "type": "blog",
+      "title": "Build an Offline AI Study App with Local Models (Liquid AI LFM3-1.7B)",
+      "date": "2026-11-13",
+      "tags": [
+        "ai",
+        "webdev"
+      ],
+      "url": "https://debbie.codes/blog/offline-ai-study-app-local-models-lfm3",
+      "path": "/blog/offline-ai-study-app-local-models-lfm3",
+      "markdownUrl": "https://debbie.codes/blog/offline-ai-study-app-local-models-lfm3.md",
+      "canonical": "https://debbie.codes/blog/offline-ai-study-app-local-models-lfm3",
+      "description": "I ran Liquid AI's LFM3-1.7B in the browser with WebGPU and built Grading Buddy, an offline study app that answers only from notes I've checked."
+    },
+    {
+      "type": "blog",
+      "title": "One Tool Call Instead of Four Pages: Adding WebMCP to My Site",
+      "date": "2026-11-13",
+      "tags": [
+        "ai",
+        "mcp",
+        "agents",
+        "grok-bot"
+      ],
+      "url": "https://debbie.codes/blog/webmcp-on-my-site",
+      "path": "/blog/webmcp-on-my-site",
+      "markdownUrl": "https://debbie.codes/blog/webmcp-on-my-site.md",
+      "canonical": "https://debbie.codes/blog/webmcp-on-my-site",
+      "description": "AI agents that open debbie.codes in a browser can now use tools on the page to find my videos, posts, podcasts and courses, instead of reading whole pages and guessing."
+    },
+    {
+      "type": "blog",
       "title": "DevRel Didn't Die, Its Audience Changed",
       "date": "2026-11-02",
       "tags": [
@@ -1926,7 +1956,54 @@
     },
     {
       "type": "video",
-      "title": "Build an offline AI study app with LFM3-1.7B in the browser",
+      "title": "What is WebMCP? Add tools to your site for AI agents",
+      "date": "2026-11-13",
+      "tags": [
+        "ai",
+        "mcp"
+      ],
+      "url": "https://www.youtube.com/watch?v=AS6k-1uFp-0",
+      "video": "AS6k-1uFp-0",
+      "description": "WebMCP lets you expose your website as tools that AI agents can call, instead of clicking around the page. It's a draft API from the W3C Web Machine Learning Community Group, with work from Microsoft and Google, and the tools run in the browser on the page itself. In this video I explain what WebMCP is, show the tools I added on debbie.codes, and test them in the new Chrome DevTools WebMCP panel. You'll see the tool definitions in my open source repo (list-videos, topic-brief, search-content, get-video and get-current-page), the origin trial tag in the page head, and what happens when a tool call succeeds or comes back with an error.",
+      "host": "Debbie O'Brien",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "What is WebMCP"
+        },
+        {
+          "time": 75,
+          "title": "Why agents need it"
+        },
+        {
+          "time": 116,
+          "title": "The tools in my repo"
+        },
+        {
+          "time": 190,
+          "title": "My videos page"
+        },
+        {
+          "time": 209,
+          "title": "The origin trial in the page head"
+        },
+        {
+          "time": 250,
+          "title": "The WebMCP panel in DevTools"
+        },
+        {
+          "time": 287,
+          "title": "Running tools in DevTools"
+        },
+        {
+          "time": 383,
+          "title": "Try it yourself"
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "title": "Build an offline AI study app with local models (Liquid AI LFM3-1.7B)",
       "date": "2026-11-11",
       "tags": [
         "ai"

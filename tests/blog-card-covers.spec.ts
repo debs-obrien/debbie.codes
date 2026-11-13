@@ -2,8 +2,8 @@ import { expect, test } from './fixtures';
 
 // A post with a cover that stays on home recent posts.
 const COVER_POST = 'grok-bot-uploads-my-youtube-videos';
-/** Also on home recent posts (second-newest batch). */
-const HOME_COVER_POST = 'grok-bot-50th-birthday-photo-video';
+/** Newest home recent post with a cover (published WebMCP post). */
+const HOME_COVER_POST = 'webmcp-on-my-site';
 
 /** Slug of the lead (newest) card on /blog, so new posts don't break these tests. */
 async function leadSlug(page: import('@playwright/test').Page) {
@@ -93,7 +93,7 @@ test('compact cards on /blog flush title with excerpt (no arrow indent)', async 
   expect(Math.abs(titleBox!.x - excerptBox!.x)).toBeLessThan(2);
 });
 
-test('home recent posts include a 2:1 cover for the birthday post', async ({ page }) => {
+test('home recent posts include a 2:1 cover for the WebMCP post', async ({ page }) => {
   await page.goto('/');
   await expectCardCover(page, HOME_COVER_POST, /224px|400px/, 'lazy');
 });
