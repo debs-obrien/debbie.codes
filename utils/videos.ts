@@ -28,3 +28,61 @@ export function filterVisibleVideos<T extends { video?: string }>(videos: T[] | 
     return []
   return videos.filter(isVisibleVideo)
 }
+
+interface TopRowVideo {
+  video?: string
+  date?: string
+  featured?: boolean
+  featuredOrder?: number
+}
+
+/**
+ * Top row on /videos: card 1 is newest visible by date (with a Latest label in the UI),
+ * cards 2–3 are featured in featuredOrder. If the newest is featured, it stays first as
+ * Latest and the row fills with remaining featured (then next-newest) without duplicates.
+ */
+export function buildVideosTopRow<T extends TopRowVideo>(
+  visibleVideos: T[] | null | undefined,
+  size = 3,
+): T[] {
+  if (!visibleVideos?.length)
+    return []
+
+  const byDate = [...visibleVideos].sort((a, b) =>
+    String(b.date ?? '').localeCompare(String(a.date ?? '')),
+  )
+  const newest = byDate[0]
+  if (!newest?.video)
+    return []
+
+  const featured = [...visibleVideos]
+    .filter(v => v.featured && v.video)
+    .sort((a, b) => (a.featuredOrder ?? 99) - (b.featuredOrder ?? 99))
+
+  const top: T[] = [newest]
+  const used = new Set<string>([newest.video])
+
+  for (const video of featured) {
+    if (top.length >= size)
+      break
+    const id = video.video!
+    if (used.has(id))
+      continue
+    top.push(video)
+    used.add(id)
+  }
+
+  if (top.length < size) {
+    for (const video of byDate) {
+      if (top.length >= size)
+        break
+      const id = video.video
+      if (!id || used.has(id))
+        continue
+      top.push(video)
+      used.add(id)
+    }
+  }
+
+  return top
+}
