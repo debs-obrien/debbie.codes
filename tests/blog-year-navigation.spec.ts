@@ -1,15 +1,16 @@
-import { readdirSync, readFileSync } from 'node:fs';
-import { join } from 'node:path';
 import { expect, test } from './fixtures';
 
-function yearsWithPublishedPosts(): string[] {
-  const dir = join(process.cwd(), 'content/blog');
+async function yearsFromContentIndex(request: import('@playwright/test').APIRequestContext): Promise<string[]> {
+  // Prefer the deployed index so Endform runners (no content/blog checkout) still
+  // cover every published year, including ones outside the recent-years chips.
+  const response = await request.get('/webmcp/content-index.json');
+  expect(response.ok(), `GET /webmcp/content-index.json → ${response.status()}`).toBeTruthy();
+  const body = await response.json() as { items?: Array<{ type?: string, date?: string }> };
   const years = new Set<string>();
-  for (const file of readdirSync(dir).filter(name => name.endsWith('.md'))) {
-    const raw = readFileSync(join(dir, file), 'utf8');
-    if (/^published:\s*false\s*$/m.test(raw))
+  for (const item of body.items || []) {
+    if (item.type !== 'blog' || !item.date)
       continue;
-    const match = raw.match(/^date:\s*['"]?(\d{4})/m);
+    const match = String(item.date).match(/^(\d{4})/);
     if (match)
       years.add(match[1]);
   }
@@ -77,9 +78,10 @@ test.describe('Blog Year Navigation', () => {
     const linked = await collectLinkedYearHrefs(page);
     expect(linked.length, 'expected at least one year link on blog pages').toBeGreaterThan(0);
 
-    // UI chips must resolve; also every content year (e.g. 2021/2022) must exist
-    // even when the recent-years strip does not link it.
-    const contentYears = yearsWithPublishedPosts().map(year => `/blog/year/${year}`);
+    // UI chips must resolve; also every published year from the content index
+    // (e.g. 2021/2022) must exist even when the recent-years strip does not link it.
+    const contentYears = (await yearsFromContentIndex(request)).map(year => `/blog/year/${year}`);
+    expect(contentYears.length, 'content index should list at least one blog year').toBeGreaterThan(0);
     const hrefs = [...new Set([...linked, ...contentYears])].sort();
 
     for (const href of linked)
