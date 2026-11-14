@@ -15,7 +15,7 @@ const { data: allArticles } = await useAsyncData(`blog-year-${year}`, () => only
   .order('date', 'DESC')
   .all())
 
-// Filter articles for the specific year
+// Filter articles for the specific year (calendar year from frontmatter, not TZ)
 const articles = computed(() => {
   if (!allArticles.value)
     return []
@@ -23,8 +23,7 @@ const articles = computed(() => {
   return allArticles.value.filter((article: any) => {
     if (!article.date)
       return false
-    const articleYear = new Date(article.date).getFullYear().toString()
-    return articleYear === year
+    return calendarYear(article.date) === year
   })
 })
 
@@ -92,7 +91,9 @@ const postYears = computed(() => {
   const yearCounts = new Map<string, number>()
   allArticles.value.forEach((post: any) => {
     if (post.date) {
-      const postYear = new Date(post.date).getFullYear().toString()
+      const postYear = calendarYear(post.date)
+      if (!postYear)
+        return
       yearCounts.set(postYear, (yearCounts.get(postYear) || 0) + 1)
     }
   })
@@ -163,10 +164,10 @@ useHead({
       </div>
     </section>
 
-    <!-- Posts List -->
+    <!-- Posts List: use articles when idle so SSR/hydration match (filteredArticles starts []). -->
     <FeaturedSection
-      v-if="filteredArticles.length > 0"
-      :items="filteredArticles"
+      v-if="(isSearchActive ? filteredArticles : articles).length > 0"
+      :items="isSearchActive ? filteredArticles : articles"
       :section="section"
     />
 
