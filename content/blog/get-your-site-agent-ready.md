@@ -12,7 +12,7 @@ To find everything I've published about MCP, an agent has to open four tag pages
 
 Only about 12 KB of that is the words on the page. The rest is the menu, the footer, icons and styling markup. An agent that only needs the words shouldn't have to download all of that.
 
-So I gave my site a few plain text doors. A short map at [/llms.txt](https://debbie.codes/llms.txt), a full catalog at [/llms-full.txt](https://debbie.codes/llms-full.txt), and a clean markdown copy of each published post, like [/blog/github-mcp-server.md](https://debbie.codes/blog/github-mcp-server.md). This post is about why I added them, how they work, and how you can add the same thing to your own site. If you want the next step, tools an agent can call while it is already on the page, that's what I'll cover in my next post, on WebMCP.
+So I gave my site a few plain text doors. A short map at [/llms.txt](https://debbie.codes/llms.txt), a full catalog at [/llms-full.txt](https://debbie.codes/llms-full.txt), and a clean markdown copy of each published post, like [/blog/github-mcp-server.md](https://debbie.codes/blog/github-mcp-server.md). This post is about why I added them, how they work, and how you can add the same thing to your own site. If you want the next step, tools an agent can call while it is already on the page, that's what I cover in my [WebMCP post](/blog/webmcp-on-my-site).
 
 ## Why this helps
 
@@ -148,4 +148,4 @@ llms.txt is a static text door for any agent that can fetch a URL, even if it ne
 
 WebMCP is the next step. The agent is already on the page and can call tools. It can ask for counts, a topic brief, or a video's chapters, instead of reading files and adding things up by hand.
 
-That's what I'll cover in my next post, on WebMCP.
+I go through how I added those tools in [my WebMCP post](/blog/webmcp-on-my-site).
