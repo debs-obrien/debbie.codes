@@ -3,6 +3,9 @@
  * `mqdefault` is 320×180 (true 16:9). `sddefault` is 640×480.
  * `hqdefault` (480×360) is larger; card posters use `mqdefault` via
  * youtubePosterStyle to cut image bytes on video grids.
+ * In-post embeds pass `sddefault` so the poster stays sharp when stretched
+ * to content width; lite-youtube's background-size: cover crops the 4:3
+ * letterbox on 16:9 players.
  * See https://github.com/paulirish/lite-youtube-embed/blob/master/youtube-thumbnail-urls.md
  */
 export type YouTubeThumbnailQuality = 'mqdefault' | 'sddefault' | 'hqdefault'
@@ -34,10 +37,24 @@ export function youtubeThumbnailSrcSet(videoId: string) {
  *
  * Setting the poster ourselves skips both: no 404s, no extra request per embed,
  * and the poster is in the server-rendered HTML instead of waiting on JS.
- * Uses mqdefault (320×180) so video grids do not ship hqdefault for every card.
+ *
+ * Default `mqdefault` (320×180) keeps video grid cards small. Pass
+ * `sddefault` for in-post embeds (content width ~576px+); layers `hqdefault`
+ * underneath so videos that lack `sddefault` still show a poster.
  */
-export function youtubePosterStyle(videoId: string) {
-  return { backgroundImage: `url("${youtubeThumbnail(videoId, 'mqdefault')}")` }
+export function youtubePosterStyle(
+  videoId: string,
+  quality: YouTubeThumbnailQuality = 'mqdefault',
+) {
+  if (quality === 'sddefault') {
+    return {
+      backgroundImage: [
+        `url("${youtubeThumbnail(videoId, 'sddefault')}")`,
+        `url("${youtubeThumbnail(videoId, 'hqdefault')}")`,
+      ].join(', '),
+    }
+  }
+  return { backgroundImage: `url("${youtubeThumbnail(videoId, quality)}")` }
 }
 
 /**
