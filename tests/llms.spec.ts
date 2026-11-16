@@ -231,6 +231,14 @@ test.describe('blog Accept content negotiation (Netlify)', () => {
     expect(body).toMatch(/<html/i);
   });
 
+  test(`GET /blog/${slug} respects explicit text/markdown;q=0 over */*`, async ({ request }) => {
+    const response = await request.get(`/blog/${slug}`, {
+      headers: { Accept: 'text/markdown;q=0, */*;q=1' }
+    });
+    expect(response.status()).toBe(200);
+    expect(response.headers()['content-type'] ?? '').toMatch(/text\/html/i);
+  });
+
   test('markdown Accept on a missing blog path returns markdown 404 with discovery links', async ({ request }) => {
     const response = await request.get('/blog/this-post-does-not-exist-for-negotiation-404', {
       headers: { Accept: 'text/markdown' }

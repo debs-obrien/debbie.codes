@@ -6,32 +6,50 @@
 
 const SITE = 'https://debbie.codes'
 
+function parseQ(params) {
+  let q = 1
+  for (const param of params) {
+    const match = param.trim().match(/^q\s*=\s*([0-9.]+)$/i)
+    if (match)
+      q = Number(match[1])
+  }
+  if (Number.isNaN(q) || q < 0)
+    return 0
+  return q
+}
+
+/**
+ * Effective q for `type` using the most specific Accept media range
+ * (exact, then type/*, then star/star), so wildcards cannot override an
+ * explicit preference or exclusion such as text/markdown;q=0.
+ */
 function quality(accept, type) {
   if (!accept)
     return 0
-  const parts = accept.split(',')
-  let best = 0
-  let found = false
-  for (const part of parts) {
+  const main = type.split('/')[0]
+  let exact = null
+  let typeWild = null
+  let any = null
+  for (const part of accept.split(',')) {
     const [rawType, ...params] = part.trim().split(';')
     const media = rawType.trim().toLowerCase()
     if (!media)
       continue
-    let q = 1
-    for (const param of params) {
-      const match = param.trim().match(/^q\s*=\s*([0-9.]+)$/i)
-      if (match)
-        q = Number(match[1])
-    }
-    if (Number.isNaN(q) || q < 0)
-      q = 0
-    if (media === type || media === '*/*' || (media.endsWith('/*') && type.startsWith(media.slice(0, -1)))) {
-      found = true
-      if (q > best)
-        best = q
-    }
+    const q = parseQ(params)
+    if (media === type)
+      exact = Math.max(exact ?? 0, q)
+    else if (media === `${main}/*`)
+      typeWild = Math.max(typeWild ?? 0, q)
+    else if (media === '*/*')
+      any = Math.max(any ?? 0, q)
   }
-  return found ? best : 0
+  if (exact !== null)
+    return exact
+  if (typeWild !== null)
+    return typeWild
+  if (any !== null)
+    return any
+  return 0
 }
 
 function prefersMarkdown(accept) {
