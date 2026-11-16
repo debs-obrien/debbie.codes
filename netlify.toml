@@ -23,6 +23,13 @@ X-Frame-Options = "DENY"
 X-XSS-Protection = "1; mode=block"
 
 [[headers]]
+for = "/"
+
+[headers.values]
+# llmstxt.org: advertise the site map on the homepage response.
+Link = "</llms.txt>; rel=\"describedby\""
+
+[[headers]]
 for = "/llms.txt"
 
 [headers.values]
@@ -33,6 +40,13 @@ for = "/llms-full.txt"
 
 [headers.values]
 Content-Type = "text/plain; charset=utf-8"
+
+# Keep HTML and markdown Accept variants in separate caches.
+[[headers]]
+for = "/blog/*"
+
+[headers.values]
+Vary = "Accept"
 
 # /blog/*.md Content-Type is set per published file in public/_headers
 # (generated) so missing/unpublished .md 404s are not forced to text/markdown.

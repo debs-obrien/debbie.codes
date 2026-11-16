@@ -190,3 +190,63 @@ test.describe('llms.txt / llms-full.txt / blog markdown', () => {
     expect(body).toContain('Sitemap: https://debbie.codes/sitemap.xml');
   });
 });
+
+test.describe('blog Accept content negotiation (Netlify)', () => {
+  const slug = PUBLISHED_SLUGS[0];
+  const chromeAccept
+    = 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8';
+
+  test.beforeEach(() => {
+    test.skip(
+      !externalBaseURL,
+      'Netlify edge functions and custom headers only apply on deploy preview/production'
+    );
+  });
+
+  test(`GET /blog/${slug} with Accept text/markdown returns markdown`, async ({ request }) => {
+    const response = await request.get(`/blog/${slug}`, {
+      headers: { Accept: 'text/markdown' }
+    });
+    expect(response.status()).toBe(200);
+    const headers = response.headers();
+    expect(headers['content-type'] ?? '').toMatch(/text\/markdown/i);
+    expect(headers.vary ?? '').toMatch(/Accept/i);
+    expect(headers.link ?? '').toContain(`<https://debbie.codes/blog/${slug}>`);
+    expect(headers.link ?? '').toMatch(/rel=["']?canonical["']?/i);
+    expect(headers['x-robots-tag'] ?? '').toMatch(/noindex/i);
+    const body = await response.text();
+    expect(body).toMatch(/^# /);
+    expect(body).toContain(`Canonical: https://debbie.codes/blog/${slug}`);
+  });
+
+  test(`GET /blog/${slug} with browser Accept returns HTML`, async ({ request }) => {
+    const response = await request.get(`/blog/${slug}`, {
+      headers: { Accept: chromeAccept }
+    });
+    expect(response.status()).toBe(200);
+    const headers = response.headers();
+    expect(headers['content-type'] ?? '').toMatch(/text\/html/i);
+    expect(headers.vary ?? '').toMatch(/Accept/i);
+    const body = await response.text();
+    expect(body).toMatch(/<html/i);
+  });
+
+  test('markdown Accept on a missing blog path returns markdown 404 with discovery links', async ({ request }) => {
+    const response = await request.get('/blog/this-post-does-not-exist-for-negotiation-404', {
+      headers: { Accept: 'text/markdown' }
+    });
+    expect(response.status()).toBe(404);
+    const headers = response.headers();
+    expect(headers['content-type'] ?? '').toMatch(/text\/markdown/i);
+    const body = await response.text();
+    expect(body).toContain('https://debbie.codes/llms.txt');
+    expect(body).toContain('https://debbie.codes/sitemap.xml');
+  });
+
+  test('homepage response Link header points at llms.txt via describedby', async ({ request }) => {
+    const response = await request.get('/');
+    expect(response.status()).toBe(200);
+    const link = response.headers().link ?? '';
+    expect(link).toMatch(/<\/llms\.txt>\s*;\s*rel=["']?describedby["']?/i);
+  });
+});
