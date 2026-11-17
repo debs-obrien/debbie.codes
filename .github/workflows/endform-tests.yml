@@ -113,4 +113,4 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Run tests on Endform
-        run: npx endform@latest test
+        run: npx endform test
