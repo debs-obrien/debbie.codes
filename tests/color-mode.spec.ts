@@ -1,88 +1,75 @@
+import type { Page } from '@playwright/test';
 import { expect, test } from './fixtures';
 
-test.use({ colorScheme: 'dark' });
+// The header toggle is two-state: every click switches to the opposite of
+// what is on screen. When that matches the OS setting, it goes back to
+// following the system instead of pinning a theme.
 
-test('test system color mode', async ({ page, isMobile }) => {
-  await page.goto('/');
+function themeToggle(page: Page, isMobile: boolean) {
+  const toggle = page.getByRole('button', { name: /^Switch to (light|dark) theme$/ });
+  return isMobile ? toggle.nth(1) : toggle.first();
+}
 
-  // Wait for hydration to complete before interacting
-  await page.waitForLoadState('networkidle');
+async function openMenuIfMobile(page: Page, isMobile: boolean) {
+  if (isMobile)
+    await page.getByRole('button', { name: 'open menu' }).click();
+}
 
-  const hamburger = page.getByRole('button', { name: 'open menu' });
+async function storedPreference(page: Page) {
+  return page.evaluate(() => localStorage.getItem('nuxt-color-mode'));
+}
 
-  // Initial state: preference is 'system', which resolves to 'dark' based on test.use({ colorScheme: 'dark' })
-  // Button should show 'system'
-  await test.step('Initial state verification', async () => {
-    const systemButton = isMobile
-      ? page.getByRole('button', { name: 'system' }).nth(1)
-      : page.getByRole('button', { name: 'system' }).first();
-    await expect(systemButton).toBeVisible();
-    await expect(page.getByRole('document')).toHaveAttribute('class', 'dark');
+test.describe('dark OS', () => {
+  test.use({ colorScheme: 'dark' });
+
+  test('every click changes the theme, and switching back follows the system', async ({ page, isMobile }) => {
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
+    const html = page.locator('html');
+
+    await test.step('starts on system (dark) with native UI in dark', async () => {
+      await expect(html).toHaveClass('dark');
+      await expect(html).toHaveCSS('color-scheme', 'dark');
+      await openMenuIfMobile(page, isMobile);
+      await expect(themeToggle(page, isMobile)).toHaveAccessibleName('Switch to light theme');
+    });
+
+    await test.step('first click switches to light and pins it', async () => {
+      await themeToggle(page, isMobile).click();
+      await expect(html).toHaveClass('light');
+      await expect(html).toHaveCSS('color-scheme', 'light');
+      await expect(themeToggle(page, isMobile)).toHaveAccessibleName('Switch to dark theme');
+      expect(await storedPreference(page)).toBe('light');
+    });
+
+    await test.step('second click goes back to following the system', async () => {
+      await themeToggle(page, isMobile).click();
+      await expect(html).toHaveClass('dark');
+      await expect(html).toHaveCSS('color-scheme', 'dark');
+      await expect(themeToggle(page, isMobile)).toHaveAccessibleName('Switch to light theme');
+      expect(await storedPreference(page)).toBe('system');
+    });
   });
+});
 
-  await test.step('Click to cycle from system to dark mode', async () => {
-    if (isMobile) {
-      await hamburger.click();
-    }
+test.describe('light OS', () => {
+  test.use({ colorScheme: 'light' });
 
-    const systemButton = isMobile
-      ? page.getByRole('button', { name: 'system' }).nth(1)
-      : page.getByRole('button', { name: 'system' }).first();
-    await systemButton.click();
+  test('first click switches to dark, second click returns to system', async ({ page, isMobile }) => {
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
+    const html = page.locator('html');
 
-    // After clicking, should cycle to explicit 'dark' mode - wait for aria-label to change
-    const darkButton = isMobile
-      ? page.getByRole('button', { name: 'dark' }).nth(1)
-      : page.getByRole('button', { name: 'dark' }).first();
-    await expect(darkButton).toBeVisible();
-    await expect(page.getByRole('document')).toHaveAttribute('class', 'dark');
+    await expect(html).toHaveClass('light');
+    await expect(html).toHaveCSS('color-scheme', 'light');
+    await openMenuIfMobile(page, isMobile);
 
-    if (isMobile) {
-      await hamburger.click();
-    }
-  });
+    await themeToggle(page, isMobile).click();
+    await expect(html).toHaveClass('dark');
+    expect(await storedPreference(page)).toBe('dark');
 
-  await test.step('Click to cycle from dark to light mode', async () => {
-    if (isMobile) {
-      await hamburger.click();
-    }
-
-    const darkButton = isMobile
-      ? page.getByRole('button', { name: 'dark' }).nth(1)
-      : page.getByRole('button', { name: 'dark' }).first();
-    await darkButton.click();
-
-    // After clicking, should cycle to 'light' mode - wait for aria-label to change
-    const lightButton = isMobile
-      ? page.getByRole('button', { name: 'light' }).nth(1)
-      : page.getByRole('button', { name: 'light' }).first();
-    await expect(lightButton).toBeVisible();
-    await expect(page.getByRole('document')).toHaveAttribute('class', 'light');
-
-    if (isMobile) {
-      await hamburger.click();
-    }
-  });
-
-  await test.step('Click to cycle from light back to system mode', async () => {
-    if (isMobile) {
-      await hamburger.click();
-    }
-
-    const lightButton = isMobile
-      ? page.getByRole('button', { name: 'light' }).nth(1)
-      : page.getByRole('button', { name: 'light' }).first();
-    await lightButton.click();
-
-    // After clicking, should cycle back to 'system', which resolves to 'dark' due to test config
-    const systemButton = isMobile
-      ? page.getByRole('button', { name: 'system' }).nth(1)
-      : page.getByRole('button', { name: 'system' }).first();
-    await expect(systemButton).toBeVisible();
-    await expect(page.getByRole('document')).toHaveAttribute('class', 'dark');
-
-    if (isMobile) {
-      await hamburger.click();
-    }
+    await themeToggle(page, isMobile).click();
+    await expect(html).toHaveClass('light');
+    expect(await storedPreference(page)).toBe('system');
   });
 });
