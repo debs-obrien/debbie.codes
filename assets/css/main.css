@@ -1,4 +1,8 @@
 :root {
+  /* Tell the browser which scheme is active so native UI (scrollbars,
+     form controls, autofill) matches. Follows the .light/.dark class that
+     @nuxtjs/color-mode sets on <html>, like the colors below. */
+  color-scheme: light;
   --color: #243746;
   /* Channel form so Tailwind opacity modifiers (bg-primary/90) keep working. */
   --color-primary: 216 0 45; /* #d8002d */
@@ -11,6 +15,7 @@
 }
 
 .dark {
+  color-scheme: dark;
   --color: #ebf4f1;
   /* #ff5a73 — ≥4.85:1 on dark surfaces for text/borders/icons */
   --color-primary: 255 90 115;

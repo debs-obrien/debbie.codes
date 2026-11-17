@@ -1,35 +1,34 @@
 <script setup lang="ts">
-type Theme = 'light' | 'dark' | 'system'
+type Scheme = 'light' | 'dark'
 
-const nextTheme = computed<Theme>(() => {
-  const current = useColorMode().preference
-  if (current === 'system')
-    return 'dark'
-  if (current === 'dark')
-    return 'light'
-  return 'system'
-})
+const colorMode = useColorMode()
 
-function setColorTheme(newTheme: Theme) {
-  useColorMode().preference = newTheme
+function systemScheme(): Scheme {
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
 }
 
-function cycleColorMode() {
-  setColorTheme(nextTheme.value)
+// Two-state toggle: always switch to the opposite of what is on screen.
+// If that matches the OS setting, go back to following the system
+// instead of pinning it, so every click visibly changes the theme.
+function toggleColorMode() {
+  const target: Scheme = colorMode.value === 'dark' ? 'light' : 'dark'
+  colorMode.preference = target === systemScheme() ? 'system' : target
 }
 </script>
 
 <template>
+  <!-- Icon and label follow the .dark class on <html> via CSS, not JS state, so the server render can never disagree with the client. -->
   <button
-    :aria-label="`${$colorMode.preference}. Switch to ${nextTheme}`"
     type="button"
     class="block"
-    @click="cycleColorMode"
+    @click="toggleColorMode"
   >
+    <span class="sr-only dark:hidden">Switch to dark theme</span>
+    <span class="sr-only hidden dark:inline">Switch to light theme</span>
     <svg
-      v-if="$colorMode.value === 'dark'"
+      aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
-      class="w-8 h-8 lg:h-5 lg:w-5 text-gray-50"
+      class="hidden dark:block w-8 h-8 lg:h-5 lg:w-5 text-gray-50"
       viewBox="0 0 20 20"
       fill="currentColor"
     >
@@ -38,9 +37,9 @@ function cycleColorMode() {
       />
     </svg>
     <svg
-      v-else
+      aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
-      class="w-8 h-8 lg:h-5 lg:w-5"
+      class="block dark:hidden w-8 h-8 lg:h-5 lg:w-5"
       viewBox="0 0 20 20"
       fill="white"
     >
