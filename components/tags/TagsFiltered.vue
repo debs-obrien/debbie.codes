@@ -65,7 +65,7 @@ const sortedArticleTags = articleTags.sort()
         :to="`/${section}/tags/${tag}`"
         class="px-2 py-0.5 bg-slate-600 rounded-md transition-all hover:-translate-y-0.5 hover:bg-blue-500 whitespace-nowrap"
       >
-        {{ replaceHyphen(tag) }}
+        {{ getTagDisplayName(tag) }}
       </NuxtLink>
     </li>
   </ul>

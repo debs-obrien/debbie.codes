@@ -49,4 +49,17 @@ test.describe('Blog Tag Normalization', () => {
       }
     }
   });
+
+  test('dev-rel tag page and chips display DevRel', async ({ page }) => {
+    await page.goto('/blog/tags/dev-rel');
+
+    await expect(page).toHaveURL(/\/blog\/tags\/dev-rel\/?$/);
+    await expect(page).toHaveTitle(/DevRel Blog Posts/);
+    await expect(page.getByRole('heading', { level: 1, name: 'DevRel Blog Posts' })).toBeVisible();
+
+    await page.goto('/blog/devrel-didnt-die-its-audience-changed');
+    await expect(
+      page.getByRole('link', { name: /#?DevRel/, exact: true }).first()
+    ).toBeVisible();
+  });
 });
