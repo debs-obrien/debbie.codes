@@ -1,0 +1,130 @@
+/**
+ * Build Nitro routeRules that mirror Netlify redirects/headers for dual deploy.
+ * Source of truth for redirects remains public/_redirects (Netlify untouched).
+ * Header rules match netlify.toml + generated public/_headers markdown blocks.
+ */
+import { readFileSync } from 'node:fs'
+import { dirname, join } from 'node:path'
+import { fileURLToPath } from 'node:url'
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
+const root = join(__dirname, '..')
+
+/**
+ * Parse Netlify `_redirects` into Nitro redirect routeRules.
+ * @param {string} [redirectsText]
+ * @returns {Record<string, { redirect: { to: string, statusCode: number } }>} routeRules map
+ */
+export function redirectsToRouteRules(redirectsText) {
+  const text = redirectsText ?? readFileSync(join(root, 'public/_redirects'), 'utf8')
+  /** @type {Record<string, { redirect: { to: string, statusCode: number } }>} */
+  const rules = {}
+  for (const rawLine of text.split('\n')) {
+    const line = rawLine.trim()
+    if (!line || line.startsWith('#'))
+      continue
+    const parts = line.split(/\s+/)
+    if (parts.length < 3)
+      continue
+    const [from, to, statusRaw] = parts
+    const statusCode = Number.parseInt(statusRaw.replace(/!$/, ''), 10)
+    if (!from || !to || !Number.isFinite(statusCode))
+      continue
+    // Last duplicate wins (same as later Netlify _redirects lines).
+    rules[from] = { redirect: { to, statusCode } }
+  }
+  return rules
+}
+
+/**
+ * Site-wide headers from netlify.toml (not the generated per-.md _headers file).
+ * @returns {Record<string, { headers: Record<string, string> }>} routeRules map
+ */
+export function siteHeaderRouteRules() {
+  return {
+    '/**': {
+      headers: {
+        'X-Frame-Options': 'DENY',
+        'X-XSS-Protection': '1; mode=block',
+      },
+    },
+    '/': {
+      headers: {
+        Link: '</llms.txt>; rel="describedby"',
+      },
+    },
+    '/llms.txt': {
+      headers: {
+        'Content-Type': 'text/plain; charset=utf-8',
+      },
+    },
+    '/llms-full.txt': {
+      headers: {
+        'Content-Type': 'text/plain; charset=utf-8',
+      },
+    },
+    '/blog/**': {
+      headers: {
+        Vary: 'Accept',
+      },
+    },
+    '/images/**': {
+      headers: {
+        'Cache-Control': 'public, max-age=604800, must-revalidate',
+      },
+    },
+    '/feed.xml': {
+      headers: {
+        'Content-Type': 'application/xml; charset=utf-8',
+      },
+    },
+    '/sitemap.xml': {
+      headers: {
+        'Content-Type': 'application/xml; charset=utf-8',
+      },
+    },
+    '/robots.txt': {
+      headers: {
+        'Content-Type': 'text/plain; charset=utf-8',
+      },
+    },
+  }
+}
+
+/**
+ * Per published /blog/<slug>.md headers (same fields as generated public/_headers).
+ * @param {Array<{ path?: string, canonical?: string, url?: string }>} blogItems
+ * @returns {Record<string, { headers: Record<string, string> }>} routeRules map
+ */
+export function blogMarkdownHeaderRouteRules(blogItems = []) {
+  /** @type {Record<string, { headers: Record<string, string> }>} */
+  const rules = {}
+  for (const item of blogItems) {
+    const path = typeof item?.path === 'string' ? item.path : ''
+    if (!path.startsWith('/blog/'))
+      continue
+    const canonical = (typeof item.canonical === 'string' && item.canonical)
+      || (typeof item.url === 'string' && item.url)
+      || `https://debbie.codes${path}`
+    rules[`${path}.md`] = {
+      headers: {
+        'Content-Type': 'text/markdown; charset=utf-8',
+        'Link': `<${canonical}>; rel="canonical"`,
+        'X-Robots-Tag': 'noindex',
+      },
+    }
+  }
+  return rules
+}
+
+/**
+ * Full dual-host routeRules: redirects + site headers + markdown headers.
+ * @param {{ blogItems?: Array<{ path?: string, canonical?: string, url?: string }> }} [opts]
+ */
+export function buildHostingRouteRules(opts = {}) {
+  return {
+    ...redirectsToRouteRules(),
+    ...siteHeaderRouteRules(),
+    ...blogMarkdownHeaderRouteRules(opts.blogItems || []),
+  }
+}

@@ -918,6 +918,8 @@ test('origin-trial meta renders only for production (or explicit override)', () 
   expect(shouldRenderOriginTrial({ CONTEXT: 'production' })).toBe(true);
   expect(shouldRenderOriginTrial({ CONTEXT: 'deploy-preview' })).toBe(false);
   expect(shouldRenderOriginTrial({ CONTEXT: 'branch-deploy' })).toBe(false);
+  expect(shouldRenderOriginTrial({ VERCEL_ENV: 'production' })).toBe(true);
+  expect(shouldRenderOriginTrial({ VERCEL_ENV: 'preview' })).toBe(false);
   expect(shouldRenderOriginTrial({})).toBe(false);
   expect(shouldRenderOriginTrial({ NUXT_PUBLIC_WEBMCP_OT_RENDER: '1' })).toBe(true);
   expect(shouldRenderOriginTrial({ CONTEXT: 'production', NUXT_PUBLIC_WEBMCP_OT_RENDER: '0' })).toBe(false);

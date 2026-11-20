@@ -1,6 +1,7 @@
 import process from 'node:process'
 import { generateContentIndex } from './scripts/generate-content-index.mjs'
 import { generateSitemap } from './scripts/generate-sitemap.mjs'
+import { buildHostingRouteRules } from './scripts/hosting-route-rules.mjs'
 import { DEFAULT_WEBMCP_OT_CHROME, DEFAULT_WEBMCP_OT_EDGE } from './utils/origin-trial'
 import { calculateReadingTime, extractTextFromContent } from './utils/reading-time'
 import { NETLIFY_REMOTE_IMAGE_HOSTS } from './utils/remote-images'
@@ -11,6 +12,18 @@ generateSitemap()
 const contentIndex = generateContentIndex()
 const blogMarkdownRoutes = contentIndex.markdownRoutes || []
 const blogYearRoutes = contentIndex.yearRoutes || []
+const blogItems = (contentIndex.items || []).filter(item => item.type === 'blog')
+// Dual-host redirects/headers (Netlify keeps public/_redirects + _headers + netlify.toml).
+const hostingRouteRules = buildHostingRouteRules({ blogItems })
+const isHostProduction = process.env.CONTEXT === 'production'
+  || process.env.VERCEL_ENV === 'production'
+// @nuxt/image `auto` picks `vercel` on Vercel — never enable Vercel Image Optimization.
+const isVercelBuild = Boolean(
+  process.env.VERCEL
+  || process.env.NITRO_PRESET?.startsWith('vercel'),
+)
+const imageProvider = process.env.NUXT_IMAGE_PROVIDER
+  || (isVercelBuild ? 'ipx' : 'auto')
 
 export default defineNuxtConfig({
   srcDir: '.',
@@ -56,6 +69,8 @@ export default defineNuxtConfig({
   ],
 
   image: {
+    // Netlify: auto → netlifyImageCdn. Vercel: ipx (never vercel Image Optimization).
+    provider: imageProvider,
     imgix: {
       baseURL: 'https://images.unsplash.com/',
     },
@@ -158,17 +173,19 @@ export default defineNuxtConfig({
       webmcpOtChrome: process.env.NUXT_PUBLIC_WEBMCP_OT_CHROME || DEFAULT_WEBMCP_OT_CHROME,
       webmcpOtEdge: process.env.NUXT_PUBLIC_WEBMCP_OT_EDGE || DEFAULT_WEBMCP_OT_EDGE,
       webmcpOtRender: process.env.NUXT_PUBLIC_WEBMCP_OT_RENDER
-        ?? (process.env.CONTEXT === 'production' ? '1' : '0'),
-      // Same Netlify production gate as webmcpOtRender — bake at generate so
+        ?? (isHostProduction ? '1' : '0'),
+      // Same production gate as webmcpOtRender — bake at generate so
       // deploy previews and local dev never emit the Cloudflare beacon.
-      cfWebAnalytics: process.env.CONTEXT === 'production' ? '1' : '0',
+      cfWebAnalytics: isHostProduction ? '1' : '0',
     },
   },
 
   nitro: {
+    // Preset auto-detected (Netlify / Vercel). Do not hardcode.
     ...(process.env.NUXT_OT_OUTPUT_DIR
       ? { output: { dir: process.env.NUXT_OT_OUTPUT_DIR } }
       : {}),
+    routeRules: hostingRouteRules,
     prerender: {
       // Prefer completing the static publish (public/ assets, including
       // sitemap.xml + _redirects) over failing the whole generate on
@@ -176,7 +193,8 @@ export default defineNuxtConfig({
       failOnError: false,
       // /feed.xml, markdown copies of every published blog post, and every
       // year archive that has posts (crawl alone only reaches recent-year chips).
-      routes: ['/feed.xml', ...blogMarkdownRoutes, ...blogYearRoutes],
+      // robots.txt is emitted by @nuxtjs/robots — include so Vercel static has it.
+      routes: ['/feed.xml', '/robots.txt', ...blogMarkdownRoutes, ...blogYearRoutes],
       // Write /blog.html instead of /blog/index.html so Netlify serves the
       // canonical no-slash URL (used by canonical tags, sitemap and links)
       // directly instead of 301-redirecting /blog -> /blog/ first.
