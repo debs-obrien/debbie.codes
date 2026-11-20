@@ -119,6 +119,39 @@
         </a>
       </li>
     </ul>
+
+    <nav aria-label="Utility links" class="mt-2 px-6">
+      <ul class="flex flex-wrap items-center justify-center text-sm text-[#d1d5db]">
+        <li
+          v-for="(item, index) in footerLinks"
+          :key="item.url"
+          class="flex items-center"
+        >
+          <span
+            v-if="index > 0"
+            class="mx-2 select-none"
+            aria-hidden="true"
+          >·</span>
+          <a
+            v-if="item.type"
+            :href="item.url"
+            :type="item.type"
+            class="inline-flex items-center gap-1 rounded-sm hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ff5a73]"
+          >
+            <IconRss class="h-3.5 w-3.5 shrink-0" />
+            {{ item.link }}
+          </a>
+          <NuxtLink
+            v-else
+            :to="item.url"
+            class="rounded-sm hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ff5a73]"
+          >
+            {{ item.link }}
+          </NuxtLink>
+        </li>
+      </ul>
+    </nav>
+
     <p class="mt-8 text-center text-gray-400">
       &copy; Debbie O'Brien, Palma de Mallorca, Spain
     </p>

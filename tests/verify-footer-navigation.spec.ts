@@ -64,6 +64,17 @@ test.describe('Navigation Functionality', { tag: '@agent' }, () => {
             - link "buy me a coffee":
               - /url: https://www.buymeacoffee.com/debbieobrien
               - img
+        - navigation "Utility links":
+          - list:
+            - listitem:
+              - link "Contact":
+                - /url: /contact
+            - listitem:
+              - link "Privacy":
+                - /url: /privacy
+            - listitem:
+              - link "RSS":
+                - /url: /feed.xml
         - paragraph: © Debbie O'Brien, Palma de Mallorca, Spain
     `);
 

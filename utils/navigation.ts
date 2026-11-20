@@ -39,3 +39,27 @@ const allNavLinks: Navigation[] = [
 
 /** Links shown in desktop top bar, mobile dialog nav, and footer. */
 export const NavLinks: Navigation[] = allNavLinks.filter(nav => !nav.hidden)
+
+/** Quieter utility links in the footer only (below social icons). Not in top nav. */
+export interface FooterLink {
+  url: string
+  link: string
+  /** Optional MIME type, e.g. application/rss+xml for the feed. */
+  type?: string
+}
+
+export const footerLinks: FooterLink[] = [
+  {
+    url: '/contact',
+    link: 'Contact',
+  },
+  {
+    url: '/privacy',
+    link: 'Privacy',
+  },
+  {
+    url: '/feed.xml',
+    link: 'RSS',
+    type: 'application/rss+xml',
+  },
+]
