@@ -35,7 +35,7 @@ test.describe('performance and accessibility guards', () => {
           localStorage.setItem('nuxt-color-mode', mode);
         }, scheme);
 
-        const failures = await page.evaluate(() => {
+        const scan = await page.evaluate(() => {
           function lum(cssColor: string): number {
             const rgb = cssColor.match(/^rgba?\(\s*([\d.]+)\s*,\s*([\d.]+)\s*,\s*([\d.]+)/i);
             if (!rgb)
@@ -64,22 +64,25 @@ test.describe('performance and accessibility guards', () => {
             return 'rgb(255, 255, 255)';
           }
 
-          const bad: { text: string, fg: string, bg: string, ratio: number }[] = [];
+          const failures: { text: string, fg: string, bg: string, ratio: number }[] = [];
+          let tokenCount = 0;
           // Token spans carry hashed Shiki classes; `.line` wrappers are skipped.
           for (const span of document.querySelectorAll<HTMLElement>('pre.shiki span:not(.line)')) {
             const text = span.textContent ?? '';
             if (!text.trim())
               continue;
+            tokenCount += 1;
             const fg = getComputedStyle(span).color;
             const bg = effectiveBg(span);
             const r = ratio(fg, bg);
             if (r < 4.5)
-              bad.push({ text: text.slice(0, 24), fg, bg, ratio: Number(r.toFixed(2)) });
+              failures.push({ text: text.slice(0, 24), fg, bg, ratio: Number(r.toFixed(2)) });
           }
-          return bad;
+          return { tokenCount, failures };
         });
 
-        expect(failures, `${path} (${scheme})`).toEqual([]);
+        expect(scan.tokenCount, `${path} (${scheme}) should have highlighted tokens`).toBeGreaterThan(0);
+        expect(scan.failures, `${path} (${scheme})`).toEqual([]);
       }
     }
   });
