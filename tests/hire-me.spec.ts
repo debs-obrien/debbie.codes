@@ -1,4 +1,5 @@
 import process from 'node:process';
+import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from './fixtures';
 
 const hireMeAgentId = 'agent_8801m5yfwzgpf61szvhj0mj0v5fv';
@@ -79,6 +80,7 @@ test.describe('Hire me page', () => {
 
     const assistant = page.locator('section[aria-labelledby="hire-me-assistant-heading"]');
     await expect(page.getByRole('heading', { name: 'Ask about Debbie', level: 2 })).toBeVisible();
+    await expect(page.locator('#hire-me-assistant-heading')).toBeVisible();
     await expect(assistant.getByText(/answers questions from recruiters, hiring managers and future teammates about my work, numbers and the roles/i)).toBeVisible();
     await expect(assistant.getByText(/prototype/i)).toHaveCount(0);
     await expect(assistant.getByText('Try asking:')).toBeVisible();
@@ -86,8 +88,15 @@ test.describe('Hire me page', () => {
     await expect(assistant.getByText('What roles is she looking for?')).toBeVisible();
     await expect(assistant.getByText('What results has she had with developer content?')).toBeVisible();
 
-    const widget = page.locator('elevenlabs-convai');
-    await expect(widget).toHaveAttribute('agent-id', hireMeAgentId);
+    // Opt-in card is present; the embed is not mounted until Start.
+    const optIn = page.getByTestId('hire-me-voice-opt-in');
+    await expect(optIn.getByRole('button', { name: 'Start voice assistant' })).toBeVisible();
+    await expect(page.locator('elevenlabs-convai')).toHaveCount(0);
+
+    await expect(page.getByRole('link', { name: 'further down' })).toHaveAttribute(
+      'href',
+      '#hire-me-assistant-heading'
+    );
 
     // Desktop nav: Hire me is visible and goes to /hire-me
     await page.setViewportSize({ width: 1280, height: 720 });
@@ -189,14 +198,159 @@ test.describe('Hire me page', () => {
     expect(sitemapXml).toContain('/hire-me');
   });
 
+  test('loads zero unpkg or elevenlabs requests before opt-in', async ({ page }) => {
+    const blockedHosts: string[] = [];
+    await page.route(/unpkg\.com|elevenlabs\.io|api\.elevenlabs/, (route) => {
+      blockedHosts.push(route.request().url());
+      return route.abort();
+    });
+
+    const seen: string[] = [];
+    page.on('request', (req) => {
+      const url = req.url();
+      if (/unpkg\.com|elevenlabs\.io|api\.elevenlabs/i.test(url))
+        seen.push(url);
+    });
+
+    await page.goto(hireMePath);
+    const start = page.getByRole('button', { name: 'Start voice assistant' });
+    await expect(start).toBeVisible();
+    await expect(page.locator('elevenlabs-convai')).toHaveCount(0);
+    await expect(page.locator('script[src*="elevenlabs"], script[src*="unpkg.com/@elevenlabs"]')).toHaveCount(0);
+    await page.waitForLoadState('networkidle');
+    // Hydration: Start is actionable before we open the observation window.
+    await expect(async () => {
+      await start.click({ trial: true });
+    }).toPass({ timeout: 15000 });
+    // Real observation window after hydration so a deferred inject would fire.
+    await page.waitForTimeout(1500);
+    expect(seen, `unexpected third-party voice requests: ${seen.join(', ')}`).toEqual([]);
+    expect(blockedHosts).toEqual([]);
+  });
+
+  test('keyboard: Tab reaches Start and Enter begins loading (script blocked)', async ({ page }) => {
+    // Hold the script request so Loading… is observable, then abort for the error path.
+    let releaseScript!: () => void;
+    const scriptGate = new Promise<void>((resolve) => {
+      releaseScript = resolve;
+    });
+    await page.route(/unpkg\.com|elevenlabs\.io|api\.elevenlabs/, async (route) => {
+      await scriptGate;
+      await route.abort();
+    });
+
+    await page.goto(hireMePath);
+
+    const start = page.getByRole('button', { name: 'Start voice assistant' });
+    await expect(start).toBeVisible();
+    // Hydration attaches the click handler; wait until a real click moves state.
+    await expect(async () => {
+      await start.click({ trial: true });
+    }).toPass({ timeout: 15000 });
+
+    // Start from the in-page "further down" link, then Tab to the Start button.
+    const furtherDown = page.getByRole('link', { name: 'further down' });
+    await furtherDown.focus();
+    await expect(furtherDown).toBeFocused();
+    await expect(async () => {
+      await page.keyboard.press('Tab');
+      await expect(start).toBeFocused({ timeout: 500 });
+    }).toPass({ timeout: 10000 });
+
+    // Retry Enter until the Vue handler has run (parallel workers can still be hydrating).
+    await expect(async () => {
+      await start.press('Enter');
+      await expect(page.getByRole('button', { name: 'Loading…' })).toBeVisible({ timeout: 1000 });
+    }).toPass({ timeout: 15000 });
+
+    const loading = page.getByRole('button', { name: 'Loading…' });
+    await expect(loading).toHaveAttribute('aria-busy', 'true');
+    await expect(loading).toBeDisabled();
+
+    releaseScript();
+    // Script is aborted → error + retry, never a live embed.
+    await expect(page.getByText(/couldn't load/i)).toBeVisible({ timeout: 10000 });
+    await expect(page.getByRole('button', { name: 'Try again' })).toBeVisible();
+    await expect(page.locator('elevenlabs-convai')).toHaveCount(0);
+  });
+
+  test('at 390px the opt-in card does not overlap the intro', async ({ page }) => {
+    await blockElevenLabs(page);
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto(hireMePath);
+
+    const intro = page.locator('main .prose p').filter({ hasText: /optional voice assistant/i });
+    const card = page.getByTestId('hire-me-voice-opt-in');
+    await expect(intro).toBeVisible();
+    await expect(card).toBeVisible();
+    await expect(page.locator('elevenlabs-convai')).toHaveCount(0);
+
+    const introBox = await intro.boundingBox();
+    const cardBox = await card.boundingBox();
+    expect(introBox).toBeTruthy();
+    expect(cardBox).toBeTruthy();
+    // Card sits below the intro; no vertical overlap before opt-in.
+    expect(cardBox!.y).toBeGreaterThanOrEqual(introBox!.y + introBox!.height - 1);
+
+    // No fixed/sticky voice chrome covering the intro before opt-in.
+    await intro.scrollIntoViewIfNeeded();
+    const covering = await intro.evaluate((introEl) => {
+      const rect = introEl.getBoundingClientRect();
+      const midX = rect.left + rect.width / 2;
+      const midY = rect.top + rect.height / 2;
+      const top = document.elementFromPoint(midX, midY);
+      if (!top)
+        return null;
+      if (top.closest('[data-testid="hire-me-voice-opt-in"]') || top.tagName.toLowerCase() === 'elevenlabs-convai')
+        return top.tagName;
+      return null;
+    });
+    expect(covering).toBeNull();
+  });
+
+  for (const theme of ['light', 'dark'] as const) {
+    test(`opt-in card text and button pass 4.5:1 contrast (${theme})`, async ({ page }) => {
+      await page.emulateMedia({ colorScheme: theme });
+      await blockElevenLabs(page);
+      await page.goto(hireMePath);
+      await expect(page.locator('html')).toHaveClass(new RegExp(`\\b${theme}\\b`));
+
+      const card = page.getByTestId('hire-me-voice-opt-in');
+      await expect(card.getByRole('button', { name: 'Start voice assistant' })).toBeVisible();
+
+      const results = await new AxeBuilder({ page })
+        .include('[data-testid="hire-me-voice-opt-in"]')
+        .withTags(['wcag2aa', 'wcag21aa'])
+        .analyze();
+
+      const contrastViolations = results.violations.filter(v => v.id === 'color-contrast');
+      expect(
+        contrastViolations,
+        `${theme} theme color-contrast: ${JSON.stringify(contrastViolations, null, 2)}`
+      ).toEqual([]);
+    });
+  }
+
   test('limits the voice widget text box to 500 characters', async ({ page }) => {
     // Needs the real embed UI (do not abort unpkg / voice hosts).
     // Agent origin allowlists often block non-production hosts; skip cleanly then.
     await page.goto(hireMePath);
 
+    const start = page.getByRole('button', { name: 'Start voice assistant' });
+    try {
+      await expect(start).toBeVisible({ timeout: 15000 });
+      await start.click();
+    }
+    catch {
+      test.skip(true, 'Voice opt-in button did not appear');
+      return;
+    }
+
     const host = page.locator('elevenlabs-convai');
     try {
-      await expect(host).toBeAttached({ timeout: 15000 });
+      await expect(host).toBeAttached({ timeout: 20000 });
+      await expect(host).toHaveAttribute('agent-id', hireMeAgentId);
+      await expect(host).toHaveAttribute('disable-banner', 'true');
       await expect(host.locator('button[aria-label="Message"]')).toBeVisible({ timeout: 20000 });
     }
     catch {
