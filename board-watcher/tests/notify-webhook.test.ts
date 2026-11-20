@@ -1,40 +1,65 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { notifyWebhook, webhookPayloadFromMessage } from '../lib/notify-webhook'
+import {
+  formatWakeLog,
+  notifyWebhook,
+  webhookPayloadFromMessage,
+} from '../lib/notify-webhook'
 
 afterEach(() => {
   vi.unstubAllEnvs()
 })
 
 describe('webhookPayloadFromMessage', () => {
-  it('maps message fields to the webhook body', () => {
+  it('maps message fields to the webhook body with reason', () => {
     expect(
-      webhookPayloadFromMessage({
-        id: '812',
-        channel: 'debbie-codes',
-        text: 'fix the footer',
-        labels: { 'topic': 'site', 'board.task': 'ready' },
-      }),
+      webhookPayloadFromMessage(
+        {
+          id: '812',
+          channel: 'debbie-codes',
+          text: 'fix the footer',
+          labels: { 'topic': 'site', 'board.task': 'ready' },
+        },
+        'new-ready-task',
+      ),
     ).toEqual({
       taskId: '812',
       channel: 'debbie-codes',
       text: 'fix the footer',
       labels: { 'topic': 'site', 'board.task': 'ready' },
+      reason: 'new-ready-task',
     })
   })
 
   it('defaults missing labels to an empty object', () => {
     expect(
-      webhookPayloadFromMessage({
-        id: '1',
-        channel: 'debbie-codes',
-        text: 'hi',
-      }),
+      webhookPayloadFromMessage(
+        {
+          id: '1',
+          channel: 'debbie-codes',
+          text: 'hi',
+        },
+        'assigned',
+      ),
     ).toEqual({
       taskId: '1',
       channel: 'debbie-codes',
       text: 'hi',
       labels: {},
+      reason: 'assigned',
     })
+  })
+})
+
+describe('formatWakeLog', () => {
+  it('includes type, reason, and task id only (no url or key)', () => {
+    const line = formatWakeLog('task.assigned', 'assigned', '812')
+    expect(line).toBe(
+      'board-watcher wake type=task.assigned reason=assigned taskId=812',
+    )
+    expect(line).not.toMatch(/https?:\/\//i)
+    expect(line).not.toMatch(/BOARD_WATCHER_WEBHOOK/i)
+    expect(line).not.toMatch(/bearer/i)
+    expect(line).not.toMatch(/secret|key|token/i)
   })
 })
 
@@ -51,6 +76,7 @@ describe('notifyWebhook', () => {
         channel: 'debbie-codes',
         text: 'hello',
         labels: { 'board.task': 'ready' },
+        reason: 'new-ready-task',
       },
       fetchImpl,
     )
@@ -67,6 +93,7 @@ describe('notifyWebhook', () => {
       channel: 'debbie-codes',
       text: 'hello',
       labels: { 'board.task': 'ready' },
+      reason: 'new-ready-task',
     })
   })
 
@@ -77,6 +104,7 @@ describe('notifyWebhook', () => {
         channel: 'debbie-codes',
         text: 'x',
         labels: {},
+        reason: 'new-ready-task',
       }),
     ).rejects.toThrow(/BOARD_WATCHER_WEBHOOK_URL is not set/)
   })

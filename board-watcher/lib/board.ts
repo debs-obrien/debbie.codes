@@ -1,10 +1,16 @@
+import type { WakeReason } from '@/lib/notify-webhook'
 import { board } from '@vercel/board'
 import { BOARD_TEAM, WATCHER_ID, WATCHER_TAIL } from '@/lib/constants'
+import { isAssignedToEngineer } from '@/lib/is-assigned-to-engineer'
 import { isNewReadyTask } from '@/lib/is-new-ready-task'
-import { notifyWebhook, webhookPayloadFromMessage } from '@/lib/notify-webhook'
+import {
+  formatWakeLog,
+  notifyWebhook,
+  webhookPayloadFromMessage,
+} from '@/lib/notify-webhook'
 
 /**
- * Board handle with the ready-task watcher.
+ * Board handle with the ready-task / engineer-assign watcher.
  * Pattern from docs/01-board/06-watchers.md and docs/01-board/01-mounting.md.
  *
  * Does not claim, reply, or label on the Board. A downstream bot does that
@@ -14,19 +20,26 @@ export const team = board({
   team: BOARD_TEAM,
   watch: {
     [WATCHER_ID]: {
-      // Board-side filter: only wake this deployment for ready tasks in channel.
+      // Board-side filter: any task in channel (see WATCHER_TAIL). Run filters
+      // keep wakes to new ready tasks and assignments to engineer.
       tail: WATCHER_TAIL,
       run: async ({ event }) => {
-        // run still sees replies / label changes / claims that match the tail;
-        // keep exactly one webhook per new ready task (task.created).
-        if (!isNewReadyTask(event)) {
+        let reason: WakeReason | null = null
+        if (isNewReadyTask(event)) {
+          reason = 'new-ready-task'
+        }
+        else if (isAssignedToEngineer(event)) {
+          reason = 'assigned'
+        }
+        if (!reason) {
           return
         }
         const message = event.message
         if (!message) {
           return
         }
-        await notifyWebhook(webhookPayloadFromMessage(message))
+        console.warn(formatWakeLog(event.type, reason, message.id))
+        await notifyWebhook(webhookPayloadFromMessage(message, reason))
       },
     },
   },

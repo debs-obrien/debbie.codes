@@ -1,6 +1,6 @@
 # debbie.codes Board watcher
 
-A tiny Vercel project that watches the Vercel Board channel `debbie-codes` for **new tasks in state ready**, then notifies a downstream webhook once per new task. It does not claim, reply, or route on the Board itself. Another bot does that after it receives the webhook.
+A tiny Vercel project that watches the Vercel Board channel `debbie-codes` for **new tasks in state ready**, and also when a task is **assigned to the engineer agent**, then notifies a downstream webhook. It does not claim, reply, or route on the Board itself. Another bot does that after it receives the webhook.
 
 This folder is self-contained. Deploy it as its own Vercel project with **Root Directory** set to `board-watcher`. It does not change the Nuxt site or Netlify config.
 
@@ -14,7 +14,7 @@ A **webhook** here is a normal HTTPS POST to a URL you control. When a new ready
 
 ## Why
 
-Agents and people post work into Board channel `debbie-codes`. This watcher only cares when a **new** ready task root lands. Replies, label edits, claims, and completions must not wake the downstream bot.
+Agents and people post work into Board channel `debbie-codes`. This watcher wakes the downstream bot for a **new** ready task root, or when a task is assigned to profile `engineer` (`task.assigned`). Replies, label edits, claims, completions, and assigns to anyone else must not wake it.
 
 ## What the docs said vs what this builds
 
@@ -23,15 +23,15 @@ From `@vercel/board` (`docs/01-board/06-watchers.md`, `11-tasks.md`, `01-mountin
 | Docs | This project |
 | --- | --- |
 | `board({ watch: { <id>: { tail, run } } })` and export `GET`/`POST` as `team.fetch` | `app/api/board/[[...path]]/route.ts` |
-| Tail filters: channel + `--label board.task=ready` | `tail: 'debbie-codes --label board.task=ready'` |
-| Act once inside `run` after the tail matches | `isNewReadyTask()` accepts only `task.created` on a ready root |
+| Tail filters: channel + `--label board.task` (any task state) | `tail: 'debbie-codes --label board.task'` |
+| Act once inside `run` after the tail matches | `isNewReadyTask()` / `isAssignedToEngineer()` |
 | `team` option for another team's board | `team: 'dobriendev-3232s-projects'` |
 | `local({ memory: true })` for tests | `tests/watcher-local.test.ts` |
 
 Filtering is two layers, as the docs require:
 
-1. **Board service filter** (`tail`): only wake this deployment for channel `debbie-codes` with `board.task=ready`.
-2. **`run` check**: only POST the webhook for `task.created` on a ready root. Replies, `labels.changed`, claims, and other task events return early.
+1. **Board service filter** (`tail`): wake this deployment for channel `debbie-codes` when the root has any `board.task` label (ready, claimed, blocked, …). A ready-only tail would miss assigns on claimed or blocked tasks.
+2. **`run` check**: POST the webhook only for `task.created` on a ready root (`reason: 'new-ready-task'`) or `task.assigned` with `payload.for` ending in `+engineer` (`reason: 'assigned'`). Everything else returns early.
 
 Why `task.created` instead of the docs' `message.posted` example: that example is for a channel-only tail. With `--label board.task=ready`, create emits `message.posted` before the ready label exists, so the Board-side filter does not deliver that post. The event that enters the ready view is `task.created`. Confirmed with `local({ memory: true })`.
 
@@ -60,7 +60,7 @@ npm run dev
 Try the same filter in a terminal first (docs recommendation):
 
 ```bash
-npx vb tail debbie-codes --label board.task=ready --json --scope dobriendev-3232s-projects
+npx vb tail debbie-codes --label board.task --json --scope dobriendev-3232s-projects
 ```
 
 ## Environment variables
@@ -92,9 +92,12 @@ Neither value is hardcoded or logged.
   "labels": {
     "board.task": "ready",
     "topic": "site"
-  }
+  },
+  "reason": "new-ready-task"
 }
 ```
+
+`reason` is `"new-ready-task"` or `"assigned"`.
 
 ## How to verify (end-to-end manual check)
 
@@ -131,8 +134,9 @@ Automated proof of the same filter lives in `npm test` (unit tests plus a `local
 board-watcher/
   app/api/board/[[...path]]/route.ts   # exports GET/POST = team.fetch
   lib/board.ts                         # board() + watcher config
-  lib/constants.ts                     # team, channel, tail
-  lib/is-new-ready-task.ts             # event filter for one wake
+  lib/constants.ts                     # team, channel, tail, engineer name
+  lib/is-new-ready-task.ts             # new ready-task filter
+  lib/is-assigned-to-engineer.ts       # assignment-to-engineer filter
   lib/notify-webhook.ts                # POST + Authorization header
   tests/                               # unit + local harness
   README.md
