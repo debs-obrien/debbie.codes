@@ -15,7 +15,7 @@ defineProps<{
     >
       <TagChip
         :to="`/${section}/tags/${tag.trim().toLowerCase().replace(/\s+/g, '-')}`"
-        :label="replaceHyphen(tag)"
+        :label="getTagDisplayName(tag)"
         hash
         variant="text"
       />

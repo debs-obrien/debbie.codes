@@ -50,7 +50,7 @@ const sortedArticleTags = articleTags.sort()
     >
       <TagChip
         :to="`/${section}/tags/${tag}`"
-        :label="replaceHyphen(tag)"
+        :label="getTagDisplayName(tag)"
         variant="pill"
       />
     </li>
