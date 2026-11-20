@@ -4,6 +4,7 @@ import { generateSitemap } from './scripts/generate-sitemap.mjs'
 import { DEFAULT_WEBMCP_OT_CHROME, DEFAULT_WEBMCP_OT_EDGE } from './utils/origin-trial'
 import { calculateReadingTime, extractTextFromContent } from './utils/reading-time'
 import { NETLIFY_REMOTE_IMAGE_HOSTS } from './utils/remote-images'
+import { githubDarkAa, githubLightAa } from './utils/shiki-aa-themes'
 
 // Static public/sitemap.xml — avoids Netlify Function/SQLite 500s for /sitemap.xml.
 generateSitemap()
@@ -89,14 +90,18 @@ export default defineNuxtConfig({
     preview: {
       api: 'https://api.nuxt.studio',
     },
-    highlight: {
-      theme: {
-        default: 'github-dark',
-        light: 'github-light',
-        dark: 'github-dark',
+    // Nuxt Content v3 reads highlight under build.markdown (not content.highlight).
+    build: {
+      markdown: {
+        highlight: {
+          // github-light/dark with only AA-failing token foregrounds patched
+          // for our #f8f9fa / #1e1e1e pre backgrounds (see utils/shiki-aa-themes.ts).
+          theme: {
+            default: githubLightAa,
+            dark: githubDarkAa,
+          },
+        },
       },
-      preload: ['json', 'js', 'ts', 'html', 'css', 'vue', 'bash', 'markdown'],
-      lineNumbers: true,
     },
   },
 
