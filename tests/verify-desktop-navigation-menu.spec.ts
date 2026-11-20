@@ -8,11 +8,12 @@ test.describe('Navigation Functionality', { tag: ['@agent', '@smoke'] }, () => {
     // 1. Navigate to the home page (`/`)
     await page.goto('/');
 
-    // 2. Locate the navigation bar in the header
-    await expect(page.getByRole('navigation')).toBeVisible();
+    // 2. Locate the navigation bar in the header (not the footer utility nav)
+    const headerNav = page.getByRole('banner').getByRole('navigation');
+    await expect(headerNav).toBeVisible();
 
     // 3. Verify all navigation links are present
-    await expect(page.getByRole('navigation')).toMatchAriaSnapshot(`
+    await expect(headerNav).toMatchAriaSnapshot(`
       - list:
         - listitem:
           - link "About":
