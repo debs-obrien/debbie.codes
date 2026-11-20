@@ -1,10 +1,13 @@
 import process from 'node:process'
 
+export type WakeReason = 'new-ready-task' | 'assigned'
+
 export interface WebhookPayload {
   taskId: string
   channel: string
   text: string
   labels: Record<string, string>
+  reason: WakeReason
 }
 
 /**
@@ -40,16 +43,32 @@ export async function notifyWebhook(
   }
 }
 
-export function webhookPayloadFromMessage(message: {
-  id: string
-  channel: string
-  text: string
-  labels?: Record<string, string>
-}): WebhookPayload {
+export function webhookPayloadFromMessage(
+  message: {
+    id: string
+    channel: string
+    text: string
+    labels?: Record<string, string>
+  },
+  reason: WakeReason,
+): WebhookPayload {
   return {
     taskId: message.id,
     channel: message.channel,
     text: message.text,
     labels: message.labels ?? {},
+    reason,
   }
+}
+
+/**
+ * One info line per forwarded wake. Only event type, reason, and task id.
+ * Never include the webhook URL or key.
+ */
+export function formatWakeLog(
+  eventType: string,
+  reason: WakeReason,
+  taskId: string,
+): string {
+  return `board-watcher wake type=${eventType} reason=${reason} taskId=${taskId}`
 }

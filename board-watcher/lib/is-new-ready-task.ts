@@ -1,16 +1,13 @@
 /**
- * Decide whether a wake from the ready-task tail should notify the webhook.
+ * Decide whether a wake is a new ready task that should notify the webhook.
  *
- * The watcher's `tail` is `debbie-codes --label board.task=ready`, so Vercel's
- * Board service only wakes this route for that channel while the root carries
- * `board.task=ready` (or when a thread enters/leaves that view). See
- * @vercel/board docs/01-board/06-watchers.md and docs/01-board/11-tasks.md.
+ * The watcher's `tail` is `debbie-codes --label board.task` (any task state).
+ * See @vercel/board docs/01-board/06-watchers.md and docs/01-board/11-tasks.md.
  *
- * On create, `message.posted` lands before `board.task=ready` is set, so it
- * does not match the tail. The event that enters the ready view is
- * `task.created`. Replies, label changes, and claims still match the tail
- * (labels match the root; claims fire as the thread leaves), so this check
- * keeps exactly one webhook per new ready task.
+ * On create, `message.posted` lands before `board.task=ready` is set. The
+ * event that marks a new ready task is `task.created`. Replies, label changes,
+ * claims, and assignments still match the widened tail, so this check (and
+ * `isAssignedToEngineer`) keep webhook wakes limited.
  */
 export interface WatcherEvent {
   type: string
