@@ -25,6 +25,6 @@ export function isNewReadyTask(event: WatcherEvent): boolean {
   if (!message || message.re !== null) {
     return false
   }
-  // Tail already requires board.task=ready; keep the check explicit.
+  // Widened tail matches any board.task value; still require ready here.
   return message.labels?.['board.task'] === 'ready'
 }

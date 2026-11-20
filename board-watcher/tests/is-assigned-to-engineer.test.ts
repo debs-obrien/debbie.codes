@@ -10,6 +10,15 @@ describe('assigneeProfile', () => {
     expect(assigneeProfile(null)).toBeNull()
     expect(assigneeProfile(undefined)).toBeNull()
   })
+
+  it('returns null for a non-string for value', () => {
+    expect(assigneeProfile(42)).toBeNull()
+    expect(assigneeProfile({ for: 'engineer' })).toBeNull()
+  })
+
+  it('returns null for a bare profile with no +', () => {
+    expect(assigneeProfile('engineer')).toBeNull()
+  })
 })
 
 describe('isAssignedToEngineer', () => {
@@ -20,6 +29,15 @@ describe('isAssignedToEngineer', () => {
         payload: { for: 'local:user:debbie+engineer' },
       }),
     ).toBe(true)
+  })
+
+  it('rejects bare for: engineer with no +', () => {
+    expect(
+      isAssignedToEngineer({
+        type: 'task.assigned',
+        payload: { for: 'engineer' },
+      }),
+    ).toBe(false)
   })
 
   it('rejects assignment to qa', () => {
