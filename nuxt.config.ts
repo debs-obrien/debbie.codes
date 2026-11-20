@@ -2,7 +2,7 @@ import process from 'node:process'
 import { generateContentIndex } from './scripts/generate-content-index.mjs'
 import { generateSitemap } from './scripts/generate-sitemap.mjs'
 import { buildHostingRouteRules } from './scripts/hosting-route-rules.mjs'
-import { injectVercelTrailingSlashStrip } from './scripts/vercel-trailing-slash-route.mjs'
+import { patchVercelBuildConfig } from './scripts/vercel-build-config.mjs'
 import { DEFAULT_WEBMCP_OT_CHROME, DEFAULT_WEBMCP_OT_EDGE } from './utils/origin-trial'
 import { calculateReadingTime, extractTextFromContent } from './utils/reading-time'
 import { NETLIFY_REMOTE_IMAGE_HOSTS } from './utils/remote-images'
@@ -125,11 +125,10 @@ export default defineNuxtConfig({
   },
 
   hooks: {
-    // After Nitro's vercel preset writes config.json, inject a host-level
-    // trailing-slash strip before `handle: filesystem` (see script).
+    // Patch Build Output config: trailing-slash 301s, header continue, blog Accept.
     'nitro:init': (nitro) => {
       nitro.hooks.hook('compiled', async () => {
-        await injectVercelTrailingSlashStrip(nitro)
+        await patchVercelBuildConfig(nitro)
       })
     },
     // Store whole minutes on blog items so list queries can select readingMinutes
@@ -197,10 +196,8 @@ export default defineNuxtConfig({
     ...(process.env.NUXT_OT_OUTPUT_DIR
       ? { output: { dir: process.env.NUXT_OT_OUTPUT_DIR } }
       : {}),
-    // Do not set vercel.config.trailingSlash — Build Output API ignores it
-    // (dead key). Explicit `^/(.+)/$` 301 is injected in nitro:init → compiled.
-    // Do not prepend via vercel.config.routes (defu puts user routes first and
-    // would shadow specific redirects like /resources/ → /).
+    // trailingSlash / Accept markdown routes are patched in scripts/vercel-build-config.mjs
+    // (Build Output ignores a bare trailingSlash key; see Vercel getTransformedRoutes).
     routeRules: hostingRouteRules,
     prerender: {
       // `nuxt build` (Vercel) is not nitro.static — without crawlLinks only the

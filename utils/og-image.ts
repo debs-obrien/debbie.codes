@@ -12,20 +12,18 @@ const LOCAL_BY_PUBLIC_ID: Array<{ id: string, path: string }> = [
 ]
 
 /**
- * Map a local image path to an absolute Netlify Image CDN JPEG suitable for OG crawlers.
- * 1200×630 cover crop, JPEG q85.
+ * Absolute same-origin image URL for OG/Twitter cards.
+ * Works on Netlify and Vercel (no `/.netlify/images`, which dies if DNS moves).
+ * Repo policy forbids Cloudinary delivery URLs (check-no-cloudinary + tests).
  */
-export function netlifyOgImageUrl(localPath: string): string {
+export function siteOgImageUrl(localPath: string): string {
   const path = localPath.startsWith('/') ? localPath : `/${localPath}`
-  const params = new URLSearchParams({
-    url: path,
-    w: '1200',
-    h: '630',
-    fit: 'cover',
-    fm: 'jpg',
-    q: '85',
-  })
-  return `${SITE_ORIGIN}/.netlify/images?${params.toString()}`
+  return `${SITE_ORIGIN}${path}`
+}
+
+/** @deprecated Use siteOgImageUrl — kept as alias for older call sites/tests. */
+export function netlifyOgImageUrl(localPath: string): string {
+  return siteOgImageUrl(localPath)
 }
 
 /** Force Unsplash OG URLs to a real 1200×630 crop so og:image:width/height stay honest. */
@@ -43,7 +41,7 @@ export function unsplashOgImageUrl(urlOrPath: string): string {
 }
 
 /**
- * True when `url` is known to be a 1200×630 social card (Netlify crop, site JPEG, or sized Unsplash).
+ * True when `url` is known to be a 1200×630 social card (site JPEG or sized Unsplash).
  * Callers should only emit og:image:width/height when this returns true.
  */
 export function isStandardOgSize(url: string): boolean {
@@ -57,8 +55,6 @@ export function isStandardOgSize(url: string): boolean {
   ) {
     return true
   }
-  if (url.includes('/.netlify/images') && /[?&]w=1200\b/.test(url) && /[?&]h=630\b/.test(url))
-    return true
   if (url.includes('images.unsplash.com') && /[?&]w=1200\b/.test(url) && /[?&]h=630\b/.test(url))
     return true
   return false
@@ -83,13 +79,24 @@ export function resolveOgImage(
 
     const mapped = localPathFor(value)
     if (mapped)
-      return netlifyOgImageUrl(mapped)
+      return siteOgImageUrl(mapped)
 
     if (/^https?:\/\//i.test(value)) {
       if (value.startsWith(SITE_ORIGIN) && value.includes('/images/')) {
         const path = value.slice(SITE_ORIGIN.length).split('?')[0]
         if (path.startsWith('/images/'))
-          return netlifyOgImageUrl(path)
+          return siteOgImageUrl(path)
+      }
+      // Legacy Netlify Image CDN absolute URLs — unwrap to the source path.
+      if (value.includes('/.netlify/images')) {
+        try {
+          const src = new URL(value).searchParams.get('url')
+          if (src?.startsWith('/images/'))
+            return siteOgImageUrl(src)
+        }
+        catch {
+          // fall through
+        }
       }
       if (/images\.unsplash\.com/i.test(value))
         return unsplashOgImageUrl(value)
@@ -99,13 +106,13 @@ export function resolveOgImage(
       // Stale Cloudinary absolute URL — try public-id mapping, else skip.
       const fromCloud = localPathFor(value)
       if (fromCloud)
-        return netlifyOgImageUrl(fromCloud)
+        return siteOgImageUrl(fromCloud)
       continue
     }
 
     if (value.startsWith('/')) {
       if (value.startsWith('/images/'))
-        return netlifyOgImageUrl(value)
+        return siteOgImageUrl(value)
       return `${SITE_ORIGIN}${value}`
     }
 

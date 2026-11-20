@@ -47,23 +47,10 @@ function sampleBlogSlugs(): string[] {
   return [...new Set([...newest, mid, older])];
 }
 
-/** True for local Playwright webServer base URLs (CDN unavailable under nuxt dev). */
-function isLocalDevBaseURL(baseURL: string): boolean {
-  try {
-    const host = new URL(baseURL).hostname;
-    return host === '127.0.0.1' || host === 'localhost';
-  }
-  catch {
-    return false;
-  }
-}
-
 /**
  * Map an absolute OG URL to something the test base URL can serve.
- * Under local `nuxt dev`, Netlify Image CDN (`/.netlify/images`) is unavailable,
- * so we fetch the underlying `/images/...` source instead. On deploy previews /
- * production bases, keep the CDN path so a broken transform still fails.
- * Third-party hosts (e.g. Unsplash) return null — callers skip fetching them.
+ * Same-origin `/images/...` (and legacy `/.netlify/images`) rewrite to the
+ * preview origin. Third-party hosts (e.g. Unsplash) return null.
  */
 function fetchableImageUrl(absoluteHttps: string, baseURL: string | undefined): string | null {
   if (/images\.unsplash\.com/i.test(absoluteHttps) || !absoluteHttps.startsWith(SITE_ORIGIN))
@@ -74,7 +61,7 @@ function fetchableImageUrl(absoluteHttps: string, baseURL: string | undefined): 
 
   const origin = baseURL.replace(/\/$/, '');
 
-  if (absoluteHttps.includes('/.netlify/images') && isLocalDevBaseURL(origin)) {
+  if (absoluteHttps.includes('/.netlify/images')) {
     try {
       const u = new URL(absoluteHttps);
       const src = u.searchParams.get('url');
@@ -106,18 +93,21 @@ test.describe('Blog OG / Twitter images', () => {
     expect(twitterImage).toMatch(/^https:\/\//);
     expect(ogImage).not.toBe(DEFAULT_OG_IMAGE);
     expect(ogImage).not.toMatch(/res\.cloudinary\.com/);
+    expect(ogImage).not.toMatch(/\/.netlify\/images/);
     expect(ogImage).toContain('devs-in-the-forest');
-    expect(ogImage).toMatch(/\/.netlify\/images\?/);
-    await expect(page.locator('meta[property="og:image:width"]')).toHaveAttribute('content', '1200');
-    await expect(page.locator('meta[property="og:image:height"]')).toHaveAttribute('content', '630');
+    expect(ogImage).toMatch(/^https:\/\/debbie\.codes\/images\//);
+    // Direct /images assets are not guaranteed 1200×630 (unlike Unsplash/x-card).
+    await expect(page.locator('meta[property="og:image:width"]')).toHaveCount(0);
+    await expect(page.locator('meta[property="og:image:height"]')).toHaveCount(0);
   });
 
   test('Grok Bot 50th birthday post uses its local share image without an in-article cover', async ({ page }) => {
     await page.goto('/blog/grok-bot-50th-birthday-photo-video');
     const ogImage = await page.locator('meta[property="og:image"]').getAttribute('content');
-    expect(ogImage).toMatch(/^https:\/\/debbie\.codes\/\.netlify\/images\?/);
+    expect(ogImage).toMatch(/^https:\/\/debbie\.codes\/images\//);
     expect(ogImage).toContain('grok-bot-50th-birthday-photo-video');
     expect(ogImage).not.toMatch(/res\.cloudinary\.com/);
+    expect(ogImage).not.toMatch(/\/.netlify\/images/);
     await expect(page.locator('meta[name="twitter:image"]')).toHaveAttribute('content', ogImage!);
     // image/ogImage frontmatter still drive social meta; the in-article cover is gone.
     await expect(page.locator('article img[alt*="50th birthday"]')).toHaveCount(0);
