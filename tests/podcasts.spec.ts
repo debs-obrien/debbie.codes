@@ -9,6 +9,13 @@ test.describe('Podcasts Page', () => {
     test('displays podcast page with correct structure and content', async ({ page }) => {
       await test.step('Verify page title and description', async () => {
         await expect(page.getByRole('heading', { level: 1 })).toHaveText('Podcasts');
+        await expect(page.getByRole('heading', {
+          name: 'Developer Advocacy, Navigating Tech, & Frontend Dev',
+          exact: true
+        })).toBeVisible();
+        await expect(page.getByRole('heading', {
+          name: 'Developer Advocacy, Navigating Tech, & Frontend Dev#'
+        })).toHaveCount(0);
       });
 
       await test.step('Verify episodes section', async () => {

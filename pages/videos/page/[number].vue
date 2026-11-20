@@ -37,7 +37,7 @@ if (page < 1 || (latestPool.value.length && page > totalPages.value)) {
 }
 
 const title: string = page === 1 ? 'Videos' : `Videos - Page ${page}`
-const description: string = 'Conference talks, interviews, and live streams on Playwright, testing, and AI agents.'
+const description: string = 'Tutorials, conference talks, interviews and live streams'
 const section: Sections = 'videos'
 
 useHead({
