@@ -24,7 +24,13 @@ test.describe('performance and accessibility guards', () => {
   });
 
   test('code block token colours meet WCAG AA contrast in light and dark', async ({ page }) => {
-    const posts = ['/blog/webmcp-on-my-site', '/blog/offline-ai-study-app-local-models-lfm3'];
+    // Include a post with HTML tags + // comments so light tag green and dark
+    // comment grey are exercised (the other two posts lack those tokens).
+    const posts = [
+      '/blog/webmcp-on-my-site',
+      '/blog/offline-ai-study-app-local-models-lfm3',
+      '/blog/nuxt-migrating-to-nuxt-content'
+    ];
     for (const scheme of ['light', 'dark'] as const) {
       await page.emulateMedia({ colorScheme: scheme });
       for (const path of posts) {

@@ -13,8 +13,9 @@ import githubLight from '@shikijs/themes/github-light'
 const LIGHT_FG_FIXES: Record<string, string> = {
   // keyword / storage: was #d73a49 at ~4.34:1
   '#d73a49': '#cf222e', // ~5.08:1 on #f8f9fa
-  // variable / changed markup: was #e36209 at ~3.31:1
-  '#e36209': '#b45309', // ~4.76:1 on #f8f9fa
+  // variable / changed markup: was #e36209; #b45309 still fails on
+  // markup.changed bg #ffebda (~4.34:1), so darken further.
+  '#e36209': '#af4f05', // ~5.05:1 on #f8f9fa, ~4.60:1 on #ffebda
   // entity.name.tag / inserted markup: was #22863a at ~4.39:1
   '#22863a': '#1b6f30', // ~5.92:1 on #f8f9fa
 }
