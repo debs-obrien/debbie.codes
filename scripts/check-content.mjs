@@ -119,6 +119,28 @@ for (const file of files.filter(f => f.startsWith(join(contentDir, 'blog')) && f
     if (!knownVideoIds.has(id) && !EXTERNAL_VIDEO_IDS.has(id))
       errors.push(`${rel}:${line}: videoid "${id}" has no entry in content/videos (wrong or stale ID?)`)
   }
+
+  // Companion video frontmatter (`video: <youtubeId>`) rendered by the post template.
+  // Match CRLF frontmatter and the full YAML scalar (not a \w- prefix of it).
+  const fm = readFileSync(file, 'utf8').match(/^---\r?\n([\s\S]*?)\r?\n---/)
+  if (fm) {
+    for (const line of fm[1].split(/\r?\n/)) {
+      if (!line.startsWith('video:'))
+        continue
+      const raw = line.slice('video:'.length).trim()
+      const id = raw.replace(/^["']|["']$/g, '')
+      if (!id) {
+        errors.push(`${rel}: frontmatter video is empty`)
+      }
+      else if (!/^[\w-]+$/.test(id)) {
+        errors.push(`${rel}: frontmatter video "${raw}" is not a valid YouTube ID`)
+      }
+      else if (!knownVideoIds.has(id) && !EXTERNAL_VIDEO_IDS.has(id)) {
+        errors.push(`${rel}: frontmatter video "${id}" has no entry in content/videos (wrong or stale ID?)`)
+      }
+      break
+    }
+  }
 }
 
 if (errors.length) {

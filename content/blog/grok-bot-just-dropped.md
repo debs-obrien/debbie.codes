@@ -6,6 +6,7 @@ tags: [ai, agents, grok-bot]
 published: true
 image: /images/blog/covers/grok-bot-just-dropped.webp
 ogImage: /images/blog/covers/grok-bot-just-dropped.webp
+video: kiDvQnoCveU
 ---
 
 Grok Bot just dropped and I had to try it. It's basically a team of bots on your computer that do the stuff you'd normally hand to a teammate — LinkedIn, GitHub, email, the lot.
@@ -13,11 +14,6 @@ Grok Bot just dropped and I had to try it. It's basically a team of bots on your
 In this video I spin up a coding bot on my Playwright movies repo, create a LinkedIn bot (and yes… it actually posted for me), close some old GitHub issues, poke through the plugins, and add email + X bots. I'm properly blown away.
 
 If you've been drowning in context switching between apps, this is worth a look.
-
-<lite-youtube
-        videoid="kiDvQnoCveU"
-        playlabel="Grok Bot Just Dropped and I Had to Try It">
-</lite-youtube>
 
 Since the video I have read some emails and sent replies. I hate emails so this feels great for me. I also set up a content creating workflow so writing this blog post here — which uses my add-content skill — goes ahead and produces a post on my site, then adds it to Dev.to with a canonical URL, then creates a LinkedIn post and an X post. At least it should do. This is the start of it. See you at the end of the workflow....
 

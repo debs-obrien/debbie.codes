@@ -6,16 +6,10 @@ tags: [ai, agents, grok-bot]
 published: true
 image: /images/blog/covers/i-tested-if-grok-bot-could-book-my-flights.webp
 ogImage: /images/blog/covers/i-tested-if-grok-bot-could-book-my-flights.webp
+video: xDNLKLg7Ib8
 ---
 
 I tested out if Grok Bot could actually be my travel agent and book my flights for me. There is a huge market for bots that actually work both from a company perspective and for the individual. I think this is the closest to a great experience but just missing the part at the end. But I know this or another product will get there very soon because people will pay for something like this.
-
-Check out the video where I walk through what I did to get it to try book the flights and what didn't work. I also show my content creation workflow at the end.
-
-<lite-youtube
-        videoid="xDNLKLg7Ib8"
-        playlabel="I tested if Grok Bot could book my flights">
-</lite-youtube>
 
 The only editing on this video is the removal of my phone number, improving sound and removing the coughs. All this was done by a Grok bot, the video editor bot. Actually the whole youtube video was uploaded by the youtube bot.
 

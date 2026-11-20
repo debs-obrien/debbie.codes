@@ -6,6 +6,7 @@ tags: [ai, agents, grok-bot]
 published: true
 image: /images/blog/covers/how-to-get-started-with-grok-bot.webp
 ogImage: /images/blog/covers/how-to-get-started-with-grok-bot.webp
+video: kiDvQnoCveU
 ---
 
 Grok Bot just dropped. I downloaded it on a Mac the same day and recorded myself setting it up. This is the getting started version of that. Not a feature list. What I actually clicked, what worked, and which bots I would create if I were you.
@@ -125,12 +126,5 @@ Download it, create one bot, give it a real job. An old GitHub issue, a LinkedIn
 I was using a free trial when I recorded this. I used most of my free trial in two days, thats a reality but I was experimenting and doing lots, once the dust settles maybe I will need less work from my bots or maybe I will need more but if thats the case then its helping me be super productive and If it gives me time back, I will pay for that.
 
 That is getting started. The rest is muscle memory, and thats the hard part. If you find yourself manually doing something just think, ohh could a bot do this for me.
-
-Video is here if you want to watch.
-
-<lite-youtube
-        videoid="kiDvQnoCveU"
-        playlabel="Grok Bot First Look: LinkedIn Posts, GitHub Issues and a Team of AI Bots">
-</lite-youtube>
 
 [https://x.ai/bot](https://x.ai/bot)

@@ -3,7 +3,6 @@ title: Adding Vue Plugins to your Nuxt APP
 date: 2021-02-02
 description: In Nuxt we can add Vue plugins to our application by creating a Nuxt plugin and then registering that plugin in the Nuxt Config file.
 image: /images/content/blog/vue-plugins_ubadyf.webp
-video: gAqcW51NwTE
 tags: [nuxt]
 ---
 
