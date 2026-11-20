@@ -6,11 +6,19 @@ test.describe('404 Error Page', () => {
   });
 
   test('displays proper 404 page for non-existent routes', async ({ page }) => {
-    await expect(page.locator('body')).toMatchAriaSnapshot(`
+    await expect(page).toHaveTitle('Page not found · Debbie Codes');
+    await expect(page.getByRole('main')).toBeVisible();
+
+    await expect(page.getByRole('main')).toMatchAriaSnapshot(`
       - heading "Ooops looks like that page doesn't exist" [level=1]
-      - paragraph: Sorry about that. No idea what went wrong but hey, nobody's perfect. Lets take you somewhere that actually exists. go.
+      - paragraph: Sorry about that. No idea what went wrong but hey, nobody's perfect. Let's take you somewhere that actually exists.
       - link "Take me there!":
         - /url: /
+      - navigation "Helpful links":
+        - link "Blog":
+          - /url: /blog
+        - link "Videos":
+          - /url: /videos
       - img "broken connection"
     `);
   });
