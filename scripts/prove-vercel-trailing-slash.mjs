@@ -8,6 +8,7 @@
  */
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
+import process from 'node:process'
 
 const configPath = resolve(process.argv[2] || '.vercel/output/config.json')
 const config = JSON.parse(readFileSync(configPath, 'utf8'))

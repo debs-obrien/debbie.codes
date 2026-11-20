@@ -127,7 +127,7 @@ export default defineNuxtConfig({
   hooks: {
     // After Nitro's vercel preset writes config.json, inject a host-level
     // trailing-slash strip before `handle: filesystem` (see script).
-    'nitro:init'(nitro) {
+    'nitro:init': (nitro) => {
       nitro.hooks.hook('compiled', async () => {
         await injectVercelTrailingSlashStrip(nitro)
       })
