@@ -6,12 +6,8 @@ tags: [ai, agents, grok-bot]
 published: true
 image: /images/blog/covers/grok-bot-uploads-my-youtube-videos.webp
 ogImage: /images/blog/covers/grok-bot-uploads-my-youtube-videos.webp
+video: 1g6boZousFI
 ---
-
-<lite-youtube
-        videoid="1g6boZousFI"
-        playlabel="Grok Bot Uploads My YouTube Videos For Me (Beginner Walkthrough)">
-</lite-youtube>
 
 I previously wrote about how your Grok Bot account comes with a cloud computer that all your bots share. But did you know Grok Bot can also use your computer? It's kind of a hidden feature that people don't know exists, and it's really cool.
 

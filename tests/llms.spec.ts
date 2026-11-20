@@ -156,6 +156,14 @@ test.describe('llms.txt / llms-full.txt / blog markdown', () => {
     expect(body).not.toMatch(/\{width=["']?\d+["']?\s+height=["']?\d+["']?\}/);
   });
 
+  test('migrated companion-video posts keep a Watch on YouTube link in markdown', async ({ request }) => {
+    const response = await request.get('/blog/webmcp-on-my-site.md');
+    expect(response.status()).toBe(200);
+    const body = await response.text();
+    expect(body).not.toContain('<lite-youtube');
+    expect(body).toContain('[Watch on YouTube](https://www.youtube.com/watch?v=AS6k-1uFp-0)');
+  });
+
   test('blog markdown prefers frontmatter canonical URL', async ({ request }) => {
     const response = await request.get(`/blog/${EXTERNAL_CANONICAL_SLUG}.md`);
     expect(response.status()).toBe(200);

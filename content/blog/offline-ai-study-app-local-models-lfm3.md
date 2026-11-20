@@ -6,14 +6,10 @@ tags: [ai, webdev]
 published: true
 image: /images/blog/covers/offline-ai-study-app-local-models-lfm3.webp
 ogImage: /images/blog/covers/offline-ai-study-app-local-models-lfm3.webp
+video: OBerXXfCYVo
 ---
 
 Hey everyone. Today I want to show you how you can use local models, using Liquid AI's LFM3, their latest model.
-
-<lite-youtube
-        videoid="OBerXXfCYVo"
-        playlabel="Build an offline AI study app with local models (Liquid AI LFM3-1.7B)">
-</lite-youtube>
 
 ## What local models are
 

@@ -183,25 +183,28 @@ if (article.value) {
           <TagsList :tags="article.tags" section="blog" />
         </div>
       </header>
-      <div v-if="article.image" class="rounded mb-4 sm:mb-6 overflow-hidden object-cover object-center max-w-xl mx-auto">
-        <NuxtImg
-          :provider="article.provider"
-          :src="article.image"
-          :alt="article.title"
-          width="600"
-          height="300"
-          fit="cover"
-          format="webp"
-          loading="eager"
-          fetchpriority="high"
-          decoding="async"
-          :preload="{ fetchPriority: 'high' }"
-          sizes="xs:100vw sm:576px"
-          densities="x1 x2"
-          class="rounded center mx-auto w-full"
-        />
+      <div v-if="article.video" class="max-w-4xl mx-auto mb-5">
+        <a
+          href="#watch-the-video"
+          class="inline-flex items-center gap-1.5 text-[15px] font-semibold text-[#d8002d] dark:text-[#ff5a73] hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d8002d] dark:focus-visible:outline-[#ff5a73]"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 12 12"
+            width="12"
+            height="12"
+            aria-hidden="true"
+            class="shrink-0"
+          >
+            <path fill="currentColor" d="M3 1.5v9l8-4.5L3 1.5z" />
+          </svg>
+          Prefer to watch? Jump to the video
+        </a>
       </div>
-      <div class="prose mx-auto max-w-4xl mb-16 sm:mb-20 lg:mb-24 break-words">
+      <div
+        class="prose mx-auto max-w-4xl break-words"
+        :class="article.video ? '' : 'mb-16 sm:mb-20 lg:mb-24'"
+      >
         <ContentRenderer :value="article" class="text-base sm:text-lg font-normal">
           <template #empty>
             <template v-if="article.url">
@@ -216,6 +219,35 @@ if (article.value) {
           </template>
         </ContentRenderer>
       </div>
+
+      <section
+        v-if="article.video"
+        id="watch-the-video"
+        tabindex="-1"
+        class="max-w-4xl mx-auto mt-14 scroll-mt-top-bar border-t border-gray-300 dark:border-gray-700 pt-8 mb-16 sm:mb-20 lg:mb-24"
+      >
+        <h2 class="text-2xl font-bold mb-2">
+          Watch the video
+        </h2>
+        <p class="text-gray-600 dark:text-gray-400 mb-6">
+          The same walkthrough on video, if you would rather see it in action.
+        </p>
+        <ClientOnly>
+          <lite-youtube
+            :videoid="article.video"
+            :playlabel="article.title"
+            :style="youtubePosterStyle(article.video, 'sddefault')"
+          />
+        </ClientOnly>
+        <a
+          :href="youtubeWatchUrl(article.video)"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block mt-4 text-[15px] font-semibold text-[#d8002d] dark:text-[#ff5a73] hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d8002d] dark:focus-visible:outline-[#ff5a73]"
+        >
+          Watch on YouTube
+        </a>
+      </section>
 
       <BlogPrevNext :prev="prev" :next="next" />
     </article>

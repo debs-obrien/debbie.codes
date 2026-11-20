@@ -68,4 +68,71 @@ provider: cloudinary
       rmSync(dir, { recursive: true, force: true });
     }
   });
+
+  test('rejects malformed companion-video frontmatter (full scalar, CRLF)', () => {
+    test.skip(!existsSync(SCRIPT), 'scripts/check-content.mjs not staged on this runner');
+
+    const dir = mkdtempSync(join(tmpdir(), 'check-content-video-'));
+    try {
+      mkdirSync(join(dir, 'content/blog'), { recursive: true });
+      mkdirSync(join(dir, 'content/videos'), { recursive: true });
+      mkdirSync(join(dir, 'utils'), { recursive: true });
+      writeFileSync(join(dir, 'utils/videos.ts'), 'export const HIDDEN_YOUTUBE_VIDEO_IDS = []\n');
+      writeFileSync(join(dir, 'content/videos/known.md'), `---
+title: known
+date: 2024-01-01
+description: d
+video: AS6k-1uFp-0
+tags: [a]
+image: /x.webp
+---
+`);
+
+      writeFileSync(join(dir, 'content/blog/ok.md'), `---\r
+title: ok\r
+date: 2024-01-01\r
+description: d\r
+tags: [a]\r
+published: true\r
+video: AS6k-1uFp-0\r
+---\r
+\r
+Hello.\r
+`);
+
+      execFileSync(process.execPath, [SCRIPT, dir], {
+        cwd: process.cwd(),
+        stdio: 'pipe'
+      });
+
+      writeFileSync(join(dir, 'content/blog/bad.md'), `---
+title: bad
+date: 2024-01-01
+description: d
+tags: [a]
+published: true
+video: "AS6k-1uFp-0.typo"
+---
+
+Hello.
+`);
+
+      let failed = false;
+      try {
+        execFileSync(process.execPath, [SCRIPT, dir], {
+          cwd: process.cwd(),
+          stdio: 'pipe'
+        });
+      }
+      catch (err: any) {
+        failed = true;
+        const out = `${err.stdout || ''}${err.stderr || ''}`;
+        expect(out).toMatch(/not a valid YouTube ID/);
+      }
+      expect(failed).toBe(true);
+    }
+    finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
 });

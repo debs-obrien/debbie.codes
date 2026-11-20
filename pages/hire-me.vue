@@ -233,8 +233,74 @@ const widgetActionText = 'Ask about Debbie'
 const widgetStartCallText = 'Start a call'
 const widgetEndCallText = 'End call'
 
-if (showVoiceAgent.value)
-  useConvaiInputLimit()
+const CONVAI_SCRIPT_SRC = 'https://unpkg.com/@elevenlabs/convai-widget-embed@0.22.0'
+const CONVAI_SCRIPT_ATTR = 'data-elevenlabs-convai'
+
+/** Session-only opt-in: idle → loading → ready | error. Never persisted. */
+type VoiceOptInState = 'idle' | 'loading' | 'ready' | 'error'
+const voiceOptIn = ref<VoiceOptInState>('idle')
+/** False after unmount so a late script load cannot restore body.convai-on. */
+let pageAlive = true
+
+function setConvaiBodyClass(on: boolean) {
+  if (!import.meta.client || !pageAlive)
+    return
+  document.body.classList.toggle('convai-on', on)
+}
+
+function loadConvaiScript(): Promise<void> {
+  return new Promise((resolve, reject) => {
+    const existing = document.querySelector<HTMLScriptElement>(`script[${CONVAI_SCRIPT_ATTR}]`)
+    if (existing) {
+      if (existing.dataset.loaded === 'true') {
+        resolve()
+        return
+      }
+      existing.addEventListener('load', () => resolve(), { once: true })
+      existing.addEventListener('error', () => reject(new Error('Failed to load voice assistant script')), { once: true })
+      return
+    }
+
+    const script = document.createElement('script')
+    script.src = CONVAI_SCRIPT_SRC
+    script.async = true
+    script.type = 'text/javascript'
+    script.setAttribute(CONVAI_SCRIPT_ATTR, '')
+    script.addEventListener('load', () => {
+      script.dataset.loaded = 'true'
+      resolve()
+    }, { once: true })
+    script.addEventListener('error', () => {
+      script.remove()
+      reject(new Error('Failed to load voice assistant script'))
+    }, { once: true })
+    document.head.appendChild(script)
+  })
+}
+
+async function startVoiceAssistant() {
+  if (voiceOptIn.value === 'loading' || voiceOptIn.value === 'ready')
+    return
+  voiceOptIn.value = 'loading'
+  try {
+    await loadConvaiScript()
+    if (!pageAlive)
+      return
+    setConvaiBodyClass(true)
+    voiceOptIn.value = 'ready'
+  }
+  catch {
+    if (!pageAlive)
+      return
+    setConvaiBodyClass(false)
+    voiceOptIn.value = 'error'
+  }
+}
+
+onBeforeUnmount(() => {
+  pageAlive = false
+  document.body.classList.remove('convai-on')
+})
 
 useHead(() => ({
   title: 'Hire me',
@@ -244,13 +310,6 @@ useHead(() => ({
       content: 'I\'m Debbie, an Independent Developer Educator in Palma, Spain. I teach developers to build with AI agents, MCP and Playwright.',
     },
   ],
-  script: showVoiceAgent.value
-    ? [{
-        src: 'https://unpkg.com/@elevenlabs/convai-widget-embed@0.22.0',
-        async: true,
-        type: 'text/javascript',
-      }]
-    : [],
 }))
 </script>
 
@@ -280,7 +339,12 @@ useHead(() => ({
         I meet developers where they are, in their editors, coding agents and frameworks. I live in the product. I build the demo, then teach from what actually worked.
       </p>
       <p>
-        There is a voice assistant on this page. It answers from the questions and numbers below.
+        There is an optional voice assistant
+        <a
+          href="#hire-me-assistant-heading"
+          class="text-primary font-medium hover:underline"
+        >further down</a>
+        this page. It answers from the questions and numbers below.
       </p>
     </div>
 
@@ -306,20 +370,72 @@ useHead(() => ({
           {{ example }}
         </li>
       </ul>
-      <ClientOnly>
-        <elevenlabs-convai
-          :agent-id="hireMeAgentId"
-          :action-text="widgetActionText"
-          :start-call-text="widgetStartCallText"
-          :end-call-text="widgetEndCallText"
-        />
-      </ClientOnly>
-      <p class="mt-3 text-sm text-gray-500 dark:text-gray-400">
-        Calls are handled by ElevenLabs. Audio is not stored; transcripts are kept for 30 days to improve the assistant, then deleted.
-        <NuxtLink to="/privacy" class="text-primary font-medium hover:underline">
-          Privacy
-        </NuxtLink>
-      </p>
+
+      <div
+        class="hire-me-voice-card w-full border border-[#d1d5db] bg-white p-5 sm:p-6 dark:border-[#374151] dark:bg-[#1f2937]"
+        data-testid="hire-me-voice-opt-in"
+      >
+        <div class="flex items-center gap-3 mb-3">
+          <svg
+            class="shrink-0 text-[#111827] dark:text-[#f9fafb]"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21h2v-3.08A7 7 0 0 0 19 11h-2Z" />
+          </svg>
+          <p class="font-bold text-[#111827] dark:text-[#f9fafb]">
+            Talk to my voice assistant
+          </p>
+        </div>
+        <p class="text-sm leading-relaxed text-[#4b5563] dark:text-[#d1d5db] mb-4">
+          Voice calls are run by ElevenLabs, a US service. Nothing connects to them until you press Start. Audio isn't stored; transcripts are deleted after 30 days. Calls are up to 5 minutes.
+          <NuxtLink
+            to="/privacy"
+            class="font-medium text-[#d8002d] underline dark:text-[#ff5a73]"
+          >
+            Privacy
+          </NuxtLink>
+        </p>
+
+        <ClientOnly>
+          <HireMeConvaiWidget
+            v-if="voiceOptIn === 'ready'"
+            :agent-id="hireMeAgentId"
+            :action-text="widgetActionText"
+            :start-call-text="widgetStartCallText"
+            :end-call-text="widgetEndCallText"
+          />
+        </ClientOnly>
+        <div v-if="voiceOptIn === 'error'" class="space-y-3">
+          <p class="text-sm text-[#4b5563] dark:text-[#d1d5db]">
+            The voice assistant couldn't load. Try again
+          </p>
+          <button
+            type="button"
+            class="hire-me-voice-retry text-sm font-medium text-[#d8002d] underline dark:text-[#ff5a73]"
+            @click="startVoiceAssistant"
+          >
+            Try again
+          </button>
+        </div>
+        <div v-else-if="voiceOptIn !== 'ready'">
+          <button
+            type="button"
+            class="hire-me-voice-start inline-flex w-full sm:w-auto min-h-11 items-center justify-center px-5 py-2.5 font-semibold bg-[#d8002d] text-white dark:bg-[#ff5a73] dark:text-[#0d2538] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d8002d] dark:focus-visible:ring-[#ff5a73] focus-visible:ring-offset-2 disabled:opacity-80"
+            :disabled="voiceOptIn === 'loading'"
+            :aria-busy="voiceOptIn === 'loading' ? 'true' : undefined"
+            @click="startVoiceAssistant"
+          >
+            {{ voiceOptIn === 'loading' ? 'Loading…' : 'Start voice assistant' }}
+          </button>
+          <p class="mt-3 text-[13px] leading-relaxed text-[#4b5563] dark:text-[#d1d5db]">
+            Uses your microphone. Powered by ElevenLabs.
+          </p>
+        </div>
+      </div>
     </section>
 
     <section class="mb-12" aria-labelledby="numbers-heading">
@@ -480,12 +596,12 @@ details[open] > summary::before {
 </style>
 
 <!--
-  Mobile: reserve space for the fixed voice widget (sheet + small footer)
-  so the last page content and site footer are not covered. Widget stays visible.
+  Mobile: reserve space for the fixed voice widget only after opt-in
+  (body.convai-on), so the last page content and site footer are not covered.
 -->
 <style>
 @media (max-width: 639px) {
-  body:has(elevenlabs-convai) {
+  body.convai-on {
     padding-bottom: 10rem;
   }
 }

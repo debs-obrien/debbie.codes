@@ -6,6 +6,7 @@ tags: [ai, mcp, agents, grok-bot]
 published: true
 image: /images/blog/covers/webmcp-on-my-site.webp
 ogImage: /images/blog/covers/webmcp-on-my-site.webp
+video: AS6k-1uFp-0
 ---
 
 This post is about how I added WebMCP to [debbie.codes](https://debbie.codes), how you can try it, and how it compares to the other ways agents read websites.
@@ -13,13 +14,6 @@ This post is about how I added WebMCP to [debbie.codes](https://debbie.codes), h
 WebMCP lets a site offer tools in the browser, so an agent can ask the page a question and get a short, structured answer instead of reading whole pages and guessing.
 
 I built it with Cursor cloud agents, coordinated by my Grok Bot site lead, and I reviewed and merged the changes. It already runs for real visitors in Chrome and Edge.
-
-Prefer to watch? Here's the video, where I show the tools in the Chrome DevTools WebMCP panel.
-
-<lite-youtube
-        videoid="AS6k-1uFp-0"
-        playlabel="What is WebMCP? Add tools to your site for AI agents">
-</lite-youtube>
 
 ## What is WebMCP
 

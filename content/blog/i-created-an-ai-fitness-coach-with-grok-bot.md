@@ -6,14 +6,10 @@ tags: [ai, agents, grok-bot]
 published: true
 image: /images/blog/covers/i-created-an-ai-fitness-coach-with-grok-bot.webp
 ogImage: /images/blog/covers/i-created-an-ai-fitness-coach-with-grok-bot.webp
+video: WKXZuPD7X2s
 ---
 
 Hey all. Today I wanted to show you what I'm doing with Grok Bot, which is CoachBot. Yes, I created a bot that's going to be my coach for gym and nutrition and all that kind of stuff.
-
-<lite-youtube
-        videoid="WKXZuPD7X2s"
-        playlabel="I Created an AI Fitness Coach with Grok Bot">
-</lite-youtube>
 
 Since having twins, my body has not been how it should be. It's really hard to get it back. The boys are almost three and I'm like, okay, come on. This is not okay.
 

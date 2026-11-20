@@ -112,17 +112,15 @@ test.describe('Blog OG / Twitter images', () => {
     await expect(page.locator('meta[property="og:image:height"]')).toHaveAttribute('content', '630');
   });
 
-  test('Grok Bot 50th birthday post uses its local share image and shows a header cover', async ({ page }) => {
+  test('Grok Bot 50th birthday post uses its local share image without an in-article cover', async ({ page }) => {
     await page.goto('/blog/grok-bot-50th-birthday-photo-video');
     const ogImage = await page.locator('meta[property="og:image"]').getAttribute('content');
     expect(ogImage).toMatch(/^https:\/\/debbie\.codes\/\.netlify\/images\?/);
     expect(ogImage).toContain('grok-bot-50th-birthday-photo-video');
     expect(ogImage).not.toMatch(/res\.cloudinary\.com/);
     await expect(page.locator('meta[name="twitter:image"]')).toHaveAttribute('content', ogImage!);
-    // image frontmatter also drives the in-article cover below the title (ogImage alone does not)
-    const headerCover = page.locator('article img[alt*="50th birthday"]').first();
-    await expect(headerCover).toBeVisible();
-    await expect(headerCover).toHaveAttribute('src', /grok-bot-50th-birthday-photo-video/);
+    // image/ogImage frontmatter still drive social meta; the in-article cover is gone.
+    await expect(page.locator('article img[alt*="50th birthday"]')).toHaveCount(0);
   });
 
   test('sampled posts expose absolute og:image and twitter:image that resolve', async ({ page, request, baseURL }) => {
