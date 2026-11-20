@@ -136,5 +136,4 @@ export async function registerWebMCPTools(mc: { registerTool: (tool: object, opt
   ] as const
   for (const [tool, execute] of tools)
     await mc.registerTool({ ...tool, execute }, { signal }).catch(() => {})
-  void loadContentIndex().catch(() => {})
 }
