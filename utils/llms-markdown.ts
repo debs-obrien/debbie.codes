@@ -78,6 +78,8 @@ export function renderBlogMarkdownFile(opts: {
   description?: string
   url: string
   tags?: string[]
+  /** Companion YouTube ID from frontmatter (`video:`). */
+  video?: string
   raw: string
 }) {
   const lines = [
@@ -92,6 +94,17 @@ export function renderBlogMarkdownFile(opts: {
   const tags = opts.tags || []
   if (tags.length)
     lines.push(`- Tags: ${tags.join(', ')}`, '')
-  lines.push('---', '', cleanBlogMarkdownBody(stripFrontmatter(opts.raw)))
+
+  let body = cleanBlogMarkdownBody(stripFrontmatter(opts.raw))
+  // Frontmatter companion videos used to live as <lite-youtube> in the body;
+  // keep a Watch on YouTube link in the Markdown alternative for agents.
+  const videoId = (opts.video || '').trim()
+  if (videoId) {
+    const watchUrl = `https://www.youtube.com/watch?v=${encodeURIComponent(videoId)}`
+    if (!body.includes(watchUrl))
+      body = `${body.trimEnd()}\n\n[Watch on YouTube](${watchUrl})\n`
+  }
+
+  lines.push('---', '', body)
   return `${lines.join('\n').replace(/\n{3,}/g, '\n\n').trim()}\n`
 }

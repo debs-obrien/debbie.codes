@@ -65,6 +65,7 @@ export default defineEventHandler((event) => {
     description: asString(fm.description),
     url: canonical,
     tags: asTags(fm.tags),
+    video: asString(fm.video),
     raw,
   })
 
