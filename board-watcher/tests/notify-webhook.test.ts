@@ -43,7 +43,7 @@ describe('notifyWebhook', () => {
     vi.stubEnv('BOARD_WATCHER_WEBHOOK_URL', 'https://hooks.example/board')
     vi.stubEnv('BOARD_WATCHER_WEBHOOK_KEY', 'test-secret')
 
-    const fetchImpl = vi.fn(async () => new Response(null, { status: 204 }))
+    const fetchImpl = vi.fn<typeof fetch>(async () => new Response(null, { status: 204 }))
 
     await notifyWebhook(
       {
@@ -52,7 +52,7 @@ describe('notifyWebhook', () => {
         text: 'hello',
         labels: { 'board.task': 'ready' },
       },
-      fetchImpl as unknown as typeof fetch,
+      fetchImpl,
     )
 
     expect(fetchImpl).toHaveBeenCalledOnce()
