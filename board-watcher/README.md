@@ -76,8 +76,8 @@ npx vb tail debbie-codes --label board.task=ready --json --scope dobriendev-3232
 Authorization: Bearer <BOARD_WATCHER_WEBHOOK_KEY>
 ```
 
-Header name: `Authorization`  
-Scheme: `Bearer`  
+Header name: `Authorization`
+Scheme: `Bearer`
 Value: the raw key from `BOARD_WATCHER_WEBHOOK_KEY` (no extra prefix beyond `Bearer `)
 
 Neither value is hardcoded or logged.

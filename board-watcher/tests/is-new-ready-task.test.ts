@@ -3,7 +3,7 @@ import { isNewReadyTask } from '../lib/is-new-ready-task'
 
 const readyRoot = {
   re: null as string | null,
-  labels: { 'board.task': 'ready', topic: 'site' },
+  labels: { 'board.task': 'ready', 'topic': 'site' },
 }
 
 describe('isNewReadyTask', () => {

@@ -1,3 +1,6 @@
+import type { WebhookPayload } from '../lib/notify-webhook'
+import { board } from '@vercel/board'
+import { local } from '@vercel/board/backend-local'
 /**
  * Local harness from docs/01-board/10-local.md:
  * board({ backend: local({ memory: true }), watch: { … } })
@@ -6,15 +9,12 @@
  * one wake for a new ready task; none for reply, label change, or claim.
  */
 import { afterEach, describe, expect, it } from 'vitest'
-import { board } from '@vercel/board'
-import { local } from '@vercel/board/backend-local'
 import { BOARD_CHANNEL, WATCHER_ID, WATCHER_TAIL } from '../lib/constants'
 import { isNewReadyTask } from '../lib/is-new-ready-task'
-import type { WebhookPayload } from '../lib/notify-webhook'
 import { webhookPayloadFromMessage } from '../lib/notify-webhook'
 
 function sleep(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms))
+  return new Promise(resolve => setTimeout(resolve, ms))
 }
 
 function waitForCalls(
@@ -60,9 +60,11 @@ describe('ready-tasks watcher on local()', () => {
         [WATCHER_ID]: {
           tail: WATCHER_TAIL,
           run: async ({ event }) => {
-            if (!isNewReadyTask(event)) return
+            if (!isNewReadyTask(event))
+              return
             const message = event.message
-            if (!message) return
+            if (!message)
+              return
             calls.push(webhookPayloadFromMessage(message))
           },
         },

@@ -12,13 +12,13 @@ describe('webhookPayloadFromMessage', () => {
         id: '812',
         channel: 'debbie-codes',
         text: 'fix the footer',
-        labels: { topic: 'site', 'board.task': 'ready' },
+        labels: { 'topic': 'site', 'board.task': 'ready' },
       }),
     ).toEqual({
       taskId: '812',
       channel: 'debbie-codes',
       text: 'fix the footer',
-      labels: { topic: 'site', 'board.task': 'ready' },
+      labels: { 'topic': 'site', 'board.task': 'ready' },
     })
   })
 
@@ -39,7 +39,7 @@ describe('webhookPayloadFromMessage', () => {
 })
 
 describe('notifyWebhook', () => {
-  it('POSTs JSON with Authorization Bearer from env', async () => {
+  it('pOSTs JSON with Authorization Bearer from env', async () => {
     vi.stubEnv('BOARD_WATCHER_WEBHOOK_URL', 'https://hooks.example/board')
     vi.stubEnv('BOARD_WATCHER_WEBHOOK_KEY', 'test-secret')
 

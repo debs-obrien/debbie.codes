@@ -1,5 +1,5 @@
-import path from 'node:path'
 import type { NextConfig } from 'next'
+import path from 'node:path'
 
 const nextConfig: NextConfig = {
   // Keep tracing rooted on this folder when the monorepo has another lockfile.
