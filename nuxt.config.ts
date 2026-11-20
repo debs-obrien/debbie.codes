@@ -13,8 +13,6 @@ const contentIndex = generateContentIndex()
 const blogMarkdownRoutes = contentIndex.markdownRoutes || []
 const blogYearRoutes = contentIndex.yearRoutes || []
 const blogItems = (contentIndex.items || []).filter(item => item.type === 'blog')
-// Dual-host redirects/headers (Netlify keeps public/_redirects + _headers + netlify.toml).
-const hostingRouteRules = buildHostingRouteRules({ blogItems })
 const isHostProduction = process.env.CONTEXT === 'production'
   || process.env.VERCEL_ENV === 'production'
 // @nuxt/image `auto` picks `vercel` on Vercel — never enable Vercel Image Optimization.
@@ -22,6 +20,12 @@ const isVercelBuild = Boolean(
   process.env.VERCEL
   || process.env.NITRO_PRESET?.startsWith('vercel'),
 )
+// Redirect routeRules only on Vercel — Netlify generate would emit meta-refresh
+// HTML that shadows public/_redirects 301s (breaks preview redirect tests).
+const hostingRouteRules = buildHostingRouteRules({
+  blogItems,
+  includeRedirects: isVercelBuild,
+})
 const imageProvider = process.env.NUXT_IMAGE_PROVIDER
   || (isVercelBuild ? 'ipx' : 'auto')
 

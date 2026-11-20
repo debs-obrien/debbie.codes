@@ -118,12 +118,17 @@ export function blogMarkdownHeaderRouteRules(blogItems = []) {
 }
 
 /**
- * Full dual-host routeRules: redirects + site headers + markdown headers.
- * @param {{ blogItems?: Array<{ path?: string, canonical?: string, url?: string }> }} [opts]
+ * Dual-host routeRules. Redirects are Vercel-only: on Netlify generate they
+ * prerender as meta-refresh HTML (200) and shadow `public/_redirects` 301s.
+ * @param {{
+ *   blogItems?: Array<{ path?: string, canonical?: string, url?: string }>,
+ *   includeRedirects?: boolean,
+ * }} [opts]
+ * @returns {Record<string, object>} routeRules map
  */
 export function buildHostingRouteRules(opts = {}) {
   return {
-    ...redirectsToRouteRules(),
+    ...(opts.includeRedirects === false ? {} : redirectsToRouteRules()),
     ...siteHeaderRouteRules(),
     ...blogMarkdownHeaderRouteRules(opts.blogItems || []),
   }
