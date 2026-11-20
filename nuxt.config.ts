@@ -2,6 +2,7 @@ import process from 'node:process'
 import { generateContentIndex } from './scripts/generate-content-index.mjs'
 import { generateSitemap } from './scripts/generate-sitemap.mjs'
 import { buildHostingRouteRules } from './scripts/hosting-route-rules.mjs'
+import { injectVercelTrailingSlashStrip } from './scripts/vercel-trailing-slash-route.mjs'
 import { DEFAULT_WEBMCP_OT_CHROME, DEFAULT_WEBMCP_OT_EDGE } from './utils/origin-trial'
 import { calculateReadingTime, extractTextFromContent } from './utils/reading-time'
 import { NETLIFY_REMOTE_IMAGE_HOSTS } from './utils/remote-images'
@@ -124,6 +125,13 @@ export default defineNuxtConfig({
   },
 
   hooks: {
+    // After Nitro's vercel preset writes config.json, inject a host-level
+    // trailing-slash strip before `handle: filesystem` (see script).
+    'nitro:init'(nitro) {
+      nitro.hooks.hook('compiled', async () => {
+        await injectVercelTrailingSlashStrip(nitro)
+      })
+    },
     // Store whole minutes on blog items so list queries can select readingMinutes
     // without loading full bodies (cards were falling back to description → 1 min).
     'content:file:afterParse': (ctx) => {
@@ -189,14 +197,10 @@ export default defineNuxtConfig({
     ...(process.env.NUXT_OT_OUTPUT_DIR
       ? { output: { dir: process.env.NUXT_OT_OUTPUT_DIR } }
       : {}),
-    // Vercel-only (ignored by Netlify generate): with autoSubfolderIndex:false
-    // pages are `blog.html` + overrides; without this, `/blog/` is served 200.
-    // Match live Netlify (301 slash → no-slash).
-    vercel: {
-      config: {
-        trailingSlash: false,
-      },
-    },
+    // Do not set vercel.config.trailingSlash — Build Output API ignores it
+    // (dead key). Explicit `^/(.+)/$` 301 is injected in nitro:init → compiled.
+    // Do not prepend via vercel.config.routes (defu puts user routes first and
+    // would shadow specific redirects like /resources/ → /).
     routeRules: hostingRouteRules,
     prerender: {
       // `nuxt build` (Vercel) is not nitro.static — without crawlLinks only the
