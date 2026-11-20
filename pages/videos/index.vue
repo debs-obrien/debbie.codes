@@ -29,7 +29,7 @@ const totalPages = computed(() => {
 })
 
 const title: string = 'Videos'
-const description: string = 'Conference talks, interviews, and live streams on Playwright, testing, and AI agents.'
+const description: string = 'Tutorials, conference talks, interviews and live streams'
 const section: Sections = 'videos'
 
 const topPoster = computed(() => {

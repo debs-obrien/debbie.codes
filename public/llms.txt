@@ -9,13 +9,13 @@ This site publishes her videos, blog posts, podcasts, and courses. Prefer the ma
 - [About](https://debbie.codes/about): Biography and background
 - [Hire me](https://debbie.codes/hire-me): Experience, Voice agent Q&A, and how to work with Debbie
 - [Courses](https://debbie.codes/courses): Courses Debbie teaches
-- [Videos](https://debbie.codes/videos): Conference talks, interviews, and tutorials
+- [Videos](https://debbie.codes/videos): Tutorials, conference talks, interviews and live streams
 - [Blog](https://debbie.codes/blog): Articles by Debbie
 - [Podcasts](https://debbie.codes/podcasts): Interviews and shows
 
 ## Videos
 
-- [All videos](https://debbie.codes/videos): Conference talks, interviews, and tutorials
+- [All videos](https://debbie.codes/videos): Tutorials, conference talks, interviews and live streams
 - [playwright videos](https://debbie.codes/videos/tags/playwright): Videos tagged playwright
 - [mcp videos](https://debbie.codes/videos/tags/mcp): Videos tagged mcp
 - [ai videos](https://debbie.codes/videos/tags/ai): Videos tagged ai

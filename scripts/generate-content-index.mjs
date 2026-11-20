@@ -27,7 +27,7 @@ const SECTIONS = [
     noun: 'videos',
     listingPath: '/videos',
     listingLabel: 'All videos',
-    listingNote: 'Conference talks, interviews, and tutorials',
+    listingNote: 'Tutorials, conference talks, interviews and live streams',
   },
   {
     type: 'blog',
@@ -415,7 +415,7 @@ function renderLlms(items) {
     mdLink('About', `${SITE}/about`, 'Biography and background'),
     mdLink('Hire me', `${SITE}/hire-me`, 'Experience, Voice agent Q&A, and how to work with Debbie'),
     mdLink('Courses', `${SITE}/courses`, 'Courses Debbie teaches'),
-    mdLink('Videos', `${SITE}/videos`, 'Conference talks, interviews, and tutorials'),
+    mdLink('Videos', `${SITE}/videos`, 'Tutorials, conference talks, interviews and live streams'),
     mdLink('Blog', `${SITE}/blog`, 'Articles by Debbie'),
     mdLink('Podcasts', `${SITE}/podcasts`, 'Interviews and shows'),
     '',
