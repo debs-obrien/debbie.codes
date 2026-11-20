@@ -1,3 +1,4 @@
+import type { WakeReason } from '@/lib/notify-webhook'
 import { board } from '@vercel/board'
 import { BOARD_TEAM, WATCHER_ID, WATCHER_TAIL } from '@/lib/constants'
 import { isAssignedToEngineer } from '@/lib/is-assigned-to-engineer'
@@ -6,7 +7,6 @@ import {
   formatWakeLog,
   notifyWebhook,
   webhookPayloadFromMessage,
-  type WakeReason,
 } from '@/lib/notify-webhook'
 
 /**
@@ -38,7 +38,7 @@ export const team = board({
         if (!message) {
           return
         }
-        console.info(formatWakeLog(event.type, reason, message.id))
+        console.warn(formatWakeLog(event.type, reason, message.id))
         await notifyWebhook(webhookPayloadFromMessage(message, reason))
       },
     },

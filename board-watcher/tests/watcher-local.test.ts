@@ -1,4 +1,4 @@
-import type { WebhookPayload } from '../lib/notify-webhook'
+import type { WakeReason, WebhookPayload } from '../lib/notify-webhook'
 import { board } from '@vercel/board'
 import { local } from '@vercel/board/backend-local'
 /**
@@ -21,7 +21,6 @@ import { isNewReadyTask } from '../lib/is-new-ready-task'
 import {
   formatWakeLog,
   webhookPayloadFromMessage,
-  type WakeReason,
 } from '../lib/notify-webhook'
 
 function sleep(ms: number) {
@@ -124,7 +123,7 @@ describe('ready-tasks watcher on local()', () => {
   it('forwards assignment to engineer with reason assigned (even when claimed)', async () => {
     const calls: WebhookPayload[] = []
     const logs: string[] = []
-    const info = vi.spyOn(console, 'info').mockImplementation(() => {})
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
     const { team, close } = mountWatcher(calls, logs)
     closeBackend = close
 
@@ -155,7 +154,7 @@ describe('ready-tasks watcher on local()', () => {
     expect(logs.join('\n')).not.toMatch(/https?:\/\//i)
     expect(logs.join('\n')).not.toMatch(/BOARD_WATCHER_WEBHOOK|bearer|secret/i)
 
-    info.mockRestore()
+    warn.mockRestore()
   })
 
   it('does not forward assignment to qa or designer', async () => {
