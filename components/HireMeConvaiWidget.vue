@@ -65,5 +65,6 @@ onBeforeUnmount(() => {
     :action-text="props.actionText"
     :start-call-text="props.startCallText"
     :end-call-text="props.endCallText"
+    disable-banner="true"
   />
 </template>

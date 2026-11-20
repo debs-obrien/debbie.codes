@@ -350,6 +350,7 @@ test.describe('Hire me page', () => {
     try {
       await expect(host).toBeAttached({ timeout: 20000 });
       await expect(host).toHaveAttribute('agent-id', hireMeAgentId);
+      await expect(host).toHaveAttribute('disable-banner', 'true');
       await expect(host.locator('button[aria-label="Message"]')).toBeVisible({ timeout: 20000 });
     }
     catch {
