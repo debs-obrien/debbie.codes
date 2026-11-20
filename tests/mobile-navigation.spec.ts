@@ -33,8 +33,8 @@ test.describe('Mobile Navigation', () => {
 
     await test.step('Verify mobile menu is initially closed', async () => {
       await expect(getMenuDialog(page)).toBeHidden();
-      // Header/menu nav stays hidden; footer utility nav remains visible.
-      await expect(page.getByRole('banner').getByRole('navigation')).not.toBeVisible();
+      // Scope to the menu dialog so the footer utility nav landmark is ignored.
+      await expect(getMenuDialog(page).getByRole('navigation')).not.toBeVisible();
       await expect(openMenu).toHaveAccessibleName('Open menu');
     });
 
@@ -46,7 +46,7 @@ test.describe('Mobile Navigation', () => {
     await test.step('Close menu using the close button', async () => {
       await getCloseMenuButton(page).click();
       await expect(getMenuDialog(page)).toBeHidden();
-      await expect(page.getByRole('banner').getByRole('navigation')).not.toBeVisible();
+      await expect(getMenuDialog(page).getByRole('navigation')).not.toBeVisible();
       await expect(openMenu).toHaveAccessibleName('Open menu');
     });
   });
