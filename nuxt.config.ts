@@ -191,14 +191,20 @@ export default defineNuxtConfig({
       : {}),
     routeRules: hostingRouteRules,
     prerender: {
+      // `nuxt build` (Vercel) is not nitro.static — without crawlLinks only the
+      // explicit routes below prerender, home/blog SSR empty (Content SQLite
+      // missing in the serverless function), and HTML posts 404. Match
+      // `nuxt generate` crawl used on Netlify.
+      crawlLinks: true,
       // Prefer completing the static publish (public/ assets, including
       // sitemap.xml + _redirects) over failing the whole generate on
       // unrelated IPX image fetch errors during crawl.
       failOnError: false,
-      // /feed.xml, markdown copies of every published blog post, and every
-      // year archive that has posts (crawl alone only reaches recent-year chips).
+      // `/` must be listed for non-static builds (Nuxt only auto-adds it when
+      // nitro.static). Markdown + year archives still need explicit routes
+      // (crawl alone only reaches recent-year chips / linked HTML).
       // robots.txt is emitted by @nuxtjs/robots — include so Vercel static has it.
-      routes: ['/feed.xml', '/robots.txt', ...blogMarkdownRoutes, ...blogYearRoutes],
+      routes: ['/', '/feed.xml', '/robots.txt', ...blogMarkdownRoutes, ...blogYearRoutes],
       // Write /blog.html instead of /blog/index.html so Netlify serves the
       // canonical no-slash URL (used by canonical tags, sitemap and links)
       // directly instead of 301-redirecting /blog -> /blog/ first.
