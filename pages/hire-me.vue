@@ -239,9 +239,11 @@ const CONVAI_SCRIPT_ATTR = 'data-elevenlabs-convai'
 /** Session-only opt-in: idle → loading → ready | error. Never persisted. */
 type VoiceOptInState = 'idle' | 'loading' | 'ready' | 'error'
 const voiceOptIn = ref<VoiceOptInState>('idle')
+/** False after unmount so a late script load cannot restore body.convai-on. */
+let pageAlive = true
 
 function setConvaiBodyClass(on: boolean) {
-  if (!import.meta.client)
+  if (!import.meta.client || !pageAlive)
     return
   document.body.classList.toggle('convai-on', on)
 }
@@ -282,17 +284,22 @@ async function startVoiceAssistant() {
   voiceOptIn.value = 'loading'
   try {
     await loadConvaiScript()
+    if (!pageAlive)
+      return
     setConvaiBodyClass(true)
     voiceOptIn.value = 'ready'
   }
   catch {
+    if (!pageAlive)
+      return
     setConvaiBodyClass(false)
     voiceOptIn.value = 'error'
   }
 }
 
 onBeforeUnmount(() => {
-  setConvaiBodyClass(false)
+  pageAlive = false
+  document.body.classList.remove('convai-on')
 })
 
 useHead(() => ({

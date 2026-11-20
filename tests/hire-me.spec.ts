@@ -213,12 +213,17 @@ test.describe('Hire me page', () => {
     });
 
     await page.goto(hireMePath);
-    await expect(page.getByRole('button', { name: 'Start voice assistant' })).toBeVisible();
+    const start = page.getByRole('button', { name: 'Start voice assistant' });
+    await expect(start).toBeVisible();
     await expect(page.locator('elevenlabs-convai')).toHaveCount(0);
     await expect(page.locator('script[src*="elevenlabs"], script[src*="unpkg.com/@elevenlabs"]')).toHaveCount(0);
-    await page.waitForLoadState('domcontentloaded');
-    // Settle long enough that a deferred useHead/script inject would have fired.
-    await expect.poll(() => seen.length + blockedHosts.length, { timeout: 2000 }).toBe(0);
+    await page.waitForLoadState('networkidle');
+    // Hydration: Start is actionable before we open the observation window.
+    await expect(async () => {
+      await start.click({ trial: true });
+    }).toPass({ timeout: 15000 });
+    // Real observation window after hydration so a deferred inject would fire.
+    await page.waitForTimeout(1500);
     expect(seen, `unexpected third-party voice requests: ${seen.join(', ')}`).toEqual([]);
     expect(blockedHosts).toEqual([]);
   });
