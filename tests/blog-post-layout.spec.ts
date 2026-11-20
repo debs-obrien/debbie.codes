@@ -33,9 +33,20 @@ test.describe('Blog post layout (cover + companion video)', () => {
     const youtubeLink = section.getByRole('link', { name: 'Watch on YouTube' });
     await expect(youtubeLink).toHaveAttribute('href', `https://www.youtube.com/watch?v=${VIDEO_ID}`);
 
-    // Jump target resolves to the section (same document fragment).
+    // Jump target resolves to the section (same document fragment), clears the
+    // fixed header via scroll-mt-top-bar, and receives focus (tabindex="-1").
     await jump.click();
-    await expect(section).toBeInViewport();
+    await expect(section).toBeFocused();
+    const heading = section.getByRole('heading', { name: 'Watch the video', level: 2 });
+    await expect(heading).toBeInViewport();
+    const header = page.locator('header').first();
+    await expect.poll(async () => {
+      const headingBox = await heading.boundingBox();
+      const headerBox = await header.boundingBox();
+      if (!headingBox || !headerBox)
+        return false;
+      return headingBox.y >= headerBox.y + headerBox.height;
+    }).toBe(true);
   });
 
   test('non-video posts have neither the jump link nor the video section', async ({ page }) => {

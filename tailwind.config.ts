@@ -40,6 +40,10 @@ export default <Partial<Config>>{
       margin: {
         'top-bar': '100px',
       },
+      // Match fixed header offset (see margin.top-bar / mt-top-bar) for in-page anchors.
+      scrollMargin: {
+        'top-bar': '100px',
+      },
       maxWidth: {
         '1/4': '25%',
       },

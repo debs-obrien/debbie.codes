@@ -223,7 +223,8 @@ if (article.value) {
       <section
         v-if="article.video"
         id="watch-the-video"
-        class="max-w-4xl mx-auto mt-14 border-t border-gray-300 dark:border-gray-700 pt-8 mb-16 sm:mb-20 lg:mb-24"
+        tabindex="-1"
+        class="max-w-4xl mx-auto mt-14 scroll-mt-top-bar border-t border-gray-300 dark:border-gray-700 pt-8 mb-16 sm:mb-20 lg:mb-24"
       >
         <h2 class="text-2xl font-bold mb-2">
           Watch the video
