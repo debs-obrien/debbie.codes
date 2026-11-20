@@ -136,7 +136,7 @@
             v-if="item.type"
             :href="item.url"
             :type="item.type"
-            class="inline-flex items-center gap-1 rounded-sm hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ff5a73]"
+            class="inline-flex min-h-6 items-center gap-1 rounded-sm hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ff5a73]"
           >
             <IconRss class="h-3.5 w-3.5 shrink-0" />
             {{ item.link }}
@@ -144,7 +144,7 @@
           <NuxtLink
             v-else
             :to="item.url"
-            class="rounded-sm hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ff5a73]"
+            class="inline-flex min-h-6 items-center rounded-sm hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ff5a73]"
           >
             {{ item.link }}
           </NuxtLink>
