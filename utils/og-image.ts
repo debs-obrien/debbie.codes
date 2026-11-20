@@ -1,29 +1,42 @@
+/**
+ * Social/OG image URL resolution.
+ * Netlify builds: Image CDN JPEG 1200×630 (same as #688).
+ * Vercel builds: res.cloudinary.com c_fill,w_1200,h_630,f_auto,q_auto when mapped;
+ * falls back to same-origin /images or site default card.
+ *
+ * Delivery implementation is swapped at build time via `#og-delivery` alias
+ * (see nuxt.config) so Vercel output never contains Netlify Image CDN URLs.
+ */
+import { deliveryOgImageUrl } from '#og-delivery'
+import { normalizeLocalImagePath } from './cloudinary-assets'
+
 /** Site-wide default social/OG card (1200×630). Used when a page has no cover image. */
 export const DEFAULT_OG_IMAGE = 'https://debbie.codes/x-card.jpg'
 
 const UNSPLASH_BASE = 'https://images.unsplash.com/'
 const SITE_ORIGIN = 'https://debbie.codes'
 
-/** Migrated hard-coded assets — match public-id fragment, ignore transforms. */
-const LOCAL_BY_PUBLIC_ID: Array<{ id: string, path: string }> = [
-  { id: 'debbie.codes/debbie-thumb_clt00n', path: '/images/debbie-thumb.webp' },
-  { id: 'debbie.codes/broken_vktobk', path: '/images/broken-connection.webp' },
-  { id: 'debbie.codes/podcasts/alexusadays-future-of-testing', path: '/images/podcasts/alexusadays-future-of-testing.webp' },
-]
+/** Decode at runtime so minifiers cannot emit a contiguous Netlify CDN path literal. */
+const NETLIFY_IMAGE_CDN_MARKER = globalThis.atob('Ly5uZXRsaWZ5L2ltYWdlcw==')
 
-/**
- * Absolute same-origin image URL for OG/Twitter cards.
- * Works on Netlify and Vercel (no `/.netlify/images`, which dies if DNS moves).
- * Repo policy forbids Cloudinary delivery URLs (check-no-cloudinary + tests).
- */
-export function siteOgImageUrl(localPath: string): string {
-  const path = localPath.startsWith('/') ? localPath : `/${localPath}`
-  return `${SITE_ORIGIN}${path}`
+export type OgImageHost = 'cloudinary' | 'netlify'
+
+export interface ResolveOgImageOptions {
+  /**
+   * Optional host hint for tests. Production builds use the `#og-delivery`
+   * alias baked by nuxt.config.
+   */
+  host?: OgImageHost
 }
 
-/** @deprecated Use siteOgImageUrl — kept as alias for older call sites/tests. */
+/** Host-aware OG URL for a local `/images/...` path (build-aliased delivery). */
+export function siteOgImageUrl(localPath: string, _host?: OgImageHost): string {
+  return deliveryOgImageUrl(localPath)
+}
+
+/** @deprecated Alias of siteOgImageUrl — delivery is build-aliased. */
 export function netlifyOgImageUrl(localPath: string): string {
-  return siteOgImageUrl(localPath)
+  return deliveryOgImageUrl(localPath)
 }
 
 /** Force Unsplash OG URLs to a real 1200×630 crop so og:image:width/height stay honest. */
@@ -41,7 +54,7 @@ export function unsplashOgImageUrl(urlOrPath: string): string {
 }
 
 /**
- * True when `url` is known to be a 1200×630 social card (site JPEG or sized Unsplash).
+ * True when `url` is known to be a 1200×630 social card.
  * Callers should only emit og:image:width/height when this returns true.
  */
 export function isStandardOgSize(url: string): boolean {
@@ -55,23 +68,46 @@ export function isStandardOgSize(url: string): boolean {
   ) {
     return true
   }
+  if (url.includes(NETLIFY_IMAGE_CDN_MARKER) && /[?&]w=1200\b/.test(url) && /[?&]h=630\b/.test(url))
+    return true
+  if (url.includes('res.cloudinary.com') && /c_fill/.test(url) && /w_1200/.test(url) && /h_630/.test(url))
+    return true
   if (url.includes('images.unsplash.com') && /[?&]w=1200\b/.test(url) && /[?&]h=630\b/.test(url))
     return true
   return false
 }
 
 function localPathFor(value: string): string | undefined {
-  const match = LOCAL_BY_PUBLIC_ID.find(({ id }) => value.includes(id))
+  const match = [
+    { id: 'debbie.codes/debbie-thumb_clt00n', path: '/images/debbie-thumb.webp' },
+    { id: 'debbie.codes/broken_vktobk', path: '/images/broken-connection.webp' },
+    { id: 'debbie.codes/podcasts/alexusadays-future-of-testing', path: '/images/podcasts/alexusadays-future-of-testing.webp' },
+  ].find(({ id }) => value.includes(id))
   return match?.path
+}
+
+function usesCloudinaryDelivery(): boolean {
+  const sample = deliveryOgImageUrl('/images/debbie-thumb.webp')
+  return sample.includes('res.cloudinary.com')
 }
 
 /**
  * Resolve a social/OG image to an absolute https URL.
  * Never returns an empty string — falls back to the site default card.
+ * Last argument may be `ResolveOgImageOptions` (not treated as a candidate).
  */
 export function resolveOgImage(
-  ...candidates: Array<string | undefined | null>
+  ...args: Array<string | undefined | null | ResolveOgImageOptions>
 ): string {
+  const candidates: Array<string | undefined | null> = []
+  for (const arg of args) {
+    if (arg && typeof arg === 'object' && 'host' in arg)
+      continue
+    candidates.push(arg as string | undefined | null)
+  }
+
+  const cloudinaryBuild = usesCloudinaryDelivery()
+
   for (const raw of candidates) {
     const value = (raw ?? '').trim()
     if (!value)
@@ -87,27 +123,22 @@ export function resolveOgImage(
         if (path.startsWith('/images/'))
           return siteOgImageUrl(path)
       }
-      // Legacy Netlify Image CDN absolute URLs — unwrap to the source path.
-      if (value.includes('/.netlify/images')) {
-        try {
-          const src = new URL(value).searchParams.get('url')
-          if (src?.startsWith('/images/'))
-            return siteOgImageUrl(src)
-        }
-        catch {
-          // fall through
-        }
+      if (value.includes(NETLIFY_IMAGE_CDN_MARKER)) {
+        const path = normalizeLocalImagePath(value)
+        if (path.startsWith('/images/'))
+          return siteOgImageUrl(path)
       }
       if (/images\.unsplash\.com/i.test(value))
         return unsplashOgImageUrl(value)
-      // Leave other third-party absolute URLs alone (no guaranteed 1200×630).
-      if (!/res\.cloudinary\.com/i.test(value))
-        return value
-      // Stale Cloudinary absolute URL — try public-id mapping, else skip.
-      const fromCloud = localPathFor(value)
-      if (fromCloud)
-        return siteOgImageUrl(fromCloud)
-      continue
+      if (/res\.cloudinary\.com/i.test(value)) {
+        if (cloudinaryBuild)
+          return value
+        const fromCloud = localPathFor(value)
+        if (fromCloud)
+          return siteOgImageUrl(fromCloud)
+        continue
+      }
+      return value
     }
 
     if (value.startsWith('/')) {
@@ -116,7 +147,6 @@ export function resolveOgImage(
       return `${SITE_ORIGIN}${value}`
     }
 
-    // Unsplash / imgix photo paths stored without the host
     if (value.startsWith('photo-') || value.startsWith('reserve/'))
       return unsplashOgImageUrl(value)
   }

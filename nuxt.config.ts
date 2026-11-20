@@ -1,4 +1,5 @@
 import process from 'node:process'
+import { fileURLToPath } from 'node:url'
 import { generateContentIndex } from './scripts/generate-content-index.mjs'
 import { generateSitemap } from './scripts/generate-sitemap.mjs'
 import { buildHostingRouteRules } from './scripts/hosting-route-rules.mjs'
@@ -21,20 +22,34 @@ const isVercelBuild = Boolean(
   process.env.VERCEL
   || process.env.NITRO_PRESET?.startsWith('vercel'),
 )
+// Swap OG delivery implementation so Vercel bundles never include Netlify CDN URLs.
+const ogDeliveryModule = fileURLToPath(
+  new URL(
+    isVercelBuild
+      ? './utils/og-image-cloudinary-delivery.ts'
+      : './utils/og-image-netlify-delivery.ts',
+    import.meta.url,
+  ),
+)
 // Redirect routeRules only on Vercel — Netlify generate would emit meta-refresh
 // HTML that shadows public/_redirects 301s (breaks preview redirect tests).
 const hostingRouteRules = buildHostingRouteRules({
   blogItems,
   includeRedirects: isVercelBuild,
 })
+// Netlify: auto → netlifyImageCdn. Vercel: Cloudinary (debsobrien), never vercel IPX/IO.
 const imageProvider = process.env.NUXT_IMAGE_PROVIDER
-  || (isVercelBuild ? 'ipx' : 'auto')
+  || (isVercelBuild ? 'cloudinarySite' : 'auto')
 
 export default defineNuxtConfig({
   srcDir: '.',
   // Isolated dirs for scripts/check-origin-trial.mjs so a production generate
   // never rebuilds the shared .nuxt / .output used by `nuxt dev` / Playwright.
   ...(process.env.NUXT_OT_BUILD_DIR ? { buildDir: process.env.NUXT_OT_BUILD_DIR } : {}),
+
+  alias: {
+    '#og-delivery': ogDeliveryModule,
+  },
 
   // Dedicated local port for this Nuxt app (avoid 3000/3001 conflicts)
   devServer: {
@@ -74,25 +89,40 @@ export default defineNuxtConfig({
   ],
 
   image: {
-    // Netlify: auto → netlifyImageCdn. Vercel: ipx (never vercel Image Optimization).
     provider: imageProvider,
+    // Vercel-only custom provider (see providers/cloudinary-site.ts). Ignored on Netlify.
+    providers: {
+      cloudinarySite: {
+        provider: '~/providers/cloudinary-site',
+        options: {
+          baseURL: 'https://res.cloudinary.com/debsobrien/image/upload/',
+        },
+      },
+    },
+    cloudinary: {
+      baseURL: 'https://res.cloudinary.com/debsobrien/image/upload/',
+      modifiers: {
+        format: 'auto',
+        quality: 'auto',
+      },
+    },
     imgix: {
       baseURL: 'https://images.unsplash.com/',
     },
     presets: {
       blog: {
         modifiers: {
-          format: 'webp',
+          format: isVercelBuild ? 'auto' : 'webp',
           fit: 'cover',
-          quality: '80',
+          quality: isVercelBuild ? 'auto' : '80',
         },
       },
     },
     // IPX local-dev allowlist — match Netlify `remote_images` hosts (utils/remote-images.ts).
     // Unsplash uses the imgix provider (not domains). YouTube thumbs stay plain <img>.
-    domains: [...NETLIFY_REMOTE_IMAGE_HOSTS],
-    // Force WebP via fm=webp on Netlify Image CDN (no Accept-based AVIF negotiation).
-    format: ['webp'],
+    domains: [...NETLIFY_REMOTE_IMAGE_HOSTS, 'res.cloudinary.com'],
+    // Netlify: force WebP via fm=webp. Vercel Cloudinary: f_auto.
+    format: isVercelBuild ? ['auto'] : ['webp'],
     quality: 80,
     // Keep screens aligned with real layout breakpoints used in `sizes`.
     // Drop unused ultra-wide widths that only inflate srcset.
@@ -176,6 +206,8 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
+      // Dual-host social images: Netlify Image CDN vs Cloudinary (Vercel builds).
+      ogImageHost: isVercelBuild ? 'cloudinary' : 'netlify',
       // /hire-me voice widget (public agent id; origin-allowlisted for debbie.codes).
       hireMeAgentId: process.env.HIRE_ME_AGENT_ID || 'agent_8801m5yfwzgpf61szvhj0mj0v5fv',
       // Defaults are the live debbie.codes WebMCP tokens (utils/origin-trial.ts).

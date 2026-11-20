@@ -26,9 +26,14 @@ const ALLOWLIST = [
   { reason: 'x-vercel-* / x-nf-* / server / age / date / etag / cf-*', headerPrefix: true },
   // Vercel/Netlify preview may inject noindex; production HTML still index,follow in meta.
   { reason: 'preview X-Robots-Tag noindex on HTML', header: 'x-robots-tag' },
+  // Image delivery host: Netlify Image CDN vs Cloudinary (Vercel) vs static /images.
+  { reason: 'image host (Netlify CDN vs Cloudinary vs static)', note: 'og:image + img src' },
 ]
 
 const SECURITY_HEADERS = ['x-frame-options', 'x-xss-protection']
+
+/** Sample HTML paths for deep image URL checks (keep small — bandwidth). */
+const IMAGE_SAMPLE_PATHS = ['/', '/blog', '/hire-me', '/about', '/videos', '/podcasts']
 
 function loadRedirectSources() {
   const text = readFileSync(join(root, 'public/_redirects'), 'utf8')
@@ -158,6 +163,46 @@ function normalizeLocation(loc, base) {
   }
 }
 
+/** Collect og:image + twitter:image + every img src/srcset URL from HTML. */
+function collectImageUrls(html, pageUrl) {
+  /** @type {Set<string>} */
+  const urls = new Set()
+  const og = metaContent(html, 'property', 'og:image')
+  const tw = metaContent(html, 'name', 'twitter:image')
+  if (og)
+    urls.add(og)
+  if (tw)
+    urls.add(tw)
+
+  for (const m of html.matchAll(/<img\b[^>]*>/gi)) {
+    const tag = m[0]
+    const src = tag.match(/\bsrc=["']([^"']+)["']/i)?.[1]
+    if (src && !src.startsWith('data:')) {
+      try {
+        urls.add(new URL(src, pageUrl).toString())
+      }
+      catch {
+        // skip
+      }
+    }
+    const srcset = tag.match(/\bsrcset=["']([^"']+)["']/i)?.[1]
+    if (srcset) {
+      for (const part of srcset.split(',')) {
+        const u = part.trim().split(/\s+/)[0]
+        if (!u || u.startsWith('data:'))
+          continue
+        try {
+          urls.add(new URL(u, pageUrl).toString())
+        }
+        catch {
+          // skip
+        }
+      }
+    }
+  }
+  return [...urls]
+}
+
 /**
  * @param {Awaited<ReturnType<typeof probe>>} ref
  * @param {Awaited<ReturnType<typeof probe>>} cand
@@ -221,12 +266,14 @@ function compareProbe(ref, cand, path) {
     const candOg = metaContent(cand.body, 'property', 'og:image')
     if (refOg && !candOg)
       issues.push('og:image missing on candidate')
-    // Live may still use /.netlify/images until this branch is on the apex;
-    // candidate must not. Differing host-neutral /images/ URLs are OK.
+    // Vercel candidate must never emit Netlify Image CDN URLs.
     if (candOg && /\/.netlify\/images/i.test(candOg))
       issues.push('og:image still points at /.netlify/images')
-    if (candOg && /res\.cloudinary\.com/i.test(candOg))
-      issues.push('og:image uses Cloudinary (repo forbids delivery URLs)')
+    // Cloudinary OG on Vercel is expected (dual-host). Shape-check when present.
+    if (candOg && /res\.cloudinary\.com/i.test(candOg)) {
+      if (!/f_auto/.test(candOg) || !/q_auto/.test(candOg))
+        issues.push('og:image Cloudinary URL missing f_auto,q_auto')
+    }
 
     const refCanon = canonicalHref(ref.body)
     const candCanon = canonicalHref(cand.body)
@@ -239,30 +286,61 @@ function compareProbe(ref, cand, path) {
         // skip
       }
     }
+
+    // No /.netlify/images anywhere in candidate HTML (img src / srcset / meta).
+    if (/\/\.netlify\/images/i.test(cand.body))
+      issues.push('candidate HTML still contains /.netlify/images')
   }
 
   return issues
 }
 
-async function checkOgImageFetches(candBase, htmlPaths) {
+/**
+ * Every og:image and <img> source on sampled pages must return 200 + image/*.
+ * @param {string} candBase
+ * @param {string[]} htmlPaths
+ */
+async function checkCandidateImages(candBase, htmlPaths) {
   /** @type {string[]} */
   const issues = []
-  for (const path of htmlPaths.slice(0, 8)) {
+  /** @type {Set<string>} */
+  const seen = new Set()
+
+  for (const path of htmlPaths) {
     const p = await probe(candBase, path)
     if (!/text\/html/i.test(p.contentType) || p.status !== 200)
       continue
-    const og = metaContent(p.body, 'property', 'og:image')
-    if (!og)
-      continue
-    try {
-      const img = await fetch(og, { redirect: 'follow', headers: { 'user-agent': 'prove-hosting-parity/1.0' } })
-      if (!img.ok)
-        issues.push(`${path} og:image HTTP ${img.status} (${og})`)
-    }
-    catch (err) {
-      issues.push(`${path} og:image fetch failed: ${err.message}`)
+
+    const urls = collectImageUrls(p.body, p.url)
+    for (const imgUrl of urls) {
+      if (seen.has(imgUrl))
+        continue
+      seen.add(imgUrl)
+
+      // Skip non-image placeholders / analytics beacons mistaken for imgs.
+      if (/googletagmanager|google-analytics|facebook\.com\/tr/i.test(imgUrl))
+        continue
+
+      try {
+        const img = await fetch(imgUrl, {
+          redirect: 'follow',
+          headers: { 'user-agent': 'prove-hosting-parity/1.0' },
+        })
+        const ct = (img.headers.get('content-type') || '').split(';')[0].trim().toLowerCase()
+        if (!img.ok) {
+          issues.push(`${path} image HTTP ${img.status}: ${imgUrl}`)
+          continue
+        }
+        if (!/^image\//i.test(ct) && !/svg/i.test(ct)) {
+          issues.push(`${path} image content-type ${ct || '(empty)'}: ${imgUrl}`)
+        }
+      }
+      catch (err) {
+        issues.push(`${path} image fetch failed (${err.message}): ${imgUrl}`)
+      }
     }
   }
+
   return issues
 }
 
@@ -320,10 +398,19 @@ async function main() {
   if (mdIssues.length)
     failures++
 
-  const ogIssues = await checkOgImageFetches(candBase, ['/', '/blog', '/hire-me', '/about'])
-  for (const msg of ogIssues) {
+  const imageIssues = await checkCandidateImages(candBase, IMAGE_SAMPLE_PATHS)
+  for (const msg of imageIssues) {
     failures++
-    rows.push({ path: 'og:image fetch', ref: '-', cand: '-', ok: 'FAIL', issues: msg })
+    rows.push({ path: 'image fetch', ref: '-', cand: '-', ok: 'FAIL', issues: msg })
+  }
+  if (!imageIssues.length) {
+    rows.push({
+      path: 'image fetch (og + img sample)',
+      ref: '-',
+      cand: 'OK',
+      ok: 'OK',
+      issues: '',
+    })
   }
 
   // Print table

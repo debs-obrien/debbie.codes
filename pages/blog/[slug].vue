@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import { buildArticleJsonLd } from '~/utils/article-json-ld'
+import type { OgImageHost } from '~/utils/og-image'
 import { isStandardOgSize, resolveOgImage } from '~/utils/og-image'
 import { calculateReadingTime, extractTextFromContent, formatReadingTime } from '~/utils/reading-time'
 
 const route = useRoute()
 const path = route.path.replace(/\/$/, '')
 const slug = path.split('/').pop() || ''
+const ogImageHost = useRuntimeConfig().public.ogImageHost as OgImageHost
 
 const { data: article } = await useAsyncData(`blog-article-${path}`, () => onlyPublished(queryCollection('blog'))
   .where('path', '=', path)
@@ -34,7 +36,7 @@ const ogImageField: string
   = article.value?.ogImage
     || (article.value as { meta?: { ogImage?: string } } | null)?.meta?.ogImage
     || ''
-const socialImage = resolveOgImage(ogImageField, image)
+const socialImage = resolveOgImage(ogImageField, image, { host: ogImageHost })
 const socialImageHasStandardSize = isStandardOgSize(socialImage)
 const canonicalUrl = article.value?.canonical || `https://debbie.codes${path}`
 // Pass the raw frontmatter date so <time datetime> stays ISO (YYYY-MM-DD).

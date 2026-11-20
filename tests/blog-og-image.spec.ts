@@ -49,12 +49,18 @@ function sampleBlogSlugs(): string[] {
 
 /**
  * Map an absolute OG URL to something the test base URL can serve.
- * Same-origin `/images/...` (and legacy `/.netlify/images`) rewrite to the
- * preview origin. Third-party hosts (e.g. Unsplash) return null.
+ * Same-origin `/images/...` and `/.netlify/images` rewrite to the preview origin.
+ * Cloudinary / Unsplash stay external — Playwright fixtures block Cloudinary
+ * bandwidth (#686), so those return null (shape-only assertions).
  */
 function fetchableImageUrl(absoluteHttps: string, baseURL: string | undefined): string | null {
-  if (/images\.unsplash\.com/i.test(absoluteHttps) || !absoluteHttps.startsWith(SITE_ORIGIN))
+  if (
+    /images\.unsplash\.com/i.test(absoluteHttps)
+    || /res\.cloudinary\.com/i.test(absoluteHttps)
+    || !absoluteHttps.startsWith(SITE_ORIGIN)
+  ) {
     return null;
+  }
 
   if (!baseURL)
     return absoluteHttps;
@@ -76,6 +82,25 @@ function fetchableImageUrl(absoluteHttps: string, baseURL: string | undefined): 
   return absoluteHttps.replace(SITE_ORIGIN, origin);
 }
 
+/** Dual-host: Netlify Image CDN, Cloudinary (Vercel), or static /images fallback. */
+function expectValidOgShape(ogImage: string, label: string) {
+  expect(ogImage, label).toMatch(/^https:\/\//);
+  if (/res\.cloudinary\.com/i.test(ogImage)) {
+    expect(ogImage, `${label} Cloudinary f_auto`).toMatch(/f_auto/);
+    expect(ogImage, `${label} Cloudinary q_auto`).toMatch(/q_auto/);
+    expect(ogImage, `${label} must not mix Netlify CDN`).not.toMatch(/\/.netlify\/images/);
+    return 'cloudinary';
+  }
+  if (/\/.netlify\/images/i.test(ogImage)) {
+    expect(ogImage, `${label} Netlify w`).toMatch(/[?&]w=1200\b/);
+    expect(ogImage, `${label} Netlify h`).toMatch(/[?&]h=630\b/);
+    expect(ogImage, `${label} must not mix Cloudinary`).not.toMatch(/res\.cloudinary\.com/);
+    return 'netlify';
+  }
+  expect(ogImage, `${label} static fallback`).toMatch(/^https:\/\/debbie\.codes\/(?:images\/|x-card)/);
+  return 'static';
+}
+
 test.describe('Blog OG / Twitter images', () => {
   test('posts without a cover image fall back to the site default card', () => {
     // Every blog post has a cover now, so check the fallback in resolveOgImage directly.
@@ -89,25 +114,25 @@ test.describe('Blog OG / Twitter images', () => {
     const ogImage = await page.locator('meta[property="og:image"]').getAttribute('content');
     const twitterImage = await page.locator('meta[name="twitter:image"]').getAttribute('content');
 
-    expect(ogImage).toMatch(/^https:\/\//);
-    expect(twitterImage).toMatch(/^https:\/\//);
+    expect(ogImage).toBeTruthy();
+    expect(twitterImage).toBeTruthy();
     expect(ogImage).not.toBe(DEFAULT_OG_IMAGE);
-    expect(ogImage).not.toMatch(/res\.cloudinary\.com/);
-    expect(ogImage).not.toMatch(/\/.netlify\/images/);
     expect(ogImage).toContain('devs-in-the-forest');
-    expect(ogImage).toMatch(/^https:\/\/debbie\.codes\/images\//);
-    // Direct /images assets are not guaranteed 1200×630 (unlike Unsplash/x-card).
-    await expect(page.locator('meta[property="og:image:width"]')).toHaveCount(0);
-    await expect(page.locator('meta[property="og:image:height"]')).toHaveCount(0);
+    const kind = expectValidOgShape(ogImage!, 'work-life-balance og:image');
+    expectValidOgShape(twitterImage!, 'work-life-balance twitter:image');
+    // Cloudinary OG is sized 1200×630; Netlify CDN likewise; static /images is not.
+    if (kind === 'static') {
+      await expect(page.locator('meta[property="og:image:width"]')).toHaveCount(0);
+      await expect(page.locator('meta[property="og:image:height"]')).toHaveCount(0);
+    }
   });
 
-  test('Grok Bot 50th birthday post uses its local share image without an in-article cover', async ({ page }) => {
+  test('Grok Bot 50th birthday post uses its share image without an in-article cover', async ({ page }) => {
     await page.goto('/blog/grok-bot-50th-birthday-photo-video');
     const ogImage = await page.locator('meta[property="og:image"]').getAttribute('content');
-    expect(ogImage).toMatch(/^https:\/\/debbie\.codes\/images\//);
+    expect(ogImage).toBeTruthy();
     expect(ogImage).toContain('grok-bot-50th-birthday-photo-video');
-    expect(ogImage).not.toMatch(/res\.cloudinary\.com/);
-    expect(ogImage).not.toMatch(/\/.netlify\/images/);
+    expectValidOgShape(ogImage!, 'grok-bot-50th og:image');
     await expect(page.locator('meta[name="twitter:image"]')).toHaveAttribute('content', ogImage!);
     // image/ogImage frontmatter still drive social meta; the in-article cover is gone.
     await expect(page.locator('article img[alt*="50th birthday"]')).toHaveCount(0);
@@ -126,17 +151,15 @@ test.describe('Blog OG / Twitter images', () => {
       const ogImage = await page.locator('meta[property="og:image"]').getAttribute('content');
       const twitterImage = await page.locator('meta[name="twitter:image"]').getAttribute('content');
 
-      expect(ogImage, `${slug} og:image`).toMatch(/^https:\/\//);
-      expect(twitterImage, `${slug} twitter:image`).toMatch(/^https:\/\//);
       expect(ogImage, `${slug} og:image empty`).toBeTruthy();
       expect(twitterImage, `${slug} twitter:image empty`).toBeTruthy();
-      expect(ogImage, `${slug} og:image must not use Cloudinary`).not.toMatch(/res\.cloudinary\.com/);
-      expect(twitterImage, `${slug} twitter:image must not use Cloudinary`).not.toMatch(/res\.cloudinary\.com/);
+      expectValidOgShape(ogImage!, `${slug} og:image`);
+      expectValidOgShape(twitterImage!, `${slug} twitter:image`);
 
       for (const url of [ogImage!, twitterImage!]) {
         const fetchUrl = fetchableImageUrl(url, baseURL);
         if (!fetchUrl) {
-          // External host (e.g. Unsplash) — shape assertion only; no third-party fetch.
+          // External host (Unsplash / Cloudinary) — shape only; no Cloudinary crawl (#686).
           continue;
         }
         const imageResponse = await request.get(fetchUrl);

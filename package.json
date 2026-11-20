@@ -4,6 +4,9 @@
     "node": "22.x",
     "npm": ">=10.2.4"
   },
+  "imports": {
+    "#og-delivery": "./utils/og-image-netlify-delivery.ts"
+  },
   "scripts": {
     "build": "nuxt build",
     "prebuild": "node scripts/generate-sitemap.mjs && node scripts/generate-content-index.mjs",
@@ -16,7 +19,10 @@
     "lint:fix": "eslint . --fix",
     "test": "playwright test",
     "test:endform": "endform test",
-    "check:origin-trial": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/check-origin-trial.mjs"
+    "check:origin-trial": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/check-origin-trial.mjs",
+    "check:cloudinary": "node scripts/check-no-cloudinary.mjs",
+    "verify:cloudinary-assets": "node scripts/verify-cloudinary-assets.mjs",
+    "prove:hosting-parity": "node scripts/prove-hosting-parity.mjs"
   },
   "dependencies": {
     "better-sqlite3": "^12.11.1",
