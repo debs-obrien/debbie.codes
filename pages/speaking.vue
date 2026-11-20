@@ -12,44 +12,40 @@ interface Talk {
 
 const upcoming: Talk[] = []
 
-// Facts verified only from https://github.com/debs-obrien/decks (public READMEs / slides.md).
-// Omit any field the repo does not state.
+// Past talks newest first. Deck folders from https://github.com/debs-obrien/decks.
+// Infobip title from https://shift.infobip.com/agenda/. Endform date from https://luma.com/70r2iqag.
+// Omit any field not verified on those sources.
 const past2026: Talk[] = [
   {
-    event: 'DevSum 2026',
-    title: 'The Agentic Developer: Orchestrating AI Workflows with MCPs',
-    dates: 'June 2026',
-    place: 'Stockholm',
-    url: 'https://github.com/debs-obrien/decks/tree/main/devsum-2026-agentic-developer-mcps',
-    linkLabel: 'Slide deck on GitHub',
+    event: 'Endform',
+    title: 'Bug Report In, Pull Request Out: Agentic CI with Playwright',
+    dates: '12 Nov 2026',
+    place: 'Online',
+    url: 'https://github.com/debs-obrien/decks/tree/main/endform-2026-bug-report-pr-out',
+    linkLabel: 'Endform slide deck on GitHub',
+  },
+  {
+    event: 'Infobip Shift 2026',
+    title: 'The Agentic Developer: Orchestrating AI Workflows With Skills and MCPs',
+    dates: 'Tue 15 Sep 2026',
+    place: 'Zadar',
+    url: 'https://github.com/debs-obrien/decks/tree/main/infobip-shift-2026-agentic-developer',
+    linkLabel: 'Infobip Shift 2026 slide deck on GitHub',
   },
   {
     event: 'ZurichJS Conf 2026',
     title: 'Bug Report In, Pull Request Out: Agentic CI with Playwright',
     dates: 'Fri 11 Sep 2026',
     url: 'https://github.com/debs-obrien/decks/tree/main/zurichjs-2026-bug-report-pr-out',
-    linkLabel: 'Slide deck on GitHub',
+    linkLabel: 'ZurichJS Conf 2026 slide deck on GitHub',
   },
   {
-    event: 'Infobip Shift 2026',
-    title: 'The Agentic Developer',
-    dates: 'Tue 15 Sep 2026',
-    place: 'Zadar',
-    url: 'https://github.com/debs-obrien/decks/tree/main/infobip-shift-2026-agentic-developer',
-    linkLabel: 'Slide deck on GitHub',
-  },
-  {
-    event: 'Endform',
-    title: 'Bug Report In, Pull Request Out: Agentic CI with Playwright',
-    place: 'Online',
-    url: 'https://github.com/debs-obrien/decks/tree/main/endform-2026-bug-report-pr-out',
-    linkLabel: 'Slide deck on GitHub',
-  },
-  {
-    event: 'Agentic Testing workshop',
-    title: 'Agentic Testing with Playwright',
-    url: 'https://github.com/debs-obrien/decks/tree/main/workshop-agentic-testing-playwright',
-    linkLabel: 'Slide deck on GitHub',
+    event: 'DevSum 2026',
+    title: 'The Agentic Developer: Orchestrating AI Workflows with MCPs',
+    dates: 'June 2026',
+    place: 'Stockholm',
+    url: 'https://github.com/debs-obrien/decks/tree/main/devsum-2026-agentic-developer-mcps',
+    linkLabel: 'DevSum 2026 slide deck on GitHub',
   },
 ]
 
