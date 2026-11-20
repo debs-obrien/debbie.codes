@@ -6,7 +6,7 @@ test.describe('404 Error Page', () => {
   });
 
   test('displays proper 404 page for non-existent routes', async ({ page }) => {
-    await expect(page).toHaveTitle('Page not found | Debbie O\'Brien');
+    await expect(page).toHaveTitle('Page not found · Debbie Codes');
     await expect(page.getByRole('main')).toBeVisible();
 
     await expect(page.getByRole('main')).toMatchAriaSnapshot(`

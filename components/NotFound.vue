@@ -1,14 +1,13 @@
 <script setup lang="ts">
-const title = 'Page not found | Debbie O\'Brien'
+const title = 'Page not found'
 const description = 'Sorry, that page does not exist. Try the blog, videos, or head back home.'
 
 useHead({
   title,
-  titleTemplate: '%s',
   meta: [
     { name: 'description', content: description },
-    { property: 'og:title', content: title },
-    { name: 'twitter:title', content: title },
+    { property: 'og:title', content: `${title} · Debbie Codes` },
+    { name: 'twitter:title', content: `${title} · Debbie Codes` },
   ],
 })
 </script>
