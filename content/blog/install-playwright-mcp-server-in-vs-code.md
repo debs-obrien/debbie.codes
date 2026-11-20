@@ -7,6 +7,7 @@ ogImage: /images/blog/covers/install-playwright-mcp-server-in-vs-code.webp
 tags: [playwright, mcp, ai, vs-code]
 published: true
 canonical: https://dev.to/debs_obrien/install-playwright-mcp-server-in-vs-code-4o91
+video: exsikHe20D8
 ---
 
 Installing MCP(Model Context Protocol) servers in Visual Studio Code just got a major upgrade! With the latest update, you'll notice a new MCP Servers section in the Extensions panel. Here you will find all the MCP servers you already have installed. You should also see a "world" icon for browsing MCP Servers.
@@ -38,12 +39,5 @@ Click on a server to view its README, check documentation, or access configurati
 Give it a try and see how much easier MCP server installation can be!
 
 Learn more at: https://code.visualstudio.com/mcp
-
-## Watch the Tutorial
-
-<lite-youtube
-        videoid="exsikHe20D8"
-        playlabel="Install an MCP Server in VS Code. (Watch me install Playwright MCP)">
-</lite-youtube>
 
 *Originally published on [Dev.to](https://dev.to/debs_obrien/install-playwright-mcp-server-in-vs-code-4o91)*

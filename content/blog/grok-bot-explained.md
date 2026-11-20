@@ -6,16 +6,12 @@ tags: [ai, agents, grok-bot]
 published: true
 image: /images/blog/covers/grok-bot-explained.webp
 ogImage: /images/blog/covers/grok-bot-explained.webp
+video: nn56fcN7-PU
 ---
 
 At the weekend I showed Grok Bot to some family and friends. They were blown away, but they were also like, "what the hell is Grok Bot? What are you talking about?" Nobody had heard of it. Everybody had heard of ChatGPT, though, and practically all of them are quite happily using it and know what it does.
 
 So why are people not hearing about this? I still use ChatGPT and it's great. I don't mean to say Grok Bot is better, but it's very, very different. So I made a short video to show what it is, and this is the written version.
-
-<lite-youtube
-        videoid="nn56fcN7-PU"
-        playlabel="Grok Bot Explained: Your Bots Get a Cloud Computer, Browser & Email">
-</lite-youtube>
 
 ## The big difference: your bots get a computer in the cloud
 

@@ -14,6 +14,8 @@ export default defineContentConfig({
         provider: z.string().optional(),
         url: z.string().url().optional(),
         ogImage: z.string().optional(),
+        /** Optional companion YouTube ID; rendered at the end of the post template. */
+        video: z.string().optional(),
         published: z.boolean(),
         canonical: z.string().url().optional(),
         featured: z.boolean().optional(),

@@ -15,7 +15,8 @@ test('blog has a heading, date, content and prev and next links', async ({ page 
   await expect(page.getByRole('link', { name: '#testing' })).toBeVisible();
   await expect(page.getByRole('link', { name: '#playwright' })).toBeVisible();
 
-  await expect(page.getByRole('img', { name: 'Testing a Sites Color Mode with Playwright' })).toBeVisible();
+  // Cover images are list/OG only — not rendered inside the post body.
+  await expect(page.getByRole('img', { name: 'Testing a Sites Color Mode with Playwright' })).toHaveCount(0);
 
   await expect(page
     .getByText('My website uses the Nuxt color mode module to allow the user to change the theme'))

@@ -6,14 +6,10 @@ tags: [ai, agents, grok-bot]
 published: true
 image: /images/blog/covers/i-sent-grok-bot-to-buy-my-gluten-free-beer.webp
 ogImage: /images/blog/covers/i-sent-grok-bot-to-buy-my-gluten-free-beer.webp
+video: 6v9txfFIwtw
 ---
 
 I literally have a couple of minutes just to talk you through what I've done over the last couple of days, or just today actually, to be honest, because it is pretty cool. I've written a couple of tweets about it, but I just thought I'd walk you through it.
-
-<lite-youtube
-        videoid="6v9txfFIwtw"
-        playlabel="I sent Grok Bot to buy my gluten-free beer">
-</lite-youtube>
 
 ## My chief of staff and the home bot
 

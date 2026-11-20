@@ -119,6 +119,17 @@ for (const file of files.filter(f => f.startsWith(join(contentDir, 'blog')) && f
     if (!knownVideoIds.has(id) && !EXTERNAL_VIDEO_IDS.has(id))
       errors.push(`${rel}:${line}: videoid "${id}" has no entry in content/videos (wrong or stale ID?)`)
   }
+
+  // Companion video frontmatter (`video: <youtubeId>`) rendered by the post template.
+  const fm = readFileSync(file, 'utf8').match(/^---\n([\s\S]*?)\n---/)
+  if (fm) {
+    const videoFm = fm[1].match(/^video:\s*["']?([\w-]+)/m)
+    if (videoFm) {
+      const id = videoFm[1]
+      if (!knownVideoIds.has(id) && !EXTERNAL_VIDEO_IDS.has(id))
+        errors.push(`${rel}: frontmatter video "${id}" has no entry in content/videos (wrong or stale ID?)`)
+    }
+  }
 }
 
 if (errors.length) {

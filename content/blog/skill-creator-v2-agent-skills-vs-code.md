@@ -7,6 +7,7 @@ published: true
 canonical: https://dev.to/debs_obrien/i-used-skill-creator-v2-to-improve-one-of-my-agent-skills-in-vs-code-fhd
 image: /images/blog/covers/skill-creator-v2-agent-skills-vs-code.webp
 ogImage: /images/blog/covers/skill-creator-v2-agent-skills-vs-code.webp
+video: WplS5lycPHM
 ---
 
 I just published a video showing how I used Skill Creator v2 to improve an existing AI skill inside VS Code, and honestly, I was seriously surprised at how much this thing does.
@@ -271,12 +272,5 @@ But the skill does a lot, and I found it hard to cut it down because I kept find
 So I pretty much left it as is.
 
 Have fun.
-
-## Watch the Video
-
-<lite-youtube
-        videoid="WplS5lycPHM"
-        playlabel="Build Better AI Agent Skills With Skill Creator v2 from Anthropic">
-</lite-youtube>
 
 If you’re creating your own skills already, or even just experimenting with prompts and instructions, I’d be really curious to know how you’re approaching it.
