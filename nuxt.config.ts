@@ -189,6 +189,14 @@ export default defineNuxtConfig({
     ...(process.env.NUXT_OT_OUTPUT_DIR
       ? { output: { dir: process.env.NUXT_OT_OUTPUT_DIR } }
       : {}),
+    // Vercel-only (ignored by Netlify generate): with autoSubfolderIndex:false
+    // pages are `blog.html` + overrides; without this, `/blog/` is served 200.
+    // Match live Netlify (301 slash → no-slash).
+    vercel: {
+      config: {
+        trailingSlash: false,
+      },
+    },
     routeRules: hostingRouteRules,
     prerender: {
       // `nuxt build` (Vercel) is not nitro.static — without crawlLinks only the
