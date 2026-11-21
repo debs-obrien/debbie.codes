@@ -237,6 +237,15 @@ export default defineNuxtConfig({
     ...(process.env.NUXT_OT_OUTPUT_DIR
       ? { output: { dir: process.env.NUXT_OT_OUTPUT_DIR } }
       : {}),
+    // Bundle blog sources so Vercel serverless Accept middleware can render
+    // markdown when the prerendered `.md` fetch is unavailable (Netlify edge
+    // rewrites to static files instead).
+    serverAssets: [
+      {
+        baseName: 'blog-md',
+        dir: 'content/blog',
+      },
+    ],
     // Trailing-slash 301 + Accept markdown routes: scripts/vercel-build-config.mjs.
     // Do not set trailingSlash in vercel.json (platform 308s beat alias redirects).
     routeRules: hostingRouteRules,
@@ -254,7 +263,9 @@ export default defineNuxtConfig({
       // nitro.static). Markdown + year archives still need explicit routes
       // (crawl alone only reaches recent-year chips / linked HTML).
       // robots.txt is emitted by @nuxtjs/robots — include so Vercel static has it.
-      routes: ['/', '/feed.xml', '/robots.txt', ...blogMarkdownRoutes, ...blogYearRoutes],
+      // Seed a missing path so Nitro writes a real themed 404.html (Vercel
+      // catch-all serves it; without this, SSR builds may omit the page).
+      routes: ['/', '/feed.xml', '/robots.txt', '/__prerender-404-seed', ...blogMarkdownRoutes, ...blogYearRoutes],
       // Write /blog.html instead of /blog/index.html so Netlify serves the
       // canonical no-slash URL (used by canonical tags, sitemap and links)
       // directly instead of 301-redirecting /blog -> /blog/ first.

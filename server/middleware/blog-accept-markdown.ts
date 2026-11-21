@@ -1,20 +1,15 @@
+import { Buffer } from 'node:buffer'
 import { existsSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import process from 'node:process'
 import { defineEventHandler, getHeader, getRequestURL, setHeader, setResponseStatus } from 'h3'
+import {
+  blogHtmlSlug,
+  MARKDOWN_NOT_FOUND,
+  prefersMarkdown,
+  SITE,
+} from '../../utils/blog-accept-markdown'
 import { parseBlogFrontmatter, renderBlogMarkdownFile } from '../../utils/llms-markdown'
-
-const SITE = 'https://debbie.codes'
-
-const MARKDOWN_NOT_FOUND = [
-  '# Not Found',
-  '',
-  'No markdown copy exists for this URL.',
-  '',
-  `- [llms.txt](${SITE}/llms.txt)`,
-  `- [sitemap.xml](${SITE}/sitemap.xml)`,
-  '',
-].join('\n')
 
 function asString(value: unknown) {
   return typeof value === 'string' ? value.trim() : ''
@@ -32,50 +27,6 @@ function asTags(value: unknown) {
   return tags
 }
 
-/** Same q-value resolution as netlify/edge-functions/blog-markdown.js. */
-function quality(accept: string, type: string) {
-  if (!accept)
-    return 0
-  const main = type.split('/')[0]
-  let exact: number | null = null
-  let typeWild: number | null = null
-  let any: number | null = null
-  for (const part of accept.split(',')) {
-    const [rawType, ...params] = part.trim().split(';')
-    const media = rawType.trim().toLowerCase()
-    if (!media)
-      continue
-    let q = 1
-    for (const param of params) {
-      const match = param.trim().match(/^q\s*=\s*([0-9.]+)$/i)
-      if (match)
-        q = Number(match[1])
-    }
-    if (Number.isNaN(q) || q < 0)
-      q = 0
-    if (media === type)
-      exact = Math.max(exact ?? 0, q)
-    else if (media === `${main}/*`)
-      typeWild = Math.max(typeWild ?? 0, q)
-    else if (media === '*/*')
-      any = Math.max(any ?? 0, q)
-  }
-  if (exact !== null)
-    return exact
-  if (typeWild !== null)
-    return typeWild
-  if (any !== null)
-    return any
-  return 0
-}
-
-function prefersMarkdown(accept: string) {
-  const md = quality(accept, 'text/markdown')
-  if (md <= 0)
-    return false
-  return md >= quality(accept, 'text/html')
-}
-
 function markdownNotFound(event: Parameters<typeof setHeader>[0]) {
   setResponseStatus(event, 404)
   setHeader(event, 'Content-Type', 'text/markdown; charset=utf-8')
@@ -86,28 +37,85 @@ function markdownNotFound(event: Parameters<typeof setHeader>[0]) {
 }
 
 /**
- * Netlify edge parity for Accept: text/markdown on /blog/<slug> (no .md suffix).
- * Honours q-values; missing posts return the same small markdown 404 body.
+ * Read blog source markdown.
+ * 1) Local `content/blog` (nuxt dev / Netlify generate cwd)
+ * 2) Nitro serverAssets `assets:blog-md` (Vercel serverless bundle)
  */
-export default defineEventHandler((event) => {
+async function readBlogSource(slug: string): Promise<string | null> {
+  const file = join(process.cwd(), 'content/blog', `${slug}.md`)
+  if (existsSync(file))
+    return readFileSync(file, 'utf8')
+
+  try {
+    const storage = useStorage('assets:blog-md')
+    const data = await storage.getItemRaw(`${slug}.md`)
+    if (data == null)
+      return null
+    if (typeof data === 'string')
+      return data
+    if (data instanceof Uint8Array)
+      return Buffer.from(data).toString('utf8')
+    return null
+  }
+  catch {
+    return null
+  }
+}
+
+/**
+ * Netlify edge parity: when Accept prefers text/markdown on /blog/<slug>,
+ * serve the markdown copy (same body as prerendered /blog/<slug>.md).
+ */
+export default defineEventHandler(async (event) => {
   const accept = getHeader(event, 'accept') || ''
   if (!prefersMarkdown(accept))
     return
 
-  const pathname = getRequestURL(event).pathname.replace(/\/$/, '') || '/'
-  const match = pathname.match(/^\/blog\/([^/]+)$/)
-  if (!match)
+  const slug = blogHtmlSlug(getRequestURL(event).pathname)
+  if (!slug)
     return
 
-  const slug = match[1]
-  if (!slug || slug.endsWith('.md') || slug.includes('..'))
-    return
+  // Prefer the prerendered static copy (exact Netlify rewrite parity) when
+  // reachable without re-entering this Accept route (.md is excluded).
+  const reqUrl = getRequestURL(event)
+  try {
+    const mdUrl = new URL(`/blog/${slug}.md`, reqUrl.origin)
+    const headers: Record<string, string> = {
+      // Must not include text/markdown — Build Output would send us to __fallback.
+      accept: 'application/octet-stream',
+    }
+    const oidc = getHeader(event, 'x-vercel-trusted-oidc-idp-token')
+    if (oidc)
+      headers['x-vercel-trusted-oidc-idp-token'] = oidc
+    const bypass = getHeader(event, 'x-vercel-protection-bypass')
+    if (bypass)
+      headers['x-vercel-protection-bypass'] = bypass
 
-  const file = join(process.cwd(), 'content/blog', `${slug}.md`)
-  if (!existsSync(file))
+    const mdRes = await fetch(mdUrl, { headers, redirect: 'manual' })
+    if (mdRes.ok) {
+      const body = await mdRes.text()
+      if (body && !body.startsWith('<!DOCTYPE') && !body.startsWith('<html')) {
+        const canonicalMatch = body.match(/^Canonical:\s*(\S+)/m)
+        const canonical = canonicalMatch?.[1] || `${SITE}/blog/${slug}`
+        const link = mdRes.headers.get('link') || `<${canonical}>; rel="canonical"`
+        const robots = mdRes.headers.get('x-robots-tag') || 'noindex'
+        setHeader(event, 'Content-Type', 'text/markdown; charset=utf-8')
+        setHeader(event, 'Vary', 'Accept')
+        setHeader(event, 'Link', link)
+        setHeader(event, 'X-Robots-Tag', robots)
+        setHeader(event, 'Cache-Control', 'public, max-age=3600')
+        return body
+      }
+    }
+  }
+  catch {
+    // Fall through to source render.
+  }
+
+  const raw = await readBlogSource(slug)
+  if (!raw)
     return markdownNotFound(event)
 
-  const raw = readFileSync(file, 'utf8')
   const fm = parseBlogFrontmatter(raw)
   if (fm.published === false)
     return markdownNotFound(event)

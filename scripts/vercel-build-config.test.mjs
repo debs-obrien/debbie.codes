@@ -72,8 +72,11 @@ describe('patchVercelBuildConfig', () => {
     const talksIdx = config.routes.findIndex(r => r.src === '/talks/')
     expect(talksIdx).toBeLessThan(stripIdx)
 
-    const md = config.routes.find(r => r.src === '^/blog/([^/]+)$' && r.dest === '/__fallback')
+    const md = config.routes.find(r => r.src === '^/blog/([\\w-]+)$' && r.dest === '/__fallback')
     expect(md).toBeTruthy()
+    // Must not match /blog/<slug>.md (static file path).
+    expect(new RegExp(md.src).test('/blog/webmcp-on-my-site')).toBe(true)
+    expect(new RegExp(md.src).test('/blog/webmcp-on-my-site.md')).toBe(false)
 
     const static404 = config.routes.find(r => r.dest === '/404.html' && r.status === 404)
     expect(static404).toBeTruthy()

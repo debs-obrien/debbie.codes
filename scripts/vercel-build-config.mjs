@@ -24,9 +24,13 @@ export const VERCEL_TRAILING_SLASH_STRIP = {
   headers: { Location: '/$1' },
 }
 
-/** Route Accept: text/markdown blog HTML URLs to Nitro (q-value aware). */
+/**
+ * Route Accept: text/markdown blog HTML URLs to Nitro (q-value aware).
+ * `[\w-]+` excludes `/blog/<slug>.md` so static markdown files stay on the
+ * filesystem (Netlify edge `excludedPath: ['/blog/*.md']` parity).
+ */
 export const VERCEL_BLOG_MARKDOWN_ACCEPT = {
-  src: '^/blog/([^/]+)$',
+  src: '^/blog/([\\w-]+)$',
   has: [
     {
       type: 'header',
@@ -138,7 +142,27 @@ async function ensureStatic404(staticDir) {
       // try next
     }
   }
-  // Last resort: minimal noindex shell (status + robots match live).
+  // Last resort: noindex shell. Prefer a prerendered themed page when the
+  // `/__prerender-404-seed` route (or crawl) produced one under another name.
+  const themed = [
+    resolve(staticDir, '404.html'),
+    resolve(staticDir, '__prerender-404-seed.html'),
+    resolve(staticDir, '__prerender-404-seed/index.html'),
+  ]
+  for (const src of themed) {
+    if (src === dest)
+      continue
+    try {
+      const html = await readFile(src, 'utf8')
+      if (html.includes('noindex') && html.length > 500) {
+        await writeFile(dest, html)
+        return
+      }
+    }
+    catch {
+      // try next
+    }
+  }
   await writeFile(
     dest,
     '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow"><title>Page not found · Debbie Codes</title></head><body><h1>Page not found</h1><p><a href="/">Home</a></p></body></html>\n',

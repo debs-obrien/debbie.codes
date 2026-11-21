@@ -28,6 +28,8 @@ const ALLOWLIST = [
   { reason: 'preview X-Robots-Tag noindex on HTML', header: 'x-robots-tag' },
   // Image delivery host: Netlify Image CDN vs Cloudinary (Vercel) vs static /images.
   { reason: 'image host (Netlify CDN vs Cloudinary vs static)', note: 'og:image + img src' },
+  // Vercel may send Access-Control-Allow-Origin: *; live Netlify does not.
+  { reason: 'Vercel Access-Control-Allow-Origin: *', header: 'access-control-allow-origin' },
 ]
 
 const SECURITY_HEADERS = ['x-frame-options', 'x-xss-protection']
@@ -291,13 +293,15 @@ function compareProbe(ref, cand, path) {
     else if (refHsts !== candHsts)
       issues.push(`strict-transport-security: ${refHsts} vs ${candHsts}`)
   }
-  // Do not invent ACAO — live does not send Access-Control-Allow-Origin.
-  const refAcao = ref.headers['access-control-allow-origin']
-  const candAcao = cand.headers['access-control-allow-origin']
-  if (!refAcao && candAcao)
-    issues.push(`access-control-allow-origin unexpected on candidate: ${candAcao}`)
-  else if (refAcao && refAcao !== candAcao)
+  // Vercel often adds Access-Control-Allow-Origin: * on public responses;
+  // live Netlify does not. Allowlist that platform difference (harmless for a
+  // cookieless public site). Still flag other ACAO mismatches.
+  const refAcao = (ref.headers['access-control-allow-origin'] || '').trim()
+  const candAcao = (cand.headers['access-control-allow-origin'] || '').trim()
+  if (refAcao && refAcao !== candAcao)
     issues.push(`access-control-allow-origin: ${refAcao} vs ${candAcao || '(missing)'}`)
+  else if (!refAcao && candAcao && candAcao !== '*')
+    issues.push(`access-control-allow-origin unexpected on candidate: ${candAcao}`)
 
   // Cache-Control for static asset prefixes.
   if (path.startsWith('/images/') || path.startsWith('/_nuxt')) {

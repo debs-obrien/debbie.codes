@@ -23,7 +23,7 @@
     "check:cloudinary": "node scripts/check-no-cloudinary.mjs",
     "verify:cloudinary-assets": "node scripts/verify-cloudinary-assets.mjs",
     "prove:hosting-parity": "node scripts/prove-hosting-parity.mjs",
-    "test:vercel-routes": "vitest run scripts/vercel-build-config.test.mjs scripts/prove-hosting-parity-srcset.test.mjs"
+    "test:vercel-routes": "vitest run scripts/vercel-build-config.test.mjs scripts/prove-hosting-parity-srcset.test.mjs scripts/blog-accept-markdown.test.mjs"
   },
   "dependencies": {
     "better-sqlite3": "^12.11.1",
