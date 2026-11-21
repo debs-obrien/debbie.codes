@@ -33,7 +33,28 @@ const ALLOWLIST = [
 const SECURITY_HEADERS = ['x-frame-options', 'x-xss-protection']
 
 /** Sample HTML paths for deep image URL checks (keep small — bandwidth). */
-const IMAGE_SAMPLE_PATHS = ['/', '/blog', '/hire-me', '/about', '/videos', '/podcasts']
+const IMAGE_SAMPLE_PATHS = ['/', '/blog', '/hire-me', '/about', '/videos', '/podcasts', '/blog/webmcp-on-my-site']
+
+/** Unknown / empty dynamic routes that must 404 like Netlify generate. */
+const UNKNOWN_ROUTE_CASES = [
+  '/blog/tags/zzz-none',
+  '/blog/tags/lifestyle',
+  '/blog/page/9999',
+  '/blog/does-not-exist.md',
+  '/blog/this-post-does-not-exist-for-negotiation-404',
+]
+
+/** Accept negotiation cases for /blog/<slug> (Netlify edge parity). */
+const MARKDOWN_ACCEPT_CASES = [
+  { accept: 'text/markdown', expectMarkdown: true, label: 'Accept: text/markdown' },
+  { accept: 'text/markdown;q=0, */*;q=1', expectMarkdown: false, label: 'Accept: text/markdown;q=0' },
+  { accept: 'text/html, text/markdown;q=0.5', expectMarkdown: false, label: 'Accept: text/html, text/markdown;q=0.5' },
+  {
+    accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    expectMarkdown: false,
+    label: 'Accept: browser HTML',
+  },
+]
 
 function loadRedirectSources() {
   const text = readFileSync(join(root, 'public/_redirects'), 'utf8')
@@ -87,6 +108,9 @@ function edgeCases() {
     '/llms.txt',
     '/llms-full.txt',
     '/blog/webmcp-on-my-site.md',
+    '/blog/lifestyle/1',
+    '/blog/nuxt-ignoring-files/',
+    ...UNKNOWN_ROUTE_CASES,
   ]
 }
 
@@ -170,7 +194,7 @@ function normalizeLocation(loc, base) {
  * transform segments use `w_50,h_50,f_auto,q_auto` inside the URL.
  *
  * @param {string} srcset
- * @returns {string[]}
+ * @returns {string[]} Absolute or relative candidate URLs (no descriptors).
  */
 export function parseSrcsetUrls(srcset) {
   if (!srcset)
@@ -258,6 +282,23 @@ function compareProbe(ref, cand, path) {
       issues.push(`${h} missing on candidate`)
   }
 
+  // HSTS: match live (max-age only, no preload).
+  const refHsts = (ref.headers['strict-transport-security'] || '').toLowerCase()
+  const candHsts = (cand.headers['strict-transport-security'] || '').toLowerCase()
+  if (refHsts) {
+    if (!candHsts)
+      issues.push('strict-transport-security missing on candidate')
+    else if (refHsts !== candHsts)
+      issues.push(`strict-transport-security: ${refHsts} vs ${candHsts}`)
+  }
+  // Do not invent ACAO — live does not send Access-Control-Allow-Origin.
+  const refAcao = ref.headers['access-control-allow-origin']
+  const candAcao = cand.headers['access-control-allow-origin']
+  if (!refAcao && candAcao)
+    issues.push(`access-control-allow-origin unexpected on candidate: ${candAcao}`)
+  else if (refAcao && refAcao !== candAcao)
+    issues.push(`access-control-allow-origin: ${refAcao} vs ${candAcao || '(missing)'}`)
+
   // Cache-Control for static asset prefixes.
   if (path.startsWith('/images/') || path.startsWith('/_nuxt')) {
     const a = ref.headers['cache-control'] || ''
@@ -292,8 +333,8 @@ function compareProbe(ref, cand, path) {
       issues.push('og:image still points at /.netlify/images')
     // Cloudinary OG on Vercel is expected (dual-host). Shape-check when present.
     if (candOg && /res\.cloudinary\.com/i.test(candOg)) {
-      if (!/f_auto/.test(candOg) || !/q_auto/.test(candOg))
-        issues.push('og:image Cloudinary URL missing f_auto,q_auto')
+      if (!/f_jpg/.test(candOg) || !/q_auto/.test(candOg) || !/w_1200/.test(candOg))
+        issues.push('og:image Cloudinary URL missing f_jpg,q_auto,w_1200')
     }
 
     const refCanon = canonicalHref(ref.body)
@@ -398,26 +439,114 @@ async function main() {
     })
   }
 
-  // Markdown Accept negotiation sample
+  // Markdown Accept negotiation (q-values + Link + markdown 404)
   const mdPath = '/blog/webmcp-on-my-site'
-  const refMd = await probe(refBase, mdPath, { accept: 'text/markdown' })
-  const candMd = await probe(candBase, mdPath, { accept: 'text/markdown' })
-  const mdIssues = []
-  if (refMd.status !== candMd.status)
-    mdIssues.push(`status ${refMd.status} vs ${candMd.status}`)
-  if (!/markdown/i.test(candMd.contentType) && candMd.status === 200)
-    mdIssues.push(`candidate content-type ${candMd.contentType} (want markdown)`)
-  if (!(candMd.headers.vary || '').toLowerCase().includes('accept') && candMd.status === 200)
-    mdIssues.push('candidate missing Vary: Accept')
-  rows.push({
-    path: `${mdPath} (Accept: text/markdown)`,
-    ref: `${refMd.status} ${refMd.contentType}`,
-    cand: `${candMd.status} ${candMd.contentType}`,
-    ok: mdIssues.length === 0 ? 'OK' : 'FAIL',
-    issues: mdIssues.join('; '),
-  })
-  if (mdIssues.length)
-    failures++
+  for (const { accept, expectMarkdown, label } of MARKDOWN_ACCEPT_CASES) {
+    const refMd = await probe(refBase, mdPath, { accept })
+    const candMd = await probe(candBase, mdPath, { accept })
+    /** @type {string[]} */
+    const mdIssues = []
+    if (refMd.status !== candMd.status)
+      mdIssues.push(`status ${refMd.status} vs ${candMd.status}`)
+    const candIsMd = /markdown/i.test(candMd.contentType)
+    const refIsMd = /markdown/i.test(refMd.contentType)
+    if (expectMarkdown) {
+      if (!candIsMd && candMd.status === 200)
+        mdIssues.push(`candidate content-type ${candMd.contentType} (want markdown)`)
+      if (!(candMd.headers.vary || '').toLowerCase().includes('accept') && candMd.status === 200)
+        mdIssues.push('candidate missing Vary: Accept')
+      const link = candMd.headers.link || ''
+      if (candMd.status === 200 && !/rel=["']?canonical["']?/i.test(link))
+        mdIssues.push('candidate missing Link rel=canonical')
+      if (candMd.status === 200 && !link.includes(`https://debbie.codes${mdPath}`))
+        mdIssues.push(`candidate Link missing canonical host: ${link || '(none)'}`)
+    }
+    else if (candIsMd && !refIsMd) {
+      mdIssues.push(`candidate returned markdown but reference returned ${refMd.contentType}`)
+    }
+    else if (candIsMd && expectMarkdown === false) {
+      mdIssues.push(`candidate content-type ${candMd.contentType} (want HTML for ${label})`)
+    }
+    rows.push({
+      path: `${mdPath} (${label})`,
+      ref: `${refMd.status} ${refMd.contentType}`,
+      cand: `${candMd.status} ${candMd.contentType}`,
+      ok: mdIssues.length === 0 ? 'OK' : 'FAIL',
+      issues: mdIssues.join('; '),
+    })
+    if (mdIssues.length)
+      failures++
+  }
+
+  // Missing post + markdown Accept → small markdown 404 with discovery links
+  {
+    const missing = '/blog/this-post-does-not-exist-for-negotiation-404'
+    const ref404 = await probe(refBase, missing, { accept: 'text/markdown' })
+    const cand404 = await probe(candBase, missing, { accept: 'text/markdown' })
+    /** @type {string[]} */
+    const issues = []
+    if (ref404.status !== cand404.status)
+      issues.push(`status ${ref404.status} vs ${cand404.status}`)
+    if (!/markdown/i.test(cand404.contentType))
+      issues.push(`content-type ${cand404.contentType} (want markdown)`)
+    if (!cand404.body.includes('https://debbie.codes/llms.txt'))
+      issues.push('markdown 404 missing llms.txt link')
+    if (!cand404.body.includes('https://debbie.codes/sitemap.xml'))
+      issues.push('markdown 404 missing sitemap.xml link')
+    // Live body is ~146 B; allow a small band so whitespace drift does not flake.
+    if (cand404.body.length < 100 || cand404.body.length > 220)
+      issues.push(`markdown 404 body size ${cand404.body.length}B (want ~146B)`)
+    if (/<!DOCTYPE html|<html/i.test(cand404.body))
+      issues.push('markdown 404 returned HTML body')
+    rows.push({
+      path: `${missing} (Accept: text/markdown → 404)`,
+      ref: `${ref404.status} ${ref404.body.length}B`,
+      cand: `${cand404.status} ${cand404.body.length}B`,
+      ok: issues.length === 0 ? 'OK' : 'FAIL',
+      issues: issues.join('; '),
+    })
+    if (issues.length)
+      failures++
+  }
+
+  // OG card on a local-cover post: type + width/height parity with live
+  {
+    const ogPath = '/blog/webmcp-on-my-site'
+    const refOg = await probe(refBase, ogPath)
+    const candOg = await probe(candBase, ogPath)
+    /** @type {string[]} */
+    const issues = []
+    const refImg = metaContent(refOg.body, 'property', 'og:image')
+    const candImg = metaContent(candOg.body, 'property', 'og:image')
+    const refW = metaContent(refOg.body, 'property', 'og:image:width')
+    const candW = metaContent(candOg.body, 'property', 'og:image:width')
+    const refH = metaContent(refOg.body, 'property', 'og:image:height')
+    const candH = metaContent(candOg.body, 'property', 'og:image:height')
+    if (refW && candW !== refW)
+      issues.push(`og:image:width ${refW} vs ${candW || '(missing)'}`)
+    if (refH && candH !== refH)
+      issues.push(`og:image:height ${refH} vs ${candH || '(missing)'}`)
+    if (candImg && /\/.netlify\/images/i.test(candImg))
+      issues.push('og:image still Netlify CDN on candidate')
+    if (candImg && /res\.cloudinary\.com/i.test(candImg)) {
+      if (!/w_1200/.test(candImg) || !/h_630/.test(candImg))
+        issues.push('Cloudinary og:image missing w_1200/h_630')
+      // Live Netlify CDN serves JPEG — Cloudinary OG should request f_jpg.
+      if (!/f_jpg/.test(candImg))
+        issues.push('Cloudinary og:image missing f_jpg (match live JPEG)')
+    }
+    if (refImg && !candImg)
+      issues.push('og:image missing on candidate')
+    rows.push({
+      path: `${ogPath} (og:image size meta)`,
+      ref: `w=${refW || '?'} h=${refH || '?'}`,
+      cand: `w=${candW || '?'} h=${candH || '?'}`,
+      ok: issues.length === 0 ? 'OK' : 'FAIL',
+      issues: issues.join('; '),
+    })
+    if (issues.length)
+      failures++
+  }
 
   const imageIssues = await checkCandidateImages(candBase, IMAGE_SAMPLE_PATHS)
   for (const msg of imageIssues) {

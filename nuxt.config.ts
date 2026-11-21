@@ -51,6 +51,12 @@ export default defineNuxtConfig({
     '#og-delivery': ogDeliveryModule,
   },
 
+  // Pin canonical host so previews never bake vercel.app into HTML.
+  site: {
+    url: 'https://debbie.codes',
+    name: 'Debbie Codes',
+  },
+
   // Dedicated local port for this Nuxt app (avoid 3000/3001 conflicts)
   devServer: {
     port: 8000,
@@ -155,11 +161,14 @@ export default defineNuxtConfig({
   },
 
   hooks: {
-    // Patch Build Output config: trailing-slash 301s, header continue, blog Accept.
+    // Patch Build Output config: trailing-slash 301s, header continue, blog Accept,
+    // static 404 catch-all. Run after prerender so 404.html is present when possible.
     'nitro:init': (nitro) => {
-      nitro.hooks.hook('compiled', async () => {
+      const patch = async () => {
         await patchVercelBuildConfig(nitro)
-      })
+      }
+      nitro.hooks.hook('compiled', patch)
+      nitro.hooks.hook('prerender:done', patch)
     },
     // Store whole minutes on blog items so list queries can select readingMinutes
     // without loading full bodies (cards were falling back to description → 1 min).

@@ -17,7 +17,7 @@ on:
   workflow_dispatch:
     inputs:
       base_url:
-        description: 'Preview URL to test (skips polling). Netlify or Vercel.'
+        description: Preview URL to test (skips polling). Netlify or Vercel.
         required: false
         type: string
       preview_host:

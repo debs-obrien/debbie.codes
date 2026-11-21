@@ -1,8 +1,8 @@
 /**
  * Social/OG image URL resolution.
  * Netlify builds: Image CDN JPEG 1200×630 (same as #688).
- * Vercel builds: res.cloudinary.com c_fill,w_1200,h_630,f_auto,q_auto when mapped;
- * falls back to same-origin /images or site default card.
+ * Vercel builds: res.cloudinary.com c_fill,w_1200,h_630,f_jpg,q_auto when mapped
+ * (or image/fetch for unmapped local covers); falls back to site default card.
  *
  * Delivery implementation is swapped at build time via `#og-delivery` alias
  * (see nuxt.config) so Vercel output never contains Netlify Image CDN URLs.
@@ -70,8 +70,14 @@ export function isStandardOgSize(url: string): boolean {
   }
   if (url.includes(NETLIFY_IMAGE_CDN_MARKER) && /[?&]w=1200\b/.test(url) && /[?&]h=630\b/.test(url))
     return true
-  if (url.includes('res.cloudinary.com') && /c_fill/.test(url) && /w_1200/.test(url) && /h_630/.test(url))
+  if (
+    url.includes('res.cloudinary.com')
+    && /c_fill/.test(url)
+    && /w_1200/.test(url)
+    && /h_630/.test(url)
+  ) {
     return true
+  }
   if (url.includes('images.unsplash.com') && /[?&]w=1200\b/.test(url) && /[?&]h=630\b/.test(url))
     return true
   return false

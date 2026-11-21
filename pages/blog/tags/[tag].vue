@@ -27,6 +27,11 @@ const taggedArticles = computed(() => {
   })
 })
 
+// Netlify only serves prerendered tags — unknown/empty tags are 404.html.
+if (taggedArticles.value.length === 0) {
+  throw createError({ statusCode: 404, statusMessage: 'Page Not Found' })
+}
+
 // Get popular tags for browse components
 const popularTags = computed(() => {
   if (!articles.value)

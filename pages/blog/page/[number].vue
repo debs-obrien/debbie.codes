@@ -35,6 +35,11 @@ const totalPages = computed(() => {
   return Math.ceil(totalCount.value / postsPerPage)
 })
 
+// Out-of-range pages are 404 on Netlify (no prerendered file).
+if (page < 1 || !posts.value?.length || page > totalPages.value) {
+  throw createError({ statusCode: 404, statusMessage: 'Page Not Found' })
+}
+
 // Get popular tags for browse components
 const popularTags = computed(() => {
   if (!allPosts.value)

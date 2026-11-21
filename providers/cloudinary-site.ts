@@ -3,8 +3,8 @@
  * public IDs (manifest from #688), then emit res.cloudinary.com URLs.
  * Unmapped local paths fall back to same-origin static files in the deploy.
  */
-import { joinURL } from 'ufo'
 import { createOperationsGenerator } from '#image'
+import { joinURL } from 'ufo'
 import { cloudinaryPublicIdFor } from '../utils/cloudinary-assets'
 
 const operationsGenerator = createOperationsGenerator({

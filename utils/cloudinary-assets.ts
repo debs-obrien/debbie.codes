@@ -64,12 +64,12 @@ export function cloudinaryImageUrl(
   return `${IMAGE_UPLOAD}/${transforms}/${clean}`
 }
 
-/** OG / Twitter card: 1200×630 fill crop, auto format/quality. */
+/** OG / Twitter card: 1200×630 fill crop JPEG (matches live Netlify CDN fm=jpg). */
 export function cloudinaryOgImageUrl(localPath: string): string | undefined {
   const id = cloudinaryPublicIdFor(localPath)
   if (!id)
     return undefined
-  return `${IMAGE_UPLOAD}/c_fill,w_1200,h_630,f_auto,q_auto/${id}`
+  return `${IMAGE_UPLOAD}/c_fill,w_1200,h_630,f_jpg,q_auto/${id}`
 }
 
 export function cloudinaryVideoUrl(

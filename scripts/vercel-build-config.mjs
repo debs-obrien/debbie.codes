@@ -2,20 +2,20 @@
  * Patch Nitro's `.vercel/output/config.json` after the vercel preset writes it.
  *
  * Why this exists:
- * - Top-level `trailingSlash` in Build Output config is ignored. Docs say use
- *   real routes (see https://vercel.com/docs/build-output-api/features).
- * - Do NOT set `trailingSlash` in vercel.json — the platform turns that into
- *   early 308 strip routes that run before our alias redirects, so `/talks/`
- *   becomes 308→`/talks` then 301→`/speaking` (two hops). Netlify is one 301.
- * - Insert official `^/(.*)/$` → `/$1` **301** after the last status redirect
- *   (so `/talks/` → `/speaking` and `/resources/` → `/` still win) and before
- *   remaining routes / filesystem.
- * - Header-only routes need `continue: true` (vercel.json headers always set it).
- * - Accept: text/markdown on `/blog/<slug>` rewrites to the prerendered `.md`
- *   copy (Netlify edge function parity).
+ * - Do NOT set `trailingSlash` in vercel.json — platform 308s beat alias redirects.
+ * - Insert `^/(.*)/$` → `/$1` **301** after status redirects (alias `/talks/` etc. win).
+ * - Header-only routes need `continue: true`.
+ * - Accept: text/markdown on `/blog/<slug>` goes to `__fallback` so Nitro middleware
+ *   can apply q-value logic + Link + markdown 404 (Netlify edge parity). A static
+ *   `.md` rewrite cannot honour `q=0` / HTML-preferred Accept.
+ * - Replace the catch-all SSR fallback with static `/404.html` so unknown dynamic
+ *   routes 404 like Netlify generate (no empty 200 SSR pages / JSON 404 bodies).
  */
 import { readFile, writeFile } from 'node:fs/promises'
-import { resolve } from 'node:path'
+import { dirname, join, resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
+
+const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 
 /** Official convertTrailingSlash(false) pattern; 301 to match Netlify. */
 export const VERCEL_TRAILING_SLASH_STRIP = {
@@ -24,25 +24,24 @@ export const VERCEL_TRAILING_SLASH_STRIP = {
   headers: { Location: '/$1' },
 }
 
-/** Netlify edge `header.accept: text/markdown` + rewrite to `.md`. */
+/** Route Accept: text/markdown blog HTML URLs to Nitro (q-value aware). */
 export const VERCEL_BLOG_MARKDOWN_ACCEPT = {
   src: '^/blog/([^/]+)$',
   has: [
     {
       type: 'header',
       key: 'accept',
-      // PCRE on Vercel; avoid (?i) so local JS simulators can compile it too.
       value: '.*[Tt]ext/[Mm]arkdown.*',
     },
   ],
-  dest: '/blog/$1.md',
-  check: true,
-  headers: {
-    'Content-Type': 'text/markdown; charset=utf-8',
-    'Vary': 'Accept',
-    'X-Robots-Tag': 'noindex',
-    'Cache-Control': 'public, max-age=3600',
-  },
+  dest: '/__fallback',
+}
+
+/** Static HTML 404 after filesystem (Netlify generate parity). */
+export const VERCEL_STATIC_404 = {
+  src: '/(.*)',
+  dest: '/404.html',
+  status: 404,
 }
 
 /**
@@ -56,10 +55,9 @@ export function findTrailingSlashStripIndex(routes) {
 }
 
 /**
- * Assert alias redirects that end in `/` appear before the generic slash strip,
- * so `/talks/` and `/resources/` land on their final targets in one 301 hop.
+ * Assert alias redirects that end in `/` appear before the generic slash strip.
  * @param {Array<Record<string, unknown>>} routes
- * @returns {{ ok: boolean, issues: string[] }}
+ * @returns {{ ok: boolean, issues: string[] }} Validation result with issue messages.
  */
 export function assertAliasRedirectsBeforeSlashStrip(routes) {
   /** @type {string[]} */
@@ -87,7 +85,6 @@ export function assertAliasRedirectsBeforeSlashStrip(routes) {
       issues.push(`${src} redirect at index ${idx} is after slash strip at ${stripIdx}`)
   }
 
-  // No platform-style 308 trailing-slash strip should remain.
   const has308Strip = routes.some(
     r => r && r.status === 308 && typeof r.src === 'string' && /\/\.\*\)?\/\$|\/\$/.test(r.src),
   )
@@ -105,6 +102,50 @@ function rLocation(route) {
 }
 
 /**
+ * Ensure prerendered 404.html exists in the Vercel static output.
+ * Prefer Nitro's own prerendered shell (noindex, ~5KB like Netlify generate).
+ * `nuxt build` sometimes omits it; fall back to dist/ or a minimal noindex page.
+ * @param {string} staticDir
+ */
+async function ensureStatic404(staticDir) {
+  const dest = resolve(staticDir, '404.html')
+  try {
+    const existing = await readFile(dest, 'utf8')
+    // Keep Nitro's prerendered shell; replace a stale/empty stub.
+    if (existing.includes('noindex') && existing.length > 500)
+      return
+  }
+  catch {
+    // missing
+  }
+  const candidates = [
+    resolve(staticDir, '404.html'),
+    resolve(root, '.vercel/output/static/404.html'),
+    resolve(root, 'dist/404.html'),
+    resolve(root, '.output/public/404.html'),
+  ]
+  for (const src of candidates) {
+    if (src === dest)
+      continue
+    try {
+      const html = await readFile(src, 'utf8')
+      if (html.includes('noindex') && html.length > 500) {
+        await writeFile(dest, html)
+        return
+      }
+    }
+    catch {
+      // try next
+    }
+  }
+  // Last resort: minimal noindex shell (status + robots match live).
+  await writeFile(
+    dest,
+    '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow"><title>Page not found · Debbie Codes</title></head><body><h1>Page not found</h1><p><a href="/">Home</a></p></body></html>\n',
+  )
+}
+
+/**
  * @param {import('nitropack').Nitro} nitro
  */
 export async function patchVercelBuildConfig(nitro) {
@@ -112,15 +153,25 @@ export async function patchVercelBuildConfig(nitro) {
   if (!preset.startsWith('vercel'))
     return
 
-  const configPath = resolve(nitro.options.output.dir, 'config.json')
-  const config = JSON.parse(await readFile(configPath, 'utf8'))
+  const outputDir = nitro.options.output.dir
+  const configPath = resolve(outputDir, 'config.json')
+  const staticDir = resolve(outputDir, 'static')
+  await ensureStatic404(staticDir)
+
+  // prerender:done can fire before Nitro writes config.json; compiled retries.
+  let raw
+  try {
+    raw = await readFile(configPath, 'utf8')
+  }
+  catch {
+    return
+  }
+  const config = JSON.parse(raw)
   if (!Array.isArray(config.routes))
     config.routes = []
 
-  // Never leave a dead trailingSlash key; vercel.json must not set it either.
   delete config.trailingSlash
 
-  // Match vercel.json convertHeaders: header-only routes must continue.
   for (const route of config.routes) {
     if (!route || route.handle)
       continue
@@ -135,26 +186,34 @@ export async function patchVercelBuildConfig(nitro) {
   const fsIdx = config.routes.findIndex(r => r && r.handle === 'filesystem')
   const beforeFs = fsIdx === -1 ? config.routes.length : fsIdx
 
-  // After the last redirect/status route in the pre-filesystem section so
-  // `/talks/` and `/resources/` (and every other alias) stay ahead of the strip.
   let insertAt = 0
   for (let i = 0; i < beforeFs; i++) {
     if (config.routes[i]?.status != null)
       insertAt = i + 1
   }
 
-  const hasStrip = findTrailingSlashStripIndex(config.routes) !== -1
-  if (!hasStrip)
+  if (findTrailingSlashStripIndex(config.routes) === -1)
     config.routes.splice(insertAt, 0, { ...VERCEL_TRAILING_SLASH_STRIP })
 
+  // Accept markdown → serverless middleware (before filesystem + slash strip).
   const hasMd = config.routes.some(
-    r => r && r.src === VERCEL_BLOG_MARKDOWN_ACCEPT.src && r.dest === '/blog/$1.md',
+    r => r && r.src === VERCEL_BLOG_MARKDOWN_ACCEPT.src && r.dest === '/__fallback',
   )
   if (!hasMd) {
-    // Prefer markdown Accept rewrite before trailing-slash strip and filesystem.
     const stripIdx = findTrailingSlashStripIndex(config.routes)
     const mdAt = stripIdx === -1 ? insertAt : stripIdx
     config.routes.splice(mdAt, 0, { ...VERCEL_BLOG_MARKDOWN_ACCEPT })
+  }
+
+  // Replace broad SSR catch-all with static 404.html (Netlify generate parity).
+  const catchAllIdx = config.routes.findIndex(
+    r => r && r.src === '/(.*)' && r.dest === '/__fallback',
+  )
+  if (catchAllIdx !== -1) {
+    config.routes[catchAllIdx] = { ...VERCEL_STATIC_404 }
+  }
+  else if (!config.routes.some(r => r && r.dest === '/404.html' && r.status === 404)) {
+    config.routes.push({ ...VERCEL_STATIC_404 })
   }
 
   const check = assertAliasRedirectsBeforeSlashStrip(config.routes)

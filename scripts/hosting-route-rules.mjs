@@ -13,6 +13,8 @@ const root = join(__dirname, '..')
 const SECURITY_HEADERS = {
   'X-Frame-Options': 'DENY',
   'X-XSS-Protection': '1; mode=block',
+  // Match live debbie.codes (no preload).
+  'Strict-Transport-Security': 'max-age=31536000',
 }
 
 /**
@@ -59,6 +61,19 @@ export function redirectsToRouteRules(redirectsText) {
     if (!statusRaw.endsWith('!') && hasPageForPath(from))
       continue
     rules[from] = { redirect: { to, statusCode } }
+    // Netlify matches pretty-URL slash variants in one hop (e.g.
+    // /blog/nuxt-ignoring-files/ → final target). Emit the trailing-slash
+    // form when missing so Vercel's generic slash-strip does not add a hop.
+    if (
+      !from.endsWith('/')
+      && !from.includes('*')
+      && !from.includes(':')
+      && !from.includes('?')
+    ) {
+      const withSlash = `${from}/`
+      if (!rules[withSlash] && !hasPageForPath(withSlash))
+        rules[withSlash] = { redirect: { to, statusCode } }
+    }
   }
   return rules
 }

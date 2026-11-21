@@ -30,7 +30,7 @@ function walkImages(dir, acc = []) {
     const p = join(dir, e.name)
     if (e.isDirectory())
       walkImages(p, acc)
-    else if (/\.(webp|png|jpe?g|gif|avif)$/i.test(e.name))
+    else if (/\.(?:webp|png|jpe?g|gif|avif)$/i.test(e.name))
       acc.push(`/${relative(join(root, 'public'), p).replace(/\\/g, '/')}`)
   }
   return acc
@@ -60,7 +60,7 @@ async function probe(url) {
       res = await fetch(url, {
         method: 'GET',
         redirect: 'follow',
-        headers: { 'user-agent': UA, range: 'bytes=0-0' },
+        headers: { 'user-agent': UA, 'range': 'bytes=0-0' },
       })
     }
     const ct = (res.headers.get('content-type') || '').split(';')[0].trim()

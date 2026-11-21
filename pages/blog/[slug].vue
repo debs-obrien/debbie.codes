@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { buildArticleJsonLd } from '~/utils/article-json-ld'
 import type { OgImageHost } from '~/utils/og-image'
+import { buildArticleJsonLd } from '~/utils/article-json-ld'
 import { isStandardOgSize, resolveOgImage } from '~/utils/og-image'
 import { calculateReadingTime, extractTextFromContent, formatReadingTime } from '~/utils/reading-time'
 

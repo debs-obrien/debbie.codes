@@ -82,12 +82,13 @@ function fetchableImageUrl(absoluteHttps: string, baseURL: string | undefined): 
   return absoluteHttps.replace(SITE_ORIGIN, origin);
 }
 
-/** Dual-host: Netlify Image CDN, Cloudinary (Vercel), or static /images fallback. */
+/** Dual-host + external: Netlify CDN, Cloudinary, Unsplash, or static /images. */
 function expectValidOgShape(ogImage: string, label: string) {
   expect(ogImage, label).toMatch(/^https:\/\//);
   if (/res\.cloudinary\.com/i.test(ogImage)) {
-    expect(ogImage, `${label} Cloudinary f_auto`).toMatch(/f_auto/);
-    expect(ogImage, `${label} Cloudinary q_auto`).toMatch(/q_auto/);
+    expect(ogImage, `${label} Cloudinary size`).toMatch(/w_1200/);
+    expect(ogImage, `${label} Cloudinary size`).toMatch(/h_630/);
+    expect(ogImage, `${label} Cloudinary JPEG`).toMatch(/f_jpg/);
     expect(ogImage, `${label} must not mix Netlify CDN`).not.toMatch(/\/.netlify\/images/);
     return 'cloudinary';
   }
@@ -96,6 +97,11 @@ function expectValidOgShape(ogImage: string, label: string) {
     expect(ogImage, `${label} Netlify h`).toMatch(/[?&]h=630\b/);
     expect(ogImage, `${label} must not mix Cloudinary`).not.toMatch(/res\.cloudinary\.com/);
     return 'netlify';
+  }
+  if (/images\.unsplash\.com/i.test(ogImage)) {
+    expect(ogImage, `${label} Unsplash w`).toMatch(/[?&]w=1200\b/);
+    expect(ogImage, `${label} Unsplash h`).toMatch(/[?&]h=630\b/);
+    return 'unsplash';
   }
   expect(ogImage, `${label} static fallback`).toMatch(/^https:\/\/debbie\.codes\/(?:images\/|x-card)/);
   return 'static';

@@ -1,10 +1,20 @@
 import { existsSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import process from 'node:process'
-import { defineEventHandler, getHeader, getRequestURL, setHeader } from 'h3'
+import { defineEventHandler, getHeader, getRequestURL, setHeader, setResponseStatus } from 'h3'
 import { parseBlogFrontmatter, renderBlogMarkdownFile } from '../../utils/llms-markdown'
 
 const SITE = 'https://debbie.codes'
+
+const MARKDOWN_NOT_FOUND = [
+  '# Not Found',
+  '',
+  'No markdown copy exists for this URL.',
+  '',
+  `- [llms.txt](${SITE}/llms.txt)`,
+  `- [sitemap.xml](${SITE}/sitemap.xml)`,
+  '',
+].join('\n')
 
 function asString(value: unknown) {
   return typeof value === 'string' ? value.trim() : ''
@@ -22,6 +32,7 @@ function asTags(value: unknown) {
   return tags
 }
 
+/** Same q-value resolution as netlify/edge-functions/blog-markdown.js. */
 function quality(accept: string, type: string) {
   if (!accept)
     return 0
@@ -65,10 +76,18 @@ function prefersMarkdown(accept: string) {
   return md >= quality(accept, 'text/html')
 }
 
+function markdownNotFound(event: Parameters<typeof setHeader>[0]) {
+  setResponseStatus(event, 404)
+  setHeader(event, 'Content-Type', 'text/markdown; charset=utf-8')
+  setHeader(event, 'Vary', 'Accept')
+  setHeader(event, 'X-Robots-Tag', 'noindex')
+  setHeader(event, 'Cache-Control', 'public, max-age=300')
+  return MARKDOWN_NOT_FOUND
+}
+
 /**
  * Netlify edge parity for Accept: text/markdown on /blog/<slug> (no .md suffix).
- * Covers requests that reach the Nitro function (static filesystem + Vercel
- * Build Output route handle most production traffic first).
+ * Honours q-values; missing posts return the same small markdown 404 body.
  */
 export default defineEventHandler((event) => {
   const accept = getHeader(event, 'accept') || ''
@@ -86,17 +105,17 @@ export default defineEventHandler((event) => {
 
   const file = join(process.cwd(), 'content/blog', `${slug}.md`)
   if (!existsSync(file))
-    return
+    return markdownNotFound(event)
 
   const raw = readFileSync(file, 'utf8')
   const fm = parseBlogFrontmatter(raw)
   if (fm.published === false)
-    return
+    return markdownNotFound(event)
 
   const title = asString(fm.title)
   const date = asString(fm.date)
   if (!title || !date)
-    return
+    return markdownNotFound(event)
 
   const localUrl = `${SITE}/blog/${slug}`
   const canonical = asString(fm.canonical) || localUrl
