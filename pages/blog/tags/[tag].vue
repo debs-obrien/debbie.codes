@@ -27,10 +27,10 @@ const taggedArticles = computed(() => {
   })
 })
 
-// Netlify only serves prerendered tags — unknown/empty tags are 404.html.
-if (taggedArticles.value.length === 0) {
-  throw createError({ statusCode: 404, statusMessage: 'Page Not Found' })
-}
+// Empty/unknown tags: keep the themed listing ("No articles found tagged with…")
+// with site chrome. HTTP 404 still comes from the static 404.html catch-all on
+// Netlify generate / Vercel Build Output — do not throw createError here or the
+// client hydrates Nuxt's default unthemed error page.
 
 // Get popular tags for browse components
 const popularTags = computed(() => {

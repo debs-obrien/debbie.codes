@@ -73,3 +73,23 @@ test.describe('404 Error Page', () => {
     `);
   });
 });
+
+// Separate describe: must not share beforeEach(/non-existent-page) navigation.
+test.describe('Unknown blog tag hydration', () => {
+  // Unknown tags are not prerendered: static hosts serve 404.html, then the SPA
+  // hydrates the themed tag listing (live parity). Never Nuxt's default error UI.
+  test('unknown blog tag hydrates themed listing with site header', async ({ page, request }) => {
+    const path = '/blog/tags/zzz-none';
+    const res = await request.get(path);
+    // Static hosts (Netlify/Vercel) → 404; local nuxt dev may SSR 200. Either way
+    // the hydrated document must keep site chrome, not Nuxt's default error page.
+    expect([200, 404]).toContain(res.status());
+
+    await page.goto(path);
+    await expect(page).not.toHaveTitle(/404 - Page Not Found\s*\|\s*Nuxt/i);
+    await expect(
+      page.getByRole('banner').getByRole('link', { name: 'Debbie O\'Brien', exact: true })
+    ).toBeVisible();
+    await expect(page.getByText(/No articles found tagged with/i)).toBeVisible();
+  });
+});
