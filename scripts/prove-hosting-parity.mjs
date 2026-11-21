@@ -13,7 +13,7 @@
 import { existsSync, readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import process from 'node:process'
-import { fileURLToPath } from 'node:url'
+import { fileURLToPath, pathToFileURL } from 'node:url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const root = join(__dirname, '..')
@@ -163,6 +163,30 @@ function normalizeLocation(loc, base) {
   }
 }
 
+/**
+ * Parse a srcset attribute the way browsers do:
+ * each candidate URL runs until whitespace; candidates are separated by a
+ * comma followed by whitespace. Do NOT split on bare commas — Cloudinary
+ * transform segments use `w_50,h_50,f_auto,q_auto` inside the URL.
+ *
+ * @param {string} srcset
+ * @returns {string[]}
+ */
+export function parseSrcsetUrls(srcset) {
+  if (!srcset)
+    return []
+  /** @type {string[]} */
+  const urls = []
+  // Entries separated by "," + whitespace. Commas inside Cloudinary transforms
+  // are not followed by whitespace, so they stay inside the URL.
+  for (const entry of srcset.split(/,\s+/)) {
+    const url = entry.trim().split(/\s+/)[0]
+    if (url && !url.startsWith('data:'))
+      urls.push(url)
+  }
+  return urls
+}
+
 /** Collect og:image + twitter:image + every img src/srcset URL from HTML. */
 function collectImageUrls(html, pageUrl) {
   /** @type {Set<string>} */
@@ -187,10 +211,7 @@ function collectImageUrls(html, pageUrl) {
     }
     const srcset = tag.match(/\bsrcset=["']([^"']+)["']/i)?.[1]
     if (srcset) {
-      for (const part of srcset.split(',')) {
-        const u = part.trim().split(/\s+/)[0]
-        if (!u || u.startsWith('data:'))
-          continue
+      for (const u of parseSrcsetUrls(srcset)) {
         try {
           urls.add(new URL(u, pageUrl).toString())
         }
@@ -426,7 +447,13 @@ async function main() {
   process.exit(failures ? 1 : 0)
 }
 
-main().catch((err) => {
-  console.error(err)
-  process.exit(1)
-})
+const isDirectRun = Boolean(
+  process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href,
+)
+
+if (isDirectRun) {
+  main().catch((err) => {
+    console.error(err)
+    process.exit(1)
+  })
+}
