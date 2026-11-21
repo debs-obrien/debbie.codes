@@ -18,11 +18,6 @@ import { defineConfig, devices } from '@playwright/test'
 // webServer-skip condition.
 const externalBaseURL = (process.env.PLAYWRIGHT_TEST_BASE_URL || process.env.BASE_URL)?.trim() || undefined
 const isEndform = process.env.ENDFORM === 'true'
-/** Short-lived OIDC token for Vercel Deployment Protection (Trusted Sources). */
-const vercelOidcToken = process.env.VERCEL_OIDC_TOKEN?.trim() || undefined
-const vercelProtectionHeaders = vercelOidcToken
-  ? { 'x-vercel-trusted-oidc-idp-token': vercelOidcToken }
-  : undefined
 
 /**
  * Read environment variables from file.
@@ -32,6 +27,10 @@ const vercelProtectionHeaders = vercelOidcToken
 
 /**
  * See https://playwright.dev/docs/test-configuration.
+ *
+ * Vercel Deployment Protection OIDC (`VERCEL_OIDC_TOKEN`) is scoped in
+ * `tests/fixtures.ts` to `*.vercel.app` only — never via `extraHTTPHeaders`
+ * (that would leak the token to YouTube, Cloudinary, and other third parties).
  */
 export default defineConfig({
   testDir: './tests',
@@ -61,10 +60,6 @@ export default defineConfig({
     /* Cloudinary is blocked by default via tests/fixtures.ts (res.cloudinary.com
      * plus /_ipx/ and /.netlify/images proxies). Import { test } from './fixtures'
      * in specs — do not pull real media in CI. Opt out: test.use({ blockCloudinary: false }). */
-
-    /* Protected Vercel previews: send Trusted Sources OIDC when the env provides it
-     * (covers page.goto, request, and page.request in webmcp / other specs). */
-    ...(vercelProtectionHeaders ? { extraHTTPHeaders: vercelProtectionHeaders } : {}),
   },
 
   /* Configure projects for major browsers */
