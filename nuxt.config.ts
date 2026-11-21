@@ -263,9 +263,11 @@ export default defineNuxtConfig({
       // nitro.static). Markdown + year archives still need explicit routes
       // (crawl alone only reaches recent-year chips / linked HTML).
       // robots.txt is emitted by @nuxtjs/robots — include so Vercel static has it.
-      // Seed a missing path so Nitro writes a real themed 404.html (Vercel
-      // catch-all serves it; without this, SSR builds may omit the page).
-      routes: ['/', '/feed.xml', '/robots.txt', '/__prerender-404-seed', ...blogMarkdownRoutes, ...blogYearRoutes],
+      // `/404.html` must be listed on `nuxt build` (Vercel): Nuxt only auto-adds it
+      // when nitro.static (`nuxt generate`). Prerendering that path writes the SPA
+      // shell with site chrome + @nuxtjs/robots noindex (Netlify generate parity).
+      // A fake 404 seed path does NOT write 404.html — Nitro skips failed routes.
+      routes: ['/', '/feed.xml', '/robots.txt', '/404.html', ...blogMarkdownRoutes, ...blogYearRoutes],
       // Write /blog.html instead of /blog/index.html so Netlify serves the
       // canonical no-slash URL (used by canonical tags, sitemap and links)
       // directly instead of 301-redirecting /blog -> /blog/ first.

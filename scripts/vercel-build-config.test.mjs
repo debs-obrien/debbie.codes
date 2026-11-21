@@ -9,7 +9,9 @@ import { describe, expect, it } from 'vitest'
 import {
   assertAliasRedirectsBeforeSlashStrip,
   findTrailingSlashStripIndex,
+  isThemed404Html,
   patchVercelBuildConfig,
+  spa404FromDonorHtml,
   VERCEL_TRAILING_SLASH_STRIP,
 } from './vercel-build-config.mjs'
 
@@ -84,5 +86,60 @@ describe('patchVercelBuildConfig', () => {
 
     const check = assertAliasRedirectsBeforeSlashStrip(config.routes)
     expect(check.ok).toBe(true)
+  })
+
+  it('synthesizes a themed SPA 404 from index.html when Nitro omitted one', async () => {
+    const dir = await mkdtemp(join(tmpdir(), 'vercel-404-'))
+    const staticDir = join(dir, 'static')
+    const { mkdir } = await import('node:fs/promises')
+    await mkdir(staticDir, { recursive: true })
+
+    const donor = `<!DOCTYPE html><html><head><meta charset="utf-8">`
+      + `<meta name="robots" content="index, follow">`
+      + `<title>Home</title>`
+      + `<style>.hamburger li{width:35px}.mobile-menu{display:block}</style>`
+      + `<link rel="stylesheet" href="/_nuxt/entry.ABC.css">`
+      + `${'<!-- pad -->'.repeat(200)}</head>`
+      + `<body><div id="__nuxt"><h1>Home SSR</h1></div>`
+      + `<script type="application/json" data-ssr="true" id="__NUXT_DATA__">`
+      + `[{"serverRendered":1},true]</script></body></html>`
+    await writeFile(join(staticDir, 'index.html'), donor)
+    await writeFile(join(dir, 'config.json'), `${JSON.stringify({
+      version: 3,
+      routes: [{ handle: 'filesystem' }, { src: '/(.*)', dest: '/__fallback' }],
+    }, null, 2)}\n`)
+
+    await patchVercelBuildConfig({
+      options: { preset: 'vercel', output: { dir } },
+    })
+
+    const html = await readFile(join(staticDir, '404.html'), 'utf8')
+    expect(isThemed404Html(html)).toBe(true)
+    expect(html).toMatch(/noindex/)
+    expect(html).toMatch(/hamburger/)
+    expect(html).toMatch(/id="__nuxt"><\/div>/)
+    expect(html).not.toMatch(/Home SSR/)
+  })
+})
+
+describe('spa404FromDonorHtml / isThemed404Html', () => {
+  it('rejects the minimal stub', () => {
+    const stub = '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">'
+      + '<meta name="robots" content="noindex, nofollow">'
+      + '<title>Page not found · Debbie Codes</title></head>'
+      + '<body><h1>Page not found</h1></body></html>\n'
+    expect(isThemed404Html(stub)).toBe(false)
+  })
+
+  it('marks a synthesized donor shell as themed', () => {
+    const donor = `<!DOCTYPE html><html><head>`
+      + `<meta name="robots" content="index, follow"><title>X</title>`
+      + `<style>.hamburger{}</style><link href="/_nuxt/entry.css">`
+      + `${'x'.repeat(2500)}</head>`
+      + `<body><div id="__nuxt">body</div></body></html>`
+    const html = spa404FromDonorHtml(donor)
+    expect(isThemed404Html(html)).toBe(true)
+    expect(html).toMatch(/noindex, nofollow/)
+    expect(html).not.toMatch(/<title/)
   })
 })

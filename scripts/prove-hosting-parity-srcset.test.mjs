@@ -1,9 +1,16 @@
 /**
- * Unit checks for srcset URL parsing (Cloudinary commas must stay in the URL).
+ * Unit checks for hosting parity helpers (srcset, 404 bodies, Netlify preview).
  * Run: npm run test:vercel-routes
  */
 import { describe, expect, it } from 'vitest'
-import { parseSrcsetUrls } from './prove-hosting-parity.mjs'
+import {
+  compare404Bodies,
+  compareHsts,
+  decodeHtmlAttr,
+  isDeployPreviewHost,
+  isNetlifyHost,
+  parseSrcsetUrls,
+} from './prove-hosting-parity.mjs'
 
 describe('parseSrcsetUrls', () => {
   it('keeps Cloudinary transform commas inside each URL', () => {
@@ -31,5 +38,53 @@ describe('parseSrcsetUrls', () => {
     const buggy = broken.split(',').map(p => p.trim().split(/\s+/)[0])
     expect(buggy.includes('h_50') || buggy.includes('f_auto')).toBe(true)
     expect(parseSrcsetUrls(broken)).toEqual([broken])
+  })
+})
+
+describe('decodeHtmlAttr', () => {
+  it('decodes &amp; in Netlify Image CDN query strings', () => {
+    const encoded = 'https://debbie.codes/.netlify/images?url=%2Fx.jpg&amp;w=1200&amp;h=630'
+    expect(decodeHtmlAttr(encoded)).toBe(
+      'https://debbie.codes/.netlify/images?url=%2Fx.jpg&w=1200&h=630',
+    )
+  })
+})
+
+describe('netlify / preview host detection', () => {
+  it('detects Netlify deploy-preview hosts', () => {
+    expect(isNetlifyHost('https://deploy-preview-718--debbie-codes.netlify.app')).toBe(true)
+    expect(isNetlifyHost('https://debbie-codes.vercel.app')).toBe(false)
+    expect(isDeployPreviewHost('https://deploy-preview-718--debbie-codes.netlify.app')).toBe(true)
+    expect(isDeployPreviewHost('https://debbie-codes-git-main.vercel.app')).toBe(true)
+  })
+})
+
+describe('compareHsts', () => {
+  it('allowlists includeSubDomains/preload on deploy-preview when max-age matches', () => {
+    const ref = 'max-age=31536000'
+    const cand = 'max-age=31536000; includeSubDomains; preload'
+    expect(compareHsts(ref, cand, 'https://deploy-preview-1--x.netlify.app')).toEqual([])
+    expect(compareHsts(ref, cand, 'https://debbie.codes').length).toBeGreaterThan(0)
+  })
+})
+
+describe('compare404Bodies', () => {
+  const themed = `<!DOCTYPE html><html><head><meta name="robots" content="noindex, nofollow" />`
+    + `<style>.hamburger li{width:35px}</style><link rel="stylesheet" href="/_nuxt/entry.css">`
+    + `${'<!-- pad -->'.repeat(200)}</head>`
+    + `<body><div id="__nuxt"></div></body></html>`
+
+  const stub = '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">'
+    + '<meta name="robots" content="noindex, nofollow">'
+    + '<title>Page not found · Debbie Codes</title></head>'
+    + '<body><h1>Page not found</h1><p><a href="/">Home</a></p></body></html>\n'
+
+  it('accepts matching themed SPA shells', () => {
+    expect(compare404Bodies(themed, themed)).toEqual([])
+  })
+
+  it('rejects the 229 B Vercel stub against a themed reference', () => {
+    const issues = compare404Bodies(themed, stub)
+    expect(issues.some(i => /nav|chrome|SPA|too small/i.test(i))).toBe(true)
   })
 })

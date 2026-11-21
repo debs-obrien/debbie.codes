@@ -58,6 +58,119 @@ const MARKDOWN_ACCEPT_CASES = [
   },
 ]
 
+/** @param {string} base */
+export function isNetlifyHost(base) {
+  try {
+    const host = new URL(base).hostname.toLowerCase()
+    return host === 'netlify.com'
+      || host.endsWith('.netlify.app')
+      || host.endsWith('.netlify.com')
+  }
+  catch {
+    return false
+  }
+}
+
+/** Deploy-preview / platform preview hostnames (Netlify or Vercel). */
+export function isDeployPreviewHost(base) {
+  try {
+    const host = new URL(base).hostname.toLowerCase()
+    return host.includes('deploy-preview')
+      || host.endsWith('.netlify.app')
+      || host.endsWith('.vercel.app')
+  }
+  catch {
+    return false
+  }
+}
+
+/**
+ * Decode HTML entities commonly found in attribute values before fetching.
+ * Netlify Image CDN URLs often appear as `...&amp;w=...` in HTML.
+ * @param {string} value
+ */
+export function decodeHtmlAttr(value) {
+  if (!value)
+    return value
+  return value
+    .replace(/&amp;/gi, '&')
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;|&apos;/gi, '\'')
+    .replace(/&lt;/gi, '<')
+    .replace(/&gt;/gi, '>')
+}
+
+/**
+ * HSTS parity: production must match; deploy-preview hosts may add
+ * includeSubDomains / preload as long as max-age matches.
+ * @param {string} refHsts
+ * @param {string} candHsts
+ * @param {string} candBase
+ * @returns {string[]} issue messages
+ */
+export function compareHsts(refHsts, candHsts, candBase) {
+  /** @type {string[]} */
+  const issues = []
+  const ref = (refHsts || '').toLowerCase().trim()
+  const cand = (candHsts || '').toLowerCase().trim()
+  if (!ref)
+    return issues
+  if (!cand) {
+    issues.push('strict-transport-security missing on candidate')
+    return issues
+  }
+  if (ref === cand)
+    return issues
+  if (isDeployPreviewHost(candBase)) {
+    const refAge = ref.match(/max-age=(\d+)/)?.[1]
+    const candAge = cand.match(/max-age=(\d+)/)?.[1]
+    if (refAge && candAge && refAge === candAge) {
+      // Allow includeSubDomains / preload extras on preview hosts.
+      return issues
+    }
+  }
+  issues.push(`strict-transport-security: ${ref} vs ${cand}`)
+  return issues
+}
+
+/**
+ * Themed HTML 404 body checks (title + nav/chrome) so the 229 B Vercel stub
+ * cannot slip past status-only parity.
+ * @param {string} refHtml
+ * @param {string} candHtml
+ * @returns {string[]} Issue messages (empty when themed 404 bodies match).
+ */
+export function compare404Bodies(refHtml, candHtml) {
+  /** @type {string[]} */
+  const issues = []
+  const refTitle = titleText(refHtml)
+  const candTitle = titleText(candHtml)
+  // Live SPA shell often has empty <title>; client sets "Page not found · Debbie Codes".
+  // Accept empty↔empty, matching titles, or empty vs themed title. Reject other mismatches.
+  if (refTitle && candTitle && refTitle !== candTitle)
+    issues.push(`404 title mismatch: "${refTitle}" vs "${candTitle}"`)
+  else if (!refTitle && candTitle && !/page not found/i.test(candTitle))
+    issues.push(`404 title unexpected on candidate: "${candTitle}"`)
+  else if (refTitle && !candTitle && !/page not found/i.test(refTitle))
+    issues.push(`404 title missing on candidate (ref: "${refTitle}")`)
+
+  const refNav = /hamburger|<nav\b|mobile-menu|profile-pic/i.test(refHtml)
+  const candNav = /hamburger|<nav\b|mobile-menu|profile-pic/i.test(candHtml)
+  if (refNav && !candNav)
+    issues.push('404 missing site nav/chrome on candidate')
+  if (!candNav && !(/id=["']__nuxt["']/i.test(candHtml) && /\/_nuxt\//i.test(candHtml)))
+    issues.push('404 missing SPA shell / site chrome on candidate')
+
+  if (refHtml.length > 2000 && candHtml.length < 1000)
+    issues.push(`404 body too small on candidate (${candHtml.length}B vs ref ${refHtml.length}B)`)
+
+  const candRobots = metaContent(candHtml, 'name', 'robots')
+  if (!/noindex/i.test(candRobots) && !/noindex/i.test(candHtml))
+    issues.push('404 missing noindex on candidate')
+
+  return issues
+}
+
 function loadRedirectSources() {
   const text = readFileSync(join(root, 'public/_redirects'), 'utf8')
   const sources = []
@@ -217,8 +330,8 @@ export function parseSrcsetUrls(srcset) {
 function collectImageUrls(html, pageUrl) {
   /** @type {Set<string>} */
   const urls = new Set()
-  const og = metaContent(html, 'property', 'og:image')
-  const tw = metaContent(html, 'name', 'twitter:image')
+  const og = decodeHtmlAttr(metaContent(html, 'property', 'og:image'))
+  const tw = decodeHtmlAttr(metaContent(html, 'name', 'twitter:image'))
   if (og)
     urls.add(og)
   if (tw)
@@ -226,7 +339,7 @@ function collectImageUrls(html, pageUrl) {
 
   for (const m of html.matchAll(/<img\b[^>]*>/gi)) {
     const tag = m[0]
-    const src = tag.match(/\bsrc=["']([^"']+)["']/i)?.[1]
+    const src = decodeHtmlAttr(tag.match(/\bsrc=["']([^"']+)["']/i)?.[1] || '')
     if (src && !src.startsWith('data:')) {
       try {
         urls.add(new URL(src, pageUrl).toString())
@@ -239,7 +352,7 @@ function collectImageUrls(html, pageUrl) {
     if (srcset) {
       for (const u of parseSrcsetUrls(srcset)) {
         try {
-          urls.add(new URL(u, pageUrl).toString())
+          urls.add(new URL(decodeHtmlAttr(u), pageUrl).toString())
         }
         catch {
           // skip
@@ -254,10 +367,13 @@ function collectImageUrls(html, pageUrl) {
  * @param {Awaited<ReturnType<typeof probe>>} ref
  * @param {Awaited<ReturnType<typeof probe>>} cand
  * @param {string} path
+ * @param {{ candidateIsNetlify?: boolean, candBase?: string }} [opts]
  */
-function compareProbe(ref, cand, path) {
+function compareProbe(ref, cand, path, opts = {}) {
   /** @type {string[]} */
   const issues = []
+  const candidateIsNetlify = Boolean(opts.candidateIsNetlify)
+  const candBase = opts.candBase || ''
 
   if (ref.status !== cand.status)
     issues.push(`status ${ref.status} vs ${cand.status}`)
@@ -284,15 +400,12 @@ function compareProbe(ref, cand, path) {
       issues.push(`${h} missing on candidate`)
   }
 
-  // HSTS: match live (max-age only, no preload).
-  const refHsts = (ref.headers['strict-transport-security'] || '').toLowerCase()
-  const candHsts = (cand.headers['strict-transport-security'] || '').toLowerCase()
-  if (refHsts) {
-    if (!candHsts)
-      issues.push('strict-transport-security missing on candidate')
-    else if (refHsts !== candHsts)
-      issues.push(`strict-transport-security: ${refHsts} vs ${candHsts}`)
-  }
+  // HSTS: production must match; deploy-preview may add includeSubDomains/preload.
+  issues.push(...compareHsts(
+    ref.headers['strict-transport-security'] || '',
+    cand.headers['strict-transport-security'] || '',
+    candBase,
+  ))
   // Vercel often adds Access-Control-Allow-Origin: * on public responses;
   // live Netlify does not. Allowlist that platform difference (harmless for a
   // cookieless public site). Still flag other ACAO mismatches.
@@ -312,10 +425,16 @@ function compareProbe(ref, cand, path) {
   }
 
   if (/text\/html/i.test(ref.contentType) && ref.body && cand.body) {
-    const refTitle = titleText(ref.body)
-    const candTitle = titleText(cand.body)
-    if (refTitle && candTitle && refTitle !== candTitle)
-      issues.push(`title mismatch`)
+    // Themed HTML 404: compare title + nav chrome so the Vercel stub fails.
+    if (ref.status === 404 && cand.status === 404) {
+      issues.push(...compare404Bodies(ref.body, cand.body))
+    }
+    else {
+      const refTitle = titleText(ref.body)
+      const candTitle = titleText(cand.body)
+      if (refTitle && candTitle && refTitle !== candTitle)
+        issues.push(`title mismatch`)
+    }
 
     const refRobots = metaContent(ref.body, 'name', 'robots')
     const candRobots = metaContent(cand.body, 'name', 'robots')
@@ -333,10 +452,11 @@ function compareProbe(ref, cand, path) {
     if (refOg && !candOg)
       issues.push('og:image missing on candidate')
     // Vercel candidate must never emit Netlify Image CDN URLs.
-    if (candOg && /\/.netlify\/images/i.test(candOg))
+    // Netlify candidates (deploy-preview) correctly use /.netlify/images.
+    if (!candidateIsNetlify && candOg && /\/.netlify\/images/i.test(candOg))
       issues.push('og:image still points at /.netlify/images')
     // Cloudinary OG on Vercel is expected (dual-host). Shape-check when present.
-    if (candOg && /res\.cloudinary\.com/i.test(candOg)) {
+    if (!candidateIsNetlify && candOg && /res\.cloudinary\.com/i.test(candOg)) {
       if (!/f_jpg/.test(candOg) || !/q_auto/.test(candOg) || !/w_1200/.test(candOg))
         issues.push('og:image Cloudinary URL missing f_jpg,q_auto,w_1200')
     }
@@ -353,8 +473,8 @@ function compareProbe(ref, cand, path) {
       }
     }
 
-    // No /.netlify/images anywhere in candidate HTML (img src / srcset / meta).
-    if (/\/\.netlify\/images/i.test(cand.body))
+    // No /.netlify/images anywhere in candidate HTML (Vercel only).
+    if (!candidateIsNetlify && /\/\.netlify\/images/i.test(cand.body))
       issues.push('candidate HTML still contains /.netlify/images')
   }
 
@@ -417,20 +537,22 @@ async function main() {
     process.exit(2)
   }
 
+  const candidateIsNetlify = isNetlifyHost(candBase)
   const paths = buildPathList()
   console.log(`Reference: ${refBase}`)
-  console.log(`Candidate: ${candBase}`)
+  console.log(`Candidate: ${candBase}${candidateIsNetlify ? ' (Netlify)' : ''}`)
   console.log(`Paths: ${paths.length}`)
   console.log('Allowlist:', ALLOWLIST.map(a => a.reason).join('; '))
   console.log('')
 
   const rows = []
   let failures = 0
+  const probeOpts = { candidateIsNetlify, candBase }
 
   for (const path of paths) {
     const ref = await probe(refBase, path)
     const cand = await probe(candBase, path)
-    const issues = compareProbe(ref, cand, path)
+    const issues = compareProbe(ref, cand, path, probeOpts)
     const ok = issues.length === 0
     if (!ok)
       failures++
@@ -530,9 +652,9 @@ async function main() {
       issues.push(`og:image:width ${refW} vs ${candW || '(missing)'}`)
     if (refH && candH !== refH)
       issues.push(`og:image:height ${refH} vs ${candH || '(missing)'}`)
-    if (candImg && /\/.netlify\/images/i.test(candImg))
+    if (!candidateIsNetlify && candImg && /\/.netlify\/images/i.test(candImg))
       issues.push('og:image still Netlify CDN on candidate')
-    if (candImg && /res\.cloudinary\.com/i.test(candImg)) {
+    if (!candidateIsNetlify && candImg && /res\.cloudinary\.com/i.test(candImg)) {
       if (!/w_1200/.test(candImg) || !/h_630/.test(candImg))
         issues.push('Cloudinary og:image missing w_1200/h_630')
       // Live Netlify CDN serves JPEG — Cloudinary OG should request f_jpg.

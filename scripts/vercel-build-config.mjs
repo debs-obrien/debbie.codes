@@ -106,17 +106,73 @@ function rLocation(route) {
 }
 
 /**
+ * True when HTML looks like Netlify/Nuxt generate's themed SPA 404 shell
+ * (~5KB: noindex + site chrome assets), not the 229 B stub.
+ * @param {string} html
+ */
+export function isThemed404Html(html) {
+  if (!html || html.length < 2000)
+    return false
+  if (!/noindex/i.test(html))
+    return false
+  // Site chrome: AppHeader hamburger CSS and/or Nuxt SPA shell markers.
+  const hasNavChrome = /hamburger|mobile-menu|profile-pic/i.test(html)
+  const hasSpaShell = /id=["']__nuxt["']/i.test(html) && /\/_nuxt\//i.test(html)
+  return hasNavChrome || hasSpaShell
+}
+
+/**
+ * Build a themed SPA 404 shell from a prerendered donor page (usually index.html).
+ * Used only when Nitro did not write /404.html — keeps remote `vercel deploy`
+ * from shipping the 229 B stub.
+ * @param {string} donorHtml
+ */
+export function spa404FromDonorHtml(donorHtml) {
+  let html = donorHtml
+  // Match @nuxtjs/robots on /404.html: noindex, nofollow.
+  if (/name=["']robots["']/i.test(html)) {
+    html = html.replace(
+      /<meta[^>]+name=["']robots["'][^>]*>/i,
+      '<meta name="robots" content="noindex, nofollow" />',
+    )
+  }
+  else {
+    html = html.replace(/<\/head>/i, '<meta name="robots" content="noindex, nofollow" /></head>')
+  }
+  // Live generate 404 has no <title> in the static shell (client sets it).
+  html = html.replace(/<title[^>]*>[\s\S]*?<\/title>/i, '')
+  // Empty SSR body so crawlers do not see the donor page content.
+  html = html.replace(
+    /<div id="__nuxt"[^>]*>[\s\S]*?<\/div>/i,
+    '<div id="__nuxt"></div>',
+  )
+  html = html.replace(/\bdata-ssr=["']true["']/gi, 'data-ssr="false"')
+  // NUXT_DATA: flip serverRendered true → false when present as a JSON flag.
+  html = html.replace(
+    /(<script[^>]*id=["']__NUXT_DATA__["'][^>]*>)([\s\S]*?)(<\/script>)/i,
+    (_m, open, json, close) => {
+      const next = json
+        .replace(/"serverRendered":\s*true/g, '"serverRendered":false')
+        // Compact payload often encodes serverRendered as a boolean later in the array.
+        .replace(/,true\]$/, ',false]')
+      return open + next + close
+    },
+  )
+  return html
+}
+
+/**
  * Ensure prerendered 404.html exists in the Vercel static output.
- * Prefer Nitro's own prerendered shell (noindex, ~5KB like Netlify generate).
- * `nuxt build` sometimes omits it; fall back to dist/ or a minimal noindex page.
+ * Prefer Nitro's own prerendered `/404.html` SPA shell (noindex, ~5KB like
+ * Netlify generate). Never leave the 229 B stub when a donor page exists —
+ * remote `vercel deploy` has no local `dist/` to copy from.
  * @param {string} staticDir
  */
 async function ensureStatic404(staticDir) {
   const dest = resolve(staticDir, '404.html')
   try {
     const existing = await readFile(dest, 'utf8')
-    // Keep Nitro's prerendered shell; replace a stale/empty stub.
-    if (existing.includes('noindex') && existing.length > 500)
+    if (isThemed404Html(existing))
       return
   }
   catch {
@@ -133,7 +189,7 @@ async function ensureStatic404(staticDir) {
       continue
     try {
       const html = await readFile(src, 'utf8')
-      if (html.includes('noindex') && html.length > 500) {
+      if (isThemed404Html(html)) {
         await writeFile(dest, html)
         return
       }
@@ -142,19 +198,18 @@ async function ensureStatic404(staticDir) {
       // try next
     }
   }
-  // Last resort: noindex shell. Prefer a prerendered themed page when the
-  // `/__prerender-404-seed` route (or crawl) produced one under another name.
-  const themed = [
-    resolve(staticDir, '404.html'),
-    resolve(staticDir, '__prerender-404-seed.html'),
-    resolve(staticDir, '__prerender-404-seed/index.html'),
+  // Synthesize SPA shell from index.html (or any large prerendered HTML).
+  const donors = [
+    resolve(staticDir, 'index.html'),
+    resolve(staticDir, 'blog.html'),
   ]
-  for (const src of themed) {
-    if (src === dest)
-      continue
+  for (const src of donors) {
     try {
-      const html = await readFile(src, 'utf8')
-      if (html.includes('noindex') && html.length > 500) {
+      const donor = await readFile(src, 'utf8')
+      if (donor.length < 2000 || !/\/_nuxt\//i.test(donor))
+        continue
+      const html = spa404FromDonorHtml(donor)
+      if (isThemed404Html(html)) {
         await writeFile(dest, html)
         return
       }
@@ -163,6 +218,8 @@ async function ensureStatic404(staticDir) {
       // try next
     }
   }
+  // Absolute last resort — still better than an empty response, but parity
+  // will fail this stub (missing nav chrome).
   await writeFile(
     dest,
     '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow"><title>Page not found · Debbie Codes</title></head><body><h1>Page not found</h1><p><a href="/">Home</a></p></body></html>\n',
