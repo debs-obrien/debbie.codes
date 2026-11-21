@@ -1,6 +1,7 @@
 name: Playwright on Netlify Preview
 
-# Runs the Playwright suite against the Netlify deploy preview for a PR.
+# Runs the Playwright suite against a deploy preview for a PR.
+# Default host remains Netlify (unchanged). Optional Vercel via workflow_dispatch.
 #
 # Why it's built this way (two important gotchas baked in):
 #
@@ -8,7 +9,8 @@ name: Playwright on Netlify Preview
 #     "netlify/debbiecodes/deploy-preview"), NOT a GitHub Deployment object.
 #     So `on: deployment_status` never fires for this repo. Instead we poll the
 #     commit-status API for that context and read the preview URL from its
-#     `target_url`.
+#     `target_url`. Vercel previews are resolved the same way (status target_url
+#     containing vercel.app) when preview_host=vercel.
 #
 #  2. We deliberately trigger on `pull_request` (not `status`). Non-PR events
 #     like `status` always run the workflow file from the DEFAULT branch, so a
@@ -22,28 +24,36 @@ on:
   workflow_dispatch:
     inputs:
       base_url:
-        description: 'Preview URL to test (skips polling). e.g. https://deploy-preview-568--debbiecodes.netlify.app'
+        description: Preview URL to test (skips polling). Netlify or Vercel.
         required: false
         type: string
+      preview_host:
+        description: 'When base_url is empty, which commit status to poll'
+        required: false
+        type: choice
+        default: netlify
+        options:
+          - netlify
+          - vercel
 
 permissions:
   contents: read
   statuses: read
 
 jobs:
-  # Poll the Netlify commit status until the preview is ready, then hand the
-  # resolved URL to the test matrix.
+  # Poll the preview commit status until ready, then hand the URL to the matrix.
   resolve-preview:
     runs-on: ubuntu-latest
     outputs:
       base_url: ${{ steps.resolve.outputs.base_url }}
     steps:
-      - name: Resolve Netlify preview URL
+      - name: Resolve preview URL
         id: resolve
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MANUAL_URL: ${{ github.event.inputs.base_url }}
-          # For pull_request events, the head SHA Netlify reports status against.
+          PREVIEW_HOST: ${{ github.event.inputs.preview_host || 'netlify' }}
+          # For pull_request events, the head SHA the host reports status against.
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
           REPO: ${{ github.repository }}
         run: |
@@ -56,27 +66,32 @@ jobs:
             exit 0
           fi
 
-          # Fail fast: without a manual URL we need a PR head SHA to poll the
-          # Netlify status against. Empty here means workflow_dispatch was run
-          # with no base_url and no PR context — polling would just hit the API
-          # with an empty SHA and time out opaquely.
+          # Fail fast: without a manual URL we need a PR head SHA to poll.
           if [ -z "${HEAD_SHA:-}" ]; then
             echo "::error::No PR head SHA and no manual base_url. On workflow_dispatch, supply the 'base_url' input."
             exit 1
           fi
 
-          CONTEXT="netlify/debbiecodes/deploy-preview"
-          echo "Polling commit status '$CONTEXT' for $REPO@$HEAD_SHA (max ~10min)…"
+          HOST="${PREVIEW_HOST:-netlify}"
+          echo "Preview host: $HOST"
 
           for i in $(seq 1 60); do
-            # Pull the matching status's state + target_url in one call.
-            READ=$(gh api "repos/$REPO/commits/$HEAD_SHA/statuses" \
-              --jq "[.[] | select(.context == \"$CONTEXT\")][0] | \"\(.state)\t\(.target_url)\"" \
-              2>/dev/null || echo "")
+            if [ "$HOST" = "vercel" ]; then
+              READ=$(gh api "repos/$REPO/commits/$HEAD_SHA/statuses" \
+                --jq '[.[] | select(.state=="success" and (.target_url|tostring|test("vercel\\.app")))][0] | "\(.state)\t\(.target_url)"' \
+                2>/dev/null || echo "")
+              LABEL="Vercel (vercel.app status)"
+            else
+              CONTEXT="netlify/debbiecodes/deploy-preview"
+              READ=$(gh api "repos/$REPO/commits/$HEAD_SHA/statuses" \
+                --jq "[.[] | select(.context == \"$CONTEXT\")][0] | \"\(.state)\t\(.target_url)\"" \
+                2>/dev/null || echo "")
+              LABEL="Netlify ($CONTEXT)"
+            fi
 
             STATE="${READ%%$'\t'*}"
             URL="${READ#*$'\t'}"
-            echo "attempt $i: state='${STATE:-none}' url='${URL:-none}'"
+            echo "attempt $i ($LABEL): state='${STATE:-none}' url='${URL:-none}'"
 
             case "$STATE" in
               success)
@@ -87,14 +102,16 @@ jobs:
                 fi
                 ;;
               failure|error)
-                echo "::error::Netlify preview reported '$STATE'. Aborting."
-                exit 1
+                if [ "$HOST" != "vercel" ]; then
+                  echo "::error::Netlify preview reported '$STATE'. Aborting."
+                  exit 1
+                fi
                 ;;
             esac
             sleep 10
           done
 
-          echo "::error::Timed out waiting for Netlify preview status."
+          echo "::error::Timed out waiting for $HOST preview status."
           exit 1
 
       - name: Verify preview responds with HTTP 200
@@ -126,7 +143,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '22.23.3'
+          node-version: 22.23.3
       - name: Install dependencies
         run: npm ci
       # The Playwright config uses `channel: 'chrome'` on CI. ubuntu-latest
@@ -153,7 +170,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '22.23.3'
+          node-version: 22.23.3
       - name: Install dependencies
         run: npm ci
       - name: Download blob reports

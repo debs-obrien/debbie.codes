@@ -8,13 +8,13 @@ import process from 'node:process'
 export const DEFAULT_WEBMCP_OT_CHROME = 'As9KF+YqNrjikGTl8tlih4WtqIzUWMjc4CkxM6XsJZaZaehkgQ902yMxcFaR76o+rHl84HIf9rAKTv0k4ukAngQAAABMeyJvcmlnaW4iOiJodHRwczovL2RlYmJpZS5jb2Rlczo0NDMiLCJmZWF0dXJlIjoiV2ViTUNQIiwiZXhwaXJ5IjoxODA2MzY0ODAwfQ=='
 export const DEFAULT_WEBMCP_OT_EDGE = 'A0kUI/pB+i5YUKS/9nelWTG+emfrYoBuAQxmN22fsAGhYwA7F95iaOcT+HQUNxCbKdfrs4eyBtreybnJUdAwFKAAAABMeyJvcmlnaW4iOiJodHRwczovL2RlYmJpZS5jb2Rlczo0NDMiLCJmZWF0dXJlIjoiV2ViTUNQIiwiZXhwaXJ5IjoxNzk2OTgxMDg4fQ=='
 
-/** Netlify production only. Tokens are bound to debbie.codes and do nothing on previews. */
+/** Production host only (Netlify CONTEXT or Vercel VERCEL_ENV). Tokens are bound to debbie.codes. */
 export function shouldRenderOriginTrial(env: Record<string, string | undefined> = process.env) {
   if (env.NUXT_PUBLIC_WEBMCP_OT_RENDER === '0')
     return false
   if (env.NUXT_PUBLIC_WEBMCP_OT_RENDER === '1')
     return true
-  return env.CONTEXT === 'production'
+  return env.CONTEXT === 'production' || env.VERCEL_ENV === 'production'
 }
 
 export function originTrialMeta(chrome: unknown, edge: unknown) {

@@ -27,6 +27,10 @@ const isEndform = process.env.ENDFORM === 'true'
 
 /**
  * See https://playwright.dev/docs/test-configuration.
+ *
+ * Vercel Deployment Protection OIDC (`VERCEL_OIDC_TOKEN`) is scoped in
+ * `tests/fixtures.ts` to `*.vercel.app` only — never via `extraHTTPHeaders`
+ * (that would leak the token to YouTube, Cloudinary, and other third parties).
  */
 export default defineConfig({
   testDir: './tests',

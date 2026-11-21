@@ -94,6 +94,9 @@ ClicksMethods.md
 # Local Netlify folder
 .netlify
 
+# Local Vercel build output
+.vercel
+
 # tests
 cypress/integration/examples
 cypress/videos
