@@ -35,6 +35,10 @@ const totalPages = computed(() => {
   return Math.ceil(totalCount.value / postsPerPage)
 })
 
+// Out-of-range pages: HTTP 404 comes from the static 404.html catch-all
+// (Netlify generate / Vercel). Do not throw createError — that hydrates Nuxt's
+// default unthemed error page instead of the themed blog chrome.
+
 // Get popular tags for browse components
 const popularTags = computed(() => {
   if (!allPosts.value)
@@ -107,11 +111,6 @@ const postYears = computed(() => {
     .map(([year, count]) => ({ year, count }))
     .sort((a, b) => b.year.localeCompare(a.year))
 })
-
-// Handle case where page number is invalid
-if (page < 1 || (totalCount.value && page > Math.ceil(totalCount.value / postsPerPage))) {
-  throw createError({ statusCode: 404, statusMessage: 'Page Not Found' })
-}
 
 const recentYears = computed(() => postYears.value.slice(0, 4))
 

@@ -1,0 +1,714 @@
+#!/usr/bin/env node
+/**
+ * Compare hosting behaviour between a reference origin and a candidate origin.
+ *
+ * Usage:
+ *   node scripts/prove-hosting-parity.mjs <referenceBase> <candidateBase>
+ *
+ * Example:
+ *   node scripts/prove-hosting-parity.mjs https://debbie.codes https://xxx.vercel.app
+ *
+ * Exit 1 on any mismatch outside the allowlist below.
+ */
+import { existsSync, readFileSync } from 'node:fs'
+import { dirname, join } from 'node:path'
+import process from 'node:process'
+import { fileURLToPath, pathToFileURL } from 'node:url'
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
+const root = join(__dirname, '..')
+
+/** Differences that are expected between hosts / build systems. */
+const ALLOWLIST = [
+  // Hashed Vite/Nuxt assets differ per build.
+  { reason: 'hashed _nuxt asset names', pathIncludes: null, header: null, note: 'body/_nuxt only' },
+  // Platform response headers.
+  { reason: 'x-vercel-* / x-nf-* / server / age / date / etag / cf-*', headerPrefix: true },
+  // Vercel/Netlify preview may inject noindex; production HTML still index,follow in meta.
+  { reason: 'preview X-Robots-Tag noindex on HTML', header: 'x-robots-tag' },
+  // Image delivery host: Netlify Image CDN vs Cloudinary (Vercel) vs static /images.
+  { reason: 'image host (Netlify CDN vs Cloudinary vs static)', note: 'og:image + img src' },
+  // Vercel may send Access-Control-Allow-Origin: *; live Netlify does not.
+  { reason: 'Vercel Access-Control-Allow-Origin: *', header: 'access-control-allow-origin' },
+]
+
+const SECURITY_HEADERS = ['x-frame-options', 'x-xss-protection']
+
+/** Sample HTML paths for deep image URL checks (keep small — bandwidth). */
+const IMAGE_SAMPLE_PATHS = ['/', '/blog', '/hire-me', '/about', '/videos', '/podcasts', '/blog/webmcp-on-my-site']
+
+/** Unknown / empty dynamic routes that must 404 like Netlify generate. */
+const UNKNOWN_ROUTE_CASES = [
+  '/blog/tags/zzz-none',
+  '/blog/tags/lifestyle',
+  '/blog/page/9999',
+  '/blog/does-not-exist.md',
+  '/blog/this-post-does-not-exist-for-negotiation-404',
+]
+
+/** Accept negotiation cases for /blog/<slug> (Netlify edge parity). */
+const MARKDOWN_ACCEPT_CASES = [
+  { accept: 'text/markdown', expectMarkdown: true, label: 'Accept: text/markdown' },
+  { accept: 'text/markdown;q=0, */*;q=1', expectMarkdown: false, label: 'Accept: text/markdown;q=0' },
+  { accept: 'text/html, text/markdown;q=0.5', expectMarkdown: false, label: 'Accept: text/html, text/markdown;q=0.5' },
+  {
+    accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    expectMarkdown: false,
+    label: 'Accept: browser HTML',
+  },
+]
+
+/** @param {string} base */
+export function isNetlifyHost(base) {
+  try {
+    const host = new URL(base).hostname.toLowerCase()
+    return host === 'netlify.com'
+      || host.endsWith('.netlify.app')
+      || host.endsWith('.netlify.com')
+  }
+  catch {
+    return false
+  }
+}
+
+/** Deploy-preview / platform preview hostnames (Netlify or Vercel). */
+export function isDeployPreviewHost(base) {
+  try {
+    const host = new URL(base).hostname.toLowerCase()
+    return host.includes('deploy-preview')
+      || host.endsWith('.netlify.app')
+      || host.endsWith('.vercel.app')
+  }
+  catch {
+    return false
+  }
+}
+
+/**
+ * Decode HTML entities commonly found in attribute values before fetching.
+ * Netlify Image CDN URLs often appear as `...&amp;w=...` in HTML.
+ * @param {string} value
+ */
+export function decodeHtmlAttr(value) {
+  if (!value)
+    return value
+  return value
+    .replace(/&amp;/gi, '&')
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;|&apos;/gi, '\'')
+    .replace(/&lt;/gi, '<')
+    .replace(/&gt;/gi, '>')
+}
+
+/**
+ * HSTS parity: production must match; deploy-preview hosts may add
+ * includeSubDomains / preload as long as max-age matches.
+ * @param {string} refHsts
+ * @param {string} candHsts
+ * @param {string} candBase
+ * @returns {string[]} issue messages
+ */
+export function compareHsts(refHsts, candHsts, candBase) {
+  /** @type {string[]} */
+  const issues = []
+  const ref = (refHsts || '').toLowerCase().trim()
+  const cand = (candHsts || '').toLowerCase().trim()
+  if (!ref)
+    return issues
+  if (!cand) {
+    issues.push('strict-transport-security missing on candidate')
+    return issues
+  }
+  if (ref === cand)
+    return issues
+  if (isDeployPreviewHost(candBase)) {
+    const refAge = ref.match(/max-age=(\d+)/)?.[1]
+    const candAge = cand.match(/max-age=(\d+)/)?.[1]
+    if (refAge && candAge && refAge === candAge) {
+      // Allow includeSubDomains / preload extras on preview hosts.
+      return issues
+    }
+  }
+  issues.push(`strict-transport-security: ${ref} vs ${cand}`)
+  return issues
+}
+
+/**
+ * Themed HTML 404 body checks (title + nav/chrome) so the 229 B Vercel stub
+ * cannot slip past status-only parity.
+ * @param {string} refHtml
+ * @param {string} candHtml
+ * @returns {string[]} Issue messages (empty when themed 404 bodies match).
+ */
+export function compare404Bodies(refHtml, candHtml) {
+  /** @type {string[]} */
+  const issues = []
+  const refTitle = titleText(refHtml)
+  const candTitle = titleText(candHtml)
+  // Live SPA shell often has empty <title>; client sets "Page not found · Debbie Codes".
+  // Accept empty↔empty, matching titles, or empty vs themed title. Reject other mismatches.
+  if (refTitle && candTitle && refTitle !== candTitle)
+    issues.push(`404 title mismatch: "${refTitle}" vs "${candTitle}"`)
+  else if (!refTitle && candTitle && !/page not found/i.test(candTitle))
+    issues.push(`404 title unexpected on candidate: "${candTitle}"`)
+  else if (refTitle && !candTitle && !/page not found/i.test(refTitle))
+    issues.push(`404 title missing on candidate (ref: "${refTitle}")`)
+
+  const refNav = /hamburger|<nav\b|mobile-menu|profile-pic/i.test(refHtml)
+  const candNav = /hamburger|<nav\b|mobile-menu|profile-pic/i.test(candHtml)
+  if (refNav && !candNav)
+    issues.push('404 missing site nav/chrome on candidate')
+  if (!candNav && !(/id=["']__nuxt["']/i.test(candHtml) && /\/_nuxt\//i.test(candHtml)))
+    issues.push('404 missing SPA shell / site chrome on candidate')
+
+  if (refHtml.length > 2000 && candHtml.length < 1000)
+    issues.push(`404 body too small on candidate (${candHtml.length}B vs ref ${refHtml.length}B)`)
+
+  const candRobots = metaContent(candHtml, 'name', 'robots')
+  if (!/noindex/i.test(candRobots) && !/noindex/i.test(candHtml))
+    issues.push('404 missing noindex on candidate')
+
+  return issues
+}
+
+function loadRedirectSources() {
+  const text = readFileSync(join(root, 'public/_redirects'), 'utf8')
+  const sources = []
+  for (const raw of text.split('\n')) {
+    const line = raw.trim()
+    if (!line || line.startsWith('#'))
+      continue
+    const [from] = line.split(/\s+/)
+    if (from)
+      sources.push(from)
+  }
+  return [...new Set(sources)]
+}
+
+function loadSitemapPaths() {
+  const local = join(root, 'public/sitemap.xml')
+  if (!existsSync(local))
+    return ['/', '/blog', '/videos', '/hire-me', '/courses', '/about', '/speaking']
+  const xml = readFileSync(local, 'utf8')
+  const paths = []
+  for (const m of xml.matchAll(/<loc>([^<]+)<\/loc>/g)) {
+    try {
+      const u = new URL(m[1])
+      paths.push(u.pathname || '/')
+    }
+    catch {
+      // skip
+    }
+  }
+  // Cap sitemap crawl for runtime; always keep key pages.
+  const preferred = ['/', '/blog', '/videos', '/hire-me', '/courses', '/about', '/speaking', '/podcasts', '/now']
+  const rest = paths.filter(p => !preferred.includes(p) && !p.endsWith('.md'))
+  return [...new Set([...preferred, ...rest.slice(0, 40)])]
+}
+
+function edgeCases() {
+  return [
+    '/blog/',
+    '/videos/',
+    '/hire-me/',
+    '/courses/',
+    '/about/',
+    '/speaking/',
+    '/resources/',
+    '/talks/',
+    '/talks',
+    '/robots.txt',
+    '/feed.xml',
+    '/sitemap.xml',
+    '/llms.txt',
+    '/llms-full.txt',
+    '/blog/webmcp-on-my-site.md',
+    '/blog/lifestyle/1',
+    '/blog/nuxt-ignoring-files/',
+    ...UNKNOWN_ROUTE_CASES,
+  ]
+}
+
+function buildPathList() {
+  return [...new Set([
+    ...loadSitemapPaths(),
+    ...loadRedirectSources(),
+    ...edgeCases(),
+  ])]
+}
+
+/**
+ * @param {string} base
+ * @param {string} path
+ * @param {Record<string, string>} [extraHeaders]
+ */
+async function probe(base, path, extraHeaders = {}) {
+  const url = new URL(path, base.endsWith('/') ? base : `${base}/`).toString()
+  const res = await fetch(url, {
+    redirect: 'manual',
+    headers: {
+      'user-agent': 'prove-hosting-parity/1.0',
+      ...extraHeaders,
+    },
+  })
+  const headers = {}
+  res.headers.forEach((v, k) => {
+    headers[k.toLowerCase()] = v
+  })
+  let body = ''
+  const ct = headers['content-type'] || ''
+  if (/text\/html|text\/plain|text\/markdown|xml|json/i.test(ct) || path.endsWith('.md')) {
+    body = await res.text()
+  }
+  return {
+    url,
+    status: res.status,
+    location: headers.location || '',
+    contentType: (headers['content-type'] || '').split(';')[0].trim().toLowerCase(),
+    headers,
+    body,
+  }
+}
+
+function metaContent(html, attr, name) {
+  const re = new RegExp(
+    `<meta[^>]+(?:${attr}=["']${name}["'][^>]+content=["']([^"']+)["']|content=["']([^"']+)["'][^>]+${attr}=["']${name}["'])`,
+    'i',
+  )
+  const m = html.match(re)
+  return (m?.[1] || m?.[2] || '').trim()
+}
+
+function canonicalHref(html) {
+  const m = html.match(/<link[^>]+rel=["']canonical["'][^>]+href=["']([^"']+)["']/i)
+    || html.match(/<link[^>]+href=["']([^"']+)["'][^>]+rel=["']canonical["']/i)
+  return (m?.[1] || '').trim()
+}
+
+function titleText(html) {
+  const m = html.match(/<title[^>]*>([^<]*)<\/title>/i)
+  return (m?.[1] || '').trim()
+}
+
+function normalizeLocation(loc, base) {
+  if (!loc)
+    return ''
+  try {
+    const u = new URL(loc, base)
+    return u.pathname + u.search
+  }
+  catch {
+    return loc
+  }
+}
+
+/**
+ * Parse a srcset attribute the way browsers do:
+ * each candidate URL runs until whitespace; candidates are separated by a
+ * comma followed by whitespace. Do NOT split on bare commas — Cloudinary
+ * transform segments use `w_50,h_50,f_auto,q_auto` inside the URL.
+ *
+ * @param {string} srcset
+ * @returns {string[]} Absolute or relative candidate URLs (no descriptors).
+ */
+export function parseSrcsetUrls(srcset) {
+  if (!srcset)
+    return []
+  /** @type {string[]} */
+  const urls = []
+  // Entries separated by "," + whitespace. Commas inside Cloudinary transforms
+  // are not followed by whitespace, so they stay inside the URL.
+  for (const entry of srcset.split(/,\s+/)) {
+    const url = entry.trim().split(/\s+/)[0]
+    if (url && !url.startsWith('data:'))
+      urls.push(url)
+  }
+  return urls
+}
+
+/** Collect og:image + twitter:image + every img src/srcset URL from HTML. */
+function collectImageUrls(html, pageUrl) {
+  /** @type {Set<string>} */
+  const urls = new Set()
+  const og = decodeHtmlAttr(metaContent(html, 'property', 'og:image'))
+  const tw = decodeHtmlAttr(metaContent(html, 'name', 'twitter:image'))
+  if (og)
+    urls.add(og)
+  if (tw)
+    urls.add(tw)
+
+  for (const m of html.matchAll(/<img\b[^>]*>/gi)) {
+    const tag = m[0]
+    const src = decodeHtmlAttr(tag.match(/\bsrc=["']([^"']+)["']/i)?.[1] || '')
+    if (src && !src.startsWith('data:')) {
+      try {
+        urls.add(new URL(src, pageUrl).toString())
+      }
+      catch {
+        // skip
+      }
+    }
+    const srcset = tag.match(/\bsrcset=["']([^"']+)["']/i)?.[1]
+    if (srcset) {
+      for (const u of parseSrcsetUrls(srcset)) {
+        try {
+          urls.add(new URL(decodeHtmlAttr(u), pageUrl).toString())
+        }
+        catch {
+          // skip
+        }
+      }
+    }
+  }
+  return [...urls]
+}
+
+/**
+ * @param {Awaited<ReturnType<typeof probe>>} ref
+ * @param {Awaited<ReturnType<typeof probe>>} cand
+ * @param {string} path
+ * @param {{ candidateIsNetlify?: boolean, candBase?: string }} [opts]
+ */
+function compareProbe(ref, cand, path, opts = {}) {
+  /** @type {string[]} */
+  const issues = []
+  const candidateIsNetlify = Boolean(opts.candidateIsNetlify)
+  const candBase = opts.candBase || ''
+
+  if (ref.status !== cand.status)
+    issues.push(`status ${ref.status} vs ${cand.status}`)
+
+  const refLoc = normalizeLocation(ref.location, ref.url)
+  const candLoc = normalizeLocation(cand.location, cand.url)
+  if (refLoc !== candLoc)
+    issues.push(`location ${refLoc || '(none)'} vs ${candLoc || '(none)'}`)
+
+  // Content-Type: compare primary type loosely for markdown/html.
+  if (ref.contentType && cand.contentType && ref.contentType !== cand.contentType) {
+    const bothText = /^text\//.test(ref.contentType) && /^text\//.test(cand.contentType)
+    const bothXml = /xml/.test(ref.contentType) && /xml/.test(cand.contentType)
+    if (!bothText && !bothXml)
+      issues.push(`content-type ${ref.contentType} vs ${cand.contentType}`)
+  }
+
+  for (const h of SECURITY_HEADERS) {
+    const a = (ref.headers[h] || '').toLowerCase()
+    const b = (cand.headers[h] || '').toLowerCase()
+    if (a && a !== b)
+      issues.push(`${h}: ${a} vs ${b || '(missing)'}`)
+    if (a && !b)
+      issues.push(`${h} missing on candidate`)
+  }
+
+  // HSTS: production must match; deploy-preview may add includeSubDomains/preload.
+  issues.push(...compareHsts(
+    ref.headers['strict-transport-security'] || '',
+    cand.headers['strict-transport-security'] || '',
+    candBase,
+  ))
+  // Vercel often adds Access-Control-Allow-Origin: * on public responses;
+  // live Netlify does not. Allowlist that platform difference (harmless for a
+  // cookieless public site). Still flag other ACAO mismatches.
+  const refAcao = (ref.headers['access-control-allow-origin'] || '').trim()
+  const candAcao = (cand.headers['access-control-allow-origin'] || '').trim()
+  if (refAcao && refAcao !== candAcao)
+    issues.push(`access-control-allow-origin: ${refAcao} vs ${candAcao || '(missing)'}`)
+  else if (!refAcao && candAcao && candAcao !== '*')
+    issues.push(`access-control-allow-origin unexpected on candidate: ${candAcao}`)
+
+  // Cache-Control for static asset prefixes.
+  if (path.startsWith('/images/') || path.startsWith('/_nuxt')) {
+    const a = ref.headers['cache-control'] || ''
+    const b = cand.headers['cache-control'] || ''
+    if (a && !b)
+      issues.push('cache-control missing on candidate')
+  }
+
+  if (/text\/html/i.test(ref.contentType) && ref.body && cand.body) {
+    // Themed HTML 404: compare title + nav chrome so the Vercel stub fails.
+    if (ref.status === 404 && cand.status === 404) {
+      issues.push(...compare404Bodies(ref.body, cand.body))
+    }
+    else {
+      const refTitle = titleText(ref.body)
+      const candTitle = titleText(cand.body)
+      if (refTitle && candTitle && refTitle !== candTitle)
+        issues.push(`title mismatch`)
+    }
+
+    const refRobots = metaContent(ref.body, 'name', 'robots')
+    const candRobots = metaContent(cand.body, 'name', 'robots')
+    // Allow candidate preview to lack index if platform injects noindex header only;
+    // meta robots in HTML should still prefer index on production builds.
+    if (refRobots && candRobots) {
+      const refIndex = /\bindex\b/i.test(refRobots)
+      const candIndex = /\bindex\b/i.test(candRobots)
+      if (refIndex && !candIndex && !/noindex/i.test(cand.headers['x-robots-tag'] || ''))
+        issues.push(`meta robots ${refRobots} vs ${candRobots}`)
+    }
+
+    const refOg = metaContent(ref.body, 'property', 'og:image')
+    const candOg = metaContent(cand.body, 'property', 'og:image')
+    if (refOg && !candOg)
+      issues.push('og:image missing on candidate')
+    // Vercel candidate must never emit Netlify Image CDN URLs.
+    // Netlify candidates (deploy-preview) correctly use /.netlify/images.
+    if (!candidateIsNetlify && candOg && /\/.netlify\/images/i.test(candOg))
+      issues.push('og:image still points at /.netlify/images')
+    // Cloudinary OG on Vercel is expected (dual-host). Shape-check when present.
+    if (!candidateIsNetlify && candOg && /res\.cloudinary\.com/i.test(candOg)) {
+      if (!/f_jpg/.test(candOg) || !/q_auto/.test(candOg) || !/w_1200/.test(candOg))
+        issues.push('og:image Cloudinary URL missing f_jpg,q_auto,w_1200')
+    }
+
+    const refCanon = canonicalHref(ref.body)
+    const candCanon = canonicalHref(cand.body)
+    if (refCanon && candCanon) {
+      try {
+        if (new URL(refCanon).pathname !== new URL(candCanon).pathname)
+          issues.push(`canonical path ${new URL(refCanon).pathname} vs ${new URL(candCanon).pathname}`)
+      }
+      catch {
+        // skip
+      }
+    }
+
+    // No /.netlify/images anywhere in candidate HTML (Vercel only).
+    if (!candidateIsNetlify && /\/\.netlify\/images/i.test(cand.body))
+      issues.push('candidate HTML still contains /.netlify/images')
+  }
+
+  return issues
+}
+
+/**
+ * Every og:image and <img> source on sampled pages must return 200 + image/*.
+ * @param {string} candBase
+ * @param {string[]} htmlPaths
+ */
+async function checkCandidateImages(candBase, htmlPaths) {
+  /** @type {string[]} */
+  const issues = []
+  /** @type {Set<string>} */
+  const seen = new Set()
+
+  for (const path of htmlPaths) {
+    const p = await probe(candBase, path)
+    if (!/text\/html/i.test(p.contentType) || p.status !== 200)
+      continue
+
+    const urls = collectImageUrls(p.body, p.url)
+    for (const imgUrl of urls) {
+      if (seen.has(imgUrl))
+        continue
+      seen.add(imgUrl)
+
+      // Skip non-image placeholders / analytics beacons mistaken for imgs.
+      if (/googletagmanager|google-analytics|facebook\.com\/tr/i.test(imgUrl))
+        continue
+
+      try {
+        const img = await fetch(imgUrl, {
+          redirect: 'follow',
+          headers: { 'user-agent': 'prove-hosting-parity/1.0' },
+        })
+        const ct = (img.headers.get('content-type') || '').split(';')[0].trim().toLowerCase()
+        if (!img.ok) {
+          issues.push(`${path} image HTTP ${img.status}: ${imgUrl}`)
+          continue
+        }
+        if (!/^image\//i.test(ct) && !/svg/i.test(ct)) {
+          issues.push(`${path} image content-type ${ct || '(empty)'}: ${imgUrl}`)
+        }
+      }
+      catch (err) {
+        issues.push(`${path} image fetch failed (${err.message}): ${imgUrl}`)
+      }
+    }
+  }
+
+  return issues
+}
+
+async function main() {
+  const [refBase, candBase] = process.argv.slice(2)
+  if (!refBase || !candBase) {
+    console.error('Usage: node scripts/prove-hosting-parity.mjs <referenceBase> <candidateBase>')
+    process.exit(2)
+  }
+
+  const candidateIsNetlify = isNetlifyHost(candBase)
+  const paths = buildPathList()
+  console.log(`Reference: ${refBase}`)
+  console.log(`Candidate: ${candBase}${candidateIsNetlify ? ' (Netlify)' : ''}`)
+  console.log(`Paths: ${paths.length}`)
+  console.log('Allowlist:', ALLOWLIST.map(a => a.reason).join('; '))
+  console.log('')
+
+  const rows = []
+  let failures = 0
+  const probeOpts = { candidateIsNetlify, candBase }
+
+  for (const path of paths) {
+    const ref = await probe(refBase, path)
+    const cand = await probe(candBase, path)
+    const issues = compareProbe(ref, cand, path, probeOpts)
+    const ok = issues.length === 0
+    if (!ok)
+      failures++
+    rows.push({
+      path,
+      ref: `${ref.status}${ref.location ? ` → ${normalizeLocation(ref.location, ref.url)}` : ''}`,
+      cand: `${cand.status}${cand.location ? ` → ${normalizeLocation(cand.location, cand.url)}` : ''}`,
+      ok: ok ? 'OK' : 'FAIL',
+      issues: issues.join('; '),
+    })
+  }
+
+  // Markdown Accept negotiation (q-values + Link + markdown 404)
+  const mdPath = '/blog/webmcp-on-my-site'
+  for (const { accept, expectMarkdown, label } of MARKDOWN_ACCEPT_CASES) {
+    const refMd = await probe(refBase, mdPath, { accept })
+    const candMd = await probe(candBase, mdPath, { accept })
+    /** @type {string[]} */
+    const mdIssues = []
+    if (refMd.status !== candMd.status)
+      mdIssues.push(`status ${refMd.status} vs ${candMd.status}`)
+    const candIsMd = /markdown/i.test(candMd.contentType)
+    const refIsMd = /markdown/i.test(refMd.contentType)
+    if (expectMarkdown) {
+      if (!candIsMd && candMd.status === 200)
+        mdIssues.push(`candidate content-type ${candMd.contentType} (want markdown)`)
+      if (!(candMd.headers.vary || '').toLowerCase().includes('accept') && candMd.status === 200)
+        mdIssues.push('candidate missing Vary: Accept')
+      const link = candMd.headers.link || ''
+      if (candMd.status === 200 && !/rel=["']?canonical["']?/i.test(link))
+        mdIssues.push('candidate missing Link rel=canonical')
+      if (candMd.status === 200 && !link.includes(`https://debbie.codes${mdPath}`))
+        mdIssues.push(`candidate Link missing canonical host: ${link || '(none)'}`)
+    }
+    else if (candIsMd && !refIsMd) {
+      mdIssues.push(`candidate returned markdown but reference returned ${refMd.contentType}`)
+    }
+    else if (candIsMd && expectMarkdown === false) {
+      mdIssues.push(`candidate content-type ${candMd.contentType} (want HTML for ${label})`)
+    }
+    rows.push({
+      path: `${mdPath} (${label})`,
+      ref: `${refMd.status} ${refMd.contentType}`,
+      cand: `${candMd.status} ${candMd.contentType}`,
+      ok: mdIssues.length === 0 ? 'OK' : 'FAIL',
+      issues: mdIssues.join('; '),
+    })
+    if (mdIssues.length)
+      failures++
+  }
+
+  // Missing post + markdown Accept → small markdown 404 with discovery links
+  {
+    const missing = '/blog/this-post-does-not-exist-for-negotiation-404'
+    const ref404 = await probe(refBase, missing, { accept: 'text/markdown' })
+    const cand404 = await probe(candBase, missing, { accept: 'text/markdown' })
+    /** @type {string[]} */
+    const issues = []
+    if (ref404.status !== cand404.status)
+      issues.push(`status ${ref404.status} vs ${cand404.status}`)
+    if (!/markdown/i.test(cand404.contentType))
+      issues.push(`content-type ${cand404.contentType} (want markdown)`)
+    if (!cand404.body.includes('https://debbie.codes/llms.txt'))
+      issues.push('markdown 404 missing llms.txt link')
+    if (!cand404.body.includes('https://debbie.codes/sitemap.xml'))
+      issues.push('markdown 404 missing sitemap.xml link')
+    // Live body is ~146 B; allow a small band so whitespace drift does not flake.
+    if (cand404.body.length < 100 || cand404.body.length > 220)
+      issues.push(`markdown 404 body size ${cand404.body.length}B (want ~146B)`)
+    if (/<!DOCTYPE html|<html/i.test(cand404.body))
+      issues.push('markdown 404 returned HTML body')
+    rows.push({
+      path: `${missing} (Accept: text/markdown → 404)`,
+      ref: `${ref404.status} ${ref404.body.length}B`,
+      cand: `${cand404.status} ${cand404.body.length}B`,
+      ok: issues.length === 0 ? 'OK' : 'FAIL',
+      issues: issues.join('; '),
+    })
+    if (issues.length)
+      failures++
+  }
+
+  // OG card on a local-cover post: type + width/height parity with live
+  {
+    const ogPath = '/blog/webmcp-on-my-site'
+    const refOg = await probe(refBase, ogPath)
+    const candOg = await probe(candBase, ogPath)
+    /** @type {string[]} */
+    const issues = []
+    const refImg = metaContent(refOg.body, 'property', 'og:image')
+    const candImg = metaContent(candOg.body, 'property', 'og:image')
+    const refW = metaContent(refOg.body, 'property', 'og:image:width')
+    const candW = metaContent(candOg.body, 'property', 'og:image:width')
+    const refH = metaContent(refOg.body, 'property', 'og:image:height')
+    const candH = metaContent(candOg.body, 'property', 'og:image:height')
+    if (refW && candW !== refW)
+      issues.push(`og:image:width ${refW} vs ${candW || '(missing)'}`)
+    if (refH && candH !== refH)
+      issues.push(`og:image:height ${refH} vs ${candH || '(missing)'}`)
+    if (!candidateIsNetlify && candImg && /\/.netlify\/images/i.test(candImg))
+      issues.push('og:image still Netlify CDN on candidate')
+    if (!candidateIsNetlify && candImg && /res\.cloudinary\.com/i.test(candImg)) {
+      if (!/w_1200/.test(candImg) || !/h_630/.test(candImg))
+        issues.push('Cloudinary og:image missing w_1200/h_630')
+      // Live Netlify CDN serves JPEG — Cloudinary OG should request f_jpg.
+      if (!/f_jpg/.test(candImg))
+        issues.push('Cloudinary og:image missing f_jpg (match live JPEG)')
+    }
+    if (refImg && !candImg)
+      issues.push('og:image missing on candidate')
+    rows.push({
+      path: `${ogPath} (og:image size meta)`,
+      ref: `w=${refW || '?'} h=${refH || '?'}`,
+      cand: `w=${candW || '?'} h=${candH || '?'}`,
+      ok: issues.length === 0 ? 'OK' : 'FAIL',
+      issues: issues.join('; '),
+    })
+    if (issues.length)
+      failures++
+  }
+
+  const imageIssues = await checkCandidateImages(candBase, IMAGE_SAMPLE_PATHS)
+  for (const msg of imageIssues) {
+    failures++
+    rows.push({ path: 'image fetch', ref: '-', cand: '-', ok: 'FAIL', issues: msg })
+  }
+  if (!imageIssues.length) {
+    rows.push({
+      path: 'image fetch (og + img sample)',
+      ref: '-',
+      cand: 'OK',
+      ok: 'OK',
+      issues: '',
+    })
+  }
+
+  // Print table
+  const col = (s, n) => String(s).slice(0, n).padEnd(n)
+  console.log(`${col('ok', 4)} ${col('path', 48)} ${col('reference', 28)} ${col('candidate', 28)} issues`)
+  console.log('-'.repeat(140))
+  for (const r of rows) {
+    console.log(`${col(r.ok, 4)} ${col(r.path, 48)} ${col(r.ref, 28)} ${col(r.cand, 28)} ${r.issues}`)
+  }
+
+  console.log('')
+  console.log(failures ? `${failures} mismatch(es)` : 'All compared paths matched (within allowlist).')
+  process.exit(failures ? 1 : 0)
+}
+
+const isDirectRun = Boolean(
+  process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href,
+)
+
+if (isDirectRun) {
+  main().catch((err) => {
+    console.error(err)
+    process.exit(1)
+  })
+}

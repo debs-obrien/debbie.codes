@@ -27,6 +27,11 @@ const taggedArticles = computed(() => {
   })
 })
 
+// Empty/unknown tags: keep the themed listing ("No articles found tagged with…")
+// with site chrome. HTTP 404 still comes from the static 404.html catch-all on
+// Netlify generate / Vercel Build Output — do not throw createError here or the
+// client hydrates Nuxt's default unthemed error page.
+
 // Get popular tags for browse components
 const popularTags = computed(() => {
   if (!articles.value)
