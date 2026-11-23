@@ -1,15 +1,16 @@
-name: Endform on Netlify Preview
+name: Endform on Vercel Preview
 
 # Runs the Playwright suite on Endform's cloud runners against a deploy preview
-# for a PR — the parallel counterpart to preview-tests.yml. Default host remains
-# Netlify (unchanged). Optional Vercel via workflow_dispatch preview_host/base_url.
+# for a PR - the parallel counterpart to preview-tests.yml. Default host is
+# Vercel. Optional Netlify via workflow_dispatch only.
 #
 # Auth: Endform uses OIDC (no secret token). The Endform GitHub App must be
 # installed and this repo connected in the Endform dashboard, and the job needs
 # `id-token: write`. See https://endform.dev/docs/guides/getting-started
 #
-# Preview URL: same resolution as preview-tests.yml (Netlify status by default;
-# Vercel status with vercel.app target_url when preview_host=vercel).
+# Preview URL: same SHA-tied resolution as preview-tests.yml (Vercel by default).
+# Protection bypass: VERCEL_AUTOMATION_BYPASS_SECRET goes to Endform runners via
+# endform.config.ts / tests/fixtures.ts (scoped to *.vercel.app only).
 
 on:
   pull_request:
@@ -17,21 +18,23 @@ on:
   workflow_dispatch:
     inputs:
       base_url:
-        description: Preview URL to test (skips polling). Netlify or Vercel.
+        description: Preview URL to test (skips polling). Vercel or Netlify.
         required: false
         type: string
       preview_host:
-        description: 'When base_url is empty, which commit status to poll'
+        description: 'When base_url is empty, which preview host to resolve'
         required: false
         type: choice
-        default: netlify
+        default: vercel
         options:
-          - netlify
           - vercel
+          - netlify
 
 permissions:
   contents: read
   statuses: read
+  deployments: read
+  pull-requests: read
   id-token: write # required for OIDC authentication with Endform
 
 jobs:
@@ -45,9 +48,11 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MANUAL_URL: ${{ github.event.inputs.base_url }}
-          PREVIEW_HOST: ${{ github.event.inputs.preview_host || 'netlify' }}
+          PREVIEW_HOST: ${{ github.event.inputs.preview_host || 'vercel' }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
           REPO: ${{ github.repository }}
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
           set -euo pipefail
           if [ -n "${MANUAL_URL:-}" ]; then
@@ -59,52 +64,164 @@ jobs:
             echo "::error::No PR head SHA and no manual base_url. On workflow_dispatch, supply the 'base_url' input."
             exit 1
           fi
-          HOST="${PREVIEW_HOST:-netlify}"
+          HOST="${PREVIEW_HOST:-vercel}"
           echo "Preview host: $HOST"
+
+          resolve_vercel_url() {
+            local DEP_JSON GH_DEP_ID ENV_URL COMMENT META DPL_ID UNIQUE
+            DEP_JSON=$(gh api "repos/$REPO/deployments?sha=$HEAD_SHA&per_page=50" \
+              --jq '[.[] | select(
+                (.creator.login // "") == "vercel[bot]"
+                or ((.environment // "") | test("preview|Preview|vercel"; "i"))
+              )] | first // empty' 2>/dev/null || echo "")
+            if [ -n "$DEP_JSON" ] && [ "$DEP_JSON" != "null" ]; then
+              GH_DEP_ID=$(printf '%s' "$DEP_JSON" | jq -r '.id // empty')
+              if [ -n "$GH_DEP_ID" ]; then
+                ENV_URL=$(gh api "repos/$REPO/deployments/$GH_DEP_ID/statuses" \
+                  --jq '[.[] | select(.state=="success" and (.environment_url|tostring|test("vercel\\.app")))] | first | .environment_url // empty' \
+                  2>/dev/null || echo "")
+                if [ -n "$ENV_URL" ] && [ "$ENV_URL" != "null" ]; then
+                  printf '%s' "$ENV_URL"
+                  return 0
+                fi
+              fi
+            fi
+
+            DPL_ID=$(gh api "repos/$REPO/commits/$HEAD_SHA/statuses" \
+              --jq '[.[] | select(.context=="Vercel" and .state=="success")][0].target_url // empty' \
+              2>/dev/null | sed 's|.*/||')
+            if [ -z "$DPL_ID" ] || [ "$DPL_ID" = "null" ]; then
+              return 1
+            fi
+            echo "HEAD_SHA deployment id: $DPL_ID" >&2
+
+            if [ -n "${VERCEL_TOKEN:-}" ]; then
+              UNIQUE=$(curl -sS -H "Authorization: Bearer $VERCEL_TOKEN" \
+                "https://api.vercel.com/v13/deployments/dpl_${DPL_ID}" \
+                | jq -r '.url // empty' 2>/dev/null || echo "")
+              if [ -n "$UNIQUE" ] && [ "$UNIQUE" != "null" ]; then
+                case "$UNIQUE" in
+                  https://*) printf '%s' "$UNIQUE" ;;
+                  *) printf 'https://%s' "$UNIQUE" ;;
+                esac
+                return 0
+              fi
+            fi
+
+            if [ -z "${PR_NUMBER:-}" ]; then
+              return 1
+            fi
+            COMMENT=$(gh api "repos/$REPO/issues/$PR_NUMBER/comments" \
+              --jq '[.[] | select(.user.login=="vercel[bot]")] | last | .body // empty' \
+              2>/dev/null || echo "")
+            if [ -z "$COMMENT" ]; then
+              return 1
+            fi
+            if ! printf '%s' "$COMMENT" | grep -Eq "/${DPL_ID}(\)|\"|/|$)"; then
+              echo "bot comment inspector does not match HEAD_SHA deployment $DPL_ID" >&2
+              return 1
+            fi
+
+            ENV_URL=$(printf '%s' "$COMMENT" | sed -n 's/.*\[Preview\](\(https:\/\/[^)]*\.vercel\.app\)).*/\1/p' | head -n1)
+            if [ -n "$ENV_URL" ]; then
+              printf '%s' "$ENV_URL"
+              return 0
+            fi
+
+            META=$(printf '%s' "$COMMENT" | sed -n 's/.*\[vc\]: #[^:]*:\([A-Za-z0-9+/=]*\).*/\1/p' | head -n1)
+            if [ -n "$META" ]; then
+              ENV_URL=$(printf '%s' "$META" | base64 -d 2>/dev/null \
+                | jq -r '.projects[0].previewUrl // empty' 2>/dev/null || echo "")
+              if [ -n "$ENV_URL" ] && [ "$ENV_URL" != "null" ]; then
+                case "$ENV_URL" in
+                  https://*) printf '%s' "$ENV_URL" ;;
+                  *) printf 'https://%s' "$ENV_URL" ;;
+                esac
+                return 0
+              fi
+            fi
+            return 1
+          }
+
           for i in $(seq 1 60); do
             if [ "$HOST" = "vercel" ]; then
-              READ=$(gh api "repos/$REPO/commits/$HEAD_SHA/statuses" \
-                --jq '[.[] | select(.state=="success" and (.target_url|tostring|test("vercel\\.app")))][0] | "\(.state)\t\(.target_url)"' \
+              VSTATE=$(gh api "repos/$REPO/commits/$HEAD_SHA/statuses" \
+                --jq '[.[] | select(.context=="Vercel")][0].state // empty' \
                 2>/dev/null || echo "")
-              LABEL="Vercel (vercel.app status)"
+              URL=$(resolve_vercel_url || true)
+              LABEL="Vercel (SHA-tied deployments / status id / bot comment)"
+              echo "attempt $i ($LABEL): vercel_status='${VSTATE:-none}' url='${URL:-none}'"
+              if [ "$VSTATE" = "success" ] && [ -n "${URL:-}" ]; then
+                echo "Preview ready: $URL"
+                echo "base_url=$URL" >> "$GITHUB_OUTPUT"
+                exit 0
+              fi
+              if [ "$VSTATE" = "failure" ] || [ "$VSTATE" = "error" ]; then
+                echo "::error::Vercel preview reported '$VSTATE'. Aborting."
+                exit 1
+              fi
             else
               CONTEXT="netlify/debbiecodes/deploy-preview"
               READ=$(gh api "repos/$REPO/commits/$HEAD_SHA/statuses" \
                 --jq "[.[] | select(.context == \"$CONTEXT\")][0] | \"\(.state)\t\(.target_url)\"" \
                 2>/dev/null || echo "")
               LABEL="Netlify ($CONTEXT)"
-            fi
-            STATE="${READ%%$'\t'*}"
-            URL="${READ#*$'\t'}"
-            echo "attempt $i ($LABEL): state='${STATE:-none}' url='${URL:-none}'"
-            case "$STATE" in
-              success)
-                if [ -n "$URL" ] && [ "$URL" != "null" ]; then
-                  echo "Preview ready: $URL"
-                  echo "base_url=$URL" >> "$GITHUB_OUTPUT"
-                  exit 0
-                fi
-                ;;
-              failure|error)
-                if [ "$HOST" != "vercel" ]; then
+              STATE="${READ%%$'\t'*}"
+              URL="${READ#*$'\t'}"
+              echo "attempt $i ($LABEL): state='${STATE:-none}' url='${URL:-none}'"
+              case "$STATE" in
+                success)
+                  if [ -n "$URL" ] && [ "$URL" != "null" ]; then
+                    echo "Preview ready: $URL"
+                    echo "base_url=$URL" >> "$GITHUB_OUTPUT"
+                    exit 0
+                  fi
+                  ;;
+                failure|error)
                   echo "::error::Netlify preview reported '$STATE'. Aborting."
                   exit 1
-                fi
-                ;;
-            esac
+                  ;;
+              esac
+            fi
             sleep 10
           done
-          echo "::error::Timed out waiting for $HOST preview status."
+          echo "::error::Timed out waiting for $HOST preview."
           exit 1
 
       - name: Verify preview responds with HTTP 200
+        env:
+          VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
         run: |
           set -euo pipefail
           URL="${{ steps.resolve.outputs.base_url }}"
+          echo "Checking $URL is reachable…"
+
+          # Only attach the bypass secret to trusted HTTPS *.vercel.app hosts.
+          # Do not follow redirects (-L): protection answers 302 first, and -L
+          # would also forward the secret to cross-origin login destinations.
+          CURL_ARGS=()
+          IS_VERCEL=0
+          if printf '%s' "$URL" | grep -Eq '^https://([^/]+\.)?vercel\.app(/|$)'; then
+            IS_VERCEL=1
+          fi
+          if [ "$IS_VERCEL" = "1" ] && [ -n "${VERCEL_AUTOMATION_BYPASS_SECRET:-}" ]; then
+            echo "::add-mask::$VERCEL_AUTOMATION_BYPASS_SECRET"
+            CURL_ARGS+=(-H "x-vercel-protection-bypass: ${VERCEL_AUTOMATION_BYPASS_SECRET}")
+          fi
+
           for i in $(seq 1 24); do
-            CODE=$(curl -s -o /dev/null -w "%{http_code}" -L "$URL" || echo "000")
+            CODE=$(curl -s -o /dev/null -w "%{http_code}" "${CURL_ARGS[@]}" "$URL" || echo "000")
             echo "attempt $i: HTTP $CODE"
-            [ "$CODE" = "200" ] && { echo "Preview is live."; exit 0; }
+            if [ "$CODE" = "200" ]; then
+              echo "Preview is live."
+              exit 0
+            fi
+            if [ "$CODE" = "401" ] || [ "$CODE" = "403" ] || [ "$CODE" = "302" ]; then
+              if [ "$IS_VERCEL" = "1" ] && [ -z "${VERCEL_AUTOMATION_BYPASS_SECRET:-}" ]; then
+                echo "::error::Preview is protected (HTTP $CODE) and VERCEL_AUTOMATION_BYPASS_SECRET is not set. Fork PRs cannot use repo secrets."
+                exit 1
+              fi
+            fi
             sleep 5
           done
           echo "::error::Preview URL never returned HTTP 200."
@@ -120,8 +237,14 @@ jobs:
       # regardless of which one it reads.
       BASE_URL: ${{ needs.resolve-preview.outputs.base_url }}
       PLAYWRIGHT_TEST_BASE_URL: ${{ needs.resolve-preview.outputs.base_url }}
+      VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
     steps:
       - uses: actions/checkout@v4
+      - name: Mask Vercel bypass secret
+        run: |
+          if [ -n "${VERCEL_AUTOMATION_BYPASS_SECRET:-}" ]; then
+            echo "::add-mask::$VERCEL_AUTOMATION_BYPASS_SECRET"
+          fi
       - uses: actions/setup-node@v4
         with:
           node-version: 22.23.3

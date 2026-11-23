@@ -89,7 +89,8 @@ test.describe('Sitemap and /talks redirect', () => {
 
     for (const path of ['/talks', '/talks/']) {
       const res = await request.get(path, { maxRedirects: 0 });
-      expect([301, 302, 308], path).toContain(res.status());
+      // Vercel may use 307 for temporary redirects; Netlify uses 301.
+      expect([301, 302, 307, 308], path).toContain(res.status());
       expect(res.headers().location, path).toMatch(/\/speaking\/?$/);
     }
   });

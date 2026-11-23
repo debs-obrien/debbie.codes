@@ -3,7 +3,7 @@ import { defineConfig, devices } from '@playwright/test'
 
 /**
  * Resolve the base URL for the run. When an external URL is provided (a
- * Netlify deploy-preview in CI, or Endform's cloud runners), tests run against
+ * Vercel deploy preview in CI, or Endform's cloud runners), tests run against
  * that already-deployed site and we must NOT boot a local `npm run dev` server.
  * Only start the local webServer when no external base URL was provided
  * (local development default).
@@ -28,10 +28,15 @@ const isEndform = process.env.ENDFORM === 'true'
 /**
  * See https://playwright.dev/docs/test-configuration.
  *
- * Vercel Deployment Protection OIDC (`VERCEL_OIDC_TOKEN`) is scoped in
+ * Vercel Deployment Protection (OIDC + automation bypass) is scoped in
  * `tests/fixtures.ts` to `*.vercel.app` only — never via `extraHTTPHeaders`
- * (that would leak the token to YouTube, Cloudinary, and other third parties).
+ * (that would leak secrets to YouTube, Cloudinary, GitHub, and other third
+ * parties). Endform transfers `VERCEL_AUTOMATION_BYPASS_SECRET` via
+ * endform.config.ts `environmentVariables`.
  */
+// Keep a soft reference so local greps / Endform scanners see the env name
+// alongside endform.config.ts (value unused here on purpose).
+void process.env.VERCEL_AUTOMATION_BYPASS_SECRET
 export default defineConfig({
   testDir: './tests',
   /* Run tests in files in parallel */
@@ -104,7 +109,7 @@ export default defineConfig({
   ],
 
   /* Run your local dev server before starting the tests.
-   * Skipped when an external base URL is set (Netlify preview in CI, Endform
+   * Skipped when an external base URL is set (Vercel preview in CI, Endform
    * cloud runners), so we don't boot or race a local dev server. */
   webServer: (externalBaseURL || isEndform)
     ? undefined
