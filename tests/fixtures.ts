@@ -69,7 +69,7 @@ export function vercelAppOnlyHeaders(
 
 /**
  * Wrap APIRequestContext so Vercel protection headers are added only for
- * *.vercel.app. Covers the `request` fixture and `page.request`.
+ * vercel.app hosts. Covers the `request` fixture and `page.request`.
  */
 export function wrapApiRequestWithVercelOidc(
   request: APIRequestContext,

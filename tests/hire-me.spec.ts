@@ -54,7 +54,7 @@ test.describe('Hire me page', () => {
     // for every path. Assert the header only outside those previews (local
     // mock / production), where it reflects app/route config.
     const isDeployPreview = /deploy-preview|--.*\.netlify\.app|\.vercel\.app/i.test(
-      externalBaseURL || '',
+      externalBaseURL || ''
     );
     if (!isDeployPreview) {
       const headerRes = await request.get(hireMePath);
