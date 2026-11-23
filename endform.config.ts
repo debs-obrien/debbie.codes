@@ -13,4 +13,8 @@ export default defineEndformConfig({
     // Allowlist sync test reads this at runtime (not import-bundled).
     'netlify.toml',
   ],
+  // Belt-and-braces: transfer Vercel bypass even if config load order varies.
+  // playwright.config.ts also references VERCEL_AUTOMATION_BYPASS_SECRET for
+  // extraHTTPHeaders (those win over Endform's own headers when both are set).
+  environmentVariables: ['VERCEL_AUTOMATION_BYPASS_SECRET'],
 })

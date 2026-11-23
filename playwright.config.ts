@@ -3,7 +3,7 @@ import { defineConfig, devices } from '@playwright/test'
 
 /**
  * Resolve the base URL for the run. When an external URL is provided (a
- * Netlify deploy-preview in CI, or Endform's cloud runners), tests run against
+ * Vercel deploy preview in CI, or Endform's cloud runners), tests run against
  * that already-deployed site and we must NOT boot a local `npm run dev` server.
  * Only start the local webServer when no external base URL was provided
  * (local development default).
@@ -19,6 +19,16 @@ import { defineConfig, devices } from '@playwright/test'
 const externalBaseURL = (process.env.PLAYWRIGHT_TEST_BASE_URL || process.env.BASE_URL)?.trim() || undefined
 const isEndform = process.env.ENDFORM === 'true'
 
+/** Vercel Deployment Protection bypass (CI / Endform). Only set when present. */
+const vercelBypassSecret = process.env.VERCEL_AUTOMATION_BYPASS_SECRET?.trim() || undefined
+const vercelBypassHeaders = vercelBypassSecret
+  ? {
+      'x-vercel-protection-bypass': vercelBypassSecret,
+      // So browser navigations after the first request keep access.
+      'x-vercel-set-bypass-cookie': 'true',
+    }
+  : undefined
+
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -28,9 +38,11 @@ const isEndform = process.env.ENDFORM === 'true'
 /**
  * See https://playwright.dev/docs/test-configuration.
  *
- * Vercel Deployment Protection OIDC (`VERCEL_OIDC_TOKEN`) is scoped in
- * `tests/fixtures.ts` to `*.vercel.app` only — never via `extraHTTPHeaders`
- * (that would leak the token to YouTube, Cloudinary, and other third parties).
+ * Vercel Deployment Protection:
+ * - Automation bypass (`VERCEL_AUTOMATION_BYPASS_SECRET`) via `extraHTTPHeaders`
+ *   when set (preview CI + Endform). Endform transfers env vars referenced here.
+ * - OIDC (`VERCEL_OIDC_TOKEN`) stays scoped in `tests/fixtures.ts` to
+ *   `*.vercel.app` only (never via `extraHTTPHeaders`).
  */
 export default defineConfig({
   testDir: './tests',
@@ -60,6 +72,7 @@ export default defineConfig({
     /* Cloudinary is blocked by default via tests/fixtures.ts (res.cloudinary.com
      * plus /_ipx/ and /.netlify/images proxies). Import { test } from './fixtures'
      * in specs — do not pull real media in CI. Opt out: test.use({ blockCloudinary: false }). */
+    ...(vercelBypassHeaders ? { extraHTTPHeaders: vercelBypassHeaders } : {}),
   },
 
   /* Configure projects for major browsers */
@@ -104,7 +117,7 @@ export default defineConfig({
   ],
 
   /* Run your local dev server before starting the tests.
-   * Skipped when an external base URL is set (Netlify preview in CI, Endform
+   * Skipped when an external base URL is set (Vercel preview in CI, Endform
    * cloud runners), so we don't boot or race a local dev server. */
   webServer: (externalBaseURL || isEndform)
     ? undefined
