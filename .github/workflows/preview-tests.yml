@@ -6,15 +6,16 @@ name: Playwright on Vercel Preview
 # Why it's built this way (gotchas baked in):
 #
 #  1. Vercel's commit status (context "Vercel") points at vercel.com (dashboard),
-#     NOT the vercel.app preview URL. This repo also has no Vercel GitHub
-#     Deployment objects, so we try the Deployments API first, then fall back to
-#     the vercel[bot] PR comment (markdown Preview link / [vc] metadata).
-#     Netlify still publishes its URL as a commit status target_url.
+#     NOT the vercel.app preview URL. Resolution is always keyed to HEAD_SHA:
+#     Deployments API for that SHA first; else the vercel[bot] PR comment only
+#     when its inspector URL's deployment id matches the Vercel status for
+#     HEAD_SHA (avoids testing a newer commit's branch alias on a rerun).
+#     Optional VERCEL_TOKEN yields that deployment's immutable *.vercel.app URL.
 #
 #  2. Vercel Deployment Protection returns 302 without a bypass. Repo secret
 #     VERCEL_AUTOMATION_BYPASS_SECRET is sent as x-vercel-protection-bypass
-#     for the readiness probe and Playwright (see playwright.config.ts).
-#     Fork PRs lack secrets and fail clearly.
+#     only to https://*.vercel.app (readiness + tests/fixtures.ts). Never -L
+#     with the secret. Fork PRs lack secrets and fail clearly.
 #
 #  3. We trigger on `pull_request` (not `status`) so the PR branch's own
 #     workflow file runs and this change is self-testing before merge.
@@ -59,6 +60,8 @@ jobs:
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
           REPO: ${{ github.repository }}
+          # Optional: unique immutable *.vercel.app for the SHA's deployment id.
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
           set -euo pipefail
 
@@ -76,18 +79,19 @@ jobs:
           HOST="${PREVIEW_HOST:-vercel}"
           echo "Preview host: $HOST"
 
-          # Vercel: Deployments API (environment_url), then vercel[bot] PR comment.
+          # Resolve a preview URL that belongs to HEAD_SHA's Vercel deployment.
           resolve_vercel_url() {
-            local DEP_JSON DEP_ID STATUS_URL ENV_URL COMMENT META
+            local DEP_JSON GH_DEP_ID ENV_URL COMMENT META DPL_ID UNIQUE
+            # 1) GitHub Deployments for this SHA (immutable environment_url when present).
             DEP_JSON=$(gh api "repos/$REPO/deployments?sha=$HEAD_SHA&per_page=50" \
               --jq '[.[] | select(
                 (.creator.login // "") == "vercel[bot]"
                 or ((.environment // "") | test("preview|Preview|vercel"; "i"))
               )] | first // empty' 2>/dev/null || echo "")
             if [ -n "$DEP_JSON" ] && [ "$DEP_JSON" != "null" ]; then
-              DEP_ID=$(printf '%s' "$DEP_JSON" | jq -r '.id // empty')
-              if [ -n "$DEP_ID" ]; then
-                ENV_URL=$(gh api "repos/$REPO/deployments/$DEP_ID/statuses" \
+              GH_DEP_ID=$(printf '%s' "$DEP_JSON" | jq -r '.id // empty')
+              if [ -n "$GH_DEP_ID" ]; then
+                ENV_URL=$(gh api "repos/$REPO/deployments/$GH_DEP_ID/statuses" \
                   --jq '[.[] | select(.state=="success" and (.environment_url|tostring|test("vercel\\.app")))] | first | .environment_url // empty' \
                   2>/dev/null || echo "")
                 if [ -n "$ENV_URL" ] && [ "$ENV_URL" != "null" ]; then
@@ -97,14 +101,41 @@ jobs:
               fi
             fi
 
+            # Deployment id from this SHA's Vercel commit status (dashboard URL last segment).
+            DPL_ID=$(gh api "repos/$REPO/commits/$HEAD_SHA/statuses" \
+              --jq '[.[] | select(.context=="Vercel" and .state=="success")][0].target_url // empty' \
+              2>/dev/null | sed 's|.*/||')
+            if [ -z "$DPL_ID" ] || [ "$DPL_ID" = "null" ]; then
+              return 1
+            fi
+            echo "HEAD_SHA deployment id: $DPL_ID" >&2
+
+            # 2) Optional Vercel API: immutable unique *.vercel.app for dpl_$DPL_ID.
+            if [ -n "${VERCEL_TOKEN:-}" ]; then
+              UNIQUE=$(curl -sS -H "Authorization: Bearer $VERCEL_TOKEN" \
+                "https://api.vercel.com/v13/deployments/dpl_${DPL_ID}" \
+                | jq -r '.url // empty' 2>/dev/null || echo "")
+              if [ -n "$UNIQUE" ] && [ "$UNIQUE" != "null" ]; then
+                case "$UNIQUE" in
+                  https://*) printf '%s' "$UNIQUE" ;;
+                  *) printf 'https://%s' "$UNIQUE" ;;
+                esac
+                return 0
+              fi
+            fi
+
+            # 3) vercel[bot] comment only if inspector URL is for this SHA's deployment id.
             if [ -z "${PR_NUMBER:-}" ]; then
               return 1
             fi
-
             COMMENT=$(gh api "repos/$REPO/issues/$PR_NUMBER/comments" \
               --jq '[.[] | select(.user.login=="vercel[bot]")] | last | .body // empty' \
               2>/dev/null || echo "")
             if [ -z "$COMMENT" ]; then
+              return 1
+            fi
+            if ! printf '%s' "$COMMENT" | grep -Eq "/${DPL_ID}(\)|\"|/|$)"; then
+              echo "bot comment inspector does not match HEAD_SHA deployment $DPL_ID" >&2
               return 1
             fi
 
@@ -135,7 +166,7 @@ jobs:
                 --jq '[.[] | select(.context=="Vercel")][0].state // empty' \
                 2>/dev/null || echo "")
               URL=$(resolve_vercel_url || true)
-              LABEL="Vercel (deployments API or bot comment)"
+              LABEL="Vercel (SHA-tied deployments / status id / bot comment)"
               echo "attempt $i ($LABEL): vercel_status='${VSTATE:-none}' url='${URL:-none}'"
               if [ "$VSTATE" = "success" ] && [ -n "${URL:-}" ]; then
                 echo "Preview ready: $URL"
