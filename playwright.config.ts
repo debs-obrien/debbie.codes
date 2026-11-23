@@ -21,12 +21,12 @@ const isEndform = process.env.ENDFORM === 'true'
 
 /** Vercel Deployment Protection bypass (CI / Endform). Only set when present. */
 const vercelBypassSecret = process.env.VERCEL_AUTOMATION_BYPASS_SECRET?.trim() || undefined
+// Bypass header alone: Playwright attaches extraHTTPHeaders to every request
+// (goto, APIRequest, etc.), so each call is authorized with 200. Do NOT also
+// send x-vercel-set-bypass-cookie: that makes Vercel answer 307 + Set-Cookie
+// and breaks maxRedirects: 0 assertions (e.g. perf-a11y, /talks redirect).
 const vercelBypassHeaders = vercelBypassSecret
-  ? {
-      'x-vercel-protection-bypass': vercelBypassSecret,
-      // So browser navigations after the first request keep access.
-      'x-vercel-set-bypass-cookie': 'true',
-    }
+  ? { 'x-vercel-protection-bypass': vercelBypassSecret }
   : undefined
 
 /**
