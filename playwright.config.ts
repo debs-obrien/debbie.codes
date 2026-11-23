@@ -19,16 +19,6 @@ import { defineConfig, devices } from '@playwright/test'
 const externalBaseURL = (process.env.PLAYWRIGHT_TEST_BASE_URL || process.env.BASE_URL)?.trim() || undefined
 const isEndform = process.env.ENDFORM === 'true'
 
-/** Vercel Deployment Protection bypass (CI / Endform). Only set when present. */
-const vercelBypassSecret = process.env.VERCEL_AUTOMATION_BYPASS_SECRET?.trim() || undefined
-// Bypass header alone: Playwright attaches extraHTTPHeaders to every request
-// (goto, APIRequest, etc.), so each call is authorized with 200. Do NOT also
-// send x-vercel-set-bypass-cookie: that makes Vercel answer 307 + Set-Cookie
-// and breaks maxRedirects: 0 assertions (e.g. perf-a11y, /talks redirect).
-const vercelBypassHeaders = vercelBypassSecret
-  ? { 'x-vercel-protection-bypass': vercelBypassSecret }
-  : undefined
-
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -38,12 +28,15 @@ const vercelBypassHeaders = vercelBypassSecret
 /**
  * See https://playwright.dev/docs/test-configuration.
  *
- * Vercel Deployment Protection:
- * - Automation bypass (`VERCEL_AUTOMATION_BYPASS_SECRET`) via `extraHTTPHeaders`
- *   when set (preview CI + Endform). Endform transfers env vars referenced here.
- * - OIDC (`VERCEL_OIDC_TOKEN`) stays scoped in `tests/fixtures.ts` to
- *   `*.vercel.app` only (never via `extraHTTPHeaders`).
+ * Vercel Deployment Protection (OIDC + automation bypass) is scoped in
+ * `tests/fixtures.ts` to `*.vercel.app` only — never via `extraHTTPHeaders`
+ * (that would leak secrets to YouTube, Cloudinary, GitHub, and other third
+ * parties). Endform transfers `VERCEL_AUTOMATION_BYPASS_SECRET` via
+ * endform.config.ts `environmentVariables`.
  */
+// Keep a soft reference so local greps / Endform scanners see the env name
+// alongside endform.config.ts (value unused here on purpose).
+void process.env.VERCEL_AUTOMATION_BYPASS_SECRET
 export default defineConfig({
   testDir: './tests',
   /* Run tests in files in parallel */
@@ -72,7 +65,6 @@ export default defineConfig({
     /* Cloudinary is blocked by default via tests/fixtures.ts (res.cloudinary.com
      * plus /_ipx/ and /.netlify/images proxies). Import { test } from './fixtures'
      * in specs — do not pull real media in CI. Opt out: test.use({ blockCloudinary: false }). */
-    ...(vercelBypassHeaders ? { extraHTTPHeaders: vercelBypassHeaders } : {}),
   },
 
   /* Configure projects for major browsers */

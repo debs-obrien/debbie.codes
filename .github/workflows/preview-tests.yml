@@ -183,21 +183,28 @@ jobs:
           URL="${{ steps.resolve.outputs.base_url }}"
           echo "Checking $URL is reachable…"
 
+          # Only attach the bypass secret to trusted HTTPS *.vercel.app hosts.
+          # Do not follow redirects (-L): protection answers 302 first, and -L
+          # would also forward the secret to cross-origin login destinations.
           CURL_ARGS=()
-          if [ -n "${VERCEL_AUTOMATION_BYPASS_SECRET:-}" ]; then
+          IS_VERCEL=0
+          if printf '%s' "$URL" | grep -Eq '^https://([^/]+\.)?vercel\.app(/|$)'; then
+            IS_VERCEL=1
+          fi
+          if [ "$IS_VERCEL" = "1" ] && [ -n "${VERCEL_AUTOMATION_BYPASS_SECRET:-}" ]; then
             echo "::add-mask::$VERCEL_AUTOMATION_BYPASS_SECRET"
             CURL_ARGS+=(-H "x-vercel-protection-bypass: ${VERCEL_AUTOMATION_BYPASS_SECRET}")
           fi
 
           for i in $(seq 1 24); do
-            CODE=$(curl -s -o /dev/null -w "%{http_code}" -L "${CURL_ARGS[@]}" "$URL" || echo "000")
+            CODE=$(curl -s -o /dev/null -w "%{http_code}" "${CURL_ARGS[@]}" "$URL" || echo "000")
             echo "attempt $i: HTTP $CODE"
             if [ "$CODE" = "200" ]; then
               echo "Preview is live."
               exit 0
             fi
             if [ "$CODE" = "401" ] || [ "$CODE" = "403" ] || [ "$CODE" = "302" ]; then
-              if [ -z "${VERCEL_AUTOMATION_BYPASS_SECRET:-}" ]; then
+              if [ "$IS_VERCEL" = "1" ] && [ -z "${VERCEL_AUTOMATION_BYPASS_SECRET:-}" ]; then
                 echo "::error::Preview is protected (HTTP $CODE) and VERCEL_AUTOMATION_BYPASS_SECRET is not set. Fork PRs cannot use repo secrets."
                 exit 1
               fi
