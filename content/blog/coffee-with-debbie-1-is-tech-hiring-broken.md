@@ -10,7 +10,7 @@ Hi everyone, and welcome to Coffee with Debbie. I don't even drink coffee, but I
 
 In this first episode I talk about hiring, and how hiring is broken. It's an interesting topic for me because I'm going through the process myself. And no, this is not a scary video. I'm being very particular about where I want to work and what kind of role I want, so please don't take what I'm going through as "this is the way the industry is".
 
-::youtube{id="F8DGfxWZ0lk"}
+::youtube{id="RKdxx2QsWe8"}
 ::
 
 ## DevRel and living out of a suitcase
