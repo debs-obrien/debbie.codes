@@ -102,7 +102,7 @@ function onChapterSelect(seconds: number) {
         {{ latest.title }}
       </h3>
       <p class="m-0 mb-3 text-[15px] font-medium text-gray-600 dark:text-gray-300">
-        <Date :date="latest.date" /> · {{ latest.duration }}
+        <Date :date="latest.date" inline /> · {{ latest.duration }}
       </p>
       <p class="m-0 mb-3 max-w-3xl">
         {{ latest.short }}
@@ -139,10 +139,7 @@ function onChapterSelect(seconds: number) {
       </h2>
       <p class="m-0">
         Got a topic you'd like me to talk about?
-        <NuxtLink
-          to="/contact"
-          class="font-bold text-[#d8002d] dark:text-[#ff5a73] no-underline hover:underline focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-[#d8002d] dark:focus-visible:outline-[#ff5a73]"
-        >Suggest one on the contact page</NuxtLink>.
+        <NuxtLink to="/contact" class="font-bold text-[#d8002d] dark:text-[#ff5a73] no-underline hover:underline focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-[#d8002d] dark:focus-visible:outline-[#ff5a73]">Suggest one on the contact page</NuxtLink>.
       </p>
     </section>
   </main>

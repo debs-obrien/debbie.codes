@@ -25,7 +25,7 @@ defineProps<{
               {{ episode.title }}
             </h3>
             <p class="m-0 mb-3 text-[15px] font-medium text-gray-600 dark:text-gray-300">
-              <Date :date="episode.date" /> · {{ episode.duration }}
+              <Date :date="episode.date" inline /> · {{ episode.duration }}
             </p>
             <p class="m-0 text-[inherit] max-w-3xl">
               {{ episode.short }}

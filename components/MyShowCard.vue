@@ -81,7 +81,7 @@ const latest = coffeeWithDebbieEpisodes[0]
           </NuxtLink>
         </h3>
         <p class="m-0 mb-2 text-[15px] font-medium text-gray-600 dark:text-gray-300">
-          <Date :date="latest.date" /> · {{ latest.duration }}
+          <Date :date="latest.date" inline /> · {{ latest.duration }}
         </p>
         <p class="m-0 mb-3 text-gray-600 dark:text-gray-300">
           {{ latest.short }}
