@@ -57,7 +57,13 @@ test.describe('WebMCP tools', () => {
     expect(tool!.description.length).toBeLessThanOrEqual(500);
     expect(tool!.description).toBe(listVideos.description);
     expect(tool!.inputSchema).toEqual(listVideos.inputSchema);
-    expect(tool!.annotations?.readOnly).toBe(true);
+    // page.webmcp maps annotations to `readOnly`; document.modelContext keeps `readOnlyHint`.
+    const annotations = await page.evaluate(async () => {
+      const mc = (document as { modelContext?: { getTools?: () => Promise<Array<{ name: string, annotations?: { readOnlyHint?: boolean } }>> } }).modelContext;
+      const tools = await mc?.getTools?.() ?? [];
+      return tools.find(t => t.name === 'list-videos')?.annotations;
+    });
+    expect(annotations?.readOnlyHint).toBe(true);
   });
 
   test('list-videos returns real videos that match /videos', async ({ page }) => {
@@ -142,8 +148,14 @@ test.describe('WebMCP tools', () => {
   test('registers every tool as read-only', async ({ page }) => {
     const tools = await page.webmcp.tools();
     expect(tools.map(tool => tool.name).sort()).toEqual(Object.values(webmcpTools).map(tool => tool.name).sort());
-    for (const tool of tools)
-      expect(tool.annotations?.readOnly).toBe(true);
+    // page.webmcp maps annotations to `readOnly`; document.modelContext keeps `readOnlyHint`.
+    const annotations = await page.evaluate(async () => {
+      const mc = (document as { modelContext?: { getTools?: () => Promise<Array<{ annotations?: { readOnlyHint?: boolean } }>> } }).modelContext;
+      return (await mc?.getTools?.() ?? []).map(tool => tool.annotations?.readOnlyHint);
+    });
+    expect(annotations.length).toBe(tools.length);
+    for (const readOnlyHint of annotations)
+      expect(readOnlyHint).toBe(true);
   });
 
   test('topic-brief summarizes mcp and accepts the long alias', async ({ page, request, baseURL }) => {
@@ -450,6 +462,76 @@ async function responseLooksLikeWebmcpTools(response: import('@playwright/test')
   }
 }
 
+test.describe('WebMCP lazy content index', () => {
+  // Endform's cloud runners do not expose Playwright's page.webmcp API yet.
+  test.skip(() => process.env.ENDFORM === 'true', 'Endform runners do not expose page.webmcp');
+
+  test('registers tools on load without fetching content-index.json', async ({ page, baseURL }) => {
+    test.skip(!page.webmcp, 'page.webmcp unavailable in this browser');
+
+    const indexRequests: string[] = [];
+    page.on('request', (req) => {
+      if (req.url().includes('/webmcp/content-index.json'))
+        indexRequests.push(req.url());
+    });
+
+    await page.goto(baseURL || 'http://127.0.0.1:8000/', { waitUntil: 'networkidle' });
+    await waitForWebmcpTools(page);
+
+    const tools = await page.webmcp.tools();
+    expect(tools.map(t => t.name).sort()).toEqual(expected);
+    expect(indexRequests).toEqual([]);
+  });
+
+  test('first tool call fetches content-index.json once and caches for later calls', async ({ page, request, baseURL }) => {
+    test.skip(!page.webmcp, 'page.webmcp unavailable in this browser');
+
+    const indexRequests: string[] = [];
+    page.on('request', (req) => {
+      if (req.url().includes('/webmcp/content-index.json'))
+        indexRequests.push(req.url());
+    });
+
+    await page.goto(baseURL || 'http://127.0.0.1:8000/', { waitUntil: 'domcontentloaded' });
+    await waitForWebmcpTools(page);
+    expect(indexRequests).toEqual([]);
+
+    const raw = await loadSiteCatalog(request, baseURL);
+    const index = parseContentIndex(raw);
+    const expectedList = runListVideos(index, { tag: 'playwright', limit: 3 });
+
+    const first: any = await page.webmcp.callTool('list-videos', { tag: 'playwright', limit: 3 });
+    expect(first.error).toBeUndefined();
+    expect(first).toEqual(expectedList);
+    expect(indexRequests).toHaveLength(1);
+
+    const second: any = await page.webmcp.callTool('list-videos', { tag: 'playwright', limit: 3 });
+    expect(second).toEqual(first);
+    expect(indexRequests).toHaveLength(1);
+
+    // Concurrent first-call dedupe: cold page, two tools at once → one fetch.
+    const cold = await page.context().newPage();
+    expect(cold.webmcp, 'new page should expose page.webmcp in this browser').toBeTruthy();
+    const coldRequests: string[] = [];
+    cold.on('request', (req) => {
+      if (req.url().includes('/webmcp/content-index.json'))
+        coldRequests.push(req.url());
+    });
+    await cold.goto(baseURL || 'http://127.0.0.1:8000/', { waitUntil: 'domcontentloaded' });
+    await waitForWebmcpTools(cold);
+    expect(coldRequests).toEqual([]);
+
+    const [a, b] = await Promise.all([
+      cold.webmcp!.callTool('topic-brief', { topic: 'mcp' }),
+      cold.webmcp!.callTool('search-content', { query: 'playwright' })
+    ]);
+    expect((a as any).error).toBeUndefined();
+    expect((b as any).error).toBeUndefined();
+    expect(coldRequests).toHaveLength(1);
+    await cold.close();
+  });
+});
+
 test('page load without document.modelContext fetches no WebMCP code or index', async ({ context, baseURL }) => {
   // Chromium 156+ may expose modelContext without --enable-features=WebMCP.
   // Hide document.modelContext and leave a navigator stub so the plugin has to
@@ -498,6 +580,52 @@ test('page load without document.modelContext fetches no WebMCP code or index', 
   }
 
   await page.close();
+});
+
+test('waitForToolsUntil gets the registration promise when present, and absent is fine', async ({ context, baseURL }) => {
+  const root = baseURL || 'http://127.0.0.1:8000/';
+
+  const withWait = await context.newPage();
+  await withWait.addInitScript(() => {
+    const calls: unknown[] = [];
+    (window as unknown as { __waitForToolsUntilCalls?: unknown[] }).__waitForToolsUntilCalls = calls;
+    Object.defineProperty(document, 'modelContext', {
+      configurable: true,
+      get: () => ({
+        registerTool: () => Promise.resolve(),
+        waitForToolsUntil: (promise: unknown) => {
+          calls.push(promise);
+        }
+      })
+    });
+  });
+  await withWait.goto(root, { waitUntil: 'networkidle' });
+  const present = await withWait.evaluate(() => {
+    const calls = (window as unknown as { __waitForToolsUntilCalls?: unknown[] }).__waitForToolsUntilCalls ?? [];
+    const first = calls[0];
+    return {
+      count: calls.length,
+      isPromise: first != null && typeof (first as Promise<unknown>).then === 'function'
+    };
+  });
+  expect(present.count).toBe(1);
+  expect(present.isPromise).toBe(true);
+  await expect(withWait.locator('body')).toBeVisible();
+  await withWait.close();
+
+  const withoutWait = await context.newPage();
+  await withoutWait.addInitScript(() => {
+    Object.defineProperty(document, 'modelContext', {
+      configurable: true,
+      get: () => ({
+        registerTool: () => Promise.resolve()
+      })
+    });
+  });
+  await withoutWait.goto(root, { waitUntil: 'networkidle' });
+  await expect(withoutWait.locator('body')).toBeVisible();
+  await expect(withoutWait.getByRole('heading').first()).toBeVisible({ timeout: 15000 });
+  await withoutWait.close();
 });
 
 test('tool catalog stays inside the WebMCP size limits', () => {
