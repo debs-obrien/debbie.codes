@@ -1,8 +1,5 @@
 import { expect, test } from './fixtures';
 
-// A post with a cover that stays on home recent posts.
-const COVER_POST = 'grok-bot-uploads-my-youtube-videos';
-
 /** Slug of the lead (newest) card on /blog, so new posts don't break these tests. */
 async function leadSlug(page: import('@playwright/test').Page) {
   const href = await page.locator('article').first().locator('a[href^="/blog/"]').first().getAttribute('href');
@@ -38,7 +35,7 @@ async function expectCardCover(page: import('@playwright/test').Page, slug: stri
 // Home covers are below-fold → lazy. /blog lead is LCP → eager (slug resolved dynamically after #677).
 test('blog cards on / show a lazy 2:1 cover for posts with an image', async ({ page }) => {
   await page.goto('/');
-  await expectCardCover(page, COVER_POST, /224px|400px|640px|896px|320px/, 'lazy');
+  await expectCardCover(page, await homeCoverSlug(page), /224px|400px|640px|896px|320px/, 'lazy');
 });
 
 test('blog cards on /blog show an eager 2:1 cover for the lead post', async ({ page }) => {

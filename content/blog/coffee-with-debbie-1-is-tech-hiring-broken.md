@@ -4,14 +4,15 @@ date: 2026-11-24
 description: "Episode 1 of my new show: why I think hiring in tech is broken, DevRel travel, the San Francisco bias, how I apply for jobs with AI, and why we need the human touch."
 tags: [personal, dev-rel, ai, grok-bot]
 published: true
+image: /images/blog/covers/coffee-with-debbie-1-is-tech-hiring-broken.webp
+ogImage: /images/blog/covers/coffee-with-debbie-1-is-tech-hiring-broken.webp
 ---
 
 Hi everyone, and welcome to Coffee with Debbie. I don't even drink coffee, but I wanted to create a little podcasty kind of thing, just to get some thoughts out there, connect with some people and maybe help some people along the way. I've been mentoring a couple of women lately and I keep seeing the same things coming up, so this is maybe the best way I can help more people.
 
 In this first episode I talk about hiring, and how hiring is broken. It's an interesting topic for me because I'm going through the process myself. And no, this is not a scary video. I'm being very particular about where I want to work and what kind of role I want, so please don't take what I'm going through as "this is the way the industry is".
 
-::youtube{id="RKdxx2QsWe8"}
-::
+<lite-youtube videoid="RKdxx2QsWe8" playlabel="Is Tech Hiring Broken? Here's What I'm Seeing | Coffee with Debbie #1"></lite-youtube>
 
 ## DevRel and living out of a suitcase
 
