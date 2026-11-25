@@ -161,7 +161,8 @@ function onChapterSelect(seconds: number) {
 .coffee-hero-cover { grid-area: cover; }
 .coffee-hero-rest { grid-area: rest; }
 
-@media (min-width: 800px) {
+/* Match Tailwind `md` (768px) used by md:grid-cols on the hero. */
+@media (min-width: 768px) {
   .coffee-hero {
     grid-template-areas:
       "copy cover"

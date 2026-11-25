@@ -68,14 +68,9 @@ async function waitForLite(attempts = 40): Promise<HTMLElement | null> {
 
 /** Seek to a chapter start (seconds) and play the privacy-friendly embed. */
 async function playFrom(seconds: number) {
-  const next = Math.max(0, Math.trunc(seconds))
-  const el = findLite()
-  const alreadyOn = start.value === next && el?.classList.contains('lyt-activated')
-  if (alreadyOn) {
-    status.value = 'ready'
-    return
-  }
-  start.value = next
+  // Always remount + activate so re-selecting the same chapter seeks/resumes
+  // even after the visitor has paused elsewhere in the video.
+  start.value = Math.max(0, Math.trunc(seconds))
   status.value = 'loading'
   playerKey.value += 1
   await nextTick()
