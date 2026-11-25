@@ -142,9 +142,7 @@ function onChapterSelect(seconds: number) {
         <NuxtLink
           to="/contact"
           class="font-bold text-[#d8002d] dark:text-[#ff5a73] no-underline hover:underline focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-[#d8002d] dark:focus-visible:outline-[#ff5a73]"
-        >
-          Suggest one on the contact page
-        </NuxtLink>.
+        >Suggest one on the contact page</NuxtLink>.
       </p>
     </section>
   </main>
