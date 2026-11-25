@@ -34,7 +34,6 @@ function onChapterClick(event: MouseEvent, chapter: ShowChapter) {
       <li v-for="chapter in chapters" :key="`${chapter.time}-${chapter.title}`">
         <a
           :href="youtubeWatchUrl(props.videoId, chapter.time)"
-          :aria-label="`Play from ${formatChapterTime(chapter.time)}, ${chapter.title}`"
           class="grid grid-cols-[4.2rem_1fr] gap-2 py-[7px] px-3 rounded-lg no-underline text-[15px] leading-snug text-[#0d2538] dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 hover:no-underline focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-[#d8002d] dark:focus-visible:outline-[#ff5a73] group"
           @click="onChapterClick($event, chapter)"
         >

@@ -1,3 +1,4 @@
+import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from './fixtures';
 
 test.describe('Coffee with Debbie show page', () => {
@@ -41,13 +42,36 @@ test.describe('Coffee with Debbie show page', () => {
     await expect(page.getByRole('button', { name: 'Apple Podcasts, coming soon' })).toHaveCount(0);
   });
 
+  test('chapter links use visible text as their accessible name', async ({ page }) => {
+    await page.goto('/coffee-with-debbie');
+
+    const chaptersNav = page.getByRole('navigation', { name: 'Chapters' });
+    const chapterLinks = chaptersNav.getByRole('link');
+    await expect(chapterLinks).toHaveCount(14);
+
+    for (const link of await chapterLinks.all()) {
+      await expect(link).not.toHaveAttribute('aria-label');
+      const visible = (await link.innerText()).replace(/\s+/g, ' ').trim();
+      expect(visible.length).toBeGreaterThan(0);
+      await expect(link).toHaveAccessibleName(visible);
+    }
+
+    const axe = await new AxeBuilder({ page })
+      .include('nav[aria-labelledby="chapters-heading"]')
+      .withRules(['label-content-name-mismatch'])
+      .analyze();
+    expect(axe.violations, JSON.stringify(axe.violations, null, 2)).toEqual([]);
+  });
+
   test('chapter click sets the lite embed start and plays', async ({ page }) => {
     await page.goto('/coffee-with-debbie');
 
     const embed = page.locator('lite-youtube');
     await expect(embed).toBeVisible();
 
-    const chapter = page.getByRole('link', { name: 'Play from 0:33, Why tech hiring feels broken' });
+    const chapter = page.getByRole('navigation', { name: 'Chapters' }).getByRole('link', {
+      name: '0:33 Why tech hiring feels broken',
+    });
     await chapter.click();
 
     await expect.poll(async () => {
