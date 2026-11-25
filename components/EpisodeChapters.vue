@@ -37,12 +37,7 @@ function onChapterClick(event: MouseEvent, chapter: ShowChapter) {
           class="grid grid-cols-[4.2rem_1fr] gap-2 py-[7px] px-3 rounded-lg no-underline text-[15px] leading-snug text-[#0d2538] dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 hover:no-underline focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-[#d8002d] dark:focus-visible:outline-[#ff5a73] group"
           @click="onChapterClick($event, chapter)"
         >
-          <span class="text-[#d8002d] dark:text-[#ff5a73] font-semibold text-[13px] tabular-nums group-hover:text-[#d8002d] dark:group-hover:text-[#ff5a73]">
-            {{ formatChapterTime(chapter.time) }}
-          </span>
-          <span class="font-medium group-hover:text-[#d8002d] dark:group-hover:text-[#ff5a73]">
-            {{ chapter.title }}
-          </span>
+          <span class="text-[#d8002d] dark:text-[#ff5a73] font-semibold text-[13px] tabular-nums group-hover:text-[#d8002d] dark:group-hover:text-[#ff5a73]">{{ formatChapterTime(chapter.time) }}</span>{{ ' ' }}<span class="font-medium group-hover:text-[#d8002d] dark:group-hover:text-[#ff5a73]">{{ chapter.title }}</span>
         </a>
       </li>
     </ol>

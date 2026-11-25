@@ -51,7 +51,7 @@ test.describe('Coffee with Debbie show page', () => {
 
     for (const link of await chapterLinks.all()) {
       await expect(link).not.toHaveAttribute('aria-label');
-      const visible = (await link.innerText()).replace(/\s+/g, ' ').trim();
+      const visible = ((await link.textContent()) || '').replace(/\s+/g, ' ').trim();
       expect(visible.length).toBeGreaterThan(0);
       await expect(link).toHaveAccessibleName(visible);
     }
@@ -70,7 +70,7 @@ test.describe('Coffee with Debbie show page', () => {
     await expect(embed).toBeVisible();
 
     const chapter = page.getByRole('navigation', { name: 'Chapters' }).getByRole('link', {
-      name: '0:33 Why tech hiring feels broken',
+      name: '0:33 Why tech hiring feels broken'
     });
     await chapter.click();
 
