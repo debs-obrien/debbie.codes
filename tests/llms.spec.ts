@@ -48,6 +48,7 @@ test.describe('llms.txt / llms-full.txt / blog markdown', () => {
     expect(body).toContain('## Pages');
     expect(body).toContain('https://debbie.codes/about');
     expect(body).toContain('https://debbie.codes/hire-me');
+    expect(body).toContain('https://debbie.codes/coffee-with-debbie');
     expect(body).toContain('## Videos');
     expect(body).toContain('## Blog');
     expect(body).toContain('## Podcasts');

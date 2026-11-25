@@ -18,6 +18,7 @@ const staticRoutes = [
   '/speaking',
   '/videos',
   '/podcasts',
+  '/coffee-with-debbie',
   '/courses',
   '/blog',
   '/now',
