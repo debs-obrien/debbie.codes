@@ -2,6 +2,22 @@
   "items": [
     {
       "type": "blog",
+      "title": "Is Tech Hiring Broken? Here's What I'm Seeing | Coffee with Debbie #1",
+      "date": "2026-11-24",
+      "tags": [
+        "personal",
+        "dev-rel",
+        "ai",
+        "grok-bot"
+      ],
+      "url": "https://debbie.codes/blog/coffee-with-debbie-1-is-tech-hiring-broken",
+      "path": "/blog/coffee-with-debbie-1-is-tech-hiring-broken",
+      "markdownUrl": "https://debbie.codes/blog/coffee-with-debbie-1-is-tech-hiring-broken.md",
+      "canonical": "https://debbie.codes/blog/coffee-with-debbie-1-is-tech-hiring-broken",
+      "description": "Episode 1 of my new show: why I think hiring in tech is broken, DevRel travel, the San Francisco bias, how I apply for jobs with AI, and why we need the human touch."
+    },
+    {
+      "type": "blog",
       "title": "Build an Offline AI Study App with Local Models (Liquid AI LFM3-1.7B)",
       "date": "2026-11-13",
       "tags": [
@@ -1969,6 +1985,128 @@
       "markdownUrl": "https://debbie.codes/blog/whats-it-like-to-work-after-studying-online.md",
       "canonical": "https://debbie.codes/blog/whats-it-like-to-work-after-studying-online",
       "description": "I was one of the first graduates from the Front-End Web Development course. I had played around with different online courses in coding before, but really found what I was looking for with OpenClassrooms. Fast forward 8 months, I had completed all projects and managed to get myself a job at Logitravel, a holiday booking site based in Palma, Mallorca."
+    },
+    {
+      "type": "video",
+      "title": "Is Tech Hiring Broken? Here's What I'm Seeing | Coffee with Debbie #1",
+      "date": "2026-11-24",
+      "tags": [
+        "dev-rel",
+        "ai"
+      ],
+      "url": "https://www.youtube.com/watch?v=RKdxx2QsWe8",
+      "video": "RKdxx2QsWe8",
+      "description": "I wanted a little show to get some thoughts out there, connect with people, and maybe help some people along the way. Today I talk about hiring, and how hiring is broken, because I'm going through the process myself.",
+      "host": "Debbie O'Brien",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Intro"
+        },
+        {
+          "time": 33,
+          "title": "Why tech hiring feels broken"
+        },
+        {
+          "time": 93,
+          "title": "DevRel travel expectations"
+        },
+        {
+          "time": 263,
+          "title": "The San Francisco bias"
+        },
+        {
+          "time": 400,
+          "title": "The end of remote work?"
+        },
+        {
+          "time": 451,
+          "title": "The toll of long interview loops"
+        },
+        {
+          "time": 545,
+          "title": "Backup plans and staying passionate"
+        },
+        {
+          "time": 591,
+          "title": "AI is shrinking startup teams"
+        },
+        {
+          "time": 675,
+          "title": "How I apply for jobs with AI"
+        },
+        {
+          "time": 882,
+          "title": "Recruiters and empathy"
+        },
+        {
+          "time": 972,
+          "title": "The future of personal AI assistants"
+        },
+        {
+          "time": 1040,
+          "title": "Bring back the human touch"
+        },
+        {
+          "time": 1112,
+          "title": "Advice if you're job hunting"
+        },
+        {
+          "time": 1214,
+          "title": "Outro"
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "title": "How I'm using Vercel Board to manage my AI agents",
+      "date": "2026-11-20",
+      "tags": [
+        "ai",
+        "grok-bot"
+      ],
+      "url": "https://www.youtube.com/watch?v=eAYhKb5mNK4",
+      "video": "eAYhKb5mNK4",
+      "description": "In this video I show you how I'm using Vercel Board to manage my AI agents. I was spending too much time jumping around in chat, trying to remember what state everything was in. Board gives me one place to see open and blocked work, claim a task, assign it, and follow a thread from a decision through to QA. It's still in preview, and it only came out on 18 November 2026, so things may change. Even in this early version, it's already helping me mentally offload the work. I also set up a webhook so Grok Bot stays in sync with the board. When I assign a task, it can wake the right agent. You can assign work to Grok Bot, Claude, or Codex, and monitor it all in one place. It's free to try, so have a look and see if it helps you too.",
+      "host": "Debbie O'Brien",
+      "chapters": [
+        {
+          "time": 0,
+          "title": "Why agent chats get messy"
+        },
+        {
+          "time": 46,
+          "title": "Introducing Vercel Board"
+        },
+        {
+          "time": 77,
+          "title": "A tour of my board"
+        },
+        {
+          "time": 108,
+          "title": "A blog post task, and handing work to Notion"
+        },
+        {
+          "time": 135,
+          "title": "A decision thread, from engineer to QA"
+        },
+        {
+          "time": 176,
+          "title": "Claiming a failed task and assigning it"
+        },
+        {
+          "time": 233,
+          "title": "Creating a task, channels, and filters"
+        },
+        {
+          "time": 285,
+          "title": "A webhook that keeps Grok Bot in sync"
+        },
+        {
+          "time": 354,
+          "title": "Mental offload, and it's still in preview"
+        }
+      ]
     },
     {
       "type": "video",

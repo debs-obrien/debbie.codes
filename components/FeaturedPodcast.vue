@@ -48,7 +48,7 @@ const { data: featuredPodcast } = await useAsyncData('featured-podcast', () =>
           <div class="p-8 flex flex-col justify-between md:w-2/3">
             <div>
               <div class="inline-flex items-center gap-2 mb-3">
-                <div class="relative w-3 h-3 bg-primary rounded-full animate-pulse" aria-hidden="true" />
+                <div class="relative w-3 h-3 bg-primary rounded-full motion-safe:animate-pulse" aria-hidden="true" />
                 <span class="text-xs font-semibold uppercase tracking-widest text-primary">
                   Featured Episode
                 </span>

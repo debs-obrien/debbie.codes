@@ -1,12 +1,16 @@
 <script setup lang="ts">
 import type { } from '~/types'
 
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   articles: any[]
   filteredArticles?: any[]
   showImages?: boolean
   defaultArticles?: any[] // The original limited/paginated articles
-}>()
+  /** Accessible name for the search input (e.g. guest appearances only). */
+  inputAriaLabel?: string
+}>(), {
+  inputAriaLabel: 'Search',
+})
 
 const emit = defineEmits<{
   (e: 'update:filteredArticles', articles: any[]): void
@@ -62,6 +66,7 @@ watch(() => props.articles, () => {
         v-model="searchQuery"
         type="search"
         placeholder="Search..."
+        :aria-label="inputAriaLabel"
         class="w-full px-4 py-2 pl-9 text-sm border border-gray-300 dark:border-gray-600 rounded-full bg-gray-100 dark:bg-gray-800/50 focus:outline-none focus:ring-1 focus:ring-gray-400 dark:focus:ring-gray-500 placeholder-gray-400 dark:placeholder-gray-500 transition-all"
       >
       <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">

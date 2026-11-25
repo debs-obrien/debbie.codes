@@ -418,6 +418,7 @@ function renderLlms(items) {
     mdLink('Videos', `${SITE}/videos`, 'Conference talks, interviews, and tutorials'),
     mdLink('Blog', `${SITE}/blog`, 'Articles by Debbie'),
     mdLink('Podcasts', `${SITE}/podcasts`, 'Interviews and shows'),
+    mdLink('Coffee with Debbie', `${SITE}/coffee-with-debbie`, 'Debbie\'s weekly video podcast'),
     '',
   ]
   for (const section of SECTIONS) {

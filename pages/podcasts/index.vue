@@ -6,14 +6,9 @@ const isSearchActive = ref(false)
 
 const { data: allPodcasts } = await useAsyncData('podcasts', () => queryCollection('podcasts').select(...podcastPreviewFields).order('date', 'DESC').all())
 
-// Filter out featured podcasts from the main list (podcasts with featured: true)
-const podcasts = computed(() => {
-  if (!allPodcasts.value)
-    return []
-  return allPodcasts.value.filter(podcast => !podcast.featured)
-})
+// Guest appearances: every podcasts collection entry (featured folded into the grid).
+const podcasts = computed(() => allPodcasts.value || [])
 
-// Get all podcasts to extract real tags
 const podcastTags = computed(() => {
   if (!allPodcasts.value)
     return []
@@ -28,7 +23,6 @@ const podcastTags = computed(() => {
     }
   })
 
-  // Sort by count and return top tags
   return Array.from(tagCounts.entries())
     .sort((a, b) => b[1] - a[1])
     .slice(0, 12)
@@ -36,7 +30,7 @@ const podcastTags = computed(() => {
 })
 
 const title: string = 'Podcasts'
-const description: string = 'Podcast conversations on Playwright, testing, AI agents, and developer advocacy.'
+const description: string = 'Coffee with Debbie, my weekly video podcast, plus conversations I\'ve joined on other shows.'
 const section: Sections = 'podcasts'
 
 useHead({
@@ -47,15 +41,17 @@ useHead({
 
 <template>
   <PageLayout :title="title" :description="description" :section="section">
-    <!-- Search Bar -->
+    <MyShowCard />
+
+    <!-- Search applies to guest appearances only; My show card stays above. -->
     <BlogSearch
       :articles="allPodcasts || []"
       :default-articles="allPodcasts || []"
+      input-aria-label="Search guest appearances"
       @update:filtered-articles="filteredPodcasts = $event"
       @search-active="isSearchActive = $event"
     />
 
-    <!-- Browse by Topic and Tag Section -->
     <section v-if="podcastTags.length > 0" class="animated-section mb-8 max-w-4xl mx-auto">
       <div class="flex flex-wrap gap-3 justify-center items-center">
         <TagChip
@@ -68,18 +64,9 @@ useHead({
       </div>
     </section>
 
-    <!-- Featured Podcast Section -->
-    <section class="animated-section mb-16" aria-labelledby="featured-podcast-heading">
-      <h2 id="featured-podcast-heading" class="sr-only">
-        Featured episode
-      </h2>
-      <FeaturedPodcast priority />
-    </section>
-
-    <!-- Podcasts Grid Section -->
     <section class="animated-section mb-16">
       <h2 v-if="!isSearchActive" class="text-2xl font-bold text-gray-900 dark:text-white mb-6 max-w-4xl mx-auto">
-        All Episodes
+        Guest appearances
       </h2>
       <h2 v-else class="text-2xl font-bold text-gray-900 dark:text-white mb-6 max-w-4xl mx-auto">
         Search Results ({{ filteredPodcasts.length }})
@@ -87,19 +74,18 @@ useHead({
       <PodcastGrid :list="isSearchActive ? filteredPodcasts : podcasts" />
     </section>
 
-    <!-- Call to Action -->
     <section class="animated-section bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 text-center max-w-4xl mx-auto">
       <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-        Want to collaborate?
+        Want me on your podcast?
       </h3>
       <p class="text-gray-600 dark:text-gray-300 mb-6">
-        I'm always open to interesting podcast conversations about web development, testing, and technology.
+        I'm still happy to join other shows for conversations about testing, DevRel and AI.
       </p>
       <a
         href="https://www.linkedin.com/in/debbie-obrien"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center px-6 py-3 bg-primary-fill text-white font-medium rounded-lg hover:bg-primary-fill/90 transition-colors"
+        class="inline-flex items-center px-6 py-3 bg-primary-fill text-white font-medium rounded-lg hover:bg-primary-fill/90 transition-colors focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-[#d8002d] dark:focus-visible:outline-[#ff5a73]"
       >
         Get in touch
       </a>

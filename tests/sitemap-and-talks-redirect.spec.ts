@@ -18,6 +18,7 @@ test.describe('Sitemap and /talks redirect', () => {
     expect(body).toContain('https://debbie.codes/blog');
     expect(body).toContain('https://debbie.codes/videos');
     expect(body).toContain('https://debbie.codes/podcasts');
+    expect(body).toContain('https://debbie.codes/coffee-with-debbie');
     expect(body).toContain('https://debbie.codes/courses');
     expect(body).toContain('https://debbie.codes/about');
     expect(body).toContain('https://debbie.codes/now');

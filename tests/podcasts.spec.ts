@@ -11,14 +11,14 @@ test.describe('Podcasts Page', () => {
         await expect(page.getByRole('heading', { level: 1 })).toHaveText('Podcasts');
       });
 
-      await test.step('Verify episodes section', async () => {
-        await expect(page.getByRole('heading', { level: 2, name: 'All Episodes' })).toBeVisible();
+      await test.step('Verify guest appearances section', async () => {
+        await expect(page.getByRole('heading', { level: 2, name: 'Guest appearances' })).toBeVisible();
       });
 
-      await test.step('Verify collaboration section', async () => {
-        await expect(page.getByRole('heading', { level: 3, name: 'Want to collaborate?' })).toBeVisible();
+      await test.step('Verify guest booking section', async () => {
+        await expect(page.getByRole('heading', { level: 3, name: 'Want me on your podcast?' })).toBeVisible();
         await expect(page.getByRole('link', { name: 'Get in touch' })).toHaveAttribute('href', 'https://www.linkedin.com/in/debbie-obrien');
-        await expect(page.getByText('I\'m always open to interesting podcast conversations about web development, testing, and technology.')).toBeVisible();
+        await expect(page.getByText('I\'m still happy to join other shows for conversations about testing, DevRel and AI.')).toBeVisible();
       });
     });
 
@@ -36,8 +36,8 @@ test.describe('Podcasts Page', () => {
         // Wait for podcast cards to load
         await expect.poll(() => page.getByRole('article').count()).toBeGreaterThan(25);
 
-        // Check the first non-featured podcast card
-        const firstCard = page.getByRole('article').nth(1); // Skip featured podcast
+        // First guest appearance card (My show is a section, not an article)
+        const firstCard = page.getByRole('article').first();
 
         // Each card should have a heading (episode title)
         await expect(firstCard.getByRole('heading', { level: 3 })).toBeVisible();
@@ -49,8 +49,8 @@ test.describe('Podcasts Page', () => {
 
     test('podcast titles and metadata display correctly', async ({ page }) => {
       await test.step('Verify podcast card content', async () => {
-        // Get first non-featured podcast card
-        const firstCard = page.getByRole('article').nth(1); // Skip featured podcast
+        // First guest appearance card (My show is a section, not an article)
+        const firstCard = page.getByRole('article').first();
 
         const title = firstCard.getByRole('heading', { level: 3 });
         await expect(title).toBeVisible();
@@ -90,8 +90,8 @@ test.describe('Podcasts Page', () => {
           const viewport = page.viewportSize();
           expect(viewport?.width).toBeLessThan(768);
 
-          // On mobile, still should have the main heading and collaboration section
-          await expect(page.getByRole('heading', { level: 3, name: 'Want to collaborate?' })).toBeVisible();
+          // On mobile, still should have the main heading and guest booking section
+          await expect(page.getByRole('heading', { level: 3, name: 'Want me on your podcast?' })).toBeVisible();
         }
         else {
           const podcastCards = page.getByRole('article');
