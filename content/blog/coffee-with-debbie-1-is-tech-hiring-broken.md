@@ -15,9 +15,9 @@ In this first episode I talk about hiring, and how hiring is broken. It's an int
 
 ## DevRel and living out of a suitcase
 
-For DevRel now, it's super high on travel. It's like they want you to pretty much live out of a suitcase, traveling to events nonstop. Before I joined Microsoft I was doing a hell of a lot of conferences, and I was told I couldn't do that many, because there's so much more to DevRel than just speaking. They were right. If you spend all your time giving talks, you don't have enough time to be close to the product, help shape it, or create the videos and workshop material.
+For DevRel now, it's super high on travel. It's like they want you to pretty much live out of a suitcase, traveling to events nonstop. Before I joined Microsoft I was doing a hell of a lot of conferences, and I was told I shouldn't only focus on conferences, because there's so much more to DevRel than just speaking. They were right. If you spend all your time giving talks, you don't have enough time to be close to the product, help shape it, or create the videos and workshop material.
 
-Some people do live out of suitcases and do amazing jobs, and you all rock. But not everybody can do that. A lot of DevRel roles are based in SF, and now Europe is asking for people to travel 40% of the time too. That's about five months of the year on the road. I've turned away from some jobs because I can't do that anymore. I love traveling and I still bring the boys as many places as possible, but I can't be away from my family that much.
+Some people do live out of suitcases and do amazing jobs, and you all rock. But not everybody can do that. A lot of DevRel roles are based in SF, and some are asking for people to travel 40% of the time too. That's about five months of the year on the road. I've turned away from some jobs because I can't do that anymore. I love traveling and I still bring the boys as many places as possible, but I can't be away from my family that much.
 
 ## The San Francisco bias
 
@@ -63,7 +63,7 @@ A lot of people are submitting applications through AI now. Grok Bot actually sp
 
 ## Bring back the human touch
 
-So we need to make it more human, better, easier and nicer. I don't remember interviewing ever being this horrible, and everyone I talk to is fed up with interviews. I loved my interviews at Microsoft. Even if you didn't get the job, they made it feel nice. We need to be nice.
+So we need to make it more human, better, easier and nicer. I don't remember interviewing ever being this horrible, and everyone I talk to is fed up with interviews. I loved my interviews at Microsoft. They made it feel nice. We need to be nice.
 
 ## Advice if you're job hunting
 
@@ -71,4 +71,4 @@ If you're out there looking for work, I understand how you're feeling. Use your 
 
 We don't know what's around the corner, so let's help each other out and be the community we are. If you see someone looking for a job, share that one link with them, even if you've sent it to 15 people. I've had an amazing community helping me these last couple of months, and I'm so grateful. People and the human touch are the most important thing we have right now. I love AI and I love what I do, but the human touch is so much more important.
 
-If there's something you want me to talk about next, let me know. Thanks for watching, and good luck, everyone.
+If there's something you want me to talk about next, let me know. Thanks for getting this far, and good luck, everyone.
