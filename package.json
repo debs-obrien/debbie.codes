@@ -46,7 +46,7 @@
     "husky": "^9.1.7",
     "lint-staged": "^16.2.3",
     "lite-youtube-embed": "^0.3.3",
-    "nuxt": "^4.6.0",
+    "nuxt": "^4.7.0",
     "vitest": "^3.2.7"
   }
 }
