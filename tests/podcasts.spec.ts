@@ -36,8 +36,8 @@ test.describe('Podcasts Page', () => {
         // Wait for podcast cards to load
         await expect.poll(() => page.getByRole('article').count()).toBeGreaterThan(25);
 
-        // Check the first non-featured podcast card
-        const firstCard = page.getByRole('article').nth(1); // Skip featured podcast
+        // First guest appearance card (My show is a section, not an article)
+        const firstCard = page.getByRole('article').first();
 
         // Each card should have a heading (episode title)
         await expect(firstCard.getByRole('heading', { level: 3 })).toBeVisible();
@@ -49,8 +49,8 @@ test.describe('Podcasts Page', () => {
 
     test('podcast titles and metadata display correctly', async ({ page }) => {
       await test.step('Verify podcast card content', async () => {
-        // Get first non-featured podcast card
-        const firstCard = page.getByRole('article').nth(1); // Skip featured podcast
+        // First guest appearance card (My show is a section, not an article)
+        const firstCard = page.getByRole('article').first();
 
         const title = firstCard.getByRole('heading', { level: 3 });
         await expect(title).toBeVisible();

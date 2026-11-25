@@ -71,4 +71,5 @@ export const coffeeShowCover = {
 export const coffeeListenLinks = {
   spotify: 'https://open.spotify.com/show/18L8sfkO2opyo4WKKaLxAA',
   youtube: 'https://youtu.be/RKdxx2QsWe8',
+  apple: 'https://podcasts.apple.com/us/podcast/coffee-with-debbie/id6839372563',
 } as const

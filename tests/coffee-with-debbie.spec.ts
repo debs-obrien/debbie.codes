@@ -22,22 +22,23 @@ test.describe('Coffee with Debbie show page', () => {
     await expect(page.getByText('The video loads from YouTube only when you press play.')).toBeVisible();
   });
 
-  test('Apple Podcasts is disabled coming soon, Spotify and YouTube open externally', async ({ page }) => {
+  test('Spotify, YouTube, and Apple Podcasts open externally', async ({ page }) => {
     await page.goto('/coffee-with-debbie');
 
-    const apple = page.getByRole('button', { name: 'Apple Podcasts, coming soon' });
-    await expect(apple).toBeVisible();
-    await expect(apple).toHaveAttribute('aria-disabled', 'true');
-    await expect(page.getByRole('link', { name: 'Apple Podcasts' })).toHaveCount(0);
-
-    await expect(page.getByRole('link', { name: 'Listen on Spotify (opens in a new tab)' })).toHaveAttribute(
+    const listenGroup = page.getByRole('group', { name: 'Listen on' });
+    await expect(listenGroup.getByRole('link', { name: 'Listen on Spotify (opens in a new tab)' })).toHaveAttribute(
       'href',
       'https://open.spotify.com/show/18L8sfkO2opyo4WKKaLxAA'
     );
-    await expect(page.getByRole('link', { name: 'Watch on YouTube (opens in a new tab)' })).toHaveAttribute(
+    await expect(listenGroup.getByRole('link', { name: 'Watch on YouTube (opens in a new tab)' })).toHaveAttribute(
       'href',
       'https://youtu.be/RKdxx2QsWe8'
     );
+    await expect(listenGroup.getByRole('link', { name: 'Listen on Apple Podcasts (opens in a new tab)' })).toHaveAttribute(
+      'href',
+      'https://podcasts.apple.com/us/podcast/coffee-with-debbie/id6839372563'
+    );
+    await expect(page.getByRole('button', { name: 'Apple Podcasts, coming soon' })).toHaveCount(0);
   });
 
   test('chapter click sets the lite embed start and plays', async ({ page }) => {
@@ -67,24 +68,60 @@ test.describe('Coffee with Debbie show page', () => {
   });
 });
 
-test.describe('Podcasts index My show + guest filter', () => {
-  test('leads with My show card and Guest appearances', async ({ page }) => {
+test.describe('Podcasts index show-first order', () => {
+  test('leads with Coffee with Debbie section before Guest appearances', async ({ page }) => {
     await page.goto('/podcasts');
 
     await expect(page.getByRole('heading', { level: 1, name: 'Podcasts' })).toBeVisible();
-    await expect(page.getByRole('link', { name: 'Listen to Coffee with Debbie, my weekly video podcast' })).toHaveAttribute(
+
+    const myShow = page.getByTestId('my-show-section');
+    const guestHeading = page.getByRole('heading', { level: 2, name: 'Guest appearances' });
+    await expect(myShow).toBeVisible();
+    await expect(guestHeading).toBeVisible();
+
+    const order = await page.evaluate(() => {
+      const show = document.querySelector('[data-testid="my-show-section"]');
+      const guest = Array.from(document.querySelectorAll('h2')).find(h => h.textContent?.trim() === 'Guest appearances');
+      if (!show || !guest)
+        return null;
+      return show.compareDocumentPosition(guest) & Node.DOCUMENT_POSITION_FOLLOWING ? 'show-then-guest' : 'guest-first';
+    });
+    expect(order).toBe('show-then-guest');
+
+    await expect(page.getByRole('heading', { level: 2, name: 'All Episodes' })).toHaveCount(0);
+  });
+
+  test('show section has cover, latest episode, and live listen links', async ({ page }) => {
+    await page.goto('/podcasts');
+
+    const myShow = page.getByTestId('my-show-section');
+    await expect(myShow.getByRole('heading', { level: 2, name: 'Coffee with Debbie' })).toBeVisible();
+    await expect(myShow.getByRole('img', { name: 'Coffee with Debbie cover art' })).toBeVisible();
+    await expect(myShow.getByTestId('my-show-latest-episode')).toBeVisible();
+    await expect(myShow.getByTestId('my-show-latest-episode').getByRole('link', { name: 'Open the show page' })).toHaveAttribute(
       'href',
       '/coffee-with-debbie'
     );
-    await expect(page.getByRole('heading', { level: 2, name: 'Guest appearances' })).toBeVisible();
-    await expect(page.getByRole('heading', { level: 2, name: 'All Episodes' })).toHaveCount(0);
-    await expect(page.getByRole('heading', { level: 3, name: 'Want me on your podcast?' })).toBeVisible();
+
+    const listenGroup = myShow.getByRole('group', { name: 'Listen on' });
+    await expect(listenGroup.getByRole('link', { name: 'Listen on Spotify (opens in a new tab)' })).toHaveAttribute(
+      'href',
+      'https://open.spotify.com/show/18L8sfkO2opyo4WKKaLxAA'
+    );
+    await expect(listenGroup.getByRole('link', { name: 'Watch on YouTube (opens in a new tab)' })).toHaveAttribute(
+      'href',
+      'https://youtu.be/RKdxx2QsWe8'
+    );
+    await expect(listenGroup.getByRole('link', { name: 'Listen on Apple Podcasts (opens in a new tab)' })).toHaveAttribute(
+      'href',
+      'https://podcasts.apple.com/us/podcast/coffee-with-debbie/id6839372563'
+    );
   });
 
   test('search filters guest appearances only and keeps My show visible', async ({ page }) => {
     await page.goto('/podcasts');
 
-    const myShow = page.getByRole('link', { name: 'Listen to Coffee with Debbie, my weekly video podcast' });
+    const myShow = page.getByTestId('my-show-section');
     await expect(myShow).toBeVisible();
 
     // Retry fill until hydration attaches BlogSearch (same pattern as blog-search.spec.ts).
